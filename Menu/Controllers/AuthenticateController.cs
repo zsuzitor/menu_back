@@ -4,11 +4,8 @@ using System.Threading.Tasks;
 using Menu.Models.Auth.InputModels;
 using Menu.Models.Auth.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using jwtLib.JWTAuth.Models;
-using System.Text.Json;
-using Microsoft.AspNetCore.Http;
-using System.Runtime.CompilerServices;
 using Menu.Models.Healpers.Interfaces;
+using Menu.Models.Error.services.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,11 +17,13 @@ namespace Menu.Controllers
     {
         private readonly IAuthService _authSrvice;
         private readonly IApiHealper _apiHealper;
+        private readonly IErrorService _errorService;
 
-        public AuthenticateController(IAuthService authSrvice, IApiHealper apiHealper)
+        public AuthenticateController(IAuthService authSrvice, IApiHealper apiHealper, IErrorService errorService)
         {
             _authSrvice = authSrvice;
             _apiHealper = apiHealper;
+            _errorService = errorService;
         }
 
 
@@ -34,7 +33,7 @@ namespace Menu.Controllers
         {
             if (ModelState.IsValid)
             {
-                var errors = ModelState.ToList();
+                var errors = ModelState.ToList();//TODO докинуть в _errorService
                 await _apiHealper.WriteResponse(Response, errors);
                 return;
             }
@@ -72,14 +71,27 @@ namespace Menu.Controllers
 
 
         [HttpGet]
-        public Task LogOut()
+        public async Task LogOut()
         {
+            var accessToken = _apiHealper.GetAccessTokenFromRequest(Request);
+            var logout = await _authSrvice.LogOut(accessToken);
+            if (logout)
+            {
+                _apiHealper.ClearUsersTokens(Response);
+            }
+
+            await _apiHealper.WriteResponse(Response, logout);
         }
 
 
         [HttpGet]
-        public Task RefreshAccessToken()
+        public async Task RefreshAccessToken()
         {
+            var accessToken = _apiHealper.GetAccessTokenFromRequest(Request);
+            var refreshToken = _apiHealper.GetRefreshTokenFromRequest(Request);
+
+            var allTokens = await _authSrvice.Refresh(accessToken, refreshToken);
+            await _apiHealper.WriteResponse(Response, allTokens);
         }
 
 

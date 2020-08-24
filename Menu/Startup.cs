@@ -3,6 +3,8 @@ using Menu.Models.Auth;
 using Menu.Models.Auth.Services;
 using Menu.Models.Auth.Services.Interfaces;
 using Menu.Models.DAL;
+using Menu.Models.Error.services;
+using Menu.Models.Error.services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -35,7 +37,7 @@ namespace Menu
 
             services.AddScoped<IAuthService, AuthService>();
 
-            services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IErrorService, ErrorService>();
 
             services.InjectJwtAuth(Configuration);
         }

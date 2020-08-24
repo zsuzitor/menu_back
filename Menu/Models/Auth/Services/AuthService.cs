@@ -15,16 +15,19 @@ namespace Menu.Models.Auth.Services
     public class AuthService : IAuthService, IJWTUserManager
     {
         private readonly IJWTHasher _hasher;
+        private readonly IJWTService _jwtService;
+
         private readonly MenuDbContext _db;
 
 
         private readonly string _userIdClaimName = "user_id";
 
 
-        public AuthService(MenuDbContext db, IJWTHasher hasher)
+        public AuthService(MenuDbContext db, IJWTHasher hasher, IJWTService jwtService)
         {
             _db = db;
             _hasher = hasher;
+            _jwtService = jwtService;
         }
 
         #region IJWTUserManager
@@ -55,11 +58,14 @@ namespace Menu.Models.Auth.Services
 
             var claims = new List<Claim>
             {
-                new Claim(type: _userIdClaimName,
-                    value: GetUserId(jwtUser)),
+                //new Claim(type: _userIdClaimName,
+                //    value: GetUserId(jwtUser)),
                 //new Claim(type:ClaimTypes.Name,value:user.UserName)//,
                 new Claim(type: ClaimsIdentity.DefaultRoleClaimType, value: "user")
             };
+
+            claims.AddRange(GetIdentityForRefresh(jwtUser));
+
             ClaimsIdentity claimsIdentity =
                 new ClaimsIdentity(claims, authenticationType, ClaimsIdentity.DefaultNameClaimType,
                     ClaimsIdentity.DefaultRoleClaimType);
@@ -68,7 +74,9 @@ namespace Menu.Models.Auth.Services
 
         public List<Claim> GetIdentityForRefresh(IJWTUser jwtUser)
         {
-            throw new System.NotImplementedException();
+            var claimId = new Claim(type: _userIdClaimName,
+                    value: GetUserId(jwtUser));
+            return new List<Claim>() { claimId };
         }
 
         public string GetIdFromClaims(ClaimsPrincipal claims)
@@ -83,8 +91,7 @@ namespace Menu.Models.Auth.Services
 
         public string GetUserId(IJWTUser jwtUser)
         {
-            var user = jwtUser as User;
-            if (user == null)
+            if (!(jwtUser is User user))
             {
                 return null;
             }
@@ -139,8 +146,7 @@ namespace Menu.Models.Auth.Services
 
         public async Task<bool> SetRefreshTokenHashAsync(IJWTUser jwtUser, string refreshTokenHash)
         {
-            var user = jwtUser as User;
-            if (user == null)
+            if (!(jwtUser is User user))
             {
                 return false;
             }
@@ -165,18 +171,69 @@ namespace Menu.Models.Auth.Services
         #region IAuthService
         public async Task<AllTokens> Login(LoginModel loginModel)
         {
+            var passwordHash = _hasher.GetHash(loginModel.Password);
+            if (string.IsNullOrWhiteSpace(passwordHash))
+            {
+                return null;
+            }
 
+            var user = await _db.Users.FirstOrDefaultAsync(x => x.Email == loginModel.Email && x.PasswordHash == passwordHash);
+
+
+            return await _jwtService.CreateAndSetNewTokensAsync(user);
+
+            //
         }
 
         public async Task<AllTokens> Register(RegisterModel registerModel)
         {
+            var passwordHash = _hasher.GetHash(registerModel.Password);
+            if (string.IsNullOrWhiteSpace(passwordHash))
+            {
+                return null;
+            }
 
+            var newUser = new User()
+            {
+                Email = registerModel.Email,
+                Login = registerModel.Email,
+                PasswordHash = passwordHash
+            };
+
+            _db.Users.Add(newUser);
+            await _db.SaveChangesAsync();
+
+            return await _jwtService.CreateAndSetNewTokensAsync(newUser);
         }
 
-        public async Task<AllTokens> LogOut(string accessToken)
+        public async Task<bool> LogOut(string accessToken)
         {
+            var userId = _jwtService.GetUserIdFromAccessToken(accessToken);
+            if (string.IsNullOrWhiteSpace(userId) || !long.TryParse(userId, out long userIdLong))
+            {
+                return false;
+            }
+
+
+            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userIdLong);
+            user.RefreshTokenHash = null;
+            await _db.SaveChangesAsync();
+            return true;
+        }
+
+
+        public async Task<AllTokens> Refresh(string accessToken, string refreshToken)
+        {
+            var userId = _jwtService.GetUserIdFromAccessToken(accessToken);
+            if (string.IsNullOrWhiteSpace(userId) || !long.TryParse(userId, out _))
+            {
+                return null;
+            }
+
+            return await _jwtService.RefreshAsync(userId, refreshToken);
 
         }
+
 
         #endregion IAuthService
     }
