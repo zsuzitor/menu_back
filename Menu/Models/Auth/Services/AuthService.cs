@@ -4,8 +4,11 @@ using Menu.Models.Auth.InputModels;
 using Menu.Models.Auth.Services.Interfaces;
 using Menu.Models.DAL;
 using Menu.Models.DAL.Domain;
+using Menu.Models.DAL.Repositories.Interfaces;
+using Menu.Models.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -16,21 +19,27 @@ namespace Menu.Models.Auth.Services
     {
         private readonly IJWTHasher _hasher;
         private readonly IJWTService _jwtService;
+        private readonly IUserService _userService;
 
-        private readonly MenuDbContext _db;
+        //private readonly MenuDbContext _db;
 
 
         private readonly string _userIdClaimName = "user_id";
 
 
-        public AuthService(MenuDbContext db, IJWTHasher hasher, IJWTService jwtService)
+        public AuthService(IJWTHasher hasher, IJWTService jwtService, IUserService userService)
         {
-            _db = db;
+            //_db = db;
             _hasher = hasher;
             _jwtService = jwtService;
+            _userService = userService;
         }
 
+
+
         #region IJWTUserManager
+
+
         public async Task<bool> DeleteRefreshTokenFromUserAsync(string userId, string refreshToken)
         {
             if (string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(refreshToken) || !long.TryParse(userId, out var longId))
@@ -38,17 +47,17 @@ namespace Menu.Models.Auth.Services
                 return false;
             }
 
-            var tokenHash = _hasher.GetHash(refreshToken);
+            return await _userService.RemoveRefreshToken(longId, refreshToken);
+        }
 
-            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == longId && x.RefreshTokenHash == tokenHash);
-            if (user == null)
+        public async Task<bool> DeleteRefreshTokenFromUserAsync([NotNull] string userId)
+        {
+            if (!long.TryParse(userId, out var longId))
             {
                 return false;
             }
 
-            user.RefreshTokenHash = null;
-            await _db.SaveChangesAsync();
-            return true;
+            return await _userService.RemoveRefreshToken(longId);
         }
 
         public ClaimsIdentity GetIdentity(IJWTUser jwtUser, string authenticationType)
@@ -112,7 +121,7 @@ namespace Menu.Models.Auth.Services
                 return null;
             }
 
-            return await _db.Users.FirstOrDefaultAsync(x => x.Id == longId && x.RefreshTokenHash == refreshTokenHash);
+            return await _userService.GetUserByIdAndRefreshTokenHashAsync(longId, refreshTokenHash);
         }
 
         public bool ItIsUserClaims(IEnumerable<Claim> claims, IJWTUser jwtUser)
@@ -151,15 +160,19 @@ namespace Menu.Models.Auth.Services
                 return false;
             }
 
-            var userFromDb = await _db.Users.FirstOrDefaultAsync(x1 => x1.Id == user.Id);
-            if (userFromDb == null)
+            return await _userService.SetRefreshTokenHashAsync(user.Id, refreshTokenHash);
+
+
+        }
+
+        public async Task<IJWTUser> GetUserById([NotNull] string userId)
+        {
+            if (!long.TryParse(userId, out long userIdLong))
             {
-                return false;
+                return null;
             }
 
-            userFromDb.RefreshTokenHash = refreshTokenHash;
-            await _db.SaveChangesAsync();
-            return true;
+            return await _userService.GetUserByIdAsync(userIdLong);
         }
 
 
@@ -169,6 +182,9 @@ namespace Menu.Models.Auth.Services
         ///---------------------------------------------------------IAuthService-------------
         ///
         #region IAuthService
+
+
+
         public async Task<AllTokens> Login(LoginModel loginModel)
         {
             var passwordHash = _hasher.GetHash(loginModel.Password);
@@ -177,8 +193,7 @@ namespace Menu.Models.Auth.Services
                 return null;
             }
 
-            var user = await _db.Users.FirstOrDefaultAsync(x => x.Email == loginModel.Email && x.PasswordHash == passwordHash);
-
+            var user = await _userService.GetByEmailAndPasswordHashAsync(loginModel.Email, passwordHash);
 
             return await _jwtService.CreateAndSetNewTokensAsync(user);
 
@@ -200,8 +215,7 @@ namespace Menu.Models.Auth.Services
                 PasswordHash = passwordHash
             };
 
-            _db.Users.Add(newUser);
-            await _db.SaveChangesAsync();
+            newUser = await _userService.CreateNewAsync(newUser);
 
             return await _jwtService.CreateAndSetNewTokensAsync(newUser);
         }
@@ -214,11 +228,7 @@ namespace Menu.Models.Auth.Services
                 return false;
             }
 
-
-            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userIdLong);
-            user.RefreshTokenHash = null;
-            await _db.SaveChangesAsync();
-            return true;
+            return await _userService.RemoveRefreshToken(userIdLong);
         }
 
 
@@ -233,6 +243,8 @@ namespace Menu.Models.Auth.Services
             return await _jwtService.RefreshAsync(userId, refreshToken);
 
         }
+
+
 
 
         #endregion IAuthService

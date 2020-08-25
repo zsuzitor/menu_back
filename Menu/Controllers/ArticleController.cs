@@ -33,7 +33,7 @@ namespace Menu.Controllers
         [HttpGet]
         public async Task GetAllForUser()
         {
-            _jwtService.GetWithAccessTokenAsync();
+            _jwtService.GeUserByAccessTokenAsync();
             _articleRepository.GetAllUsersArticles();
 
         }
