@@ -25,9 +25,32 @@ namespace Menu.Models.DAL.Repositories
             return await _db.Articles.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<Article> ChangeFollowStatus(long id)
+        public async Task<Article> GetIfAccess(long id, long userId)
         {
-            var article = await _db.Articles.FirstOrDefaultAsync(x => x.Id == id);
+            return  await _db.Articles.FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
+        }
+
+        public async Task<bool?> ChangeFollowStatus(long id, long userId)
+        {
+            var article = await GetIfAccess(id,userId);
+            if (article == null)
+            {
+                return null;
+            }
+
+            article.Followed = !article.Followed;
+            await _db.SaveChangesAsync();
+            return article.Followed;
+        }
+
+        public async Task<Article> GetByIdIfAccess(long id, long userId)
+        {
+            var article = await GetIfAccess(id, userId);
+            if (article == null)
+            {
+                return null;
+            }
+
             article.Followed = !article.Followed;
             await _db.SaveChangesAsync();
             return article;

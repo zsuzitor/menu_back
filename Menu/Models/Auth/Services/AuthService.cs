@@ -149,21 +149,15 @@ namespace Menu.Models.Auth.Services
 
         public async Task<bool> SetRefreshTokenAsync(IJWTUser jwtUser, string refreshToken)
         {
-            var tokenHash = _hasher.GetHash(refreshToken);
-            return await SetRefreshTokenHashAsync(jwtUser, tokenHash);
-        }
-
-        public async Task<bool> SetRefreshTokenHashAsync(IJWTUser jwtUser, string refreshTokenHash)
-        {
             if (!(jwtUser is User user))
             {
                 return false;
             }
-
-            return await _userService.SetRefreshTokenHashAsync(user.Id, refreshTokenHash);
-
-
+            return await _userService.SetRefreshTokenAsync(user.Id,refreshToken);
+            
         }
+
+        
 
         public async Task<IJWTUser> GetUserById([NotNull] string userId)
         {
@@ -187,13 +181,8 @@ namespace Menu.Models.Auth.Services
 
         public async Task<AllTokens> Login(LoginModel loginModel)
         {
-            var passwordHash = _hasher.GetHash(loginModel.Password);
-            if (string.IsNullOrWhiteSpace(passwordHash))
-            {
-                return null;
-            }
 
-            var user = await _userService.GetByEmailAndPasswordHashAsync(loginModel.Email, passwordHash);
+            var user = await _userService.GetByEmailAndPasswordAsync(loginModel.Email, loginModel.Password);
 
             return await _jwtService.CreateAndSetNewTokensAsync(user);
 

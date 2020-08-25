@@ -52,9 +52,30 @@ namespace Menu.Models.DAL.Repositories
             return true;
         }
 
+        public async Task<bool> SetRefreshTokenHashAsync(long userId, string refreshTokenHash)
+        {
+            var userFromDb = await _db.Users.FirstOrDefaultAsync(x1 => x1.Id == userId);
+            if (userFromDb == null)
+            {
+                return false;
+            }
 
-        
+            userFromDb.RefreshTokenHash = refreshTokenHash;
+            await _db.SaveChangesAsync();
+            return true;
+        }
 
+        public async Task<User> GetByEmailAndPasswordHashAsync(string email, string passwordHash)
+        {
+            return await _db.Users.FirstOrDefaultAsync(x => x.Email == email && x.PasswordHash == passwordHash);
+        }
+
+        public async Task<User> CreateNewAsync(User newUser)
+        {
+            _db.Users.Add(newUser);
+            await _db.SaveChangesAsync();
+            return newUser;
+        }
 
     }
 }

@@ -1,11 +1,7 @@
 ﻿using jwtLib.JWTAuth.Interfaces;
-using Menu.Models.DAL;
 using Menu.Models.DAL.Domain;
 using Menu.Models.DAL.Repositories.Interfaces;
 using Menu.Models.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Menu.Models.Services
@@ -53,29 +49,31 @@ namespace Menu.Models.Services
             return await _userRepository.RemoveRefreshToken(userId);
         }
 
-        public async Task<bool> SetRefreshTokenHashAsync(long userId, string refreshTokenHash)
+        public async Task<bool> SetRefreshTokenAsync(long userId, string refreshToken)
         {
-            var userFromDb = await _db.Users.FirstOrDefaultAsync(x1 => x1.Id == userId);
-            if (userFromDb == null)
-            {
-                return false;
-            }
-
-            userFromDb.RefreshTokenHash = refreshTokenHash;
-            await _db.SaveChangesAsync();
-            return true;
+            var hash=_hasher.GetHash(refreshToken);
+            return await _userRepository.SetRefreshTokenHashAsync(userId, hash) ;
         }
 
-        public async Task<User> GetByEmailAndPasswordHashAsync(string email, string passwordHash)
+        private async Task<User> GetByEmailAndPasswordHashAsync(string email, string passwordHash)
         {
-            return await _db.Users.FirstOrDefaultAsync(x => x.Email == loginModel.Email && x.PasswordHash == passwordHash); 
+            return await _userRepository.GetByEmailAndPasswordHashAsync(email, passwordHash);
+        }
+
+        public async Task<User> GetByEmailAndPasswordAsync(string email, string password)
+        {
+            if (string.IsNullOrWhiteSpace(email)|| string.IsNullOrWhiteSpace(password))
+            {
+                return null;
+            }
+
+            var passwordHash = _hasher.GetHash(password);
+            return await GetByEmailAndPasswordHashAsync(email,passwordHash);
         }
 
         public async Task<User> CreateNewAsync(User newUser)
         {
-            _db.Users.Add(newUser);
-            await _db.SaveChangesAsync();
-            return newUser;
+           return await _userRepository.CreateNewAsync(newUser);
         }
 
     }
