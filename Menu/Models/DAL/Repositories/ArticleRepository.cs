@@ -27,12 +27,12 @@ namespace Menu.Models.DAL.Repositories
 
         public async Task<Article> GetIfAccess(long id, long userId)
         {
-            return  await _db.Articles.FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
+            return await _db.Articles.FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
         }
 
         public async Task<bool?> ChangeFollowStatus(long id, long userId)
         {
-            var article = await GetIfAccess(id,userId);
+            var article = await GetIfAccess(id, userId);
             if (article == null)
             {
                 return null;
@@ -63,9 +63,17 @@ namespace Menu.Models.DAL.Repositories
             return newArticle;
         }
 
-        public async Task<Article> Delete(long userId,long articleId)
+
+        public async Task<Article> Edit(Article newData)
         {
-            var article=await _db.Articles.FirstOrDefaultAsync(x=>x.Id==articleId&&x.UserId==userId);
+            _db.Articles.Attach(newData);
+            await _db.SaveChangesAsync();
+            return newData;
+        }
+
+        public async Task<Article> Delete(long userId, long articleId)
+        {
+            var article = await _db.Articles.FirstOrDefaultAsync(x => x.Id == articleId && x.UserId == userId);
             if (article == null)
             {
                 return null;

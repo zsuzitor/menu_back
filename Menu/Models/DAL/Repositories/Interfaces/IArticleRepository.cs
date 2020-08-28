@@ -12,6 +12,7 @@ namespace Menu.Models.DAL.Repositories.Interfaces
         
         Task<bool?> ChangeFollowStatus(long id, long userId);
         Task<Article> Create(Article newArticle);
+        Task<Article> Edit(Article newData);
         Task<Article> Delete(long userId, long articleId);
 
     }

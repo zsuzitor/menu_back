@@ -1,9 +1,11 @@
 ﻿
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.DAL.Domain;
 using Menu.Models.Healpers.Interfaces;
+using Menu.Models.InputModels;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,7 +22,7 @@ namespace Menu.Controllers
         private readonly IJWTService _jwtService;
         private readonly IApiHealper _apiHealper;
         private readonly IArticleService _articleService;
-        
+
 
 
         public ArticleController(
@@ -37,15 +39,11 @@ namespace Menu.Controllers
         [HttpGet]
         public async Task GetAllForUser()
         {
-            List<Article> res = null;
-            var accessToken = _apiHealper.GetAccessTokenFromRequest(Request);
-            var userId= _jwtService.GetUserIdFromAccessToken(accessToken);
+            var userInfo = _apiHealper.GetUserInfoFromRequest(Request,_jwtService);
 
-            if (long.TryParse(userId,out long userIdLong))
-            {
 
-               res=await _articleService.GetAllUsersArticles(userIdLong);
-            }
+            var res = await _articleService.GetAllUsersArticles(userInfo);
+
 
             await _apiHealper.WriteResponse(Response, res);
         }
@@ -53,14 +51,12 @@ namespace Menu.Controllers
         [HttpGet]
         public async Task Detail(long articleId)
         {
-            Article res = null;
 
-            var accessToken = _apiHealper.GetAccessTokenFromRequest(Request);
-            var userId = _jwtService.GetUserIdFromAccessToken(accessToken);
+            var userInfo = _apiHealper.GetUserInfoFromRequest(Request, _jwtService);
 
-            
-                res = await _articleService.GetByIdIfAccess(articleId, userId);
-            
+
+            var res = await _articleService.GetByIdIfAccess(articleId, userInfo);
+
 
             await _apiHealper.WriteResponse(Response, res);
         }
@@ -68,11 +64,9 @@ namespace Menu.Controllers
         [HttpPatch]
         public async Task Follow(long id)
         {
-            var accessToken = _apiHealper.GetAccessTokenFromRequest(Request);
-            var userId = _jwtService.GetUserIdFromAccessToken(accessToken);
+            var userInfo = _apiHealper.GetUserInfoFromRequest(Request, _jwtService);
 
-
-            bool? res = await _articleService.ChangeFollowStatus(id, userId);
+            bool? res = await _articleService.ChangeFollowStatus(id, userInfo);
 
 
             await _apiHealper.WriteResponse(Response, res);
@@ -80,19 +74,36 @@ namespace Menu.Controllers
         }
 
         [HttpPut]
-        public async Task Create(Article newData)
+        public async Task Create(ArticleInputModel newData)
         {
             //todo validate
+            if (ModelState.IsValid)
+            {
+                var errors = ModelState.ToList();//TODO докинуть в _errorService
+                await _apiHealper.WriteResponse(Response, errors);
+                return;
+            }
+
+            var userInfo = _apiHealper.GetUserInfoFromRequest(Request, _jwtService);
+
+            await _articleService.Create(newData, userInfo);
         }
 
-            [HttpPatch]
-        public async Task Edit(Article newData)
+        [HttpPatch]
+        public async Task Edit(ArticleInputModel newData)
         {
-            //todo validate
-            var accessToken = _apiHealper.GetAccessTokenFromRequest(Request);
-            var userId = _jwtService.GetUserIdFromAccessToken(accessToken);
 
-            bool? res = await _articleService.ChangeFollowStatus(id, userId);
+            //todo validate
+            if (ModelState.IsValid)
+            {
+                var errors = ModelState.ToList();//TODO докинуть в _errorService
+                await _apiHealper.WriteResponse(Response, errors);
+                return;
+            }
+
+            var userInfo = _apiHealper.GetUserInfoFromRequest(Request, _jwtService);
+
+            bool? res = await _articleService.Edit(newData, userInfo);
 
         }
 
