@@ -1,5 +1,6 @@
 ﻿using Menu.Models.DAL.Domain;
 using Menu.Models.DAL.Repositories.Interfaces;
+using Menu.Models.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,13 @@ namespace Menu.Models.DAL.Repositories
     public class ArticleRepository : IArticleRepository
     {
         private readonly MenuDbContext _db;
-        public ArticleRepository(MenuDbContext db)
+        private readonly IImageService _imageService;
+
+
+        public ArticleRepository(MenuDbContext db,IImageService imageService)
         {
             _db = db;
+            _imageService = imageService;
         }
 
         public async Task<List<Article>> GetAllUsersArticles(long userId)
@@ -64,20 +69,36 @@ namespace Menu.Models.DAL.Repositories
         }
 
 
-        public async Task<Article> Edit(Article newData)
+        public async Task LoadImages(Article article)
         {
-            _db.Articles.Attach(newData);
-            await _db.SaveChangesAsync();
-            return newData;
+            _db.Articles.Attach(article);
+            await _db.Entry(article).Collection(x => x.AdditionalImages).LoadAsync();
         }
 
-        public async Task<Article> Delete(long userId, long articleId)
+        public async Task<bool> Edit(Article newData)
         {
+            _db.Articles.Attach(newData);
+
+            //await _db.Entry(newData).Collection(x => x.AdditionalImages).LoadAsync();
+
+
+
+
+            await _db.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<Article> DeleteDeep(long userId, long articleId)
+        {
+            //TODO в транзакцию? но физ файлы поудаляются и что делать? сообщение о том что удаление прервано и последствия неизвестны?
             var article = await _db.Articles.FirstOrDefaultAsync(x => x.Id == articleId && x.UserId == userId);
             if (article == null)
             {
                 return null;
             }
+
+            await _db.Entry(article).Collection(x => x.AdditionalImages).LoadAsync();
+            await _imageService.DeleteFull(article.AdditionalImages);
 
             _db.Remove(article);
             await _db.SaveChangesAsync();

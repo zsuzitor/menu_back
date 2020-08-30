@@ -5,7 +5,9 @@ using Menu.Models.DAL.Domain;
 using Menu.Models.DAL.Repositories.Interfaces;
 using Menu.Models.InputModels;
 using Menu.Models.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Menu.Models.Services
@@ -13,9 +15,13 @@ namespace Menu.Models.Services
     public class ArticleService: IArticleService
     {
         private readonly IArticleRepository _articleRepository;
-        public ArticleService(IArticleRepository articleRepository)
+        private readonly IImageService _imageService;
+
+
+        public ArticleService(IArticleRepository articleRepository, IImageService imageService)
         {
             _articleRepository = articleRepository;
+            _imageService = imageService;
         }
 
         public  async Task<bool?> ChangeFollowStatus(long id, UserInfo userInfo)
@@ -31,7 +37,7 @@ namespace Menu.Models.Services
 
         public async Task<Article> Create(ArticleInputModel newArticle, UserInfo userInfo)
         {
-            //TODO картинки
+            
             if (userInfo == null)
             {
                 return null;
@@ -39,26 +45,50 @@ namespace Menu.Models.Services
 
             var article = ArticleFromInputModelNew(newArticle);
             article.UserId = userInfo.UserId;
-            return await _articleRepository.Create(article);
-        }
 
-
-        public async Task<Article> Edit(ArticleInputModel newArticle, UserInfo userInfo)
-        {
             //TODO картинки
-            var oldObj=await GetByIdIfAccess(newArticle.Id,userInfo);
-            if (oldObj == null)
+            article.AdditionalImages=await _imageService.GetCreatableObjects(newArticle.AdditionalImages, article.Id);
+            article.MainImagePath = await _imageService.CreatePhysicalFile(newArticle.MainImageNew);
+
+            article = await _articleRepository.Create(article);
+            if (article == null)
             {
                 return null;
             }
 
-            var changed=FillArticleFromInputModelEdit(oldObj,newArticle);
+
+            return article;
+        }
+
+
+        public async Task<bool> Edit(ArticleInputModel newArticle, UserInfo userInfo)
+        {
+            
+            if (userInfo == null)
+            {
+                return false;
+            }
+
+            var oldObj=await GetByIdIfAccess(newArticle.Id,userInfo);
+
+            
+            if (oldObj == null)
+            {
+                return false;
+            }
+
+
+            //TODO картинки
+
+
+
+            var changed =await FillArticleFromInputModelEdit(oldObj,newArticle);
             if (changed)
             {
                 return await _articleRepository.Edit(oldObj);
             }
 
-            return oldObj;
+            return true;
         }
 
         public async Task<Article> Delete( long articleId, UserInfo userInfo)
@@ -68,7 +98,8 @@ namespace Menu.Models.Services
                 return null;
             }
 
-            return await _articleRepository.Delete(userInfo.UserId, articleId);
+            return await _articleRepository.DeleteDeep(userInfo.UserId, articleId);
+           
         }
 
         public async Task<List<Article>> GetAllUsersArticles(UserInfo userInfo)
@@ -109,7 +140,8 @@ namespace Menu.Models.Services
             };
         }
 
-        private bool FillArticleFromInputModelEdit(Article baseArticle,ArticleInputModel model)
+        //устанавливает простые пропсы?
+        private async Task<bool> FillArticleFromInputModelEdit(Article baseArticle,ArticleInputModel model)
         {
             bool changed = false;
             if(baseArticle.Body!= model.Body)
@@ -132,6 +164,13 @@ namespace Menu.Models.Services
                 }
                 baseArticle.MainImagePath = null;
             }
+
+            //как то записать
+            model.AdditionalImages;
+            model.DeletedAdditionalImages;
+            model.MainImageNew;
+
+            await _articleRepository.LoadImages(baseArticle);
 
 
             return changed;

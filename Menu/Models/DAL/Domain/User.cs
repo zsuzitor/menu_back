@@ -15,5 +15,10 @@ namespace Menu.Models.DAL.Domain
         public string RefreshTokenHash { get; set; }
 
         public List<Article> Articles { get; set; }
+
+        public User()
+        {
+            Articles = new List<Article>();
+        }
     }
 }

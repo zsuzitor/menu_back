@@ -1,9 +1,7 @@
 ﻿
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using jwtLib.JWTAuth.Interfaces;
-using Menu.Models.DAL.Domain;
 using Menu.Models.Healpers.Interfaces;
 using Menu.Models.InputModels;
 using Menu.Models.Services.Interfaces;
@@ -22,7 +20,7 @@ namespace Menu.Controllers
         private readonly IJWTService _jwtService;
         private readonly IApiHealper _apiHealper;
         private readonly IArticleService _articleService;
-
+        //private readonly IWebHostEnvironment _webHostEnvironment;
 
 
         public ArticleController(
@@ -32,7 +30,7 @@ namespace Menu.Controllers
             _jwtService = jwtService;
             _apiHealper = apiHealper;
             _articleService = articleService;
-
+            //_webHostEnvironment = webHostEnvironment;
         }
 
         // GET: api/<ArticleController>
@@ -103,7 +101,7 @@ namespace Menu.Controllers
 
             var userInfo = _apiHealper.GetUserInfoFromRequest(Request, _jwtService);
 
-            bool? res = await _articleService.Edit(newData, userInfo);
+            bool res = await _articleService.Edit(newData, userInfo);
 
         }
 

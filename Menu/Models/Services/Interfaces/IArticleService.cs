@@ -13,10 +13,11 @@ namespace Menu.Models.Services.Interfaces
         Task<List<Article>> GetAllUsersArticles(UserInfo userInfo);
         Task<Article> GetById(long id);
         Task<Article> GetByIdIfAccess(long id, UserInfo userInfo);
+        
 
         Task<bool?> ChangeFollowStatus(long id, UserInfo userInfo);
         Task<Article> Create(ArticleInputModel newArticle, UserInfo userInfo);
-        Task<Article> Edit(ArticleInputModel newArticle, UserInfo userInfo);
+        Task<bool> Edit(ArticleInputModel newArticle, UserInfo userInfo);
         
         Task<Article> Delete(long articleId, UserInfo userInfo);
     }

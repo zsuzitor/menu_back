@@ -39,6 +39,9 @@ namespace Menu
 
             services.AddScoped<IErrorService, ErrorService>();
 
+
+
+
             services.InjectJwtAuth(Configuration);
         }
 
