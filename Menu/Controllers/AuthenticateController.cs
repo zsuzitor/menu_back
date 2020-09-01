@@ -28,6 +28,7 @@ namespace Menu.Controllers
 
 
         // POST api/<AuthenticateController>/5
+        
         [HttpPost]
         public async Task Login([FromBody] LoginModel loginModel)
         {
@@ -49,10 +50,11 @@ namespace Menu.Controllers
         }
 
         // PUT api/<AuthenticateController>
+        [Route("Register")]
         [HttpPut]
-        public async Task Register([FromBody] RegisterModel registerModel)
+        public async Task Register()//[FromBody] RegisterModel registerModel)
         {
-
+            RegisterModel registerModel=null;
             if (ModelState.IsValid)
             {
                 var errors = ModelState.ToList();

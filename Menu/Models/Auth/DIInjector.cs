@@ -14,7 +14,7 @@ namespace Menu.Models.Auth
             services.AddSingleton<IJWTHasher, JWTHasher>();
             services.AddScoped<IJWTService, JWTService>();
             services.AddSingleton<ITokenHandler, JWTTokenHandler>();
-            services.AddScoped<IJWTUserManager, AuthService>();
+            services.AddScoped<IJWTUserManager, JWTUserManager>();
             services.AddSingleton<IJWTServiceSettings, JWTServiceSettings>((x) =>
             {
                 var settings = new JWTServiceSettings();

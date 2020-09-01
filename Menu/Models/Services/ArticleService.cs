@@ -45,9 +45,6 @@ namespace Menu.Models.Services
 
             var article = ArticleFromInputModelNew(newArticle);
             article.UserId = userInfo.UserId;
-
-            //TODO картинки
-            article.AdditionalImages=await _imageService.GetCreatableObjects(newArticle.AdditionalImages, article.Id);
             article.MainImagePath = await _imageService.CreatePhysicalFile(newArticle.MainImageNew);
 
             article = await _articleRepository.Create(article);
@@ -56,12 +53,14 @@ namespace Menu.Models.Services
                 return null;
             }
 
-
+            //TODO картинки
+            article.AdditionalImages=await _imageService.GetCreatableObjects(newArticle.AdditionalImages, article.Id);
+            
             return article;
         }
 
 
-        //TODO мб оптимизировать
+
         public async Task<bool> Edit(ArticleInputModel newArticle, UserInfo userInfo)
         {
             
@@ -78,7 +77,7 @@ namespace Menu.Models.Services
                 return false;
             }
 
-            await _articleRepository.LoadImages(oldObj);
+            var oldImagesId = await _imageService.GetIdsByArticleId(oldObj.Id);
             var changed = await FillArticleFromInputModelEdit(oldObj, newArticle);
 
 
@@ -87,25 +86,20 @@ namespace Menu.Models.Services
             //newArticle.DeletedAdditionalImages;
 
             //oldObj.AdditionalImages.Where(x=>newArticle.DeletedAdditionalImages.Contains(x.Id));
-            var imageForDelete = new List<CustomImage>();
-            var imageNewList = new List<CustomImage>();
+            var imageForDelete = new List<long>();
+            //var imageNewList = new List<CustomImage>();
 
-            foreach (var oldImage in oldObj.AdditionalImages)
+            foreach (var oldImage in oldImagesId)
             {
-                if (newArticle.DeletedAdditionalImages.Contains(oldImage.Id))
+                if (newArticle.DeletedAdditionalImages.Contains(oldImage))
                 {
                     imageForDelete.Add(oldImage);
                 }
-                else
-                {
-                    imageNewList.Add(oldImage);
-                }
             }
 
-            var deletedImages=await _imageService.DeleteFull(imageForDelete);
-            oldObj.AdditionalImages = imageNewList;//TODO дебаг, так норм? возможно надо редачить еще массив с id
+            var deletedImages = await _imageService.DeleteById(imageForDelete);
+            var newImages=await _imageService.GetCreatableObjects(newArticle.AdditionalImages,oldObj.Id);
 
-            oldObj.AdditionalImages.AddRange( await _imageService.GetCreatableObjects(newArticle.AdditionalImages,oldObj.Id));
             if (newArticle.MainImageNew != null)
             {
                 oldObj.MainImagePath=await _imageService.CreatePhysicalFile(newArticle.MainImageNew);
@@ -114,7 +108,7 @@ namespace Menu.Models.Services
             
 
 
-            //if (changed)//?
+            if (changed)//?
             {
                 return await _articleRepository.Edit(oldObj);
             }

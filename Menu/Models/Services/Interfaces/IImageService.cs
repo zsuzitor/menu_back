@@ -23,6 +23,7 @@ namespace Menu.Models.Services.Interfaces
 
         Task<bool> DeletePhysicalFile(string path);
         Task<CustomImage> DeleteById(long idImage);
+        Task<List<long>> GetIdsByArticleId(long idArticle);
         Task<List<CustomImage>> DeleteById(List<long> idImages);
         Task<List<CustomImage>> DeleteFull(List<CustomImage> images);
 

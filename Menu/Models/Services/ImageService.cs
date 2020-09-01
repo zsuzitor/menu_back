@@ -131,6 +131,11 @@ namespace Menu.Models.Services
             return (await DeleteFull(new List<CustomImage>() { imgFromDb })).FirstOrDefault();
         }
 
+        public async Task<List<long>> GetIdsByArticleId(long idArticle)
+        {
+            return await _db.Images.Where(x=>x.ArticleId==idArticle).Select(x=>x.Id).ToListAsync();
+        }
+
         //до вызова надо проверить можно ли получить доступ
         public async Task<List<CustomImage>> DeleteById(List<long> idImages)
         {

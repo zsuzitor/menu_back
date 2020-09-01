@@ -3,8 +3,14 @@ using Menu.Models.Auth;
 using Menu.Models.Auth.Services;
 using Menu.Models.Auth.Services.Interfaces;
 using Menu.Models.DAL;
+using Menu.Models.DAL.Repositories;
+using Menu.Models.DAL.Repositories.Interfaces;
 using Menu.Models.Error.services;
 using Menu.Models.Error.services.Interfaces;
+using Menu.Models.Healpers;
+using Menu.Models.Healpers.Interfaces;
+using Menu.Models.Services;
+using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -35,14 +41,26 @@ namespace Menu
 
 
 
-            services.AddScoped<IAuthService, AuthService>();
+
 
             services.AddScoped<IErrorService, ErrorService>();
 
+            //repositories
+            services.AddScoped<IArticleRepository, ArticleRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+
+            //healpers
+            services.AddScoped<IApiHealper, ApiHealper>();
+
+            //services
+            services.AddScoped<IArticleService, ArticleService>();
+            services.AddScoped<IImageService, ImageService>();
+            services.AddScoped<IUserService, UserService>();
 
 
-
+            //auth
             services.InjectJwtAuth(Configuration);
+            services.AddScoped<IAuthService, AuthService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
