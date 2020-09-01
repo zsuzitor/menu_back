@@ -72,10 +72,10 @@ namespace Menu.Controllers
         }
 
         [HttpPut]
-        public async Task Create(ArticleInputModel newData)
+        public async Task Create([FromForm] ArticleInputModel newData)
         {
             //todo validate
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 var errors = ModelState.ToList();//TODO докинуть в _errorService
                 await _apiHealper.WriteResponse(Response, errors);
@@ -88,14 +88,14 @@ namespace Menu.Controllers
         }
 
         [HttpPatch]
-        public async Task Edit(ArticleInputModel newData)
+        public async Task Edit([FromForm] ArticleInputModel newData)
         {
             if (newData.Id == null)
             {
                 ModelState.AddModelError("not_filled_id","не передано id");
             }
             //todo validate +image
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 var errors = ModelState.ToList();//TODO докинуть в _errorService
                 await _apiHealper.WriteResponse(Response, errors);

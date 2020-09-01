@@ -21,7 +21,6 @@ namespace Menu.Models.DAL.Domain
         public User User { get; set; }
 
 
-        public List<long> AdditionalImagesIds { get; set; }
         public List<CustomImage> AdditionalImages { get; set; }
 
 

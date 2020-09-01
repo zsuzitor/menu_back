@@ -19,7 +19,7 @@ namespace Menu.Models.Auth.Services
 
 
 
-        public AuthService(IJWTHasher hasher, IJWTService jwtService, IUserService userService)
+        public AuthService(IJWTHasher hasher, IUserService userService, IJWTService jwtService)//, IJWTService jwtService)
         {
             //_db = db;
             _hasher = hasher;
