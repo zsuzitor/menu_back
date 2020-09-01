@@ -44,10 +44,10 @@ namespace Menu.Models.Services
             return res;
         }
 
-
+       
         public async Task<List<CustomImage>> GetCreatableObjects(List<IFormFile> images, long articleId)
         {
-            if (images == null)
+            if (images == null|| images.Count==0)
             {
                 return null;
             }
@@ -120,6 +120,16 @@ namespace Menu.Models.Services
             return true;
         }
 
+
+        public async Task<CustomImage> DeleteById(long idImage)
+        {
+            var imgFromDb = await _db.Images.FirstOrDefaultAsync(x => x.Id==idImage);
+            if(imgFromDb==null)
+            {
+                return null;
+            }
+            return (await DeleteFull(new List<CustomImage>() { imgFromDb })).FirstOrDefault();
+        }
 
         //до вызова надо проверить можно ли получить доступ
         public async Task<List<CustomImage>> DeleteById(List<long> idImages)

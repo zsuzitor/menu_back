@@ -11,6 +11,13 @@ namespace Menu.Models.Services.Interfaces
     {
         Task<CustomImage> Upload(IFormFile image, long articleId);
         Task<List<CustomImage>> Upload(List<IFormFile> images, long articleId);
+
+        /// <summary>
+        /// создает физический файл и заносит в бд
+        /// </summary>
+        /// <param name="images"></param>
+        /// <param name="articleId"></param>
+        /// <returns></returns>
         Task<List<CustomImage>> GetCreatableObjects(List<IFormFile> images, long articleId);
         Task<string> CreatePhysicalFile(IFormFile image);
 

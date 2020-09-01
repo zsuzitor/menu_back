@@ -61,15 +61,16 @@ namespace Menu.Models.Services
         }
 
 
+        //TODO мб оптимизировать
         public async Task<bool> Edit(ArticleInputModel newArticle, UserInfo userInfo)
         {
             
-            if (userInfo == null)
+            if (userInfo == null|| newArticle.Id==null)
             {
                 return false;
             }
 
-            var oldObj=await GetByIdIfAccess(newArticle.Id,userInfo);
+            var oldObj=await GetByIdIfAccess((long)newArticle.Id,userInfo);
 
             
             if (oldObj == null)
@@ -77,13 +78,43 @@ namespace Menu.Models.Services
                 return false;
             }
 
+            await _articleRepository.LoadImages(oldObj);
+            var changed = await FillArticleFromInputModelEdit(oldObj, newArticle);
+
 
             //TODO картинки
 
+            //newArticle.DeletedAdditionalImages;
+
+            //oldObj.AdditionalImages.Where(x=>newArticle.DeletedAdditionalImages.Contains(x.Id));
+            var imageForDelete = new List<CustomImage>();
+            var imageNewList = new List<CustomImage>();
+
+            foreach (var oldImage in oldObj.AdditionalImages)
+            {
+                if (newArticle.DeletedAdditionalImages.Contains(oldImage.Id))
+                {
+                    imageForDelete.Add(oldImage);
+                }
+                else
+                {
+                    imageNewList.Add(oldImage);
+                }
+            }
+
+            var deletedImages=await _imageService.DeleteFull(imageForDelete);
+            oldObj.AdditionalImages = imageNewList;//TODO дебаг, так норм? возможно надо редачить еще массив с id
+
+            oldObj.AdditionalImages.AddRange( await _imageService.GetCreatableObjects(newArticle.AdditionalImages,oldObj.Id));
+            if (newArticle.MainImageNew != null)
+            {
+                oldObj.MainImagePath=await _imageService.CreatePhysicalFile(newArticle.MainImageNew);
+                
+            }
+            
 
 
-            var changed =await FillArticleFromInputModelEdit(oldObj,newArticle);
-            if (changed)
+            //if (changed)//?
             {
                 return await _articleRepository.Edit(oldObj);
             }
@@ -140,7 +171,7 @@ namespace Menu.Models.Services
             };
         }
 
-        //устанавливает простые пропсы?
+        //для уже существующих объектов. , нет работы с картинками 
         private async Task<bool> FillArticleFromInputModelEdit(Article baseArticle,ArticleInputModel model)
         {
             bool changed = false;
@@ -164,14 +195,6 @@ namespace Menu.Models.Services
                 }
                 baseArticle.MainImagePath = null;
             }
-
-            //как то записать
-            model.AdditionalImages;
-            model.DeletedAdditionalImages;
-            model.MainImageNew;
-
-            await _articleRepository.LoadImages(baseArticle);
-
 
             return changed;
         }

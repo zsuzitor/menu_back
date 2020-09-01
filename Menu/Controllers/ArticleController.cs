@@ -90,8 +90,11 @@ namespace Menu.Controllers
         [HttpPatch]
         public async Task Edit(ArticleInputModel newData)
         {
-
-            //todo validate
+            if (newData.Id == null)
+            {
+                ModelState.AddModelError("not_filled_id","не передано id");
+            }
+            //todo validate +image
             if (ModelState.IsValid)
             {
                 var errors = ModelState.ToList();//TODO докинуть в _errorService
