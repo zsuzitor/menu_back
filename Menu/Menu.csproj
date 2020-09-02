@@ -19,10 +19,11 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <Reference Include="jwtLib">
       <HintPath>CustomPackage\jwtLib.dll</HintPath>
+      <Private>true</Private>
     </Reference>
-  </ItemGroup>
+  </ItemGroup>-->
 
 </Project>
