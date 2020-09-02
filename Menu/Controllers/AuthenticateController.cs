@@ -38,7 +38,7 @@ namespace Menu.Controllers
             if (!ModelState.IsValid)
             {
                 var errors = ModelState.ToList();//TODO докинуть в _errorService
-                await _apiHealper.WriteResponse(Response, errors);
+                await _apiHealper.WriteResponseAsync(Response, errors);
                 return;
             }
 
@@ -48,7 +48,7 @@ namespace Menu.Controllers
                 return;
             }
 
-            await _apiHealper.WriteResponse(Response, tokens);
+            await _apiHealper.WriteResponseAsync(Response, tokens);
 
         }
 
@@ -61,7 +61,7 @@ namespace Menu.Controllers
             if (!ModelState.IsValid)
             {
                 var errors = ModelState.ToList();
-                await _apiHealper.WriteResponse(Response, errors);
+                await _apiHealper.WriteResponseAsync(Response, errors);
                 return;
             }
 
@@ -71,7 +71,7 @@ namespace Menu.Controllers
                 return;
             }
 
-            await _apiHealper.WriteResponse(Response, tokens);
+            await _apiHealper.WriteResponseAsync(Response, tokens);
         }
 
 
@@ -85,7 +85,7 @@ namespace Menu.Controllers
                 _apiHealper.ClearUsersTokens(Response);
             }
 
-            await _apiHealper.WriteResponse(Response, logout);
+            await _apiHealper.WriteResponseAsync(Response, logout);
         }
 
 
@@ -96,7 +96,7 @@ namespace Menu.Controllers
             var refreshToken = _apiHealper.GetRefreshTokenFromRequest(Request);
 
             var allTokens = await _authSrvice.Refresh(accessToken, refreshToken);
-            await _apiHealper.WriteResponse(Response, allTokens);
+            await _apiHealper.WriteResponseAsync(Response, allTokens);
         }
 
 

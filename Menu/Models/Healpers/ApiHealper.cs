@@ -14,7 +14,7 @@ namespace Menu.Models.Healpers
         private readonly string _headerRefreshToken = "Authorization_Refresh_Token";
 
 
-        public async Task WriteResponse<T>(HttpResponse response, T data)
+        public async Task WriteResponseAsync<T>(HttpResponse response, T data)
         {
             response.ContentType = _jsonCOntentType;
             await response.WriteAsync(JsonSerializer.Serialize(data));

@@ -14,9 +14,10 @@ namespace Menu.Models.Services
         //private readonly MenuDbContext _db;
 
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IJWTHasher hasher)
         {
             _userRepository = userRepository;
+            _hasher = hasher;
         }
 
 

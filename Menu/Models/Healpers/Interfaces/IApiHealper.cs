@@ -8,7 +8,7 @@ namespace Menu.Models.Healpers.Interfaces
 {
     public interface IApiHealper
     {
-        Task WriteResponse<T>(HttpResponse response, T data);
+        Task WriteResponseAsync<T>(HttpResponse response, T data);
         string GetAccessTokenFromRequest(HttpRequest request);
         string GetRefreshTokenFromRequest(HttpRequest request);
         void ClearUsersTokens(HttpResponse response);
