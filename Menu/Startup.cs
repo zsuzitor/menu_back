@@ -40,9 +40,6 @@ namespace Menu
                     Configuration.GetConnectionString("DefaultConnection")));
 
 
-
-
-
             services.AddScoped<IErrorService, ErrorService>();
 
             //repositories

@@ -4,10 +4,9 @@ using Menu.Models.Auth.Poco;
 using Menu.Models.DAL.Domain;
 using Menu.Models.DAL.Repositories.Interfaces;
 using Menu.Models.InputModels;
+using Menu.Models.Poco;
 using Menu.Models.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Menu.Models.Services
@@ -102,6 +101,7 @@ namespace Menu.Models.Services
 
             if (newArticle.MainImageNew != null)
             {
+                await _imageService.DeletePhysicalFile(oldObj.MainImagePath);
                 oldObj.MainImagePath=await _imageService.CreatePhysicalFile(newArticle.MainImageNew);
                 
             }
@@ -137,6 +137,16 @@ namespace Menu.Models.Services
             return await _articleRepository.GetAllUsersArticles(userInfo.UserId);
         }
 
+        public async Task<List<ArticleShort>> GetAllUsersArticlesShort(UserInfo userInfo)
+        {
+            if (userInfo == null)
+            {
+                return null;
+            }
+
+            return await _articleRepository.GetAllUsersArticlesShort(userInfo.UserId);
+        }
+
         public async Task<Article> GetById(long id)
         {
             return await _articleRepository.GetById(id);
@@ -152,7 +162,20 @@ namespace Menu.Models.Services
             return await _articleRepository.GetByIdIfAccess(id, userInfo.UserId);
         }
 
-       
+        public async Task<Article> GetFullByIdIfAccess(long id, UserInfo userInfo)
+        {
+            if (userInfo == null)
+            {
+                return null;
+            }
+
+            var article= await _articleRepository.GetByIdIfAccess(id, userInfo.UserId);
+            await _articleRepository.LoadImages(article);
+            return article;
+        }
+        
+
+
 
 
         private Article ArticleFromInputModelNew(ArticleInputModel model)

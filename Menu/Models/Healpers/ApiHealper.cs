@@ -63,7 +63,7 @@ namespace Menu.Models.Healpers
 
         private string GetFromRequest(HttpRequest request, string key)
         {
-            if (!request.Cookies.TryGetValue(key, out var authorizationToken) || !string.IsNullOrWhiteSpace(authorizationToken))
+            if (request.Cookies.TryGetValue(key, out var authorizationToken) && !string.IsNullOrWhiteSpace(authorizationToken))
             {
                 return authorizationToken;
             }

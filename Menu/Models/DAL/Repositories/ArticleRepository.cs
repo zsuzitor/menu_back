@@ -1,5 +1,6 @@
 ﻿using Menu.Models.DAL.Domain;
 using Menu.Models.DAL.Repositories.Interfaces;
+using Menu.Models.Poco;
 using Menu.Models.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -25,19 +26,21 @@ namespace Menu.Models.DAL.Repositories
             return await _db.Articles.Where(x => x.UserId == userId).ToListAsync();
         }
 
+        public async Task<List<ArticleShort>> GetAllUsersArticlesShort(long userId)
+        {
+            return await _db.Articles.Where(x => x.UserId == userId).Select(x=>new ArticleShort(x)).ToListAsync();
+        }
+
         public async Task<Article> GetById(long id)
         {
             return await _db.Articles.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public async Task<Article> GetIfAccess(long id, long userId)
-        {
-            return await _db.Articles.FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
-        }
+        
 
         public async Task<bool?> ChangeFollowStatus(long id, long userId)
         {
-            var article = await GetIfAccess(id, userId);
+            var article = await GetByIdIfAccess(id, userId);
             if (article == null)
             {
                 return null;
@@ -50,15 +53,7 @@ namespace Menu.Models.DAL.Repositories
 
         public async Task<Article> GetByIdIfAccess(long id, long userId)
         {
-            var article = await GetIfAccess(id, userId);
-            if (article == null)
-            {
-                return null;
-            }
-
-            article.Followed = !article.Followed;
-            await _db.SaveChangesAsync();
-            return article;
+            return await _db.Articles.FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
         }
 
         public async Task<Article> Create(Article newArticle)

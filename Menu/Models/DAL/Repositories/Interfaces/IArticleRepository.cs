@@ -1,4 +1,5 @@
 ﻿using Menu.Models.DAL.Domain;
+using Menu.Models.Poco;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -7,6 +8,7 @@ namespace Menu.Models.DAL.Repositories.Interfaces
     public interface IArticleRepository
     {
         Task<List<Article>> GetAllUsersArticles(long userId);
+        Task<List<ArticleShort>> GetAllUsersArticlesShort(long userId);
         Task<Article> GetById(long id);
         Task<Article> GetByIdIfAccess(long id,long userId);
         

@@ -31,7 +31,7 @@ namespace Menu.Controllers
 
 
         // POST api/<AuthenticateController>/5
-
+        [Route("Login")]
         [HttpPost]
         public async Task Login([FromForm] LoginModel loginModel)
         {
@@ -41,7 +41,7 @@ namespace Menu.Controllers
                 await _apiHealper.WriteResponseAsync(Response, errors);
                 return;
             }
-
+            
             var tokens = await _authSrvice.Login(loginModel);
             if (tokens == null)
             {
@@ -74,7 +74,7 @@ namespace Menu.Controllers
             await _apiHealper.WriteResponseAsync(Response, tokens);
         }
 
-
+        [Route("LogOut")]
         [HttpGet]
         public async Task LogOut()
         {
@@ -88,7 +88,7 @@ namespace Menu.Controllers
             await _apiHealper.WriteResponseAsync(Response, logout);
         }
 
-
+        [Route("RefreshAccessToken")]
         [HttpGet]
         public async Task RefreshAccessToken()
         {

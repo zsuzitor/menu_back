@@ -105,6 +105,12 @@ namespace Menu.Models.Services
 
         public async Task<bool> DeletePhysicalFile(string path)
         {
+            //TODO возможно вообще не удалять физический файлы
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                return true;
+            }
+
             try
             {
                 if (File.Exists(path))
