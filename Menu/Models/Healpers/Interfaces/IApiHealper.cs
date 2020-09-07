@@ -13,6 +13,6 @@ namespace Menu.Models.Healpers.Interfaces
         string GetRefreshTokenFromRequest(HttpRequest request);
         void ClearUsersTokens(HttpResponse response);
         UserInfo GetUserInfoFromRequest(HttpRequest request, IJWTService jwtService);
-     
+        UserInfo CheckAuthorized(HttpRequest request, IJWTService jwtService);
     }
 }

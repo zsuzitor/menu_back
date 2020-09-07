@@ -1,7 +1,11 @@
 ﻿
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using jwtLib.JWTAuth.Interfaces;
+using Menu.Models.Error.Interfaces;
+using Menu.Models.Error.services.Interfaces;
+using Menu.Models.Exceptions;
 using Menu.Models.Healpers.Interfaces;
 using Menu.Models.InputModels;
 using Menu.Models.Services.Interfaces;
@@ -20,16 +24,21 @@ namespace Menu.Controllers
         private readonly IJWTService _jwtService;
         private readonly IApiHealper _apiHealper;
         private readonly IArticleService _articleService;
+        private readonly IErrorService _errorService;
+        private readonly IErrorContainer _errorContainer;
         //private readonly IWebHostEnvironment _webHostEnvironment;
 
 
         public ArticleController(
-             IJWTService jwtService, IApiHealper apiHealper, IArticleService articleService)
+             IJWTService jwtService, IApiHealper apiHealper, IArticleService articleService,
+             IErrorService errorService,IErrorContainer errorContainer)
         {
             //_articleRepository = articleRepository;
             _jwtService = jwtService;
             _apiHealper = apiHealper;
             _articleService = articleService;
+            _errorService = errorService;
+            _errorContainer = errorContainer;
             //_webHostEnvironment = webHostEnvironment;
         }
 
@@ -37,11 +46,38 @@ namespace Menu.Controllers
         [HttpGet]
         public async Task GetAllShortForUser()
         {
-            var userInfo = _apiHealper.GetUserInfoFromRequest(Request, _jwtService);
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService);
+            if (_errorService.HasError())
+            {
+                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
+                return;
+            }
 
-            var res = await _articleService.GetAllUsersArticlesShort(userInfo);
+            try
+            {
+                var res = await _articleService.GetAllUsersArticlesShort(userInfo);
+                if (_errorService.HasError())
+                {
+                    await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
+                    return;
+                }
 
-            await _apiHealper.WriteResponseAsync(Response, res);
+                await _apiHealper.WriteResponseAsync(Response, res);
+            }
+            catch (SomeCustomException e)
+            {
+                if (!string.IsNullOrWhiteSpace(e.Message))
+                {
+                    _errorService.AddError("some_error", e.Message);
+                }
+            }
+            catch (Exception e)
+            {
+                _errorService.AddError(_errorContainer.TryGetError("some_error"));
+            }
+
+            await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
+
         }
 
         // GET: api/<ArticleController>
@@ -49,10 +85,14 @@ namespace Menu.Controllers
         [HttpGet]
         public async Task GetAllForUser()
         {
-            var userInfo = _apiHealper.GetUserInfoFromRequest(Request,_jwtService);
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService);
+            if (_errorService.HasError())
+            {
+                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
+                return;
+            }
 
             var res = await _articleService.GetAllUsersArticles(userInfo);
-
             await _apiHealper.WriteResponseAsync(Response, res);
         }
 
@@ -60,13 +100,14 @@ namespace Menu.Controllers
         [HttpGet]
         public async Task Detail(long articleId)
         {
-
-            var userInfo = _apiHealper.GetUserInfoFromRequest(Request, _jwtService);
-
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService);
+            if (_errorService.HasError())
+            {
+                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
+                return;
+            }
 
             var res = await _articleService.GetFullByIdIfAccess(articleId, userInfo);
-
-
             await _apiHealper.WriteResponseAsync(Response, res);
         }
 
@@ -74,7 +115,12 @@ namespace Menu.Controllers
         [HttpPatch]
         public async Task Follow(long id)
         {
-            var userInfo = _apiHealper.GetUserInfoFromRequest(Request, _jwtService);
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService);
+            if (_errorService.HasError())
+            {
+                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
+                return;
+            }
 
             bool? res = await _articleService.ChangeFollowStatus(id, userInfo);
 
@@ -87,17 +133,16 @@ namespace Menu.Controllers
         [HttpPut]
         public async Task Create([FromForm] ArticleInputModel newData)
         {
-            //todo validate
-            if (!ModelState.IsValid)
+            _errorService.ErrorsFromModelState(ModelState);
+
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService);
+            if (_errorService.HasError())
             {
-                var errors = ModelState.ToList();//TODO докинуть в _errorService
-                await _apiHealper.WriteResponseAsync(Response, errors);
+                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
                 return;
             }
 
-            var userInfo = _apiHealper.GetUserInfoFromRequest(Request, _jwtService);
-
-            var newArticle=await _articleService.Create(newData, userInfo);
+            var newArticle = await _articleService.Create(newData, userInfo);
             await _apiHealper.WriteResponseAsync(Response, newArticle);
         }
 
@@ -107,21 +152,19 @@ namespace Menu.Controllers
         {
             if (newData.Id == null)
             {
-                ModelState.AddModelError("not_filled_id","не передано id");
-            }
-            //todo validate +image
-            if (!ModelState.IsValid)
-            {
-                var errors = ModelState.ToList();//TODO докинуть в _errorService
-                await _apiHealper.WriteResponseAsync(Response, errors);
-                return;
+                ModelState.AddModelError("id_is_required", "не передано id");
             }
 
-            var userInfo = _apiHealper.GetUserInfoFromRequest(Request, _jwtService);
+            _errorService.ErrorsFromModelState(ModelState) ;
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService);
+            if (_errorService.HasError())
+            {
+                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
+                return;
+            }
 
             bool res = await _articleService.Edit(newData, userInfo);
             await _apiHealper.WriteResponseAsync(Response, res);
         }
-
     }
 }

@@ -1,5 +1,7 @@
 ﻿using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.Auth.Poco;
+using Menu.Models.Error.Interfaces;
+using Menu.Models.Error.services.Interfaces;
 using Menu.Models.Healpers.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System.Text.Json;
@@ -12,6 +14,18 @@ namespace Menu.Models.Healpers
         private readonly string _jsonCOntentType = "application/json";
         private readonly string _headerAccessToken = "Authorization_Access_Token";
         private readonly string _headerRefreshToken = "Authorization_Refresh_Token";
+
+
+        private readonly IErrorService _errorService;
+        private readonly IErrorContainer _errorContainer;
+
+
+        public ApiHealper(IErrorService errorService, IErrorContainer errorContainer)
+        {
+            _errorService = errorService;
+            _errorContainer = errorContainer;
+
+        }
 
 
         public async Task WriteResponseAsync<T>(HttpResponse response, T data)
@@ -76,6 +90,16 @@ namespace Menu.Models.Healpers
 
         }
 
-       
+        public UserInfo CheckAuthorized(HttpRequest request, IJWTService jwtService)
+        {
+            var userInfo = GetUserInfoFromRequest(request, jwtService);
+            if (userInfo == null|| userInfo.UserId<1)
+            {
+                _errorService.AddError(_errorContainer.TryGetError("not_authorized"));
+                return null;
+            }
+
+            return userInfo;
+        }
     }
 }

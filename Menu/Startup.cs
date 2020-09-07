@@ -5,6 +5,8 @@ using Menu.Models.Auth.Services.Interfaces;
 using Menu.Models.DAL;
 using Menu.Models.DAL.Repositories;
 using Menu.Models.DAL.Repositories.Interfaces;
+using Menu.Models.Error;
+using Menu.Models.Error.Interfaces;
 using Menu.Models.Error.services;
 using Menu.Models.Error.services.Interfaces;
 using Menu.Models.Healpers;
@@ -54,7 +56,9 @@ namespace Menu
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
 
-
+            //&
+            services.AddSingleton<IErrorContainer, ErrorContainer>();
+            
             //auth
             services.InjectJwtAuth(Configuration);
             services.AddScoped<IAuthService, AuthService>();
@@ -73,6 +77,7 @@ namespace Menu
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
+            
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();

@@ -3,6 +3,7 @@ using jwtLib.JWTAuth.Models.Poco;
 using Menu.Models.Auth.InputModels;
 using Menu.Models.Auth.Services.Interfaces;
 using Menu.Models.DAL.Domain;
+using Menu.Models.Error.services.Interfaces;
 using Menu.Models.Services.Interfaces;
 using System.Threading.Tasks;
 
@@ -13,18 +14,19 @@ namespace Menu.Models.Auth.Services
         private readonly IJWTHasher _hasher;
         private readonly IUserService _userService;
         private readonly IJWTService _jwtService;
-
+        private readonly IErrorService _errorService;
         //private readonly MenuDbContext _db;
 
 
 
 
-        public AuthService(IJWTHasher hasher, IUserService userService, IJWTService jwtService)//, IJWTService jwtService)
+        public AuthService(IJWTHasher hasher, IUserService userService, IJWTService jwtService,IErrorService errorService)//, IJWTService jwtService)
         {
             //_db = db;
             _hasher = hasher;
             _jwtService = jwtService;
             _userService = userService;
+            _errorService = errorService;
         }
 
 

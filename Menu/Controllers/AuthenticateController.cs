@@ -1,13 +1,12 @@
 ﻿
-using System.Linq;
 using System.Threading.Tasks;
 using Menu.Models.Auth.InputModels;
 using Menu.Models.Auth.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Menu.Models.Healpers.Interfaces;
 using Menu.Models.Error.services.Interfaces;
-using jwtLib.JWTAuth.Interfaces;
-using Menu.Models.Error;
+using Microsoft.Extensions.Logging;
+//using NLog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -20,12 +19,15 @@ namespace Menu.Controllers
         private readonly IAuthService _authSrvice;
         private readonly IApiHealper _apiHealper;
         private readonly IErrorService _errorService;
+        private readonly ILogger _logger;
 
-        public AuthenticateController(IErrorService errorService, IApiHealper apiHealper, IAuthService authSrvice)
+        public AuthenticateController(IErrorService errorService, IApiHealper apiHealper, IAuthService authSrvice,ILogger<AuthenticateController> logger)
         {
             _authSrvice = authSrvice;
             _apiHealper = apiHealper;
             _errorService = errorService;
+            _logger = logger;
+
 
             int g_ = 10;
         }
@@ -36,12 +38,13 @@ namespace Menu.Controllers
         [HttpPost]
         public async Task Login([FromForm] LoginModel loginModel)
         {
-          
+            _logger.LogInformation("TEST1_LOGIN");
             if (_errorService.ErrorsFromModelState(ModelState))
             {
                 await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
                 return;
             }
+
             
             var tokens = await _authSrvice.Login(loginModel);
             if (tokens == null)
