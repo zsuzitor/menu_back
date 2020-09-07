@@ -1,16 +1,24 @@
 ﻿
 
+using System.Collections.Generic;
+
 namespace Menu.Models.Error
 {
     public class OneError
     {
         public string Key { get; set; }
-        public string Body { get; set; }
+        public List<string> Errors { get; set; }
 
         public OneError(string key,string body)
         {
             Key = key;
-            Body = body;
+            Errors = new List<string>() { body };
+        }
+
+        public OneError(string key, List<string> body)
+        {
+            Key = key;
+            Errors = body;
         }
     }
 }

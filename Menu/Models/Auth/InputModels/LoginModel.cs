@@ -8,6 +8,7 @@ namespace Menu.Models.Auth.InputModels
     {
         [EmailAddress]
         public string Email { get; set; }
+        //TODO аттрибут пароля
         [Required]
         public string Password { get; set; }
     }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Menu.Models.Healpers.Interfaces;
 using Menu.Models.Error.services.Interfaces;
 using jwtLib.JWTAuth.Interfaces;
+using Menu.Models.Error;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -35,10 +36,10 @@ namespace Menu.Controllers
         [HttpPost]
         public async Task Login([FromForm] LoginModel loginModel)
         {
-            if (!ModelState.IsValid)
+          
+            if (_errorService.ErrorsFromModelState(ModelState))
             {
-                var errors = ModelState.ToList();//TODO докинуть в _errorService
-                await _apiHealper.WriteResponseAsync(Response, errors);
+                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
                 return;
             }
             
@@ -58,10 +59,9 @@ namespace Menu.Controllers
         public async Task Register([FromForm] RegisterModel registerModel)
         {
             //RegisterModel registerModel=null;
-            if (!ModelState.IsValid)
+            if (_errorService.ErrorsFromModelState(ModelState))
             {
-                var errors = ModelState.ToList();
-                await _apiHealper.WriteResponseAsync(Response, errors);
+                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
                 return;
             }
 
