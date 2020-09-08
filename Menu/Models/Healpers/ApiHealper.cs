@@ -2,8 +2,11 @@
 using Menu.Models.Auth.Poco;
 using Menu.Models.Error.Interfaces;
 using Menu.Models.Error.services.Interfaces;
+using Menu.Models.Exceptions;
 using Menu.Models.Healpers.Interfaces;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -90,16 +93,45 @@ namespace Menu.Models.Healpers
 
         }
 
-        public UserInfo CheckAuthorized(HttpRequest request, IJWTService jwtService)
+        public UserInfo CheckAuthorized(HttpRequest request, IJWTService jwtService, bool withError = false)
         {
             var userInfo = GetUserInfoFromRequest(request, jwtService);
             if (userInfo == null|| userInfo.UserId<1)
             {
                 _errorService.AddError(_errorContainer.TryGetError("not_authorized"));
+                if (withError)
+                {
+                    throw new SomeCustomException();
+                }
+
                 return null;
             }
 
             return userInfo;
+        }
+
+
+        public async Task DoStandartSomething(Func<Task> action, HttpResponse response, ILogger logger)
+        {
+            try
+            {
+                await action();
+                return;
+            }
+            catch (SomeCustomException e)
+            {
+                if (!string.IsNullOrWhiteSpace(e.Message))
+                {
+                    _errorService.AddError("some_error", e.Message);
+                }
+            }
+            catch (Exception e)
+            {
+                _errorService.AddError(_errorContainer.TryGetError("some_error"));
+                logger.LogError(e, "GetAllShortForUser");
+            }
+
+            await WriteResponseAsync(response, _errorService.GetErrorsObject());
         }
     }
 }

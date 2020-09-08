@@ -1,15 +1,14 @@
 ﻿
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.Error.Interfaces;
 using Menu.Models.Error.services.Interfaces;
-using Menu.Models.Exceptions;
 using Menu.Models.Healpers.Interfaces;
 using Menu.Models.InputModels;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,12 +25,13 @@ namespace Menu.Controllers
         private readonly IArticleService _articleService;
         private readonly IErrorService _errorService;
         private readonly IErrorContainer _errorContainer;
+        private readonly ILogger _logger;
         //private readonly IWebHostEnvironment _webHostEnvironment;
 
 
         public ArticleController(
              IJWTService jwtService, IApiHealper apiHealper, IArticleService articleService,
-             IErrorService errorService,IErrorContainer errorContainer)
+             IErrorService errorService, IErrorContainer errorContainer, ILogger<ArticleController> logger)
         {
             //_articleRepository = articleRepository;
             _jwtService = jwtService;
@@ -39,6 +39,7 @@ namespace Menu.Controllers
             _articleService = articleService;
             _errorService = errorService;
             _errorContainer = errorContainer;
+            _logger = logger;
             //_webHostEnvironment = webHostEnvironment;
         }
 
@@ -46,37 +47,21 @@ namespace Menu.Controllers
         [HttpGet]
         public async Task GetAllShortForUser()
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService);
-            if (_errorService.HasError())
-            {
-                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
-                return;
-            }
-
-            try
-            {
-                var res = await _articleService.GetAllUsersArticlesShort(userInfo);
-                if (_errorService.HasError())
+            await _apiHealper.DoStandartSomething(
+                async () =>
                 {
-                    await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
-                    return;
-                }
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService);
+                    if (_errorService.HasError())
+                    {
+                        await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
+                        return;
+                    }
 
-                await _apiHealper.WriteResponseAsync(Response, res);
-            }
-            catch (SomeCustomException e)
-            {
-                if (!string.IsNullOrWhiteSpace(e.Message))
-                {
-                    _errorService.AddError("some_error", e.Message);
-                }
-            }
-            catch (Exception e)
-            {
-                _errorService.AddError(_errorContainer.TryGetError("some_error"));
-            }
+                    var res = await _articleService.GetAllUsersArticlesShort(userInfo);
+                   
+                    await _apiHealper.WriteResponseAsync(Response, res);
 
-            await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
+                }, Response, _logger);
 
         }
 
@@ -85,47 +70,46 @@ namespace Menu.Controllers
         [HttpGet]
         public async Task GetAllForUser()
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService);
-            if (_errorService.HasError())
-            {
-                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
-                return;
-            }
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-            var res = await _articleService.GetAllUsersArticles(userInfo);
-            await _apiHealper.WriteResponseAsync(Response, res);
+                    var res = await _articleService.GetAllUsersArticles(userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, res);
+                }, Response, _logger);
+
         }
 
         [Route("Detail")]
         [HttpGet]
         public async Task Detail(long articleId)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService);
-            if (_errorService.HasError())
-            {
-                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
-                return;
-            }
+            await _apiHealper.DoStandartSomething(
+               async () =>
+               {
+                   var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-            var res = await _articleService.GetFullByIdIfAccess(articleId, userInfo);
-            await _apiHealper.WriteResponseAsync(Response, res);
+                   var res = await _articleService.GetFullByIdIfAccess(articleId, userInfo);
+                   await _apiHealper.WriteResponseAsync(Response, res);
+               }, Response, _logger);
+
         }
 
         [Route("Follow")]
         [HttpPatch]
         public async Task Follow(long id)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService);
-            if (_errorService.HasError())
-            {
-                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
-                return;
-            }
+            await _apiHealper.DoStandartSomething(
+               async () =>
+               {
+                   var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-            bool? res = await _articleService.ChangeFollowStatus(id, userInfo);
+                   bool? res = await _articleService.ChangeFollowStatus(id, userInfo);
 
+                   await _apiHealper.WriteResponseAsync(Response, res);
+               }, Response, _logger);
 
-            await _apiHealper.WriteResponseAsync(Response, res);
 
         }
 
@@ -133,38 +117,38 @@ namespace Menu.Controllers
         [HttpPut]
         public async Task Create([FromForm] ArticleInputModel newData)
         {
-            _errorService.ErrorsFromModelState(ModelState);
+            await _apiHealper.DoStandartSomething(
+               async () =>
+               {
+                   _errorService.ErrorsFromModelState(ModelState);
 
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService);
-            if (_errorService.HasError())
-            {
-                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
-                return;
-            }
+                   var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-            var newArticle = await _articleService.Create(newData, userInfo);
-            await _apiHealper.WriteResponseAsync(Response, newArticle);
+                   var newArticle = await _articleService.Create(newData, userInfo);
+                   await _apiHealper.WriteResponseAsync(Response, newArticle);
+               }, Response, _logger);
+
         }
 
         [Route("Edit")]
         [HttpPatch]
         public async Task Edit([FromForm] ArticleInputModel newData)
         {
-            if (newData.Id == null)
-            {
-                ModelState.AddModelError("id_is_required", "не передано id");
-            }
+            await _apiHealper.DoStandartSomething(
+               async () =>
+               {
+                   if (newData.Id == null)
+                   {
+                       ModelState.AddModelError("id_is_required", "не передано id");
+                   }
 
-            _errorService.ErrorsFromModelState(ModelState) ;
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService);
-            if (_errorService.HasError())
-            {
-                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
-                return;
-            }
+                   _errorService.ErrorsFromModelState(ModelState);
+                   var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-            bool res = await _articleService.Edit(newData, userInfo);
-            await _apiHealper.WriteResponseAsync(Response, res);
+                   bool res = await _articleService.Edit(newData, userInfo);
+                   await _apiHealper.WriteResponseAsync(Response, res);
+               }, Response, _logger);
+
         }
     }
 }
