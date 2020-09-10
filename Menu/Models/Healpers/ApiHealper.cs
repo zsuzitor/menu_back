@@ -122,7 +122,28 @@ namespace Menu.Models.Healpers
             {
                 if (!string.IsNullOrWhiteSpace(e.Message))
                 {
-                    _errorService.AddError("some_error", e.Message);
+                    var error=_errorContainer.TryGetError(e.Message);
+                    if (error != null)
+                    {
+                        if (!string.IsNullOrWhiteSpace(e.Body))
+                        {
+                            error.Errors.Add(e.Body);
+                        }
+
+                        _errorService.AddError(error);
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrWhiteSpace(e.Body))
+                        {
+                            _errorService.AddError(e.Message, e.Body);
+                        }
+                        else
+                        {
+                            _errorService.AddError("some_error", e.Message);
+                        }
+                    }
+
                 }
             }
             catch (Exception e)

@@ -21,15 +21,13 @@ namespace Menu.Controllers
         private readonly IErrorService _errorService;
         private readonly ILogger _logger;
 
-        public AuthenticateController(IErrorService errorService, IApiHealper apiHealper, IAuthService authSrvice,ILogger<AuthenticateController> logger)
+        public AuthenticateController(IErrorService errorService, IApiHealper apiHealper, IAuthService authSrvice, ILogger<AuthenticateController> logger)
         {
             _authSrvice = authSrvice;
             _apiHealper = apiHealper;
             _errorService = errorService;
             _logger = logger;
 
-
-            int g_ = 10;
         }
 
 
@@ -38,7 +36,6 @@ namespace Menu.Controllers
         [HttpPost]
         public async Task Login([FromForm] LoginModel loginModel)
         {
-            _logger.LogDebug("TEST2_LOGIN");
             if (_errorService.ErrorsFromModelState(ModelState))
             {
                 await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());

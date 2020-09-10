@@ -20,7 +20,7 @@ namespace Menu.Models.Services.Interfaces
         
 
 
-        Task<bool?> ChangeFollowStatus(long id, UserInfo userInfo);
+        Task<bool> ChangeFollowStatus(long id, UserInfo userInfo);
         Task<Article> Create(ArticleInputModel newArticle, UserInfo userInfo);
         Task<bool> Edit(ArticleInputModel newArticle, UserInfo userInfo);
         

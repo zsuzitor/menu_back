@@ -1,8 +1,6 @@
 ﻿using Menu.Models.Error.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Menu.Models.Error
 {
@@ -26,6 +24,8 @@ namespace Menu.Models.Error
                 { "user_not_found", new OneError("user_not_found","Пользователь не найден") },
                 { "not_authorized", new OneError("not_authorized","Не авторизован") },
                 { "some_error", new OneError("some_error","Произошла неизвестная ошибка") },
+                { "not_found", new OneError("not_found","Не найдено") },
+                { "has_no_access", new OneError("has_no_access","Нет доступа") },
             };
         }
     }

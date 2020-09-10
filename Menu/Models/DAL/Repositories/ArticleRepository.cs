@@ -15,7 +15,7 @@ namespace Menu.Models.DAL.Repositories
         private readonly IImageService _imageService;
 
 
-        public ArticleRepository(MenuDbContext db,IImageService imageService)
+        public ArticleRepository(MenuDbContext db, IImageService imageService)
         {
             _db = db;
             _imageService = imageService;
@@ -28,7 +28,7 @@ namespace Menu.Models.DAL.Repositories
 
         public async Task<List<ArticleShort>> GetAllUsersArticlesShort(long userId)
         {
-            return await _db.Articles.Where(x => x.UserId == userId).Select(x=>new ArticleShort(x)).ToListAsync();
+            return await _db.Articles.Where(x => x.UserId == userId).Select(x => new ArticleShort(x)).ToListAsync();
         }
 
         public async Task<Article> GetById(long id)
@@ -36,7 +36,7 @@ namespace Menu.Models.DAL.Repositories
             return await _db.Articles.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        
+
 
         public async Task<bool?> ChangeFollowStatus(long id, long userId)
         {
@@ -70,17 +70,14 @@ namespace Menu.Models.DAL.Repositories
             await _db.Entry(article).Collection(x => x.AdditionalImages).LoadAsync();
         }
 
-        public async Task<bool> Edit(Article newData)
+        public async Task Edit(Article newData)
         {
             _db.Articles.Attach(newData);
 
             //await _db.Entry(newData).Collection(x => x.AdditionalImages).LoadAsync();
 
-
-
-
             await _db.SaveChangesAsync();
-            return true;
+            //return true;
         }
 
         public async Task<Article> DeleteDeep(long userId, long articleId)

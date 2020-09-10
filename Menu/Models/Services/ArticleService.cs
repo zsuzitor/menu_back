@@ -3,81 +3,107 @@
 using Menu.Models.Auth.Poco;
 using Menu.Models.DAL.Domain;
 using Menu.Models.DAL.Repositories.Interfaces;
+using Menu.Models.Error.Interfaces;
+using Menu.Models.Error.services.Interfaces;
+using Menu.Models.Exceptions;
 using Menu.Models.InputModels;
 using Menu.Models.Poco;
 using Menu.Models.Services.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Menu.Models.Services
 {
-    public class ArticleService: IArticleService
+    public class ArticleService : IArticleService
     {
         private readonly IArticleRepository _articleRepository;
         private readonly IImageService _imageService;
+        private readonly IErrorService _errorService;
+        private readonly IErrorContainer _errorContainer;
 
 
-        public ArticleService(IArticleRepository articleRepository, IImageService imageService)
+        public ArticleService(IArticleRepository articleRepository, IImageService imageService,
+            IErrorService errorService, IErrorContainer errorContainer)
         {
             _articleRepository = articleRepository;
             _imageService = imageService;
         }
 
-        public  async Task<bool?> ChangeFollowStatus(long id, UserInfo userInfo)
+        //return true если картонка зафоловлена после изменений
+        public async Task<bool> ChangeFollowStatus(long id, UserInfo userInfo)
         {
             if (userInfo == null)
             {
-                return null;
+                throw new SomeCustomException("not_authorized");
             }
 
-            return await _articleRepository.ChangeFollowStatus(id, userInfo.UserId);
+            var changed= await _articleRepository.ChangeFollowStatus(id, userInfo.UserId);
+            if (changed == null)
+            {
+                throw new SomeCustomException("not_found");
+            }
+
+            return (bool)changed;
         }
 
 
         public async Task<Article> Create(ArticleInputModel newArticle, UserInfo userInfo)
         {
-            
             if (userInfo == null)
             {
-                return null;
+                throw new SomeCustomException("not_authorized");
             }
 
             var article = ArticleFromInputModelNew(newArticle);
             article.UserId = userInfo.UserId;
-            article.MainImagePath = await _imageService.CreatePhysicalFile(newArticle.MainImageNew);
-
-            article = await _articleRepository.Create(article);
-            if (article == null)
+            try
             {
-                return null;
-            }
+                article.MainImagePath = await _imageService.CreatePhysicalFile(newArticle.MainImageNew);
 
-            //TODO картинки
-            article.AdditionalImages=await _imageService.GetCreatableObjects(newArticle.AdditionalImages, article.Id);
-            
-            return article;
+                article = await _articleRepository.Create(article);
+
+                
+                article.AdditionalImages = await _imageService.GetCreatableObjects(newArticle.AdditionalImages, article.Id);
+
+                return article;
+            }
+            catch
+            {
+                
+                if (article.AdditionalImages?.Count > 0)
+                {
+                    //TODO картинки надо попытаться удалить
+                }
+                throw;
+            }
         }
 
 
 
         public async Task<bool> Edit(ArticleInputModel newArticle, UserInfo userInfo)
         {
-            
-            if (userInfo == null|| newArticle.Id==null)
+
+            if (userInfo == null)
             {
-                return false;
+                throw new SomeCustomException("not_authorized");
             }
 
-            var oldObj=await GetByIdIfAccess((long)newArticle.Id,userInfo);
+            if (newArticle?.Id == null)
+            {
+                throw new SomeCustomException("id_is_required");
+            }
 
-            
+            var oldObj = await GetByIdIfAccess((long)newArticle.Id, userInfo);
+
+
             if (oldObj == null)
             {
-                return false;
+                throw new SomeCustomException("not_found");
             }
 
             var oldImagesId = await _imageService.GetIdsByArticleId(oldObj.Id);
-            var changed = await FillArticleFromInputModelEdit(oldObj, newArticle);
+            var changed =  FillArticleFromInputModelEdit(oldObj, newArticle);
 
 
             //TODO картинки
@@ -85,6 +111,26 @@ namespace Menu.Models.Services
             //newArticle.DeletedAdditionalImages;
 
             //oldObj.AdditionalImages.Where(x=>newArticle.DeletedAdditionalImages.Contains(x.Id));
+            
+
+
+
+            if (newArticle.MainImageNew != null)
+            {
+                await _imageService.DeletePhysicalFile(oldObj.MainImagePath);
+                oldObj.MainImagePath = await _imageService.CreatePhysicalFile(newArticle.MainImageNew);
+
+            }
+
+
+            if (changed)//?
+            {
+                await _articleRepository.Edit(oldObj);
+            }
+
+            var newImages = await _imageService.GetCreatableObjects(newArticle.AdditionalImages, oldObj.Id);
+
+            //удаляем в конце тк самая неважная операция и самая ломающая
             var imageForDelete = new List<long>();
             //var imageNewList = new List<CustomImage>();
 
@@ -97,41 +143,26 @@ namespace Menu.Models.Services
             }
 
             var deletedImages = await _imageService.DeleteById(imageForDelete);
-            var newImages=await _imageService.GetCreatableObjects(newArticle.AdditionalImages,oldObj.Id);
-
-            if (newArticle.MainImageNew != null)
-            {
-                await _imageService.DeletePhysicalFile(oldObj.MainImagePath);
-                oldObj.MainImagePath=await _imageService.CreatePhysicalFile(newArticle.MainImageNew);
-                
-            }
-            
-
-
-            if (changed)//?
-            {
-                return await _articleRepository.Edit(oldObj);
-            }
 
             return true;
         }
 
-        public async Task<Article> Delete( long articleId, UserInfo userInfo)
+        public async Task<Article> Delete(long articleId, UserInfo userInfo)
         {
             if (userInfo == null)
             {
-                return null;
+                throw new SomeCustomException("not_authorized");
             }
 
             return await _articleRepository.DeleteDeep(userInfo.UserId, articleId);
-           
+
         }
 
         public async Task<List<Article>> GetAllUsersArticles(UserInfo userInfo)
         {
             if (userInfo == null)
             {
-                return null;
+                throw new SomeCustomException("not_authorized");
             }
 
             return await _articleRepository.GetAllUsersArticles(userInfo.UserId);
@@ -141,7 +172,7 @@ namespace Menu.Models.Services
         {
             if (userInfo == null)
             {
-                return null;
+                throw new SomeCustomException("not_authorized");
             }
 
             return await _articleRepository.GetAllUsersArticlesShort(userInfo.UserId);
@@ -156,7 +187,7 @@ namespace Menu.Models.Services
         {
             if (userInfo == null)
             {
-                return null;
+                throw new SomeCustomException("not_authorized");
             }
 
             return await _articleRepository.GetByIdIfAccess(id, userInfo.UserId);
@@ -166,21 +197,21 @@ namespace Menu.Models.Services
         {
             if (userInfo == null)
             {
-                return null;
+                throw new SomeCustomException("not_authorized");
             }
 
-            var article= await _articleRepository.GetByIdIfAccess(id, userInfo.UserId);
+            var article = await _articleRepository.GetByIdIfAccess(id, userInfo.UserId);
             await _articleRepository.LoadImages(article);
             return article;
         }
-        
+
 
 
 
 
         private Article ArticleFromInputModelNew(ArticleInputModel model)
         {
-            
+
             return new Article
             {
                 Body = model.Body,
@@ -189,10 +220,10 @@ namespace Menu.Models.Services
         }
 
         //для уже существующих объектов. , нет работы с картинками 
-        private async Task<bool> FillArticleFromInputModelEdit(Article baseArticle,ArticleInputModel model)
+        private  bool FillArticleFromInputModelEdit(Article baseArticle, ArticleInputModel model)
         {
             bool changed = false;
-            if(baseArticle.Body!= model.Body)
+            if (baseArticle.Body != model.Body)
             {
                 baseArticle.Body = model.Body;
                 changed = true;
@@ -203,8 +234,8 @@ namespace Menu.Models.Services
                 baseArticle.Title = model.Title;
                 changed = true;
             }
-            
-            if (model.DeleteMainImage??false)
+
+            if (model.DeleteMainImage ?? false)
             {
                 if (baseArticle.MainImagePath != null)
                 {

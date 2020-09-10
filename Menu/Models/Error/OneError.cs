@@ -1,5 +1,6 @@
 ﻿
 
+using Menu.Models.Exceptions;
 using System.Collections.Generic;
 
 namespace Menu.Models.Error
@@ -19,6 +20,13 @@ namespace Menu.Models.Error
         {
             Key = key;
             Errors = body;
+        }
+
+
+        public OneError(SomeCustomException exc)
+        {
+            Key = exc.Message;
+            Errors = new List<string>() { exc.Body };
         }
     }
 }
