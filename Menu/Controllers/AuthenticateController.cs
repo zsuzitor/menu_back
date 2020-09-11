@@ -32,13 +32,13 @@ namespace Menu.Controllers
 
 
         // POST api/<AuthenticateController>/5
-        [Route("Login")]
+        [Route("login")]
         [HttpPost]
         public async Task Login([FromForm] LoginModel loginModel)
         {
             if (_errorService.ErrorsFromModelState(ModelState))
             {
-                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
+                await _apiHealper.WriteReturnResponseAsync(Response, _errorService.GetErrorsObject());
                 return;
             }
 
@@ -49,19 +49,20 @@ namespace Menu.Controllers
                 return;
             }
 
-            await _apiHealper.WriteResponseAsync(Response, tokens);
+            var g_= _apiHealper.GetReturnType(tokens); 
+            await _apiHealper.WriteReturnResponseAsync(Response, tokens);
 
         }
 
         // PUT api/<AuthenticateController>
-        [Route("Register")]
+        [Route("register")]
         [HttpPut]
         public async Task Register([FromForm] RegisterModel registerModel)
         {
             //RegisterModel registerModel=null;
             if (_errorService.ErrorsFromModelState(ModelState))
             {
-                await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
+                await _apiHealper.WriteReturnResponseAsync(Response, _errorService.GetErrorsObject());
                 return;
             }
 
@@ -71,10 +72,10 @@ namespace Menu.Controllers
                 return;
             }
 
-            await _apiHealper.WriteResponseAsync(Response, tokens);
+            await _apiHealper.WriteReturnResponseAsync(Response, tokens);
         }
 
-        [Route("LogOut")]
+        [Route("logout")]
         [HttpGet]
         public async Task LogOut()
         {
@@ -85,10 +86,10 @@ namespace Menu.Controllers
                 _apiHealper.ClearUsersTokens(Response);
             }
 
-            await _apiHealper.WriteResponseAsync(Response, logout);
+            await _apiHealper.WriteReturnResponseAsync(Response, logout);
         }
 
-        [Route("RefreshAccessToken")]
+        [Route("refresh-access-token")]
         [HttpGet]
         public async Task RefreshAccessToken()
         {
@@ -96,7 +97,7 @@ namespace Menu.Controllers
             var refreshToken = _apiHealper.GetRefreshTokenFromRequest(Request);
 
             var allTokens = await _authSrvice.Refresh(accessToken, refreshToken);
-            await _apiHealper.WriteResponseAsync(Response, allTokens);
+            await _apiHealper.WriteReturnResponseAsync(Response, allTokens);
         }
 
 

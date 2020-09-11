@@ -43,7 +43,7 @@ namespace Menu.Controllers
             //_webHostEnvironment = webHostEnvironment;
         }
 
-        [Route("GetAllShortForUser")]
+        [Route("get-all-short-for-user")]
         [HttpGet]
         public async Task GetAllShortForUser()
         {
@@ -66,7 +66,7 @@ namespace Menu.Controllers
         }
 
         // GET: api/<ArticleController>
-        [Route("GetAllForUser")]
+        [Route("get-all-for-user")]
         [HttpGet]
         public async Task GetAllForUser()
         {
@@ -81,7 +81,7 @@ namespace Menu.Controllers
 
         }
 
-        [Route("Detail")]
+        [Route("detail")]
         [HttpGet]
         public async Task Detail(long articleId)
         {
@@ -96,7 +96,7 @@ namespace Menu.Controllers
 
         }
 
-        [Route("Follow")]
+        [Route("follow")]
         [HttpPatch]
         public async Task Follow(long id)
         {
@@ -113,7 +113,7 @@ namespace Menu.Controllers
 
         }
 
-        [Route("Create")]
+        [Route("create")]
         [HttpPut]
         public async Task Create([FromForm] ArticleInputModel newData)
         {
@@ -130,7 +130,7 @@ namespace Menu.Controllers
 
         }
 
-        [Route("Edit")]
+        [Route("edit")]
         [HttpPatch]
         public async Task Edit([FromForm] ArticleInputModel newData)
         {

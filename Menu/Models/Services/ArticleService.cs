@@ -74,6 +74,7 @@ namespace Menu.Models.Services
                 if (article.AdditionalImages?.Count > 0)
                 {
                     //TODO картинки надо попытаться удалить
+                    await _imageService.DeleteFull(article.AdditionalImages);
                 }
                 throw;
             }

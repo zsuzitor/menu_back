@@ -11,6 +11,7 @@ namespace Menu.Models.Healpers.Interfaces
     public interface IApiHealper
     {
         Task WriteResponseAsync<T>(HttpResponse response, T data);
+        Task WriteReturnResponseAsync<T>(HttpResponse response, T data);
         string GetAccessTokenFromRequest(HttpRequest request);
         string GetRefreshTokenFromRequest(HttpRequest request);
         void ClearUsersTokens(HttpResponse response);
@@ -18,5 +19,8 @@ namespace Menu.Models.Healpers.Interfaces
         UserInfo CheckAuthorized(HttpRequest request, IJWTService jwtService, bool withError = false);
 
         Task DoStandartSomething(Func<Task> action, HttpResponse response, ILogger logger);
+
+
+        object GetReturnType<TIn>(TIn obj);
     }
 }

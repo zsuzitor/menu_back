@@ -1,12 +1,16 @@
 ﻿using jwtLib.JWTAuth.Interfaces;
+using jwtLib.JWTAuth.Models.Poco;
 using Menu.Models.Auth.Poco;
 using Menu.Models.Error.Interfaces;
 using Menu.Models.Error.services.Interfaces;
 using Menu.Models.Exceptions;
 using Menu.Models.Healpers.Interfaces;
+using Menu.Models.Returns;
+using Menu.Models.Returns.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -14,13 +18,22 @@ namespace Menu.Models.Healpers
 {
     public class ApiHealper : IApiHealper
     {
-        private readonly string _jsonCOntentType = "application/json";
+        private readonly string _jsonContentType = "application/json";
         private readonly string _headerAccessToken = "Authorization_Access_Token";
         private readonly string _headerRefreshToken = "Authorization_Refresh_Token";
 
 
         private readonly IErrorService _errorService;
         private readonly IErrorContainer _errorContainer;
+
+        /// <summary>
+        /// только для моделей по умолчанию, те 1 тип маппится тут только с 1 return типом
+        /// </summary>
+        private readonly Dictionary<Type, IReturnObjectFactory> _dictReturn = new Dictionary<Type, IReturnObjectFactory>()
+        {
+            {typeof(AllTokens),new TokensFactory() }
+            //TODO ErrorObject
+        };
 
 
         public ApiHealper(IErrorService errorService, IErrorContainer errorContainer)
@@ -33,9 +46,17 @@ namespace Menu.Models.Healpers
 
         public async Task WriteResponseAsync<T>(HttpResponse response, T data)
         {
-            response.ContentType = _jsonCOntentType;
+            response.ContentType = _jsonContentType;
             await response.WriteAsync(JsonSerializer.Serialize(data));
         }
+
+        public async Task WriteReturnResponseAsync<T>(HttpResponse response, T data)
+        {
+            response.ContentType = _jsonContentType;
+            await response.WriteAsync(JsonSerializer.Serialize(GetReturnType(data)));
+        }
+
+
 
         public UserInfo GetUserInfoFromRequest(HttpRequest request, IJWTService jwtService)
         {
@@ -96,7 +117,7 @@ namespace Menu.Models.Healpers
         public UserInfo CheckAuthorized(HttpRequest request, IJWTService jwtService, bool withError = false)
         {
             var userInfo = GetUserInfoFromRequest(request, jwtService);
-            if (userInfo == null|| userInfo.UserId<1)
+            if (userInfo == null || userInfo.UserId < 1)
             {
                 _errorService.AddError(_errorContainer.TryGetError("not_authorized"));
                 if (withError)
@@ -120,31 +141,7 @@ namespace Menu.Models.Healpers
             }
             catch (SomeCustomException e)
             {
-                if (!string.IsNullOrWhiteSpace(e.Message))
-                {
-                    var error=_errorContainer.TryGetError(e.Message);
-                    if (error != null)
-                    {
-                        if (!string.IsNullOrWhiteSpace(e.Body))
-                        {
-                            error.Errors.Add(e.Body);
-                        }
-
-                        _errorService.AddError(error);
-                    }
-                    else
-                    {
-                        if (!string.IsNullOrWhiteSpace(e.Body))
-                        {
-                            _errorService.AddError(e.Message, e.Body);
-                        }
-                        else
-                        {
-                            _errorService.AddError("some_error", e.Message);
-                        }
-                    }
-
-                }
+                ErrorFromCustomException(e);
             }
             catch (Exception e)
             {
@@ -154,5 +151,48 @@ namespace Menu.Models.Healpers
 
             await WriteResponseAsync(response, _errorService.GetErrorsObject());
         }
+
+        private void ErrorFromCustomException(SomeCustomException e)
+        {
+            if (!string.IsNullOrWhiteSpace(e.Message))
+            {
+                return;
+            }
+            var error = _errorContainer.TryGetError(e.Message);
+            if (error != null)
+            {
+                if (!string.IsNullOrWhiteSpace(e.Body))
+                {
+                    error.Errors.Add(e.Body);
+                }
+
+                _errorService.AddError(error);
+                return;
+            }
+
+            if (!string.IsNullOrWhiteSpace(e.Body))
+            {
+                _errorService.AddError(e.Message, e.Body);
+            }
+            else
+            {
+                _errorService.AddError("some_error", e.Message);
+            }
+
+        }
+
+
+        public object GetReturnType<TIn>(TIn obj)
+        {
+            Type objType = typeof(TIn);
+            if (_dictReturn.ContainsKey(objType))
+            {
+                var factory = _dictReturn[objType];
+                return factory.GetObjectReturn(obj);
+            }
+
+            return obj;
+        }
     }
+    
 }
