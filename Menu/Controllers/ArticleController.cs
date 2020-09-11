@@ -50,13 +50,8 @@ namespace Menu.Controllers
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService);
-                    if (_errorService.HasError())
-                    {
-                        await _apiHealper.WriteResponseAsync(Response, _errorService.GetErrorsObject());
-                        return;
-                    }
-
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService,true);
+                    
                     var res = await _articleService.GetAllUsersArticlesShort(userInfo);
                    
                     await _apiHealper.WriteResponseAsync(Response, res);

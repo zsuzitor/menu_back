@@ -10,7 +10,21 @@ namespace Menu.Models.Healpers.Interfaces
 {
     public interface IApiHealper
     {
+        /// <summary>
+        /// просто пишет в response
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="response"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
         Task WriteResponseAsync<T>(HttpResponse response, T data);
+        /// <summary>
+        /// пытается приобразовать к return типу и пишет в response
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="response"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
         Task WriteReturnResponseAsync<T>(HttpResponse response, T data);
         string GetAccessTokenFromRequest(HttpRequest request);
         string GetRefreshTokenFromRequest(HttpRequest request);

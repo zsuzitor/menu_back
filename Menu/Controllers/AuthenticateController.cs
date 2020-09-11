@@ -42,14 +42,12 @@ namespace Menu.Controllers
                 return;
             }
 
-            
             var tokens = await _authSrvice.Login(loginModel);
             if (tokens == null)
             {
                 return;
             }
 
-            var g_= _apiHealper.GetReturnType(tokens); 
             await _apiHealper.WriteReturnResponseAsync(Response, tokens);
 
         }

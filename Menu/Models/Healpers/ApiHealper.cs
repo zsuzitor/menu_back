@@ -1,6 +1,7 @@
 ﻿using jwtLib.JWTAuth.Interfaces;
 using jwtLib.JWTAuth.Models.Poco;
 using Menu.Models.Auth.Poco;
+using Menu.Models.Error;
 using Menu.Models.Error.Interfaces;
 using Menu.Models.Error.services.Interfaces;
 using Menu.Models.Exceptions;
@@ -31,8 +32,10 @@ namespace Menu.Models.Healpers
         /// </summary>
         private readonly Dictionary<Type, IReturnObjectFactory> _dictReturn = new Dictionary<Type, IReturnObjectFactory>()
         {
-            {typeof(AllTokens),new TokensFactory() }
-            //TODO ErrorObject
+            //можно в отдельный контейнер как с ошибками и его подключать
+            {typeof(AllTokens),new TokensFactory() },
+             {typeof(ErrorObject),new ErrorObjectFactory() },
+            
         };
 
 
@@ -149,15 +152,20 @@ namespace Menu.Models.Healpers
                 logger.LogError(e, "GetAllShortForUser");
             }
 
-            await WriteResponseAsync(response, _errorService.GetErrorsObject());
+            await WriteReturnResponseAsync(response, _errorService.GetErrorsObject());
         }
 
+        /// <summary>
+        /// добавляет ошибку в errorService и все
+        /// </summary>
+        /// <param name="e"></param>
         private void ErrorFromCustomException(SomeCustomException e)
         {
             if (!string.IsNullOrWhiteSpace(e.Message))
             {
                 return;
             }
+
             var error = _errorContainer.TryGetError(e.Message);
             if (error != null)
             {
