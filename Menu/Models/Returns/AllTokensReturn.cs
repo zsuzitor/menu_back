@@ -1,9 +1,10 @@
 ﻿using jwtLib.JWTAuth.Models.Poco;
 using Menu.Models.Returns.Interfaces;
+using System.Text.Json.Serialization;
 
 namespace Menu.Models.Returns
 {
-    public class TokensFactory : IReturnObjectFactory
+    public class TokensReturnFactory : IReturnObjectFactory
     {
         public object GetObjectReturn(object obj)
         {
@@ -18,13 +19,15 @@ namespace Menu.Models.Returns
 
     public class AllTokensReturn
     {
-        public string access_token { get; set; }
-        public string refresh_token { get; set; }
+        [JsonPropertyName("access_token")]
+        public string AccessToken { get; set; }
+        [JsonPropertyName("refresh_token")]
+        public string RefreshToken { get; set; }
 
         public AllTokensReturn(AllTokens obj)
         {
-            access_token = obj.AccessToken;
-            refresh_token = obj.RefreshToken;
+            AccessToken = obj.AccessToken;
+            RefreshToken = obj.RefreshToken;
         }
 
     }

@@ -1,11 +1,13 @@
 ﻿using jwtLib.JWTAuth.Interfaces;
 using jwtLib.JWTAuth.Models.Poco;
 using Menu.Models.Auth.Poco;
+using Menu.Models.DAL.Domain;
 using Menu.Models.Error;
 using Menu.Models.Error.Interfaces;
 using Menu.Models.Error.services.Interfaces;
 using Menu.Models.Exceptions;
 using Menu.Models.Healpers.Interfaces;
+using Menu.Models.Poco;
 using Menu.Models.Returns;
 using Menu.Models.Returns.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -32,12 +34,19 @@ namespace Menu.Models.Healpers
         /// </summary>
         private readonly Dictionary<Type, IReturnObjectFactory> _dictReturn = new Dictionary<Type, IReturnObjectFactory>()
         {
-            //можно в отдельный контейнер как с ошибками и его подключать
-            {typeof(AllTokens),new TokensFactory() },
-             {typeof(ErrorObject),new ErrorObjectFactory() },
-            
+            //можно в отдельный контейнер как с ошибками и его подключать и так для каждого "модуля", если в апе допустим menu+что то еще
+            //можно сделать словарем делегатов у Func<object,object>
+            {typeof(AllTokens),new TokensReturnFactory() },
+            {typeof(ErrorObject),new ErrorObjectReturnFactory () },
+            {typeof(ArticleShort),new ArticleShortReturnFactory() },
+            {typeof(Article),new ArticleFactory() },
+            {typeof(List<ArticleShort>),new ArticleShortReturnFactory() },
+            {typeof(List<Article>),new ArticleFactory() },
+            //TODO списки
+
         };
 
+        
 
         public ApiHealper(IErrorService errorService, IErrorContainer errorContainer)
         {
@@ -93,7 +102,6 @@ namespace Menu.Models.Healpers
 
         public void ClearUsersTokens(HttpResponse response)
         {
-
             response.Cookies.Delete(_headerAccessToken);
             response.Headers.Remove(_headerAccessToken);
 

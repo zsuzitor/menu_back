@@ -54,7 +54,7 @@ namespace Menu.Controllers
                     
                     var res = await _articleService.GetAllUsersArticlesShort(userInfo);
                    
-                    await _apiHealper.WriteResponseAsync(Response, res);
+                    await _apiHealper.WriteReturnResponseAsync(Response, res);
 
                 }, Response, _logger);
 
@@ -71,7 +71,7 @@ namespace Menu.Controllers
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _articleService.GetAllUsersArticles(userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, res);
+                    await _apiHealper.WriteReturnResponseAsync(Response, res);
                 }, Response, _logger);
 
         }
@@ -86,7 +86,7 @@ namespace Menu.Controllers
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                    var res = await _articleService.GetFullByIdIfAccess(articleId, userInfo);
-                   await _apiHealper.WriteResponseAsync(Response, res);
+                   await _apiHealper.WriteReturnResponseAsync(Response, res);
                }, Response, _logger);
 
         }
@@ -120,7 +120,7 @@ namespace Menu.Controllers
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                    var newArticle = await _articleService.Create(newData, userInfo);
-                   await _apiHealper.WriteResponseAsync(Response, newArticle);
+                   await _apiHealper.WriteReturnResponseAsync(Response, newArticle);
                }, Response, _logger);
 
         }

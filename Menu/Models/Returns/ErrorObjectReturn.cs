@@ -3,10 +3,11 @@ using Menu.Models.Returns.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 
 namespace Menu.Models.Returns
 {
-    public class ErrorObjectFactory : IReturnObjectFactory
+    public class ErrorObjectReturnFactory : IReturnObjectFactory
     {
         public object GetObjectReturn(object obj)
         {
@@ -21,13 +22,15 @@ namespace Menu.Models.Returns
 
     public class ErrorObjectReturn
     {
-        public int? status { get; set; }
-        public List<OneErrorReturn> errors { get; set; }
+        [JsonPropertyName("status")]
+        public int? Status { get; set; }
+        [JsonPropertyName("errors")]
+        public List<OneErrorReturn> Errors { get; set; }
 
         public ErrorObjectReturn(ErrorObject obj)
         {
-            status = obj.Status;
-            errors = obj.Errors?.Select(x => new OneErrorReturn(x)).ToList();
+            Status = obj.Status;
+            Errors = obj.Errors?.Select(x => new OneErrorReturn(x)).ToList();
         }
     }
 }

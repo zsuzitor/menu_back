@@ -1,20 +1,21 @@
 ﻿using Menu.Models.Error;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text.Json.Serialization;
 
 namespace Menu.Models.Returns
 {
     public class OneErrorReturn
     {
-        public string key { get; set; }
-        public List<string> errors { get; set; }
+        [JsonPropertyName("key")]
+        public string Key { get; set; }
+        [JsonPropertyName("errors")]
+        public List<string> Errors { get; set; }
 
         public OneErrorReturn(OneError obj)
         {
-            key = obj.Key;
-            errors = obj.Errors;
+            Key = obj.Key;
+            Errors = obj.Errors;
         }
     }
 }
