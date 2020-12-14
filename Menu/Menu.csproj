@@ -23,6 +23,12 @@
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.9.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="jwtLib">
+      <HintPath>C:\Users\zsuz\Desktop\CustomPackage\jwtLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
   <!--<ItemGroup>
     <Reference Include="jwtLib">
       <HintPath>CustomPackage\jwtLib.dll</HintPath>

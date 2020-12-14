@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.Error.Interfaces;
 using Menu.Models.Error.services.Interfaces;
+using Menu.Models.Exceptions;
 using Menu.Models.Healpers.Interfaces;
 using Menu.Models.InputModels;
 using Menu.Models.Services.Interfaces;
@@ -50,10 +51,14 @@ namespace Menu.Controllers
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService,true);
-                    
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    if (_errorService.HasError())
+                    {
+                        throw new StopException();
+                    }
+
                     var res = await _articleService.GetAllUsersArticlesShort(userInfo);
-                   
+
                     await _apiHealper.WriteReturnResponseAsync(Response, res);
 
                 }, Response, _logger);
@@ -69,6 +74,10 @@ namespace Menu.Controllers
                 async () =>
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    if (_errorService.HasError())
+                    {
+                        throw new StopException();
+                    }
 
                     var res = await _articleService.GetAllUsersArticles(userInfo);
                     await _apiHealper.WriteReturnResponseAsync(Response, res);
@@ -84,6 +93,10 @@ namespace Menu.Controllers
                async () =>
                {
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                   if (_errorService.HasError())
+                   {
+                       throw new StopException();
+                   }
 
                    var res = await _articleService.GetFullByIdIfAccess(articleId, userInfo);
                    await _apiHealper.WriteReturnResponseAsync(Response, res);
@@ -99,6 +112,10 @@ namespace Menu.Controllers
                async () =>
                {
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                   if (_errorService.HasError())
+                   {
+                       throw new StopException();
+                   }
 
                    bool? res = await _articleService.ChangeFollowStatus(id, userInfo);
 
@@ -118,6 +135,10 @@ namespace Menu.Controllers
                    _errorService.ErrorsFromModelState(ModelState);
 
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                   if (_errorService.HasError())
+                   {
+                       throw new StopException();
+                   }
 
                    var newArticle = await _articleService.Create(newData, userInfo);
                    await _apiHealper.WriteReturnResponseAsync(Response, newArticle);
@@ -139,6 +160,10 @@ namespace Menu.Controllers
 
                    _errorService.ErrorsFromModelState(ModelState);
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                   if (_errorService.HasError())
+                   {
+                       throw new StopException();
+                   }
 
                    bool res = await _articleService.Edit(newData, userInfo);
                    await _apiHealper.WriteResponseAsync(Response, res);

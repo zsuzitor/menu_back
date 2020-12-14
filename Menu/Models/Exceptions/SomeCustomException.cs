@@ -7,17 +7,24 @@ namespace Menu.Models.Exceptions
         public string Body { get; set; }
 
 
+        //message - key
+
+
         public SomeCustomException()
         {
 
         }
 
-        public SomeCustomException(string message) :base(message)
+        /// <summary>
+        /// search in static error list, if do not searched write in body
+        /// </summary>
+        /// <param name="message"></param>
+        public SomeCustomException(string message) : base(message)
         {
 
         }
 
-        public SomeCustomException(string key,string body) : base(key)
+        public SomeCustomException(string key, string body) : base(key)
         {
             Body = body;
         }

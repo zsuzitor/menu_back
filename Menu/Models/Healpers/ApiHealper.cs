@@ -154,10 +154,13 @@ namespace Menu.Models.Healpers
             {
                 ErrorFromCustomException(e);
             }
+            catch (StopException)
+            {
+            }
             catch (Exception e)
             {
                 _errorService.AddError(_errorContainer.TryGetError("some_error"));
-                logger.LogError(e, "GetAllShortForUser");
+                logger?.LogError(e, "GetAllShortForUser");
             }
 
             await WriteReturnResponseAsync(response, _errorService.GetErrorsObject());

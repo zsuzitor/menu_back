@@ -20,9 +20,15 @@ namespace Menu.Models.Error.services
         {
             if (error != null && !string.IsNullOrWhiteSpace(error.Key))
             {
-                _errors.TryAdd(error.Key, error);
+                if (_errors.ContainsKey(error.Key))
+                {
+                    _errors[error.Key].Errors.AddRange(error.Errors);
+                }
+                else
+                {
+                    _errors.TryAdd(error.Key, error);
+                }
             }
-
         }
 
         public void AddError(string key, string body)
@@ -51,7 +57,7 @@ namespace Menu.Models.Error.services
 
         public ErrorObject GetErrorsObject()
         {
-            var res= new ErrorObject();
+            var res = new ErrorObject();
             res.Errors = GetErrors();
             return res;
         }
@@ -75,7 +81,7 @@ namespace Menu.Models.Error.services
             //    return false;
             //}
 
-            
+
             foreach (var keyInput in modelState.Keys)
             {
                 var input = modelState[keyInput];

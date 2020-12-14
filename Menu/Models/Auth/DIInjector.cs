@@ -11,7 +11,7 @@ namespace Menu.Models.Auth
     {
         public static IServiceCollection InjectJwtAuth(this IServiceCollection services, IConfiguration configuration)
         {
-            var settings= new JWTServiceSettings();
+            var settings = new JWTServiceSettings();
             configuration.GetSection("JwtSettings").Bind(settings);
 
             services.AddSingleton<IJWTHasher, JWTHasher>();
@@ -21,7 +21,7 @@ namespace Menu.Models.Auth
             services.AddSingleton<IJWTServiceSettings, JWTServiceSettings>((x) =>
             {
                 //var settings = 
-                
+
                 return settings;
             });
             services.AddSingleton<IJWTSettings, JWTServiceSettings>((x) =>
@@ -31,7 +31,7 @@ namespace Menu.Models.Auth
                 //configuration.GetSection("JwtSettings").Bind(settings);
                 //return settings;
             });
-            
+
 
             return services;
         }

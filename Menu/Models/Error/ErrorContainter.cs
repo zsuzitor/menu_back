@@ -6,6 +6,7 @@ namespace Menu.Models.Error
 {
     public class ErrorContainer : IErrorContainer
     {
+        //TODO надо сделать перечислением Dictionary<enum, OneError>
         public readonly Dictionary<string, OneError> StaticErrors;
 
         public OneError TryGetError(string key)
