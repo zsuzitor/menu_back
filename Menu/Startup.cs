@@ -85,7 +85,7 @@ namespace Menu
             app.UseCookiePolicy();
             app.UseMvc(routes =>
             {
-                routes.MapRoute("default_menu_react", "/Menu", new { controller = "Menu", action = "Index" });
+                routes.MapRoute("default_menu_react", "Menu/{*url}", new { controller = "Menu", action = "Index" });
                 
 
                 //routes.MapRoute(
