@@ -37,6 +37,7 @@ namespace Menu
         {
             services.AddMvc(option => option.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Latest);
 
+
             services.AddDbContext<MenuDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -77,19 +78,22 @@ namespace Menu
                 app.UseExceptionHandler("/Home/Error");
                 app.UseHsts();
             }
-            
+
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseMvc(routes =>
             {
-                routes.MapRoute("default_menu_react", "Menu", new { controller = "Menu", action = "Index" });
+                routes.MapRoute("default_menu_react", "/Menu", new { controller = "Menu", action = "Index" });
+                
 
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Menu}/{action=Index}/{id?}");
+                //routes.MapRoute(
+                //    name: "default",
+                //    template: "{controller=Menu}/{action=Index}/{id?}");
+
             });
+
         }
     }
 }
