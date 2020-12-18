@@ -34,21 +34,26 @@ namespace Menu.Controllers
         // POST api/<AuthenticateController>/5
         [Route("login")]
         [HttpPost]
-        public async Task Login([FromForm] LoginModel loginModel)
+        public async Task Login([FromForm] LoginModel loginModel)//[FromBody] LoginModel loginModel
         {
-            if (_errorService.ErrorsFromModelState(ModelState))
-            {
-                await _apiHealper.WriteReturnResponseAsync(Response, _errorService.GetErrorsObject());
-                return;
-            }
+            await _apiHealper.DoStandartSomething(
+               async () =>
+               {
+                   if (_errorService.ErrorsFromModelState(ModelState))
+                   {
+                       await _apiHealper.WriteReturnResponseAsync(Response, _errorService.GetErrorsObject());
+                       return;
+                   }
 
-            var tokens = await _authSrvice.Login(loginModel);
-            if (tokens == null)
-            {
-                return;
-            }
+                   var tokens = await _authSrvice.Login(loginModel);
+                   if (tokens == null)
+                   {
+                       return;
+                   }
 
-            await _apiHealper.WriteReturnResponseAsync(Response, tokens);
+                   await _apiHealper.WriteReturnResponseAsync(Response, tokens);
+               }, Response, _logger);
+
 
         }
 
@@ -57,47 +62,64 @@ namespace Menu.Controllers
         [HttpPut]
         public async Task Register([FromForm] RegisterModel registerModel)
         {
-            //RegisterModel registerModel=null;
-            if (_errorService.ErrorsFromModelState(ModelState))
-            {
-                await _apiHealper.WriteReturnResponseAsync(Response, _errorService.GetErrorsObject());
-                return;
-            }
+            await _apiHealper.DoStandartSomething(
+              async () =>
+              {
+                  //RegisterModel registerModel=null;
+                  if (_errorService.ErrorsFromModelState(ModelState))
+                  {
+                      await _apiHealper.WriteReturnResponseAsync(Response, _errorService.GetErrorsObject());
+                      return;
+                  }
 
-            var tokens = await _authSrvice.Register(registerModel);
-            if (tokens == null)
-            {
-                return;
-            }
+                  var tokens = await _authSrvice.Register(registerModel);
+                  if (tokens == null)
+                  {
+                      return;
+                  }
 
-            await _apiHealper.WriteReturnResponseAsync(Response, tokens);
+                  await _apiHealper.WriteReturnResponseAsync(Response, tokens);
+              }, Response, _logger);
+
         }
 
         [Route("logout")]
         [HttpGet]
         public async Task LogOut()
         {
-            var accessToken = _apiHealper.GetAccessTokenFromRequest(Request);
-            var logout = await _authSrvice.LogOut(accessToken);
-            if (logout)
-            {
-                _apiHealper.ClearUsersTokens(Response);
-            }
+            await _apiHealper.DoStandartSomething(
+              async () =>
+              {
+                  var accessToken = _apiHealper.GetAccessTokenFromRequest(Request);
+                  var logout = await _authSrvice.LogOut(accessToken);
+                  if (logout)
+                  {
+                      _apiHealper.ClearUsersTokens(Response);
+                  }
 
-            await _apiHealper.WriteReturnResponseAsync(Response, logout);
+                  await _apiHealper.WriteReturnResponseAsync(Response, logout);
+              }, Response, _logger);
+
         }
 
         [Route("refresh-access-token")]
         [HttpGet]
         public async Task RefreshAccessToken()
         {
-            var accessToken = _apiHealper.GetAccessTokenFromRequest(Request);
-            var refreshToken = _apiHealper.GetRefreshTokenFromRequest(Request);
+            await _apiHealper.DoStandartSomething(
+              async () =>
+              {
+                  var accessToken = _apiHealper.GetAccessTokenFromRequest(Request);
+                  var refreshToken = _apiHealper.GetRefreshTokenFromRequest(Request);
 
-            var allTokens = await _authSrvice.Refresh(accessToken, refreshToken);
-            await _apiHealper.WriteReturnResponseAsync(Response, allTokens);
+                  var allTokens = await _authSrvice.Refresh(accessToken, refreshToken);
+                  await _apiHealper.WriteReturnResponseAsync(Response, allTokens);
+              }, Response, _logger);
+
         }
 
 
     }
+
+
 }
