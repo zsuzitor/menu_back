@@ -24,6 +24,7 @@ namespace Menu.Models.DAL
             modelBuilder.Entity<User>().Property(x=>x.Email).IsRequired();
             modelBuilder.Entity<User>().HasIndex(x => x.Email).IsUnique();
             modelBuilder.Entity<User>().Property(x => x.Login).IsRequired();
+            //modelBuilder.Entity<User>().Property(x => x.Login).IsUnique();//TODO раскомментить
 
 
             modelBuilder.Entity<User>().HasMany(x => x.Articles).WithOne(x => x.User).HasForeignKey(x => x.UserId);

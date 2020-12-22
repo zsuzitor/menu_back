@@ -184,7 +184,7 @@ namespace Menu.Models.Healpers
         /// <param name="e"></param>
         private void ErrorFromCustomException(SomeCustomException e)
         {
-            if (!string.IsNullOrWhiteSpace(e.Message))
+            if (string.IsNullOrWhiteSpace(e.Message))
             {
                 return;
             }

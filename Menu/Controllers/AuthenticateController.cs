@@ -75,7 +75,7 @@ namespace Menu.Controllers
                   var tokens = await _authSrvice.Register(registerModel);
                   if (tokens == null)
                   {
-                      return;
+                      return;//что то пошло не так TODO
                   }
 
                   await _apiHealper.WriteReturnResponseAsync(Response, tokens);

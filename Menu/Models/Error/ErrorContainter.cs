@@ -27,6 +27,7 @@ namespace Menu.Models.Error
                 { "some_error", new OneError("some_error","Произошла неизвестная ошибка") },
                 { "not_found", new OneError("not_found","Не найдено") },
                 { "has_no_access", new OneError("has_no_access","Нет доступа") },
+                { "user_already_exist", new OneError("user_already_exist","Пользователь уже существует") },
             };
         }
     }

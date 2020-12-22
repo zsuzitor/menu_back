@@ -2,6 +2,7 @@
 
 using Menu.Models.DAL.Domain;
 using Menu.Models.DAL.Repositories.Interfaces;
+using Menu.Models.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
@@ -68,6 +69,16 @@ namespace Menu.Models.DAL.Repositories
         public async Task<User> GetByEmailAndPasswordHashAsync(string email, string passwordHash)
         {
             return await _db.Users.FirstOrDefaultAsync(x => x.Email == email && x.PasswordHash == passwordHash);
+        }
+
+        public async Task<bool> UserIsExist(string email, string login = null)
+        {
+            if (string.IsNullOrWhiteSpace(email) && string.IsNullOrWhiteSpace(login))
+            {
+                throw new SomeCustomException("не передан логин или почта");
+            }
+
+           return  await _db.Users.AnyAsync(x => x.Email == email || x.Login == login);
         }
 
         public async Task<User> CreateNewAsync(User newUser)

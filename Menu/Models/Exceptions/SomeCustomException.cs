@@ -4,6 +4,9 @@ namespace Menu.Models.Exceptions
 {
     public class SomeCustomException : Exception
     {
+        /// <summary>
+        /// если не задано то key пойдет как body на фронт, если не будет найден в обработчике ошибок
+        /// </summary>
         public string Body { get; set; }
 
 
@@ -24,7 +27,17 @@ namespace Menu.Models.Exceptions
 
         }
 
+        public SomeCustomException(string message, Exception innerExcp) : base(message, innerExcp)
+        {
+
+        }
+
         public SomeCustomException(string key, string body) : base(key)
+        {
+            Body = body;
+        }
+
+        public SomeCustomException(string key, string body, Exception innerExcp) : base(key, innerExcp)
         {
             Body = body;
         }
