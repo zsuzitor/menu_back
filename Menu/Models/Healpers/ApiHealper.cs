@@ -32,7 +32,7 @@ namespace Menu.Models.Healpers
         /// <summary>
         /// только для моделей по умолчанию, те 1 тип маппится тут только с 1 return типом
         /// </summary>
-        private readonly Dictionary<Type, IReturnObjectFactory> _dictReturn = new Dictionary<Type, IReturnObjectFactory>()
+        private readonly Dictionary<Type, IReturnObjectFactory> _dictReturn = new Dictionary<Type, IReturnObjectFactory>()//TODO сделать статик?
         {
             //можно в отдельный контейнер как с ошибками и его подключать и так для каждого "модуля", если в апе допустим menu+что то еще
             //можно сделать словарем делегатов у Func<object,object>
@@ -65,6 +65,13 @@ namespace Menu.Models.Healpers
         public async Task WriteReturnResponseAsync<T>(HttpResponse response, T data)
         {
             response.ContentType = _jsonContentType;
+            await response.WriteAsync(JsonSerializer.Serialize(GetReturnType(data)));
+        }
+
+        public async Task WriteReturnResponseAsync<T>(HttpResponse response, T data, int status)
+        {
+            response.ContentType = _jsonContentType;
+            response.StatusCode = status;
             await response.WriteAsync(JsonSerializer.Serialize(GetReturnType(data)));
         }
 
@@ -156,6 +163,11 @@ namespace Menu.Models.Healpers
             }
             catch (StopException)
             {
+            }
+            catch (NotAuthException e)
+            {
+                await WriteReturnResponseAsync(response, _errorService.GetErrorsObject(), 401);
+                return;
             }
             catch (Exception e)
             {

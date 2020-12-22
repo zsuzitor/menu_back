@@ -54,7 +54,7 @@ namespace Menu.Controllers
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     if (_errorService.HasError())
                     {
-                        throw new StopException();
+                        throw new NotAuthException();
                     }
 
                     var res = await _articleService.GetAllUsersArticlesShort(userInfo);
@@ -76,7 +76,7 @@ namespace Menu.Controllers
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     if (_errorService.HasError())
                     {
-                        throw new StopException();
+                        throw new NotAuthException();
                     }
 
                     var res = await _articleService.GetAllUsersArticles(userInfo);
@@ -95,7 +95,7 @@ namespace Menu.Controllers
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                    if (_errorService.HasError())
                    {
-                       throw new StopException();
+                       throw new NotAuthException();
                    }
 
                    var res = await _articleService.GetFullByIdIfAccess(articleId, userInfo);
@@ -114,7 +114,7 @@ namespace Menu.Controllers
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                    if (_errorService.HasError())
                    {
-                       throw new StopException();
+                       throw new NotAuthException();
                    }
 
                    bool? res = await _articleService.ChangeFollowStatus(id, userInfo);
@@ -133,11 +133,15 @@ namespace Menu.Controllers
                async () =>
                {
                    _errorService.ErrorsFromModelState(ModelState);
+                   if (_errorService.HasError())
+                   {
+                       throw new StopException();
+                   }
 
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                    if (_errorService.HasError())
                    {
-                       throw new StopException();
+                       throw new NotAuthException();
                    }
 
                    var newArticle = await _articleService.Create(newData, userInfo);
@@ -159,10 +163,15 @@ namespace Menu.Controllers
                    }
 
                    _errorService.ErrorsFromModelState(ModelState);
-                   var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                    if (_errorService.HasError())
                    {
                        throw new StopException();
+                   }
+
+                   var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                   if (_errorService.HasError())
+                   {
+                       throw new NotAuthException();
                    }
 
                    bool res = await _articleService.Edit(newData, userInfo);
