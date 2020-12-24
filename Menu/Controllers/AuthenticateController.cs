@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Menu.Models.Auth.InputModels;
 using Menu.Models.Auth.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Menu.Models.Healpers.Interfaces;
+using Menu.Models.Helpers.Interfaces;
 using Menu.Models.Error.services.Interfaces;
 using Microsoft.Extensions.Logging;
 //using NLog;
@@ -17,11 +17,11 @@ namespace Menu.Controllers
     public class AuthenticateController : ControllerBase
     {
         private readonly IAuthService _authSrvice;
-        private readonly IApiHealper _apiHealper;
+        private readonly IApiHelper _apiHealper;
         private readonly IErrorService _errorService;
         private readonly ILogger _logger;
 
-        public AuthenticateController(IErrorService errorService, IApiHealper apiHealper, IAuthService authSrvice, ILogger<AuthenticateController> logger)
+        public AuthenticateController(IErrorService errorService, IApiHelper apiHealper, IAuthService authSrvice, ILogger<AuthenticateController> logger)
         {
             _authSrvice = authSrvice;
             _apiHealper = apiHealper;
@@ -34,7 +34,7 @@ namespace Menu.Controllers
         // POST api/<AuthenticateController>/5
         [Route("login")]
         [HttpPost]
-        public async Task Login([FromForm] LoginModel loginModel)//[FromBody] LoginModel loginModel
+        public async Task Login([FromForm] LoginModel loginModel)
         {
             await _apiHealper.DoStandartSomething(
                async () =>
@@ -51,6 +51,7 @@ namespace Menu.Controllers
                        return;
                    }
 
+                   _apiHealper.SetUserTokens(Response, tokens);
                    await _apiHealper.WriteReturnResponseAsync(Response, tokens);
                }, Response, _logger);
 
@@ -78,6 +79,7 @@ namespace Menu.Controllers
                       return;//что то пошло не так TODO
                   }
 
+                  _apiHealper.SetUserTokens(Response, tokens);
                   await _apiHealper.WriteReturnResponseAsync(Response, tokens);
               }, Response, _logger);
 
@@ -113,6 +115,7 @@ namespace Menu.Controllers
                   var refreshToken = _apiHealper.GetRefreshTokenFromRequest(Request);
 
                   var allTokens = await _authSrvice.Refresh(accessToken, refreshToken);
+                  _apiHealper.SetUserTokens(Response, allTokens);
                   await _apiHealper.WriteReturnResponseAsync(Response, allTokens);
               }, Response, _logger);
 

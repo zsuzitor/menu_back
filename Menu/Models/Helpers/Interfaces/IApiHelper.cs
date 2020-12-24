@@ -1,14 +1,16 @@
 ﻿
 using jwtLib.JWTAuth.Interfaces;
+using jwtLib.JWTAuth.Models.Poco;
 using Menu.Models.Auth.Poco;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
 
-namespace Menu.Models.Healpers.Interfaces
+namespace Menu.Models.Helpers.Interfaces
 {
-    public interface IApiHealper
+    public interface IApiHelper
     {
         /// <summary>
         /// просто пишет в response
@@ -33,6 +35,11 @@ namespace Menu.Models.Healpers.Interfaces
         UserInfo CheckAuthorized(HttpRequest request, IJWTService jwtService, bool withError = false);
 
         Task DoStandartSomething(Func<Task> action, HttpResponse response, ILogger logger);
+
+        void SetUserTokens(HttpResponse response, AllTokens tokens);
+        void SetUserTokens(HttpResponse response, string accessToken, string refreshToken);
+
+        void StopIfModelStateError(ModelStateDictionary modelState);
 
 
         object GetReturnType<TIn>(TIn obj);

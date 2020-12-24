@@ -9,8 +9,8 @@ using Menu.Models.Error;
 using Menu.Models.Error.Interfaces;
 using Menu.Models.Error.services;
 using Menu.Models.Error.services.Interfaces;
-using Menu.Models.Healpers;
-using Menu.Models.Healpers.Interfaces;
+using Menu.Models.Helpers;
+using Menu.Models.Helpers.Interfaces;
 using Menu.Models.Services;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
@@ -50,7 +50,7 @@ namespace Menu
             services.AddScoped<IUserRepository, UserRepository>();
 
             //healpers
-            services.AddScoped<IApiHealper, ApiHealper>();
+            services.AddScoped<IApiHelper, ApiHelper>();
 
             //services
             services.AddScoped<IArticleService, ArticleService>();

@@ -6,20 +6,21 @@ using Menu.Models.Error;
 using Menu.Models.Error.Interfaces;
 using Menu.Models.Error.services.Interfaces;
 using Menu.Models.Exceptions;
-using Menu.Models.Healpers.Interfaces;
+using Menu.Models.Helpers.Interfaces;
 using Menu.Models.Poco;
 using Menu.Models.Returns;
 using Menu.Models.Returns.Interfaces;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Menu.Models.Healpers
+namespace Menu.Models.Helpers
 {
-    public class ApiHealper : IApiHealper
+    public class ApiHelper : IApiHelper
     {
         private readonly string _jsonContentType = "application/json";
         private readonly string _headerAccessToken = "Authorization_Access_Token";
@@ -46,9 +47,9 @@ namespace Menu.Models.Healpers
 
         };
 
-        
 
-        public ApiHealper(IErrorService errorService, IErrorContainer errorContainer)
+
+        public ApiHelper(IErrorService errorService, IErrorContainer errorContainer)
         {
             _errorService = errorService;
             _errorContainer = errorContainer;
@@ -76,10 +77,14 @@ namespace Menu.Models.Healpers
         }
 
 
-
+        /// <summary>
+        /// return null if can not get UI 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="jwtService"></param>
+        /// <returns></returns>
         public UserInfo GetUserInfoFromRequest(HttpRequest request, IJWTService jwtService)
         {
-
             var accessToken = GetAccessTokenFromRequest(request);
             var userId = jwtService.GetUserIdFromAccessToken(accessToken);
 
@@ -116,7 +121,24 @@ namespace Menu.Models.Healpers
             response.Headers.Remove(_headerRefreshToken);
         }
 
+        public void SetUserTokens(HttpResponse response, AllTokens tokens)
+        {
+            SetUserTokens(response, tokens.AccessToken, tokens.RefreshToken);
+        }
 
+        public void SetUserTokens(HttpResponse response, string accessToken, string refreshToken)
+        {
+            response.Cookies.Append(_headerAccessToken, accessToken);
+            response.Cookies.Append(_headerRefreshToken, refreshToken);
+        }
+
+
+        /// <summary>
+        /// get from cookies or headers
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         private string GetFromRequest(HttpRequest request, string key)
         {
             if (request.Cookies.TryGetValue(key, out var authorizationToken) && !string.IsNullOrWhiteSpace(authorizationToken))
@@ -137,10 +159,10 @@ namespace Menu.Models.Healpers
             var userInfo = GetUserInfoFromRequest(request, jwtService);
             if (userInfo == null || userInfo.UserId < 1)
             {
-                _errorService.AddError(_errorContainer.TryGetError("not_authorized"));
+                //_errorService.AddError(_errorContainer.TryGetError("not_authorized"));
                 if (withError)
                 {
-                    throw new SomeCustomException();
+                    throw new NotAuthException();
                 }
 
                 return null;
@@ -148,6 +170,7 @@ namespace Menu.Models.Healpers
 
             return userInfo;
         }
+
 
 
         public async Task DoStandartSomething(Func<Task> action, HttpResponse response, ILogger logger)
@@ -164,15 +187,20 @@ namespace Menu.Models.Healpers
             catch (StopException)
             {
             }
-            catch (NotAuthException e)
+            catch (NotAuthException)
             {
+                var error = _errorContainer.TryGetError(ErrorConsts.NotAuthorized);
+                if (error != null)
+                {
+                    _errorService.AddError(error);
+                }
                 await WriteReturnResponseAsync(response, _errorService.GetErrorsObject(), 401);
                 return;
             }
             catch (Exception e)
             {
-                _errorService.AddError(_errorContainer.TryGetError("some_error"));
-                logger?.LogError(e, "GetAllShortForUser");
+                _errorService.AddError(_errorContainer.TryGetError(ErrorConsts.SomeError));
+                logger?.LogError(e, ErrorConsts.SomeError);
             }
 
             await WriteReturnResponseAsync(response, _errorService.GetErrorsObject());
@@ -207,7 +235,7 @@ namespace Menu.Models.Healpers
             }
             else
             {
-                _errorService.AddError("some_error", e.Message);
+                _errorService.AddError(ErrorConsts.SomeError, e.Message);
             }
 
         }
@@ -224,6 +252,14 @@ namespace Menu.Models.Healpers
 
             return obj;
         }
+
+        public void StopIfModelStateError(ModelStateDictionary modelState)
+        {
+            if (_errorService.ErrorsFromModelState(modelState))
+            {
+                throw new StopException();
+            }
+        }
     }
-    
+
 }

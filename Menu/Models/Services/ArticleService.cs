@@ -3,6 +3,7 @@
 using Menu.Models.Auth.Poco;
 using Menu.Models.DAL.Domain;
 using Menu.Models.DAL.Repositories.Interfaces;
+using Menu.Models.Error;
 using Menu.Models.Error.Interfaces;
 using Menu.Models.Error.services.Interfaces;
 using Menu.Models.Exceptions;
@@ -35,13 +36,13 @@ namespace Menu.Models.Services
         {
             if (userInfo == null)
             {
-                throw new SomeCustomException("not_authorized");
+                throw new NotAuthException();
             }
 
-            var changed= await _articleRepository.ChangeFollowStatus(id, userInfo.UserId);
+            var changed = await _articleRepository.ChangeFollowStatus(id, userInfo.UserId);
             if (changed == null)
             {
-                throw new SomeCustomException("not_found");
+                throw new SomeCustomException(ErrorConsts.NotFound);
             }
 
             return (bool)changed;
@@ -52,7 +53,7 @@ namespace Menu.Models.Services
         {
             if (userInfo == null)
             {
-                throw new SomeCustomException("not_authorized");
+                throw new NotAuthException();
             }
 
             var article = ArticleFromInputModelNew(newArticle);
@@ -63,14 +64,14 @@ namespace Menu.Models.Services
 
                 article = await _articleRepository.Create(article);
 
-                
+
                 article.AdditionalImages = await _imageService.GetCreatableObjects(newArticle.AdditionalImages, article.Id);
 
                 return article;
             }
             catch
             {
-                
+
                 if (article.AdditionalImages?.Count > 0)
                 {
                     //TODO картинки надо попытаться удалить
@@ -87,12 +88,12 @@ namespace Menu.Models.Services
 
             if (userInfo == null)
             {
-                throw new SomeCustomException("not_authorized");
+                throw new NotAuthException();
             }
 
             if (newArticle?.Id == null)
             {
-                throw new SomeCustomException("id_is_required");
+                throw new SomeCustomException("id_is_required");//TODO
             }
 
             var oldObj = await GetByIdIfAccess((long)newArticle.Id, userInfo);
@@ -100,11 +101,11 @@ namespace Menu.Models.Services
 
             if (oldObj == null)
             {
-                throw new SomeCustomException("not_found");
+                throw new SomeCustomException(ErrorConsts.NotFound);
             }
 
             var oldImagesId = await _imageService.GetIdsByArticleId(oldObj.Id);
-            var changed =  FillArticleFromInputModelEdit(oldObj, newArticle);
+            var changed = FillArticleFromInputModelEdit(oldObj, newArticle);
 
 
             //TODO картинки
@@ -112,7 +113,7 @@ namespace Menu.Models.Services
             //newArticle.DeletedAdditionalImages;
 
             //oldObj.AdditionalImages.Where(x=>newArticle.DeletedAdditionalImages.Contains(x.Id));
-            
+
 
 
 
@@ -152,7 +153,7 @@ namespace Menu.Models.Services
         {
             if (userInfo == null)
             {
-                throw new SomeCustomException("not_authorized");
+                throw new NotAuthException();
             }
 
             return await _articleRepository.DeleteDeep(userInfo.UserId, articleId);
@@ -163,7 +164,7 @@ namespace Menu.Models.Services
         {
             if (userInfo == null)
             {
-                throw new SomeCustomException("not_authorized");
+                throw new NotAuthException();
             }
 
             return await _articleRepository.GetAllUsersArticles(userInfo.UserId);
@@ -173,7 +174,7 @@ namespace Menu.Models.Services
         {
             if (userInfo == null)
             {
-                throw new SomeCustomException("not_authorized");
+                throw new NotAuthException();
             }
 
             return await _articleRepository.GetAllUsersArticlesShort(userInfo.UserId);
@@ -188,7 +189,7 @@ namespace Menu.Models.Services
         {
             if (userInfo == null)
             {
-                throw new SomeCustomException("not_authorized");
+                throw new NotAuthException();
             }
 
             return await _articleRepository.GetByIdIfAccess(id, userInfo.UserId);
@@ -198,7 +199,7 @@ namespace Menu.Models.Services
         {
             if (userInfo == null)
             {
-                throw new SomeCustomException("not_authorized");
+                throw new NotAuthException();
             }
 
             var article = await _articleRepository.GetByIdIfAccess(id, userInfo.UserId);
@@ -221,7 +222,7 @@ namespace Menu.Models.Services
         }
 
         //для уже существующих объектов. , нет работы с картинками 
-        private  bool FillArticleFromInputModelEdit(Article baseArticle, ArticleInputModel model)
+        private bool FillArticleFromInputModelEdit(Article baseArticle, ArticleInputModel model)
         {
             bool changed = false;
             if (baseArticle.Body != model.Body)
