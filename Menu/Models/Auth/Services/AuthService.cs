@@ -3,7 +3,9 @@ using jwtLib.JWTAuth.Models.Poco;
 using Menu.Models.Auth.InputModels;
 using Menu.Models.Auth.Services.Interfaces;
 using Menu.Models.DAL.Domain;
+using Menu.Models.Error;
 using Menu.Models.Error.services.Interfaces;
+using Menu.Models.Exceptions;
 using Menu.Models.Services.Interfaces;
 using System.Threading.Tasks;
 
@@ -41,7 +43,10 @@ namespace Menu.Models.Auth.Services
         {
 
             var user = await _userService.GetByEmailAndPasswordAsync(loginModel.Email, loginModel.Password);
-
+            if(user == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
             return await _jwtService.CreateAndSetNewTokensAsync(user);
 
             //

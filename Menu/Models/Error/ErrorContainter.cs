@@ -23,9 +23,9 @@ namespace Menu.Models.Error
             StaticErrors = new Dictionary<string, OneError>()
             {
                 { "user_not_found", new OneError("user_not_found","Пользователь не найден") },
-                { "not_authorized", new OneError("not_authorized","Не авторизован") },
-                { "some_error", new OneError("some_error","Произошла неизвестная ошибка") },
-                { "not_found", new OneError("not_found","Не найдено") },
+                { ErrorConsts.NotAuthorized, new OneError(ErrorConsts.NotAuthorized,"Не авторизован") },
+                { ErrorConsts.SomeError, new OneError(ErrorConsts.SomeError,"Произошла неизвестная ошибка") },
+                { ErrorConsts.NotFound, new OneError(ErrorConsts.NotFound,"Не найдено") },
                 { "has_no_access", new OneError("has_no_access","Нет доступа") },
                 { "user_already_exist", new OneError("user_already_exist","Пользователь уже существует") },
             };

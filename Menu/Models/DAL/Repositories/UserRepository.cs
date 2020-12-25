@@ -4,6 +4,7 @@ using Menu.Models.DAL.Domain;
 using Menu.Models.DAL.Repositories.Interfaces;
 using Menu.Models.Exceptions;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Menu.Models.DAL.Repositories
@@ -68,6 +69,7 @@ namespace Menu.Models.DAL.Repositories
 
         public async Task<User> GetByEmailAndPasswordHashAsync(string email, string passwordHash)
         {
+           //var g= _db.Users.ToList();
             return await _db.Users.FirstOrDefaultAsync(x => x.Email == email && x.PasswordHash == passwordHash);
         }
 

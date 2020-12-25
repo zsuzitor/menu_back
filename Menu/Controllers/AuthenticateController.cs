@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Menu.Models.Helpers.Interfaces;
 using Menu.Models.Error.services.Interfaces;
 using Microsoft.Extensions.Logging;
+using Menu.Models.Exceptions;
+using Menu.Models.Error;
 //using NLog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -48,7 +50,7 @@ namespace Menu.Controllers
                    var tokens = await _authSrvice.Login(loginModel);
                    if (tokens == null)
                    {
-                       return;
+                       throw new SomeCustomException(ErrorConsts.SomeError);
                    }
 
                    _apiHealper.SetUserTokens(Response, tokens);
