@@ -101,7 +101,7 @@ namespace Menu.Controllers
                {
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                   bool? res = await _articleService.ChangeFollowStatus(id, userInfo);
+                   bool res = await _articleService.ChangeFollowStatus(id, userInfo);
 
                    await _apiHealper.WriteResponseAsync(Response, res);
                }, Response, _logger);

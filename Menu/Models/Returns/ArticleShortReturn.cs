@@ -1,10 +1,8 @@
 ﻿using Menu.Models.Poco;
 using Menu.Models.Returns.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace Menu.Models.Returns
 {
@@ -34,7 +32,7 @@ namespace Menu.Models.Returns
         public string Title { get; set; }
         [JsonPropertyName("body")]
         public string Body { get; set; }
-        [JsonPropertyName("main_image_path")]
+        [JsonPropertyName("image")]
         public string MainImagePath { get; set; }
         [JsonPropertyName("followed")]
         public bool Followed { get; set; }

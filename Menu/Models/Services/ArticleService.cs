@@ -31,7 +31,7 @@ namespace Menu.Models.Services
             _imageService = imageService;
         }
 
-        //return true если картонка зафоловлена после изменений
+        //
         public async Task<bool> ChangeFollowStatus(long id, UserInfo userInfo)
         {
             if (userInfo == null)

@@ -17,9 +17,14 @@ namespace Menu.Models.Services.Interfaces
         Task<Article> GetById(long id);
         Task<Article> GetByIdIfAccess(long id, UserInfo userInfo);
         Task<Article> GetFullByIdIfAccess(long id, UserInfo userInfo);
-        
 
 
+        /// <summary>
+        /// return true если картонка зафоловлена после изменений
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="userInfo"></param>
+        /// <returns></returns>
         Task<bool> ChangeFollowStatus(long id, UserInfo userInfo);
         Task<Article> Create(ArticleInputModel newArticle, UserInfo userInfo);
         Task<bool> Edit(ArticleInputModel newArticle, UserInfo userInfo);
