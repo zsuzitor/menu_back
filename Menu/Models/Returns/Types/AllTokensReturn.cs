@@ -2,7 +2,7 @@
 using Menu.Models.Returns.Interfaces;
 using System.Text.Json.Serialization;
 
-namespace Menu.Models.Returns
+namespace Menu.Models.Returns.Types
 {
     public class TokensReturnFactory : IReturnObjectFactory
     {

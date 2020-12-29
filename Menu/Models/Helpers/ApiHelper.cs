@@ -1,20 +1,16 @@
 ﻿using jwtLib.JWTAuth.Interfaces;
 using jwtLib.JWTAuth.Models.Poco;
 using Menu.Models.Auth.Poco;
-using Menu.Models.DAL.Domain;
 using Menu.Models.Error;
 using Menu.Models.Error.Interfaces;
 using Menu.Models.Error.services.Interfaces;
 using Menu.Models.Exceptions;
 using Menu.Models.Helpers.Interfaces;
-using Menu.Models.Poco;
-using Menu.Models.Returns;
 using Menu.Models.Returns.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -33,27 +29,15 @@ namespace Menu.Models.Helpers
         /// <summary>
         /// только для моделей по умолчанию, те 1 тип маппится тут только с 1 return типом
         /// </summary>
-        private readonly Dictionary<Type, IReturnObjectFactory> _dictReturn = new Dictionary<Type, IReturnObjectFactory>()//TODO сделать статик?
-        {
-            //можно в отдельный контейнер как с ошибками и его подключать и так для каждого "модуля", если в апе допустим menu+что то еще
-            //можно сделать словарем делегатов у Func<object,object>
-            {typeof(AllTokens),new TokensReturnFactory() },
-            {typeof(ErrorObject),new ErrorObjectReturnFactory () },
-            {typeof(ArticleShort),new ArticleShortReturnFactory() },
-            {typeof(Article),new ArticleFactory() },
-            {typeof(List<ArticleShort>),new ArticleShortReturnFactory() },
-            {typeof(List<Article>),new ArticleFactory() },
-            //TODO списки
-
-        };
+        private readonly IReturnContainer _returnContainer;
 
 
 
-        public ApiHelper(IErrorService errorService, IErrorContainer errorContainer)
+        public ApiHelper(IErrorService errorService, IErrorContainer errorContainer, IReturnContainer returnContainer)
         {
             _errorService = errorService;
             _errorContainer = errorContainer;
-
+            _returnContainer = returnContainer;
         }
 
 
@@ -63,12 +47,29 @@ namespace Menu.Models.Helpers
             await response.WriteAsync(JsonSerializer.Serialize(data));
         }
 
+        /// <summary>
+        /// map return type with return_type_container and write response
+        /// for write without mapping WriteResponseAsync
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="response"></param>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public async Task WriteReturnResponseAsync<T>(HttpResponse response, T data)
         {
             response.ContentType = _jsonContentType;
             await response.WriteAsync(JsonSerializer.Serialize(GetReturnType(data)));
         }
 
+        /// <summary>
+        /// map return type with return_type_container and write response
+        /// for write without mapping WriteResponseAsync
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="response"></param>
+        /// <param name="data"></param>
+        /// <param name="status"></param>
+        /// <returns></returns>
         public async Task WriteReturnResponseAsync<T>(HttpResponse response, T data, int status)
         {
             response.ContentType = _jsonContentType;
@@ -243,14 +244,7 @@ namespace Menu.Models.Helpers
 
         public object GetReturnType<TIn>(TIn obj)
         {
-            Type objType = typeof(TIn);
-            if (_dictReturn.ContainsKey(objType))
-            {
-                var factory = _dictReturn[objType];
-                return factory.GetObjectReturn(obj);
-            }
-
-            return obj;
+            return _returnContainer.GetReturnType(obj);
         }
 
         public void StopIfModelStateError(ModelStateDictionary modelState)

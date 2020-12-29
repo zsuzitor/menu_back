@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Menu.Models.Returns
+namespace Menu.Models.Returns.Types
 {
     public class CustomImageReturn
     {

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Menu.Models.Returns
+namespace Menu.Models.Returns.Types
 {
     public class OneErrorReturn
     {

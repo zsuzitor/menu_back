@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Menu.Models.Returns
+namespace Menu.Models.Returns.Types
 {
     public class ConverterToReturn//<T, V> where V : IConv<T, V>, new()
     {

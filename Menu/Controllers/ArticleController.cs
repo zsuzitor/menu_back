@@ -7,6 +7,7 @@ using Menu.Models.Error.services.Interfaces;
 using Menu.Models.Exceptions;
 using Menu.Models.Helpers.Interfaces;
 using Menu.Models.InputModels;
+using Menu.Models.Poco;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -103,7 +104,7 @@ namespace Menu.Controllers
 
                    bool res = await _articleService.ChangeFollowStatus(id, userInfo);
 
-                   await _apiHealper.WriteResponseAsync(Response, res);
+                   await _apiHealper.WriteResponseAsync(Response, new BoolResult(res));
                }, Response, _logger);
 
 
@@ -151,7 +152,7 @@ namespace Menu.Controllers
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                    bool res = await _articleService.Edit(newData, userInfo);
-                   await _apiHealper.WriteResponseAsync(Response, res);
+                   await _apiHealper.WriteResponseAsync(Response, new BoolResult(res));
                }, Response, _logger);
 
         }

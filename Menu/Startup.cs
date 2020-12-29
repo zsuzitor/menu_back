@@ -11,6 +11,8 @@ using Menu.Models.Error.services;
 using Menu.Models.Error.services.Interfaces;
 using Menu.Models.Helpers;
 using Menu.Models.Helpers.Interfaces;
+using Menu.Models.Returns;
+using Menu.Models.Returns.Interfaces;
 using Menu.Models.Services;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
@@ -51,6 +53,8 @@ namespace Menu
 
             //healpers
             services.AddScoped<IApiHelper, ApiHelper>();
+            services.AddScoped<IReturnContainer, ReturnContainer>();
+
 
             //services
             services.AddScoped<IArticleService, ArticleService>();
@@ -63,6 +67,8 @@ namespace Menu
             //auth
             services.InjectJwtAuth(Configuration);
             services.AddScoped<IAuthService, AuthService>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
