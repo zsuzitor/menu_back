@@ -152,7 +152,7 @@ namespace Menu.Controllers
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                    bool res = await _articleService.Edit(newData, userInfo);
-                   await _apiHealper.WriteResponseAsync(Response, new BoolResult(res));
+                   await _apiHealper.WriteReturnResponseAsync(Response, new BoolResult(res));
                }, Response, _logger);
 
         }

@@ -15,13 +15,13 @@ namespace Menu.Models.Returns
         {
             //можно в отдельный контейнер как с ошибками и его подключать и так для каждого "модуля", если в апе допустим menu+что то еще
             //можно сделать словарем делегатов у Func<object,object>
-            {typeof(AllTokens),new TokensReturnFactory() },
-            {typeof(ErrorObject),new ErrorObjectReturnFactory () },
-            {typeof(ArticleShort),new ArticleShortReturnFactory() },
-            {typeof(Article),new ArticleFactory() },
-            {typeof(List<ArticleShort>),new ArticleShortReturnFactory() },
-            {typeof(List<Article>),new ArticleFactory() },
-             {typeof(List<BoolResult>),new BoolResultFactory() },
+            {typeof(AllTokens), new TokensReturnFactory() },
+            {typeof(ErrorObject), new ErrorObjectReturnFactory () },
+            {typeof(ArticleShort), new ArticleShortReturnFactory() },
+            {typeof(Article), new ArticleFactory() },
+            {typeof(List<ArticleShort>), new ArticleShortReturnFactory() },
+            {typeof(List<Article>), new ArticleFactory() },
+             {typeof(BoolResult), new BoolResultFactory() },
             //TODO списки
 
         };

@@ -8,7 +8,7 @@ namespace Menu.Models.Poco
 
         public BoolResult(bool result)
         {
-
+            Result = result;
         }
     }
 }
