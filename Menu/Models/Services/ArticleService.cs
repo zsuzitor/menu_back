@@ -203,6 +203,10 @@ namespace Menu.Models.Services
             }
 
             var article = await _articleRepository.GetByIdIfAccess(id, userInfo.UserId);
+            if (article == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
             await _articleRepository.LoadImages(article);
             return article;
         }

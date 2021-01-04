@@ -80,14 +80,14 @@ namespace Menu.Controllers
 
         [Route("detail")]
         [HttpGet]
-        public async Task Detail(long articleId)
+        public async Task Detail( long id)//[FromQuery]
         {
             await _apiHealper.DoStandartSomething(
                async () =>
                {
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                   var res = await _articleService.GetFullByIdIfAccess(articleId, userInfo);
+                   var res = await _articleService.GetFullByIdIfAccess(id, userInfo);
                    await _apiHealper.WriteReturnResponseAsync(Response, res);
                }, Response, _logger);
 
@@ -95,7 +95,7 @@ namespace Menu.Controllers
 
         [Route("follow")]
         [HttpPatch]
-        public async Task Follow(long id)
+        public async Task Follow([FromForm] long id)
         {
             await _apiHealper.DoStandartSomething(
                async () =>
@@ -104,7 +104,7 @@ namespace Menu.Controllers
 
                    bool res = await _articleService.ChangeFollowStatus(id, userInfo);
 
-                   await _apiHealper.WriteResponseAsync(Response, new BoolResult(res));
+                   await _apiHealper.WriteReturnResponseAsync(Response, new BoolResult(res));
                }, Response, _logger);
 
 
