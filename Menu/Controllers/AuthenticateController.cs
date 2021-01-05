@@ -107,7 +107,7 @@ namespace Menu.Controllers
         }
 
         [Route("refresh-access-token")]
-        [HttpGet]
+        [HttpPost]
         public async Task RefreshAccessToken()
         {
             await _apiHealper.DoStandartSomething(
@@ -117,6 +117,10 @@ namespace Menu.Controllers
                   var refreshToken = _apiHealper.GetRefreshTokenFromRequest(Request);
 
                   var allTokens = await _authSrvice.Refresh(accessToken, refreshToken);
+                  if (allTokens == null)
+                  {
+                      throw new NotAuthException();
+                  }
                   _apiHealper.SetUserTokens(Response, allTokens);
                   await _apiHealper.WriteReturnResponseAsync(Response, allTokens);
               }, Response, _logger);

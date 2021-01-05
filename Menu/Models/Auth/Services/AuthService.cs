@@ -74,7 +74,7 @@ namespace Menu.Models.Auth.Services
 
         public async Task<bool> LogOut(string accessToken)
         {
-            var userId = _jwtService.GetUserIdFromAccessToken(accessToken);
+            var userId = _jwtService.GetUserIdFromAccessTokenIfCan(accessToken);
             if (string.IsNullOrWhiteSpace(userId) || !long.TryParse(userId, out long userIdLong))
             {
                 return false;
@@ -86,7 +86,7 @@ namespace Menu.Models.Auth.Services
 
         public async Task<AllTokens> Refresh(string accessToken, string refreshToken)
         {
-            var userId = _jwtService.GetUserIdFromAccessToken(accessToken);
+            var userId = _jwtService.GetUserIdFromAccessTokenIfCan(accessToken);
             if (string.IsNullOrWhiteSpace(userId) || !long.TryParse(userId, out _))
             {
                 return null;

@@ -124,13 +124,21 @@ namespace Menu.Models.Helpers
 
         public void SetUserTokens(HttpResponse response, AllTokens tokens)
         {
-            SetUserTokens(response, tokens.AccessToken, tokens.RefreshToken);
+            SetUserTokens(response, tokens?.AccessToken, tokens?.RefreshToken);
         }
 
         public void SetUserTokens(HttpResponse response, string accessToken, string refreshToken)
         {
-            response.Cookies.Append(_headerAccessToken, accessToken);
-            response.Cookies.Append(_headerRefreshToken, refreshToken);
+            ClearUsersTokens(response);
+            if (!string.IsNullOrWhiteSpace(accessToken))
+            {
+                response.Cookies.Append(_headerAccessToken, accessToken);
+            }
+            if (!string.IsNullOrWhiteSpace(refreshToken))
+            {
+                response.Cookies.Append(_headerRefreshToken, refreshToken);
+            }
+
         }
 
 
