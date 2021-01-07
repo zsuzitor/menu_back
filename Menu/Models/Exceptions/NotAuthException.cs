@@ -11,5 +11,15 @@ namespace Menu.Models.Exceptions
         {
 
         }
+
+        public NotAuthException(string message) : base(message)
+        {
+
+        }
+
+        public NotAuthException(string message, Exception innerExc) : base(message, innerExc)
+        {
+
+        }
     }
 }

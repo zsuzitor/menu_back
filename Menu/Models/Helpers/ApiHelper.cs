@@ -87,6 +87,7 @@ namespace Menu.Models.Helpers
         public UserInfo GetUserInfoFromRequest(HttpRequest request, IJWTService jwtService)
         {
             var accessToken = GetAccessTokenFromRequest(request);
+
             var userId = jwtService.GetUserIdFromAccessToken(accessToken);
 
             if (!long.TryParse(userId, out long userIdLong))
@@ -101,6 +102,7 @@ namespace Menu.Models.Helpers
             };
 
             return res;
+
         }
 
         public string GetAccessTokenFromRequest(HttpRequest request)
@@ -165,19 +167,31 @@ namespace Menu.Models.Helpers
 
         public UserInfo CheckAuthorized(HttpRequest request, IJWTService jwtService, bool withError = false)
         {
-            var userInfo = GetUserInfoFromRequest(request, jwtService);
-            if (userInfo == null || userInfo.UserId < 1)
+            try
             {
-                //_errorService.AddError(_errorContainer.TryGetError("not_authorized"));
-                if (withError)
+                var userInfo = GetUserInfoFromRequest(request, jwtService);
+                if (userInfo == null || userInfo.UserId < 1)
                 {
-                    throw new NotAuthException();
+                    //_errorService.AddError(_errorContainer.TryGetError("not_authorized"));
+                    if (withError)
+                    {
+                        throw new NotAuthException();
+                    }
+
+                    return null;
                 }
 
-                return null;
+                return userInfo;
+            }
+            catch(Exception e)
+            {
+                if (withError)
+                {
+                    throw new NotAuthException("jwt_service_error", e);
+                }
             }
 
-            return userInfo;
+            return null;
         }
 
 
