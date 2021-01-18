@@ -18,8 +18,9 @@ namespace Menu.Models.Services.Interfaces
         /// <param name="images"></param>
         /// <param name="articleId"></param>
         /// <returns></returns>
-        Task<List<CustomImage>> GetCreatableObjects(List<IFormFile> images, long articleId);
+        Task<List<CustomImage>> GetCreatableUploadObjects(List<IFormFile> images, long articleId);
         Task<string> CreatePhysicalFile(IFormFile image);
+        Task<string> CreatePhysicalUploadFile(IFormFile image);
 
         Task<bool> DeletePhysicalFile(string path);
         Task<CustomImage> DeleteById(long idImage);

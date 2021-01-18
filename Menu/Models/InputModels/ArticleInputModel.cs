@@ -18,6 +18,9 @@ namespace Menu.Models.InputModels
         [BindProperty(Name = "body", SupportsGet = false)]
         public string Body { get; set; }
 
+        /// <summary>
+        /// we need CLEAR main image(not change, clear!)
+        /// </summary>
         [BindProperty(Name = "delete_main_image", SupportsGet = false)]
         public bool? DeleteMainImage { get; set; }
         [BindProperty(Name = "main_image_new", SupportsGet = false)]

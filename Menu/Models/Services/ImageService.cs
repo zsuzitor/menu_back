@@ -32,7 +32,7 @@ namespace Menu.Models.Services
                 return null;
             }
 
-            var physImg = await CreatePhysicalFile(image);
+            var physImg = await CreatePhysicalUploadFile(image);
 
             var res = new CustomImage()
             {
@@ -44,10 +44,15 @@ namespace Menu.Models.Services
             return res;
         }
 
-       
-        public async Task<List<CustomImage>> GetCreatableObjects(List<IFormFile> images, long articleId)
+        /// <summary>
+        /// создает физ файлы но не добавляет их в бд
+        /// </summary>
+        /// <param name="images"></param>
+        /// <param name="articleId"></param>
+        /// <returns></returns>
+        public async Task<List<CustomImage>> GetCreatableUploadObjects(List<IFormFile> images, long articleId)
         {
-            if (images == null|| images.Count==0)
+            if (images == null || images.Count == 0)
             {
                 return null;
             }
@@ -65,14 +70,21 @@ namespace Menu.Models.Services
                 imagesForAdd.Add(img);
             }
 
-            _db.Images.AddRange(imagesForAdd);
-            await _db.SaveChangesAsync();
+            //_db.Images.AddRange(imagesForAdd);
+            //await _db.SaveChangesAsync();
             return imagesForAdd;
         }
 
+
+        /// <summary>
+        /// возвращает готовые созданные объекты
+        /// </summary>
+        /// <param name="images"></param>
+        /// <param name="articleId"></param>
+        /// <returns></returns>
         public async Task<List<CustomImage>> Upload(List<IFormFile> images, long articleId)
         {
-            var res=await GetCreatableObjects(images, articleId);
+            var res = await GetCreatableUploadObjects(images, articleId);
             if (res == null)
             {
                 return null;
@@ -86,26 +98,25 @@ namespace Menu.Models.Services
 
         public async Task<string> CreatePhysicalFile(IFormFile image)
         {
-            if (image == null)
-            {
-                return null;
-            }
+            return await CreatePhysicalFile(image, string.Empty);
+        }
 
-            string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images");
-            string uniqueFileName = Guid.NewGuid().ToString() + "_" + image.FileName;
-            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-            using (var fileStream = new FileStream(filePath, FileMode.Create))//TODO будет ли тут исключение если файл существует?
-            {
-                await image.CopyToAsync(fileStream);
-            }
-
-            return uniqueFileName;
+        public async Task<string> CreatePhysicalUploadFile(IFormFile image)
+        {
+            return await CreatePhysicalFile(image, "uploads");
         }
 
 
+
+        /// <summary>
+        ///  без какой либо валидации
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public async Task<bool> DeletePhysicalFile(string path)
         {
             //TODO возможно вообще не удалять физический файлы
+            //TODO ну вернется false и как это обработать?
             if (string.IsNullOrWhiteSpace(path))
             {
                 return true;
@@ -129,8 +140,8 @@ namespace Menu.Models.Services
 
         public async Task<CustomImage> DeleteById(long idImage)
         {
-            var imgFromDb = await _db.Images.FirstOrDefaultAsync(x => x.Id==idImage);
-            if(imgFromDb==null)
+            var imgFromDb = await _db.Images.FirstOrDefaultAsync(x => x.Id == idImage);
+            if (imgFromDb == null)
             {
                 return null;
             }
@@ -139,7 +150,7 @@ namespace Menu.Models.Services
 
         public async Task<List<long>> GetIdsByArticleId(long idArticle)
         {
-            return await _db.Images.Where(x=>x.ArticleId==idArticle).Select(x=>x.Id).ToListAsync();
+            return await _db.Images.Where(x => x.ArticleId == idArticle).Select(x => x.Id).ToListAsync();
         }
 
         //до вызова надо проверить можно ли получить доступ
@@ -173,6 +184,25 @@ namespace Menu.Models.Services
             return images;
         }
 
+
+
+        private async Task<string> CreatePhysicalFile(IFormFile image, string subPath)
+        {
+            if (image == null)
+            {
+                return null;
+            }
+
+            string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", subPath);
+            string uniqueFileName = Guid.NewGuid().ToString() + "_" + image.FileName;
+            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+            using (var fileStream = new FileStream(filePath, FileMode.Create))//TODO будет ли тут исключение если файл существует?
+            {
+                await image.CopyToAsync(fileStream);
+            }
+
+            return uniqueFileName;
+        }
 
     }
 }

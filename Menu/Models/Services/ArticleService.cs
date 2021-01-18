@@ -60,12 +60,12 @@ namespace Menu.Models.Services
             article.UserId = userInfo.UserId;
             try
             {
-                article.MainImagePath = await _imageService.CreatePhysicalFile(newArticle.MainImageNew);
+                article.MainImagePath = await _imageService.CreatePhysicalUploadFile(newArticle.MainImageNew);
 
                 article = await _articleRepository.Create(article);
 
 
-                article.AdditionalImages = await _imageService.GetCreatableObjects(newArticle.AdditionalImages, article.Id);
+                article.AdditionalImages = await _imageService.Upload(newArticle.AdditionalImages, article.Id);
 
                 return article;
             }
@@ -83,7 +83,7 @@ namespace Menu.Models.Services
 
 
 
-        public async Task<bool> Edit(ArticleInputModel newArticle, UserInfo userInfo)
+        public async Task<Article> Edit(ArticleInputModel newArticle, UserInfo userInfo)
         {
 
             if (userInfo == null)
@@ -106,31 +106,29 @@ namespace Menu.Models.Services
 
             var oldImagesId = await _imageService.GetIdsByArticleId(oldObj.Id);
             var changed = FillArticleFromInputModelEdit(oldObj, newArticle);
-
-
-            //TODO картинки
-
-            //newArticle.DeletedAdditionalImages;
-
-            //oldObj.AdditionalImages.Where(x=>newArticle.DeletedAdditionalImages.Contains(x.Id));
-
-
+            
 
 
             if (newArticle.MainImageNew != null)
             {
                 await _imageService.DeletePhysicalFile(oldObj.MainImagePath);
-                oldObj.MainImagePath = await _imageService.CreatePhysicalFile(newArticle.MainImageNew);
+                oldObj.MainImagePath = await _imageService.CreatePhysicalUploadFile(newArticle.MainImageNew);
+                changed = true;
+            }
+            else if (newArticle.DeleteMainImage ?? false && !string.IsNullOrWhiteSpace(oldObj.MainImagePath))
+            {
+                await _imageService.DeletePhysicalFile(oldObj.MainImagePath);
+                oldObj.MainImagePath = null;
+                changed = true;
 
             }
-
 
             if (changed)//?
             {
                 await _articleRepository.Edit(oldObj);
             }
 
-            var newImages = await _imageService.GetCreatableObjects(newArticle.AdditionalImages, oldObj.Id);
+            var newImages = await _imageService.Upload(newArticle.AdditionalImages, oldObj.Id);
 
             //удаляем в конце тк самая неважная операция и самая ломающая
             var imageForDelete = new List<long>();
@@ -146,7 +144,7 @@ namespace Menu.Models.Services
 
             var deletedImages = await _imageService.DeleteById(imageForDelete);
 
-            return true;
+            return oldObj;
         }
 
         public async Task<Article> Delete(long articleId, UserInfo userInfo)
@@ -241,14 +239,7 @@ namespace Menu.Models.Services
                 changed = true;
             }
 
-            if (model.DeleteMainImage ?? false)
-            {
-                if (baseArticle.MainImagePath != null)
-                {
-                    changed = true;
-                }
-                baseArticle.MainImagePath = null;
-            }
+            
 
             return changed;
         }

@@ -41,6 +41,7 @@ namespace Menu.Controllers
             await _apiHealper.DoStandartSomething(
                async () =>
                {
+                   //throw new System.Exception();
                    if (_errorService.ErrorsFromModelState(ModelState))
                    {
                        await _apiHealper.WriteReturnResponseAsync(Response, _errorService.GetErrorsObject());

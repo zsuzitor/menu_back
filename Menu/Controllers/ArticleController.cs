@@ -135,6 +135,7 @@ namespace Menu.Controllers
         [HttpPatch]
         public async Task Edit([FromForm] ArticleInputModel newData)
         {
+            //ArticleInputModel newData = null;
             await _apiHealper.DoStandartSomething(
                async () =>
                {
@@ -151,8 +152,8 @@ namespace Menu.Controllers
 
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                   bool res = await _articleService.Edit(newData, userInfo);
-                   await _apiHealper.WriteReturnResponseAsync(Response, new BoolResult(res));
+                   var res = await _articleService.Edit(newData, userInfo);
+                   await _apiHealper.WriteReturnResponseAsync(Response, res);
                }, Response, _logger);
 
         }

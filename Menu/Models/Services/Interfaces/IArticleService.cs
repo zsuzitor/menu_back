@@ -27,7 +27,7 @@ namespace Menu.Models.Services.Interfaces
         /// <returns></returns>
         Task<bool> ChangeFollowStatus(long id, UserInfo userInfo);
         Task<Article> Create(ArticleInputModel newArticle, UserInfo userInfo);
-        Task<bool> Edit(ArticleInputModel newArticle, UserInfo userInfo);
+        Task<Article> Edit(ArticleInputModel newArticle, UserInfo userInfo);
         
         Task<Article> Delete(long articleId, UserInfo userInfo);
     }
