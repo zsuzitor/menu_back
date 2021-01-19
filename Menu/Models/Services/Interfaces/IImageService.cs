@@ -28,5 +28,6 @@ namespace Menu.Models.Services.Interfaces
         Task<List<CustomImage>> DeleteById(List<long> idImages);
         Task<List<CustomImage>> DeleteFull(List<CustomImage> images);
 
+        string GetRelativePath(string subPath);
     }
 }

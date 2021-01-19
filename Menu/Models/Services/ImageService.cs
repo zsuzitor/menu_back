@@ -60,7 +60,7 @@ namespace Menu.Models.Services
             List<CustomImage> imagesForAdd = new List<CustomImage>();
             foreach (var uploadedImg in images)
             {
-                var physImg = await CreatePhysicalFile(uploadedImg);
+                var physImg = await CreatePhysicalUploadFile(uploadedImg);
 
                 var img = new CustomImage()
                 {
@@ -193,15 +193,27 @@ namespace Menu.Models.Services
                 return null;
             }
 
-            string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", subPath);
             string uniqueFileName = Guid.NewGuid().ToString() + "_" + image.FileName;
-            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+            string resPath = Path.Combine(subPath, uniqueFileName); 
+            //string uploadsFolder = Path.Combine("images", resPath);
+
+            string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", resPath);
             using (var fileStream = new FileStream(filePath, FileMode.Create))//TODO будет ли тут исключение если файл существует?
             {
                 await image.CopyToAsync(fileStream);
             }
 
-            return uniqueFileName;
+            return resPath;
+        }
+
+        /// <summary>
+        /// везде путь хранится от серва а от какой то папка картинок, например wwwroot\images\{savedPath}, в таком случае вернет  images\{savedPath}
+        /// </summary>
+        /// <param name="subPath"></param>
+        /// <returns></returns>
+        public string GetRelativePath(string subPath)
+        {
+            return Path.Combine("images", subPath);
         }
 
     }
