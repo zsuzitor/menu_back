@@ -104,7 +104,7 @@ namespace Menu.Models.Services
                 throw new SomeCustomException(ErrorConsts.NotFound);
             }
 
-            var oldImagesId = await _imageService.GetIdsByArticleId(oldObj.Id);
+            
             var changed = FillArticleFromInputModelEdit(oldObj, newArticle);
             
 
@@ -131,18 +131,24 @@ namespace Menu.Models.Services
             var newImages = await _imageService.Upload(newArticle.AdditionalImages, oldObj.Id);
 
             //удаляем в конце тк самая неважная операция и самая ломающая
-            var imageForDelete = new List<long>();
+            
             //var imageNewList = new List<CustomImage>();
 
-            foreach (var oldImage in oldImagesId)
+            if (newArticle.DeletedAdditionalImages.Count > 0)
             {
-                if (newArticle.DeletedAdditionalImages.Contains(oldImage))
+                var imageForDelete = new List<long>();
+                var oldImagesId = await _imageService.GetIdsByArticleId(oldObj.Id);
+                foreach (var oldImage in oldImagesId)
                 {
-                    imageForDelete.Add(oldImage);
+                    if (newArticle.DeletedAdditionalImages.Contains(oldImage))
+                    {
+                        imageForDelete.Add(oldImage);
+                    }
                 }
-            }
 
-            var deletedImages = await _imageService.DeleteById(imageForDelete);
+                var deletedImages = await _imageService.DeleteById(imageForDelete);
+            }
+            
 
             return oldObj;
         }

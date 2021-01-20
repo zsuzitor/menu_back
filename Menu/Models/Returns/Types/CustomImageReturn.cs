@@ -1,9 +1,5 @@
 ﻿using Menu.Models.DAL.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace Menu.Models.Returns.Types
 {

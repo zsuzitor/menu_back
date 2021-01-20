@@ -28,10 +28,10 @@ namespace Menu.Models.Returns.Types
         
     }
 
-    public interface IConv<T,V>
-    {
-        V Convert(T obj);
-    }
+    //public interface IConv<T,V>
+    //{
+    //    V Convert(T obj);
+    //}
 
     public class ArticleReturn
     {

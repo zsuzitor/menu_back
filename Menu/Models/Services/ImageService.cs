@@ -85,9 +85,9 @@ namespace Menu.Models.Services
         public async Task<List<CustomImage>> Upload(List<IFormFile> images, long articleId)
         {
             var res = await GetCreatableUploadObjects(images, articleId);
-            if (res == null)
+            if (res == null || res.Count == 0)
             {
-                return null;
+                return new List<CustomImage>();
             }
 
             _db.Images.AddRange(res);
@@ -156,7 +156,7 @@ namespace Menu.Models.Services
         //до вызова надо проверить можно ли получить доступ
         public async Task<List<CustomImage>> DeleteById(List<long> idImages)
         {
-            if (idImages == null || idImages?.Count == 0)
+            if (idImages == null || idImages.Count == 0)
             {
                 return new List<CustomImage>();
             }
