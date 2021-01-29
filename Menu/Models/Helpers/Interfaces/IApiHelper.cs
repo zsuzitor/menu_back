@@ -1,7 +1,7 @@
 ﻿
 using jwtLib.JWTAuth.Interfaces;
 using jwtLib.JWTAuth.Models.Poco;
-using Menu.Models.Auth.Poco;
+using Common.Models.Auth.Poco;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;

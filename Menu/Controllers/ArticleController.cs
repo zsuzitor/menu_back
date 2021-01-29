@@ -2,13 +2,13 @@
 using System;
 using System.Threading.Tasks;
 using jwtLib.JWTAuth.Interfaces;
-using Menu.Models.Error.Interfaces;
-using Menu.Models.Error.services.Interfaces;
-using Menu.Models.Exceptions;
+using Common.Models.Error.Interfaces;
+using Common.Models.Error.services.Interfaces;
+using Common.Models.Exceptions;
 using Menu.Models.Helpers.Interfaces;
 using Menu.Models.InputModels;
-using Menu.Models.Poco;
-using Menu.Models.Services.Interfaces;
+using Common.Models.Poco;
+using Common.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
