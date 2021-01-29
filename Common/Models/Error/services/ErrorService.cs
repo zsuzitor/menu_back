@@ -1,5 +1,4 @@
 ﻿using Common.Models.Error.services.Interfaces;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -67,35 +66,6 @@ namespace Common.Models.Error.services
             return _errors.Count > 0;
         }
 
-        //return true если есть ошибки
-        public bool ErrorsFromModelState(ModelStateDictionary modelState)
-        {
-            if (modelState.IsValid)
-            {
-                return false;
-            }
-
-            //var errors = modelState.ToList();
-            //if (errors.Count == 0)
-            //{
-            //    return false;
-            //}
-
-
-            foreach (var keyInput in modelState.Keys)
-            {
-                var input = modelState[keyInput];
-
-                if (input.Errors.Count == 0)
-                {
-                    continue;
-                }
-
-                var errObj = new OneError(keyInput, input.Errors.Select(x => x.ErrorMessage).ToList());
-                AddError(errObj);
-            }
-
-            return HasError();
-        }
+       
     }
 }

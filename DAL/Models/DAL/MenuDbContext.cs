@@ -1,7 +1,7 @@
 ﻿using Common.Models.DAL.Domain;
 using Microsoft.EntityFrameworkCore;
 
-namespace Common.Models.DAL
+namespace DAL.Models.DAL
 {
     public class MenuDbContext : DbContext
     {

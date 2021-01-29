@@ -1,13 +1,13 @@
 ﻿
 
-using Common.Models.Auth.Poco;
+using Auth.Models.Auth.Poco;
 using Common.Models.DAL.Domain;
-using Common.Models.InputModels;
+using Menu.Models.InputModels;
 using Common.Models.Poco;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Common.Models.Services.Interfaces
+namespace Menu.Models.Services.Interfaces
 {
     public interface IArticleService
     {

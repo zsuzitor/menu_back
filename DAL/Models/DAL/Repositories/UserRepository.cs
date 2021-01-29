@@ -1,13 +1,13 @@
 ﻿
 
 using Common.Models.DAL.Domain;
-using Common.Models.DAL.Repositories.Interfaces;
+using DAL.Models.DAL.Repositories.Interfaces;
 using Common.Models.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Common.Models.DAL.Repositories
+namespace DAL.Models.DAL.Repositories
 {
     public class UserRepository: IUserRepository
     {

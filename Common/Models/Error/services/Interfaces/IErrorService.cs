@@ -1,6 +1,5 @@
 ﻿
 
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
 
 namespace Common.Models.Error.services.Interfaces
@@ -12,6 +11,6 @@ namespace Common.Models.Error.services.Interfaces
         bool HasError();
         List<OneError> GetErrors();
         ErrorObject GetErrorsObject();
-        bool ErrorsFromModelState(ModelStateDictionary modelState);
+       
     }
 }

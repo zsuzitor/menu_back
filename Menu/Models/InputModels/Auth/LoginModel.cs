@@ -3,7 +3,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-namespace Menu.Models.Auth.InputModels
+namespace Menu.Models.InputModels.Auth
 {
     public class LoginModel //:IValidatableObject
     {

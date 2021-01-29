@@ -1,8 +1,8 @@
 ﻿
 
 using jwtLib.JWTAuth.Interfaces;
-using Menu.Models.DAL.Domain;
-using Menu.Models.Services.Interfaces;
+using Common.Models.DAL.Domain;
+using Common.Models.Services.Interfaces;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;

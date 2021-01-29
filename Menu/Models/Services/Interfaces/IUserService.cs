@@ -1,9 +1,9 @@
 ﻿
 
-using Menu.Models.DAL.Domain;
+using Common.Models.DAL.Domain;
 using System.Threading.Tasks;
 
-namespace Common.Models.Services.Interfaces
+namespace Menu.Models.Services.Interfaces
 {
     public interface IUserService
     {

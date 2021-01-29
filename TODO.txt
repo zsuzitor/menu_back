@@ -15,7 +15,8 @@
 валидация картинок - вес названия расширение
 
 
-
+вынесте в сервис
+E:\csharp\Menu\Back\Menu\DAL\Models\DAL\Repositories\ArticleRepository.cs
 
 
 

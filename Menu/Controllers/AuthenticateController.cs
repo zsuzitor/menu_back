@@ -1,13 +1,13 @@
 ﻿
 using System.Threading.Tasks;
-using Menu.Models.Auth.InputModels;
-using Menu.Models.Auth.Services.Interfaces;
+using Menu.Models.InputModels.Auth;
+using Auth.Models.Auth.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Menu.Models.Helpers.Interfaces;
-using Menu.Models.Error.services.Interfaces;
+using Common.Models.Error.services.Interfaces;
 using Microsoft.Extensions.Logging;
-using Menu.Models.Exceptions;
-using Menu.Models.Error;
+using Common.Models.Exceptions;
+using Common.Models.Error;
 //using NLog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -42,7 +42,7 @@ namespace Menu.Controllers
                async () =>
                {
                    //throw new System.Exception();
-                   if (_errorService.ErrorsFromModelState(ModelState))
+                   if (_apiHealper.ErrorsFromModelState(ModelState))
                    {
                        await _apiHealper.WriteReturnResponseAsync(Response, _errorService.GetErrorsObject());
                        return;
@@ -70,7 +70,7 @@ namespace Menu.Controllers
               async () =>
               {
                   //RegisterModel registerModel=null;
-                  if (_errorService.ErrorsFromModelState(ModelState))
+                  if (_apiHealper.ErrorsFromModelState(ModelState))
                   {
                       await _apiHealper.WriteReturnResponseAsync(Response, _errorService.GetErrorsObject());
                       return;

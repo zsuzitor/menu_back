@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Common.Models.Services.Interfaces
+namespace Menu.Models.Services.Interfaces
 {
     public interface IImageService
     {

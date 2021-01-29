@@ -1,7 +1,7 @@
 ﻿using Common.Models.DAL.Domain;
 using System.Threading.Tasks;
 
-namespace Common.Models.DAL.Repositories.Interfaces
+namespace DAL.Models.DAL.Repositories.Interfaces
 {
     public interface IUserRepository
     {

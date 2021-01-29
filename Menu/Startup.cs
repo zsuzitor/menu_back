@@ -1,10 +1,10 @@
 ﻿
-using Menu.Models.Auth;
-using Common.Models.Auth.Services;
-using Common.Models.Auth.Services.Interfaces;
-using Common.Models.DAL;
-using Common.Models.DAL.Repositories;
-using Common.Models.DAL.Repositories.Interfaces;
+using Auth.Models.Auth;
+using Auth.Models.Auth.Services;
+using Auth.Models.Auth.Services.Interfaces;
+using DAL.Models.DAL;
+using DAL.Models.DAL.Repositories;
+using DAL.Models.DAL.Repositories.Interfaces;
 using Common.Models.Error;
 using Common.Models.Error.Interfaces;
 using Common.Models.Error.services;
@@ -13,8 +13,8 @@ using Menu.Models.Helpers;
 using Menu.Models.Helpers.Interfaces;
 using Common.Models.Returns;
 using Common.Models.Returns.Interfaces;
-using Common.Models.Services;
-using Common.Models.Services.Interfaces;
+using Menu.Models.Services;
+using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;

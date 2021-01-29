@@ -1,20 +1,20 @@
 ﻿
 
-using Common.Models.Auth.Poco;
+using Auth.Models.Auth.Poco;
 using Common.Models.DAL.Domain;
-using Common.Models.DAL.Repositories.Interfaces;
+using DAL.Models.DAL.Repositories.Interfaces;
 using Common.Models.Error;
 using Common.Models.Error.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
-using Common.Models.InputModels;
+using Menu.Models.InputModels;
 using Common.Models.Poco;
-using Common.Models.Services.Interfaces;
+using Menu.Models.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Common.Models.Services
+namespace Menu.Models.Services
 {
     public class ArticleService : IArticleService
     {

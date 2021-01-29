@@ -1,12 +1,12 @@
 ﻿using jwtLib.JWTAuth.Interfaces;
 using Common.Models.DAL.Domain;
-using Common.Models.DAL.Repositories.Interfaces;
+using DAL.Models.DAL.Repositories.Interfaces;
 using Common.Models.Exceptions;
-using Common.Models.Services.Interfaces;
+using Menu.Models.Services.Interfaces;
 using System;
 using System.Threading.Tasks;
 
-namespace Common.Models.Services
+namespace Menu.Models.Services
 {
     public class UserService : IUserService
     {

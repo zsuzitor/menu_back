@@ -1,6 +1,6 @@
 ﻿using jwtLib.JWTAuth.Interfaces;
 using jwtLib.JWTAuth.Models.Poco;
-using Common.Models.Auth.Poco;
+using Auth.Models.Auth.Poco;
 using Common.Models.Error;
 using Common.Models.Error.Interfaces;
 using Common.Models.Error.services.Interfaces;
@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace Menu.Models.Helpers
 {
@@ -271,10 +272,41 @@ namespace Menu.Models.Helpers
 
         public void StopIfModelStateError(ModelStateDictionary modelState)
         {
-            if (_errorService.ErrorsFromModelState(modelState))
+            if (ErrorsFromModelState(modelState))
             {
                 throw new StopException();
             }
+        }
+
+        //return true если есть ошибки
+        public bool ErrorsFromModelState(ModelStateDictionary modelState)
+        {
+            if (modelState.IsValid)
+            {
+                return false;
+            }
+
+            //var errors = modelState.ToList();
+            //if (errors.Count == 0)
+            //{
+            //    return false;
+            //}
+
+
+            foreach (var keyInput in modelState.Keys)
+            {
+                var input = modelState[keyInput];
+
+                if (input.Errors.Count == 0)
+                {
+                    continue;
+                }
+
+                var errObj = new OneError(keyInput, input.Errors.Select(x => x.ErrorMessage).ToList());
+                _errorService.AddError(errObj);
+            }
+
+            return _errorService.HasError();
         }
     }
 

@@ -8,7 +8,7 @@ using Common.Models.Exceptions;
 using Menu.Models.Helpers.Interfaces;
 using Menu.Models.InputModels;
 using Common.Models.Poco;
-using Common.Models.Services.Interfaces;
+using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -117,7 +117,7 @@ namespace Menu.Controllers
             await _apiHealper.DoStandartSomething(
                async () =>
                {
-                   _errorService.ErrorsFromModelState(ModelState);
+                   _apiHealper.ErrorsFromModelState(ModelState);
                    if (_errorService.HasError())
                    {
                        throw new StopException();
@@ -144,7 +144,7 @@ namespace Menu.Controllers
                        ModelState.AddModelError("id_is_required", "не передано id");//TODO подумать как вынести в общий кусок все такие штуки
                    }
 
-                   _errorService.ErrorsFromModelState(ModelState);
+                   _apiHealper.ErrorsFromModelState(ModelState);
                    if (_errorService.HasError())
                    {
                        throw new StopException();

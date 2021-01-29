@@ -1,24 +1,26 @@
 ﻿using Common.Models.DAL.Domain;
-using Common.Models.DAL.Repositories.Interfaces;
+using DAL.Models.DAL.Repositories.Interfaces;
 using Common.Models.Poco;
-using Common.Models.Services.Interfaces;
+//using Menu.Models.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Common.Models.DAL.Repositories
+namespace DAL.Models.DAL.Repositories
 {
     public class ArticleRepository : IArticleRepository
     {
         private readonly MenuDbContext _db;
-        private readonly IImageService _imageService;
+        //private readonly IImageService _imageService;
 
 
-        public ArticleRepository(MenuDbContext db, IImageService imageService)
+        public ArticleRepository(MenuDbContext db
+            //, IImageService imageService
+            )
         {
             _db = db;
-            _imageService = imageService;
+            //_imageService = imageService;
         }
 
         public async Task<List<Article>> GetAllUsersArticles(long userId)

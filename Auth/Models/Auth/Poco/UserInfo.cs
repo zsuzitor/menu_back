@@ -1,6 +1,6 @@
 ﻿
 
-namespace Auth.Models.Auth.InputModels
+namespace Auth.Models.Auth.Poco
 {
     public class UserInfo
     {

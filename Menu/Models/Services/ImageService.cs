@@ -1,8 +1,8 @@
 ﻿
 
-using Common.Models.DAL;
+using DAL.Models.DAL;
 using Common.Models.DAL.Domain;
-using Common.Models.Services.Interfaces;
+using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -12,7 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Common.Models.Services
+namespace Menu.Models.Services
 {
     public class ImageService : IImageService
     {

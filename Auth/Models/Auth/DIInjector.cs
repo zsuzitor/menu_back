@@ -1,4 +1,6 @@
-﻿using jwtLib.JWTAuth.Interfaces;
+﻿using Auth.Models.Auth.Services;
+using Auth.Models.Auth.Settings;
+using jwtLib.JWTAuth.Interfaces;
 using jwtLib.JWTAuth.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

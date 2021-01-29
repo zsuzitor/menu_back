@@ -1,4 +1,4 @@
-﻿using Menu.Models.DAL.Domain;
+﻿using Common.Models.DAL.Domain;
 using System.Text.Json.Serialization;
 
 namespace Common.Models.Returns.Types
