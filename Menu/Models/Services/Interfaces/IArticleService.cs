@@ -1,7 +1,7 @@
 ﻿
 
 using Auth.Models.Auth.Poco;
-using Common.Models.DAL.Domain;
+using BO.Models.DAL.Domain;
 using Menu.Models.InputModels;
 using Common.Models.Poco;
 using System.Collections.Generic;

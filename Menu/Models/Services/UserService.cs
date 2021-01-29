@@ -1,5 +1,5 @@
 ﻿using jwtLib.JWTAuth.Interfaces;
-using Common.Models.DAL.Domain;
+using BO.Models.DAL.Domain;
 using DAL.Models.DAL.Repositories.Interfaces;
 using Common.Models.Exceptions;
 using Menu.Models.Services.Interfaces;

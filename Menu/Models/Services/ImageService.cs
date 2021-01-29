@@ -1,7 +1,7 @@
 ﻿
 
 using DAL.Models.DAL;
-using Common.Models.DAL.Domain;
+using BO.Models.DAL.Domain;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;

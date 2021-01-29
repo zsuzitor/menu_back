@@ -1,6 +1,6 @@
 ﻿
 
-using Common.Models.DAL.Domain;
+using BO.Models.DAL.Domain;
 using System.Threading.Tasks;
 
 namespace Menu.Models.Services.Interfaces

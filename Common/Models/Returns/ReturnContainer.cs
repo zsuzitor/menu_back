@@ -1,5 +1,5 @@
 ﻿using jwtLib.JWTAuth.Models.Poco;
-using Common.Models.DAL.Domain;
+using BO.Models.DAL.Domain;
 using Common.Models.Error;
 using Common.Models.Poco;
 using Common.Models.Returns.Interfaces;

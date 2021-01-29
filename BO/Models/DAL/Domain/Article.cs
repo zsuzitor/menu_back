@@ -3,7 +3,7 @@
 
 using System.Collections.Generic;
 
-namespace Common.Models.DAL.Domain
+namespace BO.Models.DAL.Domain
 {
     public class Article
     {

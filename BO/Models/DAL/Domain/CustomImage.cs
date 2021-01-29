@@ -1,6 +1,6 @@
 ﻿
 
-namespace Common.Models.DAL.Domain
+namespace BO.Models.DAL.Domain
 {
     public class CustomImage
     {

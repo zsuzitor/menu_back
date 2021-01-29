@@ -1,7 +1,7 @@
 ﻿
 
 using Auth.Models.Auth.Poco;
-using Common.Models.DAL.Domain;
+using BO.Models.DAL.Domain;
 using DAL.Models.DAL.Repositories.Interfaces;
 using Common.Models.Error;
 using Common.Models.Error.Interfaces;

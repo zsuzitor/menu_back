@@ -2,7 +2,7 @@
 using jwtLib.JWTAuth.Models.Poco;
 using Auth.Models.Auth.InputModels;
 using Auth.Models.Auth.Services.Interfaces;
-using Common.Models.DAL.Domain;
+using BO.Models.DAL.Domain;
 using Common.Models.Error;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;

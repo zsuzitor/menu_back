@@ -3,7 +3,7 @@
 using jwtLib.JWTAuth.Interfaces;
 using System.Collections.Generic;
 
-namespace Common.Models.DAL.Domain
+namespace BO.Models.DAL.Domain
 {
     public class User: IJWTUser
     {

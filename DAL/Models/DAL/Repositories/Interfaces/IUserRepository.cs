@@ -1,4 +1,4 @@
-﻿using Common.Models.DAL.Domain;
+﻿using BO.Models.DAL.Domain;
 using System.Threading.Tasks;
 
 namespace DAL.Models.DAL.Repositories.Interfaces

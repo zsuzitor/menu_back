@@ -1,4 +1,4 @@
-﻿using Common.Models.DAL.Domain;
+﻿using BO.Models.DAL.Domain;
 using Common.Models.Poco;
 using System.Collections.Generic;
 using System.Threading.Tasks;
