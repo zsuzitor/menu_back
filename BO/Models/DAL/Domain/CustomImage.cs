@@ -1,4 +1,6 @@
-﻿
+﻿using BO.Models.MenuApp.DAL.Domain;
+
+
 
 namespace BO.Models.DAL.Domain
 {

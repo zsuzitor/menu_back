@@ -2,6 +2,7 @@
 
 using jwtLib.JWTAuth.Interfaces;
 using System.Collections.Generic;
+using BO.Models.MenuApp.DAL.Domain;
 
 namespace BO.Models.DAL.Domain
 {

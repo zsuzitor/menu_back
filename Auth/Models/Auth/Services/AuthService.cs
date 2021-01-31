@@ -1,13 +1,13 @@
 ﻿using jwtLib.JWTAuth.Interfaces;
 using jwtLib.JWTAuth.Models.Poco;
-using Auth.Models.Auth.InputModels;
 using Auth.Models.Auth.Services.Interfaces;
 using BO.Models.DAL.Domain;
 using Common.Models.Error;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
-using Common.Models.Services.Interfaces;
 using System.Threading.Tasks;
+using Menu.Models.Services.Interfaces;
+using Auth.Models.Auth.Poco.Input;
 
 namespace Auth.Models.Auth.Services
 {

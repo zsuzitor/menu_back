@@ -2,12 +2,12 @@
 
 using jwtLib.JWTAuth.Interfaces;
 using BO.Models.DAL.Domain;
-using Common.Models.Services.Interfaces;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Menu.Models.Services.Interfaces;
 
 namespace Auth.Models.Auth.Services
 {

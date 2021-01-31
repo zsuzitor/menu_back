@@ -1,5 +1,6 @@
 ﻿
 
+using MenuApp.Models.BO.Input;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Menu.Models.InputModels
 {
-    public class ArticleInputModel
+    public class ArticleInputModelApi
     {
         [BindProperty(Name = "id", SupportsGet = false)]
         public long? Id { get; set; }
@@ -33,11 +34,25 @@ namespace Menu.Models.InputModels
         public List<IFormFile> AdditionalImages { get; set; }
 
 
-        public ArticleInputModel()
+        public ArticleInputModelApi()
         {
             DeleteMainImage = false;
             DeletedAdditionalImages = new List<long>();
             AdditionalImages = new List<IFormFile>();
+        }
+
+        public ArticleInputModel GetModel()
+        {
+            return new ArticleInputModel()
+            {
+                Id = this.Id,
+                Title = this.Title,
+                Body = this.Body,
+                DeleteMainImage = this.DeleteMainImage,
+                MainImageNew = this.MainImageNew,
+                DeletedAdditionalImages = this.DeletedAdditionalImages,
+                AdditionalImages = this.AdditionalImages,
+            };
         }
     }
 }

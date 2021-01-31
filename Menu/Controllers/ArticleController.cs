@@ -112,7 +112,7 @@ namespace Menu.Controllers
 
         [Route("create")]
         [HttpPut]
-        public async Task Create([FromForm] ArticleInputModel newData)
+        public async Task Create([FromForm] ArticleInputModelApi newData)
         {
             await _apiHealper.DoStandartSomething(
                async () =>
@@ -125,7 +125,7 @@ namespace Menu.Controllers
 
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                   var newArticle = await _articleService.Create(newData, userInfo);
+                   var newArticle = await _articleService.Create(newData.GetModel(), userInfo);
                    await _apiHealper.WriteReturnResponseAsync(Response, newArticle);
                }, Response, _logger);
 
@@ -133,7 +133,7 @@ namespace Menu.Controllers
 
         [Route("edit")]
         [HttpPatch]
-        public async Task Edit([FromForm] ArticleInputModel newData)
+        public async Task Edit([FromForm] ArticleInputModelApi newData)
         {
             //ArticleInputModel newData = null;
             await _apiHealper.DoStandartSomething(
@@ -152,7 +152,7 @@ namespace Menu.Controllers
 
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                   var res = await _articleService.Edit(newData, userInfo);
+                   var res = await _articleService.Edit(newData.GetModel(), userInfo);
                    await _apiHealper.WriteReturnResponseAsync(Response, res);
                }, Response, _logger);
 

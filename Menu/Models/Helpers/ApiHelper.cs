@@ -1,12 +1,10 @@
 ﻿using jwtLib.JWTAuth.Interfaces;
 using jwtLib.JWTAuth.Models.Poco;
-using Auth.Models.Auth.Poco;
 using Common.Models.Error;
 using Common.Models.Error.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using Menu.Models.Helpers.Interfaces;
-using Common.Models.Returns.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
@@ -14,6 +12,8 @@ using System;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Linq;
+using BO.Models.Auth;
+using Menu.Models.Returns.Interfaces;
 
 namespace Menu.Models.Helpers
 {

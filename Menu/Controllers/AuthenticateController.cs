@@ -36,7 +36,7 @@ namespace Menu.Controllers
         // POST api/<AuthenticateController>/5
         [Route("login")]
         [HttpPost]
-        public async Task Login([FromForm] LoginModel loginModel)
+        public async Task Login([FromForm] LoginModelApi loginModel)
         {
             await _apiHealper.DoStandartSomething(
                async () =>
@@ -48,7 +48,7 @@ namespace Menu.Controllers
                        return;
                    }
 
-                   var tokens = await _authSrvice.Login(loginModel);
+                   var tokens = await _authSrvice.Login(loginModel.GetModel());
                    if (tokens == null)
                    {
                        throw new SomeCustomException(ErrorConsts.SomeError);
@@ -64,7 +64,7 @@ namespace Menu.Controllers
         // PUT api/<AuthenticateController>
         [Route("register")]
         [HttpPut]
-        public async Task Register([FromForm] RegisterModel registerModel)
+        public async Task Register([FromForm] RegisterModelApi registerModel)
         {
             await _apiHealper.DoStandartSomething(
               async () =>
@@ -76,7 +76,7 @@ namespace Menu.Controllers
                       return;
                   }
 
-                  var tokens = await _authSrvice.Register(registerModel);
+                  var tokens = await _authSrvice.Register(registerModel.GetModel());
                   if (tokens == null)
                   {
                       return;//что то пошло не так TODO

@@ -1,11 +1,11 @@
 ﻿
 
-using Common.Models.DAL.Domain;
 using DAL.Models.DAL.Repositories.Interfaces;
 using Common.Models.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
+using BO.Models.DAL.Domain;
 
 namespace DAL.Models.DAL.Repositories
 {

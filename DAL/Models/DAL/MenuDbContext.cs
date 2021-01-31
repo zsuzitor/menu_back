@@ -1,4 +1,5 @@
 ﻿using BO.Models.DAL.Domain;
+using BO.Models.MenuApp.DAL.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Models.DAL
