@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 
-namespace Menu.Models.Returns.Types
+namespace Menu.Models.Returns.Types.MenuApp
 {
     public class ArticleShortReturnFactory : IReturnObjectFactory
     {

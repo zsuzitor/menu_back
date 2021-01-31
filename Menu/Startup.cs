@@ -24,6 +24,8 @@ using MenuApp.Models.DAL.Repositories.Interfaces;
 using MenuApp.Models.DAL.Repositories;
 using Menu.Models.Returns.Interfaces;
 using Menu.Models.Returns;
+using BL.Models.Services.Interfaces;
+using BL.Models.Services;
 
 namespace Menu
 {
@@ -52,6 +54,8 @@ namespace Menu
             //repositories
             services.AddScoped<IArticleRepository, ArticleRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IImageRepository, ImageRepository>();
+            
 
             //healpers
             services.AddScoped<IApiHelper, ApiHelper>();
@@ -62,6 +66,8 @@ namespace Menu
             services.AddScoped<IArticleService, ArticleService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IFileService, FileService>();
+            
 
             //&
             services.AddSingleton<IErrorContainer, ErrorContainer>();

@@ -1,16 +1,17 @@
 ﻿
 
-using DAL.Models.DAL;
+
 using BO.Models.DAL.Domain;
 using Menu.Models.Services.Interfaces;
 //using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using DAL.Models.DAL.Repositories.Interfaces;
+using BL.Models.Services.Interfaces;
+//using System.IO;
 
 namespace Menu.Models.Services
 {
@@ -18,8 +19,9 @@ namespace Menu.Models.Services
     {
 
         private readonly dynamic _webHostEnvironment;
-        private readonly MenuDbContext _db;
-
+        //private readonly MenuDbContext _db;
+        private readonly IImageRepository _imageRepository;
+        private readonly IFileService _fileService;
 
         //private readonly IWebHostEnvironment _webHostEnvironment;
         //private readonly MenuDbContext _db;
@@ -29,6 +31,12 @@ namespace Menu.Models.Services
         //    _webHostEnvironment = webHostEnvironment;
         //    _db = db;
         //}
+
+        public ImageService(IImageRepository imgRep, IFileService fileService)
+        {
+            _imageRepository = imgRep;
+            _fileService = fileService;
+        }
 
         public async Task<CustomImage> Upload(IFormFile image, long articleId)
         {
@@ -44,8 +52,9 @@ namespace Menu.Models.Services
                 ArticleId = articleId,
                 Path = physImg,
             };
-            _db.Images.Add(res);
-            await _db.SaveChangesAsync();
+
+            await _imageRepository.Add(res);
+            
             return res;
         }
 
@@ -95,8 +104,7 @@ namespace Menu.Models.Services
                 return new List<CustomImage>();
             }
 
-            _db.Images.AddRange(res);
-            await _db.SaveChangesAsync();
+            await _imageRepository.Add(res);
             return res;
         }
 
@@ -122,30 +130,14 @@ namespace Menu.Models.Services
         {
             //TODO возможно вообще не удалять физический файлы
             //TODO ну вернется false и как это обработать?
-            if (string.IsNullOrWhiteSpace(path))
-            {
-                return true;
-            }
-
-            try
-            {
-                if (File.Exists(path))
-                {
-                    File.Delete(path);//TODO если файл кто то читает будет ли ошибка?
-                }
-            }
-            catch
-            {
-                return false;
-            }
-
-            return true;
+            //todo может тут проверить что это именно картинка??
+            return await _fileService.DeletePhysicalFile(path);
         }
 
 
         public async Task<CustomImage> DeleteById(long idImage)
         {
-            var imgFromDb = await _db.Images.FirstOrDefaultAsync(x => x.Id == idImage);
+            var imgFromDb = await _imageRepository.Get(idImage);
             if (imgFromDb == null)
             {
                 return null;
@@ -155,7 +147,7 @@ namespace Menu.Models.Services
 
         public async Task<List<long>> GetIdsByArticleId(long idArticle)
         {
-            return await _db.Images.Where(x => x.ArticleId == idArticle).Select(x => x.Id).ToListAsync();
+            return await _imageRepository.GetImagesIdsByArticleId(idArticle);
         }
 
         //до вызова надо проверить можно ли получить доступ
@@ -166,7 +158,7 @@ namespace Menu.Models.Services
                 return new List<CustomImage>();
             }
 
-            var imgFromDb = await _db.Images.Where(x => idImages.Contains(x.Id)).ToListAsync();
+            var imgFromDb = await _imageRepository.Get(idImages);
             return await DeleteFull(imgFromDb);
         }
 
@@ -177,10 +169,7 @@ namespace Menu.Models.Services
                 return new List<CustomImage>();
             }
 
-            _db.Images.AttachRange(images);
-
-            _db.RemoveRange(images);
-            await _db.SaveChangesAsync();
+            await _imageRepository.Delete(images);
             foreach (var img in images)
             {
                 await DeletePhysicalFile(img.Path);
@@ -199,14 +188,21 @@ namespace Menu.Models.Services
             }
 
             string uniqueFileName = Guid.NewGuid().ToString() + "_" + image.FileName;
-            string resPath = Path.Combine(subPath, uniqueFileName); 
+            string resPath = _fileService.PathCombine(subPath, uniqueFileName);
             //string uploadsFolder = Path.Combine("images", resPath);
 
-            string filePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", resPath);
-            using (var fileStream = new FileStream(filePath, FileMode.Create))//TODO будет ли тут исключение если файл существует?
-            {
-                await image.CopyToAsync(fileStream);
-            }
+            string filePath = _fileService.PathCombine(_webHostEnvironment.WebRootPath, "images", resPath);
+            //using (MemoryStream memStream = new MemoryStream((int)image.Length))//todo ing??
+            //{
+            //    image.OpenReadStream();
+            //}
+            //    using (var fileStream = new FileStream(filePath, FileMode.Create))//TODO будет ли тут исключение если файл существует?
+            //{
+            //    await image.CopyToAsync(fileStream);
+            //    image.len
+            //}
+
+            await _fileService.Create(image.OpenReadStream(), filePath);
 
             return resPath;
         }
@@ -218,7 +214,7 @@ namespace Menu.Models.Services
         /// <returns></returns>
         public string GetRelativePath(string subPath)
         {
-            return Path.Combine("images", subPath);
+            return _fileService.PathCombine("images", subPath);
         }
 
     }

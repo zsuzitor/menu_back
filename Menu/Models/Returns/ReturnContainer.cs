@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Menu.Models.Returns.Interfaces;
 using MenuApp.Models.BO;
 using Menu.Models.Returns.Types;
+using Menu.Models.Returns.Types.MenuApp;
 
 namespace Menu.Models.Returns
 {

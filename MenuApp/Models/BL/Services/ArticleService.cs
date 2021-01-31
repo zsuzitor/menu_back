@@ -161,7 +161,14 @@ namespace Menu.Models.Services
                 throw new NotAuthException();
             }
 
-            return await _articleRepository.DeleteDeep(userInfo.UserId, articleId);
+            var deletedArticle = await _articleRepository.Delete(userInfo.UserId, articleId);
+            if (deletedArticle != null)
+            {
+                await _imageService.DeleteFull(deletedArticle.AdditionalImages);
+                await _imageService.DeletePhysicalFile(deletedArticle.MainImagePath);
+            }
+
+            return deletedArticle;
 
         }
 

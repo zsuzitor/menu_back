@@ -83,7 +83,7 @@ namespace MenuApp.Models.DAL.Repositories
             //return true;
         }
 
-        public async Task<Article> DeleteDeep(long userId, long articleId)
+        public async Task<Article> Delete(long userId, long articleId)
         {
             //TODO в транзакцию? но физ файлы поудаляются и что делать? сообщение о том что удаление прервано и последствия неизвестны?
             var article = await _db.Articles.FirstOrDefaultAsync(x => x.Id == articleId && x.UserId == userId);
