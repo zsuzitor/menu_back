@@ -11,6 +11,12 @@ namespace DAL.Models.DAL.Repositories
     {
         private readonly MenuDbContext _db;
 
+        public ImageRepository(MenuDbContext db)
+        {
+            _db = db;
+        }
+
+
         public async Task<CustomImage> Add(CustomImage newImage)
         {
             _db.Images.Add(newImage);
