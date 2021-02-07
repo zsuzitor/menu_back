@@ -18,10 +18,10 @@ namespace Menu.Models.Services
     public class ImageService : IImageService
     {
 
-        private readonly dynamic _webHostEnvironment;
+        //private readonly dynamic _webHostEnvironment;
         //private readonly MenuDbContext _db;
         private readonly IImageRepository _imageRepository;
-        private readonly IFileService _fileService;
+        private readonly IImageDataStorage _imageDataStorage;
 
         //private readonly IWebHostEnvironment _webHostEnvironment;
         //private readonly MenuDbContext _db;
@@ -32,20 +32,20 @@ namespace Menu.Models.Services
         //    _db = db;
         //}
 
-        public ImageService(IImageRepository imgRep, IFileService fileService)
+        public ImageService(IImageRepository imgRep, IImageDataStorage imageDataStorage)
         {
             _imageRepository = imgRep;
-            _fileService = fileService;
+            _imageDataStorage = imageDataStorage;
         }
 
-        public async Task<CustomImage> Upload(IFormFile image, long articleId)
+        public  async Task<CustomImage> Upload(IFormFile image, long articleId)
         {
             if (image == null)
             {
                 return null;
             }
 
-            var physImg = await CreatePhysicalUploadFile(image);
+            var physImg = await CreateUploadFileWithOutDbRecord(image);
 
             var res = new CustomImage()
             {
@@ -74,7 +74,7 @@ namespace Menu.Models.Services
             List<CustomImage> imagesForAdd = new List<CustomImage>();
             foreach (var uploadedImg in images)
             {
-                var physImg = await CreatePhysicalUploadFile(uploadedImg);
+                var physImg = await CreateUploadFileWithOutDbRecord(uploadedImg);
 
                 var img = new CustomImage()
                 {
@@ -109,14 +109,18 @@ namespace Menu.Models.Services
         }
 
 
-        public async Task<string> CreatePhysicalFile(IFormFile image)
+        public async Task<string> CreateWithOutDbRecord(IFormFile image)
         {
-            return await CreatePhysicalFile(image, string.Empty);
+            string uniqueFileName = Guid.NewGuid().ToString() + "_" + image.FileName;//TODO имя тут неправильно так передавать
+            return await _imageDataStorage.Create(image.OpenReadStream(), uniqueFileName);
+            //return await CreatePhysicalFile(image, string.Empty);
         }
 
-        public async Task<string> CreatePhysicalUploadFile(IFormFile image)
+        public async Task<string> CreateUploadFileWithOutDbRecord(IFormFile image)
         {
-            return await CreatePhysicalFile(image, "uploads");
+            string uniqueFileName = Guid.NewGuid().ToString() + "_" + image.FileName;//TODO имя тут неправильно так передавать
+            return await _imageDataStorage.CreateUpload(image.OpenReadStream(), uniqueFileName);
+            //return await CreatePhysicalFile(image, "uploads");
         }
 
 
@@ -126,12 +130,13 @@ namespace Menu.Models.Services
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public async Task<bool> DeletePhysicalFile(string path)
+        public async Task<bool> DeleteFileWithOutDbRecord(string path)
         {
             //TODO возможно вообще не удалять физический файлы
             //TODO ну вернется false и как это обработать?
             //todo может тут проверить что это именно картинка??
-            return await _fileService.DeletePhysicalFile(path);
+            //return await _fileService.DeletePhysicalFile(path);
+            return await _imageDataStorage.Delete(path);
         }
 
 
@@ -172,50 +177,12 @@ namespace Menu.Models.Services
             await _imageRepository.Delete(images);
             foreach (var img in images)
             {
-                await DeletePhysicalFile(img.Path);
+                await DeleteFileWithOutDbRecord(img.Path);
             }
 
             return images;
         }
 
-
-
-        private async Task<string> CreatePhysicalFile(IFormFile image, string subPath)
-        {
-            if (image == null)
-            {
-                return null;
-            }
-
-            string uniqueFileName = Guid.NewGuid().ToString() + "_" + image.FileName;
-            string resPath = _fileService.PathCombine(subPath, uniqueFileName);
-            //string uploadsFolder = Path.Combine("images", resPath);
-
-            string filePath = _fileService.PathCombine(_webHostEnvironment.WebRootPath, "images", resPath);
-            //using (MemoryStream memStream = new MemoryStream((int)image.Length))//todo ing??
-            //{
-            //    image.OpenReadStream();
-            //}
-            //    using (var fileStream = new FileStream(filePath, FileMode.Create))//TODO будет ли тут исключение если файл существует?
-            //{
-            //    await image.CopyToAsync(fileStream);
-            //    image.len
-            //}
-
-            await _fileService.Create(image.OpenReadStream(), filePath);
-
-            return resPath;
-        }
-
-        /// <summary>
-        /// везде путь хранится от серва а от какой то папка картинок, например wwwroot\images\{savedPath}, в таком случае вернет  images\{savedPath}
-        /// </summary>
-        /// <param name="subPath"></param>
-        /// <returns></returns>
-        public string GetRelativePath(string subPath)
-        {
-            return _fileService.PathCombine("images", subPath);
-        }
 
     }
 }

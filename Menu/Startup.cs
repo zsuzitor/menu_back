@@ -26,6 +26,8 @@ using Menu.Models.Returns.Interfaces;
 using Menu.Models.Returns;
 using BL.Models.Services.Interfaces;
 using BL.Models.Services;
+using System;
+using BO.Models.Config;
 
 namespace Menu
 {
@@ -66,8 +68,23 @@ namespace Menu
             services.AddScoped<IArticleService, ArticleService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IFileService, FileService>();
-            
+            services.AddSingleton<IFileService, PhysicalFileService>();
+
+            var imageConfig = new ImageConfig();
+            Configuration.GetSection("ImageSettings").Bind(imageConfig);
+            if (imageConfig.TypeOfStorage == "blob")
+            {
+                services.AddSingleton<IImageDataStorage, ImageDataBlobStorage>();
+            }
+            else
+            {
+                services.AddSingleton<IImageDataStorage, ImageDataIOStorage>();
+            }
+            //services.AddScoped<IImageDataStorage, ImageDataBlobStorage>((serviceProvider) =>
+            //{
+            //services.AddScoped<IImageDataStorage, ImageDataIOStorage>();
+            //});
+
 
             //&
             services.AddSingleton<IErrorContainer, ErrorContainer>();

@@ -61,7 +61,7 @@ namespace Menu.Models.Services
             article.UserId = userInfo.UserId;
             try
             {
-                article.MainImagePath = await _imageService.CreatePhysicalUploadFile(newArticle.MainImageNew);
+                article.MainImagePath = await _imageService.CreateUploadFileWithOutDbRecord(newArticle.MainImageNew);
 
                 article = await _articleRepository.Create(article);
 
@@ -112,13 +112,13 @@ namespace Menu.Models.Services
 
             if (newArticle.MainImageNew != null)
             {
-                await _imageService.DeletePhysicalFile(oldObj.MainImagePath);
-                oldObj.MainImagePath = await _imageService.CreatePhysicalUploadFile(newArticle.MainImageNew);
+                await _imageService.DeleteFileWithOutDbRecord(oldObj.MainImagePath);
+                oldObj.MainImagePath = await _imageService.CreateUploadFileWithOutDbRecord(newArticle.MainImageNew);
                 changed = true;
             }
             else if (newArticle.DeleteMainImage ?? false && !string.IsNullOrWhiteSpace(oldObj.MainImagePath))
             {
-                await _imageService.DeletePhysicalFile(oldObj.MainImagePath);
+                await _imageService.DeleteFileWithOutDbRecord(oldObj.MainImagePath);
                 oldObj.MainImagePath = null;
                 changed = true;
 
@@ -165,7 +165,7 @@ namespace Menu.Models.Services
             if (deletedArticle != null)
             {
                 await _imageService.DeleteFull(deletedArticle.AdditionalImages);
-                await _imageService.DeletePhysicalFile(deletedArticle.MainImagePath);
+                await _imageService.DeleteFileWithOutDbRecord(deletedArticle.MainImagePath);
             }
 
             return deletedArticle;
