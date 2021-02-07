@@ -19,15 +19,15 @@ namespace Menu.Models.Services.Interfaces
         /// <param name="articleId"></param>
         /// <returns></returns>
         Task<List<CustomImage>> GetCreatableUploadObjects(List<IFormFile> images, long articleId);
-        Task<string> CreatePhysicalFile(IFormFile image);
-        Task<string> CreatePhysicalUploadFile(IFormFile image);
+        Task<string> CreateWithOutDbRecord(IFormFile image);
+        Task<string> CreateUploadFileWithOutDbRecord(IFormFile image);
 
-        Task<bool> DeletePhysicalFile(string path);
+        Task<bool> DeleteFileWithOutDbRecord(string path);
         Task<CustomImage> DeleteById(long idImage);
         Task<List<long>> GetIdsByArticleId(long idArticle);
         Task<List<CustomImage>> DeleteById(List<long> idImages);
         Task<List<CustomImage>> DeleteFull(List<CustomImage> images);
 
-        string GetRelativePath(string subPath);
+        //string GetRelativePath(string subPath);
     }
 }

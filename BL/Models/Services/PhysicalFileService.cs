@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace BL.Models.Services
 {
-    public class FileService: IFileService
+    public class PhysicalFileService : IFileService
     {
         public async Task<bool> Create(Stream readStream, string filePath)
         {
