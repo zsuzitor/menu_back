@@ -74,7 +74,7 @@ namespace Menu
             Configuration.GetSection("ImageSettings").Bind(imageConfig);
             if (imageConfig.TypeOfStorage == "blob")
             {
-                services.AddSingleton<IImageDataStorage, ImageDataBlobStorage>();
+                services.AddSingleton<IImageDataStorage, ImageDataBlobStorage>(x=>new ImageDataBlobStorage(imageConfig));
             }
             else
             {
