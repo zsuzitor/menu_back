@@ -1,4 +1,4 @@
-﻿using Menu.Models.Error;
+﻿using Common.Models.Error;
 using Menu.Models.Returns.Interfaces;
 using System;
 using System.Collections.Generic;

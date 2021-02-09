@@ -1,13 +1,13 @@
 ﻿
 using System.Threading.Tasks;
-using Menu.Models.Auth.InputModels;
-using Menu.Models.Auth.Services.Interfaces;
+using Menu.Models.InputModels.Auth;
+using Auth.Models.Auth.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Menu.Models.Helpers.Interfaces;
-using Menu.Models.Error.services.Interfaces;
+using Common.Models.Error.services.Interfaces;
 using Microsoft.Extensions.Logging;
-using Menu.Models.Exceptions;
-using Menu.Models.Error;
+using Common.Models.Exceptions;
+using Common.Models.Error;
 //using NLog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -36,19 +36,19 @@ namespace Menu.Controllers
         // POST api/<AuthenticateController>/5
         [Route("login")]
         [HttpPost]
-        public async Task Login([FromForm] LoginModel loginModel)
+        public async Task Login([FromForm] LoginModelApi loginModel)
         {
             await _apiHealper.DoStandartSomething(
                async () =>
                {
                    //throw new System.Exception();
-                   if (_errorService.ErrorsFromModelState(ModelState))
+                   if (_apiHealper.ErrorsFromModelState(ModelState))
                    {
                        await _apiHealper.WriteReturnResponseAsync(Response, _errorService.GetErrorsObject());
                        return;
                    }
 
-                   var tokens = await _authSrvice.Login(loginModel);
+                   var tokens = await _authSrvice.Login(loginModel.GetModel());
                    if (tokens == null)
                    {
                        throw new SomeCustomException(ErrorConsts.SomeError);
@@ -64,19 +64,19 @@ namespace Menu.Controllers
         // PUT api/<AuthenticateController>
         [Route("register")]
         [HttpPut]
-        public async Task Register([FromForm] RegisterModel registerModel)
+        public async Task Register([FromForm] RegisterModelApi registerModel)
         {
             await _apiHealper.DoStandartSomething(
               async () =>
               {
                   //RegisterModel registerModel=null;
-                  if (_errorService.ErrorsFromModelState(ModelState))
+                  if (_apiHealper.ErrorsFromModelState(ModelState))
                   {
                       await _apiHealper.WriteReturnResponseAsync(Response, _errorService.GetErrorsObject());
                       return;
                   }
 
-                  var tokens = await _authSrvice.Register(registerModel);
+                  var tokens = await _authSrvice.Register(registerModel.GetModel());
                   if (tokens == null)
                   {
                       return;//что то пошло не так TODO

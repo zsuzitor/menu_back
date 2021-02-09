@@ -1,7 +1,7 @@
 ﻿
+using BO.Models.Auth;
 using jwtLib.JWTAuth.Interfaces;
 using jwtLib.JWTAuth.Models.Poco;
-using Menu.Models.Auth.Poco;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
@@ -43,5 +43,7 @@ namespace Menu.Models.Helpers.Interfaces
 
 
         object GetReturnType<TIn>(TIn obj);
+
+        bool ErrorsFromModelState(ModelStateDictionary modelState);
     }
 }

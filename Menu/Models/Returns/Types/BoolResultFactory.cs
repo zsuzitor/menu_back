@@ -1,4 +1,4 @@
-﻿using Menu.Models.Poco;
+﻿using Common.Models.Poco;
 using Menu.Models.Returns.Interfaces;
 using System.Text.Json.Serialization;
 

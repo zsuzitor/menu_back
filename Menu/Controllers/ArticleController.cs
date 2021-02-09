@@ -2,12 +2,12 @@
 using System;
 using System.Threading.Tasks;
 using jwtLib.JWTAuth.Interfaces;
-using Menu.Models.Error.Interfaces;
-using Menu.Models.Error.services.Interfaces;
-using Menu.Models.Exceptions;
+using Common.Models.Error.Interfaces;
+using Common.Models.Error.services.Interfaces;
+using Common.Models.Exceptions;
 using Menu.Models.Helpers.Interfaces;
 using Menu.Models.InputModels;
-using Menu.Models.Poco;
+using Common.Models.Poco;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -112,12 +112,12 @@ namespace Menu.Controllers
 
         [Route("create")]
         [HttpPut]
-        public async Task Create([FromForm] ArticleInputModel newData)
+        public async Task Create([FromForm] ArticleInputModelApi newData)
         {
             await _apiHealper.DoStandartSomething(
                async () =>
                {
-                   _errorService.ErrorsFromModelState(ModelState);
+                   _apiHealper.ErrorsFromModelState(ModelState);
                    if (_errorService.HasError())
                    {
                        throw new StopException();
@@ -125,7 +125,7 @@ namespace Menu.Controllers
 
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                   var newArticle = await _articleService.Create(newData, userInfo);
+                   var newArticle = await _articleService.Create(newData.GetModel(), userInfo);
                    await _apiHealper.WriteReturnResponseAsync(Response, newArticle);
                }, Response, _logger);
 
@@ -133,7 +133,7 @@ namespace Menu.Controllers
 
         [Route("edit")]
         [HttpPatch]
-        public async Task Edit([FromForm] ArticleInputModel newData)
+        public async Task Edit([FromForm] ArticleInputModelApi newData)
         {
             //ArticleInputModel newData = null;
             await _apiHealper.DoStandartSomething(
@@ -144,7 +144,7 @@ namespace Menu.Controllers
                        ModelState.AddModelError("id_is_required", "не передано id");//TODO подумать как вынести в общий кусок все такие штуки
                    }
 
-                   _errorService.ErrorsFromModelState(ModelState);
+                   _apiHealper.ErrorsFromModelState(ModelState);
                    if (_errorService.HasError())
                    {
                        throw new StopException();
@@ -152,7 +152,7 @@ namespace Menu.Controllers
 
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                   var res = await _articleService.Edit(newData, userInfo);
+                   var res = await _articleService.Edit(newData.GetModel(), userInfo);
                    await _apiHealper.WriteReturnResponseAsync(Response, res);
                }, Response, _logger);
 

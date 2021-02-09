@@ -1,18 +1,16 @@
 ﻿
-using Menu.Models.Auth;
-using Menu.Models.Auth.Services;
-using Menu.Models.Auth.Services.Interfaces;
-using Menu.Models.DAL;
-using Menu.Models.DAL.Repositories;
-using Menu.Models.DAL.Repositories.Interfaces;
-using Menu.Models.Error;
-using Menu.Models.Error.Interfaces;
-using Menu.Models.Error.services;
-using Menu.Models.Error.services.Interfaces;
+using Auth.Models.Auth;
+using Auth.Models.Auth.Services;
+using Auth.Models.Auth.Services.Interfaces;
+using DAL.Models.DAL;
+using DAL.Models.DAL.Repositories;
+using DAL.Models.DAL.Repositories.Interfaces;
+using Common.Models.Error;
+using Common.Models.Error.Interfaces;
+using Common.Models.Error.services;
+using Common.Models.Error.services.Interfaces;
 using Menu.Models.Helpers;
 using Menu.Models.Helpers.Interfaces;
-using Menu.Models.Returns;
-using Menu.Models.Returns.Interfaces;
 using Menu.Models.Services;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
@@ -22,6 +20,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MenuApp.Models.DAL.Repositories.Interfaces;
+using MenuApp.Models.DAL.Repositories;
+using Menu.Models.Returns.Interfaces;
+using Menu.Models.Returns;
+using BL.Models.Services.Interfaces;
+using BL.Models.Services;
+using System;
+using BO.Models.Config;
 
 namespace Menu
 {
@@ -50,6 +56,8 @@ namespace Menu
             //repositories
             services.AddScoped<IArticleRepository, ArticleRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IImageRepository, ImageRepository>();
+            
 
             //healpers
             services.AddScoped<IApiHelper, ApiHelper>();
@@ -60,6 +68,23 @@ namespace Menu
             services.AddScoped<IArticleService, ArticleService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddSingleton<IFileService, PhysicalFileService>();
+
+            var imageConfig = new ImageConfig();
+            Configuration.GetSection("ImageSettings").Bind(imageConfig);
+            if (imageConfig.TypeOfStorage == "blob")
+            {
+                services.AddSingleton<IImageDataStorage, ImageDataBlobStorage>(x=>new ImageDataBlobStorage(imageConfig));
+            }
+            else
+            {
+                services.AddSingleton<IImageDataStorage, ImageDataIOStorage>();
+            }
+            //services.AddScoped<IImageDataStorage, ImageDataBlobStorage>((serviceProvider) =>
+            //{
+            //services.AddScoped<IImageDataStorage, ImageDataIOStorage>();
+            //});
+
 
             //&
             services.AddSingleton<IErrorContainer, ErrorContainer>();
@@ -67,6 +92,13 @@ namespace Menu
             //auth
             services.InjectJwtAuth(Configuration);
             services.AddScoped<IAuthService, AuthService>();
+
+
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                //отключаем автоответ если modelstate not valide, для формирования ответа ошибок в общем-кастомном формате
+                options.SuppressModelStateInvalidFilter = true;
+            });
 
 
         }
@@ -92,7 +124,7 @@ namespace Menu
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default_menu_react", "Menu/{*url}", new { controller = "Menu", action = "Index" });
-                
+                routes.MapRoute("default_menu_app_react", "Menu-app/{*url}", new { controller = "Menu", action = "MenuApp" });
 
                 //routes.MapRoute(
                 //    name: "default",

@@ -1,11 +1,13 @@
 ﻿using jwtLib.JWTAuth.Models.Poco;
-using Menu.Models.DAL.Domain;
-using Menu.Models.Error;
-using Menu.Models.Poco;
-using Menu.Models.Returns.Interfaces;
-using Menu.Models.Returns.Types;
+using BO.Models.MenuApp.DAL.Domain;
+using Common.Models.Error;
+using Common.Models.Poco;
 using System;
 using System.Collections.Generic;
+using Menu.Models.Returns.Interfaces;
+using MenuApp.Models.BO;
+using Menu.Models.Returns.Types;
+using Menu.Models.Returns.Types.MenuApp;
 
 namespace Menu.Models.Returns
 {
