@@ -94,6 +94,13 @@ namespace Menu
             services.AddScoped<IAuthService, AuthService>();
 
 
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                //отключаем автоответ если modelstate not valide, для формирования ответа ошибок в общем-кастомном формате
+                options.SuppressModelStateInvalidFilter = true;
+            });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -117,7 +124,7 @@ namespace Menu
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default_menu_react", "Menu/{*url}", new { controller = "Menu", action = "Index" });
-                
+                routes.MapRoute("default_menu_app_react", "Menu-app/{*url}", new { controller = "Menu", action = "MenuApp" });
 
                 //routes.MapRoute(
                 //    name: "default",

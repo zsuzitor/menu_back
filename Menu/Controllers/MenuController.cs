@@ -12,6 +12,13 @@ namespace Menu.Controllers
             return View();
         }
 
-       
+
+        public ActionResult MenuApp()
+        {
+            return View("Index");
+            return Index();
+        }
+
+
     }
 }

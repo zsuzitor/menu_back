@@ -1,4 +1,5 @@
 ﻿using BL.Models.Services.Interfaces;
+using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -8,11 +9,11 @@ namespace BL.Models.Services
     {
 
         private readonly IFileService _fileService;
-        private readonly dynamic _webHostEnvironment;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ImageDataIOStorage(IFileService fileService)
+        public ImageDataIOStorage(IWebHostEnvironment webHostEnvironment, IFileService fileService)
         {
-
+            _webHostEnvironment = webHostEnvironment;
             _fileService = fileService;
         }
         public async Task<string> Create(Stream readStream, string fileName)
@@ -45,10 +46,10 @@ namespace BL.Models.Services
                 return null;
             }
 
-            string resPath = _fileService.PathCombine("uploads", fileName);
-            string filePath = _fileService.PathCombine(_webHostEnvironment.WebRootPath, "images", resPath);
+            string resPath =  _fileService.PathCombine("images", "uploads", fileName);
+            string filePath = _fileService.PathCombine(_webHostEnvironment.WebRootPath,  resPath);
             await _fileService.Create(readStream, filePath);
-            return filePath;
+            return "\\" + resPath;
         }
 
         public async Task<bool> Delete(string path)
