@@ -16,7 +16,12 @@ namespace Menu.Controllers
         public ActionResult MenuApp()
         {
             return View("Index");
-            return Index();
+        }
+
+
+        public ActionResult WardsCardsApp()
+        {
+            return View("Index");
         }
 
 

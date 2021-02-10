@@ -4,7 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Menu", "Menu\Menu.csproj", "{EF9D2655-E184-4E70-B8F8-5F13CA2B1CBA}"
-
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Menu.Tests", "Menu.Tests\Menu.Tests.csproj", "{E9D3C34F-568E-466D-9C7C-55D1D6D74F14}"
 EndProject
@@ -18,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BO", "BO\BO.csproj", "{E6E3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuApp", "MenuApp\MenuApp.csproj", "{25232E9A-4B77-41BB-A847-3543BE680FFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{C0457777-CCD7-4C52-994B-62D7E5CE6A33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BL", "BL\BL.csproj", "{C0457777-CCD7-4C52-994B-62D7E5CE6A33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordsCardsApp", "WordsCardsApp\WordsCardsApp.csproj", "{998CCDB3-97E5-4ECE-BD69-E23DCD025CF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +59,10 @@ Global
 		{C0457777-CCD7-4C52-994B-62D7E5CE6A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0457777-CCD7-4C52-994B-62D7E5CE6A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0457777-CCD7-4C52-994B-62D7E5CE6A33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{998CCDB3-97E5-4ECE-BD69-E23DCD025CF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{998CCDB3-97E5-4ECE-BD69-E23DCD025CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{998CCDB3-97E5-4ECE-BD69-E23DCD025CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{998CCDB3-97E5-4ECE-BD69-E23DCD025CF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

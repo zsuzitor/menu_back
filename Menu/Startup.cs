@@ -28,6 +28,8 @@ using BL.Models.Services.Interfaces;
 using BL.Models.Services;
 using System;
 using BO.Models.Config;
+using WordsCardsApp.BL.Services;
+using WordsCardsApp.BL.Services.Interfaces;
 
 namespace Menu
 {
@@ -51,7 +53,7 @@ namespace Menu
                     Configuration.GetConnectionString("DefaultConnection")));
 
 
-            services.AddScoped<IErrorService, ErrorService>();
+            
 
             //repositories
             services.AddScoped<IArticleRepository, ArticleRepository>();
@@ -65,10 +67,13 @@ namespace Menu
 
 
             //services
-            services.AddScoped<IArticleService, ArticleService>();
+            services.AddSingleton<IFileService, PhysicalFileService>();
+            services.AddScoped<IErrorService, ErrorService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddSingleton<IFileService, PhysicalFileService>();
+            services.AddScoped<IArticleService, ArticleService>();
+            services.AddScoped<IWordsCardsService, WordsCardsService>();
+
 
             var imageConfig = new ImageConfig();
             Configuration.GetSection("ImageSettings").Bind(imageConfig);
@@ -125,7 +130,8 @@ namespace Menu
             {
                 routes.MapRoute("default_menu_react", "Menu/{*url}", new { controller = "Menu", action = "Index" });
                 routes.MapRoute("default_menu_app_react", "Menu-app/{*url}", new { controller = "Menu", action = "MenuApp" });
-
+                routes.MapRoute("default_wordscards_app_react", "Menu-app/{*url}", new { controller = "Menu", action = "WardsCardsApp" });
+                
                 //routes.MapRoute(
                 //    name: "default",
                 //    template: "{controller=Menu}/{action=Index}/{id?}");
