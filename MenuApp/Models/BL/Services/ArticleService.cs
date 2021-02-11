@@ -2,8 +2,6 @@
 
 
 using Common.Models.Error;
-using Common.Models.Error.Interfaces;
-using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using Menu.Models.Services.Interfaces;
 using System;
@@ -21,12 +19,9 @@ namespace Menu.Models.Services
     {
         private readonly IArticleRepository _articleRepository;
         private readonly IImageService _imageService;
-        private readonly IErrorService _errorService;
-        private readonly IErrorContainer _errorContainer;
 
 
-        public ArticleService(IArticleRepository articleRepository, IImageService imageService,
-            IErrorService errorService, IErrorContainer errorContainer)
+        public ArticleService(IArticleRepository articleRepository, IImageService imageService)
         {
             _articleRepository = articleRepository;
             _imageService = imageService;
@@ -84,7 +79,7 @@ namespace Menu.Models.Services
 
 
 
-        public async Task<Article> Edit(ArticleInputModel newArticle, UserInfo userInfo)
+        public async Task<Article> Update(ArticleInputModel newArticle, UserInfo userInfo)
         {
 
             if (userInfo == null)
@@ -238,22 +233,20 @@ namespace Menu.Models.Services
         }
 
         //для уже существующих объектов. , нет работы с картинками 
-        private bool FillArticleFromInputModelEdit(Article baseArticle, ArticleInputModel model)
+        private bool FillArticleFromInputModelEdit(Article baseObj, ArticleInputModel newObj)
         {
             bool changed = false;
-            if (baseArticle.Body != model.Body)
+            if (baseObj.Body != newObj.Body)
             {
-                baseArticle.Body = model.Body;
+                baseObj.Body = newObj.Body;
                 changed = true;
             }
 
-            if (baseArticle.Title != model.Title)
+            if (baseObj.Title != newObj.Title)
             {
-                baseArticle.Title = model.Title;
+                baseObj.Title = newObj.Title;
                 changed = true;
             }
-
-            
 
             return changed;
         }

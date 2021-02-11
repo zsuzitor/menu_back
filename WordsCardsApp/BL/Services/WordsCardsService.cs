@@ -1,6 +1,9 @@
 ﻿
 using BO.Models.Auth;
 using BO.Models.WordsCardsApp.DAL.Domain;
+using Common.Models.Error;
+using Common.Models.Exceptions;
+using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.IO;
@@ -13,33 +16,194 @@ namespace WordsCardsApp.BL.Services
 {
     public class WordsCardsService : IWordsCardsService
     {
-        private readonly IWordsCardsRepository _repository;
-        public WordsCardsService(IWordsCardsRepository repository)
+        private readonly IWordsCardsRepository _wordCardRepository;
+        private readonly IImageService _imageService;
+
+        public WordsCardsService(IWordsCardsRepository repository, IImageService imageService)
         {
-            _repository = repository;
+            _wordCardRepository = repository;
+            _imageService = imageService;
         }
 
-        public async Task<WordCard> Create(UserInfo userInfo, WordCardInputModel input)
+        public async Task<WordCard> GetByIdIfAccess(long id, UserInfo userInfo)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public async Task<WordCard> CreateFromFile(UserInfo userInfo, IFormFile file)
-        {
-            using (var reader = new StreamReader(file.OpenReadStream()))
+            if (userInfo == null)
             {
-                string strFile = await reader.ReadToEndAsync();
+                throw new NotAuthException();
+            }
+
+            return await _wordCardRepository.GetByIdIfAccess(id, userInfo.UserId);
+        }
+
+
+        public async Task<WordCard> Create(WordCardInputModel input, UserInfo userInfo)
+        {
+            if (userInfo == null)
+            {
+                throw new NotAuthException();
+            }
+
+            var wordCardNew = WordCardFromInputModelNew(input);
+            wordCardNew.UserId = userInfo.UserId;
+            try
+            {
+                wordCardNew.ImagePath = await _imageService.CreateUploadFileWithOutDbRecord(input.MainImageNew);
+                var resWordCard = await _wordCardRepository.Create(wordCardNew);
+                return resWordCard;
+            }
+            catch
+            {
+                throw;
             }
         }
 
-        public async Task<WordCard> Delete(UserInfo userInfo, long id)
+        public async Task<WordCard> Update(WordCardInputModel input, UserInfo userInfo)
         {
-            throw new System.NotImplementedException();
+            if (userInfo == null)
+            {
+                throw new NotAuthException();
+            }
+
+            if (input?.Id == null)
+            {
+                throw new SomeCustomException("id_is_required");//TODO
+            }
+
+            var oldObj = await GetByIdIfAccess((long)input.Id, userInfo);
+
+
+            if (oldObj == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
+
+
+            var changed = FillWordCardFromInputModelEdit(oldObj, input);
+
+
+
+            if (input.MainImageNew != null)
+            {
+                await _imageService.DeleteFileWithOutDbRecord(oldObj.ImagePath);
+                oldObj.ImagePath = await _imageService.CreateUploadFileWithOutDbRecord(input.MainImageNew);
+                changed = true;
+            }
+            else if (input.DeleteMainImage ?? false && !string.IsNullOrWhiteSpace(oldObj.ImagePath))
+            {
+                await _imageService.DeleteFileWithOutDbRecord(oldObj.ImagePath);
+                oldObj.ImagePath = null;
+                changed = true;
+
+            }
+
+            if (changed)//?
+            {
+                await _wordCardRepository.Edit(oldObj);
+            }
+
+            return oldObj;
         }
 
-        public async Task<List<WordCard>> GetAllForUsers(UserInfo userInfo)
+        public async Task<List<WordCard>> CreateFromFile(IFormFile file, UserInfo userInfo)
         {
-            throw new System.NotImplementedException();
+            if (userInfo == null)
+            {
+                throw new NotAuthException();
+            }
+
+            //string strFile = null;
+            List<WordCard> dataForAdd = new List<WordCard>();
+            using var reader = new StreamReader(file.OpenReadStream());
+            while (!reader.EndOfStream)
+            {
+                var tmpStr = await reader.ReadLineAsync();
+                if (string.IsNullOrWhiteSpace(tmpStr))
+                {
+                    continue;
+                }
+
+                var strData = tmpStr.Split(';');
+                if (strData.Length < 3)
+                {
+                    continue;
+                }
+
+                dataForAdd.Add(new WordCard()
+                {
+                    Word = strData[0],
+                    WordAnswer = strData[1],
+                    Description = strData[2],
+                    UserId = userInfo.UserId,
+                });
+            }
+
+            //strFile = await reader.ReadLineAsync();
+            return await _wordCardRepository.CreateList(dataForAdd);
         }
+
+        public async Task<WordCard> Delete(long id, UserInfo userInfo)
+        {
+            if (userInfo == null)
+            {
+                throw new NotAuthException();
+            }
+
+            var deletedRecord = await _wordCardRepository.Delete(id, userInfo.UserId);
+            if (deletedRecord != null)
+            {
+                await _imageService.DeleteFileWithOutDbRecord(deletedRecord.ImagePath);
+            }
+
+            return deletedRecord;
+        }
+
+        public async Task<List<WordCard>> GetAllForUser(UserInfo userInfo)
+        {
+            if (userInfo == null)
+            {
+                throw new NotAuthException();
+            }
+
+            return await _wordCardRepository.GetAllUsersWordCards(userInfo.UserId);
+        }
+
+
+
+        private WordCard WordCardFromInputModelNew(WordCardInputModel input)
+        {
+            return new WordCard()
+            {
+                Word = input.Word,
+                Description = input.Description,
+                WordAnswer = input.WordAnswer,
+            };
+        }
+
+
+        private bool FillWordCardFromInputModelEdit(WordCard baseObj, WordCardInputModel newObj)
+        {
+            bool changed = false;
+            if (baseObj.Word != newObj.Word)
+            {
+                baseObj.Word = newObj.Word;
+                changed = true;
+            }
+
+            if (baseObj.Description != newObj.Description)
+            {
+                baseObj.Description = newObj.Description;
+                changed = true;
+            }
+
+            if (baseObj.WordAnswer != newObj.WordAnswer)
+            {
+                baseObj.WordAnswer = newObj.WordAnswer;
+                changed = true;
+            }
+
+            return changed;
+        }
+
+
     }
 }

@@ -28,7 +28,9 @@ namespace DAL.Models.DAL
             modelBuilder.Entity<User>().Property(x=>x.Email).IsRequired();
             modelBuilder.Entity<User>().HasIndex(x => x.Email).IsUnique();
             modelBuilder.Entity<User>().Property(x => x.Login).IsRequired();
-            //modelBuilder.Entity<User>().Property(x => x.Login).IsUnique();//TODO раскомментить
+            //TODO раскомментить если будет изменение логики заполнения логинов, тк сейчас полностью копирует почту, смысла ноый индекс делать нет
+            //modelBuilder.Entity<User>().HasIndex(x => x.Login).IsUnique();
+            modelBuilder.Entity<User>().Property(x => x.PasswordHash).IsRequired();
 
 
             modelBuilder.Entity<User>().HasMany(x => x.Articles).WithOne(x => x.User).HasForeignKey(x => x.UserId);

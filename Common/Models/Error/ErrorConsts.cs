@@ -7,7 +7,7 @@ namespace Common.Models.Error
         public static string SomeError = "some_error";
         public static string NotAuthorized = "not_authorized";
         public static string NotFound = "not_found";
-        //public string SomeError = "some_error";
+        public static string FileError = "file_error";
         //public string SomeError = "some_error";
         //public string SomeError = "some_error";
         //public string SomeError = "some_error";

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Menu.Models.InputModels
+namespace Menu.Models.InputModels.MenuApp
 {
     public class ArticleInputModelApi
     {
