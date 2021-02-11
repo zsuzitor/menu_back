@@ -20,11 +20,12 @@ namespace Menu.Controllers
 
         private readonly IWordsCardsService _wordsCardsService;
 
-        public WordsCardsController(IJWTService jwtService, IApiHelper apiHealper, ILogger<WordsCardsController> logger)
+        public WordsCardsController(IJWTService jwtService, IApiHelper apiHealper, ILogger<WordsCardsController> logger, IWordsCardsService wordsCardsService)
         {
             _apiHealper = apiHealper;
             _jwtService = jwtService;
             _logger = logger;
+            _wordsCardsService = wordsCardsService;
         }
 
         [Route("get-all-for-user")]

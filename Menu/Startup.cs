@@ -128,9 +128,9 @@ namespace Menu
             app.UseCookiePolicy();
             app.UseMvc(routes =>
             {
-                routes.MapRoute("default_menu_react", "Menu/{*url}", new { controller = "Menu", action = "Index" });
-                routes.MapRoute("default_menu_app_react", "Menu-app/{*url}", new { controller = "Menu", action = "MenuApp" });
-                routes.MapRoute("default_wordscards_app_react", "Menu-app/{*url}", new { controller = "Menu", action = "WardsCardsApp" });
+                routes.MapRoute("default_menu_react", "menu/{*url}", new { controller = "Menu", action = "Index" });
+                routes.MapRoute("default_menu_app_react", "menu-app/{*url}", new { controller = "Menu", action = "MenuApp" });
+                routes.MapRoute("default_wordscards_app_react", "words-cards-app/{*url}", new { controller = "Menu", action = "WardsCardsApp" });
                 
                 //routes.MapRoute(
                 //    name: "default",

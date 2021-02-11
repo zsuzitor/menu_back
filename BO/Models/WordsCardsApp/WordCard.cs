@@ -9,7 +9,7 @@ namespace BO.Models.WordsCardsApp.DAL.Domain
 
         public string Word { get; set; }
         public string WordAnswer { get; set; }//не хотел завязываться на слово "перевод"
-
+        public bool Hided { get; set; }
         public string Description { get; set; }
 
 

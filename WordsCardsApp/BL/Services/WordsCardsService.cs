@@ -149,10 +149,12 @@ namespace WordsCardsApp.BL.Services
             }
 
             var deletedRecord = await _wordCardRepository.Delete(id, userInfo.UserId);
-            if (deletedRecord != null)
+            if (deletedRecord == null)
             {
-                await _imageService.DeleteFileWithOutDbRecord(deletedRecord.ImagePath);
+                throw new SomeCustomException(ErrorConsts.NotFound);
             }
+
+            await _imageService.DeleteFileWithOutDbRecord(deletedRecord.ImagePath);
 
             return deletedRecord;
         }
