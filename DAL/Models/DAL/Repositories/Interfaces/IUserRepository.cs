@@ -14,6 +14,6 @@ namespace DAL.Models.DAL.Repositories.Interfaces
         Task<User> CreateNewAsync(User newUser);
         Task<bool> UserIsExist(string email, string login = null);
 
-
+        Task<User> GetShortInfo(long userId);
     }
 }

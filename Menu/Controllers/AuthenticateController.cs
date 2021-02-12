@@ -114,6 +114,7 @@ namespace Menu.Controllers
             await _apiHealper.DoStandartSomething(
               async () =>
               {
+                  //throw new SomeCustomException("assadads");
                   var accessToken = _apiHealper.GetAccessTokenFromRequest(Request);
                   var refreshToken = _apiHealper.GetRefreshTokenFromRequest(Request);
 
@@ -128,6 +129,8 @@ namespace Menu.Controllers
 
         }
 
+
+        
 
     }
 

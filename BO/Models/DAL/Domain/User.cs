@@ -4,6 +4,7 @@ using jwtLib.JWTAuth.Interfaces;
 using System.Collections.Generic;
 using BO.Models.MenuApp.DAL.Domain;
 using BO.Models.WordsCardsApp.DAL.Domain;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BO.Models.DAL.Domain
 {
@@ -13,6 +14,8 @@ namespace BO.Models.DAL.Domain
         public string Name { get; set; }
         public string Email { get; set; }
         public string Login { get; set; }
+       
+        public string ImagePath { get; set; }
         public string PasswordHash { get; set; }
         public string RefreshTokenHash { get; set; }
 

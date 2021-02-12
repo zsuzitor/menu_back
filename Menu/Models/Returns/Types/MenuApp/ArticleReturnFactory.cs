@@ -8,7 +8,7 @@ namespace Menu.Models.Returns.Types.MenuApp
 {
 
 
-    public class ArticleFactory : IReturnObjectFactory
+    public class ArticleReturnFactory : IReturnObjectFactory
     {
         public object GetObjectReturn(object obj)
         {

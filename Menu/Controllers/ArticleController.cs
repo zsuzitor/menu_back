@@ -53,6 +53,7 @@ namespace Menu.Controllers
                 async () =>
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    //throw new NotAuthException();
 
                     var res = await _articleService.GetAllUsersArticlesShort(userInfo);
 

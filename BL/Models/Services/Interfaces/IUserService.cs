@@ -14,5 +14,6 @@ namespace Menu.Models.Services.Interfaces
         Task<bool> SetRefreshTokenAsync(long userId, string refreshToken);
         Task<User> GetByEmailAndPasswordAsync(string email, string password);
         Task<User> CreateNewAsync(User newUser);
+        Task<User> GetShortInfo(long userId);
     }
 }

@@ -8,6 +8,7 @@ using Menu.Models.Returns.Interfaces;
 using MenuApp.Models.BO;
 using Menu.Models.Returns.Types;
 using Menu.Models.Returns.Types.MenuApp;
+using BO.Models.DAL.Domain;
 
 namespace Menu.Models.Returns
 {
@@ -20,10 +21,11 @@ namespace Menu.Models.Returns
             {typeof(AllTokens), new TokensReturnFactory() },
             {typeof(ErrorObject), new ErrorObjectReturnFactory () },
             {typeof(ArticleShort), new ArticleShortReturnFactory() },
-            {typeof(Article), new ArticleFactory() },
+            {typeof(Article), new ArticleReturnFactory() },
             {typeof(List<ArticleShort>), new ArticleShortReturnFactory() },
-            {typeof(List<Article>), new ArticleFactory() },
+            {typeof(List<Article>), new ArticleReturnFactory() },
              {typeof(BoolResult), new BoolResultFactory() },
+              {typeof(User), new ShortUserReturnFactory() },
             //TODO списки
 
         };

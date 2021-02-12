@@ -9,7 +9,7 @@ using BO.Models.DAL.Domain;
 
 namespace DAL.Models.DAL.Repositories
 {
-    public class UserRepository: IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly MenuDbContext _db;
         public UserRepository(MenuDbContext db)
@@ -23,7 +23,7 @@ namespace DAL.Models.DAL.Repositories
             return await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
         }
 
-        public async Task<User> GetUserByIdAndRefreshTokenAsync(long userId,string refreshTokenHash)
+        public async Task<User> GetUserByIdAndRefreshTokenAsync(long userId, string refreshTokenHash)
         {
             return await _db.Users.FirstOrDefaultAsync(x => x.Id == userId && x.RefreshTokenHash == refreshTokenHash);
         }
@@ -69,7 +69,7 @@ namespace DAL.Models.DAL.Repositories
 
         public async Task<User> GetByEmailAndPasswordHashAsync(string email, string passwordHash)
         {
-           //var g= _db.Users.ToList();
+            //var g= _db.Users.ToList();
             return await _db.Users.FirstOrDefaultAsync(x => x.Email == email && x.PasswordHash == passwordHash);
         }
 
@@ -80,7 +80,7 @@ namespace DAL.Models.DAL.Repositories
                 throw new SomeCustomException("не передан логин или почта");
             }
 
-           return  await _db.Users.AnyAsync(x => x.Email == email || x.Login == login);
+            return await _db.Users.AnyAsync(x => x.Email == email || x.Login == login);
         }
 
         public async Task<User> CreateNewAsync(User newUser)
@@ -90,5 +90,14 @@ namespace DAL.Models.DAL.Repositories
             return newUser;
         }
 
+        public async Task<User> GetShortInfo(long userId)
+        {
+            //TODO тут бы обрезать модель, грузить только то что надо и тд, но пока что так
+            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            user.Login = null;
+            user.PasswordHash = null;
+            user.RefreshTokenHash = null;
+            return user;
+        }
     }
 }

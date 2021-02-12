@@ -5,6 +5,7 @@ using Common.Models.Exceptions;
 using Menu.Models.Services.Interfaces;
 using System;
 using System.Threading.Tasks;
+using Common.Models.Error;
 
 namespace Menu.Models.Services
 {
@@ -94,6 +95,17 @@ namespace Menu.Models.Services
                 throw newE;
             }
             
+        }
+
+
+        public async Task<User> GetShortInfo(long userId)
+        {
+            var res = await _userRepository.GetShortInfo(userId);
+            if (res == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
+            return res;
         }
 
     }
