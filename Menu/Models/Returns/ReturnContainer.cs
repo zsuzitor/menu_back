@@ -9,6 +9,8 @@ using MenuApp.Models.BO;
 using Menu.Models.Returns.Types;
 using Menu.Models.Returns.Types.MenuApp;
 using BO.Models.DAL.Domain;
+using Menu.Models.Returns.Types.WordsCardsApp;
+using BO.Models.WordsCardsApp.DAL.Domain;
 
 namespace Menu.Models.Returns
 {
@@ -26,6 +28,8 @@ namespace Menu.Models.Returns
             {typeof(List<Article>), new ArticleReturnFactory() },
              {typeof(BoolResult), new BoolResultFactory() },
               {typeof(User), new ShortUserReturnFactory() },
+              {typeof(WordCard), new WordCardReturnFactory() },
+              
             //TODO списки
 
         };

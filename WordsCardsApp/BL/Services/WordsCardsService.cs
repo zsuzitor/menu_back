@@ -104,6 +104,23 @@ namespace WordsCardsApp.BL.Services
             return oldObj;
         }
 
+        /// <summary>
+        /// true - hide now
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="userInfo"></param>
+        /// <returns></returns>
+        public async Task<bool> ChangeHideStatus(long id, UserInfo userInfo)
+        {
+            var hided= await _wordCardRepository.ChangeHideStatus(id,userInfo.UserId);
+            if (hided == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
+
+            return hided.Value;
+        }
+
         public async Task<List<WordCard>> CreateFromFile(IFormFile file, UserInfo userInfo)
         {
             if (userInfo == null)

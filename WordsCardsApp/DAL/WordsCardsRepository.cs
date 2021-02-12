@@ -18,6 +18,18 @@ namespace WordsCardsApp.DAL
             _db = db;
         }
 
+        public async Task<bool?> ChangeHideStatus(long id, long userId)
+        {
+            var wordCard = await GetByIdIfAccess(id, userId);
+            if (wordCard == null)
+            {
+                return null;
+            }
+
+            wordCard.Hided = !wordCard.Hided;
+            await _db.SaveChangesAsync();
+            return wordCard.Hided;
+        }
 
         public async Task<WordCard> Create(WordCard newData)
         {
@@ -57,6 +69,7 @@ namespace WordsCardsApp.DAL
             return await _db.WordsCards.Where(x => x.UserId == userId).ToListAsync() ;
         }
 
+        //todo возможно есть случаи когда вызывается этот метод хотя нам надо просто узнать если ли доступ вообще
         public async Task<WordCard> GetByIdIfAccess(long id, long userId)
         {
             return await _db.WordsCards.FirstOrDefaultAsync(x=>x.UserId==userId&& x.Id==id);

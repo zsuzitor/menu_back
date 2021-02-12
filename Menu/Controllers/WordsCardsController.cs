@@ -1,5 +1,6 @@
 ﻿
 using System.Threading.Tasks;
+using Common.Models.Poco;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.Helpers.Interfaces;
 using Menu.Models.InputModels.WordsCardsApp;
@@ -62,7 +63,7 @@ namespace Menu.Controllers
 
         }
 
-        [Route("get-all-for-user")]
+        [Route("delete")]
         [HttpDelete]
         public async Task Delete(long id)
         {
@@ -80,7 +81,7 @@ namespace Menu.Controllers
         }
 
 
-        [Route("get-all-for-user")]
+        [Route("update")]
         [HttpPatch]
         public async Task Update(WordCardInputModelApi newData)
         {
@@ -92,6 +93,23 @@ namespace Menu.Controllers
                     var res = await _wordsCardsService.Update(newData.GetModel(), userInfo);
 
                     await _apiHealper.WriteReturnResponseAsync(Response, res);
+
+                }, Response, _logger);
+
+        }
+
+        [Route("hide")]
+        [HttpPatch]
+        public async Task Hide(long id)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _wordsCardsService.ChangeHideStatus(id, userInfo);
+
+                    await _apiHealper.WriteReturnResponseAsync(Response, new BoolResult(res));
 
                 }, Response, _logger);
 
@@ -109,6 +127,23 @@ namespace Menu.Controllers
                     var res = await _wordsCardsService.CreateFromFile(file, userInfo);
 
                     await _apiHealper.WriteReturnResponseAsync(Response, res);
+
+                }, Response, _logger);
+
+        }
+
+        [Route("donwload-all-words-file")]
+        [HttpPut]
+        public async Task DownloadAllWordsFile()
+        {//TODO
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    //var res = await _wordsCardsService.CreateFromFile(file, userInfo);
+
+                    await _apiHealper.WriteReturnResponseAsync(Response, false);
 
                 }, Response, _logger);
 

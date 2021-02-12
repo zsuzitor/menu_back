@@ -16,5 +16,7 @@ namespace WordsCardsApp.DAL.Repositories.Interfaces
         Task<WordCard> Delete(long id, long userId);
 
         Task<List<WordCard>> GetAllUsersWordCards(long userId);
+
+        Task<bool?> ChangeHideStatus(long id, long userId);
     }
 }
