@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using BO.Models.Auth;
 using Menu.Models.Returns.Interfaces;
+using System.Text.Encodings.Web;
 
 namespace Menu.Models.Helpers
 {
@@ -26,6 +27,7 @@ namespace Menu.Models.Helpers
 
         private readonly IErrorService _errorService;
         private readonly IErrorContainer _errorContainer;
+        private readonly long _fileMaxSize;
 
         /// <summary>
         /// только для моделей по умолчанию, те 1 тип маппится тут только с 1 return типом
@@ -33,12 +35,25 @@ namespace Menu.Models.Helpers
         private readonly IReturnContainer _returnContainer;
 
 
+        HtmlEncoder _htmlEncoder;
+        JavaScriptEncoder _javaScriptEncoder;
+        UrlEncoder _urlEncoder;
 
-        public ApiHelper(IErrorService errorService, IErrorContainer errorContainer, IReturnContainer returnContainer)
+
+        public ApiHelper(IErrorService errorService, IErrorContainer errorContainer, IReturnContainer returnContainer,
+            HtmlEncoder htmlEncoder,
+                             JavaScriptEncoder javascriptEncoder,
+                             UrlEncoder urlEncoder)
         {
+            _fileMaxSize = 1024 * 1024 * 3;
+
             _errorService = errorService;
             _errorContainer = errorContainer;
             _returnContainer = returnContainer;
+
+            _htmlEncoder = htmlEncoder;
+            _javaScriptEncoder = javascriptEncoder;
+            _urlEncoder = urlEncoder;
         }
 
 
@@ -184,7 +199,7 @@ namespace Menu.Models.Helpers
 
                 return userInfo;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 if (withError)
                 {
@@ -307,6 +322,35 @@ namespace Menu.Models.Helpers
             }
 
             return _errorService.HasError();
+        }
+
+        public string StringValidator(string str)
+        {
+            string res = _htmlEncoder.Encode(str);
+            res = _javaScriptEncoder.Encode(res);
+            res = _urlEncoder.Encode(res);
+            return res;
+        }
+
+        public void FileValidator(IFormFile file, ModelStateDictionary modelState)
+        {
+            if (file == null)
+            {
+                return;
+            }
+
+            string fileContentType = file.ContentType.ToLower();
+            if (fileContentType != "image/jpeg"
+                && fileContentType != "image/jpg"
+                && fileContentType != "image/png")
+            {
+                modelState.AddModelError(ErrorConsts.FileError, "Файл может быть jpeg, jpg, png");//TODO текст надо вынести
+            }
+
+            if (file.Length > _fileMaxSize)
+            {
+                modelState.AddModelError(ErrorConsts.FileError, "Максимальный размер файла 3мб");//TODO текст надо вынести
+            }
         }
     }
 

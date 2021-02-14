@@ -81,7 +81,7 @@ namespace Menu.Controllers
 
         [Route("detail")]
         [HttpGet]
-        public async Task Detail( long id)//[FromQuery]
+        public async Task Detail(long id)//[FromQuery]
         {
             await _apiHealper.DoStandartSomething(
                async () =>
@@ -118,6 +118,7 @@ namespace Menu.Controllers
             await _apiHealper.DoStandartSomething(
                async () =>
                {
+                   newData.Validate(_apiHealper.StringValidator, _apiHealper.FileValidator, ModelState);
                    _apiHealper.ErrorsFromModelState(ModelState);
                    if (_errorService.HasError())
                    {
@@ -125,7 +126,7 @@ namespace Menu.Controllers
                    }
 
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
+                  
                    var newArticle = await _articleService.Create(newData.GetModel(), userInfo);
                    await _apiHealper.WriteReturnResponseAsync(Response, newArticle);
                }, Response, _logger);
@@ -145,6 +146,7 @@ namespace Menu.Controllers
                        ModelState.AddModelError("id_is_required", "не передано id");//TODO подумать как вынести в общий кусок все такие штуки
                    }
 
+                   newData.Validate(_apiHealper.StringValidator, _apiHealper.FileValidator, ModelState);
                    _apiHealper.ErrorsFromModelState(ModelState);
                    if (_errorService.HasError())
                    {
@@ -152,7 +154,7 @@ namespace Menu.Controllers
                    }
 
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
+                   
                    var res = await _articleService.Update(newData.GetModel(), userInfo);
                    await _apiHealper.WriteReturnResponseAsync(Response, res);
                }, Response, _logger);

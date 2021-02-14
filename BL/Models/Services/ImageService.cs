@@ -111,14 +111,24 @@ namespace Menu.Models.Services
 
         public async Task<string> CreateWithOutDbRecord(IFormFile image)
         {
-            string uniqueFileName = Guid.NewGuid().ToString() + "_" + image.FileName;//TODO имя тут неправильно так передавать
+            if (image == null)
+            {
+                return null;
+            }
+
+            string uniqueFileName = Guid.NewGuid().ToString() + "_" + DateTime.Now.Ticks;//TODO имя тут неправильно так передавать
             return await _imageDataStorage.Create(image.OpenReadStream(), uniqueFileName);
             //return await CreatePhysicalFile(image, string.Empty);
         }
 
         public async Task<string> CreateUploadFileWithOutDbRecord(IFormFile image)
         {
-            string uniqueFileName = Guid.NewGuid().ToString() + "_" + image.FileName;//TODO имя тут неправильно так передавать
+            if (image == null)
+            {
+                return null;
+            }
+
+            string uniqueFileName = Guid.NewGuid().ToString() + "_" + DateTime.Now.Ticks;//TODO имя тут неправильно так передавать
             return await _imageDataStorage.CreateUpload(image.OpenReadStream(), uniqueFileName);
             //return await CreatePhysicalFile(image, "uploads");
         }

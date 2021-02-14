@@ -1,5 +1,7 @@
 ﻿
 using System.Threading.Tasks;
+using Common.Models.Error.services.Interfaces;
+using Common.Models.Exceptions;
 using Common.Models.Poco;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.Helpers.Interfaces;
@@ -19,14 +21,22 @@ namespace Menu.Controllers
         private readonly IJWTService _jwtService;
         private readonly ILogger _logger;
 
+        private readonly IErrorService _errorService;
         private readonly IWordsCardsService _wordsCardsService;
 
-        public WordsCardsController(IJWTService jwtService, IApiHelper apiHealper, ILogger<WordsCardsController> logger, IWordsCardsService wordsCardsService)
+
+
+
+        public WordsCardsController(IJWTService jwtService, IApiHelper apiHealper,
+            ILogger<WordsCardsController> logger, IWordsCardsService wordsCardsService, IErrorService errorService)
         {
             _apiHealper = apiHealper;
             _jwtService = jwtService;
             _logger = logger;
             _wordsCardsService = wordsCardsService;
+            _errorService = errorService;
+
+
         }
 
         [Route("get-all-for-user")]
@@ -48,14 +58,21 @@ namespace Menu.Controllers
 
         [Route("create")]
         [HttpPut]
-        public async Task Create(WordCardInputModelApi newData)
+        public async Task Create([FromForm] WordCardInputModelApi newData)
         {
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _wordsCardsService.Create(newData.GetModel(),userInfo);
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    newData.Validate(_apiHealper.StringValidator, _apiHealper.FileValidator, ModelState);
+                    _apiHealper.ErrorsFromModelState(ModelState);
+                    if (_errorService.HasError())
+                    {
+                        throw new StopException();
+                    }
+
+                    var res = await _wordsCardsService.Create(newData.GetModel(), userInfo);
 
                     await _apiHealper.WriteReturnResponseAsync(Response, res);
 
@@ -65,7 +82,7 @@ namespace Menu.Controllers
 
         [Route("delete")]
         [HttpDelete]
-        public async Task Delete(long id)
+        public async Task Delete([FromForm] long id)
         {
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -83,12 +100,18 @@ namespace Menu.Controllers
 
         [Route("update")]
         [HttpPatch]
-        public async Task Update(WordCardInputModelApi newData)
+        public async Task Update([FromForm] WordCardInputModelApi newData)
         {
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
+                    newData.Validate(_apiHealper.StringValidator, _apiHealper.FileValidator, ModelState);
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    _apiHealper.ErrorsFromModelState(ModelState);
+                    if (_errorService.HasError())
+                    {
+                        throw new StopException();
+                    }
 
                     var res = await _wordsCardsService.Update(newData.GetModel(), userInfo);
 
@@ -100,7 +123,7 @@ namespace Menu.Controllers
 
         [Route("hide")]
         [HttpPatch]
-        public async Task Hide(long id)
+        public async Task Hide([FromForm] long id)
         {
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -117,7 +140,7 @@ namespace Menu.Controllers
 
         [Route("create-from-file")]
         [HttpPut]
-        public async Task CreateFromFile(IFormFile file)
+        public async Task CreateFromFile([FromForm] IFormFile file)
         {
             await _apiHealper.DoStandartSomething(
                 async () =>

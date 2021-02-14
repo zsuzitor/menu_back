@@ -45,5 +45,7 @@ namespace Menu.Models.Helpers.Interfaces
         object GetReturnType<TIn>(TIn obj);
 
         bool ErrorsFromModelState(ModelStateDictionary modelState);
+        string StringValidator(string str);
+        void FileValidator(IFormFile file, ModelStateDictionary modelState);
     }
 }

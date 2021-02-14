@@ -2,6 +2,8 @@
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System;
 using WordsCardsApp.BO.Input;
 
 namespace Menu.Models.InputModels.WordsCardsApp
@@ -26,7 +28,26 @@ namespace Menu.Models.InputModels.WordsCardsApp
         public IFormFile MainImageNew { get; set; }
 
 
+        public void Validate(Func<string, string> strValidator, Action<IFormFile, ModelStateDictionary> fileValidator, ModelStateDictionary modelState)
+        {
+            Word = strValidator(Word.Trim());
+            if (string.IsNullOrWhiteSpace(Word))
+            {
+                Word = string.Empty;
+            }
+            WordAnswer = strValidator(WordAnswer.Trim());
+            if (string.IsNullOrWhiteSpace(WordAnswer))
+            {
+                WordAnswer = string.Empty;
+            }
+            Description = strValidator(Description.Trim());
+            if (string.IsNullOrWhiteSpace(Description))
+            {
+                Description = string.Empty;
+            }
 
+            fileValidator(MainImageNew, modelState);
+        }
 
         public WordCardInputModelApi()
         {

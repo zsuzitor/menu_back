@@ -29,6 +29,7 @@ namespace Menu.Models.Returns
              {typeof(BoolResult), new BoolResultFactory() },
               {typeof(User), new ShortUserReturnFactory() },
               {typeof(WordCard), new WordCardReturnFactory() },
+               {typeof(List<WordCard>), new WordCardReturnFactory() },
               
             //TODO списки
 

@@ -3,6 +3,8 @@
 using MenuApp.Models.BO.Input;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -40,6 +42,20 @@ namespace Menu.Models.InputModels.MenuApp
             DeletedAdditionalImages = new List<long>();
             AdditionalImages = new List<IFormFile>();
         }
+
+
+        public void Validate(Func<string, string> strValidator, Action<IFormFile, ModelStateDictionary> fileValidator, ModelStateDictionary modelState)
+        {
+            Title = strValidator(Title);
+            Body = strValidator(Body);
+
+            fileValidator(MainImageNew, modelState);
+            if (AdditionalImages != null)
+            {
+                AdditionalImages.ForEach(x => fileValidator(x, modelState));
+            }
+        }
+
 
         public ArticleInputModel GetModel()
         {
