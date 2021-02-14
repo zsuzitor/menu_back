@@ -30,6 +30,8 @@ using System;
 using BO.Models.Config;
 using WordsCardsApp.BL.Services;
 using WordsCardsApp.BL.Services.Interfaces;
+using WordsCardsApp.DAL.Repositories.Interfaces;
+using WordsCardsApp.DAL;
 
 namespace Menu
 {
@@ -59,7 +61,9 @@ namespace Menu
             services.AddScoped<IArticleRepository, ArticleRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
+            services.AddScoped<IWordsCardsRepository, WordsCardsRepository>();
             
+
 
             //healpers
             services.AddScoped<IApiHelper, ApiHelper>();
