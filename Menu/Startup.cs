@@ -32,6 +32,9 @@ using WordsCardsApp.BL.Services;
 using WordsCardsApp.BL.Services.Interfaces;
 using WordsCardsApp.DAL.Repositories.Interfaces;
 using WordsCardsApp.DAL;
+using Microsoft.Extensions.WebEncoders;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 namespace Menu
 {
@@ -55,7 +58,11 @@ namespace Menu
                     Configuration.GetConnectionString("DefaultConnection")));
 
 
-            
+            //конфигурируем encoders(HtmlEncoder и тд) что бы они не ломали русские буквы
+            services.Configure<WebEncoderOptions>(options =>
+            {
+                options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All);
+            });
 
             //repositories
             services.AddScoped<IArticleRepository, ArticleRepository>();

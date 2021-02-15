@@ -30,20 +30,32 @@ namespace Menu.Models.InputModels.WordsCardsApp
 
         public void Validate(Func<string, string> strValidator, Action<IFormFile, ModelStateDictionary> fileValidator, ModelStateDictionary modelState)
         {
-            Word = strValidator(Word.Trim());
             if (string.IsNullOrWhiteSpace(Word))
             {
                 Word = string.Empty;
             }
-            WordAnswer = strValidator(WordAnswer.Trim());
+            else
+            {
+                Word = strValidator(Word.Trim());
+            }
+
+            
             if (string.IsNullOrWhiteSpace(WordAnswer))
             {
                 WordAnswer = string.Empty;
             }
-            Description = strValidator(Description.Trim());
+            else
+            {
+                WordAnswer = strValidator(WordAnswer.Trim());
+            }
+            
             if (string.IsNullOrWhiteSpace(Description))
             {
                 Description = string.Empty;
+            }
+            else
+            {
+                Description = strValidator(Description.Trim());
             }
 
             fileValidator(MainImageNew, modelState);
