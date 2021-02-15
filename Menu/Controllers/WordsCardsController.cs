@@ -1,4 +1,6 @@
 ﻿
+using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
@@ -155,18 +157,45 @@ namespace Menu.Controllers
 
         }
 
-        [Route("donwload-all-words-file")]
-        [HttpPut]
-        public async Task DownloadAllWordsFile()
+        [Route("download-all-words-file")]
+        [HttpGet]
+        public async Task DownloadAllWordsFile()//FileStreamResult
         {//TODO
+            // MemoryStream mr = new MemoryStream();
+            // TextWriter tw = new StreamWriter(mr);
+
+
+            //tw.WriteLine("111;");
+            //tw.WriteLine("222;");
+
+            //tw.Flush();
+            //mr.Position = 0; ;
+            ////new FileInfo();
+            //var file = File(mr, "application/force-download", "myFile.txt");
+            //Response.ContentType = "application/force-download";
+            //Response.Headers.Add("content-disposition", string.Format("inline;FileName=\"{0}\"", "myFile.csv"));
+            //await Response.Body.WriteAsync(mr.ToArray(),0, (int)mr.Length);
+            //return await Task.FromResult(file);
+
+
+            //return;
+
+
+
+
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
+                   
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    //var res = await _wordsCardsService.CreateFromFile(file, userInfo);
-
-                    await _apiHealper.WriteReturnResponseAsync(Response, false);
+                    var res = await _wordsCardsService.GetAllRecordsStringForSave(userInfo);
+                    MemoryStream mr = new MemoryStream();
+                    TextWriter tw = new StreamWriter(mr);
+                    res.ForEach(x => tw.WriteLine(x));
+                    tw.Flush();
+                    _apiHealper.SendFile(mr,Response, "myFile.csv");
+                    //await _apiHealper.WriteReturnResponseAsync(Response, res);
 
                 }, Response, _logger);
 

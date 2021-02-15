@@ -15,6 +15,7 @@ using System.Linq;
 using BO.Models.Auth;
 using Menu.Models.Returns.Interfaces;
 using System.Text.Encodings.Web;
+using System.IO;
 
 namespace Menu.Models.Helpers
 {
@@ -351,6 +352,14 @@ namespace Menu.Models.Helpers
             {
                 modelState.AddModelError(ErrorConsts.FileError, "Максимальный размер файла 3мб");//TODO текст надо вынести
             }
+        }
+
+        public async Task SendFile(MemoryStream mr, HttpResponse response, string fileName)
+        {
+            mr.Position = 0;
+            response.ContentType = "application/force-download";
+            response.Headers.Add("content-disposition", string.Format("inline;FileName=\"{0}\"", fileName));
+            await response.Body.WriteAsync(mr.ToArray(), 0, (int)mr.Length);
         }
     }
 

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 using System;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Menu.Models.Helpers.Interfaces
@@ -47,5 +48,6 @@ namespace Menu.Models.Helpers.Interfaces
         bool ErrorsFromModelState(ModelStateDictionary modelState);
         string StringValidator(string str);
         void FileValidator(IFormFile file, ModelStateDictionary modelState);
+        Task SendFile(MemoryStream str, HttpResponse response,string fileName);
     }
 }

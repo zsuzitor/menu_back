@@ -66,13 +66,13 @@ namespace WordsCardsApp.DAL
 
         public async Task<List<WordCard>> GetAllUsersWordCards(long userId)
         {
-            return await _db.WordsCards.Where(x => x.UserId == userId).ToListAsync() ;
+            return await _db.WordsCards.Where(x => x.UserId == userId).ToListAsync();
         }
 
         //todo возможно есть случаи когда вызывается этот метод хотя нам надо просто узнать если ли доступ вообще
         public async Task<WordCard> GetByIdIfAccess(long id, long userId)
         {
-            return await _db.WordsCards.FirstOrDefaultAsync(x=>x.UserId==userId&& x.Id==id);
+            return await _db.WordsCards.FirstOrDefaultAsync(x => x.UserId == userId && x.Id == id);
         }
     }
 }

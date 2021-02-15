@@ -54,7 +54,17 @@ namespace BL.Models.Services
 
         public async Task<bool> Delete(string path)
         {
-            return await _fileService.DeletePhysicalFile(path);
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                return true;
+            }
+
+            if (path.StartsWith("\\"))
+            {
+                path = path[1..];
+            }
+
+            return await _fileService.DeletePhysicalFile(_fileService.PathCombine(_webHostEnvironment.WebRootPath, path));
         }
 
         public Task Init()

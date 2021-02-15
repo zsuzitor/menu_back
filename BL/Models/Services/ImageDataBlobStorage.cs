@@ -43,6 +43,11 @@ namespace BL.Models.Services
 
         public async Task<bool> Delete(string path)
         {
+            if (string.IsNullOrWhiteSpace(path))
+            {
+                return true;
+            }
+
             BlobServiceClient blobServiceClient = new BlobServiceClient(_connectionString);
             var containerClient = blobServiceClient.GetBlobContainerClient(_containerImagesName);
             return await containerClient.DeleteBlobIfExistsAsync(path, Azure.Storage.Blobs.Models.DeleteSnapshotsOption.IncludeSnapshots);

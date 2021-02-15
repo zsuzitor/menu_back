@@ -112,7 +112,7 @@ namespace WordsCardsApp.BL.Services
         /// <returns></returns>
         public async Task<bool> ChangeHideStatus(long id, UserInfo userInfo)
         {
-            var hided= await _wordCardRepository.ChangeHideStatus(id,userInfo.UserId);
+            var hided = await _wordCardRepository.ChangeHideStatus(id, userInfo.UserId);
             if (hided == null)
             {
                 throw new SomeCustomException(ErrorConsts.NotFound);
@@ -140,16 +140,18 @@ namespace WordsCardsApp.BL.Services
                 }
 
                 var strData = tmpStr.Split(';');
-                if (strData.Length < 3)
+                if (strData.Length < 5)
                 {
                     continue;
                 }
 
                 dataForAdd.Add(new WordCard()
                 {
-                    Word = strData[0],
-                    WordAnswer = strData[1],
-                    Description = strData[2],
+                    Word = strData[0].Trim(),
+                    WordAnswer = strData[1].Trim(),
+                    Description = strData[2].Trim(),
+                    Hided = bool.Parse(strData[3].Trim()),
+                    ImagePath = strData[4].Trim(),
                     UserId = userInfo.UserId,
                 });
             }
@@ -223,6 +225,17 @@ namespace WordsCardsApp.BL.Services
             return changed;
         }
 
+        public string ToStringForSave(WordCard obj)
+        {
+            return $"{obj.Word};{obj.WordAnswer};{obj.Description};{obj.Hided};{obj.ImagePath};";
+        }
 
+        public async Task<List<string>> GetAllRecordsStringForSave(UserInfo userInfo)
+        {
+            var records = await GetAllForUser(userInfo);
+            List<string> res = new List<string>();
+            records.ForEach(x => res.Add(ToStringForSave(x)));
+            return res;
+        }
     }
 }

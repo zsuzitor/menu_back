@@ -18,5 +18,7 @@ namespace WordsCardsApp.BL.Services.Interfaces
         Task<bool> ChangeHideStatus(long id, UserInfo userInfo);
         Task<WordCard> Delete(long id, UserInfo userInfo);
         Task<List<WordCard>> CreateFromFile(IFormFile file, UserInfo userInfo);
+        string ToStringForSave(WordCard obj);
+        Task<List<string>> GetAllRecordsStringForSave(UserInfo userInfo);
     }
 }
