@@ -24,6 +24,7 @@ COPY ["DAL/*.csproj", "DAL/"]
 
 COPY ["Menu/*.csproj", "Menu/"]
 COPY ["MenuApp/*.csproj", "MenuApp/"]
+COPY ["WordsCardsApp/*.csproj", "WordsCardsApp/"]
 COPY ["Menu.Tests/*.csproj", "Menu.Tests/"]
 
 RUN dotnet restore
@@ -36,6 +37,7 @@ COPY ["DAL/", "DAL/"]
 
 COPY ["Menu/", "Menu/"]
 COPY ["MenuApp/", "MenuApp/"]
+COPY ["WordsCardsApp/", "WordsCardsApp/"]
 COPY ["Menu.Tests/", "Menu.Tests/"]
 
 #что бы не запускать тут билд отдельной командой, надо добавить игнор на все bin obj папки и другой мусор

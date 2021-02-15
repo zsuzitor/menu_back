@@ -17,7 +17,7 @@ namespace BL.Models.Services
             _connectionString = settings.ConnectionString;//TODO остальное тоже в конфиги?
             string dbGuid = "8e188595-ae55-42f6-bca2-a88814e5f2b8";
             _containerImagesName = "menuimages-";
-            _containerUploadedImagesName = _containerImagesName + "uploads_" + dbGuid;
+            _containerUploadedImagesName = _containerImagesName + "uploads-" + dbGuid;
             _containerImagesName += dbGuid;
         }
 

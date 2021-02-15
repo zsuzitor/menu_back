@@ -116,7 +116,7 @@ namespace Menu.Models.Services
                 return null;
             }
 
-            string uniqueFileName = Guid.NewGuid().ToString() + "_" + DateTime.Now.Ticks;//TODO имя тут неправильно так передавать
+            string uniqueFileName = Guid.NewGuid().ToString() + "-" + DateTime.Now.Ticks;//TODO имя тут неправильно так передавать
             return await _imageDataStorage.Create(image.OpenReadStream(), uniqueFileName);
             //return await CreatePhysicalFile(image, string.Empty);
         }
@@ -128,7 +128,7 @@ namespace Menu.Models.Services
                 return null;
             }
 
-            string uniqueFileName = Guid.NewGuid().ToString() + "_" + DateTime.Now.Ticks;//TODO имя тут неправильно так передавать
+            string uniqueFileName = Guid.NewGuid().ToString() + "-" + DateTime.Now.Ticks;//TODO имя тут неправильно так передавать
             return await _imageDataStorage.CreateUpload(image.OpenReadStream(), uniqueFileName);
             //return await CreatePhysicalFile(image, "uploads");
         }
