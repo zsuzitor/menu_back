@@ -1,5 +1,8 @@
 ﻿
+using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common.Models.Error.services.Interfaces;
@@ -81,6 +84,29 @@ namespace Menu.Controllers
                 }, Response, _logger);
 
         }
+
+        [Route("create-list")]
+        [HttpPut]
+        public async Task CreateList( [FromForm] List<WordCardInputModelApi> newData )
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    newData.ForEach(x => x.Validate(_apiHealper.StringValidator, _apiHealper.FileValidator, ModelState));
+                    _apiHealper.ErrorsFromModelState(ModelState);
+                    if (_errorService.HasError())
+                    {
+                        throw new StopException();
+                    }
+
+                    var res = await _wordsCardsService.Create(newData.Select(x => x.GetModel()).ToList(), userInfo);
+                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+
+                }, Response, _logger);
+
+        }
+
 
         [Route("delete")]
         [HttpDelete]
@@ -194,7 +220,7 @@ namespace Menu.Controllers
                     TextWriter tw = new StreamWriter(mr);
                     res.ForEach(x => tw.WriteLine(x));
                     tw.Flush();
-                    _apiHealper.SendFile(mr,Response, "myFile.csv");
+                    await _apiHealper.SendFile(mr,Response, "myFile.csv");//TODO проверить мб стримы выше можно закрыть
                     //await _apiHealper.WriteReturnResponseAsync(Response, res);
 
                 }, Response, _logger);

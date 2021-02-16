@@ -11,6 +11,8 @@ namespace WordsCardsApp.DAL.Repositories.Interfaces
         Task<WordCard> GetByIdIfAccess(long id, long userId);
 
         Task<WordCard> Create(WordCard newData);
+        Task<List<WordCard>> Create(List<WordCard> newData);
+        
         Task Edit(WordCard newData);
         Task<List<WordCard>> CreateList(List<WordCard> newArr);
         Task<WordCard> Delete(long id, long userId);

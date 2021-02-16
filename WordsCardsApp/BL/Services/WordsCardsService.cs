@@ -57,6 +57,38 @@ namespace WordsCardsApp.BL.Services
             }
         }
 
+        public async Task<List<WordCard>> Create(List<WordCardInputModel> input, UserInfo userInfo)
+        {
+            if (userInfo == null)
+            {
+                throw new NotAuthException();
+            }
+
+            if(input==null|| input.Count == 0)
+            {
+                return new List<WordCard>();
+            }
+
+            try
+            {
+                List<WordCard> forAdd = new List<WordCard>();
+                foreach (var i in input)
+                {
+                    var wordCardNew = WordCardFromInputModelNew(i);
+                    wordCardNew.UserId = userInfo.UserId;
+                    wordCardNew.ImagePath = await _imageService.CreateUploadFileWithOutDbRecord(i.MainImageNew);
+                    forAdd.Add(wordCardNew);
+                }
+
+                var resWordCards = await _wordCardRepository.Create(forAdd);
+                return resWordCards;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         public async Task<WordCard> Update(WordCardInputModel input, UserInfo userInfo)
         {
             if (userInfo == null)

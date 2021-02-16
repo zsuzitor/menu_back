@@ -38,6 +38,15 @@ namespace WordsCardsApp.DAL
             return newData;
         }
 
+
+        public async Task<List<WordCard>> Create(List<WordCard> newData)
+        {
+            _db.AddRange(newData);
+            await _db.SaveChangesAsync();
+            return newData;
+        }
+
+
         public async Task<List<WordCard>> CreateList(List<WordCard> newArr)
         {
             _db.AddRange(newArr);

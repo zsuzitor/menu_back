@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
+using System.ComponentModel.DataAnnotations;
 using WordsCardsApp.BO.Input;
 
 namespace Menu.Models.InputModels.WordsCardsApp
@@ -12,9 +13,12 @@ namespace Menu.Models.InputModels.WordsCardsApp
     {
         [BindProperty(Name = "id", SupportsGet = false)]
         public long? Id { get; set; }
+
         [BindProperty(Name = "word", SupportsGet = false)]
+        [Required]
         public string Word { get; set; }
         [BindProperty(Name = "word_answer", SupportsGet = false)]
+        [Required]
         public string WordAnswer { get; set; }
         [BindProperty(Name = "description", SupportsGet = false)]
         public string Description { get; set; }
