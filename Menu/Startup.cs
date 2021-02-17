@@ -35,6 +35,7 @@ using WordsCardsApp.DAL;
 using Microsoft.Extensions.WebEncoders;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using WordsCardsApp.DAL.Repositories;
 
 namespace Menu
 {
@@ -69,7 +70,7 @@ namespace Menu
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
             services.AddScoped<IWordsCardsRepository, WordsCardsRepository>();
-            
+            services.AddScoped<IWordsListRepository, WordsListRepository>();
 
 
             //healpers
@@ -84,7 +85,8 @@ namespace Menu
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IArticleService, ArticleService>();
             services.AddScoped<IWordsCardsService, WordsCardsService>();
-
+            services.AddScoped<IWordsListService, WordsListService>();
+            
 
             var imageConfig = new ImageConfig();
             Configuration.GetSection("ImageSettings").Bind(imageConfig);

@@ -16,7 +16,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WordsCardsApp.BL.Services.Interfaces;
 
-namespace Menu.Controllers
+namespace Menu.Controllers.WordsCardsApp
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -87,7 +87,7 @@ namespace Menu.Controllers
 
         [Route("create-list")]
         [HttpPut]
-        public async Task CreateList( [FromForm] List<WordCardInputModelApi> newData )
+        public async Task CreateList([FromForm] List<WordCardInputModelApi> newData)
         {
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -220,7 +220,7 @@ namespace Menu.Controllers
                     TextWriter tw = new StreamWriter(mr);
                     res.ForEach(x => tw.WriteLine(x));
                     tw.Flush();
-                    await _apiHealper.SendFile(mr,Response, "myFile.csv");//TODO проверить мб стримы выше можно закрыть
+                    await _apiHealper.SendFile(mr,Response, "myWords.csv");//TODO проверить мб стримы выше можно закрыть
                     //await _apiHealper.WriteReturnResponseAsync(Response, res);
 
                 }, Response, _logger);

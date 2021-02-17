@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BO.Models.DAL.Domain
 {
-    public class User: IJWTUser
+    public class User: IJWTUser, IDomainRecord<long>
     {
         public long Id { get; set; }
         public string Name { get; set; }
@@ -21,11 +21,14 @@ namespace BO.Models.DAL.Domain
 
         public List<Article> Articles { get; set; }
         public List<WordCard> WordsCards { get; set; }
+        public List<WordsList> WordsLists { get; set; }
+        
 
         public User()
         {
             Articles = new List<Article>();
             WordsCards = new List<WordCard>();
+            WordsLists = new List<WordsList>();
         }
     }
 }

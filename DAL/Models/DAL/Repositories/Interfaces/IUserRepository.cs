@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models.DAL.Repositories.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserRepository //: IGeneralRepository<User, long>
     {
         Task<User> GetUserByIdAsync(long userId);
         Task<User> GetUserByIdAndRefreshTokenAsync(long userId, string refreshTokenHash);

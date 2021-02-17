@@ -7,21 +7,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using DAL.Models.DAL;
 using MenuApp.Models.BO;
+using DAL.Models.DAL.Repositories;
 
 namespace MenuApp.Models.DAL.Repositories
 {
-    public class ArticleRepository : IArticleRepository
+    public class ArticleRepository : GeneralRepository<Article, long>, IArticleRepository
     {
         private readonly MenuDbContext _db;
-        //private readonly IImageService _imageService;
 
 
-        public ArticleRepository(MenuDbContext db
-            //, IImageService imageService
-            )
+        public ArticleRepository(MenuDbContext db) : base(db)
         {
             _db = db;
-            //_imageService = imageService;
         }
 
         public async Task<List<Article>> GetAllUsersArticles(long userId)
@@ -33,13 +30,6 @@ namespace MenuApp.Models.DAL.Repositories
         {
             return await _db.Articles.Where(x => x.UserId == userId).Select(x => new ArticleShort(x)).ToListAsync();
         }
-
-        public async Task<Article> GetById(long id)
-        {
-            return await _db.Articles.FirstOrDefaultAsync(x => x.Id == id);
-        }
-
-
 
         public async Task<bool?> ChangeFollowStatus(long id, long userId)
         {
@@ -59,12 +49,6 @@ namespace MenuApp.Models.DAL.Repositories
             return await _db.Articles.FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
         }
 
-        public async Task<Article> Create(Article newArticle)
-        {
-            _db.Articles.Add(newArticle);
-            await _db.SaveChangesAsync();
-            return newArticle;
-        }
 
 
         public async Task LoadImages(Article article)
@@ -73,15 +57,6 @@ namespace MenuApp.Models.DAL.Repositories
             await _db.Entry(article).Collection(x => x.AdditionalImages).LoadAsync();
         }
 
-        public async Task Edit(Article newData)
-        {
-            _db.Articles.Attach(newData);
-
-            //await _db.Entry(newData).Collection(x => x.AdditionalImages).LoadAsync();
-
-            await _db.SaveChangesAsync();
-            //return true;
-        }
 
         public async Task<Article> Delete(long userId, long articleId)
         {
@@ -93,7 +68,6 @@ namespace MenuApp.Models.DAL.Repositories
             }
 
             await _db.Entry(article).Collection(x => x.AdditionalImages).LoadAsync();
-            //await _imageService.DeleteFull(article.AdditionalImages);//TODO
 
             _db.Remove(article);
             await _db.SaveChangesAsync();

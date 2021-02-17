@@ -36,9 +36,9 @@ namespace Menu.Models.Helpers
         private readonly IReturnContainer _returnContainer;
 
 
-        HtmlEncoder _htmlEncoder;
-        JavaScriptEncoder _javaScriptEncoder;
-        UrlEncoder _urlEncoder;
+        private readonly HtmlEncoder _htmlEncoder;
+        private readonly JavaScriptEncoder _javaScriptEncoder;
+        private readonly UrlEncoder _urlEncoder;
 
 
         public ApiHelper(IErrorService errorService, IErrorContainer errorContainer, IReturnContainer returnContainer,

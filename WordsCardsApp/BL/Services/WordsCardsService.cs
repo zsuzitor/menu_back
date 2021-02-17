@@ -48,7 +48,7 @@ namespace WordsCardsApp.BL.Services
             try
             {
                 wordCardNew.ImagePath = await _imageService.CreateUploadFileWithOutDbRecord(input.MainImageNew);
-                var resWordCard = await _wordCardRepository.Create(wordCardNew);
+                var resWordCard = await _wordCardRepository.Add(wordCardNew);
                 return resWordCard;
             }
             catch
@@ -80,7 +80,7 @@ namespace WordsCardsApp.BL.Services
                     forAdd.Add(wordCardNew);
                 }
 
-                var resWordCards = await _wordCardRepository.Create(forAdd);
+                var resWordCards = await _wordCardRepository.Add(forAdd);
                 return resWordCards;
             }
             catch
@@ -130,7 +130,7 @@ namespace WordsCardsApp.BL.Services
 
             if (changed)//?
             {
-                await _wordCardRepository.Edit(oldObj);
+                await _wordCardRepository.Update(oldObj);
             }
 
             return oldObj;
@@ -189,7 +189,7 @@ namespace WordsCardsApp.BL.Services
             }
 
             //strFile = await reader.ReadLineAsync();
-            return await _wordCardRepository.CreateList(dataForAdd);
+            return await _wordCardRepository.Add(dataForAdd);
         }
 
         public async Task<WordCard> Delete(long id, UserInfo userInfo)

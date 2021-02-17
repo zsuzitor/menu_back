@@ -1,19 +1,20 @@
 ﻿
 using BO.Models.WordsCardsApp.DAL.Domain;
 using DAL.Models.DAL;
+using DAL.Models.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WordsCardsApp.DAL.Repositories.Interfaces;
 
-namespace WordsCardsApp.DAL
+namespace WordsCardsApp.DAL.Repositories
 {
-    public class WordsCardsRepository : IWordsCardsRepository
+    public class WordsCardsRepository : GeneralRepository<WordCard, long>, IWordsCardsRepository
     {
         private readonly MenuDbContext _db;
 
-        public WordsCardsRepository(MenuDbContext db)
+        public WordsCardsRepository(MenuDbContext db):base(db)
         {
             _db = db;
         }
@@ -31,28 +32,7 @@ namespace WordsCardsApp.DAL
             return wordCard.Hided;
         }
 
-        public async Task<WordCard> Create(WordCard newData)
-        {
-            _db.Add(newData);
-            await _db.SaveChangesAsync();
-            return newData;
-        }
 
-
-        public async Task<List<WordCard>> Create(List<WordCard> newData)
-        {
-            _db.AddRange(newData);
-            await _db.SaveChangesAsync();
-            return newData;
-        }
-
-
-        public async Task<List<WordCard>> CreateList(List<WordCard> newArr)
-        {
-            _db.AddRange(newArr);
-            await _db.SaveChangesAsync();
-            return newArr;
-        }
 
         public async Task<WordCard> Delete(long id, long userId)
         {
@@ -62,17 +42,11 @@ namespace WordsCardsApp.DAL
                 return null;
             }
 
-            _db.Remove(wordCard);
-            await _db.SaveChangesAsync();
-            return wordCard;
+            return await Delete(wordCard);
+            //return wordCard;
         }
 
-        public async Task Edit(WordCard newData)
-        {
-            _db.Attach(newData);
-            await _db.SaveChangesAsync();
-        }
-
+       
         public async Task<List<WordCard>> GetAllUsersWordCards(long userId)
         {
             return await _db.WordsCards.Where(x => x.UserId == userId).ToListAsync();
