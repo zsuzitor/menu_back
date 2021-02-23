@@ -1,11 +1,8 @@
 ﻿using BO.Models.WordsCardsApp.DAL.Domain;
 using Menu.Models.Returns.Interfaces;
-using MenuApp.Models.BO;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace Menu.Models.Returns.Types.WordsCardsApp
 {
@@ -48,6 +45,10 @@ namespace Menu.Models.Returns.Types.WordsCardsApp
         [JsonPropertyName("user_id")]
         public long? UserId { get; set; }
 
+
+        [JsonPropertyName("lists")]
+        public List<WordCardWordListReturn> Lists { get; set; }
+
         public WordCardReturn(WordCard obj)
         {
             Id = obj.Id;
@@ -57,7 +58,18 @@ namespace Menu.Models.Returns.Types.WordsCardsApp
             Hided = obj.Hided;
             Description = obj.Description;
             UserId = obj.UserId;
+            Lists = new List<WordCardWordListReturn>();
+            if (obj.WordCardWordList != null)
+            {
+                foreach (var lst in obj.WordCardWordList)
+                {
+                    Lists.Add(new WordCardWordListReturn(lst));
+                }
+            }
         }
 
     }
+
+
+   
 }

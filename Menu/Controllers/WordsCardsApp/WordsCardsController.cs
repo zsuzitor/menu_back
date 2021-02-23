@@ -53,7 +53,7 @@ namespace Menu.Controllers.WordsCardsApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _wordsCardsService.GetAllForUser(userInfo);
+                    var res = await _wordsCardsService.GetAllForUserForView(userInfo);
 
                     await _apiHealper.WriteReturnResponseAsync(Response, res);
 
@@ -124,6 +124,9 @@ namespace Menu.Controllers.WordsCardsApp
                 }, Response, _logger);
 
         }
+
+
+      
 
 
         [Route("update")]

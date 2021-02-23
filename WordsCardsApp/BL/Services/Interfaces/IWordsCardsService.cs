@@ -13,6 +13,8 @@ namespace WordsCardsApp.BL.Services.Interfaces
     {
         Task<WordCard> GetByIdIfAccess(long id, UserInfo userInfo);
         Task<List<WordCard>> GetAllForUser(UserInfo userInfo);
+        Task<List<WordCard>> GetAllForUserForView(UserInfo userInfo);
+        
         Task<WordCard> Create(WordCardInputModel input, UserInfo userInfo );
         Task<List<WordCard>> Create(List<WordCardInputModel> input, UserInfo userInfo);
         Task<WordCard> Update(WordCardInputModel input, UserInfo userInfo);

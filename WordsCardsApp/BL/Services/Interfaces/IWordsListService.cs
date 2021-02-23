@@ -14,5 +14,7 @@ namespace WordsCardsApp.BL.Services.Interfaces
         Task<WordsList> Update(WordCardListInputModel input, UserInfo userInfo);
         Task<WordsList> Delete(long id, UserInfo userInfo);
 
+        Task<WordCardWordList> RemoveFromList(long cardId, long listId, UserInfo userInfo);
+        Task<WordCardWordList> AddToList(long cardId, long listId, UserInfo userInfo);
     }
 }

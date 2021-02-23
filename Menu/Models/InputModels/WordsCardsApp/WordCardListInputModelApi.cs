@@ -17,7 +17,7 @@ namespace Menu.Models.InputModels.WordsCardsApp
         [Required]
         public string Title { get; set; }
 
-
+        
 
         public void Validate(Func<string, string> strValidator, ModelStateDictionary modelState)
         {

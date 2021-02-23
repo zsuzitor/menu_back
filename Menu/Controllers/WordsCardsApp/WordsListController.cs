@@ -1,5 +1,6 @@
 ﻿using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
+using Common.Models.Poco;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.Helpers.Interfaces;
 using Menu.Models.InputModels.WordsCardsApp;
@@ -66,6 +67,41 @@ namespace Menu.Controllers.WordsCardsApp
                     }
 
                     var res = await _wordsListService.Create(newData.GetModel(), userInfo);
+
+                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+
+                }, Response, _logger);
+
+        }
+
+
+        [Route("remove-from-list")]
+        [HttpDelete]
+        public async Task RemoveFromList([FromForm] long card_id, [FromForm] long list_id)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _wordsListService.RemoveFromList(card_id, list_id, userInfo);
+
+                    await _apiHealper.WriteReturnResponseAsync(Response, new BoolResult(res != null));
+
+                }, Response, _logger);
+
+        }
+
+        [Route("add-to-list")]
+        [HttpPut]
+        public async Task AddToList([FromForm] long card_id, [FromForm] long list_id)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _wordsListService.AddToList(card_id, list_id, userInfo);
 
                     await _apiHealper.WriteReturnResponseAsync(Response, res);
 

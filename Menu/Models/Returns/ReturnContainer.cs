@@ -30,6 +30,11 @@ namespace Menu.Models.Returns
               {typeof(User), new ShortUserReturnFactory() },
               {typeof(WordCard), new WordCardReturnFactory() },
                {typeof(List<WordCard>), new WordCardReturnFactory() },
+               {typeof(WordsList), new WordListReturnFactory() },
+               {typeof(List<WordsList>), new WordListReturnFactory() },
+               {typeof(WordCardWordList), new WordCardWordListReturnFactory() },
+               {typeof(List<WordCardWordList>), new WordCardWordListReturnFactory() },
+               
               
             //TODO списки
 

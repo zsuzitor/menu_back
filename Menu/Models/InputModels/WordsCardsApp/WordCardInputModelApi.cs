@@ -23,6 +23,9 @@ namespace Menu.Models.InputModels.WordsCardsApp
         [BindProperty(Name = "description", SupportsGet = false)]
         public string Description { get; set; }
 
+        [BindProperty(Name = "list_id", SupportsGet = false)]
+        public long? ListId { get; set; }
+
         /// <summary>
         /// we need CLEAR main image(not change, clear!)
         /// </summary>
@@ -80,6 +83,7 @@ namespace Menu.Models.InputModels.WordsCardsApp
                 Description = this.Description,
                 MainImageNew = this.MainImageNew,
                 DeleteMainImage = this.DeleteMainImage,
+                ListId = this.ListId,
             };
         }
     }

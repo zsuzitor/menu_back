@@ -15,6 +15,10 @@ namespace WordsCardsApp.DAL.Repositories.Interfaces
 
         Task<List<WordCard>> GetAllUsersWordCards(long userId);
 
+        Task<List<WordCard>> LoadWordListsId(List<WordCard> words);
+
         Task<bool?> ChangeHideStatus(long id, long userId);
+
+        
     }
 }

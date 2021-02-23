@@ -7,6 +7,7 @@ using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using WordsCardsApp.BL.Services.Interfaces;
 using WordsCardsApp.BO.Input;
@@ -17,12 +18,14 @@ namespace WordsCardsApp.BL.Services
     public class WordsCardsService : IWordsCardsService
     {
         private readonly IWordsCardsRepository _wordCardRepository;
+        private readonly IWordsListRepository _wordCardListsRepository;
         private readonly IImageService _imageService;
 
-        public WordsCardsService(IWordsCardsRepository repository, IImageService imageService)
+        public WordsCardsService(IWordsCardsRepository repository, IImageService imageService, IWordsListRepository wordCardListsRepository)
         {
             _wordCardRepository = repository;
             _imageService = imageService;
+            _wordCardListsRepository = wordCardListsRepository;
         }
 
         public async Task<WordCard> GetByIdIfAccess(long id, UserInfo userInfo)
@@ -44,7 +47,20 @@ namespace WordsCardsApp.BL.Services
             }
 
             var wordCardNew = WordCardFromInputModelNew(input);
+            
             wordCardNew.UserId = userInfo.UserId;
+
+            //long? listId = null;
+            if (input.ListId != null)
+            {
+                var lst = await _wordCardListsRepository.GetByIdIfAccess(input.ListId.Value, userInfo.UserId);
+                if (lst != null)
+                {
+                    //listId = lst.Id;
+                    wordCardNew.WordCardWordList.Add(new WordCardWordList() { WordsListId = lst.Id });
+                }
+            }
+
             try
             {
                 wordCardNew.ImagePath = await _imageService.CreateUploadFileWithOutDbRecord(input.MainImageNew);
@@ -64,7 +80,7 @@ namespace WordsCardsApp.BL.Services
                 throw new NotAuthException();
             }
 
-            if(input==null|| input.Count == 0)
+            if (input == null || input.Count == 0)
             {
                 return new List<WordCard>();
             }
@@ -72,11 +88,22 @@ namespace WordsCardsApp.BL.Services
             try
             {
                 List<WordCard> forAdd = new List<WordCard>();
+                //var listsFromInput = new List<long>();
+                var listsFromInput = input.Where(x => x.ListId != null).Select(x => x.ListId.Value).Distinct().ToList();
+                var lst = await _wordCardListsRepository.GetByIdIfAccess(listsFromInput, userInfo.UserId);
                 foreach (var i in input)
                 {
                     var wordCardNew = WordCardFromInputModelNew(i);
                     wordCardNew.UserId = userInfo.UserId;
                     wordCardNew.ImagePath = await _imageService.CreateUploadFileWithOutDbRecord(i.MainImageNew);
+                    if (i.ListId != null)
+                    {
+                        var curList = lst.FirstOrDefault(x => x.Id == i.ListId);
+                        if (curList != null)
+                        {
+                            wordCardNew.WordCardWordList.Add(new WordCardWordList() { WordsListId = curList.Id });
+                        }
+                    }
                     forAdd.Add(wordCardNew);
                 }
 
@@ -112,7 +139,7 @@ namespace WordsCardsApp.BL.Services
 
             var changed = FillWordCardFromInputModelEdit(oldObj, input);
 
-
+          
 
             if (input.MainImageNew != null)
             {
@@ -221,6 +248,12 @@ namespace WordsCardsApp.BL.Services
         }
 
 
+        //очень спорное название тк завязался на view
+        public async Task<List<WordCard>> GetAllForUserForView(UserInfo userInfo)
+        {
+            var records = await GetAllForUser(userInfo);
+            return await _wordCardRepository.LoadWordListsId(records);
+        }
 
         private WordCard WordCardFromInputModelNew(WordCardInputModel input)
         {
@@ -269,5 +302,7 @@ namespace WordsCardsApp.BL.Services
             records.ForEach(x => res.Add(ToStringForSave(x)));
             return res;
         }
+
+       
     }
 }

@@ -20,5 +20,10 @@ namespace BO.Models.WordsCardsApp.DAL.Domain
 
 
         public List<WordCardWordList> WordCardWordList { get; set; }
+
+        public WordCard()
+        {
+            WordCardWordList = new List<WordCardWordList>();
+        }
     }
 }

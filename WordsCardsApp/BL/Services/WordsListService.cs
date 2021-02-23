@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using WordsCardsApp.BL.Services.Interfaces;
 using WordsCardsApp.BO.Input;
-using WordsCardsApp.DAL.Repositories;
 using WordsCardsApp.DAL.Repositories.Interfaces;
 
 namespace WordsCardsApp.BL.Services
@@ -15,9 +14,37 @@ namespace WordsCardsApp.BL.Services
     public class WordsListService : IWordsListService
     {
         private readonly IWordsListRepository _wordsListRepository;
-        public WordsListService(IWordsListRepository wordsListRepository)
+        private readonly IWordsCardsService _wordsCardsService;
+
+        public WordsListService(IWordsListRepository wordsListRepository, IWordsCardsService wordsCardsService)
         {
             _wordsListRepository = wordsListRepository;
+            _wordsCardsService = wordsCardsService;
+        }
+
+        public async Task<WordCardWordList> AddToList(long cardId, long listId, UserInfo userInfo)
+        {
+            var list = await _wordsListRepository.GetByIdIfAccess(listId, userInfo.UserId);
+            if (list == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
+
+            var card = await _wordsCardsService.GetByIdIfAccess(cardId, userInfo);
+            if (card == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
+
+            var relation = await _wordsListRepository.Get(cardId, listId);
+            if (relation != null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);//TODO тут бы указать ошибку точнее, типо уже добавлено в список
+            }
+
+            return await _wordsListRepository.AddToList( new WordCardWordList() { WordCardId = cardId, WordsListId = listId });
+
+
         }
 
         public async Task<WordsList> Create(WordCardListInputModel input, UserInfo userInfo)
@@ -76,6 +103,29 @@ namespace WordsCardsApp.BL.Services
             }
 
             return await _wordsListRepository.GetByIdIfAccess(id, userInfo.UserId);
+        }
+
+        public async Task<WordCardWordList> RemoveFromList(long cardId, long listId, UserInfo userInfo)
+        {
+            var list = await _wordsListRepository.GetByIdIfAccess(listId, userInfo.UserId);
+            if (list == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
+
+            var card = await _wordsCardsService.GetByIdIfAccess(cardId, userInfo);//вохможно лишнее, тк уже проверили лист
+            if (card == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
+
+            var relation = await _wordsListRepository.Get(cardId, listId);
+            if (relation == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);//TODO тут бы указать ошибку точнее, типо уже добавлено в список
+            }
+
+            return await _wordsListRepository.RemoveFromList(relation);
         }
 
         public async Task<WordsList> Update(WordCardListInputModel input, UserInfo userInfo)
