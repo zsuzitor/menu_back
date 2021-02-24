@@ -48,10 +48,10 @@ namespace DAL.Models.DAL
             //modelBuilder.Entity<CustomImage>().HasOne(x => x.Article);
 
             modelBuilder.Entity<WordCard>().HasKey(x => x.Id);
-            modelBuilder.Entity<WordCard>().HasMany(x => x.WordCardWordList).WithOne(x => x.WordCard).HasForeignKey(x => x.WordCardId);
+            modelBuilder.Entity<WordCard>().HasMany(x => x.WordCardWordList).WithOne(x => x.WordCard).HasForeignKey(x => x.WordCardId).OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<WordsList>().HasKey(x => x.Id);
-            modelBuilder.Entity<WordsList>().HasMany(x => x.WordCardWordList).WithOne(x => x.WordsList).HasForeignKey(x => x.WordsListId);
+            modelBuilder.Entity<WordsList>().HasMany(x => x.WordCardWordList).WithOne(x => x.WordsList).HasForeignKey(x => x.WordsListId).OnDelete(DeleteBehavior.Cascade);
 
 
             //many to many
