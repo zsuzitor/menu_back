@@ -126,7 +126,7 @@ namespace Menu.Controllers.WordsCardsApp
         }
 
 
-      
+
 
 
         [Route("update")]
@@ -215,7 +215,7 @@ namespace Menu.Controllers.WordsCardsApp
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                   
+
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _wordsCardsService.GetAllRecordsStringForSave(userInfo);
@@ -223,7 +223,7 @@ namespace Menu.Controllers.WordsCardsApp
                     TextWriter tw = new StreamWriter(mr);
                     res.ForEach(x => tw.WriteLine(x));
                     tw.Flush();
-                    await _apiHealper.SendFile(mr,Response, "myWords.csv");//TODO проверить мб стримы выше можно закрыть
+                    await _apiHealper.SendFile(mr, Response, "myWords.csv");//TODO проверить мб стримы выше можно закрыть
                     //await _apiHealper.WriteReturnResponseAsync(Response, res);
 
                 }, Response, _logger);
