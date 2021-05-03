@@ -86,7 +86,13 @@ namespace Menu
             services.AddScoped<IArticleService, ArticleService>();
             services.AddScoped<IWordsCardsService, WordsCardsService>();
             services.AddScoped<IWordsListService, WordsListService>();
-            
+
+            //cache
+            //services.AddStackExchangeRedisCache(options =>
+            //{
+            //    options.Configuration = Configuration.GetValue<string>("CacheSettings:Redis:ConnectionString");
+            //});
+
 
             var imageConfig = new ImageConfig();
             Configuration.GetSection("ImageSettings").Bind(imageConfig);

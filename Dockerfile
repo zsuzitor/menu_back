@@ -50,5 +50,5 @@ RUN dotnet publish -c release -o /app/out --no-restore
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
 COPY --from=build /app/out ./
-VOLUME menu-volume
+#VOLUME menu-volume
 ENTRYPOINT ["dotnet", "Menu.dll"]

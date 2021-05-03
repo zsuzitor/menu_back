@@ -16,6 +16,12 @@ docker build --rm --pull -t menu .
 docker run --rm -it -p 8000:80 menu --mount source=menu-volume,target=/app/wwwroot
 
 
+docker run --rm -it -p 8000:80 menu -v //c/Users/Stanislav_Avdosev/source/repos/MenuBack/menu-volume:/test
+
+
+
+
+
 
 
 

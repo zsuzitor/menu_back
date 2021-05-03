@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace Menu.Controllers
 {
@@ -10,34 +11,50 @@ namespace Menu.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
+        //IDistributedCache _cache;//enable AddStackExchangeRedisCache or another in startup
+
+        public ValuesController(
+            //IDistributedCache cache
+            )
+        {
+            //_cache = cache;
+        }
+
+        [HttpGet("cache-test")]
+        public void CacheCheck()
+        {
+            //_cache.SetString("test_key_1", "test_val", new DistributedCacheEntryOptions()
+            //{
+            //    AbsoluteExpirationRelativeToNow = new TimeSpan(0, 1, 0)
+            //});
+
+            //var val = _cache.GetString("test_key_1");
+        }
+
+
+        [HttpGet("get")]
         public ActionResult<IEnumerable<string>> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
+        [HttpGet("get/{id}")]
         public ActionResult<string> Get(int id)
         {
             return "value";
         }
 
-        // POST api/values
-        [HttpPost]
+        [HttpPost("post")]
         public void Post([FromBody] string value)
         {
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
+        [HttpPut("put/{id}")]
         public void Put(int id, [FromBody] string value)
         {
         }
 
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
+        [HttpDelete("delete/{id}")]
         public void Delete(int id)
         {
         }
