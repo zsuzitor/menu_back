@@ -36,6 +36,10 @@ using Microsoft.Extensions.WebEncoders;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using WordsCardsApp.DAL.Repositories;
+using PlanitPoker.Models.Hubs;
+using PlanitPoker.Models.Repositories;
+using PlanitPoker.Models.Repositories.Interfaces;
+using Common.Models;
 
 namespace Menu
 {
@@ -65,17 +69,25 @@ namespace Menu
                 options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All);
             });
 
+            services.AddSignalR();
+
+
             //repositories
             services.AddScoped<IArticleRepository, ArticleRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
             services.AddScoped<IWordsCardsRepository, WordsCardsRepository>();
             services.AddScoped<IWordsListRepository, WordsListRepository>();
+            services.AddScoped<IPlanitPokerRepository, PlanitPokerRepository>();
 
+            
 
             //healpers
             services.AddScoped<IApiHelper, ApiHelper>();
             services.AddScoped<IReturnContainer, ReturnContainer>();
+            services.AddSingleton<MultiThreadHelper, MultiThreadHelper>();
+
+            
 
 
             //services
@@ -98,16 +110,13 @@ namespace Menu
             Configuration.GetSection("ImageSettings").Bind(imageConfig);
             if (imageConfig.TypeOfStorage == "blob")
             {
-                services.AddSingleton<IImageDataStorage, ImageDataBlobStorage>(x=>new ImageDataBlobStorage(imageConfig));
+                services.AddSingleton<IImageDataStorage, ImageDataBlobStorage>(x => new ImageDataBlobStorage(imageConfig));
             }
             else
             {
                 services.AddSingleton<IImageDataStorage, ImageDataIOStorage>();
             }
-            //services.AddScoped<IImageDataStorage, ImageDataBlobStorage>((serviceProvider) =>
-            //{
-            //services.AddScoped<IImageDataStorage, ImageDataIOStorage>();
-            //});
+            
 
 
             //&
@@ -142,20 +151,33 @@ namespace Menu
             }
 
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();//TODO not work?
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseRouting();
+
+            #region planitPoker
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapHub<PlanitPokerHub>("/planit-poker");
+            });
+
+            #endregion planitPoker
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default_menu_react", "menu/{*url}", new { controller = "Menu", action = "Index" });
                 routes.MapRoute("default_menu_app_react", "menu-app/{*url}", new { controller = "Menu", action = "MenuApp" });
                 routes.MapRoute("default_wordscards_app_react", "words-cards-app/{*url}", new { controller = "Menu", action = "WardsCardsApp" });
-                
+                routes.MapRoute("signalr", "signalr/{*url}", new { controller = "Menu", action = "Signalr" });
                 //routes.MapRoute(
                 //    name: "default",
                 //    template: "{controller=Menu}/{action=Index}/{id?}");
 
             });
+
+
+           
 
         }
     }

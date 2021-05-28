@@ -26,14 +26,14 @@ namespace Menu.Models.Returns
             {typeof(Article), new ArticleReturnFactory() },
             {typeof(List<ArticleShort>), new ArticleShortReturnFactory() },
             {typeof(List<Article>), new ArticleReturnFactory() },
-             {typeof(BoolResult), new BoolResultFactory() },
-              {typeof(User), new ShortUserReturnFactory() },
-              {typeof(WordCard), new WordCardReturnFactory() },
-               {typeof(List<WordCard>), new WordCardReturnFactory() },
-               {typeof(WordsList), new WordListReturnFactory() },
-               {typeof(List<WordsList>), new WordListReturnFactory() },
-               {typeof(WordCardWordList), new WordCardWordListReturnFactory() },
-               {typeof(List<WordCardWordList>), new WordCardWordListReturnFactory() },
+            {typeof(BoolResult), new BoolResultFactory() },
+            {typeof(User), new ShortUserReturnFactory() },
+            {typeof(WordCard), new WordCardReturnFactory() },
+            {typeof(List<WordCard>), new WordCardReturnFactory() },
+            {typeof(WordsList), new WordListReturnFactory() },
+            {typeof(List<WordsList>), new WordListReturnFactory() },
+            {typeof(WordCardWordList), new WordCardWordListReturnFactory() },
+            {typeof(List<WordCardWordList>), new WordCardWordListReturnFactory() },
                
               
             //TODO списки

@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <PackageReference Include="jwtLib_zsuzitor" Version="0.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
@@ -18,6 +19,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="5.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="NLog.Config" Version="4.7.4" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.9.3" />
   </ItemGroup>
@@ -27,6 +29,7 @@
     <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\DAL\DAL.csproj" />
     <ProjectReference Include="..\MenuApp\MenuApp.csproj" />
+    <ProjectReference Include="..\PlanitPoker\PlanitPoker.csproj" />
     <ProjectReference Include="..\WordsCardsApp\WordsCardsApp.csproj" />
   </ItemGroup>
 
