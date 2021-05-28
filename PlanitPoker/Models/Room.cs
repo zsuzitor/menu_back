@@ -1,25 +1,28 @@
-﻿using PlanitPoker.Models.Enums;
+﻿
+using Common.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace PlanitPoker.Models
 {
     public class Room
     {
-        //public long Id { get; set; }
-        public string Name { get; set; }
-        public string Password { get; set; }//TODO потом зашифровать
-
-
-        public DateTime DieDate { get; set; }
-        public List<PlanitUser> Users { get; set; }
-        public RoomSatus Status { get; set; }
-
-
+        public StoredRoom StoredRoom { get; set; }
         public object Lock { get; set; }
         public ReaderWriterLock RWL = new ReaderWriterLock();
 
+        public (T res, bool sc) GetConcurentValue<T>(MultiThreadHelper multiThreadHelper, Func<Room, T> get)
+        {//TODO перетащить в репо
+            return multiThreadHelper.GetValue(this, get, this.RWL);
+        }
+
+        public bool SetConcurentValue<T>(MultiThreadHelper multiThreadHelper, Action<Room> set)
+        {//TODO перетащить в репо
+            return multiThreadHelper.SetValue(this, rm =>
+           {
+               set(this);
+           }, this.RWL);
+        }
     }
 }

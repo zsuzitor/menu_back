@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Common.Models;
 using Microsoft.AspNetCore.SignalR;
+using PlanitPoker.Models.Enums;
 using PlanitPoker.Models.Repositories.Interfaces;
 
 namespace PlanitPoker.Models.Hubs
@@ -17,16 +18,25 @@ namespace PlanitPoker.Models.Hubs
         private readonly IPlanitPokerRepository _planitPokerRepository;
         private readonly MultiThreadHelper _multiThreadHelper;
 
+        //private static IServiceProvider _serviceProvider;
+
         //front endpoints
         private const string ConnectedToRoomError = "ConnectedToRoomError";
         private const string NewRoomAlive = "NewRoomAlive";
         private const string NotifyFromServer = "NotifyFromServer";//todo будет принимать объект result с ошибками как в апи
         private const string EnteredInRoom = "EnteredInRoom";
         private const string NewUserInRoom = "NewUserInRoom";
+        private const string VoteStart = "VoteStart";//голосование начато, оценки почищены
+        private const string VoteEnd = "VoteEnd";
+        private const string VoteSuccess = "VoteSuccess";
+
 
 
         //TODO надо чистить то что приходит от юзера, уже реализовано просто прикрутить
         //todo нужна кнопка "обновить список пользователей?"
+        //todo очистка старых комнат
+        //todo методы которые в Room надо вынести в репо
+
 
 
         public PlanitPokerHub(IPlanitPokerRepository planitPokerRepository, MultiThreadHelper multiThreadHelper)
@@ -34,6 +44,11 @@ namespace PlanitPoker.Models.Hubs
             _planitPokerRepository = planitPokerRepository;
             _multiThreadHelper = multiThreadHelper;
         }
+
+        //static void InitStaticMembers()
+        //{
+        //    _serviceProvider = serviceProvider;
+        //}
         //public async Task Send(string message)
         //{
         //    var userId = Context.UserIdentifier;
@@ -42,24 +57,7 @@ namespace PlanitPoker.Models.Hubs
         //}
 
 
-        //login не нужен, просто будет храниться на фронте
-        //public void Login(string username)
-        //{
-        //    if (string.IsNullOrWhiteSpace(username))
-        //    {
-        //        this.Clients.Caller.SendAsync();
-        //    }
 
-        //    if (Rooms.ContainsKey(roomname))
-        //    {
-
-        //    }
-        //}
-
-        //public void CreateRoom(string roomname)
-        //{
-
-        //}
 
         public async Task AliveRoom(string roomname)
         {
@@ -71,10 +69,10 @@ namespace PlanitPoker.Models.Hubs
             }
 
             await _planitPokerRepository.AddTimeAliveRoom(room);
-            (var dt, bool suc) = _multiThreadHelper.GetValue(room, room => room.DieDate, room.RWL);
+            (var dt, bool suc) = GetValueFromRoomAsync(room, room => room.StoredRoom.DieDate);
             if (suc)
             {
-                await Clients.Group(roomname).SendAsync(NewRoomAlive, room.DieDate);
+                await Clients.Group(roomname).SendAsync(NewRoomAlive, room.StoredRoom.DieDate);
                 return;
             }
 
@@ -110,10 +108,10 @@ namespace PlanitPoker.Models.Hubs
                 return;
             }
 
-            await Clients.Group(roomname).SendAsync(NewUserInRoom, room.DieDate);
+            await Clients.Group(roomname).SendAsync(NewUserInRoom, room.StoredRoom.DieDate);
             await Groups.AddToGroupAsync(user.UserIdentifier, roomname);
 
-            (var usersInRoom, bool suc) = _multiThreadHelper.GetValue(room, room => room.Users.Select(x=>x.Clone()), room.RWL);
+            (var usersInRoom, bool suc) = GetValueFromRoomAsync(room, room => room.StoredRoom.Users.Select(x => x.Clone()));
             if (suc)
             {
                 //TODO отключить юзера и попросить переконнектиться
@@ -123,20 +121,92 @@ namespace PlanitPoker.Models.Hubs
 
         }
 
-        public void KickUser()
+        public async Task StartVote(string roomname)
+        {
+            var room = await _planitPokerRepository.TryGetRoom(roomname);
+            if (room == null)
+            {
+                await Clients.Caller.SendAsync(ConnectedToRoomError);
+                return;
+            }
+
+            _ = await _planitPokerRepository.ChangeStatus(room, Enums.RoomSatus.AllCanVote);
+            _ = await _planitPokerRepository.ClearVotes(room);
+            //await _multiThreadHelper.SetValue(room,async rm=> {
+            //    await _planitPokerRepository.ChangeStatus(rm, Enums.RoomSatus.AllCanVote);
+
+            //}, room.RWL);
+
+            await Clients.Group(roomname).SendAsync(VoteStart);
+
+
+        }
+
+        public async Task EndVote(string roomname)
+        {
+            var room = await _planitPokerRepository.TryGetRoom(roomname);
+            if (room == null)
+            {
+                await Clients.Caller.SendAsync(ConnectedToRoomError);
+                return;
+            }
+
+            _ = await _planitPokerRepository.ChangeStatus(room, Enums.RoomSatus.AllCanVote);
+            (var res, bool sc) = GetValueFromRoomAsync(room, rm =>
+                  {
+                      return rm.StoredRoom.Users.Select(x => x.Vote ?? 0);
+                  });
+
+            if (!sc)
+            {
+                //TODO
+                return;
+            }
+
+            await Clients.Group(roomname).SendAsync(VoteEnd, res);
+        }
+
+        public async Task Vote(string roomname, int vote)
+        {
+            //вообще это вроде можно вынести в контроллер весь метод
+            //тк сокеты не нужны для него, тупо апдейт стейта
+            var room = await _planitPokerRepository.TryGetRoom(roomname);
+            if (room == null)
+            {
+                await Clients.Caller.SendAsync(ConnectedToRoomError);
+                return;
+            }
+
+            (var res, bool sc) = GetValueFromRoomAsync(room, rm =>
+            {
+                return rm.StoredRoom.Status;
+            });
+
+            if (!sc)
+            {
+                //TODO
+                return;
+            }
+
+            if (res != RoomSatus.AllCanVote)
+            {
+                //todo можно написать что голосовать нельзя
+                return;
+            }
+
+
+            await _planitPokerRepository.ChangeVote(room, Context.ConnectionId, vote);
+            await Clients.Caller.SendAsync(VoteSuccess, vote);
+
+
+        }
+
+        public void KickUser(string roomname, string userId)
         {
 
         }
 
-        public void StartVote()
-        {
-            //чистим прошлые результаты
-        }
 
-        public void EndVote()
-        {
-            //запрещаем голосовать, подводим итоги
-        }
 
         public override async Task OnConnectedAsync()
         {
@@ -146,12 +216,24 @@ namespace PlanitPoker.Models.Hubs
         public override async Task OnDisconnectedAsync(Exception exception)
         {
             //await Clients.All.SendAsync("Notify", $"{Context.ConnectionId} покинул в чат");
+            //TODO надо передать админку
+            //название комнаты смогу вытащить из кук???
             await base.OnDisconnectedAsync(exception);
         }
 
         private List<string> GetDefaultRoles()
         {
             return new List<string>() { "User" };
+        }
+
+        //private static Task ClearRooms()
+        //{
+
+        //}
+
+        private (T res, bool sc) GetValueFromRoomAsync<T>(Room room, Func<Room, T> get)
+        {//TODO перетащить в репо
+            return _multiThreadHelper.GetValue(room, get, room.RWL);
         }
     }
 }
