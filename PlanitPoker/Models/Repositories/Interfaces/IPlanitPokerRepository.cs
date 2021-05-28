@@ -7,7 +7,7 @@ namespace PlanitPoker.Models.Repositories.Interfaces
     public interface IPlanitPokerRepository
     {
 
-        Task<bool> CreateRoomWithUser(string roomname, PlanitUser user);
+        Task<bool> CreateRoomWithUser(string roomname, string password, PlanitUser user);
         Task<bool> AddTimeAliveRoom(string roomname);
         Task<bool> AddTimeAliveRoom(Room room);
 
@@ -20,6 +20,7 @@ namespace PlanitPoker.Models.Repositories.Interfaces
         Task<bool> ChangeStatus(Room room, RoomSatus newStatus);
 
         Task<bool> RoomIsExist(string roomName);
+        Task<Room> TryGetRoom(string roomName, string password);
         Task<Room> TryGetRoom(string roomName);
         Task<bool> UserIsAdmin(string roomName, string userId);
         Task<bool> UserIsAdmin(Room room, string userId);
