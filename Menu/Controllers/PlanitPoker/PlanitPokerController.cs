@@ -16,6 +16,7 @@ namespace Menu.Controllers.PlanitPoker
         public PlanitPokerController(IApiHelper apiHealper, ILogger<PlanitPokerController> logger)
         {
             _apiHealper = apiHealper;
+            _logger = logger;
         }
 
         [Route("create-room")]
@@ -27,7 +28,7 @@ namespace Menu.Controllers.PlanitPoker
                 {
 
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    //await _apiHealper.WriteReturnResponseAsync(Response, res);
 
                 }, Response, _logger);
 

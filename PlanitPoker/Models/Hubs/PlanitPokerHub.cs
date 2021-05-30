@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,13 +28,14 @@ namespace PlanitPoker.Models.Hubs
         private const string VoteStart = "VoteStart";//голосование начато, оценки почищены
         private const string VoteEnd = "VoteEnd";
         private const string VoteSuccess = "VoteSuccess";
+        private const string RoomNotCreated = "RoomNotCreated";
 
 
 
         //TODO надо чистить то что приходит от юзера, уже реализовано просто прикрутить
         //todo нужна кнопка "обновить список пользователей?"
         //todo очистка старых комнат
-        //todo методы которые в Room надо вынести в репо
+        //todo методы которые в Room надо вынести в репо, GetValueFromRoomAsync тоже
 
 
 
@@ -56,7 +56,25 @@ namespace PlanitPoker.Models.Hubs
         //    await this.Clients.All.SendAsync("Send", message);
         //}
 
+        public async Task CreateRoom(string roomname, string password, string username)
+        {
+            var user = new PlanitUser()
+            {
+                UserIdentifier = Context.ConnectionId,
+                Name = username,
+                Role = GetCreatorRoles(),
+            };
 
+            var room = await _planitPokerRepository.CreateRoomWithUser(roomname, password, user);
+            if (room == null)
+            {
+                await Clients.Caller.SendAsync(RoomNotCreated);
+                return;
+            }
+
+            _ = await EnterInRoom(room, user);
+
+        }
 
 
         public async Task AliveRoom(string roomname)
@@ -72,7 +90,7 @@ namespace PlanitPoker.Models.Hubs
             (var dt, bool suc) = GetValueFromRoomAsync(room, room => room.StoredRoom.DieDate);
             if (suc)
             {
-                await Clients.Group(roomname).SendAsync(NewRoomAlive, room.StoredRoom.DieDate);
+                await Clients.Group(roomname).SendAsync(NewRoomAlive, suc);
                 return;
             }
 
@@ -100,24 +118,9 @@ namespace PlanitPoker.Models.Hubs
                 Role = GetDefaultRoles(),
             };
 
-            var added = await _planitPokerRepository.AddUserIntoRoom(room, user);
-            if (!added)
-            {
-                //TODO что то пошло не так
-                await Clients.Caller.SendAsync(NotifyFromServer, "retry plz");
-                return;
-            }
+            _ = await EnterInRoom(room, user);
 
-            await Clients.Group(roomname).SendAsync(NewUserInRoom, room.StoredRoom.DieDate);
-            await Groups.AddToGroupAsync(user.UserIdentifier, roomname);
 
-            (var usersInRoom, bool suc) = GetValueFromRoomAsync(room, room => room.StoredRoom.Users.Select(x => x.Clone()));
-            if (suc)
-            {
-                //TODO отключить юзера и попросить переконнектиться
-                return;
-            }
-            await Clients.Caller.SendAsync(EnteredInRoom, usersInRoom);
 
         }
 
@@ -221,9 +224,62 @@ namespace PlanitPoker.Models.Hubs
             await base.OnDisconnectedAsync(exception);
         }
 
+
+        /// <summary>
+        /// рума уже создана и добавлена, пользователь еще нет
+        /// </summary>
+        /// <param name="room"></param>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        private async Task<bool> EnterInRoom(Room room, PlanitUser user)
+        {
+            if (room == null || user == null)
+            {
+                return false;
+            }
+
+            var username = user.Name;
+            var userId = user.UserIdentifier;
+
+            var added = await _planitPokerRepository.AddUserIntoRoom(room, user);
+            if (!added)
+            {
+                //TODO что то пошло не так
+                await Clients.Caller.SendAsync(NotifyFromServer, "retry plz");
+                return false;
+            }
+
+            var roomnm = room.GetConcurentValue(_multiThreadHelper, x => x.StoredRoom.Name);
+            if (roomnm.sc == false)
+            {
+                //TODO что то пошло не так
+                await Clients.Caller.SendAsync(NotifyFromServer, "retry plz");
+                return false;
+            }
+
+            //специально до добавление юзера тк ему это сообщение не нужно
+            await Clients.Group(roomnm.res).SendAsync(NewUserInRoom, username);
+            await Groups.AddToGroupAsync(username, roomnm.res);
+
+            (var usersInRoom, bool suc) = GetValueFromRoomAsync(room, room => room.StoredRoom.Users.Select(x => x.Clone()));
+            if (!suc)
+            {
+                //TODO отключить юзера и попросить переконнектиться
+                return false;
+            }
+            await Clients.Caller.SendAsync(EnteredInRoom, usersInRoom);//todo мб лучше отдельным запросом?
+            return true;
+        }
+
+
         private List<string> GetDefaultRoles()
         {
             return new List<string>() { "User" };
+        }
+
+        private List<string> GetCreatorRoles()
+        {
+            return new List<string>(GetDefaultRoles()) { "Creator" };
         }
 
         //private static Task ClearRooms()

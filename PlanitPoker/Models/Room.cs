@@ -10,7 +10,14 @@ namespace PlanitPoker.Models
     {
         public StoredRoom StoredRoom { get; set; }
         public object Lock { get; set; }
-        public ReaderWriterLock RWL = new ReaderWriterLock();
+        public ReaderWriterLock RWL { get; set; }
+
+        public Room(StoredRoom rm)
+        {
+            Lock = new object();
+            RWL = new ReaderWriterLock();
+            StoredRoom = rm;
+        }
 
         public (T res, bool sc) GetConcurentValue<T>(MultiThreadHelper multiThreadHelper, Func<Room, T> get)
         {//TODO перетащить в репо

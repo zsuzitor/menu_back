@@ -15,7 +15,18 @@ namespace PlanitPoker.Models
         public List<PlanitUser> Users { get; set; }
         public RoomSatus Status { get; set; }
 
+        public StoredRoom()
+        {
+            Status = RoomSatus.CloseVote;
+            Users = new List<PlanitUser>();
+            DieDate = DateTime.Now.AddHours(1);
+        }
 
+        public StoredRoom(string name, string password) : this()
+        {
+            Name = name;
+            Password = password;
+        }
 
 
     }

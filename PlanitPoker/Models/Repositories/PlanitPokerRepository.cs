@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace PlanitPoker.Models.Repositories
 {
-    public class PlanitPokerRepository: IPlanitPokerRepository
+    public class PlanitPokerRepository : IPlanitPokerRepository
     {
         private static ConcurrentDictionary<string, Room> Rooms = new ConcurrentDictionary<string, Room>();
 
         private readonly MultiThreadHelper _multiThreadHelper;
-            
+
         public PlanitPokerRepository(MultiThreadHelper multiThreadHelper)
         {
             _multiThreadHelper = multiThreadHelper;
@@ -41,7 +41,7 @@ namespace PlanitPoker.Models.Repositories
         public async Task<bool> AddUserIntoRoom(string roomName, PlanitUser user)
         {
             var room = await TryGetRoom(roomName);
-            return await AddUserIntoRoom(room,user);
+            return await AddUserIntoRoom(room, user);
         }
 
         public async Task<bool> AddUserIntoRoom(Room room, PlanitUser user)
@@ -66,7 +66,7 @@ namespace PlanitPoker.Models.Repositories
         public async Task<bool> ChangeStatus(string roomName, RoomSatus newStatus)
         {
             var room = await TryGetRoom(roomName);
-            return await ChangeStatus(room,newStatus);
+            return await ChangeStatus(room, newStatus);
         }
 
         public async Task<bool> ChangeStatus(Room room, RoomSatus newStatus)
@@ -99,9 +99,17 @@ namespace PlanitPoker.Models.Repositories
             throw new System.NotImplementedException();
         }
 
-        public Task<bool> CreateRoomWithUser(string roomname, string password, PlanitUser user)
+        public async Task<Room> CreateRoomWithUser(string roomname, string password, PlanitUser user)
         {
-            throw new System.NotImplementedException();
+            var roomData = new StoredRoom(roomname, password);
+            var room = new Room(roomData);
+            var added = Rooms.TryAdd(roomname, room);
+            if (added)
+            {
+                return room;
+            }
+
+            return null;
         }
 
         public Task<bool> KickFromRoom(string roomName, string userId)
