@@ -11,6 +11,11 @@ namespace Menu.Models.Returns.Types.MenuApp
     {
         public object GetObjectReturn(object obj)
         {
+            if (obj == null)
+            {
+                return null;
+            }
+
             if (obj is ArticleShort objTyped)
             {
                 return new ArticleShortReturn(objTyped);

@@ -14,8 +14,8 @@ namespace Menu.Models.Returns.Types
 
         public OneErrorReturn(OneError obj)
         {
-            Key = obj.Key;
-            Errors = obj.Errors;
+            Key = obj?.Key;
+            Errors = obj?.Errors;
         }
     }
 }

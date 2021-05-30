@@ -12,6 +12,11 @@ namespace Menu.Models.Returns.Types.MenuApp
     {
         public object GetObjectReturn(object obj)
         {
+            if (obj == null)
+            {
+                return null;
+            }
+
             if (obj is Article objTyped)
             {
                 return new ArticleReturn(objTyped);

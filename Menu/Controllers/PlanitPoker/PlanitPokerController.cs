@@ -1,6 +1,7 @@
 ﻿using Menu.Models.Helpers.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PlanitPoker.Models.Repositories.Interfaces;
 using System.Threading.Tasks;
 
 namespace Menu.Controllers.PlanitPoker
@@ -12,16 +13,35 @@ namespace Menu.Controllers.PlanitPoker
 
         private readonly IApiHelper _apiHealper;
         private readonly ILogger _logger;
+        private readonly IPlanitPokerRepository _planitPokerRepository;
 
-        public PlanitPokerController(IApiHelper apiHealper, ILogger<PlanitPokerController> logger)
+        public PlanitPokerController(IApiHelper apiHealper, 
+            ILogger<PlanitPokerController> logger, 
+            IPlanitPokerRepository planitPokerRepository)
         {
             _apiHealper = apiHealper;
             _logger = logger;
+            _planitPokerRepository = planitPokerRepository;
+        }
+
+
+        [Route("get-users-in-room")]
+        [HttpGet]
+        public async Task GetUsersIsRoom(string roomname)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                   var users=await _planitPokerRepository.GetAllUsers(roomname);
+                    //TODO ошибку если null? сейчас там возвращается пустая строка везде. и вообще посмотреть что будет на фронте
+                    await _apiHealper.WriteReturnResponseAsync(Response, users);
+
+                }, Response, _logger);
         }
 
         [Route("create-room")]
         [HttpGet]
-        public async Task CreateRoom([FromForm] string roomname)
+        public async Task CreateRoom( string roomname)
         {
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -36,7 +56,7 @@ namespace Menu.Controllers.PlanitPoker
 
         [Route("get-my-room")]
         [HttpGet]
-        public async Task GetMyRoom([FromForm] string connectionId)//можно достать на фронте
+        public async Task GetMyRoom( string connectionId)//можно достать на фронте
         {
             //todo наверное не нужно
         }

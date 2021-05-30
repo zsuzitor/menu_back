@@ -11,6 +11,8 @@ using Menu.Models.Returns.Types.MenuApp;
 using BO.Models.DAL.Domain;
 using Menu.Models.Returns.Types.WordsCardsApp;
 using BO.Models.WordsCardsApp.DAL.Domain;
+using PlanitPoker.Models;
+using Menu.Models.Returns.Types.PlanitPoker;
 
 namespace Menu.Models.Returns
 {
@@ -34,6 +36,8 @@ namespace Menu.Models.Returns
             {typeof(List<WordsList>), new WordListReturnFactory() },
             {typeof(WordCardWordList), new WordCardWordListReturnFactory() },
             {typeof(List<WordCardWordList>), new WordCardWordListReturnFactory() },
+            {typeof(PlanitUser), new PlanitUserReturnFactory() },
+            {typeof(List<PlanitUser>), new PlanitUserReturnFactory() },
                
               
             //TODO списки

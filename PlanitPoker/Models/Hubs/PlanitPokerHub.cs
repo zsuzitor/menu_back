@@ -6,6 +6,7 @@ using Common.Models;
 using Microsoft.AspNetCore.SignalR;
 using PlanitPoker.Models.Enums;
 using PlanitPoker.Models.Repositories.Interfaces;
+using PlanitPoker.Models.Returns;
 
 namespace PlanitPoker.Models.Hubs
 {
@@ -36,6 +37,7 @@ namespace PlanitPoker.Models.Hubs
         //todo нужна кнопка "обновить список пользователей?"
         //todo очистка старых комнат
         //todo методы которые в Room надо вынести в репо, GetValueFromRoomAsync тоже
+        //если 2 раза быстро нажать подключение к комнате, все норм отработает?
 
 
 
@@ -94,7 +96,7 @@ namespace PlanitPoker.Models.Hubs
                 return;
             }
 
-            await Clients.Caller.SendAsync(NotifyFromServer, "retry plz");
+            await Clients.Caller.SendAsync(NotifyFromServer, new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
         }
 
         public async Task EnterInRoom(string roomname, string password, string username)
@@ -245,7 +247,8 @@ namespace PlanitPoker.Models.Hubs
             if (!added)
             {
                 //TODO что то пошло не так
-                await Clients.Caller.SendAsync(NotifyFromServer, "retry plz");
+                await Clients.Caller.SendAsync(NotifyFromServer, new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
+
                 return false;
             }
 
@@ -253,7 +256,8 @@ namespace PlanitPoker.Models.Hubs
             if (roomnm.sc == false)
             {
                 //TODO что то пошло не так
-                await Clients.Caller.SendAsync(NotifyFromServer, "retry plz");
+                await Clients.Caller.SendAsync(NotifyFromServer, new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
+
                 return false;
             }
 
@@ -261,13 +265,13 @@ namespace PlanitPoker.Models.Hubs
             await Clients.Group(roomnm.res).SendAsync(NewUserInRoom, username);
             await Groups.AddToGroupAsync(username, roomnm.res);
 
-            (var usersInRoom, bool suc) = GetValueFromRoomAsync(room, room => room.StoredRoom.Users.Select(x => x.Clone()));
-            if (!suc)
-            {
-                //TODO отключить юзера и попросить переконнектиться
-                return false;
-            }
-            await Clients.Caller.SendAsync(EnteredInRoom, usersInRoom);//todo мб лучше отдельным запросом?
+            //(var usersInRoom, bool suc) = GetValueFromRoomAsync(room, room => room.StoredRoom.Users.Select(x => x.Clone()));
+            //if (!suc)
+            //{
+            //    //TODO отключить юзера и попросить переконнектиться
+            //    return false;
+            //}
+            await Clients.Caller.SendAsync(EnteredInRoom); //,usersInRoom//todo мб лучше отдельным запросом?
             return true;
         }
 
@@ -279,7 +283,7 @@ namespace PlanitPoker.Models.Hubs
 
         private List<string> GetCreatorRoles()
         {
-            return new List<string>(GetDefaultRoles()) { "Creator" };
+            return new List<string>(GetDefaultRoles()) { "Creator", "Admin" };//TODO это надо вынести в константы, в том числе в return фарике в основной апе menu
         }
 
         //private static Task ClearRooms()

@@ -15,9 +15,9 @@ namespace Menu.Models.Returns.Types
 
         public CustomImageReturn(CustomImage obj)
         {
-            Id = obj.Id;
-            Path = obj.Path;
-            ArticleId = obj.ArticleId;
+            Id = obj?.Id?? 0;
+            Path = obj?.Path;
+            ArticleId = obj?.ArticleId;
         }
     }
 }

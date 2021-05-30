@@ -26,16 +26,17 @@ namespace Menu.Controllers
         }
 
 
-        public ActionResult WardsCardsApp()
+        public ActionResult WordsCardsApp()
         {
             return View("Index");
         }
 
-        public ActionResult Signalr()
+        public ActionResult PlaningPoker()
         {
-            
+            return View("Index");
+
             //return File(_env.ContentRootPath + "\\wwwroot\\index.html", "text/html");
-            return File("\\index.html", "text/html");
+            //return File("\\index.html", "text/html");
             //return View("Index");
         }
 

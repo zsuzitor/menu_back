@@ -10,6 +10,11 @@ namespace Menu.Models.Returns.Types
     {
         public object GetObjectReturn(object obj)
         {
+            if (obj == null)
+            {
+                return null;
+            }
+
             if (obj is User objTyped)
             {
                 return new ShortUserReturn(objTyped);

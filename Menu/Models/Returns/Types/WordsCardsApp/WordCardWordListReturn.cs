@@ -12,6 +12,11 @@ namespace Menu.Models.Returns.Types.WordsCardsApp
     {
         public object GetObjectReturn(object obj)
         {
+            if (obj == null)
+            {
+                return null;
+            }
+
             if (obj is WordCardWordList objTyped)
             {
                 return new WordCardWordListReturn(objTyped);

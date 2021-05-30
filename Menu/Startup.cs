@@ -159,7 +159,7 @@ namespace Menu
             #region planitPoker
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<PlanitPokerHub>("/planit-poker");
+                endpoints.MapHub<PlanitPokerHub>("/planing-poker-hub");
             });
 
             #endregion planitPoker
@@ -168,8 +168,8 @@ namespace Menu
             {
                 routes.MapRoute("default_menu_react", "menu/{*url}", new { controller = "Menu", action = "Index" });
                 routes.MapRoute("default_menu_app_react", "menu-app/{*url}", new { controller = "Menu", action = "MenuApp" });
-                routes.MapRoute("default_wordscards_app_react", "words-cards-app/{*url}", new { controller = "Menu", action = "WardsCardsApp" });
-                routes.MapRoute("signalr", "signalr/{*url}", new { controller = "Menu", action = "Signalr" });
+                routes.MapRoute("default_wordscards_app_react", "words-cards-app/{*url}", new { controller = "Menu", action = "WordsCardsApp" });
+                routes.MapRoute("planing_poker", "planing-poker/{*url}", new { controller = "Menu", action = "PlaningPoker" });
                 //routes.MapRoute(
                 //    name: "default",
                 //    template: "{controller=Menu}/{action=Index}/{id?}");

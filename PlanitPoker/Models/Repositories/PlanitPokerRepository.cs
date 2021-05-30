@@ -2,6 +2,7 @@
 using PlanitPoker.Models.Enums;
 using PlanitPoker.Models.Repositories.Interfaces;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -101,6 +102,11 @@ namespace PlanitPoker.Models.Repositories
 
         public async Task<Room> CreateRoomWithUser(string roomname, string password, PlanitUser user)
         {
+            if (string.IsNullOrWhiteSpace(roomname) || string.IsNullOrWhiteSpace(password) || user == null)
+            {
+                return null;
+            }
+
             var roomData = new StoredRoom(roomname, password);
             var room = new Room(roomData);
             var added = Rooms.TryAdd(roomname, room);
@@ -110,6 +116,34 @@ namespace PlanitPoker.Models.Repositories
             }
 
             return null;
+        }
+
+        public async Task<List<PlanitUser>> GetAllUsers(Room room)
+        {
+            if (room == null)
+            {
+                return new List<PlanitUser>();
+            }
+            (var usersInRoom, bool suc) = room.GetConcurentValue(_multiThreadHelper,
+                room => room.StoredRoom.Users.Select(x => x.Clone()).ToList());
+            if (!suc)
+            {
+                //TODO отключить юзера и попросить переконнектиться
+                return new List<PlanitUser>();
+            }
+
+            return usersInRoom;
+        }
+
+        public async Task<List<PlanitUser>> GetAllUsers(string roomName)
+        {
+            if (string.IsNullOrEmpty(roomName))
+            {
+                return null;
+            }
+
+            var room=await TryGetRoom(roomName);
+            return await GetAllUsers(room);
         }
 
         public Task<bool> KickFromRoom(string roomName, string userId)
@@ -122,19 +156,52 @@ namespace PlanitPoker.Models.Repositories
             throw new System.NotImplementedException();
         }
 
-        public Task<bool> RoomIsExist(string roomName)
+        public async Task<bool> RoomIsExist(string roomName)
         {
-            throw new System.NotImplementedException();
+            return Rooms.ContainsKey(roomName);
         }
 
-        public Task<Room> TryGetRoom(string roomName, string password)
+        public async Task<Room> TryGetRoom(string roomName, string password)
         {
-            throw new System.NotImplementedException();
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                return null;
+            }
+
+            var room = await TryGetRoom(roomName);
+            if (room == null)
+            {
+                return null;
+            }
+
+            var storedPs = room.GetConcurentValue(_multiThreadHelper, (rm) => rm.StoredRoom.Password);
+            if (!storedPs.sc)
+            {
+                return null;
+            }
+
+            if (storedPs.res == password)
+            {
+                return room;
+            }
+
+            return null;
         }
 
-        public Task<Room> TryGetRoom(string roomName)
+        public async Task<Room> TryGetRoom(string roomName)
         {
-            throw new System.NotImplementedException();
+            if (string.IsNullOrWhiteSpace(roomName))
+            {
+                return null;
+            }
+
+            var exist = Rooms.TryGetValue(roomName, out var room);
+            if (!exist)
+            {
+                return null;
+            }
+
+            return room;
         }
 
         public Task<bool> UserIsAdmin(string roomName, string userId)

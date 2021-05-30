@@ -1,5 +1,6 @@
 ﻿using PlanitPoker.Models.Enums;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace PlanitPoker.Models.Repositories.Interfaces
@@ -13,6 +14,10 @@ namespace PlanitPoker.Models.Repositories.Interfaces
 
         Task<bool> AddUserIntoRoom(string roomName, PlanitUser user);
         Task<bool> AddUserIntoRoom(Room room, PlanitUser user);
+        Task<List<PlanitUser>> GetAllUsers(Room room);
+        Task<List<PlanitUser>> GetAllUsers(string roomName);
+
+
         Task<bool> ClearVotes(Room room);
         Task<bool> ChangeVote(Room room,string userId, int vote);
 
