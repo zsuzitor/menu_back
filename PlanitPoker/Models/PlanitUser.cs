@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace PlanitPoker.Models
@@ -10,6 +11,14 @@ namespace PlanitPoker.Models
         public List<string> Role { get; set; }//enum?
         public string Name { get; set; }
         public int? Vote { get; set; }
+
+        public bool IsAdmin
+        {
+            get
+            {
+                return Role.Any(x => x == "Creator" || x == "Admin");//TODO вынести в константы
+            }
+        }
 
         public PlanitUser Clone()
         {

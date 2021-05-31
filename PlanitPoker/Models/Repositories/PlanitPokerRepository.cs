@@ -47,7 +47,7 @@ namespace PlanitPoker.Models.Repositories
 
         public async Task<bool> AddUserIntoRoom(Room room, PlanitUser user)
         {
-            if (room == null || string.IsNullOrWhiteSpace(user?.UserIdentifier))
+            if (room == null || string.IsNullOrWhiteSpace(user?.UserIdentifier) || string.IsNullOrWhiteSpace(user.Name))
             {
                 return false;
             }
@@ -58,6 +58,10 @@ namespace PlanitPoker.Models.Repositories
                 if (us == null)
                 {
                     rm.StoredRoom.Users.Add(user);
+                }
+                else
+                {
+                    us.Name = user.Name;
                 }
             });
 
@@ -142,18 +146,47 @@ namespace PlanitPoker.Models.Repositories
                 return null;
             }
 
-            var room=await TryGetRoom(roomName);
+            var room = await TryGetRoom(roomName);
             return await GetAllUsers(room);
         }
 
-        public Task<bool> KickFromRoom(string roomName, string userId)
+        public async Task<bool> KickFromRoom(string roomName,string userIdRequest, string userId)
         {
-            throw new System.NotImplementedException();
+            var room = await TryGetRoom(roomName);
+            return await KickFromRoom(room, userIdRequest, userId);
+
+
         }
 
-        public Task<bool> KickFromRoom(Room room, string userId)
+        public async Task<bool> KickFromRoom(Room room, string userIdRequest, string userId)
         {
-            throw new System.NotImplementedException();
+            if (room == null)
+            {
+                return false;
+            }
+
+            bool result = false;
+            room.SetConcurentValue<Room>(_multiThreadHelper, (rm) =>
+            {
+                var usRequest = rm.StoredRoom.Users.FirstOrDefault(x => x.UserIdentifier == userIdRequest);
+                if (!usRequest.IsAdmin)
+                {
+                    return;
+                }
+                //x => x.UserIdentifier == userId
+                //rm.StoredRoom.Users.IndexOf(,);
+                var userForDelIndex = rm.StoredRoom.Users.Select((us, index) => new { us, index })
+                    .FirstOrDefault(x => x.us.UserIdentifier == userId)?.index;
+                if (userForDelIndex == null)
+                {
+                    return;
+                }
+
+                rm.StoredRoom.Users.RemoveAt((int)userForDelIndex);
+                result = true;
+            });
+
+            return result;
         }
 
         public async Task<bool> RoomIsExist(string roomName)

@@ -1,8 +1,8 @@
 ﻿using Menu.Models.Returns.Interfaces;
 using PlanitPoker.Models;
+using PlanitPoker.Models.Returns;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json.Serialization;
 
 namespace Menu.Models.Returns.Types.PlanitPoker
 {
@@ -31,28 +31,5 @@ namespace Menu.Models.Returns.Types.PlanitPoker
     }
 
 
-    public class PlanitUserReturn
-    {
-        [JsonPropertyName("id")]
-        public string UserIdentifier { get; set; }//signalRUserId
-        [JsonPropertyName("is_admin")]
-
-        public bool IsAdmin { get; set; }//enum?
-        [JsonPropertyName("name")]
-
-        public string Name { get; set; }
-        [JsonPropertyName("vote")]
-
-        public int? Vote { get; set; }
-
-
-
-        public PlanitUserReturn(PlanitUser obj)
-        {
-            UserIdentifier = obj.UserIdentifier;
-            IsAdmin = obj.Role.Contains("Admin");
-            Name = obj.Name;
-            Vote = obj.Vote;
-        }
-    }
+    
 }

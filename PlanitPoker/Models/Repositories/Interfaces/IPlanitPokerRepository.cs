@@ -22,8 +22,8 @@ namespace PlanitPoker.Models.Repositories.Interfaces
         Task<bool> ChangeVote(Room room,string userId, int vote);
 
 
-        Task<bool> KickFromRoom(string roomName, string userId);
-        Task<bool> KickFromRoom(Room room, string userId);
+        Task<bool> KickFromRoom(string roomName, string userIdRequest, string userId);
+        Task<bool> KickFromRoom(Room room, string userIdRequest, string userId);
         Task<bool> ChangeStatus(string roomName, RoomSatus newStatus);
 
         Task<bool> ChangeStatus(Room room, RoomSatus newStatus);

@@ -9994,20 +9994,22 @@ var IndexProps = /** @class */ (function () {
 var Index = function (props) {
     var initState = new IndexState();
     var _a = react_1.useState(initState), localState = _a[0], setLocalState = _a[1];
-    props.MyHubConnection.on("RoomNotCreated", function () {
-        var alert = new AlertData_1.AlertData();
-        alert.Text = "Комната не создана";
-        alert.Type = 1;
-        window.G_AddAbsoluteAlertToState(alert);
-    });
-    props.MyHubConnection.on("ConnectedToRoomError", function () {
-        var alert = new AlertData_1.AlertData();
-        alert.Text = "подключение не удалось";
-        alert.Type = 1;
-        window.G_AddAbsoluteAlertToState(alert);
-    });
     react_1.useEffect(function () {
         // console.log("Index");
+        props.MyHubConnection.on("RoomNotCreated", function () {
+            var alert = new AlertData_1.AlertData();
+            alert.Text = "Комната не создана";
+            alert.Type = 1;
+            window.G_AddAbsoluteAlertToState(alert);
+            return;
+        });
+        props.MyHubConnection.on("ConnectedToRoomError", function () {
+            var alert = new AlertData_1.AlertData();
+            alert.Text = "подключение не удалось";
+            alert.Type = 1;
+            window.G_AddAbsoluteAlertToState(alert);
+            return;
+        });
     }, []);
     var createRoom = function () {
         //этот метод вроде как  может подождать результат выполнения и как то получить ответ
@@ -10301,6 +10303,7 @@ var Room = function (props) {
     var _a = react_1.useState(initState), localState = _a[0], setLocalState = _a[1];
     react_1.useEffect(function () {
         var loadedUsers = function (error, data) {
+            var _a;
             if (error) {
                 //TODO выбить из комнаты?
                 alert("todo что то пошло не так лучше обновить страницу");
@@ -10313,12 +10316,37 @@ var Room = function (props) {
                     return us;
                 });
                 var newState = __assign({}, localState);
-                newState.UsersList = newUsersData;
+                newState.UsersList.splice(0, newState.UsersList.length);
+                (_a = newState.UsersList).push.apply(_a, newUsersData);
+                // newState.UsersList = newUsersData;
                 setLocalState(newState);
             }
         };
         // console.log(JSON.stringify(props));
         window.G_PlaningPokerController.GetUsersIsRoom(props.RoomInfo.Name, loadedUsers);
+        props.MyHubConnection.on("NewUserInRoom", function (data) {
+            if (!data) {
+                return;
+            }
+            var dataTyped = data;
+            var us = new RoomInfo_1.UserInRoom();
+            us.FillByBackModel(dataTyped);
+            var newState = __assign({}, localState);
+            newState.UsersList.push(us);
+            setLocalState(newState);
+        });
+        props.MyHubConnection.on("UserLeaved", function (userId) {
+            if (!userId) {
+                return;
+            }
+            var newState = __assign({}, localState);
+            var userIndex = newState.UsersList.findIndex(function (x) { return x.Id === userId; });
+            if (userIndex < 0) {
+                return;
+            }
+            newState.UsersList.splice(userIndex, 1);
+            setLocalState(newState);
+        });
     }, []);
     return react_1.default.createElement("div", { className: "container" },
         react_1.default.createElement("div", { className: "padding-10-top" }),

@@ -12,7 +12,8 @@ namespace PlanitPoker.Models.Hubs
 {
 
 
-
+    //https://github.com/SignalR/SignalR/wiki/SignalR-JS-Client#connectionid
+    //https://metanit.com/sharp/aspnet5/30.3.php
     public class PlanitPokerHub : Hub
     {
         private readonly IPlanitPokerRepository _planitPokerRepository;
@@ -26,14 +27,18 @@ namespace PlanitPoker.Models.Hubs
         private const string NotifyFromServer = "NotifyFromServer";//todo будет принимать объект result с ошибками как в апи
         private const string EnteredInRoom = "EnteredInRoom";
         private const string NewUserInRoom = "NewUserInRoom";
+        private const string UserLeaved = "UserLeaved";
         private const string VoteStart = "VoteStart";//голосование начато, оценки почищены
         private const string VoteEnd = "VoteEnd";
         private const string VoteSuccess = "VoteSuccess";
         private const string RoomNotCreated = "RoomNotCreated";
+        
 
 
-
-        //TODO надо чистить то что приходит от юзера, уже реализовано просто прикрутить
+        //TODO !!!!!!!!!!!надо потестить многопоточность, могу ли я без блокировки стучаться к room что бы получить lockobj или его надо выносить
+        //настроить таймауты у сигналр
+        //а безопасно ли показывать юзерам чежие id подключений?
+            //TODO надо чистить то что приходит от юзера, уже реализовано просто прикрутить
         //todo нужна кнопка "обновить список пользователей?"
         //todo очистка старых комнат
         //todo методы которые в Room надо вынести в репо, GetValueFromRoomAsync тоже
@@ -57,6 +62,12 @@ namespace PlanitPoker.Models.Hubs
         //    //Groups.
         //    await this.Clients.All.SendAsync("Send", message);
         //}
+
+        public string GetConnectionId()
+        {
+            return Context.ConnectionId;
+        }
+
 
         public async Task CreateRoom(string roomname, string password, string username)
         {
@@ -206,8 +217,14 @@ namespace PlanitPoker.Models.Hubs
 
         }
 
-        public void KickUser(string roomname, string userId)
+        public async Task KickUser(string roomname, string userId)
         {
+            var kicked = await _planitPokerRepository.KickFromRoom(roomname,userId);
+
+            if (kicked)
+            {
+                await Clients.Group(roomname).SendAsync(UserLeaved, userId);
+            }
 
         }
 
@@ -253,7 +270,7 @@ namespace PlanitPoker.Models.Hubs
             }
 
             var roomnm = room.GetConcurentValue(_multiThreadHelper, x => x.StoredRoom.Name);
-            if (roomnm.sc == false)
+            if (!roomnm.sc)
             {
                 //TODO что то пошло не так
                 await Clients.Caller.SendAsync(NotifyFromServer, new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
@@ -262,8 +279,14 @@ namespace PlanitPoker.Models.Hubs
             }
 
             //специально до добавление юзера тк ему это сообщение не нужно
-            await Clients.Group(roomnm.res).SendAsync(NewUserInRoom, username);
-            await Groups.AddToGroupAsync(username, roomnm.res);
+            var us = GetValueFromRoomAsync(room,(rm)=>rm.StoredRoom.Users.FirstOrDefault(x=>x.UserIdentifier==userId));
+            PlanitUserReturn returnUser = null;
+            if (us.sc)
+            {
+                returnUser = new PlanitUserReturn(us.res);
+            }
+            await Clients.Group(roomnm.res).SendAsync(NewUserInRoom, returnUser);
+            await Groups.AddToGroupAsync(userId, roomnm.res);
 
             //(var usersInRoom, bool suc) = GetValueFromRoomAsync(room, room => room.StoredRoom.Users.Select(x => x.Clone()));
             //if (!suc)
