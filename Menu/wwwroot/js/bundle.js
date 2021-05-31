@@ -2789,7 +2789,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n\r\n.planit-room-left-part{\r\n    border:2px solid black;\r\n    height: 500px;\r\n}\r\n\r\n.planit-room-right-part{\r\n    border:2px solid black;\r\n    height: 500px;\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":";;AAEA;IACI,sBAAsB;IACtB,aAAa;AACjB;;AAEA;IACI,sBAAsB;IACtB,aAAa;AACjB","sourcesContent":["\r\n\r\n.planit-room-left-part{\r\n    border:2px solid black;\r\n    height: 500px;\r\n}\r\n\r\n.planit-room-right-part{\r\n    border:2px solid black;\r\n    height: 500px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n\r\n.planit-room-left-part{\r\n    border:2px solid black;\r\n    height: 500px;\r\n}\r\n\r\n.planit-room-right-part{\r\n    border:2px solid black;\r\n    height: 500px;\r\n}\r\n\r\n.one-planing-vote-card{\r\n    width:300px;\r\n    height: 300px;\r\n    border:2px solid black;\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":";;AAEA;IACI,sBAAsB;IACtB,aAAa;AACjB;;AAEA;IACI,sBAAsB;IACtB,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,aAAa;IACb,sBAAsB;AAC1B","sourcesContent":["\r\n\r\n.planit-room-left-part{\r\n    border:2px solid black;\r\n    height: 500px;\r\n}\r\n\r\n.planit-room-right-part{\r\n    border:2px solid black;\r\n    height: 500px;\r\n}\r\n\r\n.one-planing-vote-card{\r\n    width:300px;\r\n    height: 300px;\r\n    border:2px solid black;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10056,7 +10056,7 @@ exports.default = Index;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.UserInRoom = exports.RoomSatus = exports.RoomInfo = void 0;
+exports.PlaningPokerUserInfo = exports.UserInRoom = exports.RoomSatus = exports.RoomInfo = void 0;
 var RoomInfo = /** @class */ (function () {
     function RoomInfo() {
         this.Name = "";
@@ -10084,6 +10084,14 @@ var UserInRoom = /** @class */ (function () {
     return UserInRoom;
 }());
 exports.UserInRoom = UserInRoom;
+var PlaningPokerUserInfo = /** @class */ (function () {
+    function PlaningPokerUserInfo() {
+        this.UserName = "";
+        this.UserId = "";
+    }
+    return PlaningPokerUserInfo;
+}());
+exports.PlaningPokerUserInfo = PlaningPokerUserInfo;
 
 
 /***/ }),
@@ -10144,17 +10152,11 @@ var signalR = __importStar(__webpack_require__(/*! @aspnet/signalr */ "./node_mo
 // import * as signalR from '@aspnet/signalr'
 // "@microsoft/signalr": "^5.0.6",
 //
-var PlaningPokerUserInfo = /** @class */ (function () {
-    function PlaningPokerUserInfo() {
-        this.UserName = "";
-    }
-    return PlaningPokerUserInfo;
-}());
 var PlaningPokerMainState = /** @class */ (function () {
     // InRoom: boolean;//по сути надо дернуть обновление стейта для перерендера
     function PlaningPokerMainState() {
         this.MyHubConnection = null;
-        this.User = new PlaningPokerUserInfo();
+        this.User = new RoomInfo_1.PlaningPokerUserInfo();
         this.RoomInfo = new RoomInfo_1.RoomInfo();
     }
     return PlaningPokerMainState;
@@ -10198,7 +10200,15 @@ var PlaningPokerMain = function () {
         });
         // возможно тут стоит выделить в child components методы которые вызвать до старта
         //Update, не стоит тк они актуальны только в самих компонентах
-        hubConnection.start();
+        hubConnection.start()
+            .then(function () {
+            hubConnection.invoke("GetConnectionId")
+                .then(function (connectionId) {
+                var newState = __assign({}, localState);
+                newState.User.UserId = connectionId;
+                setLocalState(newState);
+            });
+        });
         // let newState = { ...localState };
         // newState.MyHubConnection = hubConnection;
         // setLocalState(newState);
@@ -10228,7 +10238,7 @@ var PlaningPokerMain = function () {
                     //  InRoom={localState.InRoom}
                     , { 
                         //  InRoom={localState.InRoom}
-                        Username: localState.User.UserName, RoomInfo: localState.RoomInfo, MyHubConnection: localState.MyHubConnection });
+                        UserInfo: localState.User, RoomInfo: localState.RoomInfo, MyHubConnection: localState.MyHubConnection });
                 } })));
 };
 exports.default = PlaningPokerMain;
@@ -10295,8 +10305,15 @@ var RoomState = /** @class */ (function () {
     }
     return RoomState;
 }());
+var CurrentUserIsAdmin = function (st, userId) {
+    var user = st.UsersList.find(function (x) { return x.Id === userId; });
+    if (user && user.IsAdmin) {
+        return true;
+    }
+    return false;
+};
 var Room = function (props) {
-    if (!props.RoomInfo.InRoom) { //TODO тут по хорошему надо узнать название русы из урла и попросить ввести пароль, но пока что так
+    if (!props.RoomInfo.InRoom) { //TODO тут по хорошему надо узнать название румы из урла и попросить ввести пароль, но пока что так
         window.location.href = "/planing-poker";
     }
     var initState = new RoomState();
@@ -10316,6 +10333,7 @@ var Room = function (props) {
                     return us;
                 });
                 var newState = __assign({}, localState);
+                //реинициализировать нельзя, почему то отваливается
                 newState.UsersList.splice(0, newState.UsersList.length);
                 (_a = newState.UsersList).push.apply(_a, newUsersData);
                 // newState.UsersList = newUsersData;
@@ -10339,6 +10357,11 @@ var Room = function (props) {
             if (!userId) {
                 return;
             }
+            if (userId == props.UserInfo.UserId) {
+                alert("you kicked or leave"); //TODO может как то получше сделать, и хорошо бы без перезагрузки\редиректа
+                window.location.href = "/planing-poker";
+                return;
+            }
             var newState = __assign({}, localState);
             var userIndex = newState.UsersList.findIndex(function (x) { return x.Id === userId; });
             if (userIndex < 0) {
@@ -10348,6 +10371,30 @@ var Room = function (props) {
             setLocalState(newState);
         });
     }, []);
+    var tryToRemoveUserFromRoom = function (userId) {
+        var isAdmin = CurrentUserIsAdmin(localState, props.UserInfo.UserId);
+        if (!isAdmin) {
+            return;
+        }
+        props.MyHubConnection.send("KickUser", props.RoomInfo.Name, userId);
+    };
+    var renderVotePlaceIfNeed = function () {
+        //UNCOMMENT
+        // if (localState.RoomStatus !== RoomSatus.AllCanVote) {
+        //     return <div></div>
+        // }
+        return react_1.default.createElement("div", { className: "row" },
+            react_1.default.createElement("div", { className: "col one-planing-vote-card" }, "1"),
+            react_1.default.createElement("div", { className: "col one-planing-vote-card" }, "2"),
+            react_1.default.createElement("div", { className: "col one-planing-vote-card" }, "3"));
+    };
+    var renderVoteResultIfNeed = function () {
+        //UNCOMMENT
+        if (localState.RoomStatus !== RoomInfo_1.RoomSatus.CloseVote) {
+            return react_1.default.createElement("div", null);
+        }
+        return react_1.default.createElement("div", null, "vote result");
+    };
     return react_1.default.createElement("div", { className: "container" },
         react_1.default.createElement("div", { className: "padding-10-top" }),
         react_1.default.createElement("div", null,
@@ -10355,12 +10402,17 @@ var Room = function (props) {
             props.RoomInfo.Name),
         react_1.default.createElement("div", { className: "row" },
             react_1.default.createElement("div", { className: "planit-room-left-part col-12 col-md-9" },
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("button", null, "\u041D\u0430\u0447\u0430\u0442\u044C \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u0435"),
+                    react_1.default.createElement("button", null, "\u0417\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u0435"),
+                    renderVotePlaceIfNeed(),
+                    renderVoteResultIfNeed()),
                 react_1.default.createElement("div", null, "\u043E\u0446\u0435\u043D\u043A\u0438"),
                 react_1.default.createElement("div", null, "\u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0437\u0430\u0434\u0430\u0447?")),
             react_1.default.createElement("div", { className: "planit-room-right-part col-12 col-md-3" },
                 react_1.default.createElement("div", null, "\u043B\u044E\u0434\u0438"),
                 localState.UsersList.map(function (x) {
-                    return react_1.default.createElement(UserInList_1.default, { key: x.Id, User: x });
+                    return react_1.default.createElement(UserInList_1.default, { key: x.Id, User: x, TryToRemoveUserFromRoom: tryToRemoveUserFromRoom, RenderForAdmin: CurrentUserIsAdmin(localState, props.UserInfo.UserId) });
                 })),
             react_1.default.createElement("div", { className: "display_none" },
                 react_1.default.createElement(react_router_dom_1.Link, { id: "move_to_index_link_react", to: "/planing-poker/" }, "hidden"))));
@@ -10389,9 +10441,18 @@ var UserInListProp = /** @class */ (function () {
     return UserInListProp;
 }());
 var UserInList = function (props) {
+    var delButton = react_1.default.createElement("div", null);
+    if (props.RenderForAdmin) {
+        delButton = react_1.default.createElement("div", null,
+            react_1.default.createElement("button", { onClick: function () { return props.TryToRemoveUserFromRoom(props.User.Id); } }, "\u0412\u044B\u0433\u043D\u0430\u0442\u044C"));
+    }
     return react_1.default.createElement("div", null,
         react_1.default.createElement("p", null, props.User.Name),
         react_1.default.createElement("p", null, props.User.Id),
+        react_1.default.createElement("p", null,
+            "\u043E\u0446\u0435\u043D\u043A\u0430: ",
+            props.User.Vote ? props.User.Vote : ""),
+        delButton,
         react_1.default.createElement("hr", null));
 };
 exports.default = UserInList;

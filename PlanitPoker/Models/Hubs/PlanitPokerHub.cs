@@ -219,12 +219,16 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task KickUser(string roomname, string userId)
         {
-            var kicked = await _planitPokerRepository.KickFromRoom(roomname,userId);
+            var kicked = await _planitPokerRepository.KickFromRoom(roomname, Context.ConnectionId, userId);
 
             if (kicked)
             {
                 await Clients.Group(roomname).SendAsync(UserLeaved, userId);
+                return;
             }
+
+            await Clients.Caller.SendAsync(NotifyFromServer, new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
+
 
         }
 
