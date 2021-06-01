@@ -40,7 +40,7 @@ namespace PlanitPoker.Models.Hubs
         //закончить с подсчетом голосов мин макс среднее
         //при подключении к руме запрашивать всю инфу а не только статус
         //todo нужна кнопка "обновить список пользователей?"
-
+        //когда голосование закрыто можно подсветить пользователей у которых минимум и максимум
 
 
         //TODO !!!!!!!!!!!надо потестить многопоточность, могу ли я без блокировки стучаться к room что бы получить lockobj или его надо выносить
@@ -154,8 +154,16 @@ namespace PlanitPoker.Models.Hubs
                 return;
             }
 
-            _ = await _planitPokerRepository.ChangeStatus(room, Enums.RoomSatus.AllCanVote);
-            _ = await _planitPokerRepository.ClearVotes(room);
+            var success = await _planitPokerRepository.ChangeStatus(room, Enums.RoomSatus.AllCanVote);
+            if (!success)
+            {
+                return;
+            }
+            success = await _planitPokerRepository.ClearVotes(room);
+            if (!success)
+            {
+                return;
+            }
             //await _multiThreadHelper.SetValue(room,async rm=> {
             //    await _planitPokerRepository.ChangeStatus(rm, Enums.RoomSatus.AllCanVote);
 
@@ -178,7 +186,7 @@ namespace PlanitPoker.Models.Hubs
             _ = await _planitPokerRepository.ChangeStatus(room, Enums.RoomSatus.AllCanVote);
             (var res, bool sc) = GetValueFromRoomAsync(room, rm =>
                   {
-                      return rm.StoredRoom.Users.Select(x => x.Vote ?? 0);
+                      return rm.StoredRoom.Users.Select(x => new { userId = x.UserIdentifier, vote = x.Vote ?? 0 });
                   });
 
             if (!sc)
@@ -187,7 +195,14 @@ namespace PlanitPoker.Models.Hubs
                 return;
             }
 
-            await Clients.Group(roomname).SendAsync(VoteEnd, res);
+
+            var result = new EndVoteInfo();
+            result.MinVote = res.Min(x => x.vote);
+            result.MaxVote = res.Max(x => x.vote);
+            result.Average = res.Average(x => x.vote);
+            result.UsersInfo = res.Select(x => new EndVoteUserInfo() { Id = x.userId, Vote = x.vote }).ToList();
+
+            await Clients.Group(roomname).SendAsync(VoteEnd, result);
         }
 
         public async Task<bool> Vote(string roomname, int vote)
@@ -219,14 +234,14 @@ namespace PlanitPoker.Models.Hubs
             }
 
 
-            var changed  = await _planitPokerRepository.ChangeVote(room, Context.ConnectionId, vote);
+            var changed = await _planitPokerRepository.ChangeVote(room, Context.ConnectionId, vote);
             if (!changed)
             {
                 return false;
             }
 
             var adminsId = await _planitPokerRepository.GetAdminsId(room);
-            if(adminsId!=null&& adminsId.Count > 0)
+            if (adminsId != null && adminsId.Count > 0)
             {
                 await Clients.Clients(adminsId).SendAsync(VoteChanged, Context.ConnectionId, vote);
             }
@@ -301,7 +316,7 @@ namespace PlanitPoker.Models.Hubs
             }
 
             //специально до добавление юзера тк ему это сообщение не нужно
-            var us = GetValueFromRoomAsync(room,(rm)=>rm.StoredRoom.Users.FirstOrDefault(x=>x.UserIdentifier==userId));
+            var us = GetValueFromRoomAsync(room, (rm) => rm.StoredRoom.Users.FirstOrDefault(x => x.UserIdentifier == userId));
             PlanitUserReturn returnUser = null;
             if (us.sc)
             {
