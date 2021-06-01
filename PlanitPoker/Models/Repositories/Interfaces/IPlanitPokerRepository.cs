@@ -15,7 +15,22 @@ namespace PlanitPoker.Models.Repositories.Interfaces
         Task<bool> AddUserIntoRoom(string roomName, PlanitUser user);
         Task<bool> AddUserIntoRoom(Room room, PlanitUser user);
         Task<List<PlanitUser>> GetAllUsers(Room room);
+        /// <summary>
+        /// просто получить пользователей
+        /// </summary>
+        /// <param name="roomName"></param>
+        /// <returns></returns>
         Task<List<PlanitUser>> GetAllUsers(string roomName);
+        /// <summary>
+        /// может скрывать голоса в зависимости от условий
+        /// </summary>
+        /// <param name="roomName"></param>
+        /// <returns></returns>
+        Task<List<PlanitUser>> GetAllUsersWithRight(string roomName,string currentUserId);
+        Task<List<PlanitUser>> GetAllUsersWithRight(Room room, string currentUserId);
+
+        Task<StoredRoom> GetRoomInfo(string roomname, string currentUserId);
+        
 
 
         Task<bool> ClearVotes(Room room);
@@ -24,9 +39,9 @@ namespace PlanitPoker.Models.Repositories.Interfaces
 
         Task<bool> KickFromRoom(string roomName, string userIdRequest, string userId);
         Task<bool> KickFromRoom(Room room, string userIdRequest, string userId);
-        Task<bool> ChangeStatus(string roomName, RoomSatus newStatus);
+        Task<bool> ChangeStatusIfCan(string roomName, string userId, RoomSatus newStatus);
 
-        Task<bool> ChangeStatus(Room room, RoomSatus newStatus);
+        Task<bool> ChangeStatusIfCan(Room room,string userId, RoomSatus newStatus);
 
         Task<bool> RoomIsExist(string roomName);
         Task<Room> TryGetRoom(string roomName, string password);

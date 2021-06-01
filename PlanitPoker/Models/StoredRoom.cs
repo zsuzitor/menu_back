@@ -1,6 +1,7 @@
 ﻿using PlanitPoker.Models.Enums;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PlanitPoker.Models
 {
@@ -26,6 +27,14 @@ namespace PlanitPoker.Models
         {
             Name = name;
             Password = password;
+        }
+
+
+        public StoredRoom Clone()
+        {
+            var res = (StoredRoom)this.MemberwiseClone();
+            res.Users = Users.Select(x => x.Clone()).ToList();
+            return res;
         }
 
 

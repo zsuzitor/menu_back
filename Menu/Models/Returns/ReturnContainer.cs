@@ -38,6 +38,9 @@ namespace Menu.Models.Returns
             {typeof(List<WordCardWordList>), new WordCardWordListReturnFactory() },
             {typeof(PlanitUser), new PlanitUserReturnFactory() },
             {typeof(List<PlanitUser>), new PlanitUserReturnFactory() },
+            {typeof(StoredRoom), new StoredRoomReturnFactory() },
+            {typeof(List<StoredRoom>), new StoredRoomReturnFactory() },
+            
                
               
             //TODO списки

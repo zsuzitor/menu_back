@@ -68,29 +68,45 @@ namespace PlanitPoker.Models.Repositories
             return true;
         }
 
-        public async Task<bool> ChangeStatus(string roomName, RoomSatus newStatus)
+        public async Task<bool> ChangeStatusIfCan(string roomName, string userId, RoomSatus newStatus)
         {
             var room = await TryGetRoom(roomName);
-            return await ChangeStatus(room, newStatus);
+            return await ChangeStatusIfCan(room, userId, newStatus);
         }
 
-        public async Task<bool> ChangeStatus(Room room, RoomSatus newStatus)
+        public async Task<bool> ChangeStatusIfCan(Room room, string userId, RoomSatus newStatus)
         {
-            if (room == null)
+            if (room == null || string.IsNullOrWhiteSpace(userId))
             {
                 return false;
             }
 
+            bool result = false;
             room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
             {
+                var user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserIdentifier == userId);
+                if (user == null)
+                {
+                    return;
+                }
+                if (!user.IsAdmin)
+                {
+                    return;
+                }
                 rm.StoredRoom.Status = newStatus;
+                result = true;
             });
 
-            return true;
+            return result;
         }
 
         public async Task<bool> ChangeVote(Room room, string userId, int vote)
         {
+            if (room == null || string.IsNullOrWhiteSpace(userId))
+            {
+                return false;
+            }
+
             bool result = false;
             var suc = room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
             {
@@ -122,9 +138,17 @@ namespace PlanitPoker.Models.Repositories
             throw new System.NotImplementedException();
         }
 
-        public Task<bool> ClearVotes(Room room)
+        public async Task<bool> ClearVotes(Room room)
         {
-            throw new System.NotImplementedException();
+            return room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
+             {
+                 rm.StoredRoom.Users.ForEach(x =>
+                 {
+                     x.Vote = null;
+                 });
+             });
+
+
         }
 
         public async Task<Room> CreateRoomWithUser(string roomname, string password, PlanitUser user)
@@ -135,7 +159,7 @@ namespace PlanitPoker.Models.Repositories
             }
 
             var roomData = new StoredRoom(roomname, password);
-            roomData.Status = RoomSatus.AllCanVote;//todo потом убрать
+            //roomData.Status = RoomSatus.AllCanVote;//todo потом убрать
             var room = new Room(roomData);
             var added = Rooms.TryAdd(roomname, room);
             if (added)
@@ -148,6 +172,11 @@ namespace PlanitPoker.Models.Repositories
 
         public async Task<List<string>> GetAdminsId(Room room)
         {
+            if (room == null)
+            {
+                return new List<string>();
+            }
+
             var res = room.GetConcurentValue(_multiThreadHelper, rm =>
             {
                 return rm.StoredRoom.Users.Where(x => x.IsAdmin).Select(x => x.UserIdentifier).ToList();
@@ -171,12 +200,18 @@ namespace PlanitPoker.Models.Repositories
             return await GetAdminsId(room);
         }
 
+        /// <summary>
+        /// возвращает копию пользователей
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
         public async Task<List<PlanitUser>> GetAllUsers(Room room)
         {
             if (room == null)
             {
                 return new List<PlanitUser>();
             }
+
             (var usersInRoom, bool suc) = room.GetConcurentValue(_multiThreadHelper,
                 room => room.StoredRoom.Users.Select(x => x.Clone()).ToList());
             if (!suc)
@@ -188,15 +223,88 @@ namespace PlanitPoker.Models.Repositories
             return usersInRoom;
         }
 
+        /// <summary>
+        /// возвращает копию пользователей
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
         public async Task<List<PlanitUser>> GetAllUsers(string roomName)
         {
-            if (string.IsNullOrEmpty(roomName))
+
+
+            var room = await TryGetRoom(roomName);
+            return await GetAllUsers(room);
+        }
+
+        /// <summary>
+        /// возвращает копию пользователей
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
+        public async Task<List<PlanitUser>> GetAllUsersWithRight(string roomName, string userId)
+        {
+
+
+            var room = await TryGetRoom(roomName);
+            return await GetAllUsersWithRight(room, userId);
+        }
+
+        /// <summary>
+        /// возвращает копию пользователей
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
+        public async Task<List<PlanitUser>> GetAllUsersWithRight(Room room, string userId)
+        {
+            if (room == null || string.IsNullOrWhiteSpace(userId))
+            {
+                return new List<PlanitUser>();
+            }
+            var allUsers = await GetAllUsers(room);
+            var roomStatusR = room.GetConcurentValue(_multiThreadHelper, rm => rm.StoredRoom.Status);
+            if (!roomStatusR.sc)
+            {
+                return new List<PlanitUser>();
+            }
+
+            return ClearHideData(roomStatusR.res, userId, allUsers);
+
+
+
+        }
+
+        /// <summary>
+        /// режет инфу в зависимости от того есть ли к ней доступ
+        /// </summary>
+        /// <param name="roomname"></param>
+        /// <param name="currentUserId"></param>
+        /// <returns></returns>
+        public async Task<StoredRoom> GetRoomInfo(string roomname, string currentUserId)
+        {
+            if (string.IsNullOrWhiteSpace(currentUserId))
             {
                 return null;
             }
 
-            var room = await TryGetRoom(roomName);
-            return await GetAllUsers(room);
+            var room = await TryGetRoom(roomname);
+            if (room == null)
+            {
+                return null;
+            }
+
+            var res = room.GetConcurentValue(_multiThreadHelper, rm => rm.StoredRoom.Clone());
+            if (!res.sc)
+            {
+                return null;
+            }
+
+            //все склонированное, работаем обычно
+            var resRoom = res.res;
+            resRoom.Password = null;
+            ClearHideData(resRoom.Status, currentUserId, resRoom.Users);
+
+
+            return resRoom;
         }
 
         public async Task<bool> KickFromRoom(string roomName, string userIdRequest, string userId)
@@ -209,7 +317,7 @@ namespace PlanitPoker.Models.Repositories
 
         public async Task<bool> KickFromRoom(Room room, string userIdRequest, string userId)
         {
-            if (room == null)
+            if (room == null || string.IsNullOrWhiteSpace(userIdRequest) || string.IsNullOrWhiteSpace(userId))
             {
                 return false;
             }
@@ -240,6 +348,11 @@ namespace PlanitPoker.Models.Repositories
 
         public async Task<bool> RoomIsExist(string roomName)
         {
+            if (string.IsNullOrWhiteSpace(roomName))
+            {
+                return false;
+            }
+
             return Rooms.ContainsKey(roomName);
         }
 
@@ -286,14 +399,47 @@ namespace PlanitPoker.Models.Repositories
             return room;
         }
 
-        public Task<bool> UserIsAdmin(string roomName, string userId)
+        public async Task<bool> UserIsAdmin(string roomName, string userId)
         {
-            throw new System.NotImplementedException();
+            var room = await TryGetRoom(roomName);
+            return await UserIsAdmin(room, userId);
         }
 
-        public Task<bool> UserIsAdmin(Room room, string userId)
+        public async Task<bool> UserIsAdmin(Room room, string userId)
         {
-            throw new System.NotImplementedException();
+            if (room == null || string.IsNullOrWhiteSpace(userId))
+            {
+                return false;
+            }
+
+            var res = room.GetConcurentValue(_multiThreadHelper,
+                rm => rm.StoredRoom.Users.FirstOrDefault(x => x.UserIdentifier == userId)?.IsAdmin ?? false);
+            return res.sc && res.res;
         }
+
+
+        private List<PlanitUser> ClearHideData(RoomSatus roomStatus, string currentUserId, List<PlanitUser> users)
+        {
+            if (roomStatus != RoomSatus.AllCanVote)
+            {
+                return users;
+            }
+            var user = users.FirstOrDefault(x => x.UserIdentifier == currentUserId);
+            if (user == null)
+            {
+                return new List<PlanitUser>();
+            }
+
+            if (!user.IsAdmin)
+            {
+                users.ForEach(x =>
+                {
+                    x.Vote = null;
+                });
+            }
+
+            return users;
+        }
+
     }
 }

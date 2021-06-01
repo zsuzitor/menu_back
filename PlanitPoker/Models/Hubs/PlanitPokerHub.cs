@@ -45,12 +45,17 @@ namespace PlanitPoker.Models.Hubs
 
         //TODO !!!!!!!!!!!надо потестить многопоточность, могу ли я без блокировки стучаться к room что бы получить lockobj или его надо выносить
         //настроить таймауты у сигналр + https://github.com/dotnet/aspnetcore/issues/20151
+        //https://docs.microsoft.com/ru-ru/aspnet/signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 
         //а безопасно ли показывать юзерам чужие id подключений?
         //TODO надо чистить то что приходит от юзера, уже реализовано просто прикрутить
         //todo очистка старых комнат
         //todo методы которые в Room надо вынести в репо, GetValueFromRoomAsync тоже
         //если 2 раза быстро нажать подключение к комнате, все норм отработает?
+        //при подключении к "законченному" голосованию не отображаются результаты, надо бы в контроллер закинуть
+        //есть места где можно сделать что то типо транзакций(или руками может откатывать критичные данные
+        //надо как то отписываться от событий, например сейчас если зайти в руму, потом справа сверху перейти на страницу логина
+        //а в это время админ этого юзера кикнет, у него будет рефреш страницы тк он подписан
 
 
 
@@ -154,7 +159,7 @@ namespace PlanitPoker.Models.Hubs
                 return;
             }
 
-            var success = await _planitPokerRepository.ChangeStatus(room, Enums.RoomSatus.AllCanVote);
+            var success = await _planitPokerRepository.ChangeStatusIfCan(room, Context.ConnectionId, Enums.RoomSatus.AllCanVote);
             if (!success)
             {
                 return;
@@ -183,7 +188,12 @@ namespace PlanitPoker.Models.Hubs
                 return;
             }
 
-            _ = await _planitPokerRepository.ChangeStatus(room, Enums.RoomSatus.AllCanVote);
+            var success = await _planitPokerRepository.ChangeStatusIfCan(room, Context.ConnectionId, Enums.RoomSatus.CloseVote);
+            if (!success)
+            {
+                return;
+            }
+
             (var res, bool sc) = GetValueFromRoomAsync(room, rm =>
                   {
                       return rm.StoredRoom.Users.Select(x => new { userId = x.UserIdentifier, vote = x.Vote ?? 0 });

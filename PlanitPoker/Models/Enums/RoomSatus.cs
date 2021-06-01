@@ -8,7 +8,7 @@ namespace PlanitPoker.Models.Enums
     {
     }
 
-    public enum RoomSatus { AllCanVote, CloseVote };
+    public enum RoomSatus { None=0,AllCanVote, CloseVote };
 
     public enum NotyfyStatus { Error=1, Success };
 }
