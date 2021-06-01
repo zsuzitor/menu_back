@@ -89,9 +89,32 @@ namespace PlanitPoker.Models.Repositories
             return true;
         }
 
-        public Task<bool> ChangeVote(Room room, string userId, int vote)
+        public async Task<bool> ChangeVote(Room room, string userId, int vote)
         {
-            throw new System.NotImplementedException();
+            bool result = false;
+            var suc = room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
+            {
+                if (rm.StoredRoom.Status != RoomSatus.AllCanVote)
+                {
+                    return;
+                }
+
+                var user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserIdentifier == userId);
+                if (user == null)
+                {
+                    return;
+                }
+
+                user.Vote = vote;
+                result = true;
+            });
+
+            if (!suc)
+            {
+                return false;
+            }
+
+            return result;
         }
 
         public Task ClearOldRooms()
@@ -112,6 +135,7 @@ namespace PlanitPoker.Models.Repositories
             }
 
             var roomData = new StoredRoom(roomname, password);
+            roomData.Status = RoomSatus.AllCanVote;//todo потом убрать
             var room = new Room(roomData);
             var added = Rooms.TryAdd(roomname, room);
             if (added)
@@ -120,6 +144,31 @@ namespace PlanitPoker.Models.Repositories
             }
 
             return null;
+        }
+
+        public async Task<List<string>> GetAdminsId(Room room)
+        {
+            var res = room.GetConcurentValue(_multiThreadHelper, rm =>
+            {
+                return rm.StoredRoom.Users.Where(x => x.IsAdmin).Select(x => x.UserIdentifier).ToList();
+            });
+            if (!res.sc)
+            {
+                return new List<string>();
+            }
+
+            return res.res;
+        }
+
+        public async Task<List<string>> GetAdminsId(string roomName)
+        {
+            if (string.IsNullOrWhiteSpace(roomName))
+            {
+                return new List<string>();
+            }
+
+            var room = await TryGetRoom(roomName);
+            return await GetAdminsId(room);
         }
 
         public async Task<List<PlanitUser>> GetAllUsers(Room room)
@@ -132,7 +181,7 @@ namespace PlanitPoker.Models.Repositories
                 room => room.StoredRoom.Users.Select(x => x.Clone()).ToList());
             if (!suc)
             {
-                //TODO отключить юзера и попросить переконнектиться
+                //TODO отключить юзера и попросить переконнектиться?
                 return new List<PlanitUser>();
             }
 
@@ -150,7 +199,7 @@ namespace PlanitPoker.Models.Repositories
             return await GetAllUsers(room);
         }
 
-        public async Task<bool> KickFromRoom(string roomName,string userIdRequest, string userId)
+        public async Task<bool> KickFromRoom(string roomName, string userIdRequest, string userId)
         {
             var room = await TryGetRoom(roomName);
             return await KickFromRoom(room, userIdRequest, userId);

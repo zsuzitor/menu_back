@@ -30,16 +30,24 @@ namespace PlanitPoker.Models.Hubs
         private const string UserLeaved = "UserLeaved";
         private const string VoteStart = "VoteStart";//голосование начато, оценки почищены
         private const string VoteEnd = "VoteEnd";
-        private const string VoteSuccess = "VoteSuccess";
+        //private const string VoteSuccess = "VoteSuccess";
+        private const string VoteChanged = "VoteChanged";
         private const string RoomNotCreated = "RoomNotCreated";
-        
+
+
+        //todo now
+        //начать голосование
+        //закончить с подсчетом голосов мин макс среднее
+        //при подключении к руме запрашивать всю инфу а не только статус
+        //todo нужна кнопка "обновить список пользователей?"
+
 
 
         //TODO !!!!!!!!!!!надо потестить многопоточность, могу ли я без блокировки стучаться к room что бы получить lockobj или его надо выносить
-        //настроить таймауты у сигналр
-        //а безопасно ли показывать юзерам чежие id подключений?
-            //TODO надо чистить то что приходит от юзера, уже реализовано просто прикрутить
-        //todo нужна кнопка "обновить список пользователей?"
+        //настроить таймауты у сигналр + https://github.com/dotnet/aspnetcore/issues/20151
+
+        //а безопасно ли показывать юзерам чужие id подключений?
+        //TODO надо чистить то что приходит от юзера, уже реализовано просто прикрутить
         //todo очистка старых комнат
         //todo методы которые в Room надо вынести в репо, GetValueFromRoomAsync тоже
         //если 2 раза быстро нажать подключение к комнате, все норм отработает?
@@ -58,7 +66,7 @@ namespace PlanitPoker.Models.Hubs
         //}
         //public async Task Send(string message)
         //{
-        //    var userId = Context.UserIdentifier;
+        //    var userId = Context.UserIdentifier; --- так нельзя это что то дургое
         //    //Groups.
         //    await this.Clients.All.SendAsync("Send", message);
         //}
@@ -182,7 +190,7 @@ namespace PlanitPoker.Models.Hubs
             await Clients.Group(roomname).SendAsync(VoteEnd, res);
         }
 
-        public async Task Vote(string roomname, int vote)
+        public async Task<bool> Vote(string roomname, int vote)
         {
             //вообще это вроде можно вынести в контроллер весь метод
             //тк сокеты не нужны для него, тупо апдейт стейта
@@ -190,7 +198,7 @@ namespace PlanitPoker.Models.Hubs
             if (room == null)
             {
                 await Clients.Caller.SendAsync(ConnectedToRoomError);
-                return;
+                return false;
             }
 
             (var res, bool sc) = GetValueFromRoomAsync(room, rm =>
@@ -201,19 +209,29 @@ namespace PlanitPoker.Models.Hubs
             if (!sc)
             {
                 //TODO
-                return;
+                return false;
             }
 
             if (res != RoomSatus.AllCanVote)
             {
                 //todo можно написать что голосовать нельзя
-                return;
+                return false;
             }
 
 
-            await _planitPokerRepository.ChangeVote(room, Context.ConnectionId, vote);
-            await Clients.Caller.SendAsync(VoteSuccess, vote);
+            var changed  = await _planitPokerRepository.ChangeVote(room, Context.ConnectionId, vote);
+            if (!changed)
+            {
+                return false;
+            }
 
+            var adminsId = await _planitPokerRepository.GetAdminsId(room);
+            if(adminsId!=null&& adminsId.Count > 0)
+            {
+                await Clients.Clients(adminsId).SendAsync(VoteChanged, Context.ConnectionId, vote);
+            }
+            //await Clients.Caller.SendAsync(VoteSuccess, vote);
+            return true;
 
         }
 

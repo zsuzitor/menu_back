@@ -35,6 +35,8 @@ namespace PlanitPoker.Models.Repositories.Interfaces
         Task<bool> UserIsAdmin(Room room, string userId);
         Task<bool> AddAdmin(string roomName, string userId);
         Task<bool> AddAdmin(Room room, string userId);
+        Task<List<string>> GetAdminsId(Room room);
+        Task<List<string>> GetAdminsId(string roomName);
         Task ClearOldRooms();
     }
 }

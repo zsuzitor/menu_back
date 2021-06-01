@@ -2789,7 +2789,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n\r\n.planit-room-left-part{\r\n    border:2px solid black;\r\n    height: 500px;\r\n}\r\n\r\n.planit-room-right-part{\r\n    border:2px solid black;\r\n    height: 500px;\r\n}\r\n\r\n.one-planing-vote-card{\r\n    width:300px;\r\n    height: 300px;\r\n    border:2px solid black;\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":";;AAEA;IACI,sBAAsB;IACtB,aAAa;AACjB;;AAEA;IACI,sBAAsB;IACtB,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,aAAa;IACb,sBAAsB;AAC1B","sourcesContent":["\r\n\r\n.planit-room-left-part{\r\n    border:2px solid black;\r\n    height: 500px;\r\n}\r\n\r\n.planit-room-right-part{\r\n    border:2px solid black;\r\n    height: 500px;\r\n}\r\n\r\n.one-planing-vote-card{\r\n    width:300px;\r\n    height: 300px;\r\n    border:2px solid black;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planit-room-left-part {\r\n    border: 2px solid black;\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    border: 2px solid black;\r\n    height: 500px;\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid black;\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card{\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;IACvB,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,aAAa;IACb,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,uBAAuB;IACvB,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,eAAe;IACf,6BAA6B;IAC7B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf","sourcesContent":[".planit-room-left-part {\r\n    border: 2px solid black;\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    border: 2px solid black;\r\n    height: 500px;\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid black;\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card{\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10096,6 +10096,36 @@ exports.PlaningPokerUserInfo = PlaningPokerUserInfo;
 
 /***/ }),
 
+/***/ "./src/components/Body/PlaningPoker/OneVoteCard.tsx":
+/*!**********************************************************!*\
+  !*** ./src/components/Body/PlaningPoker/OneVoteCard.tsx ***!
+  \**********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "react"));
+var OneVoteCardProp = /** @class */ (function () {
+    function OneVoteCardProp() {
+    }
+    return OneVoteCardProp;
+}());
+var OneVoteCard = function (props) {
+    var selectedClass = "";
+    if (props.NeedSelect) {
+        selectedClass += " one-planing-selected-vote-card";
+    }
+    return react_1.default.createElement("div", { className: "one-planing-vote-card" + selectedClass, "data-vote": "" + props.Num }, props.Num);
+};
+exports.default = OneVoteCard;
+
+
+/***/ }),
+
 /***/ "./src/components/Body/PlaningPoker/PlaningPokerMain.tsx":
 /*!***************************************************************!*\
   !*** ./src/components/Body/PlaningPoker/PlaningPokerMain.tsx ***!
@@ -10284,6 +10314,42 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -10293,6 +10359,7 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "react"));
 var RoomInfo_1 = __webpack_require__(/*! ./Models/RoomInfo */ "./src/components/Body/PlaningPoker/Models/RoomInfo.ts");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var UserInList_1 = __importDefault(__webpack_require__(/*! ./UserInList */ "./src/components/Body/PlaningPoker/UserInList.tsx"));
+var OneVoteCard_1 = __importDefault(__webpack_require__(/*! ./OneVoteCard */ "./src/components/Body/PlaningPoker/OneVoteCard.tsx"));
 var RoomProps = /** @class */ (function () {
     function RoomProps() {
     }
@@ -10302,6 +10369,7 @@ var RoomState = /** @class */ (function () {
     function RoomState() {
         this.UsersList = [];
         this.CurrentVote = null;
+        this.SelectedVoteCard = -1;
     }
     return RoomState;
 }());
@@ -10317,6 +10385,7 @@ var Room = function (props) {
         window.location.href = "/planing-poker";
     }
     var initState = new RoomState();
+    initState.RoomStatus = RoomInfo_1.RoomSatus.AllCanVote; //TODO надо заменить запрос на получение пользователей на запрос получение roominfo и там будет статус
     var _a = react_1.useState(initState), localState = _a[0], setLocalState = _a[1];
     react_1.useEffect(function () {
         var loadedUsers = function (error, data) {
@@ -10370,6 +10439,18 @@ var Room = function (props) {
             newState.UsersList.splice(userIndex, 1);
             setLocalState(newState);
         });
+        props.MyHubConnection.on("VoteChanged", function (userId, vote) {
+            if (!userId) {
+                return;
+            }
+            var newState = __assign({}, localState);
+            var userIndex = newState.UsersList.findIndex(function (x) { return x.Id === userId; });
+            if (userIndex < 0) {
+                return;
+            }
+            newState.UsersList[userIndex].Vote = vote;
+            setLocalState(newState);
+        });
     }, []);
     var tryToRemoveUserFromRoom = function (userId) {
         var isAdmin = CurrentUserIsAdmin(localState, props.UserInfo.UserId);
@@ -10378,15 +10459,37 @@ var Room = function (props) {
         }
         props.MyHubConnection.send("KickUser", props.RoomInfo.Name, userId);
     };
+    var doVote = function (voteCardBlock) { return __awaiter(void 0, void 0, void 0, function () {
+        var voted, newState;
+        var _a, _b;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
+                case 0:
+                    // console.log(vote);
+                    // console.dir(vote);
+                    if (!((_b = (_a = voteCardBlock === null || voteCardBlock === void 0 ? void 0 : voteCardBlock.target) === null || _a === void 0 ? void 0 : _a.dataset) === null || _b === void 0 ? void 0 : _b.vote)) {
+                        return [2 /*return*/];
+                    }
+                    return [4 /*yield*/, props.MyHubConnection.invoke("Vote", props.RoomInfo.Name, +voteCardBlock.target.dataset.vote)];
+                case 1:
+                    voted = _c.sent();
+                    if (!voted) {
+                        return [2 /*return*/];
+                    }
+                    newState = __assign({}, localState);
+                    newState.SelectedVoteCard = +voteCardBlock.target.dataset.vote;
+                    setLocalState(newState);
+                    return [2 /*return*/];
+            }
+        });
+    }); };
     var renderVotePlaceIfNeed = function () {
-        //UNCOMMENT
+        //TODO UNCOMMENT
         // if (localState.RoomStatus !== RoomSatus.AllCanVote) {
         //     return <div></div>
         // }
-        return react_1.default.createElement("div", { className: "row" },
-            react_1.default.createElement("div", { className: "col one-planing-vote-card" }, "1"),
-            react_1.default.createElement("div", { className: "col one-planing-vote-card" }, "2"),
-            react_1.default.createElement("div", { className: "col one-planing-vote-card" }, "3"));
+        var voteArr = [1, 2, 3, 5, 7, 10, 13, 15, 18, 20, 25, 30, 35, 40, 50];
+        return react_1.default.createElement("div", { onClick: function (e) { return doVote(e); }, className: "planing-cards-container" }, voteArr.map(function (x) { return react_1.default.createElement(OneVoteCard_1.default, { key: x, Num: x, NeedSelect: localState.SelectedVoteCard === x }); }));
     };
     var renderVoteResultIfNeed = function () {
         //UNCOMMENT
