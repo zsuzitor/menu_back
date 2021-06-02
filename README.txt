@@ -19,6 +19,12 @@ docker run --rm -it -p 8000:80 menu --mount source=menu-volume,target=/app/wwwro
 docker run --rm -it -p 8000:80 menu -v //c/Users/Stanislav_Avdosev/source/repos/MenuBack/menu-volume:/test
 
 
+http://localhost:8000/menu
+
+
+map path azure js blob
+/app/wwwroot/js/tmp
+
 
 
 
