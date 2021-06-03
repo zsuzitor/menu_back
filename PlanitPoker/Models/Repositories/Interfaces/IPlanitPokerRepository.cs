@@ -21,15 +21,7 @@ namespace PlanitPoker.Models.Repositories.Interfaces
         /// <param name="roomName"></param>
         /// <returns></returns>
         Task<List<PlanitUser>> GetAllUsers(string roomName);
-        /// <summary>
-        /// может скрывать голоса в зависимости от условий
-        /// </summary>
-        /// <param name="roomName"></param>
-        /// <returns></returns>
-        Task<List<PlanitUser>> GetAllUsersWithRight(string roomName,string currentUserId);
-        Task<List<PlanitUser>> GetAllUsersWithRight(Room room, string currentUserId);
 
-        Task<StoredRoom> GetRoomInfo(string roomname, string currentUserId);
         
 
 

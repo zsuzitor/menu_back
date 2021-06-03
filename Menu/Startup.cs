@@ -40,6 +40,7 @@ using PlanitPoker.Models.Hubs;
 using PlanitPoker.Models.Repositories;
 using PlanitPoker.Models.Repositories.Interfaces;
 using Common.Models;
+using PlanitPoker.Models.Services;
 
 namespace Menu
 {
@@ -98,6 +99,8 @@ namespace Menu
             services.AddScoped<IArticleService, ArticleService>();
             services.AddScoped<IWordsCardsService, WordsCardsService>();
             services.AddScoped<IWordsListService, WordsListService>();
+            services.AddScoped<IPlanitPokerService, PlanitPokerService>();
+            
 
             //cache
             //services.AddStackExchangeRedisCache(options =>

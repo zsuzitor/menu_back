@@ -35,28 +35,7 @@ namespace PlanitPoker.Models.Hubs
         private const string RoomNotCreated = "RoomNotCreated";
 
 
-        //todo now
-        //начать голосование
-        //закончить с подсчетом голосов мин макс среднее
-        //при подключении к руме запрашивать всю инфу а не только статус
-        //todo нужна кнопка "обновить список пользователей?"
-        //когда голосование закрыто можно подсветить пользователей у которых минимум и максимум
-        //alert you kicked отображается только у создателя
-        //справа в списке можно отобразить свой голос даже при открытом голосовании
-
-        //TODO !!!!!!!!!!!надо потестить многопоточность, могу ли я без блокировки стучаться к room что бы получить lockobj или его надо выносить
-        //настроить таймауты у сигналр + https://github.com/dotnet/aspnetcore/issues/20151
-        //https://docs.microsoft.com/ru-ru/aspnet/signalr/overview/guide-to-the-api/handling-connection-lifetime-events
-
-        //а безопасно ли показывать юзерам чужие id подключений?
-        //TODO надо чистить то что приходит от юзера, уже реализовано просто прикрутить
-        //todo очистка старых комнат
-        //todo методы которые в Room надо вынести в репо, GetValueFromRoomAsync тоже
-        //если 2 раза быстро нажать подключение к комнате, все норм отработает?
-        //при подключении к "законченному" голосованию не отображаются результаты, надо бы в контроллер закинуть
-        //есть места где можно сделать что то типо транзакций(или руками может откатывать критичные данные
-        //надо как то отписываться от событий, например сейчас если зайти в руму, потом справа сверху перейти на страницу логина
-        //а в это время админ этого юзера кикнет, у него будет рефреш страницы тк он подписан
+        
 
 
 
@@ -85,6 +64,8 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task CreateRoom(string roomname, string password, string username)
         {
+            
+
             var user = new PlanitUser()
             {
                 UserIdentifier = Context.ConnectionId,
@@ -218,6 +199,8 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task<bool> Vote(string roomname, int vote)
         {
+
+
             //вообще это вроде можно вынести в контроллер весь метод
             //тк сокеты не нужны для него, тупо апдейт стейта
             var room = await _planitPokerRepository.TryGetRoom(roomname);
@@ -256,6 +239,8 @@ namespace PlanitPoker.Models.Hubs
             {
                 await Clients.Clients(adminsId).SendAsync(VoteChanged, Context.ConnectionId, vote);
             }
+
+            await Clients.GroupExcept(roomname, adminsId).SendAsync(VoteChanged, Context.ConnectionId, "?");
             //await Clients.Caller.SendAsync(VoteSuccess, vote);
             return true;
 

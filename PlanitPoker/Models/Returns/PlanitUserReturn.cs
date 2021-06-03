@@ -17,7 +17,9 @@ namespace PlanitPoker.Models.Returns
         [JsonPropertyName("vote")]
 
         public int? Vote { get; set; }
+        [JsonPropertyName("has_vote")]
 
+        public bool HasVote { get; set; }
 
 
         public PlanitUserReturn(PlanitUser obj)
@@ -26,6 +28,7 @@ namespace PlanitPoker.Models.Returns
             IsAdmin = obj.Role.Contains("Admin");
             Name = obj.Name;
             Vote = obj.Vote;
+            HasVote = obj.HasVote;
         }
     }
 }

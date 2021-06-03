@@ -11,6 +11,8 @@ namespace PlanitPoker.Models
         public List<string> Role { get; set; }//enum?
         public string Name { get; set; }
         public int? Vote { get; set; }
+        ////не актуально на стороне сервера, проставлятся только для отправки на ui. todo можно вынести в отдельную модель
+        public bool HasVote { get; set; }
 
         public bool IsAdmin
         {

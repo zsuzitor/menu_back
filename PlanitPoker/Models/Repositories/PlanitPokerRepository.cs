@@ -153,9 +153,14 @@ namespace PlanitPoker.Models.Repositories
 
         public async Task<Room> CreateRoomWithUser(string roomname, string password, PlanitUser user)
         {
-            if (string.IsNullOrWhiteSpace(roomname) || string.IsNullOrWhiteSpace(password) || user == null)
+            if (string.IsNullOrWhiteSpace(roomname)  || user == null)
             {
                 return null;
+            }
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                password = null;
             }
 
             var roomData = new StoredRoom(roomname, password);
@@ -236,76 +241,9 @@ namespace PlanitPoker.Models.Repositories
             return await GetAllUsers(room);
         }
 
-        /// <summary>
-        /// возвращает копию пользователей
-        /// </summary>
-        /// <param name="room"></param>
-        /// <returns></returns>
-        public async Task<List<PlanitUser>> GetAllUsersWithRight(string roomName, string userId)
-        {
 
 
-            var room = await TryGetRoom(roomName);
-            return await GetAllUsersWithRight(room, userId);
-        }
-
-        /// <summary>
-        /// возвращает копию пользователей
-        /// </summary>
-        /// <param name="room"></param>
-        /// <returns></returns>
-        public async Task<List<PlanitUser>> GetAllUsersWithRight(Room room, string userId)
-        {
-            if (room == null || string.IsNullOrWhiteSpace(userId))
-            {
-                return new List<PlanitUser>();
-            }
-            var allUsers = await GetAllUsers(room);
-            var roomStatusR = room.GetConcurentValue(_multiThreadHelper, rm => rm.StoredRoom.Status);
-            if (!roomStatusR.sc)
-            {
-                return new List<PlanitUser>();
-            }
-
-            return ClearHideData(roomStatusR.res, userId, allUsers);
-
-
-
-        }
-
-        /// <summary>
-        /// режет инфу в зависимости от того есть ли к ней доступ
-        /// </summary>
-        /// <param name="roomname"></param>
-        /// <param name="currentUserId"></param>
-        /// <returns></returns>
-        public async Task<StoredRoom> GetRoomInfo(string roomname, string currentUserId)
-        {
-            if (string.IsNullOrWhiteSpace(currentUserId))
-            {
-                return null;
-            }
-
-            var room = await TryGetRoom(roomname);
-            if (room == null)
-            {
-                return null;
-            }
-
-            var res = room.GetConcurentValue(_multiThreadHelper, rm => rm.StoredRoom.Clone());
-            if (!res.sc)
-            {
-                return null;
-            }
-
-            //все склонированное, работаем обычно
-            var resRoom = res.res;
-            resRoom.Password = null;
-            ClearHideData(resRoom.Status, currentUserId, resRoom.Users);
-
-
-            return resRoom;
-        }
+        
 
         public async Task<bool> KickFromRoom(string roomName, string userIdRequest, string userId)
         {
@@ -360,7 +298,7 @@ namespace PlanitPoker.Models.Repositories
         {
             if (string.IsNullOrWhiteSpace(password))
             {
-                return null;
+                password = null;
             }
 
             var room = await TryGetRoom(roomName);
@@ -418,28 +356,7 @@ namespace PlanitPoker.Models.Repositories
         }
 
 
-        private List<PlanitUser> ClearHideData(RoomSatus roomStatus, string currentUserId, List<PlanitUser> users)
-        {
-            if (roomStatus != RoomSatus.AllCanVote)
-            {
-                return users;
-            }
-            var user = users.FirstOrDefault(x => x.UserIdentifier == currentUserId);
-            if (user == null)
-            {
-                return new List<PlanitUser>();
-            }
-
-            if (!user.IsAdmin)
-            {
-                users.ForEach(x =>
-                {
-                    x.Vote = null;
-                });
-            }
-
-            return users;
-        }
+        
 
     }
 }

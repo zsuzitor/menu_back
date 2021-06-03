@@ -1,9 +1,10 @@
-﻿using Menu.Models.Helpers.Interfaces;
+﻿using Common.Models.Error;
+using Common.Models.Error.services.Interfaces;
+using Common.Models.Exceptions;
+using Menu.Models.Helpers.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
-using PlanitPoker.Models.Hubs;
-using PlanitPoker.Models.Repositories.Interfaces;
+using PlanitPoker.Models.Services;
 using System.Threading.Tasks;
 
 namespace Menu.Controllers.PlanitPoker
@@ -15,16 +16,20 @@ namespace Menu.Controllers.PlanitPoker
 
         private readonly IApiHelper _apiHealper;
         private readonly ILogger _logger;
-        private readonly IPlanitPokerRepository _planitPokerRepository;
+        private readonly IPlanitPokerService _planitPokerService;
+        //private readonly IErrorService _errorService;
         //private readonly IHubContext<PlanitPokerHub> hubContext;
 
         public PlanitPokerController(IApiHelper apiHealper, 
             ILogger<PlanitPokerController> logger, 
-            IPlanitPokerRepository planitPokerRepository)
+            IPlanitPokerService planitPokerService//,
+            //IErrorService errorService
+            )
         {
             _apiHealper = apiHealper;
             _logger = logger;
-            _planitPokerRepository = planitPokerRepository;
+            _planitPokerService = planitPokerService;
+            //_errorService = errorService;
             //hubContext.
         }
 
@@ -41,7 +46,7 @@ namespace Menu.Controllers.PlanitPoker
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                   var users=await _planitPokerRepository.GetAllUsersWithRight(roomname, userid);
+                   var users=await _planitPokerService.GetAllUsersWithRight(roomname, userid);
                     //TODO ошибку если null? сейчас там возвращается пустая строка везде. и вообще посмотреть что будет на фронте
                     await _apiHealper.WriteReturnResponseAsync(Response, users);
 
@@ -61,8 +66,13 @@ namespace Menu.Controllers.PlanitPoker
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    var roomInfo = await _planitPokerRepository.GetRoomInfo(roomname, userid);
+                    var roomInfo = await _planitPokerService.GetRoomInfoWithRight(roomname, userid);
                     //TODO ошибку если null? сейчас там возвращается пустая строка везде. и вообще посмотреть что будет на фронте
+                    if (roomInfo == null)
+                    {
+                        //await _apiHealper.WriteReturnResponseAsync(Response, new Er);
+                        throw new SomeCustomException(ErrorConsts.SomeError);
+                    }
                     await _apiHealper.WriteReturnResponseAsync(Response, roomInfo);
 
                 }, Response, _logger);
