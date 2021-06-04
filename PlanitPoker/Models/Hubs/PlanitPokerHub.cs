@@ -33,9 +33,10 @@ namespace PlanitPoker.Models.Hubs
         //private const string VoteSuccess = "VoteSuccess";
         private const string VoteChanged = "VoteChanged";
         private const string RoomNotCreated = "RoomNotCreated";
+        private const string UserNameChanged = "UserNameChanged";
 
 
-        
+
 
 
 
@@ -262,6 +263,21 @@ namespace PlanitPoker.Models.Hubs
         }
 
 
+        public async Task<bool> UserNameChange(string roomname, string newUserName)
+        {
+            string userId = Context.ConnectionId;
+            var sc = await _planitPokerRepository.ChangeUserName(roomname, userId, newUserName);
+
+            if (sc)
+            {
+                await Clients.Group(roomname).SendAsync(UserNameChanged, userId, newUserName);
+                return false;
+            }
+
+            return true;
+
+        }
+
 
         public override async Task OnConnectedAsync()
         {
@@ -275,6 +291,9 @@ namespace PlanitPoker.Models.Hubs
             //название комнаты смогу вытащить из кук???
             await base.OnDisconnectedAsync(exception);
         }
+
+
+            
 
 
         /// <summary>

@@ -21,8 +21,10 @@ namespace PlanitPoker.Models.Repositories.Interfaces
         /// <param name="roomName"></param>
         /// <returns></returns>
         Task<List<PlanitUser>> GetAllUsers(string roomName);
-
+        Task<bool> ChangeUserName(string roomname, string userId, string newUserName);
         
+
+
 
 
         Task<bool> ClearVotes(Room room);

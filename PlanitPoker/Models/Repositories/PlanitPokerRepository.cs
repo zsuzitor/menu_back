@@ -153,7 +153,7 @@ namespace PlanitPoker.Models.Repositories
 
         public async Task<Room> CreateRoomWithUser(string roomname, string password, PlanitUser user)
         {
-            if (string.IsNullOrWhiteSpace(roomname)  || user == null)
+            if (string.IsNullOrWhiteSpace(roomname) || user == null)
             {
                 return null;
             }
@@ -243,7 +243,7 @@ namespace PlanitPoker.Models.Repositories
 
 
 
-        
+
 
         public async Task<bool> KickFromRoom(string roomName, string userIdRequest, string userId)
         {
@@ -319,6 +319,40 @@ namespace PlanitPoker.Models.Repositories
             }
 
             return null;
+        }
+
+        public async Task<bool> ChangeUserName(string roomname, string userId, string newUserName)
+        {
+            if(string.IsNullOrWhiteSpace(userId) || string.IsNullOrWhiteSpace(newUserName))
+            {
+                return false;
+            }
+
+            var room = await TryGetRoom(roomname);
+            if (room == null )
+            {
+                return false;
+            }
+
+            bool result = false;
+            var suc = room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
+            {
+                var user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserIdentifier == userId);
+                if (user == null)
+                {
+                    return;
+                }
+
+                user.Name = newUserName;
+                result = true;
+            });
+
+            if (!suc)
+            {
+                return false;
+            }
+
+            return result;
         }
 
         public async Task<Room> TryGetRoom(string roomName)

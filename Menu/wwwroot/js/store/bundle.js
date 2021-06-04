@@ -2789,7 +2789,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planit-room-left-part {\r\n    border: 2px solid black;\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(20, 56, 65);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main{\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner{\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;IACvB,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,mBAAmB;AACvB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,eAAe;IACf,6BAA6B;IAC7B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;AACjB;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,iBAAiB;IACjB,oBAAoB;AACxB;;AAEA;IACI,qCAAqC;AACzC","sourcesContent":[".planit-room-left-part {\r\n    border: 2px solid black;\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(20, 56, 65);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main{\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner{\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planit-room-left-part {\r\n    border: 2px solid black;\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;IACvB,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,eAAe;IACf,6BAA6B;IAC7B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;AACjB;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,iBAAiB;IACjB,oBAAoB;AACxB;;AAEA;IACI,qCAAqC;AACzC","sourcesContent":[".planit-room-left-part {\r\n    border: 2px solid black;\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9994,7 +9994,11 @@ var IndexProps = /** @class */ (function () {
 var Index = function (props) {
     var initState = new IndexState();
     var _a = react_1.useState(initState), localState = _a[0], setLocalState = _a[1];
+    var _b = react_1.useState(false), test = _b[0], setTestLocalState = _b[1];
     // const [withoutPasswordState, setWithoutPasswordState] = useState(false);
+    if (!test) {
+        setTestLocalState(true);
+    }
     react_1.useEffect(function () {
         var pathNameUrlSplit = document.location.pathname.split('/');
         if (pathNameUrlSplit && pathNameUrlSplit.length > 2) {
@@ -10004,13 +10008,6 @@ var Index = function (props) {
         props.MyHubConnection.on("RoomNotCreated", function () {
             var alert = new AlertData_1.AlertData();
             alert.Text = "Комната не создана";
-            alert.Type = 1;
-            window.G_AddAbsoluteAlertToState(alert);
-            return;
-        });
-        props.MyHubConnection.on("ConnectedToRoomError", function () {
-            var alert = new AlertData_1.AlertData();
-            alert.Text = "подключение не удалось";
             alert.Type = 1;
             window.G_AddAbsoluteAlertToState(alert);
             return;
@@ -10042,6 +10039,7 @@ var Index = function (props) {
             react_1.default.createElement("button", { className: "btn btn-primary", onClick: enterInRoom }, "\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0438\u0442\u044C\u0441\u044F \u043A \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u044E\u0449\u0435\u0439 \u043A\u043E\u043C\u043D\u0430\u0442\u0435"));
     }
     return react_1.default.createElement("div", { className: "planing-enter-main" },
+        react_1.default.createElement("input", { type: "hidden", value: test + "" }),
         react_1.default.createElement("div", { className: "planing-enter-inner col-sm-6 col-md-5 col-lg-4 offset-sm-3 offset-lg-4" },
             react_1.default.createElement("div", null,
                 react_1.default.createElement("p", null,
@@ -10057,7 +10055,7 @@ var Index = function (props) {
                 react_1.default.createElement("p", null, "\u0435\u0441\u043B\u0438 \u0441\u043E\u0437\u0434\u0430\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443 \u0431\u0435\u0437 \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u0438 \u0432 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u043C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438, \u0441\u043E\u0437\u0434\u0430\u0435\u0442\u0441\u044F \u043E\u0434\u043D\u043E\u0440\u0430\u0437\u043E\u0432\u0430\u044F \u043A\u043E\u043C\u043D\u0430\u0442\u0430(\u0431\u0443\u0434\u0435\u0442 \u0443\u0434\u0430\u043B\u0435\u043D\u0430 \u0447\u0435\u0440\u0435\u0437 \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u043E\u0435 \u0432\u0440\u0435\u043C\u044F)")),
             actionsButton,
             react_1.default.createElement("div", { className: "display_none" },
-                react_1.default.createElement(react_router_dom_1.Link, { id: "move_to_room_link_react", to: "/planing-poker/room" }, "hidden"))));
+                react_1.default.createElement(react_router_dom_1.Link, { id: "move_to_room_link_react", to: "/planing-poker/room/" + props.RoomInfo.Name }, "hidden"))));
 };
 exports.default = Index;
 
@@ -10222,6 +10220,7 @@ var PlaningPokerMainState = /** @class */ (function () {
 __webpack_require__(/*! ../../../../style/planing_poker.css */ "./style/planing_poker.css");
 var PlaningPokerMain = function () {
     var initState = new PlaningPokerMainState();
+    initState.User.UserName = "enter_your_name";
     var hubConnection = new signalR.HubConnectionBuilder()
         .withUrl("/planing-poker-hub"
     // , {
@@ -10235,6 +10234,7 @@ var PlaningPokerMain = function () {
     //https://docs.microsoft.com/en-us/aspnet/core/tutorials/signalr-typescript-webpack?view=aspnetcore-2.1&tabs=visual-studio
     initState.MyHubConnection = hubConnection;
     var _a = react_1.useState(initState), localState = _a[0], setLocalState = _a[1];
+    var _b = react_1.useState(false), hubConnected = _b[0], sethubConnectedState = _b[1];
     //componentdidmount, должен вызваться уже когда childs отрендерятся
     react_1.useEffect(function () {
         //  console.log("PlaningPokerMain");
@@ -10253,10 +10253,25 @@ var PlaningPokerMain = function () {
             newState.RoomInfo.InRoom = true;
             setLocalState(newState);
             var lk = document.getElementById('move_to_room_link_react');
-            lk.click();
+            //todo типо костыль
+            //если этой линки нет, значит мы уже на странице румы
+            if (lk) {
+                // history.pushState(null, '/planing-poker/room/' + localState.RoomInfo.Name);
+                lk.click();
+            }
             // history.pushState(null, '/');
             // history.pushState(null, '/messages');
             // window.document.title
+        });
+        hubConnection.on("ConnectedToRoomError", function () {
+            var alert = new AlertData_1.AlertData();
+            alert.Text = "подключение не удалось";
+            alert.Type = 1;
+            window.G_AddAbsoluteAlertToState(alert);
+            if (!location.href.endsWith("/planing-poker") && !location.href.endsWith("/planing-poker/")) {
+                window.location.href = "/planing-poker";
+            }
+            return;
         });
         // возможно тут стоит выделить в child components методы которые вызвать до старта
         //Update, не стоит тк они актуальны только в самих компонентах
@@ -10267,8 +10282,12 @@ var PlaningPokerMain = function () {
                 var newState = __assign({}, localState);
                 newState.User.UserId = connectionId;
                 setLocalState(newState);
+                sethubConnectedState(true);
             });
-        }).catch(function () { alert("что то не так с подключением обновите страницу"); });
+        }).catch(function () {
+            alert("что то не так с подключением обновите страницу");
+            sethubConnectedState(false);
+        });
         // let newState = { ...localState };
         // newState.MyHubConnection = hubConnection;
         // setLocalState(newState);
@@ -10295,7 +10314,7 @@ var PlaningPokerMain = function () {
                     //  InRoom={localState.InRoom}
                     , { 
                         //  InRoom={localState.InRoom}
-                        UserInfo: localState.User, RoomInfo: localState.RoomInfo, MyHubConnection: localState.MyHubConnection });
+                        UserInfo: localState.User, RoomInfo: localState.RoomInfo, MyHubConnection: localState.MyHubConnection, RoomNameChanged: roomNameChanged, ChangeUserName: userNameChange, HubConnected: hubConnected });
                 } }),
             react_1.default.createElement(react_router_dom_1.Route, { path: "/planing-poker", render: function () {
                     return react_1.default.createElement(Index_1.default, { Username: localState.User.UserName, ChangeUserName: userNameChange, MyHubConnection: localState.MyHubConnection, RoomNameChanged: roomNameChanged, RoomPasswordChanged: roomPasswordChanged, RoomInfo: localState.RoomInfo });
@@ -10414,41 +10433,65 @@ var CurrentUserIsAdmin = function (st, userId) {
     return false;
 };
 var Room = function (props) {
-    //TODO тут выбило какую то ошибку, но после перезагрузки прошло - Cannot flush updates when React is already rendering
-    if (!props.RoomInfo.InRoom) { //TODO тут по хорошему надо узнать название румы из урла и попросить ввести пароль, но пока что так
-        window.location.href = "/planing-poker";
-    }
+    // useEffect(() => {
+    //     console.log("use_1");
+    // }, [1]);
+    //эффект для доступа по прямой ссылке
+    //
+    react_1.useEffect(function () {
+        if (!props.RoomInfo.Name) {
+            var pathNameUrlSplit = document.location.pathname.split('/');
+            if (pathNameUrlSplit && pathNameUrlSplit.length > 3 && pathNameUrlSplit[3]) {
+                props.RoomNameChanged(pathNameUrlSplit[3]);
+            }
+            else {
+                //todo тут можно ошибку какую нибудь бахнуть, типо вход не удался
+                window.location.href = "/planing-poker";
+            }
+        }
+        // else {
+        //     if (!props.RoomInfo.InRoom) {
+        //         props.MyHubConnection.send("EnterInRoom", props.RoomInfo.Name, props.RoomInfo.Password, props.UserInfo.UserName);
+        //     }
+        // }
+    }, [props.RoomInfo.Name]);
+    react_1.useEffect(function () {
+        if (props.HubConnected && props.RoomInfo.Name && !props.RoomInfo.InRoom) {
+            props.MyHubConnection.send("EnterInRoom", props.RoomInfo.Name, props.RoomInfo.Password, props.UserInfo.UserName);
+        }
+    }, [props.HubConnected]);
+    // console.log("render Room");
+    // console.log(props.RoomInfo.Name);
+    // if (!props.UserInfo.UserName) {
+    //     props.ChangeUserName("enter_your_name");//todo хотя бы math random сюда закинуть?
+    //     return <div></div>
+    // }
+    // if (!props.RoomInfo.InRoom) {
+    //     return <div></div>
+    //     //означает что мы пришли по прямой ссылке, не через форму входа с index page 
+    //     //и при этом комната еще не загружена\мы не вошли
+    //     // if (!props.RoomInfo.Name) {
+    //     //     //имя комнаты пустое. либо это первый рендер либо имя комнаты нет вообще
+    //     //     return <div></div>
+    //     // }
+    //     //это уже не первый рендер тк имя комнаты спаршено из урла и не пустое, означает что хаб подключен
+    //     //но мы еще не вошли у нее
+    //     // props.MyHubConnection.send("EnterInRoom", props.RoomInfo.Name, props.RoomInfo.Password, props.Username);
+    // }
     var initState = new RoomState();
     var _a = react_1.useState(initState), localState = _a[0], setLocalState = _a[1];
     //НЕ заносить в общий объект, перестает работать, начинает сбрасываться при ререндере
     var _b = react_1.useState(RoomInfo_1.RoomSatus.None), roomStatusState = _b[0], setRoomStatusState = _b[1];
     var _c = react_1.useState(-1), selectedVoteCard = _c[0], setSelectedVoteCard = _c[1];
     var _d = react_1.useState(false), hideVoteState = _d[0], setHideVoteState = _d[1];
+    // const [roomIsGoodState, setRoomIsGoodState] = useState(false);
     // console.log("room");
     // console.log(localState);
     react_1.useEffect(function () {
-        // let loadedUsers = (error: MainErrorObjectBack, data: IUserInRoomReturn[]) => {
-        //     if (error) {
-        //         //TODO выбить из комнаты?
-        //         alert("todo что то пошло не так лучше обновить страницу");
-        //         return;
-        //     }
-        //     if (data) {
-        //         let newUsersData = data.map(x => {
-        //             let us = new UserInRoom();
-        //             us.FillByBackModel(x);
-        //             return us;
-        //         });
-        //         let newState = { ...localState };
-        //         //реинициализировать нельзя, почему то отваливается
-        //         newState.UsersList.splice(0, newState.UsersList.length);
-        //         newState.UsersList.push(...newUsersData);
-        //         // newState.UsersList = newUsersData;
-        //         setLocalState(newState);
-        //     }
-        // };
-        // // console.log(JSON.stringify(props));
-        // window.G_PlaningPokerController.GetUsersIsRoom(props.RoomInfo.Name, props.UserInfo.UserId, loadedUsers);
+        if (!props.RoomInfo.InRoom) {
+            return;
+        }
+        //мы проставили все необходимые данные, подключились к хабу и готовы работать
         var getRoomInfo = function (error, data) {
             var _a;
             if (error) {
@@ -10473,6 +10516,30 @@ var Room = function (props) {
             }
         };
         window.G_PlaningPokerController.GetRoomInfo(props.RoomInfo.Name, props.UserInfo.UserId, getRoomInfo);
+    }, [props.RoomInfo.InRoom]);
+    react_1.useEffect(function () {
+        // let loadedUsers = (error: MainErrorObjectBack, data: IUserInRoomReturn[]) => {
+        //     if (error) {
+        //         //TODO выбить из комнаты?
+        //         alert("todo что то пошло не так лучше обновить страницу");
+        //         return;
+        //     }
+        //     if (data) {
+        //         let newUsersData = data.map(x => {
+        //             let us = new UserInRoom();
+        //             us.FillByBackModel(x);
+        //             return us;
+        //         });
+        //         let newState = { ...localState };
+        //         //реинициализировать нельзя, почему то отваливается
+        //         newState.UsersList.splice(0, newState.UsersList.length);
+        //         newState.UsersList.push(...newUsersData);
+        //         // newState.UsersList = newUsersData;
+        //         setLocalState(newState);
+        //     }
+        // };
+        // // console.log(JSON.stringify(props));
+        // window.G_PlaningPokerController.GetUsersIsRoom(props.RoomInfo.Name, props.UserInfo.UserId, loadedUsers);
         props.MyHubConnection.on("NewUserInRoom", function (data) {
             if (!data) {
                 return;
@@ -10636,6 +10703,9 @@ var Room = function (props) {
             react_1.default.createElement("p", null, "\u0434\u043E\u043F \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"),
             hideVotesSetting);
     };
+    if (!props.RoomInfo.InRoom) {
+        return react_1.default.createElement("h1", null, "\u043F\u044B\u0442\u0430\u0435\u043C\u0441\u044F \u0432\u043E\u0439\u0442\u0438");
+    }
     return react_1.default.createElement("div", { className: "container" },
         react_1.default.createElement("div", { className: "padding-10-top" }),
         react_1.default.createElement("h1", null,
@@ -10688,7 +10758,7 @@ var UserInList = function (props) {
     var delButton = react_1.default.createElement("div", null);
     if (props.RenderForAdmin) {
         delButton = react_1.default.createElement("div", null,
-            react_1.default.createElement("button", { onClick: function () { return props.TryToRemoveUserFromRoom(props.User.Id); } }, "\u0412\u044B\u0433\u043D\u0430\u0442\u044C"));
+            react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return props.TryToRemoveUserFromRoom(props.User.Id); } }, "\u0412\u044B\u0433\u043D\u0430\u0442\u044C"));
     }
     var vote = "отсутствует";
     if (props.User.Vote && !props.HideVote) {
