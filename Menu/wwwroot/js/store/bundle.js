@@ -9994,11 +9994,11 @@ var IndexProps = /** @class */ (function () {
 var Index = function (props) {
     var initState = new IndexState();
     var _a = react_1.useState(initState), localState = _a[0], setLocalState = _a[1];
-    var _b = react_1.useState(false), test = _b[0], setTestLocalState = _b[1];
+    // const [test, setTestLocalState] = useState(false);
     // const [withoutPasswordState, setWithoutPasswordState] = useState(false);
-    if (!test) {
-        setTestLocalState(true);
-    }
+    // if (!test) {
+    //     setTestLocalState(true);
+    // }
     react_1.useEffect(function () {
         var pathNameUrlSplit = document.location.pathname.split('/');
         if (pathNameUrlSplit && pathNameUrlSplit.length > 2) {
@@ -10039,7 +10039,6 @@ var Index = function (props) {
             react_1.default.createElement("button", { className: "btn btn-primary", onClick: enterInRoom }, "\u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0438\u0442\u044C\u0441\u044F \u043A \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u044E\u0449\u0435\u0439 \u043A\u043E\u043C\u043D\u0430\u0442\u0435"));
     }
     return react_1.default.createElement("div", { className: "planing-enter-main" },
-        react_1.default.createElement("input", { type: "hidden", value: test + "" }),
         react_1.default.createElement("div", { className: "planing-enter-inner col-sm-6 col-md-5 col-lg-4 offset-sm-3 offset-lg-4" },
             react_1.default.createElement("div", null,
                 react_1.default.createElement("p", null,
@@ -10071,7 +10070,8 @@ exports.default = Index;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.VoteInfo = exports.PlaningPokerUserInfo = exports.UserInRoom = exports.RoomSatus = exports.RoomInfo = void 0;
+exports.VoteInfo = exports.PlaningPokerUserInfo = exports.UserInRoom = exports.UserRoles = exports.RoomSatus = exports.RoomInfo = void 0;
+//todo хорошо бы по файликам раскидать
 var RoomInfo = /** @class */ (function () {
     function RoomInfo() {
         this.Name = "";
@@ -10088,14 +10088,31 @@ var RoomSatus;
     RoomSatus[RoomSatus["CloseVote"] = 2] = "CloseVote";
 })(RoomSatus = exports.RoomSatus || (exports.RoomSatus = {}));
 ;
+var UserRoles = /** @class */ (function () {
+    function UserRoles() {
+    }
+    UserRoles.User = "User";
+    UserRoles.Admin = "Admin";
+    UserRoles.Creator = "Creator";
+    UserRoles.Observer = "Observer";
+    return UserRoles;
+}());
+exports.UserRoles = UserRoles;
 var UserInRoom = /** @class */ (function () {
     function UserInRoom() {
+        var _this = this;
+        this.IsAdmin = function () {
+            return _this.Roles.includes(UserRoles.Creator) || _this.Roles.includes(UserRoles.Admin);
+        };
+        this.CanVote = function () {
+            return !_this.Roles.includes(UserRoles.Observer);
+        };
     }
     UserInRoom.prototype.FillByBackModel = function (newData) {
         this.Id = newData.id;
         this.Name = newData.name;
         this.Vote = newData.vote;
-        this.IsAdmin = newData.is_admin;
+        this.Roles = newData.roles;
         this.HasVote = newData.has_vote;
     };
     return UserInRoom;
@@ -10268,8 +10285,9 @@ var PlaningPokerMain = function () {
             alert.Text = "подключение не удалось";
             alert.Type = 1;
             window.G_AddAbsoluteAlertToState(alert);
-            if (!location.href.endsWith("/planing-poker") && !location.href.endsWith("/planing-poker/")) {
-                window.location.href = "/planing-poker";
+            if (!location.href.includes("/planing-poker") || location.href.includes("/planing-poker/room")) { // && !location.href.endsWith("/planing-poker/")) {
+                var roomName = localState.RoomInfo.Name || "";
+                window.location.href = "/planing-poker/" + roomName;
             }
             return;
         });
@@ -10296,6 +10314,16 @@ var PlaningPokerMain = function () {
         var newState = __assign({}, localState);
         newState.User.UserName = newName;
         setLocalState(newState);
+        // if (localState.RoomInfo.InRoom) {
+        //     hubConnection.invoke("UserNameChange", newState.RoomInfo.Name, newName).then(dt => {
+        //         if (!dt) {
+        //             let alert = new AlertData();
+        //             alert.Text = "изменить имя не удалось";
+        //             alert.Type = AlertTypeEnum.Error;
+        //             window.G_AddAbsoluteAlertToState(alert);
+        //         }
+        //     });
+        // }
     };
     var roomNameChanged = function (name) {
         var newState = __assign({}, localState);
@@ -10409,6 +10437,7 @@ var RoomInfo_1 = __webpack_require__(/*! ./Models/RoomInfo */ "./src/components/
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var UserInList_1 = __importDefault(__webpack_require__(/*! ./UserInList */ "./src/components/Body/PlaningPoker/UserInList.tsx"));
 var OneVoteCard_1 = __importDefault(__webpack_require__(/*! ./OneVoteCard */ "./src/components/Body/PlaningPoker/OneVoteCard.tsx"));
+var AlertData_1 = __webpack_require__(/*! ../../_ComponentsLink/Models/AlertData */ "./src/components/_ComponentsLink/Models/AlertData.ts");
 var RoomProps = /** @class */ (function () {
     function RoomProps() {
     }
@@ -10425,12 +10454,29 @@ var RoomState = /** @class */ (function () {
     }
     return RoomState;
 }());
-var CurrentUserIsAdmin = function (st, userId) {
-    var user = st.UsersList.find(function (x) { return x.Id === userId; });
-    if (user && user.IsAdmin) {
+var CurrentUserIsAdmin = function (users, userId) {
+    var user = GetUserById(users, userId);
+    if (user && user.IsAdmin()) {
         return true;
     }
     return false;
+};
+var CurrentUserCanVote = function (users, userId) {
+    var user = GetUserById(users, userId);
+    if (user && user.CanVote()) {
+        return true;
+    }
+    return false;
+};
+var GetUserIndexById = function (users, userId) {
+    return users.findIndex(function (x) { return x.Id === userId; });
+};
+var GetUserById = function (users, userId) {
+    var index = GetUserIndexById(users, userId);
+    if (index < 0 || index >= users.length) {
+        return null;
+    }
+    return users[index];
 };
 var Room = function (props) {
     // useEffect(() => {
@@ -10484,6 +10530,7 @@ var Room = function (props) {
     var _b = react_1.useState(RoomInfo_1.RoomSatus.None), roomStatusState = _b[0], setRoomStatusState = _b[1];
     var _c = react_1.useState(-1), selectedVoteCard = _c[0], setSelectedVoteCard = _c[1];
     var _d = react_1.useState(false), hideVoteState = _d[0], setHideVoteState = _d[1];
+    var _e = react_1.useState(props.UserInfo.UserName), userNameLocalState = _e[0], changeUserNameLocalState = _e[1]; //для редактирования
     // const [roomIsGoodState, setRoomIsGoodState] = useState(false);
     // console.log("room");
     // console.log(localState);
@@ -10518,28 +10565,6 @@ var Room = function (props) {
         window.G_PlaningPokerController.GetRoomInfo(props.RoomInfo.Name, props.UserInfo.UserId, getRoomInfo);
     }, [props.RoomInfo.InRoom]);
     react_1.useEffect(function () {
-        // let loadedUsers = (error: MainErrorObjectBack, data: IUserInRoomReturn[]) => {
-        //     if (error) {
-        //         //TODO выбить из комнаты?
-        //         alert("todo что то пошло не так лучше обновить страницу");
-        //         return;
-        //     }
-        //     if (data) {
-        //         let newUsersData = data.map(x => {
-        //             let us = new UserInRoom();
-        //             us.FillByBackModel(x);
-        //             return us;
-        //         });
-        //         let newState = { ...localState };
-        //         //реинициализировать нельзя, почему то отваливается
-        //         newState.UsersList.splice(0, newState.UsersList.length);
-        //         newState.UsersList.push(...newUsersData);
-        //         // newState.UsersList = newUsersData;
-        //         setLocalState(newState);
-        //     }
-        // };
-        // // console.log(JSON.stringify(props));
-        // window.G_PlaningPokerController.GetUsersIsRoom(props.RoomInfo.Name, props.UserInfo.UserId, loadedUsers);
         props.MyHubConnection.on("NewUserInRoom", function (data) {
             if (!data) {
                 return;
@@ -10553,6 +10578,18 @@ var Room = function (props) {
             //         console.log("newuser");
             // console.log(newState);
         });
+        props.MyHubConnection.on("UserNameChanged", function (userId, newUserName) {
+            if (!userId) {
+                return;
+            }
+            var newState = __assign({}, localState);
+            var user = GetUserById(newState.UsersList, userId);
+            if (!user) {
+                return;
+            }
+            user.Name = newUserName;
+            setLocalState(newState);
+        });
         props.MyHubConnection.on("UserLeaved", function (userId) {
             if (!userId) {
                 return;
@@ -10563,7 +10600,7 @@ var Room = function (props) {
                 return;
             }
             var newState = __assign({}, localState);
-            var userIndex = newState.UsersList.findIndex(function (x) { return x.Id === userId; });
+            var userIndex = GetUserIndexById(newState.UsersList, userId);
             if (userIndex < 0) {
                 return;
             }
@@ -10575,16 +10612,38 @@ var Room = function (props) {
                 return;
             }
             var newState = __assign({}, localState);
-            var userIndex = newState.UsersList.findIndex(function (x) { return x.Id === userId; });
-            if (userIndex < 0) {
+            var user = GetUserById(newState.UsersList, userId);
+            if (!user) {
                 return;
             }
-            newState.UsersList[userIndex].HasVote = true;
+            user.HasVote = true;
             if (!isNaN(vote)) {
-                newState.UsersList[userIndex].Vote = vote;
+                user.Vote = vote;
             }
             // else{
             // }
+            setLocalState(newState);
+        });
+        props.MyHubConnection.on("UserStatusChanged", function (userId, changeType, role) {
+            if (!userId) {
+                return;
+            }
+            var newState = __assign({}, localState);
+            var user = GetUserById(newState.UsersList, userId);
+            if (!user) {
+                return;
+            }
+            if (changeType === 1) {
+                //добавлен
+                user.Roles.push(role);
+            }
+            else {
+                //удален
+                var index = user.Roles.findIndex(function (x) { return x === role; });
+                if (index >= 0) {
+                    user.Roles.splice(index, 1);
+                }
+            }
             setLocalState(newState);
         });
         props.MyHubConnection.on("VoteStart", function () {
@@ -10619,14 +10678,14 @@ var Room = function (props) {
         });
     }, []);
     var tryToRemoveUserFromRoom = function (userId) {
-        var isAdmin = CurrentUserIsAdmin(localState, props.UserInfo.UserId);
+        var isAdmin = CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId);
         if (!isAdmin) {
             return;
         }
         props.MyHubConnection.send("KickUser", props.RoomInfo.Name, userId);
     };
     var doVote = function (voteCardBlock) { return __awaiter(void 0, void 0, void 0, function () {
-        var voted, newState;
+        var alert_1, voted, newState;
         var _a, _b;
         return __generator(this, function (_c) {
             switch (_c.label) {
@@ -10634,6 +10693,13 @@ var Room = function (props) {
                     // console.log(vote);
                     // console.dir(vote);
                     if (!((_b = (_a = voteCardBlock === null || voteCardBlock === void 0 ? void 0 : voteCardBlock.target) === null || _a === void 0 ? void 0 : _a.dataset) === null || _b === void 0 ? void 0 : _b.vote)) {
+                        return [2 /*return*/];
+                    }
+                    if (!CurrentUserCanVote(localState.UsersList, props.UserInfo.UserId)) {
+                        alert_1 = new AlertData_1.AlertData();
+                        alert_1.Text = "У обсерверов нет прав голосовать";
+                        alert_1.Type = AlertData_1.AlertTypeEnum.Error;
+                        window.G_AddAbsoluteAlertToState(alert_1);
                         return [2 /*return*/];
                     }
                     return [4 /*yield*/, props.MyHubConnection.invoke("Vote", props.RoomInfo.Name, +voteCardBlock.target.dataset.vote)];
@@ -10682,7 +10748,7 @@ var Room = function (props) {
         props.MyHubConnection.send("EndVote", props.RoomInfo.Name);
     };
     var roomMainActionButton = function () {
-        var isAdmin = CurrentUserIsAdmin(localState, props.UserInfo.UserId);
+        var isAdmin = CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId);
         if (isAdmin) {
             return react_1.default.createElement("div", null,
                 react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return tryStartVote(); } }, "\u041D\u0430\u0447\u0430\u0442\u044C \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u0435"),
@@ -10690,17 +10756,57 @@ var Room = function (props) {
         }
         return react_1.default.createElement("div", null);
     };
-    var settingsUpUserList = function () {
+    var settingsUpUserListRender = function () {
         var hideVotesSetting = react_1.default.createElement("div", null);
-        if (CurrentUserIsAdmin(localState, props.UserInfo.UserId)) {
+        if (CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId)) {
             hideVotesSetting = react_1.default.createElement("div", null,
                 react_1.default.createElement("div", { className: "padding-10-top" }),
                 react_1.default.createElement("div", { className: "planning-vote-settings" },
                     react_1.default.createElement("label", null, "\u0421\u043A\u0440\u044B\u0432\u0430\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0438"),
                     react_1.default.createElement("input", { onClick: function () { return setHideVoteState(!hideVoteState); }, type: "checkbox" })));
         }
+        var changeUserName = function () {
+            props.MyHubConnection.invoke("UserNameChange", props.RoomInfo.Name, userNameLocalState).then(function (dt) {
+                if (!dt) {
+                    var alert_2 = new AlertData_1.AlertData();
+                    alert_2.Text = "изменить имя не удалось";
+                    alert_2.Type = AlertData_1.AlertTypeEnum.Error;
+                    window.G_AddAbsoluteAlertToState(alert_2);
+                    return;
+                }
+                props.ChangeUserName(userNameLocalState);
+            });
+        };
+        var updateAllUsers = function () {
+            var loadedUsers = function (error, data) {
+                var _a;
+                if (error) {
+                    //TODO выбить из комнаты?
+                    alert("todo что то пошло не так лучше обновить страницу");
+                    return;
+                }
+                if (data) {
+                    var newUsersData = data.map(function (x) {
+                        var us = new RoomInfo_1.UserInRoom();
+                        us.FillByBackModel(x);
+                        return us;
+                    });
+                    var newState = __assign({}, localState);
+                    //реинициализировать нельзя, почему то отваливается
+                    newState.UsersList.splice(0, newState.UsersList.length);
+                    (_a = newState.UsersList).push.apply(_a, newUsersData);
+                    // newState.UsersList = newUsersData;
+                    setLocalState(newState);
+                }
+            };
+            // console.log(JSON.stringify(props));
+            window.G_PlaningPokerController.GetUsersIsRoom(props.RoomInfo.Name, props.UserInfo.UserId, loadedUsers);
+        };
         return react_1.default.createElement("div", null,
             react_1.default.createElement("p", null, "\u0434\u043E\u043F \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"),
+            react_1.default.createElement("input", { className: "persent-100-width form-control", onChange: function (e) { return changeUserNameLocalState(e.target.value); }, value: userNameLocalState }),
+            react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return changeUserName(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u043C\u044F"),
+            react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return updateAllUsers(); } }, "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u044C \u0441\u043F\u0438\u0441\u043E\u043A \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439"),
             hideVotesSetting);
     };
     if (!props.RoomInfo.InRoom) {
@@ -10720,11 +10826,11 @@ var Room = function (props) {
                     renderVoteResultIfNeed()),
                 react_1.default.createElement("div", null, "\u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0437\u0430\u0434\u0430\u0447?")),
             react_1.default.createElement("div", { className: "planit-room-right-part col-12 col-md-3" },
-                react_1.default.createElement("div", null, settingsUpUserList()),
+                react_1.default.createElement("div", null, settingsUpUserListRender()),
                 react_1.default.createElement("div", { className: "padding-10-top" }),
                 react_1.default.createElement("div", null, "\u043B\u044E\u0434\u0438"),
                 localState.UsersList.map(function (x) {
-                    return react_1.default.createElement(UserInList_1.default, { key: x.Id, User: x, TryToRemoveUserFromRoom: tryToRemoveUserFromRoom, RenderForAdmin: CurrentUserIsAdmin(localState, props.UserInfo.UserId), HideVote: hideVoteState, HasVote: x.HasVote, RoomStatus: roomStatusState, MaxVote: localState.VoteInfo.MaxVote, MinVote: localState.VoteInfo.MinVote });
+                    return react_1.default.createElement(UserInList_1.default, { key: x.Id, User: x, TryToRemoveUserFromRoom: tryToRemoveUserFromRoom, RenderForAdmin: CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId), HideVote: hideVoteState, HasVote: x.HasVote, RoomStatus: roomStatusState, MaxVote: localState.VoteInfo.MaxVote, MinVote: localState.VoteInfo.MinVote, MyHubConnection: props.MyHubConnection, RoomName: props.RoomInfo.Name });
                 })),
             react_1.default.createElement("div", { className: "display_none" },
                 react_1.default.createElement(react_router_dom_1.Link, { id: "move_to_index_link_react", to: "/planing-poker/" }, "hidden"))));
@@ -10742,11 +10848,27 @@ exports.default = Room;
 
 "use strict";
 
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importDefault(__webpack_require__(/*! react */ "react"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "react"));
 // import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 var RoomInfo_1 = __webpack_require__(/*! ./Models/RoomInfo */ "./src/components/Body/PlaningPoker/Models/RoomInfo.ts");
 var UserInListProp = /** @class */ (function () {
@@ -10755,10 +10877,30 @@ var UserInListProp = /** @class */ (function () {
     return UserInListProp;
 }());
 var UserInList = function (props) {
+    var _a = react_1.useState("-"), selectedEditRole = _a[0], changeSelectedEditRoleState = _a[1];
+    // useEffect(() => {
+    //     if (props.HubConnected) {
+    //     }
+    // }, [props.HubConnected]);
+    var addNewStatusToUser = function () {
+        props.MyHubConnection.send("AddNewStatusToUser", props.RoomName, props.User.Id, selectedEditRole);
+    };
+    var removeStatusUser = function () {
+        props.MyHubConnection.send("RemoveStatusUser", props.RoomName, props.User.Id, selectedEditRole);
+    };
     var delButton = react_1.default.createElement("div", null);
+    var statusChange = react_1.default.createElement("div", null);
     if (props.RenderForAdmin) {
         delButton = react_1.default.createElement("div", null,
             react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return props.TryToRemoveUserFromRoom(props.User.Id); } }, "\u0412\u044B\u0433\u043D\u0430\u0442\u044C"));
+        statusChange = react_1.default.createElement("div", null,
+            react_1.default.createElement("select", { value: selectedEditRole, onChange: function (e) { return changeSelectedEditRoleState(e.target.value); } },
+                react_1.default.createElement("option", { value: "-" }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
+                react_1.default.createElement("option", { value: RoomInfo_1.UserRoles.User }, RoomInfo_1.UserRoles.User),
+                react_1.default.createElement("option", { value: RoomInfo_1.UserRoles.Admin }, RoomInfo_1.UserRoles.Admin),
+                react_1.default.createElement("option", { value: RoomInfo_1.UserRoles.Observer }, RoomInfo_1.UserRoles.Observer)),
+            react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return addNewStatusToUser(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u0442\u0430\u0442\u0443\u0441"),
+            react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return removeStatusUser(); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0441\u0442\u0430\u0442\u0443\u0441"));
     }
     var vote = "отсутствует";
     if (props.User.Vote && !props.HideVote) {
@@ -10767,10 +10909,13 @@ var UserInList = function (props) {
     else if (props.HasVote) {
         vote = "скрыта";
     }
+    if (!props.User.CanVote()) {
+        vote = "без права голоса";
+    }
     var classColorize = "";
     if (props.RoomStatus === RoomInfo_1.RoomSatus.AllCanVote) {
         //подсвечиваем проголосовавших
-        if (props.HasVote) {
+        if (props.HasVote || !props.User.CanVote()) {
             classColorize = " planing-user-voted";
         }
         else {
@@ -10795,7 +10940,11 @@ var UserInList = function (props) {
             react_1.default.createElement("p", null,
                 "\u043E\u0446\u0435\u043D\u043A\u0430: ",
                 vote),
-            delButton),
+            delButton,
+            react_1.default.createElement("p", null,
+                "\u0420\u043E\u043B\u0438: ",
+                props.User.Roles.join(',')),
+            statusChange),
         react_1.default.createElement("div", { className: "padding-10-top" }));
 };
 exports.default = UserInList;

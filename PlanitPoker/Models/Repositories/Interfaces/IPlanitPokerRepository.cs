@@ -8,8 +8,8 @@ namespace PlanitPoker.Models.Repositories.Interfaces
     public interface IPlanitPokerRepository
     {
 
-        Task<Room> CreateRoomWithUser(string roomname, string password, PlanitUser user);
-        Task<bool> AddTimeAliveRoom(string roomname);
+        Task<Room> CreateRoomWithUser(string roomName, string password, PlanitUser user);
+        Task<bool> AddTimeAliveRoom(string roomName);
         Task<bool> AddTimeAliveRoom(Room room);
 
         Task<bool> AddUserIntoRoom(string roomName, PlanitUser user);
@@ -21,7 +21,7 @@ namespace PlanitPoker.Models.Repositories.Interfaces
         /// <param name="roomName"></param>
         /// <returns></returns>
         Task<List<PlanitUser>> GetAllUsers(string roomName);
-        Task<bool> ChangeUserName(string roomname, string userId, string newUserName);
+        Task<bool> ChangeUserName(string roomName, string userId, string newUserName);
         
 
 
@@ -47,5 +47,9 @@ namespace PlanitPoker.Models.Repositories.Interfaces
         Task<List<string>> GetAdminsId(Room room);
         Task<List<string>> GetAdminsId(string roomName);
         Task ClearOldRooms();
+
+        Task<bool> AddNewStatusToUser(string roomName, string userId, string newRole,string userIdRequest);
+        Task<bool> RemoveStatusUser(string roomName, string userId, string oldRole, string userIdRequest);
+
     }
 }

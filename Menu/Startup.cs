@@ -41,6 +41,7 @@ using PlanitPoker.Models.Repositories;
 using PlanitPoker.Models.Repositories.Interfaces;
 using Common.Models;
 using PlanitPoker.Models.Services;
+using Common.Models.Validators;
 
 namespace Menu
 {
@@ -87,7 +88,7 @@ namespace Menu
             services.AddScoped<IApiHelper, ApiHelper>();
             services.AddScoped<IReturnContainer, ReturnContainer>();
             services.AddSingleton<MultiThreadHelper, MultiThreadHelper>();
-
+            services.AddSingleton<IStringValidator, StringValidator>();
             
 
 

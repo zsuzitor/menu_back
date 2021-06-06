@@ -14,8 +14,8 @@ using System.Threading.Tasks;
 using System.Linq;
 using BO.Models.Auth;
 using Menu.Models.Returns.Interfaces;
-using System.Text.Encodings.Web;
 using System.IO;
+using Common.Models.Validators;
 
 namespace Menu.Models.Helpers
 {
@@ -35,26 +35,20 @@ namespace Menu.Models.Helpers
         /// </summary>
         private readonly IReturnContainer _returnContainer;
 
+        private readonly IStringValidator _stringValidator;
 
-        private readonly HtmlEncoder _htmlEncoder;
-        private readonly JavaScriptEncoder _javaScriptEncoder;
-        private readonly UrlEncoder _urlEncoder;
+
 
 
         public ApiHelper(IErrorService errorService, IErrorContainer errorContainer, IReturnContainer returnContainer,
-            HtmlEncoder htmlEncoder,
-                             JavaScriptEncoder javascriptEncoder,
-                             UrlEncoder urlEncoder)
+            IStringValidator stringValidator)
         {
             _fileMaxSize = 1024 * 1024 * 3;
 
             _errorService = errorService;
             _errorContainer = errorContainer;
             _returnContainer = returnContainer;
-
-            _htmlEncoder = htmlEncoder;
-            _javaScriptEncoder = javascriptEncoder;
-            _urlEncoder = urlEncoder;
+            _stringValidator = stringValidator;
         }
 
 
@@ -327,10 +321,8 @@ namespace Menu.Models.Helpers
 
         public string StringValidator(string str)
         {
-            string res = _htmlEncoder.Encode(str);
-            res = _javaScriptEncoder.Encode(res);
-            res = _urlEncoder.Encode(res);
-            return res;
+
+            return _stringValidator.Validate(str) ;
         }
 
         public void FileValidator(IFormFile file, ModelStateDictionary modelState)

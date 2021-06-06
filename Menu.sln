@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BL", "BL\BL.csproj", "{C045
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordsCardsApp", "WordsCardsApp\WordsCardsApp.csproj", "{998CCDB3-97E5-4ECE-BD69-E23DCD025CF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanitPoker", "PlanitPoker\PlanitPoker.csproj", "{99EEEBAF-A4C1-4DE1-864B-B893FF23CA46}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanitPoker", "PlanitPoker\PlanitPoker.csproj", "{99EEEBAF-A4C1-4DE1-864B-B893FF23CA46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

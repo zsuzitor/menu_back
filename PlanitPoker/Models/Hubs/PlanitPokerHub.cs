@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Common.Models;
+using Common.Models.Validators;
 using Microsoft.AspNetCore.SignalR;
 using PlanitPoker.Models.Enums;
 using PlanitPoker.Models.Repositories.Interfaces;
@@ -18,6 +19,7 @@ namespace PlanitPoker.Models.Hubs
     {
         private readonly IPlanitPokerRepository _planitPokerRepository;
         private readonly MultiThreadHelper _multiThreadHelper;
+        private readonly IStringValidator _stringValidator;
 
         //private static IServiceProvider _serviceProvider;
 
@@ -34,16 +36,19 @@ namespace PlanitPoker.Models.Hubs
         private const string VoteChanged = "VoteChanged";
         private const string RoomNotCreated = "RoomNotCreated";
         private const string UserNameChanged = "UserNameChanged";
+        private const string UserStatusChanged = "UserStatusChanged";
 
 
 
 
 
 
-        public PlanitPokerHub(IPlanitPokerRepository planitPokerRepository, MultiThreadHelper multiThreadHelper)
+        public PlanitPokerHub(IPlanitPokerRepository planitPokerRepository, MultiThreadHelper multiThreadHelper,
+            IStringValidator stringValidator)
         {
             _planitPokerRepository = planitPokerRepository;
             _multiThreadHelper = multiThreadHelper;
+            _stringValidator = stringValidator;
         }
 
         //static void InitStaticMembers()
@@ -65,7 +70,8 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task CreateRoom(string roomname, string password, string username)
         {
-            
+            roomname = ValidateString(roomname);
+            username = ValidateString(username);
 
             var user = new PlanitUser()
             {
@@ -88,6 +94,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task AliveRoom(string roomname)
         {
+            roomname = ValidateString(roomname);
             var room = await _planitPokerRepository.TryGetRoom(roomname);
             if (room == null)
             {
@@ -108,6 +115,8 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task EnterInRoom(string roomname, string password, string username)
         {
+            roomname = ValidateString(roomname);
+            username = ValidateString(username);
             if (string.IsNullOrEmpty(roomname))
             {
                 await Clients.Caller.SendAsync(ConnectedToRoomError);
@@ -135,6 +144,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task StartVote(string roomname)
         {
+            roomname = ValidateString(roomname);
             var room = await _planitPokerRepository.TryGetRoom(roomname);
             if (room == null)
             {
@@ -164,6 +174,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task EndVote(string roomname)
         {
+            roomname = ValidateString(roomname);
             var room = await _planitPokerRepository.TryGetRoom(roomname);
             if (room == null)
             {
@@ -201,9 +212,8 @@ namespace PlanitPoker.Models.Hubs
         public async Task<bool> Vote(string roomname, int vote)
         {
 
+            roomname = ValidateString(roomname);
 
-            //вообще это вроде можно вынести в контроллер весь метод
-            //тк сокеты не нужны для него, тупо апдейт стейта
             var room = await _planitPokerRepository.TryGetRoom(roomname);
             if (room == null)
             {
@@ -249,6 +259,8 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task KickUser(string roomname, string userId)
         {
+            roomname = ValidateString(roomname);
+            userId = ValidateString(userId);
             var kicked = await _planitPokerRepository.KickFromRoom(roomname, Context.ConnectionId, userId);
 
             if (kicked)
@@ -265,18 +277,58 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task<bool> UserNameChange(string roomname, string newUserName)
         {
+            roomname = ValidateString(roomname);
+            newUserName = ValidateString(newUserName);
             string userId = Context.ConnectionId;
             var sc = await _planitPokerRepository.ChangeUserName(roomname, userId, newUserName);
 
             if (sc)
             {
                 await Clients.Group(roomname).SendAsync(UserNameChanged, userId, newUserName);
-                return false;
+                return true;
             }
 
-            return true;
+            return false;
 
         }
+
+        public async Task AddNewStatusToUser(string roomname, string userId, string newRole)
+        {
+
+            roomname = ValidateString(roomname);
+            userId = ValidateString(userId);
+            newRole = ValidateString(newRole);
+
+            var sc = await _planitPokerRepository.AddNewStatusToUser(roomname, userId, newRole, Context.ConnectionId);
+            if (sc)
+            {
+                await Clients.Group(roomname).SendAsync(UserStatusChanged, userId, 1, newRole);
+            }
+        }
+
+        public async Task RemoveStatusUser(string roomname, string userId, string oldRole)
+        {
+            roomname = ValidateString(roomname);
+            userId = ValidateString(userId);
+            oldRole = ValidateString(oldRole);
+
+            var sc = await _planitPokerRepository.RemoveStatusUser(roomname, userId, oldRole, Context.ConnectionId);
+            if (sc)
+            {
+                await Clients.Group(roomname).SendAsync(UserStatusChanged, userId, 2, oldRole);
+            }
+        }
+
+
+
+
+
+
+
+
+
+        //------------------------------------ signal----------------------------------------------
+
 
 
         public override async Task OnConnectedAsync()
@@ -293,7 +345,11 @@ namespace PlanitPoker.Models.Hubs
         }
 
 
-            
+
+
+
+
+        //----------------------------------------------------------------------------------private------------------
 
 
         /// <summary>
@@ -353,12 +409,12 @@ namespace PlanitPoker.Models.Hubs
 
         private List<string> GetDefaultRoles()
         {
-            return new List<string>() { "User" };
+            return new List<string>() { Consts.Roles.User };
         }
 
         private List<string> GetCreatorRoles()
         {
-            return new List<string>(GetDefaultRoles()) { "Creator", "Admin" };//TODO это надо вынести в константы, в том числе в return фарике в основной апе menu
+            return new List<string>(GetDefaultRoles()) { Consts.Roles.Creator, Consts.Roles.Admin };
         }
 
         //private static Task ClearRooms()
@@ -369,6 +425,11 @@ namespace PlanitPoker.Models.Hubs
         private (T res, bool sc) GetValueFromRoomAsync<T>(Room room, Func<Room, T> get)
         {//TODO перетащить в репо
             return _multiThreadHelper.GetValue(room, get, room.RWL);
+        }
+
+        private string ValidateString(string str)
+        {
+            return _stringValidator.Validate(str);
         }
     }
 }

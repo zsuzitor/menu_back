@@ -1,6 +1,7 @@
 ﻿using Common.Models.Error;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
+using Common.Models.Validators;
 using Menu.Models.Helpers.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -20,15 +21,20 @@ namespace Menu.Controllers.PlanitPoker
         //private readonly IErrorService _errorService;
         //private readonly IHubContext<PlanitPokerHub> hubContext;
 
+
+        private readonly IStringValidator _stringValidator;
+
         public PlanitPokerController(IApiHelper apiHealper, 
             ILogger<PlanitPokerController> logger, 
-            IPlanitPokerService planitPokerService//,
+            IPlanitPokerService planitPokerService,
+            IStringValidator stringValidator
             //IErrorService errorService
             )
         {
             _apiHealper = apiHealper;
             _logger = logger;
             _planitPokerService = planitPokerService;
+            _stringValidator = stringValidator;
             //_errorService = errorService;
             //hubContext.
         }
@@ -43,6 +49,8 @@ namespace Menu.Controllers.PlanitPoker
             //либо брать на бэке(перетаскивать логику в хаб)
             //либо закрывать id юзеров
             //а лучше и то и то
+            roomname = _stringValidator.Validate(roomname);
+            userid = _stringValidator.Validate(userid);
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
@@ -63,6 +71,8 @@ namespace Menu.Controllers.PlanitPoker
             //либо брать на бэке(перетаскивать логику в хаб)
             //либо закрывать id юзеров
             //а лучше и то и то
+            roomname = _stringValidator.Validate(roomname);
+            userid = _stringValidator.Validate(userid);
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {

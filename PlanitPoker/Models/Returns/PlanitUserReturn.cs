@@ -1,5 +1,6 @@
 ﻿
 
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
 namespace PlanitPoker.Models.Returns
@@ -8,9 +9,9 @@ namespace PlanitPoker.Models.Returns
     {
         [JsonPropertyName("id")]
         public string UserIdentifier { get; set; }//signalRUserId
-        [JsonPropertyName("is_admin")]
-
-        public bool IsAdmin { get; set; }//enum?
+        
+        [JsonPropertyName("roles")]
+        public List<string> Roles { get; set; }//enum?
         [JsonPropertyName("name")]
 
         public string Name { get; set; }
@@ -25,7 +26,7 @@ namespace PlanitPoker.Models.Returns
         public PlanitUserReturn(PlanitUser obj)
         {
             UserIdentifier = obj.UserIdentifier;
-            IsAdmin = obj.Role.Contains("Admin");
+            Roles = obj.Role;//obj.IsAdmin,//obj.Role.Contains();
             Name = obj.Name;
             Vote = obj.Vote;
             HasVote = obj.HasVote;

@@ -18,7 +18,15 @@ namespace PlanitPoker.Models
         {
             get
             {
-                return Role.Any(x => x == "Creator" || x == "Admin");//TODO вынести в константы
+                return Role.Any(x => x == Consts.Roles.Creator || x == Consts.Roles.Admin);
+            }
+        }
+
+        public bool CanVote
+        {
+            get
+            {
+                return !Role.Any(x => x == Consts.Roles.Observer);
             }
         }
 
