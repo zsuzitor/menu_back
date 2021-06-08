@@ -51,5 +51,12 @@ namespace PlanitPoker.Models.Repositories.Interfaces
         Task<bool> AddNewStatusToUser(string roomName, string userId, string newRole,string userIdRequest);
         Task<bool> RemoveStatusUser(string roomName, string userId, string oldRole, string userIdRequest);
 
+        Task<bool> AddNewStory(string roomName, string userId, Story newStory);
+        Task<bool> ChangeStory(string roomName, string userId, Story newData);
+        Task<bool> ChangeCurrentStory(string roomName, string userId, long storyId);
+        Task<bool> DeleteStory(string roomName, string userId, long storyId);
+        
+
+
     }
 }

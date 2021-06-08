@@ -37,7 +37,12 @@ namespace PlanitPoker.Models.Hubs
         private const string RoomNotCreated = "RoomNotCreated";
         private const string UserNameChanged = "UserNameChanged";
         private const string UserStatusChanged = "UserStatusChanged";
+        private const string AddedNewStory = "AddedNewStory";
+        private const string CurrentStoryChanged = "CurrentStoryChanged";
+        private const string NewCurrentStory = "NewCurrentStory";
+        private const string DeletedStory = "DeletedStory";
 
+        
 
 
 
@@ -143,7 +148,7 @@ namespace PlanitPoker.Models.Hubs
         }
 
         public async Task StartVote(string roomname)
-        {
+        {//TODO слишком много запросов, надо вынести в 1 и засунуть его в сервис лучше
             roomname = ValidateString(roomname);
             var room = await _planitPokerRepository.TryGetRoom(roomname);
             if (room == null)
@@ -320,10 +325,81 @@ namespace PlanitPoker.Models.Hubs
         }
 
 
+        public async Task AddNewStory(string roomname, string storyName, string storyDescription)
+        {
+            roomname = ValidateString(roomname);
+            storyName = ValidateString(storyName);
+            storyDescription = ValidateString(storyDescription);
+            //invoke AddedNewStory
+            var newStory = new Story()
+            {
+                Name = storyName,
+                Description = storyDescription,
+            };
+
+            var sc = await _planitPokerRepository.AddNewStory(roomname,Context.ConnectionId, newStory);
+
+            if (sc)
+            {
+                await Clients.Group(roomname).SendAsync(AddedNewStory, new StoryReturn(newStory));
+            }
+        }
+
+
+        public async Task ChangeCurrentStory(string roomname,long storyId, string storyName, string storyDescription)
+        {
+            roomname = ValidateString(roomname);
+            storyName = ValidateString(storyName);
+            storyDescription = ValidateString(storyDescription);
+            var newStory = new Story()
+            {
+                Id = storyId,
+                Name = storyName,
+                Description = storyDescription,
+            };
+
+            var sc = await _planitPokerRepository.ChangeStory(roomname, Context.ConnectionId, newStory);
+
+            if (sc)
+            {
+                await Clients.Group(roomname).SendAsync(CurrentStoryChanged,storyId,storyName,storyDescription );//new StoryReturn(newStory)
+            }
+        }
+
+        public async Task MakeCurrentStory(string roomname, long storyId)
+        {
+            roomname = ValidateString(roomname);
+            //todo NewCurrentStory
+            var sc = await _planitPokerRepository.ChangeCurrentStory(roomname, Context.ConnectionId, storyId);
+
+            if (sc)
+            {
+                await Clients.Group(roomname).SendAsync(NewCurrentStory, storyId);
+            }
+        }
+
+        public async Task DeleteStory(string roomname, long storyId)
+        {
+            roomname = ValidateString(roomname);
+            //todo DeletedStory
+            var sc = await _planitPokerRepository.DeleteStory(roomname, Context.ConnectionId, storyId);
+
+            if (sc)
+            {
+                await Clients.Group(roomname).SendAsync(DeletedStory, storyId);
+            }
+        }
 
 
 
 
+        //public async Task SetCurrentStory(string roomname, string storyId)
+        //{
+        //}
+
+        //public async Task RemoveStory(string roomname, string storyId)
+        //{
+        //}
 
 
 
@@ -423,8 +499,9 @@ namespace PlanitPoker.Models.Hubs
         //}
 
         private (T res, bool sc) GetValueFromRoomAsync<T>(Room room, Func<Room, T> get)
-        {//TODO перетащить в репо
-            return _multiThreadHelper.GetValue(room, get, room.RWL);
+        {
+            return room.GetConcurentValue(_multiThreadHelper, get);
+            //return _multiThreadHelper.GetValue(room, get, room.RWL);
         }
 
         private string ValidateString(string str)

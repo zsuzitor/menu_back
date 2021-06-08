@@ -16,11 +16,17 @@ namespace PlanitPoker.Models
         public List<PlanitUser> Users { get; set; }
         public RoomSatus Status { get; set; }
 
+        public List<Story> Stories { get; set; }
+        public long CurrentStoryId { get; set; }
+        public long StoryForAddMaxTmpId { get; set; }
+
         public StoredRoom()
         {
             Status = RoomSatus.CloseVote;
             Users = new List<PlanitUser>();
+            Stories = new List<Story>();
             DieDate = DateTime.Now.AddHours(1);
+            CurrentStoryId = -1;
         }
 
         public StoredRoom(string name, string password) : this()
