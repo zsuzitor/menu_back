@@ -55,7 +55,9 @@ namespace PlanitPoker.Models.Repositories.Interfaces
         Task<bool> ChangeStory(string roomName, string userId, Story newData);
         Task<bool> ChangeCurrentStory(string roomName, string userId, long storyId);
         Task<bool> DeleteStory(string roomName, string userId, long storyId);
-        
+
+        Task<bool> MakeStoryComplete(string roomName, long storyId, string userId);
+        Task<bool> MakeStoryComplete(Room room, long storyId, string userId);
 
 
     }

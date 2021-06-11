@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.SignalR;
 using PlanitPoker.Models.Enums;
 using PlanitPoker.Models.Repositories.Interfaces;
 using PlanitPoker.Models.Returns;
+using PlanitPoker.Models.Services;
 
 namespace PlanitPoker.Models.Hubs
 {
@@ -20,6 +21,7 @@ namespace PlanitPoker.Models.Hubs
         private readonly IPlanitPokerRepository _planitPokerRepository;
         private readonly MultiThreadHelper _multiThreadHelper;
         private readonly IStringValidator _stringValidator;
+        private readonly IPlanitPokerService _planitPokerService;
 
         //private static IServiceProvider _serviceProvider;
 
@@ -41,19 +43,21 @@ namespace PlanitPoker.Models.Hubs
         private const string CurrentStoryChanged = "CurrentStoryChanged";
         private const string NewCurrentStory = "NewCurrentStory";
         private const string DeletedStory = "DeletedStory";
+        private const string MovedStoryToComplete = "MovedStoryToComplete";
 
-        
+
 
 
 
 
 
         public PlanitPokerHub(IPlanitPokerRepository planitPokerRepository, MultiThreadHelper multiThreadHelper,
-            IStringValidator stringValidator)
+            IStringValidator stringValidator, IPlanitPokerService planitPokerService)
         {
             _planitPokerRepository = planitPokerRepository;
             _multiThreadHelper = multiThreadHelper;
             _stringValidator = stringValidator;
+            _planitPokerService = planitPokerService;
         }
 
         //static void InitStaticMembers()
@@ -388,6 +392,17 @@ namespace PlanitPoker.Models.Hubs
             {
                 await Clients.Group(roomname).SendAsync(DeletedStory, storyId);
             }
+        }
+
+
+        public async Task MakeStoryComplete(string roomname, long storyId)
+        {
+            var res = await _planitPokerRepository.MakeStoryComplete(roomname, storyId, Context.ConnectionId);
+            if (res)
+            {
+                await Clients.Group(roomname).SendAsync(MovedStoryToComplete, storyId);
+            }    
+            //
         }
 
 

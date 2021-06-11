@@ -1,5 +1,4 @@
 ﻿using Common.Models.Error;
-using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using Common.Models.Validators;
 using Menu.Models.Helpers.Interfaces;
@@ -76,7 +75,7 @@ namespace Menu.Controllers.PlanitPoker
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    var roomInfo = await _planitPokerService.GetRoomInfoWithRight(roomname, userid);
+                    var roomInfo = await _planitPokerService.GetRoomInfoWithRight(roomname, userid);//todo см declare метода в interface
                     //TODO ошибку если null? сейчас там возвращается пустая строка везде. и вообще посмотреть что будет на фронте
                     if (roomInfo == null)
                     {

@@ -15,6 +15,8 @@ namespace PlanitPoker.Models.Returns
         public double Vote { get; set; }
         [JsonPropertyName("date")]
         public DateTime Date { get; set; }
+        [JsonPropertyName("completed")]
+        public bool Completed { get; set; }
 
 
         public StoryReturn()
@@ -29,6 +31,7 @@ namespace PlanitPoker.Models.Returns
             Description = obj.Description;
             Vote = obj.Vote;
             Date = obj.Date;
+            Completed = obj.Completed;
         }
     }
 }

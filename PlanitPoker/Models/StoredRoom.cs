@@ -40,6 +40,7 @@ namespace PlanitPoker.Models
         {
             var res = (StoredRoom)this.MemberwiseClone();
             res.Users = Users.Select(x => x.Clone()).ToList();
+            res.Stories = Stories.Select(x=>x.Clone()).ToList();
             return res;
         }
 

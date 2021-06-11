@@ -9992,8 +9992,8 @@ var IndexProps = /** @class */ (function () {
     return IndexProps;
 }());
 var Index = function (props) {
-    var initState = new IndexState();
-    var _a = react_1.useState(initState), localState = _a[0], setLocalState = _a[1];
+    // const initState = new IndexState();
+    // const [localState, setLocalState] = useState(initState);
     // const [test, setTestLocalState] = useState(false);
     // const [withoutPasswordState, setWithoutPasswordState] = useState(false);
     // if (!test) {
@@ -10070,7 +10070,7 @@ exports.default = Index;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Story = exports.VoteInfo = exports.PlaningPokerUserInfo = exports.UserInRoom = exports.UserRoles = exports.RoomSatus = exports.RoomInfo = void 0;
+exports.StoriesHelper = exports.Story = exports.VoteInfo = exports.PlaningPokerUserInfo = exports.UserInRoom = exports.UserRoles = exports.RoomSatus = exports.RoomInfo = void 0;
 //todo хорошо бы по файликам раскидать
 var RoomInfo = /** @class */ (function () {
     function RoomInfo() {
@@ -10154,6 +10154,30 @@ var Story = /** @class */ (function () {
     return Story;
 }());
 exports.Story = Story;
+var StoriesHelper = /** @class */ (function () {
+    function StoriesHelper() {
+        var _this = this;
+        this.GetStoryIndexById = function (stories, storyId) {
+            if (storyId < 0) {
+                return -1;
+            }
+            var index = stories.findIndex(function (x) { return x.Id === storyId; });
+            if (index < 0 || index >= stories.length) {
+                return -1;
+            }
+            return index;
+        };
+        this.GetStoryById = function (stories, storyId) {
+            var index = _this.GetStoryIndexById(stories, storyId);
+            if (index < 0) {
+                return;
+            }
+            return stories[index];
+        };
+    }
+    return StoriesHelper;
+}());
+exports.StoriesHelper = StoriesHelper;
 
 
 /***/ }),
@@ -10285,9 +10309,14 @@ var PlaningPokerMain = function () {
         hubConnection.on("EnteredInRoom", function () {
             // window.history.pushState(null, "Room", "/");
             // window.history.pushState(null, "Room", "/planing-poker/room");
-            var newState = __assign({}, localState);
-            newState.RoomInfo.InRoom = true;
-            setLocalState(newState);
+            // let newState = { ...localState };
+            // newState.RoomInfo.InRoom = true;
+            // setLocalState(newState);
+            setLocalState(function (prevState) {
+                var newState = __assign({}, prevState);
+                newState.RoomInfo.InRoom = true;
+                return newState;
+            });
             var lk = document.getElementById('move_to_room_link_react');
             //todo типо костыль
             //если этой линки нет, значит мы уже на странице румы
@@ -10316,23 +10345,39 @@ var PlaningPokerMain = function () {
             .then(function () {
             hubConnection.invoke("GetConnectionId")
                 .then(function (connectionId) {
-                var newState = __assign({}, localState);
-                newState.User.UserId = connectionId;
-                setLocalState(newState);
-                sethubConnectedState(true);
+                // let newState = { ...localState };
+                // newState.User.UserId = connectionId;
+                // setLocalState(newState);
+                setLocalState(function (prevState) {
+                    var newState = __assign({}, prevState);
+                    newState.User.UserId = connectionId;
+                    return newState;
+                });
+                //sethubConnectedState(true);
+                sethubConnectedState(function (prevState) {
+                    return true;
+                });
             });
         }).catch(function () {
             alert("что то не так с подключением обновите страницу");
-            sethubConnectedState(false);
+            // sethubConnectedState(false);
+            sethubConnectedState(function (prevState) {
+                return false;
+            });
         });
         // let newState = { ...localState };
         // newState.MyHubConnection = hubConnection;
         // setLocalState(newState);
     }, []);
     var userNameChange = function (newName) {
-        var newState = __assign({}, localState);
-        newState.User.UserName = newName;
-        setLocalState(newState);
+        // let newState = { ...localState };
+        // newState.User.UserName = newName;
+        // setLocalState(newState);
+        setLocalState(function (prevState) {
+            var newState = __assign({}, prevState);
+            newState.User.UserName = newName;
+            return newState;
+        });
         // if (localState.RoomInfo.InRoom) {
         //     hubConnection.invoke("UserNameChange", newState.RoomInfo.Name, newName).then(dt => {
         //         if (!dt) {
@@ -10345,14 +10390,24 @@ var PlaningPokerMain = function () {
         // }
     };
     var roomNameChanged = function (name) {
-        var newState = __assign({}, localState);
-        newState.RoomInfo.Name = name;
-        setLocalState(newState);
+        // let newState = { ...localState };
+        // newState.RoomInfo.Name = name;
+        // setLocalState(newState);
+        setLocalState(function (prevState) {
+            var newState = __assign({}, prevState);
+            newState.RoomInfo.Name = name;
+            return newState;
+        });
     };
     var roomPasswordChanged = function (password) {
-        var newState = __assign({}, localState);
-        newState.RoomInfo.Password = password;
-        setLocalState(newState);
+        // let newState = { ...localState };
+        // newState.RoomInfo.Password = password;
+        // setLocalState(newState);
+        setLocalState(function (prevState) {
+            var newState = __assign({}, prevState);
+            newState.RoomInfo.Password = password;
+            return newState;
+        });
     };
     return react_1.default.createElement("div", null,
         react_1.default.createElement(react_router_dom_1.Switch, null,
@@ -10457,6 +10512,7 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var UserInList_1 = __importDefault(__webpack_require__(/*! ./UserInList */ "./src/components/Body/PlaningPoker/UserInList.tsx"));
 var OneVoteCard_1 = __importDefault(__webpack_require__(/*! ./OneVoteCard */ "./src/components/Body/PlaningPoker/OneVoteCard.tsx"));
 var AlertData_1 = __webpack_require__(/*! ../../_ComponentsLink/Models/AlertData */ "./src/components/_ComponentsLink/Models/AlertData.ts");
+var StoriesSection_1 = __importDefault(__webpack_require__(/*! ./StoriesSection */ "./src/components/Body/PlaningPoker/StoriesSection.tsx"));
 var RoomProps = /** @class */ (function () {
     function RoomProps() {
     }
@@ -10474,13 +10530,16 @@ var RoomState = /** @class */ (function () {
     return RoomState;
 }());
 var StoriesInfo = /** @class */ (function () {
+    // NameForAdd: string;
+    // DescriptionForAdd: string;
     function StoriesInfo() {
         this.Stories = [];
         this.CurrentStoryId = -1;
-        this.NameForAdd = "";
-        this.DescriptionForAdd = "";
-        this.CurrentStoryName = "";
-        this.CurrentStoryDescription = "";
+        this.ClearTmpFuncForStories = null;
+        // this.NameForAdd = "";
+        // this.DescriptionForAdd = "";
+        // this.CurrentStoryName = "";
+        // this.CurrentStoryDescription = "";
         this.CurrentStoryNameChange = "";
         this.CurrentStoryDescriptionChange = "";
     }
@@ -10501,6 +10560,9 @@ var CurrentUserCanVote = function (users, userId) {
     return false;
 };
 var GetUserIndexById = function (users, userId) {
+    if (!users || !userId) {
+        return -1;
+    }
     return users.findIndex(function (x) { return x.Id === userId; });
 };
 var GetUserById = function (users, userId) {
@@ -10509,23 +10571,6 @@ var GetUserById = function (users, userId) {
         return null;
     }
     return users[index];
-};
-var GetStoryIndexById = function (stories, storyId) {
-    if (storyId < 0) {
-        return -1;
-    }
-    var index = stories.findIndex(function (x) { return x.Id === storyId; });
-    if (index < 0 || index >= stories.length) {
-        return -1;
-    }
-    return index;
-};
-var GetStoryById = function (stories, storyId) {
-    var index = GetStoryIndexById(stories, storyId);
-    if (index < 0) {
-        return;
-    }
-    return stories[index];
 };
 var Room = function (props) {
     // useEffect(() => {
@@ -10582,6 +10627,8 @@ var Room = function (props) {
     var _e = react_1.useState(props.UserInfo.UserName), userNameLocalState = _e[0], setUserNameLocalState = _e[1]; //для редактирования
     var initStories = new StoriesInfo();
     var _f = react_1.useState(initStories), storiesState = _f[0], setStoriesState = _f[1];
+    var storiesHelper = new RoomInfo_1.StoriesHelper();
+    var currentUserIsAdmin = CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId);
     // const [roomIsGoodState, setRoomIsGoodState] = useState(false);
     // console.log("room");
     // console.log(localState);
@@ -10591,26 +10638,59 @@ var Room = function (props) {
         }
         //мы проставили все необходимые данные, подключились к хабу и готовы работать
         var getRoomInfo = function (error, data) {
-            var _a;
             if (error) {
                 //TODO выбить из комнаты?
                 alert("todo что то пошло не так лучше обновить страницу");
                 return;
             }
             if (data) {
-                var newUsersData = data.users.map(function (x) {
+                var newUsersData_1 = data.room.users.map(function (x) {
                     var us = new RoomInfo_1.UserInRoom();
                     us.FillByBackModel(x);
                     return us;
                 });
-                var newState = __assign({}, localState);
-                //реинициализировать нельзя, почему то отваливается
-                newState.UsersList.splice(0, newState.UsersList.length);
-                (_a = newState.UsersList).push.apply(_a, newUsersData);
-                // newState.RoomStatus = data.status;
-                // newState.UsersList = newUsersData;
-                setLocalState(newState);
-                setRoomStatusState(data.status);
+                // let newState = { ...localState };
+                // //реинициализировать нельзя, почему то отваливается
+                // newState.UsersList.splice(0, newState.UsersList.length);
+                // newState.UsersList.push(...newUsersData);
+                // // newState.RoomStatus = data.status;
+                // // newState.UsersList = newUsersData;
+                // setRoomStatusState(data.room.status);
+                // fillVoteInfo(newState, data.end_vote_info);
+                // setLocalState(newState);
+                setRoomStatusState(function (prevState) {
+                    // let newState = { ...prevState };
+                    return data.room.status;
+                    // return newState;
+                });
+                setLocalState(function (prevState) {
+                    var _a;
+                    var newState = __assign({}, prevState);
+                    newState.UsersList.splice(0, newState.UsersList.length);
+                    (_a = newState.UsersList).push.apply(_a, newUsersData_1);
+                    // newState.RoomStatus = data.status;
+                    // newState.UsersList = newUsersData;
+                    fillVoteInfo(newState, data.end_vote_info);
+                    return newState;
+                });
+                // let newStoriesState = { ...storiesState };
+                // newStoriesState.CurrentStoryId = data.room.current_story_id;
+                // newStoriesState.Stories = data.room.actual_stories.map(x => {
+                //     let st = new Story();
+                //     st.FillByBackModel(x);
+                //     return st;
+                // });
+                // setStoriesState(newStoriesState);
+                setStoriesState(function (prevState) {
+                    var newStoriesState = __assign({}, prevState);
+                    newStoriesState.CurrentStoryId = data.room.current_story_id;
+                    newStoriesState.Stories = data.room.actual_stories.map(function (x) {
+                        var st = new RoomInfo_1.Story();
+                        st.FillByBackModel(x);
+                        return st;
+                    });
+                    return newStoriesState;
+                });
             }
         };
         window.G_PlaningPokerController.GetRoomInfo(props.RoomInfo.Name, props.UserInfo.UserId, getRoomInfo);
@@ -10623,9 +10703,14 @@ var Room = function (props) {
             var dataTyped = data;
             var us = new RoomInfo_1.UserInRoom();
             us.FillByBackModel(dataTyped);
-            var newState = __assign({}, localState);
-            newState.UsersList.push(us);
-            setLocalState(newState);
+            // let newState = { ...localState };
+            // newState.UsersList.push(us);
+            // setLocalState(newState);
+            setLocalState(function (prevState) {
+                var newState = __assign({}, prevState);
+                newState.UsersList.push(us);
+                return newState;
+            });
             //         console.log("newuser");
             // console.log(newState);
         });
@@ -10633,13 +10718,22 @@ var Room = function (props) {
             if (!userId) {
                 return;
             }
-            var newState = __assign({}, localState);
-            var user = GetUserById(newState.UsersList, userId);
-            if (!user) {
-                return;
-            }
-            user.Name = newUserName;
-            setLocalState(newState);
+            // let newState = { ...localState };
+            // let user = GetUserById(newState.UsersList, userId);
+            // if (!user) {
+            //     return;
+            // }
+            // user.Name = newUserName;
+            // setLocalState(newState);
+            setLocalState(function (prevState) {
+                var newState = __assign({}, prevState);
+                var user = GetUserById(newState.UsersList, userId);
+                if (!user) {
+                    return newState;
+                }
+                user.Name = newUserName;
+                return newState;
+            });
         });
         props.MyHubConnection.on("UserLeaved", function (userId) {
             if (!userId) {
@@ -10650,149 +10744,245 @@ var Room = function (props) {
                 window.location.href = "/planing-poker";
                 return;
             }
-            var newState = __assign({}, localState);
-            var userIndex = GetUserIndexById(newState.UsersList, userId);
-            if (userIndex < 0) {
-                return;
-            }
-            newState.UsersList.splice(userIndex, 1);
-            setLocalState(newState);
+            // let newState = { ...localState };
+            // let userIndex = GetUserIndexById(newState.UsersList, userId);
+            // if (userIndex < 0) {
+            //     return;
+            // }
+            // newState.UsersList.splice(userIndex, 1);
+            // setLocalState(newState);
+            setLocalState(function (prevState) {
+                var newState = __assign({}, prevState);
+                var userIndex = GetUserIndexById(newState.UsersList, userId);
+                if (userIndex < 0) {
+                    return newState;
+                }
+                newState.UsersList.splice(userIndex, 1);
+                return newState;
+            });
         });
         props.MyHubConnection.on("VoteChanged", function (userId, vote) {
             if (!userId) {
                 return;
             }
-            var newState = __assign({}, localState);
-            var user = GetUserById(newState.UsersList, userId);
-            if (!user) {
-                return;
-            }
-            user.HasVote = true;
-            if (!isNaN(vote)) {
-                user.Vote = vote;
-            }
-            // else{
+            // let newState = { ...localState };
+            // let user = GetUserById(newState.UsersList, userId);
+            // if (!user) {
+            //     return;
             // }
-            setLocalState(newState);
+            // user.HasVote = true;
+            // if (!isNaN(vote)) {
+            //     user.Vote = vote;
+            // }
+            // // else{
+            // // }
+            // setLocalState(newState);
+            setLocalState(function (prevState) {
+                var newState = __assign({}, prevState);
+                var user = GetUserById(newState.UsersList, userId);
+                if (!user) {
+                    return newState;
+                }
+                user.HasVote = true;
+                if (!isNaN(vote)) {
+                    user.Vote = vote;
+                }
+                return newState;
+            });
         });
         props.MyHubConnection.on("UserStatusChanged", function (userId, changeType, role) {
             if (!userId) {
                 return;
             }
-            var newState = __assign({}, localState);
-            var user = GetUserById(newState.UsersList, userId);
-            if (!user) {
-                return;
-            }
-            if (changeType === 1) {
-                //добавлен
-                user.Roles.push(role);
-            }
-            else {
-                //удален
-                var index = user.Roles.findIndex(function (x) { return x === role; });
-                if (index >= 0) {
-                    user.Roles.splice(index, 1);
+            // let newState = { ...localState };
+            // let user = GetUserById(newState.UsersList, userId);
+            // if (!user) {
+            //     return;
+            // }
+            // if (changeType === 1) {
+            //     //добавлен
+            //     user.Roles.push(role);
+            // }
+            // else {
+            //     //удален
+            //     let index = user.Roles.findIndex(x => x === role);
+            //     if (index >= 0) {
+            //         user.Roles.splice(index, 1);
+            //     }
+            // }
+            // setLocalState(newState);
+            setLocalState(function (prevState) {
+                var newState = __assign({}, prevState);
+                var user = GetUserById(newState.UsersList, userId);
+                if (!user) {
+                    return newState;
                 }
-            }
-            setLocalState(newState);
+                if (changeType === 1) {
+                    //добавлен
+                    user.Roles.push(role);
+                }
+                else {
+                    //удален
+                    var index = user.Roles.findIndex(function (x) { return x === role; });
+                    if (index >= 0) {
+                        user.Roles.splice(index, 1);
+                    }
+                }
+                return newState;
+            });
         });
         props.MyHubConnection.on("VoteStart", function () {
-            var newState = __assign({}, localState);
+            // let newState = { ...localState };
             // newState.RoomStatus = RoomSatus.AllCanVote;
             // newState.SelectedVoteCard = -1;
-            setSelectedVoteCard(-1);
-            newState.UsersList.forEach(function (x) {
-                x.Vote = null;
-                x.HasVote = false;
+            // setSelectedVoteCard(-1);
+            setSelectedVoteCard(function (prevState) {
+                return -1;
             });
-            newState.VoteInfo = new RoomInfo_1.VoteInfo();
-            setLocalState(newState);
-            setRoomStatusState(RoomInfo_1.RoomSatus.AllCanVote);
+            // newState.UsersList.forEach(x => {
+            //     x.Vote = null;
+            //     x.HasVote = false;
+            // });
+            // newState.VoteInfo = new VoteInfo();
+            // setLocalState(newState);
+            setLocalState(function (prevState) {
+                var newState = __assign({}, prevState);
+                newState.UsersList.forEach(function (x) {
+                    x.Vote = null;
+                    x.HasVote = false;
+                });
+                newState.VoteInfo = new RoomInfo_1.VoteInfo();
+                return newState;
+            });
+            // setRoomStatusState(RoomSatus.AllCanVote);
+            setRoomStatusState(function (prevState) {
+                // let newState = { ...prevState };
+                return RoomInfo_1.RoomSatus.AllCanVote;
+                // return newState;
+            });
         });
         props.MyHubConnection.on("VoteEnd", function (data) {
-            var newState = __assign({}, localState);
-            // newState.RoomStatus = RoomSatus.CloseVote;
-            // newState.SelectedVoteCard = -1;
-            setSelectedVoteCard(-1);
-            newState.UsersList.forEach(function (x) {
-                var userFromRes = data.users_info.find(function (x1) { return x1.id === x.Id; });
-                if (userFromRes) {
-                    x.Vote = userFromRes.vote;
-                }
+            // fillVoteInfo(null, data);
+            setLocalState(function (prevState) {
+                var newState = __assign({}, prevState);
+                fillVoteInfo(newState, data);
+                return newState;
             });
-            newState.VoteInfo.MaxVote = data.max_vote;
-            newState.VoteInfo.MinVote = data.min_vote;
-            newState.VoteInfo.AverageVote = data.average_vote;
-            setLocalState(newState);
-            setRoomStatusState(RoomInfo_1.RoomSatus.CloseVote);
+            // setRoomStatusState(RoomSatus.CloseVote);
+            setRoomStatusState(function (prevState) {
+                // let newState = { ...prevState };
+                return RoomInfo_1.RoomSatus.CloseVote;
+                // return newState;
+            });
         });
         props.MyHubConnection.on("AddedNewStory", function (data) {
-            var newState = __assign({}, storiesState);
-            var newStory = new RoomInfo_1.Story();
-            newStory.FillByBackModel(data);
-            newState.Stories.push(newStory);
-            setStoriesState(newState);
+            // let newState = { ...storiesState };
+            // let newStory = new Story();
+            // newStory.FillByBackModel(data);
+            // newState.Stories.push(newStory);
+            // setStoriesState(newState);
+            setStoriesState(function (prevState) {
+                var newState = __assign({}, prevState);
+                var newStory = new RoomInfo_1.Story();
+                newStory.FillByBackModel(data);
+                newState.Stories.push(newStory);
+                return newState;
+            });
         });
         props.MyHubConnection.on("NewCurrentStory", function (id) {
             //изменении в целом объекта текущей истории
-            var newState = __assign({}, storiesState);
-            var story = GetStoryById(newState.Stories, id);
-            if (!story) {
-                return;
-            }
-            newState.CurrentStoryId = id;
-            newState.CurrentStoryDescription = story.Description;
-            newState.CurrentStoryDescriptionChange = story.Description;
-            newState.CurrentStoryName = story.Name;
-            newState.CurrentStoryNameChange = story.Name;
-            setStoriesState(newState);
+            // let newState = { ...storiesState };
+            // newState.CurrentStoryId = id;
+            // setStoriesState(newState);
+            setStoriesState(function (prevState) {
+                var newState = __assign({}, prevState);
+                newState.CurrentStoryId = id;
+                return newState;
+            });
         });
         props.MyHubConnection.on("CurrentStoryChanged", function (id, newName, newDescription) {
             //изменение данных текущей истории
-            var newState = __assign({}, storiesState);
-            var story = GetStoryById(newState.Stories, id);
-            newState.CurrentStoryId = id;
-            newState.CurrentStoryDescription = newDescription;
-            newState.CurrentStoryDescriptionChange = newDescription;
-            newState.CurrentStoryName = newName;
-            newState.CurrentStoryNameChange = newName;
-            if (story) {
-                story.Name = newName;
-                story.Description = newDescription;
-            }
-            setStoriesState(newState);
+            // let newState = { ...storiesState };
+            // let story = storiesHelper.GetStoryById(newState.Stories, id);
+            // if (story) {
+            //     newState.CurrentStoryId = id;
+            //     story.Name = newName;
+            //     story.Description = newDescription;
+            //     setStoriesState(newState);
+            //     if (storiesState.ClearTmpFuncForStories) {
+            //         storiesState.ClearTmpFuncForStories();
+            //     }
+            // }
+            setStoriesState(function (prevState) {
+                var newState = __assign({}, prevState);
+                var story = storiesHelper.GetStoryById(newState.Stories, id);
+                newState.CurrentStoryNameChange = newName;
+                newState.CurrentStoryDescriptionChange = newDescription;
+                if (story) {
+                    newState.CurrentStoryId = id;
+                    story.Name = newName;
+                    story.Description = newDescription;
+                    if (storiesState.ClearTmpFuncForStories) {
+                        storiesState.ClearTmpFuncForStories();
+                    }
+                }
+                return newState;
+            });
         });
         props.MyHubConnection.on("DeletedStory", function (id) {
             //изменение данных текущей истории
-            var newState = __assign({}, storiesState);
-            var storyIndex = GetStoryIndexById(newState.Stories, id);
-            if (storyIndex < 0) {
-                return;
-            }
-            newState.Stories.splice(storyIndex, 1);
-            if (newState.CurrentStoryId == id) {
-                newState.CurrentStoryId = -1;
-                newState.CurrentStoryDescription = "";
-                newState.CurrentStoryDescriptionChange = "";
-                newState.CurrentStoryName = "";
-                newState.CurrentStoryNameChange = "";
-            }
-            setStoriesState(newState);
+            // let newState = { ...storiesState };
+            // let storyIndex = storiesHelper.GetStoryIndexById(newState.Stories, id);
+            // if (storyIndex < 0) {
+            //     return;
+            // }
+            // newState.Stories.splice(storyIndex, 1);
+            // if (newState.CurrentStoryId == id) {
+            //     newState.CurrentStoryId = -1;
+            // }
+            // setStoriesState(newState);
+            setStoriesState(function (prevState) {
+                var newState = __assign({}, prevState);
+                var storyIndex = storiesHelper.GetStoryIndexById(newState.Stories, id);
+                if (storyIndex < 0) {
+                    return newState;
+                }
+                newState.Stories.splice(storyIndex, 1);
+                if (newState.CurrentStoryId == id) {
+                    newState.CurrentStoryId = -1;
+                }
+                return newState;
+            });
         });
     }, []);
+    var fillVoteInfo = function (state, data) {
+        // let newState = state || { ...localState };
+        // setSelectedVoteCard(-1);
+        setSelectedVoteCard(function (prevState) {
+            return -1;
+        });
+        state.UsersList.forEach(function (x) {
+            var userFromRes = data.users_info.find(function (x1) { return x1.id === x.Id; });
+            if (userFromRes) {
+                x.Vote = userFromRes.vote;
+            }
+        });
+        state.VoteInfo.MaxVote = data.max_vote;
+        state.VoteInfo.MinVote = data.min_vote;
+        state.VoteInfo.AverageVote = data.average_vote;
+    };
     if (!props.RoomInfo.InRoom) {
         return react_1.default.createElement("h1", null, "\u043F\u044B\u0442\u0430\u0435\u043C\u0441\u044F \u0432\u043E\u0439\u0442\u0438");
     }
     var tryToRemoveUserFromRoom = function (userId) {
-        var isAdmin = CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId);
-        if (!isAdmin) {
+        // let isAdmin = CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId);
+        if (!currentUserIsAdmin) {
             return;
         }
         props.MyHubConnection.send("KickUser", props.RoomInfo.Name, userId);
     };
     var doVote = function (voteCardBlock) { return __awaiter(void 0, void 0, void 0, function () {
-        var alert_1, voted, newState;
+        var alert_1, voted;
         var _a, _b;
         return __generator(this, function (_c) {
             switch (_c.label) {
@@ -10815,10 +11005,11 @@ var Room = function (props) {
                     if (!voted) {
                         return [2 /*return*/];
                     }
-                    newState = __assign({}, localState);
                     // newState.SelectedVoteCard = +voteCardBlock.target.dataset.vote;
-                    setSelectedVoteCard(+voteCardBlock.target.dataset.vote);
-                    setLocalState(newState);
+                    // setSelectedVoteCard(+voteCardBlock.target.dataset.vote);
+                    setSelectedVoteCard(function (prevState) {
+                        return +voteCardBlock.target.dataset.vote;
+                    });
                     return [2 /*return*/];
             }
         });
@@ -10854,24 +11045,39 @@ var Room = function (props) {
     var tryEndVote = function () {
         props.MyHubConnection.send("EndVote", props.RoomInfo.Name);
     };
-    var changeCurrentStory = function () {
-        props.MyHubConnection.send("ChangeCurrentStory", props.RoomInfo.Name, storiesState.CurrentStoryId, storiesState.CurrentStoryNameChange, storiesState.CurrentStoryDescriptionChange);
-    };
-    var cancelChangeCurrentStory = function () {
-        var newState = __assign({}, storiesState);
-        newState.CurrentStoryDescriptionChange = newState.CurrentStoryDescription;
-        newState.CurrentStoryName = newState.CurrentStoryName;
-        setStoriesState(newState);
-    };
     var makeCurrentStory = function (id) {
         props.MyHubConnection.send("MakeCurrentStory", props.RoomInfo.Name, id);
     };
     var deleteStory = function (id) {
         props.MyHubConnection.send("DeleteStory", props.RoomInfo.Name, id);
     };
+    // const setClearTmpFuncForStories = (func: () => void) => {
+    //     // let newState = { ...storiesState };
+    //     // newState.ClearTmpFuncForStories = func;
+    //     // setStoriesState(newState);
+    //     setStoriesState(prevState => {
+    //         let newState = { ...prevState };
+    //         newState.ClearTmpFuncForStories = func;
+    //         return newState;
+    //     });
+    // }
+    var currentStoryDescriptionOnChange = function (str) {
+        setStoriesState(function (prevState) {
+            var newState = __assign({}, prevState);
+            newState.CurrentStoryDescriptionChange = str;
+            return newState;
+        });
+    };
+    var currentStoryNameOnChange = function (str) {
+        setStoriesState(function (prevState) {
+            var newState = __assign({}, prevState);
+            newState.CurrentStoryNameChange = str;
+            return newState;
+        });
+    };
     var roomMainActionButton = function () {
-        var isAdmin = CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId);
-        if (isAdmin) {
+        // let isAdmin = CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId);
+        if (currentUserIsAdmin) {
             return react_1.default.createElement("div", null,
                 react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return tryStartVote(); } }, "\u041D\u0430\u0447\u0430\u0442\u044C \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u0435"),
                 react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return tryEndVote(); } }, "\u0417\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u0435"));
@@ -10880,12 +11086,18 @@ var Room = function (props) {
     };
     var settingsUpUserListRender = function () {
         var hideVotesSetting = react_1.default.createElement("div", null);
-        if (CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId)) {
+        // if (CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId)) {
+        if (currentUserIsAdmin) {
             hideVotesSetting = react_1.default.createElement("div", null,
                 react_1.default.createElement("div", { className: "padding-10-top" }),
                 react_1.default.createElement("div", { className: "planning-vote-settings" },
                     react_1.default.createElement("label", null, "\u0421\u043A\u0440\u044B\u0432\u0430\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0438"),
-                    react_1.default.createElement("input", { onClick: function () { return setHideVoteState(!hideVoteState); }, type: "checkbox" })));
+                    react_1.default.createElement("input", { onClick: function () {
+                            // setHideVoteState(!hideVoteState)
+                            setHideVoteState(function (prevState) {
+                                return !hideVoteState;
+                            });
+                        }, type: "checkbox" })));
         }
         var changeUserName = function () {
             props.MyHubConnection.invoke("UserNameChange", props.RoomInfo.Name, userNameLocalState).then(function (dt) {
@@ -10901,24 +11113,30 @@ var Room = function (props) {
         };
         var updateAllUsers = function () {
             var loadedUsers = function (error, data) {
-                var _a;
                 if (error) {
                     //TODO выбить из комнаты?
                     alert("todo что то пошло не так лучше обновить страницу");
                     return;
                 }
                 if (data) {
-                    var newUsersData = data.map(function (x) {
+                    var newUsersData_2 = data.map(function (x) {
                         var us = new RoomInfo_1.UserInRoom();
                         us.FillByBackModel(x);
                         return us;
                     });
-                    var newState = __assign({}, localState);
-                    //реинициализировать нельзя, почему то отваливается
-                    newState.UsersList.splice(0, newState.UsersList.length);
-                    (_a = newState.UsersList).push.apply(_a, newUsersData);
-                    // newState.UsersList = newUsersData;
-                    setLocalState(newState);
+                    // let newState = { ...localState };
+                    // //реинициализировать нельзя, почему то отваливается
+                    // newState.UsersList.splice(0, newState.UsersList.length);
+                    // newState.UsersList.push(...newUsersData);
+                    // // newState.UsersList = newUsersData;
+                    // setLocalState(newState);
+                    setLocalState(function (prevState) {
+                        var _a;
+                        var newState = __assign({}, prevState);
+                        newState.UsersList.splice(0, newState.UsersList.length);
+                        (_a = newState.UsersList).push.apply(_a, newUsersData_2);
+                        return newState;
+                    });
                 }
             };
             // console.log(JSON.stringify(props));
@@ -10926,60 +11144,15 @@ var Room = function (props) {
         };
         return react_1.default.createElement("div", null,
             react_1.default.createElement("p", null, "\u0434\u043E\u043F \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"),
-            react_1.default.createElement("input", { type: "text", className: "persent-100-width form-control", onChange: function (e) { return setUserNameLocalState(e.target.value); }, value: userNameLocalState }),
+            react_1.default.createElement("input", { type: "text", className: "persent-100-width form-control", onChange: function (e) {
+                    // setUserNameLocalState(e.target.value)
+                    setUserNameLocalState(function (prevState) {
+                        return e.target.value;
+                    });
+                }, value: userNameLocalState }),
             react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return changeUserName(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u043C\u044F"),
             react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return updateAllUsers(); } }, "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u044C \u0441\u043F\u0438\u0441\u043E\u043A \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439"),
             hideVotesSetting);
-    };
-    var currentStoryDescriptionRender = function () {
-        if (storiesState.CurrentStoryId < 0) {
-            return react_1.default.createElement("div", null);
-        }
-        var story = GetStoryById(storiesState.Stories, storiesState.CurrentStoryId);
-        if (!story) {
-            return react_1.default.createElement("div", null);
-        }
-        return react_1.default.createElement("div", { className: "planing-current-story-main" },
-            react_1.default.createElement("p", null, "\u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0442\u0435\u043A\u0443\u0449\u0435\u0439 \u0437\u0430\u0434\u0430\u0447\u0438"),
-            react_1.default.createElement("div", null,
-                react_1.default.createElement("p", null, story.Id),
-                react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435", value: storiesState.CurrentStoryNameChange, type: "text", onChange: function (e) {
-                        var newState = __assign({}, storiesState);
-                        newState.CurrentStoryNameChange = e.target.value;
-                        setStoriesState(newState);
-                    } }),
-                react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435", value: storiesState.CurrentStoryDescriptionChange, type: "text", onChange: function (e) {
-                        var newState = __assign({}, storiesState);
-                        newState.CurrentStoryDescriptionChange = e.target.value;
-                        setStoriesState(newState);
-                    } })),
-            react_1.default.createElement("button", { onClick: function () { return changeCurrentStory(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C"),
-            react_1.default.createElement("button", { onClick: function () { return cancelChangeCurrentStory(); } }, "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C"));
-    };
-    var AddNewStory = function () {
-        props.MyHubConnection.send("AddNewStory", props.RoomInfo.Name, storiesState.NameForAdd, storiesState.DescriptionForAdd);
-    };
-    var storiesListRender = function () {
-        return react_1.default.createElement("div", { className: "planing-stories-list-main" },
-            react_1.default.createElement("p", null, "\u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
-            react_1.default.createElement("div", null, storiesState.Stories.map(function (x) { return react_1.default.createElement("div", { key: x.Id },
-                react_1.default.createElement("p", null, x.Id),
-                react_1.default.createElement("p", null, x.Name),
-                react_1.default.createElement("p", null, x.Description),
-                react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return makeCurrentStory(x.Id); } }, "\u0421\u0434\u0435\u043B\u0430\u0442\u044C \u0442\u0435\u043A\u0443\u0449\u0435\u0439"),
-                react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return deleteStory(x.Id); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")); })),
-            react_1.default.createElement("div", null,
-                react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435", value: storiesState.NameForAdd, type: "text", onChange: function (e) {
-                        var newState = __assign({}, storiesState);
-                        newState.NameForAdd = e.target.value;
-                        setStoriesState(newState);
-                    } }),
-                react_1.default.createElement("textarea", { className: "persent-100-width form-control", placeholder: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435", value: storiesState.DescriptionForAdd, onChange: function (e) {
-                        var newState = __assign({}, storiesState);
-                        newState.DescriptionForAdd = e.target.value;
-                        setStoriesState(newState);
-                    } }),
-                react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return AddNewStory(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C")));
     };
     return react_1.default.createElement("div", { className: "container" },
         react_1.default.createElement("div", { className: "padding-10-top" }),
@@ -10993,19 +11166,250 @@ var Room = function (props) {
                     roomMainActionButton(),
                     renderVotePlaceIfNeed(),
                     renderVoteResultIfNeed()),
-                react_1.default.createElement("div", null, currentStoryDescriptionRender()),
-                react_1.default.createElement("div", null, storiesListRender())),
+                react_1.default.createElement(StoriesSection_1.default, { CurrentStoryId: storiesState.CurrentStoryId, MyHubConnection: props.MyHubConnection, RoomName: props.RoomInfo.Name, Stories: storiesState.Stories, DeleteStory: deleteStory, MakeCurrentStory: makeCurrentStory, IsAdmin: currentUserIsAdmin, CurrentStoryDescriptionChange: storiesState.CurrentStoryDescriptionChange, CurrentStoryNameChange: storiesState.CurrentStoryNameChange, CurrentStoryDescriptionOnChange: currentStoryDescriptionOnChange, CurrentStoryNameOnChange: currentStoryNameOnChange })),
             react_1.default.createElement("div", { className: "planit-room-right-part col-12 col-md-3" },
                 react_1.default.createElement("div", null, settingsUpUserListRender()),
                 react_1.default.createElement("div", { className: "padding-10-top" }),
                 react_1.default.createElement("div", null, "\u043B\u044E\u0434\u0438"),
                 localState.UsersList.map(function (x) {
-                    return react_1.default.createElement(UserInList_1.default, { key: x.Id, User: x, TryToRemoveUserFromRoom: tryToRemoveUserFromRoom, RenderForAdmin: CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId), HideVote: hideVoteState, HasVote: x.HasVote, RoomStatus: roomStatusState, MaxVote: localState.VoteInfo.MaxVote, MinVote: localState.VoteInfo.MinVote, MyHubConnection: props.MyHubConnection, RoomName: props.RoomInfo.Name });
+                    return react_1.default.createElement(UserInList_1.default, { key: x.Id, User: x, TryToRemoveUserFromRoom: tryToRemoveUserFromRoom, RenderForAdmin: currentUserIsAdmin, HideVote: hideVoteState, HasVote: x.HasVote, RoomStatus: roomStatusState, MaxVote: localState.VoteInfo.MaxVote, MinVote: localState.VoteInfo.MinVote, MyHubConnection: props.MyHubConnection, RoomName: props.RoomInfo.Name });
                 })),
             react_1.default.createElement("div", { className: "display_none" },
                 react_1.default.createElement(react_router_dom_1.Link, { id: "move_to_index_link_react", to: "/planing-poker/" }, "hidden"))));
 };
 exports.default = Room;
+
+
+/***/ }),
+
+/***/ "./src/components/Body/PlaningPoker/StoriesSection.tsx":
+/*!*************************************************************!*\
+  !*** ./src/components/Body/PlaningPoker/StoriesSection.tsx ***!
+  \*************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "react"));
+// import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+var RoomInfo_1 = __webpack_require__(/*! ./Models/RoomInfo */ "./src/components/Body/PlaningPoker/Models/RoomInfo.ts");
+var StoriesSectionProp = /** @class */ (function () {
+    function StoriesSectionProp() {
+    }
+    return StoriesSectionProp;
+}());
+var StoriesSectionState = /** @class */ (function () {
+    function StoriesSectionState() {
+        this.NameForAdd = "";
+        this.DescriptionForAdd = "";
+        // this.CurrentStoryNameChange = "";
+        // this.CurrentStoryDescriptionChange = "";
+    }
+    return StoriesSectionState;
+}());
+var StoriesSection = function (props) {
+    var initStories = new StoriesSectionState();
+    var _a = react_1.useState(initStories), storiesState = _a[0], setStoriesState = _a[1];
+    var storiesHelper = new RoomInfo_1.StoriesHelper();
+    react_1.useEffect(function () {
+        ResetCurrentStoryById();
+    }, [props.CurrentStoryId]);
+    react_1.useEffect(function () {
+        // props.SetClearTmpFuncForStories(() => {
+        //     ResetCurrentStoryById();
+        // });
+    }, []);
+    var cancelChangeCurrentStory = function () {
+        // let newState = { ...storiesState };
+        // let story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
+        // if (!story) {
+        //     return;
+        // }
+        // newState.CurrentStoryDescriptionChange = story.Description;
+        // newState.CurrentStoryNameChange = story.Name;
+        // setStoriesState(newState);
+        var story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
+        props.CurrentStoryDescriptionOnChange(story.Description);
+        props.CurrentStoryNameOnChange(story.Name);
+        // setStoriesState(prevState => {
+        //     let newState = { ...prevState };
+        //     let story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
+        //     if (!story) {
+        //         return newState;
+        //     }
+        //     // newState.CurrentStoryDescriptionChange = story.Description;
+        //     // newState.CurrentStoryNameChange = story.Name;
+        //     return newState;
+        // });
+    };
+    var changeCurrentStory = function () {
+        props.MyHubConnection.send("ChangeCurrentStory", props.RoomName, props.CurrentStoryId, props.CurrentStoryNameChange, props.CurrentStoryDescriptionChange);
+    };
+    var ResetCurrentStoryById = function () {
+        if (props.CurrentStoryId < 0) {
+            // let newState = { ...storiesState };
+            // newState.CurrentStoryDescriptionChange = "";
+            // newState.CurrentStoryNameChange = "";
+            // setStoriesState(newState);
+            props.CurrentStoryDescriptionOnChange("");
+            props.CurrentStoryNameOnChange("");
+            // setStoriesState(prevState => {
+            //     let newState = { ...prevState };
+            //     newState.CurrentStoryDescriptionChange = "";
+            //     newState.CurrentStoryNameChange = "";
+            //     return newState;
+            // });
+            return;
+        }
+        // let newState = { ...storiesState };
+        // let story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
+        // if (!story) {
+        //     return;
+        // }
+        // newState.CurrentStoryDescriptionChange = story.Description;
+        // newState.CurrentStoryNameChange = story.Name;
+        // setStoriesState(newState);
+        var story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
+        props.CurrentStoryDescriptionOnChange(story.Description);
+        props.CurrentStoryNameOnChange(story.Name);
+        // setStoriesState(prevState => {
+        //     let newState = { ...prevState };
+        //     let story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
+        //     if (!story) {
+        //         return newState;
+        //     }
+        //     newState.CurrentStoryDescriptionChange = story.Description;
+        //     newState.CurrentStoryNameChange = story.Name;
+        //     return newState;
+        // });
+    };
+    var currentStoryDescriptionRender = function () {
+        if (props.CurrentStoryId < 0) {
+            return react_1.default.createElement("div", null);
+        }
+        var story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
+        if (!story) {
+            return react_1.default.createElement("div", null);
+        }
+        var adminButton = react_1.default.createElement("div", null);
+        if (props.IsAdmin) {
+            adminButton = react_1.default.createElement("div", null,
+                react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return changeCurrentStory(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C"),
+                react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return cancelChangeCurrentStory(); } }, "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C"));
+        }
+        return react_1.default.createElement("div", { className: "planing-current-story-main" },
+            react_1.default.createElement("p", null, "\u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0442\u0435\u043A\u0443\u0449\u0435\u0439 \u0437\u0430\u0434\u0430\u0447\u0438"),
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("p", null, story.Id),
+                react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435", value: props.CurrentStoryNameChange, type: "text", onChange: function (e) {
+                        // let newState = { ...storiesState };
+                        // newState.CurrentStoryNameChange = e.target.value;
+                        // setStoriesState(newState);
+                        props.CurrentStoryNameOnChange(e.target.value);
+                        // setStoriesState(prevState => {
+                        //     let newState = { ...prevState };
+                        //     newState.CurrentStoryNameChange = e.target.value;
+                        //     return newState;
+                        // });
+                    } }),
+                react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435", value: props.CurrentStoryDescriptionChange, type: "text", onChange: function (e) {
+                        // let newState = { ...storiesState };
+                        // newState.CurrentStoryDescriptionChange = e.target.value;
+                        // setStoriesState(newState);
+                        props.CurrentStoryDescriptionOnChange(e.target.value);
+                        // setStoriesState(prevState => {
+                        //     let newState = { ...prevState };
+                        //     newState.CurrentStoryDescriptionChange = e.target.value;
+                        //     return newState;
+                        // });
+                    } })),
+            adminButton);
+    };
+    var AddNewStory = function () {
+        props.MyHubConnection.send("AddNewStory", props.RoomName, storiesState.NameForAdd, storiesState.DescriptionForAdd);
+    };
+    var storiesListRender = function () {
+        var adminButtonInList = function (id) {
+            return react_1.default.createElement(react_1.Fragment, null);
+        };
+        //todo как то норм назвать
+        var adminButtonNotInList = react_1.default.createElement("div", null);
+        if (props.IsAdmin) {
+            adminButtonInList = function (id) {
+                return react_1.default.createElement("div", null,
+                    react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return props.MakeCurrentStory(id); } }, "\u0421\u0434\u0435\u043B\u0430\u0442\u044C \u0442\u0435\u043A\u0443\u0449\u0435\u0439"),
+                    react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return props.DeleteStory(id); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"));
+            };
+            adminButtonNotInList = react_1.default.createElement("div", null,
+                react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return AddNewStory(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"));
+        }
+        return react_1.default.createElement("div", { className: "planing-stories-list-main" },
+            react_1.default.createElement("p", null, "\u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
+            react_1.default.createElement("div", null, props.Stories.map(function (x) { return react_1.default.createElement("div", { key: x.Id },
+                react_1.default.createElement("p", null, x.Id),
+                react_1.default.createElement("p", null, x.Name),
+                react_1.default.createElement("p", null, x.Description),
+                adminButtonInList(x.Id),
+                react_1.default.createElement("hr", null)); })),
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435", value: storiesState.NameForAdd, type: "text", onChange: function (e) {
+                        // let newState = { ...storiesState };
+                        // newState.NameForAdd = e.target.value;
+                        // setStoriesState(newState);
+                        setStoriesState(function (prevState) {
+                            var newState = __assign({}, prevState);
+                            newState.NameForAdd = e.target.value;
+                            return newState;
+                        });
+                    } }),
+                react_1.default.createElement("textarea", { className: "persent-100-width form-control", placeholder: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435", value: storiesState.DescriptionForAdd, onChange: function (e) {
+                        // let newState = { ...storiesState };
+                        // newState.DescriptionForAdd = e.target.value;
+                        // setStoriesState(newState);
+                        setStoriesState(function (prevState) {
+                            var newState = __assign({}, prevState);
+                            newState.DescriptionForAdd = e.target.value;
+                            return newState;
+                        });
+                    } }),
+                adminButtonNotInList));
+    };
+    return react_1.default.createElement("div", null,
+        react_1.default.createElement("div", null, currentStoryDescriptionRender()),
+        react_1.default.createElement("div", null, storiesListRender()));
+};
+exports.default = StoriesSection;
 
 
 /***/ }),
@@ -11064,7 +11468,12 @@ var UserInList = function (props) {
         delButton = react_1.default.createElement("div", null,
             react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return props.TryToRemoveUserFromRoom(props.User.Id); } }, "\u0412\u044B\u0433\u043D\u0430\u0442\u044C"));
         statusChange = react_1.default.createElement("div", null,
-            react_1.default.createElement("select", { value: selectedEditRole, onChange: function (e) { return changeSelectedEditRoleState(e.target.value); } },
+            react_1.default.createElement("select", { value: selectedEditRole, onChange: function (e) {
+                    // changeSelectedEditRoleState(e.target.value)
+                    changeSelectedEditRoleState(function (prevState) {
+                        return e.target.value;
+                    });
+                } },
                 react_1.default.createElement("option", { value: "-" }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
                 react_1.default.createElement("option", { value: RoomInfo_1.UserRoles.User }, RoomInfo_1.UserRoles.User),
                 react_1.default.createElement("option", { value: RoomInfo_1.UserRoles.Admin }, RoomInfo_1.UserRoles.Admin),

@@ -11,10 +11,18 @@ namespace PlanitPoker.Models
         public string Description { get; set; }
         public double Vote { get; set; }
         public DateTime Date { get; set; }
+        public bool Completed { get; set; }
 
         public Story()
         {
 
+        }
+
+
+        public Story Clone()
+        {
+            var res = (Story)this.MemberwiseClone();
+            return res;
         }
     }
 }

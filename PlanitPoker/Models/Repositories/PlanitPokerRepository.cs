@@ -524,12 +524,40 @@ namespace PlanitPoker.Models.Repositories
 
 
 
+        public async Task<bool> MakeStoryComplete(string roomName, long storyId, string userId)
+        {
+            var room = await TryGetRoom(roomName);
+            return await MakeStoryComplete(room, storyId, userId);
+        }
+
+
+        public async Task<bool> MakeStoryComplete(Room room, long storyId, string userId)
+        {
+            return await UpdateIfCan(room,userId,rm=>
+            {
+                var story = rm.Stories.FirstOrDefault(x=>x.Id==storyId);
+                if (story == null)
+                {
+                    return false;
+
+                }
+                //todo возможно на +-этом моменте надо писать в бд и обновлять сразу id стори, 
+                //или может отдавать юзеру ответ и параллельно это делать
+                // или ждать уже полное сохранение комнаты
+                story.Completed = true;
+                story.Date = DateTime.Now;
+                return true;
+            });
+            //room.SetConcurentValue(_multiThreadHelper);
+        }
+
+
 
         //---------------------------------------------------------------------private
 
         private async Task<bool> UpdateIfCan(Room room, string userIdRequest, Func<StoredRoom, bool> workWithRoom)
         {
-            if (room == null || string.IsNullOrWhiteSpace(userIdRequest))
+            if (room == null || string.IsNullOrWhiteSpace(userIdRequest)|| workWithRoom==null)
             {
                 return false;
             }

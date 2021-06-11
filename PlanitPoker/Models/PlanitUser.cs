@@ -14,6 +14,8 @@ namespace PlanitPoker.Models
         ////не актуально на стороне сервера, проставлятся только для отправки на ui. todo можно вынести в отдельную модель
         public bool HasVote { get; set; }
 
+        public string Login { get; set; }//если пользак авторизован полностью в мейн апе
+
         public bool IsAdmin
         {
             get
