@@ -57,12 +57,15 @@ namespace PlanitPoker.Models.Hubs
 
 
         public PlanitPokerHub(IPlanitPokerRepository planitPokerRepository, MultiThreadHelper multiThreadHelper,
-            IStringValidator stringValidator, IPlanitPokerService planitPokerService)
+            IStringValidator stringValidator, IPlanitPokerService planitPokerService,
+            IApiHelper apiHealper, IJWTService jwtService)
         {
             _planitPokerRepository = planitPokerRepository;
             _multiThreadHelper = multiThreadHelper;
             _stringValidator = stringValidator;
             _planitPokerService = planitPokerService;
+            _apiHealper = apiHealper;
+            _jwtService = jwtService;
         }
 
         //static void InitStaticMembers()
@@ -91,21 +94,21 @@ namespace PlanitPoker.Models.Hubs
             var expired = false;
             try
             {
-                (expired, userInfo) = _apiHealper.GetUserInfoWithExpired(Context.GetHttpContext().Request, _jwtService,false);
+                (expired, userInfo) = _apiHealper.GetUserInfoWithExpired(Context.GetHttpContext().Request, _jwtService, false);
             }
             catch
-            {}
+            { }
 
             if (expired)
-            {                
+            {
                 //todo тут надо что то типо вернуть ошибку на рефреш
             }
 
             var user = new PlanitUser()
             {
-                MainAppUserId= userInfo?.UserId,
+                MainAppUserId = userInfo?.UserId,
                 PlaningAppUserId = GenerateUniqueUserId(),
-                UserConnectionId = Context.ConnectionId,
+                UserConnectionId = GetConnectionId(),
                 Name = username,
                 Role = GetCreatorRoles(),
             };
@@ -177,7 +180,7 @@ namespace PlanitPoker.Models.Hubs
             {
                 MainAppUserId = userInfo?.UserId,
                 PlaningAppUserId = GenerateUniqueUserId(),
-                UserConnectionId = Context.ConnectionId,
+                UserConnectionId = GetConnectionId(),
                 Name = username,
                 Role = GetDefaultRoles(),
             };
@@ -196,7 +199,7 @@ namespace PlanitPoker.Models.Hubs
                 return;
             }
 
-            var success = await _planitPokerRepository.ChangeStatusIfCan(room, Context.ConnectionId, Enums.RoomSatus.AllCanVote);
+            var success = await _planitPokerRepository.ChangeStatusIfCan(room, GetConnectionId(), Enums.RoomSatus.AllCanVote);
             if (!success)
             {
                 return;
@@ -226,7 +229,7 @@ namespace PlanitPoker.Models.Hubs
                 return;
             }
 
-            var success = await _planitPokerRepository.ChangeStatusIfCan(room, Context.ConnectionId, Enums.RoomSatus.CloseVote);
+            var success = await _planitPokerRepository.ChangeStatusIfCan(room, GetConnectionId(), Enums.RoomSatus.CloseVote);
             if (!success)
             {
                 return;
@@ -283,7 +286,7 @@ namespace PlanitPoker.Models.Hubs
             }
 
 
-            var changed = await _planitPokerRepository.ChangeVote(room, Context.ConnectionId, vote);
+            var changed = await _planitPokerRepository.ChangeVote(room, GetConnectionId(), vote);
             if (!changed)
             {
                 return false;
@@ -292,10 +295,10 @@ namespace PlanitPoker.Models.Hubs
             var adminsId = await _planitPokerRepository.GetAdminsId(room);
             if (adminsId != null && adminsId.Count > 0)
             {
-                await Clients.Clients(adminsId).SendAsync(VoteChanged, Context.ConnectionId, vote);
+                await Clients.Clients(adminsId).SendAsync(VoteChanged, GetConnectionId(), vote);
             }
 
-            await Clients.GroupExcept(roomname, adminsId).SendAsync(VoteChanged, Context.ConnectionId, "?");
+            await Clients.GroupExcept(roomname, adminsId).SendAsync(VoteChanged, GetConnectionId(), "?");
             //await Clients.Caller.SendAsync(VoteSuccess, vote);
             return true;
 
@@ -305,7 +308,7 @@ namespace PlanitPoker.Models.Hubs
         {
             roomname = ValidateString(roomname);
             userId = ValidateString(userId);
-            var kicked = await _planitPokerRepository.KickFromRoom(roomname, Context.ConnectionId, userId);
+            var kicked = await _planitPokerRepository.KickFromRoom(roomname, GetConnectionId(), userId);
 
             if (kicked)
             {
@@ -323,7 +326,7 @@ namespace PlanitPoker.Models.Hubs
         {
             roomname = ValidateString(roomname);
             newUserName = ValidateString(newUserName);
-            string userId = Context.ConnectionId;
+            string userId = GetConnectionId();
             var sc = await _planitPokerRepository.ChangeUserName(roomname, userId, newUserName);
 
             if (sc)
@@ -343,7 +346,7 @@ namespace PlanitPoker.Models.Hubs
             userId = ValidateString(userId);
             newRole = ValidateString(newRole);
 
-            var sc = await _planitPokerRepository.AddNewStatusToUser(roomname, userId, newRole, Context.ConnectionId);
+            var sc = await _planitPokerRepository.AddNewStatusToUser(roomname, userId, newRole, GetConnectionId());
             if (sc)
             {
                 await Clients.Group(roomname).SendAsync(UserStatusChanged, userId, 1, newRole);
@@ -356,7 +359,7 @@ namespace PlanitPoker.Models.Hubs
             userId = ValidateString(userId);
             oldRole = ValidateString(oldRole);
 
-            var sc = await _planitPokerRepository.RemoveStatusUser(roomname, userId, oldRole, Context.ConnectionId);
+            var sc = await _planitPokerRepository.RemoveStatusUser(roomname, userId, oldRole, GetConnectionId());
             if (sc)
             {
                 await Clients.Group(roomname).SendAsync(UserStatusChanged, userId, 2, oldRole);
@@ -376,7 +379,7 @@ namespace PlanitPoker.Models.Hubs
                 Description = storyDescription,
             };
 
-            var sc = await _planitPokerRepository.AddNewStory(roomname, Context.ConnectionId, newStory);
+            var sc = await _planitPokerRepository.AddNewStory(roomname, GetConnectionId(), newStory);
 
             if (sc)
             {
@@ -397,7 +400,7 @@ namespace PlanitPoker.Models.Hubs
                 Description = storyDescription,
             };
 
-            var sc = await _planitPokerRepository.ChangeStory(roomname, Context.ConnectionId, newStory);
+            var sc = await _planitPokerRepository.ChangeStory(roomname, GetConnectionId(), newStory);
 
             if (sc)
             {
@@ -409,7 +412,7 @@ namespace PlanitPoker.Models.Hubs
         {
             roomname = ValidateString(roomname);
             //todo NewCurrentStory
-            var sc = await _planitPokerRepository.ChangeCurrentStory(roomname, Context.ConnectionId, storyId);
+            var sc = await _planitPokerRepository.ChangeCurrentStory(roomname, GetConnectionId(), storyId);
 
             if (sc)
             {
@@ -421,7 +424,7 @@ namespace PlanitPoker.Models.Hubs
         {
             roomname = ValidateString(roomname);
             //todo DeletedStory
-            var sc = await _planitPokerRepository.DeleteStory(roomname, Context.ConnectionId, storyId);
+            var sc = await _planitPokerRepository.DeleteStory(roomname, GetConnectionId(), storyId);
 
             if (sc)
             {
@@ -432,7 +435,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task MakeStoryComplete(string roomname, long storyId)
         {
-            var res = await _planitPokerRepository.MakeStoryComplete(roomname, storyId, Context.ConnectionId);
+            var res = await _planitPokerRepository.MakeStoryComplete(roomname, storyId, GetConnectionId());
             if (res)
             {
                 await Clients.Group(roomname).SendAsync(MovedStoryToComplete, storyId);
@@ -471,7 +474,7 @@ namespace PlanitPoker.Models.Hubs
             var cookiesHasRoomName = httpContext.Request.Cookies.TryGetValue("planing_poker_roomname", out string roomName);
             if (cookiesHasRoomName && !string.IsNullOrWhiteSpace(roomName))
             {
-                var userId = Context.ConnectionId;
+                var userId = GetConnectionId();
                 await _planitPokerRepository.LeaveFromRoom(roomName, userId);
                 await Clients.Group(roomName).SendAsync(UserLeaved, userId);
             }

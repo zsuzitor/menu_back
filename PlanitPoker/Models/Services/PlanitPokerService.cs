@@ -18,7 +18,7 @@ namespace PlanitPoker.Models.Services
             _planitRepo = planitRepo;
         }
 
-        public async Task<List<PlanitUser>> GetAllUsersWithRight(Room room, string userId)
+        public async Task<List<PlanitUser>> GetAllUsersWithRight(Room room, string userConnectionId)
         {
             var users = await _planitRepo.GetAllUsers(room);
             if (users==null||users.Count == 0)
@@ -32,24 +32,24 @@ namespace PlanitPoker.Models.Services
                 return new List<PlanitUser>();
             }
 
-            return ClearHideData(roomStatusR.res, userId, users);
+            return ClearHideData(roomStatusR.res, userConnectionId, users);
         }
 
-        public async Task<List<PlanitUser>> GetAllUsersWithRight(string roomName, string userId)
+        public async Task<List<PlanitUser>> GetAllUsersWithRight(string roomName, string userConnectionId)
         {
             var room = await _planitRepo.TryGetRoom(roomName);
-            return await GetAllUsersWithRight(room, userId);
+            return await GetAllUsersWithRight(room, userConnectionId);
         }
 
-        public async Task<RoomInfoReturn> GetRoomInfoWithRight(string roomName, string currentUserId)
+        public async Task<RoomInfoReturn> GetRoomInfoWithRight(string roomName, string userConnectionId)
         {
             var room = await _planitRepo.TryGetRoom(roomName);
-            return await GetRoomInfoWithRight(room, currentUserId);
+            return await GetRoomInfoWithRight(room, userConnectionId);
         }
 
-        public async Task<RoomInfoReturn> GetRoomInfoWithRight(Room room, string currentUserId)
+        public async Task<RoomInfoReturn> GetRoomInfoWithRight(Room room, string userConnectionId)
         {
-            if (string.IsNullOrWhiteSpace(currentUserId))
+            if (string.IsNullOrWhiteSpace(userConnectionId))
             {
                 return null;
             }
@@ -69,7 +69,7 @@ namespace PlanitPoker.Models.Services
             //все склонированное, работаем обычно
             var resRoom = scRoom.res;
             resRoom.Password = null;
-            ClearHideData(resRoom.Status, currentUserId, resRoom.Users);
+            ClearHideData(resRoom.Status, userConnectionId, resRoom.Users);
 
             var res = new RoomInfoReturn()
             {
@@ -121,7 +121,7 @@ namespace PlanitPoker.Models.Services
         //-----------------------------------------------------------------------------private
 
         //users - должна быть копия! тут без локов
-        private List<PlanitUser> ClearHideData(RoomSatus roomStatus, string currentUserId, List<PlanitUser> users)
+        private List<PlanitUser> ClearHideData(RoomSatus roomStatus, string currentUserConnectionId, List<PlanitUser> users)
         {
             if (users == null)
             {
@@ -138,7 +138,7 @@ namespace PlanitPoker.Models.Services
             {
                 return users;
             }
-            var user = users.FirstOrDefault(x => x.UserConnectionId == currentUserId);
+            var user = users.FirstOrDefault(x => x.UserConnectionId == currentUserConnectionId);
             if (user == null)
             {
                 return new List<PlanitUser>();

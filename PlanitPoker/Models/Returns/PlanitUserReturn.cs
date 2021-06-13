@@ -8,7 +8,7 @@ namespace PlanitPoker.Models.Returns
     public class PlanitUserReturn
     {
         [JsonPropertyName("id")]
-        public string UserIdentifier { get; set; }//signalRUserId
+        public string UserIdentifier { get; set; }
         
         [JsonPropertyName("roles")]
         public List<string> Roles { get; set; }
@@ -25,7 +25,7 @@ namespace PlanitPoker.Models.Returns
 
         public PlanitUserReturn(PlanitUser obj)
         {
-            UserIdentifier = obj.UserConnectionId;
+            UserIdentifier = obj.PlaningAppUserId;
             Roles = obj.Role;//obj.IsAdmin,//obj.Role.Contains();
             Name = obj.Name;
             Vote = obj.Vote;

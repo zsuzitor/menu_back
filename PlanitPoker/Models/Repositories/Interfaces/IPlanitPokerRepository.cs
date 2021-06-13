@@ -21,47 +21,47 @@ namespace PlanitPoker.Models.Repositories.Interfaces
         /// <param name="roomName"></param>
         /// <returns></returns>
         Task<List<PlanitUser>> GetAllUsers(string roomName);
-        Task<bool> ChangeUserName(string roomName, string userId, string newUserName);
-        
+        Task<bool> ChangeUserName(string roomName, string connectionUserId, string newUserName);
+
 
 
 
 
         Task<bool> ClearVotes(Room room);
-        Task<bool> ChangeVote(Room room,string userId, int vote);
+        Task<bool> ChangeVote(Room room, string connectionUserId, int vote);
 
 
-        Task<bool> KickFromRoom(string roomName, string userIdRequest, string userId);
-        Task<bool> KickFromRoom(Room room, string userIdRequest, string userId);
-        Task<bool> LeaveFromRoom(string roomName, string userId);
-        Task<bool> LeaveFromRoom(Room room, string userId);
+        Task<bool> KickFromRoom(string roomName, string userConnectionIdRequest, string userId);
+        Task<bool> KickFromRoom(Room room, string userConnectionIdRequest, string userId);
+        Task<bool> LeaveFromRoom(string roomName, string userConnectionIdRequest);
+        Task<bool> LeaveFromRoom(Room room, string userConnectionIdRequest);
 
 
-        Task<bool> ChangeStatusIfCan(string roomName, string userId, RoomSatus newStatus);
+        Task<bool> ChangeStatusIfCan(string roomName, string userConnectionIdRequest, RoomSatus newStatus);
 
-        Task<bool> ChangeStatusIfCan(Room room,string userId, RoomSatus newStatus);
+        Task<bool> ChangeStatusIfCan(Room room, string userConnectionIdRequest, RoomSatus newStatus);
 
         Task<bool> RoomIsExist(string roomName);
         Task<Room> TryGetRoom(string roomName, string password);
         Task<Room> TryGetRoom(string roomName);
-        Task<bool> UserIsAdmin(string roomName, string userId);
-        Task<bool> UserIsAdmin(Room room, string userId);
-        Task<bool> AddAdmin(string roomName, string userId);
-        Task<bool> AddAdmin(Room room, string userId);
+        Task<bool> UserIsAdmin(string roomName, string userConnectionIdRequest);
+        Task<bool> UserIsAdmin(Room room, string userConnectionIdRequest);
+        //Task<bool> AddAdmin(string roomName, string userId);
+        //Task<bool> AddAdmin(Room room, string userId);
         Task<List<string>> GetAdminsId(Room room);
         Task<List<string>> GetAdminsId(string roomName);
         Task ClearOldRooms();
 
-        Task<bool> AddNewStatusToUser(string roomName, string userId, string newRole,string userIdRequest);
-        Task<bool> RemoveStatusUser(string roomName, string userId, string oldRole, string userIdRequest);
+        Task<bool> AddNewStatusToUser(string roomName, string userId, string newRole, string userConnectionIdRequest);
+        Task<bool> RemoveStatusUser(string roomName, string userId, string oldRole, string userConnectionIdRequest);
 
-        Task<bool> AddNewStory(string roomName, string userId, Story newStory);
-        Task<bool> ChangeStory(string roomName, string userId, Story newData);
-        Task<bool> ChangeCurrentStory(string roomName, string userId, long storyId);
-        Task<bool> DeleteStory(string roomName, string userId, long storyId);
+        Task<bool> AddNewStory(string roomName, string userConnectionIdRequest, Story newStory);
+        Task<bool> ChangeStory(string roomName, string userConnectionIdRequest, Story newData);
+        Task<bool> ChangeCurrentStory(string roomName, string userConnectionIdRequest, long storyId);
+        Task<bool> DeleteStory(string roomName, string userConnectionIdRequest, long storyId);
 
-        Task<bool> MakeStoryComplete(string roomName, long storyId, string userId);
-        Task<bool> MakeStoryComplete(Room room, long storyId, string userId);
+        Task<bool> MakeStoryComplete(string roomName, long storyId, string userConnectionIdRequest);
+        Task<bool> MakeStoryComplete(Room room, long storyId, string userConnectionIdRequest);
 
 
     }

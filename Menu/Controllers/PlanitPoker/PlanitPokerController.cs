@@ -41,7 +41,7 @@ namespace Menu.Controllers.PlanitPoker
 
         [Route("get-users-in-room")]
         [HttpGet]
-        public async Task GetUsersIsRoom(string roomname,string userid)
+        public async Task GetUsersIsRoom(string roomname,string userConnectionId)
         {
             //TODO тк сейчас userId в открытом доступе
             //его лучше вот прям так не передавать
@@ -49,11 +49,11 @@ namespace Menu.Controllers.PlanitPoker
             //либо закрывать id юзеров
             //а лучше и то и то
             roomname = _stringValidator.Validate(roomname);
-            userid = _stringValidator.Validate(userid);
+            userConnectionId = _stringValidator.Validate(userConnectionId);
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                   var users=await _planitPokerService.GetAllUsersWithRight(roomname, userid);
+                   var users=await _planitPokerService.GetAllUsersWithRight(roomname, userConnectionId);
                     //TODO ошибку если null? сейчас там возвращается пустая строка везде. и вообще посмотреть что будет на фронте
                     await _apiHealper.WriteReturnResponseAsync(Response, users);
 
@@ -63,7 +63,7 @@ namespace Menu.Controllers.PlanitPoker
 
         [Route("get-room-info")]
         [HttpGet]
-        public async Task GetRoomInfo(string roomname, string userid)
+        public async Task GetRoomInfo(string roomname, string userConnectionId)
         {
             //TODO тк сейчас userId в открытом доступе
             //его лучше вот прям так не передавать
@@ -71,11 +71,11 @@ namespace Menu.Controllers.PlanitPoker
             //либо закрывать id юзеров
             //а лучше и то и то
             roomname = _stringValidator.Validate(roomname);
-            userid = _stringValidator.Validate(userid);
+            userConnectionId = _stringValidator.Validate(userConnectionId);
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    var roomInfo = await _planitPokerService.GetRoomInfoWithRight(roomname, userid);//todo см declare метода в interface
+                    var roomInfo = await _planitPokerService.GetRoomInfoWithRight(roomname, userConnectionId);//todo см declare метода в interface
                     //TODO ошибку если null? сейчас там возвращается пустая строка везде. и вообще посмотреть что будет на фронте
                     if (roomInfo == null)
                     {

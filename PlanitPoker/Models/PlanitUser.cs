@@ -7,12 +7,12 @@ namespace PlanitPoker.Models
     public class PlanitUser//:ICloneable
     {
         public long? MainAppUserId { get; set; }//пользователь авторизован в основной апе
-        private string _planingAppUserId = "";
+        private string _planingAppUserId = null;
         public string PlaningAppUserId //id пользователя в планинге
         {
             get
             {
-                if (MainAppUserId!=null)
+                if (MainAppUserId==null)
                 {
                     return _planingAppUserId;
                 }

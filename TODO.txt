@@ -218,6 +218,7 @@ todo now
 
 
 спрятать connectionId пользователей
+CurrentUserIsAdmin - на фронте не работает тк сравнивает не те id из за этого всегда false
 
 
 
