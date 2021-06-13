@@ -5,7 +5,7 @@ using jwtLib.JWTAuth.Interfaces;
 using Common.Models.Error.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
-using Menu.Models.Helpers.Interfaces;
+using WEB.Common.Models.Helpers.Interfaces;
 using Common.Models.Poco;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;

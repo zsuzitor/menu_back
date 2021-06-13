@@ -4,7 +4,7 @@ using Common.Models.Error;
 using Common.Models.Error.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
-using Menu.Models.Helpers.Interfaces;
+using WEB.Common.Models.Helpers.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
@@ -13,11 +13,11 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Linq;
 using BO.Models.Auth;
-using Menu.Models.Returns.Interfaces;
+using WEB.Common.Models.Returns.Interfaces;
 using System.IO;
 using Common.Models.Validators;
 
-namespace Menu.Models.Helpers
+namespace WEB.Common.Models.Helpers
 {
     public class ApiHelper : IApiHelper
     {
@@ -90,7 +90,7 @@ namespace Menu.Models.Helpers
 
 
         /// <summary>
-        /// return null if can not get UI 
+        /// exception or return null if can not get UI 
         /// </summary>
         /// <param name="request"></param>
         /// <param name="jwtService"></param>
@@ -99,8 +99,15 @@ namespace Menu.Models.Helpers
         {
             var accessToken = GetAccessTokenFromRequest(request);
 
-            var userId = jwtService.GetUserIdFromAccessToken(accessToken);
+            var userId = "";
+            //if (withExpired) {
+            //    userId = jwtService.GetUserIdFromAccessTokenIfCan(accessToken);
+            //        }
+            //else
+            //{
+                userId = jwtService.GetUserIdFromAccessToken(accessToken);
 
+            //}
             if (!long.TryParse(userId, out long userIdLong))
             {
                 return null;
@@ -113,6 +120,38 @@ namespace Menu.Models.Helpers
             };
 
             return res;
+
+        }
+
+        public (bool expired, UserInfo ui) GetUserInfoWithExpiredFromRequest(HttpRequest request, IJWTService jwtService)
+        {
+            var accessToken = GetAccessTokenFromRequest(request);
+            bool expired = false;
+            var userId = "";
+
+            try
+            {
+                userId = jwtService.GetUserIdFromAccessToken(accessToken);
+            }
+            catch
+            {
+                userId = jwtService.GetUserIdFromAccessTokenIfCan(accessToken);
+                expired = true;
+            }
+
+
+            if (!long.TryParse(userId, out long userIdLong))
+            {
+                return (false, null);
+            }
+
+            var res = new UserInfo(userIdLong)
+            {
+                RefreshToken = GetRefreshTokenFromRequest(request),
+                AccessToken = accessToken
+            };
+
+            return (expired, res);
 
         }
 
@@ -205,6 +244,36 @@ namespace Menu.Models.Helpers
             return null;
         }
 
+
+
+        public (bool expired, UserInfo ui) GetUserInfoWithExpired(HttpRequest request, IJWTService jwtService, bool withError = false)
+        {
+            try
+            {
+                (var expired, var userInfo) = GetUserInfoWithExpiredFromRequest(request, jwtService);
+                if (userInfo == null || userInfo.UserId < 1)
+                {
+                    //_errorService.AddError(_errorContainer.TryGetError("not_authorized"));
+                    if (withError)
+                    {
+                        throw new NotAuthException();
+                    }
+
+                    return (false, null);
+                }
+
+                return (expired, userInfo);
+            }
+            catch (Exception e)
+            {
+                if (withError)
+                {
+                    throw new NotAuthException("jwt_service_error", e);
+                }
+            }
+
+            return (false, null);
+        }
 
 
         public async Task DoStandartSomething(Func<Task> action, HttpResponse response, ILogger logger)

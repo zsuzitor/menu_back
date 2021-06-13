@@ -1,20 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace PlanitPoker.Models
 {
     public class PlanitUser//:ICloneable
     {
-        public string UserIdentifier { get; set; }//signalRUserId
+        public long? MainAppUserId { get; set; }//пользователь авторизован в основной апе
+        private string _planingAppUserId = "";
+        public string PlaningAppUserId //id пользователя в планинге
+        {
+            get
+            {
+                if (MainAppUserId!=null)
+                {
+                    return _planingAppUserId;
+                }
+                else
+                {
+                    return MainAppUserId.ToString();
+                }
+            }
+            set
+            {
+                if (MainAppUserId!=null)
+                {
+                    _planingAppUserId = value;
+                }
+            }
+        }
+        public string UserConnectionId { get; set; }//signalRUserId
         public List<string> Role { get; set; }//enum?
         public string Name { get; set; }
         public int? Vote { get; set; }
         ////не актуально на стороне сервера, проставлятся только для отправки на ui. todo можно вынести в отдельную модель
         public bool HasVote { get; set; }
 
-        public string Login { get; set; }//если пользак авторизован полностью в мейн апе
+        //public string Login { get; set; }//если пользак авторизован полностью в мейн апе
 
         public bool IsAdmin
         {
@@ -31,6 +53,13 @@ namespace PlanitPoker.Models
                 return !Role.Any(x => x == Consts.Roles.Observer);
             }
         }
+
+
+        public PlanitUser()
+        {
+            Role = new List<string>();
+        }
+
 
         public PlanitUser Clone()
         {

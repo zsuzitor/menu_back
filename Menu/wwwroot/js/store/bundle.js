@@ -11180,7 +11180,7 @@ var Room = function (props) {
         react_1.default.createElement("h1", null,
             "Room ",
             props.RoomInfo.Name),
-        react_1.default.createElement("p", null, "\u043F\u0440\u0438 \u043E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0438 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B, \u0432\u044B \u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0430\u0435\u0442\u0435\u0441\u044C \u043A\u0430\u043A \u043D\u043E\u0432\u044B\u0439 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C(\u0438\u0441\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435-\u0432\u044B \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u043D\u044B \u0432 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u043C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438(TODO)). \u044D\u0442\u043E \u043E\u0437\u043D\u0430\u0447\u0430\u0435\u0442 \u0447\u0442\u043E \u0432\u0441\u0435 \u043F\u0440\u0430\u0432\u0430(\u0432 \u0442\u043E\u043C \u0447\u0438\u0441\u043B\u0435 \u0430\u0434\u043C\u0438\u043D\u0441\u043A\u0438\u0435) \u043E\u0441\u0442\u0430\u044E\u0442\u0441\u044F \u043D\u0430 \u0441\u0442\u0430\u0440\u043E\u043C \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0435, \u0438 \u0432 \u0441\u043B\u0443\u0447\u0430\u0435 \u043D\u0430\u043B\u0438\u0447\u0438\u044F \u0442\u043E\u043B\u044C\u043A\u043E 1 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\u0430 \u043A\u043E\u043C\u043D\u0430\u0442\u0430 \u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0441\u044F \u043D\u0435\u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0438\u0440\u0443\u0435\u043C\u043E\u0439"),
+        react_1.default.createElement("p", null, "\u043F\u0440\u0438 \u043E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0438 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B, \u0432\u044B \u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0430\u0435\u0442\u0435\u0441\u044C \u043A\u0430\u043A \u043D\u043E\u0432\u044B\u0439 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C(\u0438\u0441\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435-\u0432\u044B \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u043D\u044B \u0432 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u043C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438(TODO))."),
         react_1.default.createElement("div", { className: "row" },
             react_1.default.createElement("div", { className: "planit-room-left-part col-12 col-md-9" },
                 react_1.default.createElement("div", null,
@@ -11389,14 +11389,20 @@ var StoriesSection = function (props) {
             }
             else {
                 return react_1.default.createElement("div", null,
-                    react_1.default.createElement("p", null, story.Name),
-                    react_1.default.createElement("p", null, story.Description));
+                    react_1.default.createElement("p", null,
+                        "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435: ",
+                        story.Name),
+                    react_1.default.createElement("p", null,
+                        "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435: ",
+                        story.Description));
             }
         };
         return react_1.default.createElement("div", { className: "planing-current-story-main planing-poker-left-one-section" },
-            react_1.default.createElement("p", null, "\u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0442\u0435\u043A\u0443\u0449\u0435\u0439 \u0437\u0430\u0434\u0430\u0447\u0438"),
+            react_1.default.createElement("p", null, "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0442\u0435\u043A\u0443\u0449\u0435\u0439 \u0437\u0430\u0434\u0430\u0447\u0438"),
             react_1.default.createElement("div", null,
-                react_1.default.createElement("p", null, story.Id),
+                react_1.default.createElement("p", null,
+                    "Id: ",
+                    story.Id),
                 storyBodyRender()),
             adminButton);
     };
@@ -11420,6 +11426,7 @@ var StoriesSection = function (props) {
                 react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return AddNewStory(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"));
             addNewForm = react_1.default.createElement("div", null,
                 react_1.default.createElement("p", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043D\u043E\u0432\u0443\u044E:"),
+                react_1.default.createElement("span", null, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435:"),
                 react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435", value: storiesState.NameForAdd, type: "text", onChange: function (e) {
                         // let newState = { ...storiesState };
                         // newState.NameForAdd = e.target.value;
@@ -11430,6 +11437,7 @@ var StoriesSection = function (props) {
                             return newState;
                         });
                     } }),
+                react_1.default.createElement("span", null, "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435:"),
                 react_1.default.createElement("textarea", { className: "persent-100-width form-control", placeholder: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435", value: storiesState.DescriptionForAdd, onChange: function (e) {
                         // let newState = { ...storiesState };
                         // newState.DescriptionForAdd = e.target.value;
@@ -11443,8 +11451,8 @@ var StoriesSection = function (props) {
                 adminButtonNotInList);
         }
         return react_1.default.createElement("div", { className: "planing-stories-list-main planing-poker-left-one-section" },
-            react_1.default.createElement("p", null, "\u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
-            react_1.default.createElement("p", null, "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u043D\u044B\u0435"),
+            react_1.default.createElement("p", null, "\u0418\u0441\u0442\u043E\u0440\u0438\u0438:"),
+            react_1.default.createElement("span", null, "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u043D\u044B\u0435: "),
             react_1.default.createElement("input", { onClick: function () {
                     setStoriesState(function (prevState) {
                         var newState = __assign({}, prevState);
@@ -11452,12 +11460,21 @@ var StoriesSection = function (props) {
                         return newState;
                     });
                 }, type: "checkbox" }),
-            react_1.default.createElement("div", null, props.Stories.filter(function (x) { return x.Completed === storiesState.ShowOnlyCompleted; }).map(function (x) { return react_1.default.createElement("div", { key: x.Id },
-                react_1.default.createElement("p", null, x.Id),
-                react_1.default.createElement("p", null, x.Name),
-                react_1.default.createElement("p", null, x.Description),
-                adminButtonInList(x.Id),
-                react_1.default.createElement("hr", null)); })),
+            react_1.default.createElement("div", null,
+                props.Stories.filter(function (x) { return x.Completed === storiesState.ShowOnlyCompleted; }).map(function (x) { return react_1.default.createElement("div", { key: x.Id },
+                    react_1.default.createElement("p", null,
+                        "Id: ",
+                        x.Id),
+                    react_1.default.createElement("p", null,
+                        "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435: ",
+                        x.Name),
+                    react_1.default.createElement("p", null,
+                        "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435: ",
+                        x.Description),
+                    adminButtonInList(x.Id),
+                    react_1.default.createElement("hr", null)); }),
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("button", { onClick: function () { return alert("todo"); } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043F\u0440\u043E\u0448\u043B\u044B\u0435"))),
             react_1.default.createElement("div", null, addNewForm));
     };
     return react_1.default.createElement("div", null,

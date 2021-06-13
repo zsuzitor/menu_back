@@ -96,7 +96,7 @@ namespace PlanitPoker.Models.Services
                     return null;
                 }
 
-                return rm.StoredRoom.Users.Select(x => new { userId = x.UserIdentifier, vote = x.Vote ?? 0 });
+                return rm.StoredRoom.Users.Select(x => new { userId = x.UserConnectionId, vote = x.Vote ?? 0 });
             });
 
             if (!sc)
@@ -138,7 +138,7 @@ namespace PlanitPoker.Models.Services
             {
                 return users;
             }
-            var user = users.FirstOrDefault(x => x.UserIdentifier == currentUserId);
+            var user = users.FirstOrDefault(x => x.UserConnectionId == currentUserId);
             if (user == null)
             {
                 return new List<PlanitUser>();

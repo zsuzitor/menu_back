@@ -48,14 +48,14 @@ namespace PlanitPoker.Models.Repositories
 
         public async Task<bool> AddUserIntoRoom(Room room, PlanitUser user)
         {
-            if (room == null || string.IsNullOrWhiteSpace(user?.UserIdentifier) || string.IsNullOrWhiteSpace(user.Name))
+            if (room == null || string.IsNullOrWhiteSpace(user?.UserConnectionId) || string.IsNullOrWhiteSpace(user.Name))
             {
                 return false;
             }
 
             room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
             {
-                var us = rm.StoredRoom.Users.FirstOrDefault(x => x.UserIdentifier == user.UserIdentifier);
+                var us = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == user.UserConnectionId);
                 if (us == null)
                 {
                     rm.StoredRoom.Users.Add(user);
@@ -121,7 +121,7 @@ namespace PlanitPoker.Models.Repositories
                     return;
                 }
 
-                var user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserIdentifier == userId);
+                var user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userId);
                 if (user == null || !user.CanVote)
                 {
                     return;
@@ -191,7 +191,7 @@ namespace PlanitPoker.Models.Repositories
 
             var res = room.GetConcurentValue(_multiThreadHelper, rm =>
             {
-                return rm.StoredRoom.Users.Where(x => x.IsAdmin).Select(x => x.UserIdentifier).ToList();
+                return rm.StoredRoom.Users.Where(x => x.IsAdmin).Select(x => x.UserConnectionId).ToList();
             });
             if (!res.sc)
             {
@@ -277,7 +277,7 @@ namespace PlanitPoker.Models.Repositories
                 //}
 
                 //rm.Users.RemoveAt((int)userForDelIndex);
-                rm.Users.RemoveAll(x => x.UserIdentifier == userId);
+                rm.Users.RemoveAll(x => x.UserConnectionId == userId);
                 return true;
             });
 
@@ -363,7 +363,7 @@ namespace PlanitPoker.Models.Repositories
             bool result = false;
             var suc = room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
             {
-                var user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserIdentifier == userId);
+                var user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userId);
                 if (user == null)
                 {
                     return;
@@ -411,7 +411,7 @@ namespace PlanitPoker.Models.Repositories
             }
 
             var res = room.GetConcurentValue(_multiThreadHelper,
-                rm => rm.StoredRoom.Users.Any(x => x.UserIdentifier == userId && x.IsAdmin));
+                rm => rm.StoredRoom.Users.Any(x => x.UserConnectionId == userId && x.IsAdmin));
             return res.sc && res.res;
         }
 
@@ -565,7 +565,7 @@ namespace PlanitPoker.Models.Repositories
             bool result = false;
             room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
             {
-                if (!rm.StoredRoom.Users.Any(x => x.UserIdentifier == userIdRequest && x.IsAdmin))
+                if (!rm.StoredRoom.Users.Any(x => x.UserConnectionId == userIdRequest && x.IsAdmin))
                 {
                     return;
                 }
@@ -597,7 +597,7 @@ namespace PlanitPoker.Models.Repositories
             bool result = false;
             room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
             {
-                var user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserIdentifier == userIdRequest);
+                var user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userIdRequest);
                 if (user == null || !user.IsAdmin)
                 {
                     return;
@@ -605,7 +605,7 @@ namespace PlanitPoker.Models.Repositories
 
                 if (userId != userIdRequest)
                 {
-                    user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserIdentifier == userId);
+                    user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userId);
                     if (user == null)
                     {
                         return;
@@ -636,14 +636,15 @@ namespace PlanitPoker.Models.Repositories
             room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
             {
                 var admins = rm.StoredRoom.Users.Where(x => x.IsAdmin);
-                //todo вот тут можно проверить залогинен ли пользак в менй апе, и если залогенен то НЕ передавать админку!
-                if (admins.Count() < 2 && admins.Any(x => x.UserIdentifier == userId))
+                //проверить залогинен ли пользак в менй апе, и если залогенен то НЕ передавать админку!
+                var currentUser = admins.FirstOrDefault(x => x.UserConnectionId == userId);
+                if (admins.Count() < 2 && currentUser != null && currentUser.MainAppUserId == null)
                 {
                     var newAdmin = rm.StoredRoom.Users.FirstOrDefault(x => !x.IsAdmin);
                     newAdmin.Role.Add(Consts.Roles.Admin);
                 }
 
-                rm.StoredRoom.Users.RemoveAll(x => x.UserIdentifier == userId);
+                rm.StoredRoom.Users.RemoveAll(x => x.UserConnectionId == userId);
                 result = true;
             });
 

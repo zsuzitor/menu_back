@@ -9,8 +9,8 @@ using Common.Models.Error;
 using Common.Models.Error.Interfaces;
 using Common.Models.Error.services;
 using Common.Models.Error.services.Interfaces;
-using Menu.Models.Helpers;
-using Menu.Models.Helpers.Interfaces;
+using WEB.Common.Models.Helpers;
+using WEB.Common.Models.Helpers.Interfaces;
 using Menu.Models.Services;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
@@ -22,8 +22,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MenuApp.Models.DAL.Repositories.Interfaces;
 using MenuApp.Models.DAL.Repositories;
-using Menu.Models.Returns.Interfaces;
-using Menu.Models.Returns;
+using WEB.Common.Models.Returns.Interfaces;
+using WEB.Common.Models.Returns;
 using BL.Models.Services.Interfaces;
 using BL.Models.Services;
 using System;
@@ -42,6 +42,18 @@ using PlanitPoker.Models.Repositories.Interfaces;
 using Common.Models;
 using PlanitPoker.Models.Services;
 using Common.Models.Validators;
+using jwtLib.JWTAuth.Models.Poco;
+using BO.Models.MenuApp.DAL.Domain;
+using Common.Models.Poco;
+using BO.Models.DAL.Domain;
+using MenuApp.Models.BO;
+using System.Collections.Generic;
+using BO.Models.WordsCardsApp.DAL.Domain;
+using PlanitPoker.Models;
+using Menu.Models.Returns.Types;
+using Menu.Models.Returns.Types.MenuApp;
+using Menu.Models.Returns.Types.WordsCardsApp;
+using Menu.Models.Returns.Types.PlanitPoker;
 
 namespace Menu
 {
@@ -87,6 +99,8 @@ namespace Menu
             //healpers
             services.AddScoped<IApiHelper, ApiHelper>();
             services.AddScoped<IReturnContainer, ReturnContainer>();
+            var returnContainer = new ReturnContainer();
+            InitReturnTypeContainer(returnContainer);
             services.AddSingleton<MultiThreadHelper, MultiThreadHelper>();
             services.AddSingleton<IStringValidator, StringValidator>();
             
@@ -183,6 +197,33 @@ namespace Menu
 
            
 
+        }
+
+
+
+
+        private void InitReturnTypeContainer(IReturnContainer container)
+        {
+            //todo лучше вообще уюрать такой функционал
+
+            container.AddTypeToContainer(typeof(AllTokens), new TokensReturnFactory());
+            container.AddTypeToContainer(typeof(ErrorObject), new ErrorObjectReturnFactory());
+            container.AddTypeToContainer(typeof(ArticleShort), new ArticleShortReturnFactory());
+            container.AddTypeToContainer(typeof(Article), new ArticleReturnFactory());
+            container.AddTypeToContainer(typeof(List<ArticleShort>), new ArticleShortReturnFactory());
+            container.AddTypeToContainer(typeof(List<Article>), new ArticleReturnFactory());
+            container.AddTypeToContainer(typeof(BoolResult), new BoolResultFactory());
+            container.AddTypeToContainer(typeof(User), new ShortUserReturnFactory());
+            container.AddTypeToContainer(typeof(WordCard), new WordCardReturnFactory());
+            container.AddTypeToContainer(typeof(List<WordCard>), new WordCardReturnFactory());
+            container.AddTypeToContainer(typeof(WordsList), new WordListReturnFactory());
+            container.AddTypeToContainer(typeof(List<WordsList>), new WordListReturnFactory());
+            container.AddTypeToContainer(typeof(WordCardWordList), new WordCardWordListReturnFactory());
+            container.AddTypeToContainer(typeof(List<WordCardWordList>), new WordCardWordListReturnFactory());
+            container.AddTypeToContainer(typeof(PlanitUser), new PlanitUserReturnFactory());
+            container.AddTypeToContainer(typeof(List<PlanitUser>), new PlanitUserReturnFactory());
+            container.AddTypeToContainer(typeof(StoredRoom), new StoredRoomReturnFactory());
+            container.AddTypeToContainer(typeof(List<StoredRoom>), new StoredRoomReturnFactory());
         }
     }
 }

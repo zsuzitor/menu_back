@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BO.Models.Auth;
 using Common.Models;
 using Common.Models.Validators;
+using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.SignalR;
 using PlanitPoker.Models.Enums;
 using PlanitPoker.Models.Repositories.Interfaces;
 using PlanitPoker.Models.Returns;
 using PlanitPoker.Models.Services;
+using WEB.Common.Models.Helpers.Interfaces;
 
 namespace PlanitPoker.Models.Hubs
 {
@@ -22,6 +25,8 @@ namespace PlanitPoker.Models.Hubs
         private readonly MultiThreadHelper _multiThreadHelper;
         private readonly IStringValidator _stringValidator;
         private readonly IPlanitPokerService _planitPokerService;
+        private readonly IJWTService _jwtService;
+        private readonly IApiHelper _apiHealper;
 
         //private static IServiceProvider _serviceProvider;
 
@@ -82,9 +87,25 @@ namespace PlanitPoker.Models.Hubs
             roomname = ValidateString(roomname);
             username = ValidateString(username);
 
+            UserInfo userInfo = null;
+            var expired = false;
+            try
+            {
+                (expired, userInfo) = _apiHealper.GetUserInfoWithExpired(Context.GetHttpContext().Request, _jwtService,false);
+            }
+            catch
+            {}
+
+            if (expired)
+            {                
+                //todo тут надо что то типо вернуть ошибку на рефреш
+            }
+
             var user = new PlanitUser()
             {
-                UserIdentifier = Context.ConnectionId,
+                MainAppUserId= userInfo?.UserId,
+                PlaningAppUserId = GenerateUniqueUserId(),
+                UserConnectionId = Context.ConnectionId,
                 Name = username,
                 Role = GetCreatorRoles(),
             };
@@ -138,16 +159,30 @@ namespace PlanitPoker.Models.Hubs
                 return;
             }
 
+            UserInfo userInfo = null;
+            var expired = false;
+            try
+            {
+                (expired, userInfo) = _apiHealper.GetUserInfoWithExpired(Context.GetHttpContext().Request, _jwtService, false);
+            }
+            catch
+            { }
+
+            if (expired)
+            {
+                //todo тут надо что то типо вернуть ошибку на рефреш
+            }
+
             var user = new PlanitUser()
             {
-                UserIdentifier = Context.ConnectionId,
+                MainAppUserId = userInfo?.UserId,
+                PlaningAppUserId = GenerateUniqueUserId(),
+                UserConnectionId = Context.ConnectionId,
                 Name = username,
                 Role = GetDefaultRoles(),
             };
 
             _ = await EnterInRoom(room, user);
-
-
 
         }
 
@@ -199,7 +234,7 @@ namespace PlanitPoker.Models.Hubs
 
             (var res, bool sc) = GetValueFromRoomAsync(room, rm =>
                   {
-                      return rm.StoredRoom.Users.Select(x => new { userId = x.UserIdentifier, vote = x.Vote ?? 0 });
+                      return rm.StoredRoom.Users.Select(x => new { userId = x.UserConnectionId, vote = x.Vote ?? 0 });
                   });
 
             if (!sc)
@@ -466,7 +501,7 @@ namespace PlanitPoker.Models.Hubs
             }
 
             var username = user.Name;
-            var userId = user.UserIdentifier;
+            var userId = user.UserConnectionId;
 
             var added = await _planitPokerRepository.AddUserIntoRoom(room, user);
             if (!added)
@@ -487,7 +522,7 @@ namespace PlanitPoker.Models.Hubs
             }
 
             //специально до добавление юзера тк ему это сообщение не нужно
-            var us = GetValueFromRoomAsync(room, (rm) => rm.StoredRoom.Users.FirstOrDefault(x => x.UserIdentifier == userId));
+            var us = GetValueFromRoomAsync(room, (rm) => rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userId));
             PlanitUserReturn returnUser = null;
             if (us.sc)
             {
@@ -531,6 +566,11 @@ namespace PlanitPoker.Models.Hubs
         private string ValidateString(string str)
         {
             return _stringValidator.Validate(str);
+        }
+
+        private string GenerateUniqueUserId()
+        {
+            return Guid.NewGuid().ToString();
         }
     }
 }

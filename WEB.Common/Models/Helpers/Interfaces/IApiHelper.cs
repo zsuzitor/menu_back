@@ -9,7 +9,7 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Menu.Models.Helpers.Interfaces
+namespace WEB.Common.Models.Helpers.Interfaces
 {
     public interface IApiHelper
     {
@@ -33,7 +33,9 @@ namespace Menu.Models.Helpers.Interfaces
         string GetRefreshTokenFromRequest(HttpRequest request);
         void ClearUsersTokens(HttpResponse response);
         UserInfo GetUserInfoFromRequest(HttpRequest request, IJWTService jwtService);
+        (bool expired, UserInfo ui) GetUserInfoWithExpiredFromRequest(HttpRequest request, IJWTService jwtService);
         UserInfo CheckAuthorized(HttpRequest request, IJWTService jwtService, bool withError = false);
+        (bool expired, UserInfo ui) GetUserInfoWithExpired(HttpRequest request, IJWTService jwtService, bool withError = false);
 
         Task DoStandartSomething(Func<Task> action, HttpResponse response, ILogger logger);
 

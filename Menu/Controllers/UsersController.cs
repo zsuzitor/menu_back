@@ -1,7 +1,7 @@
 ﻿
 using System.Threading.Tasks;
 using jwtLib.JWTAuth.Interfaces;
-using Menu.Models.Helpers.Interfaces;
+using WEB.Common.Models.Helpers.Interfaces;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

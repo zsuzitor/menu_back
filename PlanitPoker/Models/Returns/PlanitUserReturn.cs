@@ -11,7 +11,7 @@ namespace PlanitPoker.Models.Returns
         public string UserIdentifier { get; set; }//signalRUserId
         
         [JsonPropertyName("roles")]
-        public List<string> Roles { get; set; }//enum?
+        public List<string> Roles { get; set; }
         [JsonPropertyName("name")]
 
         public string Name { get; set; }
@@ -25,7 +25,7 @@ namespace PlanitPoker.Models.Returns
 
         public PlanitUserReturn(PlanitUser obj)
         {
-            UserIdentifier = obj.UserIdentifier;
+            UserIdentifier = obj.UserConnectionId;
             Roles = obj.Role;//obj.IsAdmin,//obj.Role.Contains();
             Name = obj.Name;
             Vote = obj.Vote;

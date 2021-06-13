@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Menu.Models.InputModels.Auth;
 using Auth.Models.Auth.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Menu.Models.Helpers.Interfaces;
+using WEB.Common.Models.Helpers.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using Microsoft.Extensions.Logging;
 using Common.Models.Exceptions;

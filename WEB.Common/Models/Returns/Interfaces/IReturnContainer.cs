@@ -1,6 +1,8 @@
 ﻿
 
-namespace Menu.Models.Returns.Interfaces
+using System;
+
+namespace WEB.Common.Models.Returns.Interfaces
 {
     public interface IReturnContainer
     {
@@ -10,5 +12,6 @@ namespace Menu.Models.Returns.Interfaces
         /// <param name="nameSpace"></param>
         void Init(string nameSpace);
         object GetReturnType<TIn>(TIn obj);
+        void AddTypeToContainer(Type type, IReturnObjectFactory factory);
     }
 }

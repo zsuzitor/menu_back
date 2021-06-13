@@ -1,6 +1,6 @@
 ﻿
 
-namespace Menu.Models.Returns.Interfaces
+namespace WEB.Common.Models.Returns.Interfaces
 {
     public interface IReturnObjectFactory
     {

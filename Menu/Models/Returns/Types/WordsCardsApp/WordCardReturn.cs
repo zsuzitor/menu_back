@@ -1,5 +1,5 @@
 ﻿using BO.Models.WordsCardsApp.DAL.Domain;
-using Menu.Models.Returns.Interfaces;
+using WEB.Common.Models.Returns.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;

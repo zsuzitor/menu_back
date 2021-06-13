@@ -9,7 +9,7 @@ using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using Common.Models.Poco;
 using jwtLib.JWTAuth.Interfaces;
-using Menu.Models.Helpers.Interfaces;
+using WEB.Common.Models.Helpers.Interfaces;
 using Menu.Models.InputModels.WordsCardsApp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

@@ -1,6 +1,6 @@
 ﻿using jwtLib.JWTAuth.Models.Poco;
 using System.Text.Json.Serialization;
-using Menu.Models.Returns.Interfaces;
+using WEB.Common.Models.Returns.Interfaces;
 
 namespace Menu.Models.Returns.Types
 {

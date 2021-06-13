@@ -1,5 +1,5 @@
 ﻿using Common.Models.Poco;
-using Menu.Models.Returns.Interfaces;
+using WEB.Common.Models.Returns.Interfaces;
 using System.Text.Json.Serialization;
 
 namespace Menu.Models.Returns.Types
