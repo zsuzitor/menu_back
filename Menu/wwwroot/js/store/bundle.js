@@ -2681,7 +2681,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".nopadding {\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n }\r\n\r\n\r\n.display_none{\r\n    display: none;\r\n}\r\n\r\n .persent-100-width{\r\n     width:100%;\r\n }\r\n\r\n .persent-100-width-height{\r\n    width:100%;\r\n    height: 100%;\r\n }\r\n\r\n .padding-10-top{\r\n     padding-top: 10px;\r\n }\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n ", "",{"version":3,"sources":["webpack://./style/main.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;IACrB,oBAAoB;CACvB;;;AAGD;IACI,aAAa;AACjB;;CAEC;KACI,UAAU;CACd;;CAEA;IACG,UAAU;IACV,YAAY;CACf;;CAEA;KACI,iBAAiB;CACrB","sourcesContent":[".nopadding {\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n }\r\n\r\n\r\n.display_none{\r\n    display: none;\r\n}\r\n\r\n .persent-100-width{\r\n     width:100%;\r\n }\r\n\r\n .persent-100-width-height{\r\n    width:100%;\r\n    height: 100%;\r\n }\r\n\r\n .padding-10-top{\r\n     padding-top: 10px;\r\n }\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n "],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".nopadding {\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n }\r\n\r\n\r\n.display_none{\r\n    display: none;\r\n}\r\n\r\n .persent-100-width{\r\n     width:100%;\r\n }\r\n\r\n .persent-100-width-height{\r\n    width:100%;\r\n    height: 100%;\r\n }\r\n\r\n .padding-10-top{\r\n     padding-top: 10px;\r\n }\r\n\r\n\r\n/* \r\n color: red;\r\n    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, \r\n    from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */\r\n\r\n\r\n    /* background: linear-gradient(transparent, gray); */\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n ", "",{"version":3,"sources":["webpack://./style/main.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;IACrB,oBAAoB;CACvB;;;AAGD;IACI,aAAa;AACjB;;CAEC;KACI,UAAU;CACd;;CAEA;IACG,UAAU;IACV,YAAY;CACf;;CAEA;KACI,iBAAiB;CACrB;;;AAGD;;;8CAG8C;;;IAG1C,oDAAoD","sourcesContent":[".nopadding {\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n }\r\n\r\n\r\n.display_none{\r\n    display: none;\r\n}\r\n\r\n .persent-100-width{\r\n     width:100%;\r\n }\r\n\r\n .persent-100-width-height{\r\n    width:100%;\r\n    height: 100%;\r\n }\r\n\r\n .padding-10-top{\r\n     padding-top: 10px;\r\n }\r\n\r\n\r\n/* \r\n color: red;\r\n    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, \r\n    from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */\r\n\r\n\r\n    /* background: linear-gradient(transparent, gray); */\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n "],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2789,7 +2789,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planit-room-left-part {\r\n    border: 2px solid black;\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    border: 2px solid black;\r\n}\r\n\r\n.planing-stories-list-main {\r\n    border: 2px solid black;\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;IACvB,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,eAAe;IACf,6BAA6B;IAC7B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;AACjB;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,iBAAiB;IACjB,oBAAoB;AACxB;;AAEA;IACI,qCAAqC;AACzC;;AAEA;IACI,uBAAuB;AAC3B;;AAEA;IACI,uBAAuB;AAC3B","sourcesContent":[".planit-room-left-part {\r\n    border: 2px solid black;\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    border: 2px solid black;\r\n}\r\n\r\n.planing-stories-list-main {\r\n    border: 2px solid black;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    background-color: white;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,2DAA2D;IAC3D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,uDAAuD;IACvD,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,eAAe;IACf,6BAA6B;IAC7B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,uBAAuB;AAC3B;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,iBAAiB;IACjB,oBAAoB;AACxB;;AAEA;IACI,qCAAqC;AACzC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,uBAAuB;IACvB,mBAAmB;AACvB","sourcesContent":[".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    background-color: white;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10070,7 +10070,7 @@ exports.default = Index;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.StoriesHelper = exports.Story = exports.VoteInfo = exports.PlaningPokerUserInfo = exports.UserInRoom = exports.UserRoles = exports.RoomSatus = exports.RoomInfo = void 0;
+exports.StoriesHelper = exports.Story = exports.VoteInfo = exports.PlaningPokerUserInfo = exports.UserInRoom = exports.UserRoles = exports.RoomStatus = exports.RoomInfo = void 0;
 //todo хорошо бы по файликам раскидать
 var RoomInfo = /** @class */ (function () {
     function RoomInfo() {
@@ -10081,12 +10081,12 @@ var RoomInfo = /** @class */ (function () {
     return RoomInfo;
 }());
 exports.RoomInfo = RoomInfo;
-var RoomSatus;
-(function (RoomSatus) {
-    RoomSatus[RoomSatus["None"] = 0] = "None";
-    RoomSatus[RoomSatus["AllCanVote"] = 1] = "AllCanVote";
-    RoomSatus[RoomSatus["CloseVote"] = 2] = "CloseVote";
-})(RoomSatus = exports.RoomSatus || (exports.RoomSatus = {}));
+var RoomStatus;
+(function (RoomStatus) {
+    RoomStatus[RoomStatus["None"] = 0] = "None";
+    RoomStatus[RoomStatus["AllCanVote"] = 1] = "AllCanVote";
+    RoomStatus[RoomStatus["CloseVote"] = 2] = "CloseVote";
+})(RoomStatus = exports.RoomStatus || (exports.RoomStatus = {}));
 ;
 var UserRoles = /** @class */ (function () {
     function UserRoles() {
@@ -10143,6 +10143,7 @@ var Story = /** @class */ (function () {
         this.Description = "";
         this.Vote = null;
         this.Date = null;
+        this.Completed = false;
     }
     Story.prototype.FillByBackModel = function (newData) {
         this.Id = newData.id;
@@ -10150,6 +10151,7 @@ var Story = /** @class */ (function () {
         this.Description = newData.description;
         this.Vote = newData.vote;
         this.Date = newData.date;
+        this.Completed = newData.completed;
     };
     return Story;
 }());
@@ -10317,6 +10319,7 @@ var PlaningPokerMain = function () {
                 newState.RoomInfo.InRoom = true;
                 return newState;
             });
+            document.cookie = "planing_poker_roomname=" + localState.RoomInfo.Name + "; path=/;";
             var lk = document.getElementById('move_to_room_link_react');
             //todo типо костыль
             //если этой линки нет, значит мы уже на странице румы
@@ -10535,7 +10538,7 @@ var StoriesInfo = /** @class */ (function () {
     function StoriesInfo() {
         this.Stories = [];
         this.CurrentStoryId = -1;
-        this.ClearTmpFuncForStories = null;
+        // this.ClearTmpFuncForStories = null;
         // this.NameForAdd = "";
         // this.DescriptionForAdd = "";
         // this.CurrentStoryName = "";
@@ -10545,6 +10548,7 @@ var StoriesInfo = /** @class */ (function () {
     }
     return StoriesInfo;
 }());
+//TODO а так можно? не будут ли они затирать в теории методы с других компонентов с такими же названиями, может их переименовать более сложно?
 var CurrentUserIsAdmin = function (users, userId) {
     var user = GetUserById(users, userId);
     if (user && user.IsAdmin()) {
@@ -10621,7 +10625,7 @@ var Room = function (props) {
     var initState = new RoomState();
     var _a = react_1.useState(initState), localState = _a[0], setLocalState = _a[1];
     //НЕ заносить в общий объект, перестает работать, начинает сбрасываться при ререндере
-    var _b = react_1.useState(RoomInfo_1.RoomSatus.None), roomStatusState = _b[0], setRoomStatusState = _b[1];
+    var _b = react_1.useState(RoomInfo_1.RoomStatus.None), roomStatusState = _b[0], setRoomStatusState = _b[1];
     var _c = react_1.useState(-1), selectedVoteCard = _c[0], setSelectedVoteCard = _c[1];
     var _d = react_1.useState(false), hideVoteState = _d[0], setHideVoteState = _d[1];
     var _e = react_1.useState(props.UserInfo.UserName), userNameLocalState = _e[0], setUserNameLocalState = _e[1]; //для редактирования
@@ -10857,7 +10861,7 @@ var Room = function (props) {
             // setRoomStatusState(RoomSatus.AllCanVote);
             setRoomStatusState(function (prevState) {
                 // let newState = { ...prevState };
-                return RoomInfo_1.RoomSatus.AllCanVote;
+                return RoomInfo_1.RoomStatus.AllCanVote;
                 // return newState;
             });
         });
@@ -10871,7 +10875,7 @@ var Room = function (props) {
             // setRoomStatusState(RoomSatus.CloseVote);
             setRoomStatusState(function (prevState) {
                 // let newState = { ...prevState };
-                return RoomInfo_1.RoomSatus.CloseVote;
+                return RoomInfo_1.RoomStatus.CloseVote;
                 // return newState;
             });
         });
@@ -10922,9 +10926,9 @@ var Room = function (props) {
                     newState.CurrentStoryId = id;
                     story.Name = newName;
                     story.Description = newDescription;
-                    if (storiesState.ClearTmpFuncForStories) {
-                        storiesState.ClearTmpFuncForStories();
-                    }
+                    // if (storiesState.ClearTmpFuncForStories) {
+                    //     storiesState.ClearTmpFuncForStories();
+                    // }
                 }
                 return newState;
             });
@@ -10950,6 +10954,21 @@ var Room = function (props) {
                 newState.Stories.splice(storyIndex, 1);
                 if (newState.CurrentStoryId == id) {
                     newState.CurrentStoryId = -1;
+                }
+                return newState;
+            });
+        });
+        props.MyHubConnection.on("MovedStoryToComplete", function (id) {
+            setStoriesState(function (prevState) {
+                var newState = __assign({}, prevState);
+                var story = storiesHelper.GetStoryById(newState.Stories, id);
+                if (story) {
+                    story.Completed = true;
+                    if (newState.CurrentStoryId === id) {
+                        newState.CurrentStoryId = -1;
+                    }
+                    newState.CurrentStoryDescriptionChange = "";
+                    newState.CurrentStoryNameChange = "";
                 }
                 return newState;
             });
@@ -11016,7 +11035,7 @@ var Room = function (props) {
     }); };
     var renderVotePlaceIfNeed = function () {
         //TODO UNCOMMENT
-        if (roomStatusState !== RoomInfo_1.RoomSatus.AllCanVote) {
+        if (roomStatusState !== RoomInfo_1.RoomStatus.AllCanVote) {
             return react_1.default.createElement("div", null);
         }
         var voteArr = [1, 2, 3, 5, 7, 10, 13, 15, 18, 20, 25, 30, 35, 40, 50];
@@ -11024,20 +11043,22 @@ var Room = function (props) {
     };
     var renderVoteResultIfNeed = function () {
         //UNCOMMENT
-        if (roomStatusState !== RoomInfo_1.RoomSatus.CloseVote) {
+        if (roomStatusState !== RoomInfo_1.RoomStatus.CloseVote) {
             return react_1.default.createElement("div", null);
         }
         return react_1.default.createElement("div", null,
-            react_1.default.createElement("p", null, "vote result"),
-            react_1.default.createElement("p", null,
-                "Max: ",
-                localState.VoteInfo.MaxVote),
-            react_1.default.createElement("p", null,
-                "Min: ",
-                localState.VoteInfo.MinVote),
-            react_1.default.createElement("p", null,
-                "Average: ",
-                localState.VoteInfo.AverageVote));
+            react_1.default.createElement("div", { className: "padding-10-top" }),
+            react_1.default.createElement("div", { className: "planing-poker-left-one-section" },
+                react_1.default.createElement("p", null, "vote result"),
+                react_1.default.createElement("p", null,
+                    "Max: ",
+                    localState.VoteInfo.MaxVote),
+                react_1.default.createElement("p", null,
+                    "Min: ",
+                    localState.VoteInfo.MinVote),
+                react_1.default.createElement("p", null,
+                    "Average: ",
+                    localState.VoteInfo.AverageVote)));
     };
     var tryStartVote = function () {
         props.MyHubConnection.send("StartVote", props.RoomInfo.Name);
@@ -11166,7 +11187,7 @@ var Room = function (props) {
                     roomMainActionButton(),
                     renderVotePlaceIfNeed(),
                     renderVoteResultIfNeed()),
-                react_1.default.createElement(StoriesSection_1.default, { CurrentStoryId: storiesState.CurrentStoryId, MyHubConnection: props.MyHubConnection, RoomName: props.RoomInfo.Name, Stories: storiesState.Stories, DeleteStory: deleteStory, MakeCurrentStory: makeCurrentStory, IsAdmin: currentUserIsAdmin, CurrentStoryDescriptionChange: storiesState.CurrentStoryDescriptionChange, CurrentStoryNameChange: storiesState.CurrentStoryNameChange, CurrentStoryDescriptionOnChange: currentStoryDescriptionOnChange, CurrentStoryNameOnChange: currentStoryNameOnChange })),
+                react_1.default.createElement(StoriesSection_1.default, { CurrentStoryId: storiesState.CurrentStoryId, MyHubConnection: props.MyHubConnection, RoomName: props.RoomInfo.Name, Stories: storiesState.Stories, DeleteStory: deleteStory, MakeCurrentStory: makeCurrentStory, IsAdmin: currentUserIsAdmin, CurrentStoryDescriptionChange: storiesState.CurrentStoryDescriptionChange, CurrentStoryNameChange: storiesState.CurrentStoryNameChange, CurrentStoryDescriptionOnChange: currentStoryDescriptionOnChange, CurrentStoryNameOnChange: currentStoryNameOnChange, RoomStatus: roomStatusState })),
             react_1.default.createElement("div", { className: "planit-room-right-part col-12 col-md-3" },
                 react_1.default.createElement("div", null, settingsUpUserListRender()),
                 react_1.default.createElement("div", { className: "padding-10-top" }),
@@ -11233,6 +11254,7 @@ var StoriesSectionState = /** @class */ (function () {
     function StoriesSectionState() {
         this.NameForAdd = "";
         this.DescriptionForAdd = "";
+        this.ShowOnlyCompleted = false;
         // this.CurrentStoryNameChange = "";
         // this.CurrentStoryDescriptionChange = "";
     }
@@ -11314,6 +11336,16 @@ var StoriesSection = function (props) {
         //     return newState;
         // });
     };
+    var tryMakeStoryComplete = function () {
+        //если не задан voteInfo как то уведомить что оценки не запишутся
+        var save = true;
+        if (props.RoomStatus !== RoomInfo_1.RoomStatus.CloseVote) { //todo возможно тут стоит не на статус завязаться а на voteinfo
+            save = confirm('Комната не в статусе <закрытого голосования>, История будет сохранена без оценок. Сохранить?');
+        }
+        if (save) {
+            props.MyHubConnection.send("MakeStoryComplete", props.RoomName, props.CurrentStoryId);
+        }
+    };
     var currentStoryDescriptionRender = function () {
         if (props.CurrentStoryId < 0) {
             return react_1.default.createElement("div", null);
@@ -11326,34 +11358,46 @@ var StoriesSection = function (props) {
         if (props.IsAdmin) {
             adminButton = react_1.default.createElement("div", null,
                 react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return changeCurrentStory(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C"),
-                react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return cancelChangeCurrentStory(); } }, "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C"));
+                react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return cancelChangeCurrentStory(); } }, "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C"),
+                react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return tryMakeStoryComplete(); } }, "\u041E\u0442\u043C\u0435\u0442\u0438\u0442\u044C \u043A\u0430\u043A \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u043D\u0443\u044E"));
         }
-        return react_1.default.createElement("div", { className: "planing-current-story-main" },
+        var storyBodyRender = function () {
+            if (props.IsAdmin) {
+                return react_1.default.createElement("div", null,
+                    react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435", value: props.CurrentStoryNameChange, type: "text", onChange: function (e) {
+                            // let newState = { ...storiesState };
+                            // newState.CurrentStoryNameChange = e.target.value;
+                            // setStoriesState(newState);
+                            props.CurrentStoryNameOnChange(e.target.value);
+                            // setStoriesState(prevState => {
+                            //     let newState = { ...prevState };
+                            //     newState.CurrentStoryNameChange = e.target.value;
+                            //     return newState;
+                            // });
+                        } }),
+                    react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435", value: props.CurrentStoryDescriptionChange, type: "text", onChange: function (e) {
+                            // let newState = { ...storiesState };
+                            // newState.CurrentStoryDescriptionChange = e.target.value;
+                            // setStoriesState(newState);
+                            props.CurrentStoryDescriptionOnChange(e.target.value);
+                            // setStoriesState(prevState => {
+                            //     let newState = { ...prevState };
+                            //     newState.CurrentStoryDescriptionChange = e.target.value;
+                            //     return newState;
+                            // });
+                        } }));
+            }
+            else {
+                return react_1.default.createElement("div", null,
+                    react_1.default.createElement("p", null, story.Name),
+                    react_1.default.createElement("p", null, story.Description));
+            }
+        };
+        return react_1.default.createElement("div", { className: "planing-current-story-main planing-poker-left-one-section" },
             react_1.default.createElement("p", null, "\u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0442\u0435\u043A\u0443\u0449\u0435\u0439 \u0437\u0430\u0434\u0430\u0447\u0438"),
             react_1.default.createElement("div", null,
                 react_1.default.createElement("p", null, story.Id),
-                react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435", value: props.CurrentStoryNameChange, type: "text", onChange: function (e) {
-                        // let newState = { ...storiesState };
-                        // newState.CurrentStoryNameChange = e.target.value;
-                        // setStoriesState(newState);
-                        props.CurrentStoryNameOnChange(e.target.value);
-                        // setStoriesState(prevState => {
-                        //     let newState = { ...prevState };
-                        //     newState.CurrentStoryNameChange = e.target.value;
-                        //     return newState;
-                        // });
-                    } }),
-                react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435", value: props.CurrentStoryDescriptionChange, type: "text", onChange: function (e) {
-                        // let newState = { ...storiesState };
-                        // newState.CurrentStoryDescriptionChange = e.target.value;
-                        // setStoriesState(newState);
-                        props.CurrentStoryDescriptionOnChange(e.target.value);
-                        // setStoriesState(prevState => {
-                        //     let newState = { ...prevState };
-                        //     newState.CurrentStoryDescriptionChange = e.target.value;
-                        //     return newState;
-                        // });
-                    } })),
+                storyBodyRender()),
             adminButton);
     };
     var AddNewStory = function () {
@@ -11364,6 +11408,7 @@ var StoriesSection = function (props) {
             return react_1.default.createElement(react_1.Fragment, null);
         };
         //todo как то норм назвать
+        var addNewForm = react_1.default.createElement("div", null);
         var adminButtonNotInList = react_1.default.createElement("div", null);
         if (props.IsAdmin) {
             adminButtonInList = function (id) {
@@ -11373,16 +11418,8 @@ var StoriesSection = function (props) {
             };
             adminButtonNotInList = react_1.default.createElement("div", null,
                 react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return AddNewStory(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"));
-        }
-        return react_1.default.createElement("div", { className: "planing-stories-list-main" },
-            react_1.default.createElement("p", null, "\u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
-            react_1.default.createElement("div", null, props.Stories.map(function (x) { return react_1.default.createElement("div", { key: x.Id },
-                react_1.default.createElement("p", null, x.Id),
-                react_1.default.createElement("p", null, x.Name),
-                react_1.default.createElement("p", null, x.Description),
-                adminButtonInList(x.Id),
-                react_1.default.createElement("hr", null)); })),
-            react_1.default.createElement("div", null,
+            addNewForm = react_1.default.createElement("div", null,
+                react_1.default.createElement("p", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043D\u043E\u0432\u0443\u044E:"),
                 react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435", value: storiesState.NameForAdd, type: "text", onChange: function (e) {
                         // let newState = { ...storiesState };
                         // newState.NameForAdd = e.target.value;
@@ -11403,7 +11440,25 @@ var StoriesSection = function (props) {
                             return newState;
                         });
                     } }),
-                adminButtonNotInList));
+                adminButtonNotInList);
+        }
+        return react_1.default.createElement("div", { className: "planing-stories-list-main planing-poker-left-one-section" },
+            react_1.default.createElement("p", null, "\u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
+            react_1.default.createElement("p", null, "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u043D\u044B\u0435"),
+            react_1.default.createElement("input", { onClick: function () {
+                    setStoriesState(function (prevState) {
+                        var newState = __assign({}, prevState);
+                        newState.ShowOnlyCompleted = !newState.ShowOnlyCompleted;
+                        return newState;
+                    });
+                }, type: "checkbox" }),
+            react_1.default.createElement("div", null, props.Stories.filter(function (x) { return x.Completed === storiesState.ShowOnlyCompleted; }).map(function (x) { return react_1.default.createElement("div", { key: x.Id },
+                react_1.default.createElement("p", null, x.Id),
+                react_1.default.createElement("p", null, x.Name),
+                react_1.default.createElement("p", null, x.Description),
+                adminButtonInList(x.Id),
+                react_1.default.createElement("hr", null)); })),
+            react_1.default.createElement("div", null, addNewForm));
     };
     return react_1.default.createElement("div", null,
         react_1.default.createElement("div", null, currentStoryDescriptionRender()),
@@ -11492,7 +11547,7 @@ var UserInList = function (props) {
         vote = "без права голоса";
     }
     var classColorize = "";
-    if (props.RoomStatus === RoomInfo_1.RoomSatus.AllCanVote) {
+    if (props.RoomStatus === RoomInfo_1.RoomStatus.AllCanVote) {
         //подсвечиваем проголосовавших
         if (props.HasVote || !props.User.CanVote()) {
             classColorize = " planing-user-voted";
@@ -11501,7 +11556,7 @@ var UserInList = function (props) {
             classColorize = " planing-user-not-voted";
         }
     }
-    else if (props.RoomStatus === RoomInfo_1.RoomSatus.CloseVote) {
+    else if (props.RoomStatus === RoomInfo_1.RoomStatus.CloseVote) {
         //подсвечиваем min max
         if (props.User.Vote) {
             if (props.MinVote === props.User.Vote) {

@@ -533,21 +533,21 @@ namespace PlanitPoker.Models.Repositories
 
         public async Task<bool> MakeStoryComplete(Room room, long storyId, string userId)
         {
-            return await UpdateIfCan(room,userId,rm=>
-            {
-                var story = rm.Stories.FirstOrDefault(x=>x.Id==storyId);
-                if (story == null)
-                {
-                    return false;
+            return await UpdateIfCan(room, userId, rm =>
+              {
+                  var story = rm.Stories.FirstOrDefault(x => x.Id == storyId);
+                  if (story == null)
+                  {
+                      return false;
 
-                }
+                  }
                 //todo возможно на +-этом моменте надо писать в бд и обновлять сразу id стори, 
                 //или может отдавать юзеру ответ и параллельно это делать
                 // или ждать уже полное сохранение комнаты
                 story.Completed = true;
-                story.Date = DateTime.Now;
-                return true;
-            });
+                  story.Date = DateTime.Now;
+                  return true;
+              });
             //room.SetConcurentValue(_multiThreadHelper);
         }
 
@@ -557,7 +557,7 @@ namespace PlanitPoker.Models.Repositories
 
         private async Task<bool> UpdateIfCan(Room room, string userIdRequest, Func<StoredRoom, bool> workWithRoom)
         {
-            if (room == null || string.IsNullOrWhiteSpace(userIdRequest)|| workWithRoom==null)
+            if (room == null || string.IsNullOrWhiteSpace(userIdRequest) || workWithRoom == null)
             {
                 return false;
             }
@@ -619,6 +619,35 @@ namespace PlanitPoker.Models.Repositories
             return result;
         }
 
+        public async Task<bool> LeaveFromRoom(string roomName, string userId)
+        {
+            var room = await TryGetRoom(roomName);
+            return await LeaveFromRoom(room, userId);
+        }
 
+        public async Task<bool> LeaveFromRoom(Room room, string userId)
+        {
+            if (room == null)
+            {
+                return false;
+            }
+
+            bool result = false;
+            room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
+            {
+                var admins = rm.StoredRoom.Users.Where(x => x.IsAdmin);
+                //todo вот тут можно проверить залогинен ли пользак в менй апе, и если залогенен то НЕ передавать админку!
+                if (admins.Count() < 2 && admins.Any(x => x.UserIdentifier == userId))
+                {
+                    var newAdmin = rm.StoredRoom.Users.FirstOrDefault(x => !x.IsAdmin);
+                    newAdmin.Role.Add(Consts.Roles.Admin);
+                }
+
+                rm.StoredRoom.Users.RemoveAll(x => x.UserIdentifier == userId);
+                result = true;
+            });
+
+            return result;
+        }
     }
 }

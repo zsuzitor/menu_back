@@ -341,7 +341,7 @@ namespace PlanitPoker.Models.Hubs
                 Description = storyDescription,
             };
 
-            var sc = await _planitPokerRepository.AddNewStory(roomname,Context.ConnectionId, newStory);
+            var sc = await _planitPokerRepository.AddNewStory(roomname, Context.ConnectionId, newStory);
 
             if (sc)
             {
@@ -350,7 +350,7 @@ namespace PlanitPoker.Models.Hubs
         }
 
 
-        public async Task ChangeCurrentStory(string roomname,long storyId, string storyName, string storyDescription)
+        public async Task ChangeCurrentStory(string roomname, long storyId, string storyName, string storyDescription)
         {
             roomname = ValidateString(roomname);
             storyName = ValidateString(storyName);
@@ -366,7 +366,7 @@ namespace PlanitPoker.Models.Hubs
 
             if (sc)
             {
-                await Clients.Group(roomname).SendAsync(CurrentStoryChanged,storyId,storyName,storyDescription );//new StoryReturn(newStory)
+                await Clients.Group(roomname).SendAsync(CurrentStoryChanged, storyId, storyName, storyDescription);//new StoryReturn(newStory)
             }
         }
 
@@ -401,7 +401,7 @@ namespace PlanitPoker.Models.Hubs
             if (res)
             {
                 await Clients.Group(roomname).SendAsync(MovedStoryToComplete, storyId);
-            }    
+            }
             //
         }
 
@@ -432,6 +432,15 @@ namespace PlanitPoker.Models.Hubs
             //await Clients.All.SendAsync("Notify", $"{Context.ConnectionId} покинул в чат");
             //TODO надо передать админку
             //название комнаты смогу вытащить из кук???
+            var httpContext = Context.GetHttpContext();
+            var cookiesHasRoomName = httpContext.Request.Cookies.TryGetValue("planing_poker_roomname", out string roomName);
+            if (cookiesHasRoomName && !string.IsNullOrWhiteSpace(roomName))
+            {
+                var userId = Context.ConnectionId;
+                await _planitPokerRepository.LeaveFromRoom(roomName, userId);
+                await Clients.Group(roomName).SendAsync(UserLeaved, userId);
+            }
+
             await base.OnDisconnectedAsync(exception);
         }
 

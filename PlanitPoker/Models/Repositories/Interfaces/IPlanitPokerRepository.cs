@@ -33,6 +33,10 @@ namespace PlanitPoker.Models.Repositories.Interfaces
 
         Task<bool> KickFromRoom(string roomName, string userIdRequest, string userId);
         Task<bool> KickFromRoom(Room room, string userIdRequest, string userId);
+        Task<bool> LeaveFromRoom(string roomName, string userId);
+        Task<bool> LeaveFromRoom(Room room, string userId);
+
+
         Task<bool> ChangeStatusIfCan(string roomName, string userId, RoomSatus newStatus);
 
         Task<bool> ChangeStatusIfCan(Room room,string userId, RoomSatus newStatus);
