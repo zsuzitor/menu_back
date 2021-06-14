@@ -40,34 +40,41 @@ namespace PlanitPoker.Models.Repositories
             throw new System.NotImplementedException();
         }
 
-        public async Task<bool> AddUserIntoRoom(string roomName, PlanitUser user)
+        public async Task<(bool sc, string oldConnectionId)> AddUserIntoRoom(string roomName, PlanitUser user)
         {
             var room = await TryGetRoom(roomName);
             return await AddUserIntoRoom(room, user);
         }
 
-        public async Task<bool> AddUserIntoRoom(Room room, PlanitUser user)
+        public async Task<(bool sc, string oldConnectionId)> AddUserIntoRoom(Room room, PlanitUser user)
         {
             if (room == null || string.IsNullOrWhiteSpace(user?.UserConnectionId) || string.IsNullOrWhiteSpace(user.Name))
             {
-                return false;
+                return (false, null);
             }
+            string oldConnectionId = null;
+            var success = room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
+             {
+                 var us = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == user.UserConnectionId
+                     || (user.MainAppUserId.HasValue ? x.MainAppUserId == user.MainAppUserId : false));
+                 if (us == null)
+                 {
+                     rm.StoredRoom.Users.Add(user);
+                 }
+                 else
+                 {
+                     us.Name = user.Name;
+                     oldConnectionId = us.UserConnectionId;
+                     us.UserConnectionId = user.UserConnectionId;
+                     if (!us.MainAppUserId.HasValue)//мб это лишнее
+                    {
+                         us.MainAppUserId = user.MainAppUserId;
+                     }
+                 }
+             });
 
-            room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
-            {
-                var us = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == user.UserConnectionId
-                    || (user.MainAppUserId.HasValue ? x.MainAppUserId == user.MainAppUserId : false));
-                if (us == null)
-                {
-                    rm.StoredRoom.Users.Add(user);
-                }
-                else
-                {
-                    us.Name = user.Name;
-                }
-            });
-
-            return true;
+            return (success, oldConnectionId);
+            //return true;
         }
 
         public async Task<bool> ChangeStatusIfCan(string roomName, string userConnectionIdRequest, RoomSatus newStatus)
@@ -107,14 +114,15 @@ namespace PlanitPoker.Models.Repositories
             //return result;
         }
 
-        public async Task<bool> ChangeVote(Room room, string connectionUserId, int vote)
+        public async Task<(bool sc, string userId)> ChangeVote(Room room, string connectionUserId, int vote)
         {
             if (room == null || string.IsNullOrWhiteSpace(connectionUserId))
             {
-                return false;
+                return (false, null);
             }
 
             bool result = false;
+            string userId = null;
             var suc = room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
             {
                 if (rm.StoredRoom.Status != RoomSatus.AllCanVote)
@@ -128,17 +136,17 @@ namespace PlanitPoker.Models.Repositories
                     return;
                 }
 
-
+                userId = user.PlaningAppUserId;
                 user.Vote = vote;
                 result = true;
             });
 
             if (!suc)
             {
-                return false;
+                return (false, null);
             }
 
-            return result;
+            return (result, userId);
         }
 
         public Task ClearOldRooms()
@@ -348,20 +356,21 @@ namespace PlanitPoker.Models.Repositories
             return null;
         }
 
-        public async Task<bool> ChangeUserName(string roomName, string connectionUserId, string newUserName)
+        public async Task<(bool sc, string userId)> ChangeUserName(string roomName, string connectionUserId, string newUserName)
         {
             if (string.IsNullOrWhiteSpace(connectionUserId) || string.IsNullOrWhiteSpace(newUserName))
             {
-                return false;
+                return (false, null);
             }
 
             var room = await TryGetRoom(roomName);
             if (room == null)
             {
-                return false;
+                return (false, null);
             }
 
             bool result = false;
+            string userId = null;
             var suc = room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
             {
                 var user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == connectionUserId);
@@ -371,15 +380,16 @@ namespace PlanitPoker.Models.Repositories
                 }
 
                 user.Name = newUserName;
+                userId = user.PlaningAppUserId;
                 result = true;
             });
 
             if (!suc)
             {
-                return false;
+                return (false, null);
             }
 
-            return result;
+            return (result, userId);
         }
 
         public async Task<Room> TryGetRoom(string roomName)
@@ -620,25 +630,27 @@ namespace PlanitPoker.Models.Repositories
             return result;
         }
 
-        public async Task<bool> LeaveFromRoom(string roomName, string userConnectionIdRequest)
+        public async Task<(bool sc, string userId)> LeaveFromRoom(string roomName, string userConnectionIdRequest)
         {
             var room = await TryGetRoom(roomName);
             return await LeaveFromRoom(room, userConnectionIdRequest);
         }
 
-        public async Task<bool> LeaveFromRoom(Room room, string userConnectionIdRequest)
+        public async Task<(bool sc, string userId)> LeaveFromRoom(Room room, string userConnectionIdRequest)
         {
             if (room == null)
             {
-                return false;
+                return (false, null);
             }
 
             bool result = false;
+            string userId = null;
             room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
             {
                 var admins = rm.StoredRoom.Users.Where(x => x.IsAdmin);
                 //проверить залогинен ли пользак в менй апе, и если залогенен то НЕ передавать админку!
                 var currentUser = admins.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
+                userId = currentUser.PlaningAppUserId;
                 if (admins.Count() < 2 && currentUser != null && currentUser.MainAppUserId == null)
                 {
                     var newAdmin = rm.StoredRoom.Users.FirstOrDefault(x => !x.IsAdmin);
@@ -652,7 +664,7 @@ namespace PlanitPoker.Models.Repositories
                 result = true;
             });
 
-            return result;
+            return (result, userId);
         }
     }
 }

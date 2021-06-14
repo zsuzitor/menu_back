@@ -25,6 +25,11 @@ namespace PlanitPoker.Models.Returns
 
         public PlanitUserReturn(PlanitUser obj)
         {
+            if (obj == null)
+            {
+                return;
+            }
+
             UserIdentifier = obj.PlaningAppUserId;
             Roles = obj.Role;//obj.IsAdmin,//obj.Role.Contains();
             Name = obj.Name;

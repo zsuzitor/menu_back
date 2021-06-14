@@ -10122,6 +10122,7 @@ var PlaningPokerUserInfo = /** @class */ (function () {
     function PlaningPokerUserInfo() {
         this.UserName = "";
         this.UserId = "";
+        this.UserConnectionId = "";
     }
     return PlaningPokerUserInfo;
 }());
@@ -10308,7 +10309,7 @@ var PlaningPokerMain = function () {
             alert.Type = data.status;
             window.G_AddAbsoluteAlertToState(alert);
         });
-        hubConnection.on("EnteredInRoom", function () {
+        hubConnection.on("EnteredInRoom", function (roomUserId) {
             // window.history.pushState(null, "Room", "/");
             // window.history.pushState(null, "Room", "/planing-poker/room");
             // let newState = { ...localState };
@@ -10317,6 +10318,7 @@ var PlaningPokerMain = function () {
             setLocalState(function (prevState) {
                 var newState = __assign({}, prevState);
                 newState.RoomInfo.InRoom = true;
+                newState.User.UserId = roomUserId;
                 return newState;
             });
             document.cookie = "planing_poker_roomname=" + localState.RoomInfo.Name + "; path=/;";
@@ -10353,7 +10355,7 @@ var PlaningPokerMain = function () {
                 // setLocalState(newState);
                 setLocalState(function (prevState) {
                     var newState = __assign({}, prevState);
-                    newState.User.UserId = connectionId;
+                    newState.User.UserConnectionId = connectionId;
                     return newState;
                 });
                 //sethubConnectedState(true);
@@ -10412,6 +10414,13 @@ var PlaningPokerMain = function () {
             return newState;
         });
     };
+    var clearUserId = function () {
+        setLocalState(function (prevState) {
+            var newState = __assign({}, prevState);
+            newState.User.UserId = "";
+            return newState;
+        });
+    };
     return react_1.default.createElement("div", null,
         react_1.default.createElement(react_router_dom_1.Switch, null,
             react_1.default.createElement(react_router_dom_1.Route, { path: "/planing-poker/room", render: function () {
@@ -10419,7 +10428,7 @@ var PlaningPokerMain = function () {
                     //  InRoom={localState.InRoom}
                     , { 
                         //  InRoom={localState.InRoom}
-                        UserInfo: localState.User, RoomInfo: localState.RoomInfo, MyHubConnection: localState.MyHubConnection, RoomNameChanged: roomNameChanged, ChangeUserName: userNameChange, HubConnected: hubConnected });
+                        UserInfo: localState.User, RoomInfo: localState.RoomInfo, MyHubConnection: localState.MyHubConnection, RoomNameChanged: roomNameChanged, ChangeUserName: userNameChange, HubConnected: hubConnected, ClearUserId: clearUserId });
                 } }),
             react_1.default.createElement(react_router_dom_1.Route, { path: "/planing-poker", render: function () {
                     return react_1.default.createElement(Index_1.default, { Username: localState.User.UserName, ChangeUserName: userNameChange, MyHubConnection: localState.MyHubConnection, RoomNameChanged: roomNameChanged, RoomPasswordChanged: roomPasswordChanged, RoomInfo: localState.RoomInfo });
@@ -10697,7 +10706,7 @@ var Room = function (props) {
                 });
             }
         };
-        window.G_PlaningPokerController.GetRoomInfo(props.RoomInfo.Name, props.UserInfo.UserId, getRoomInfo);
+        window.G_PlaningPokerController.GetRoomInfo(props.RoomInfo.Name, props.UserInfo.UserConnectionId, getRoomInfo);
     }, [props.RoomInfo.InRoom]);
     react_1.useEffect(function () {
         props.MyHubConnection.on("NewUserInRoom", function (data) {
@@ -10746,6 +10755,7 @@ var Room = function (props) {
             if (userId == props.UserInfo.UserId) {
                 alert("you kicked or leave"); //TODO может как то получше сделать, и хорошо бы без перезагрузки\редиректа
                 window.location.href = "/planing-poker";
+                props.ClearUserId();
                 return;
             }
             // let newState = { ...localState };
@@ -11161,7 +11171,7 @@ var Room = function (props) {
                 }
             };
             // console.log(JSON.stringify(props));
-            window.G_PlaningPokerController.GetUsersIsRoom(props.RoomInfo.Name, props.UserInfo.UserId, loadedUsers);
+            window.G_PlaningPokerController.GetUsersIsRoom(props.RoomInfo.Name, props.UserInfo.UserConnectionId, loadedUsers);
         };
         return react_1.default.createElement("div", null,
             react_1.default.createElement("p", null, "\u0434\u043E\u043F \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"),

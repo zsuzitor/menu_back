@@ -12,7 +12,7 @@ namespace PlanitPoker.Models
         {
             get
             {
-                if (MainAppUserId==null)
+                if (MainAppUserId == null)
                 {
                     return _planingAppUserId;
                 }
@@ -23,7 +23,7 @@ namespace PlanitPoker.Models
             }
             set
             {
-                if (MainAppUserId!=null)
+                if (MainAppUserId == null)
                 {
                     _planingAppUserId = value;
                 }
