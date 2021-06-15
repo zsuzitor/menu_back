@@ -138,6 +138,7 @@ namespace PlanitPoker.Models.Repositories
 
                 userId = user.PlaningAppUserId;
                 user.Vote = vote;
+                //user.HasVote = true;
                 result = true;
             });
 
@@ -650,7 +651,7 @@ namespace PlanitPoker.Models.Repositories
                 var admins = rm.StoredRoom.Users.Where(x => x.IsAdmin);
                 //проверить залогинен ли пользак в менй апе, и если залогенен то НЕ передавать админку!
                 var currentUser = admins.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
-                userId = currentUser.PlaningAppUserId;
+
                 if (admins.Count() < 2 && currentUser != null && currentUser.MainAppUserId == null)
                 {
                     var newAdmin = rm.StoredRoom.Users.FirstOrDefault(x => !x.IsAdmin);
@@ -660,7 +661,9 @@ namespace PlanitPoker.Models.Repositories
                     }
                 }
 
+                userId = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest)?.PlaningAppUserId;
                 rm.StoredRoom.Users.RemoveAll(x => x.UserConnectionId == userConnectionIdRequest);
+
                 result = true;
             });
 

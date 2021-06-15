@@ -2789,7 +2789,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n\r\n.stories-data-list{\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,2DAA2D;IAC3D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,uDAAuD;IACvD,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,eAAe;IACf,6BAA6B;IAC7B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,iBAAiB;IACjB,oBAAoB;AACxB;;AAEA;IACI,qCAAqC;AACzC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;;AAGA;IACI,iBAAiB;IACjB,cAAc;AAClB","sourcesContent":[".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n\r\n.stories-data-list{\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.planing-story-in-list {}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,2DAA2D;IAC3D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,uDAAuD;IACvD,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,eAAe;IACf,6BAA6B;IAC7B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,iBAAiB;IACjB,oBAAoB;AACxB;;AAEA;IACI,qCAAqC;AACzC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA,wBAAwB;;AAExB;IACI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.planing-story-in-list {}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -11052,6 +11052,7 @@ var Room = function (props) {
                         alert_1 = new AlertData_1.AlertData();
                         alert_1.Text = "У обсерверов нет прав голосовать";
                         alert_1.Type = AlertData_1.AlertTypeEnum.Error;
+                        alert_1.Timeout = 5000;
                         window.G_AddAbsoluteAlertToState(alert_1);
                         return [2 /*return*/];
                     }
@@ -11383,6 +11384,18 @@ var StoriesSection = function (props) {
             props.MyHubConnection.send("MakeStoryComplete", props.RoomName, props.CurrentStoryId);
         }
     };
+    var completedStoryInfo = function (story) {
+        if (!storiesState.ShowOnlyCompleted) {
+            return react_1.default.createElement("div", null);
+        }
+        return react_1.default.createElement("div", null,
+            react_1.default.createElement("p", null,
+                "\u0414\u0430\u0442\u0430 \u043E\u0446\u0435\u043D\u043A\u0438: ",
+                story.Date),
+            react_1.default.createElement("p", null,
+                "\u041E\u0446\u0435\u043D\u043A\u0430: ",
+                story.Vote + ""));
+    };
     var currentStoryDescriptionRender = function () {
         if (props.CurrentStoryId < 0) {
             return react_1.default.createElement("div", null);
@@ -11453,7 +11466,7 @@ var StoriesSection = function (props) {
         //todo как то норм назвать
         var addNewForm = react_1.default.createElement("div", null);
         var adminButtonNotInList = react_1.default.createElement("div", null);
-        if (props.IsAdmin) {
+        if (props.IsAdmin && !storiesState.ShowOnlyCompleted) {
             adminButtonInList = function (id) {
                 return react_1.default.createElement("div", null,
                     react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return props.MakeCurrentStory(id); } }, "\u0421\u0434\u0435\u043B\u0430\u0442\u044C \u0442\u0435\u043A\u0443\u0449\u0435\u0439"),
@@ -11498,7 +11511,7 @@ var StoriesSection = function (props) {
                     });
                 }, type: "checkbox" }),
             react_1.default.createElement("div", null,
-                react_1.default.createElement("div", { className: "stories-data-list" }, props.Stories.filter(function (x) { return x.Completed === storiesState.ShowOnlyCompleted; }).map(function (x) { return react_1.default.createElement("div", { key: x.Id },
+                react_1.default.createElement("div", { className: "stories-data-list" }, props.Stories.filter(function (x) { return x.Completed === storiesState.ShowOnlyCompleted; }).map(function (x) { return react_1.default.createElement("div", { className: "planing-story-in-list " + (x.Completed ? "completed-story" : "not-completed-story"), key: x.Id },
                     react_1.default.createElement("p", null,
                         "Id: ",
                         x.Id),
@@ -11508,6 +11521,7 @@ var StoriesSection = function (props) {
                     react_1.default.createElement("p", null,
                         "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435: ",
                         x.Description),
+                    completedStoryInfo(x),
                     adminButtonInList(x.Id),
                     react_1.default.createElement("hr", null)); })),
                 react_1.default.createElement("div", null,
@@ -14340,36 +14354,37 @@ var MainComponent = /** @class */ (function (_super) {
         });
     };
     MainComponent.prototype.AddMainALert = function (alert) {
+        var _this = this;
         // console.log('1-AddMainALert');
         var storedAlert = new AlertData_1.AlertDataStored();
         storedAlert.FillByAlertData(alert);
-        var newState = __assign({}, this.state);
-        // let maxKey = Math.max.apply(Math, newState.AbsoluteAlerts.map(function (el) { return el.Key; }));
-        // if ((!maxKey && maxKey !== 0) || maxKey < 0) {
-        //     maxKey = 0;
-        // }
-        // else {
-        //     maxKey++;
-        // }
-        storedAlert.Key = ++newState.MaxIdMainAlert;
-        newState.AbsoluteAlerts.push(storedAlert);
-        this.setState(newState);
+        this.setState(function (prevState) {
+            var newState = __assign({}, prevState);
+            storedAlert.Key = ++newState.MaxIdMainAlert;
+            newState.AbsoluteAlerts.push(storedAlert);
+            if (alert.Timeout) {
+                setTimeout(function () {
+                    _this.RemoveMainALert(storedAlert.Key);
+                }, alert.Timeout);
+            }
+            return newState;
+        });
     };
     MainComponent.prototype.RemoveMainALert = function (alertId) {
-        var newState = __assign({}, this.state);
-        // if (newState.AbsoluteAlerts.length == 0) {
-        //     newState.MaxIdMainAlert = 0;
-        // }
-        for (var i = 0; i < newState.AbsoluteAlerts.length; ++i) {
-            if (newState.AbsoluteAlerts[i].Key == alertId) {
-                newState.AbsoluteAlerts.splice(i, 1);
-                if (newState.AbsoluteAlerts.length == 0) {
-                    newState.MaxIdMainAlert = 0;
+        this.setState(function (prevState) {
+            var newState = __assign({}, prevState);
+            for (var i = 0; i < newState.AbsoluteAlerts.length; ++i) {
+                if (newState.AbsoluteAlerts[i].Key == alertId) {
+                    newState.AbsoluteAlerts.splice(i, 1);
+                    if (newState.AbsoluteAlerts.length == 0) {
+                        newState.MaxIdMainAlert = 0;
+                    }
+                    // this.setState(newState);
+                    break;
                 }
-                this.setState(newState);
-                return;
             }
-        }
+            return newState;
+        });
     };
     MainComponent.prototype.componentDidMount = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -15415,6 +15430,7 @@ var AlertDataStored = /** @class */ (function () {
 exports.AlertDataStored = AlertDataStored;
 var AlertData = /** @class */ (function () {
     function AlertData() {
+        this.Timeout = null;
     }
     AlertData.prototype.GetByErrorBack = function (data) {
         var res = [];

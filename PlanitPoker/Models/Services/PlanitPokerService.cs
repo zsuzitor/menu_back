@@ -96,7 +96,7 @@ namespace PlanitPoker.Models.Services
                     return null;
                 }
 
-                return rm.StoredRoom.Users.Select(x => new { userId = x.PlaningAppUserId, vote = x.Vote ?? 0, hasVote = x.HasVote });
+                return rm.StoredRoom.Users.Select(x => new { userId = x.PlaningAppUserId, vote = x.Vote ?? 0, hasVote = x.Vote.HasValue });
             });
 
             if (!sc)
@@ -105,11 +105,15 @@ namespace PlanitPoker.Models.Services
                 return null;
             }
 
-            res = res.Where(x => x.hasVote);
+            var arrForMath = res.Where(x => x.hasVote);
             var result = new EndVoteInfo();
-            result.MinVote = res.Min(x => x.vote);
-            result.MaxVote = res.Max(x => x.vote);
-            result.Average = res.Average(x => x.vote);
+            if(arrForMath.Count() > 0)
+            {
+                result.MinVote = arrForMath.Min(x => x.vote);
+                result.MaxVote = arrForMath.Max(x => x.vote);
+                result.Average = arrForMath.Average(x => x.vote);
+            }
+            
             result.UsersInfo = res.Select(x => new EndVoteUserInfo() { Id = x.userId, Vote = x.vote }).ToList();
             return result;
         }
