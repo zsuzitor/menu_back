@@ -427,7 +427,7 @@ namespace PlanitPoker.Models.Repositories
         }
 
         //вернет true только если роль была именно добавлена
-        public async Task<bool> AddNewStatusToUser(string roomName, string userId, string newRole, string userConnectionIdRequest)
+        public async Task<bool> AddNewRoleToUser(string roomName, string userId, string newRole, string userConnectionIdRequest)
         {
             if (!Consts.Roles.IsValideRole(newRole))
             {
@@ -449,7 +449,7 @@ namespace PlanitPoker.Models.Repositories
 
         }
 
-        public async Task<bool> RemoveStatusUser(string roomName, string userId, string oldRole, string userConnectionIdRequest)
+        public async Task<bool> RemoveRoleUser(string roomName, string userId, string oldRole, string userConnectionIdRequest)
         {
             if (!Consts.Roles.IsValideRole(oldRole))
             {

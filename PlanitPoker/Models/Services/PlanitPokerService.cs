@@ -59,7 +59,7 @@ namespace PlanitPoker.Models.Services
                 return null;
             }
 
-            var roomInfo = await GetEndVoteInfo(room);//todo это можно сделать без локов тк ниже рума полностью копируется
+            var roomInfo = await GetEndVoteInfo(room);//todo это можно сделать без локов тк ниже рума полностью копируется, можно создать новый метод
             var scRoom = room.GetConcurentValue(_multiThreadHelper, rm => rm.StoredRoom.Clone());
             if (!scRoom.sc)
             {
@@ -96,7 +96,7 @@ namespace PlanitPoker.Models.Services
                     return null;
                 }
 
-                return rm.StoredRoom.Users.Select(x => new { userId = x.UserConnectionId, vote = x.Vote ?? 0 });
+                return rm.StoredRoom.Users.Select(x => new { userId = x.PlaningAppUserId, vote = x.Vote ?? 0, hasVote = x.HasVote });
             });
 
             if (!sc)
@@ -105,7 +105,7 @@ namespace PlanitPoker.Models.Services
                 return null;
             }
 
-
+            res = res.Where(x => x.hasVote);
             var result = new EndVoteInfo();
             result.MinVote = res.Min(x => x.vote);
             result.MaxVote = res.Max(x => x.vote);

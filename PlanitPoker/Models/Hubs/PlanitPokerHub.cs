@@ -33,7 +33,7 @@ namespace PlanitPoker.Models.Hubs
         //front endpoints
         private const string ConnectedToRoomError = "ConnectedToRoomError";
         private const string NewRoomAlive = "NewRoomAlive";
-        private const string NotifyFromServer = "NotifyFromServer";//todo будет принимать объект result с ошибками как в апи
+        private const string NotifyFromServer = "PlaningNotifyFromServer";//todo будет принимать объект result с ошибками как в апи
         private const string EnteredInRoom = "EnteredInRoom";
         private const string NewUserInRoom = "NewUserInRoom";
         private const string UserLeaved = "UserLeaved";
@@ -43,7 +43,7 @@ namespace PlanitPoker.Models.Hubs
         private const string VoteChanged = "VoteChanged";
         private const string RoomNotCreated = "RoomNotCreated";
         private const string UserNameChanged = "UserNameChanged";
-        private const string UserStatusChanged = "UserStatusChanged";
+        private const string UserRoleChanged = "UserRoleChanged";
         private const string AddedNewStory = "AddedNewStory";
         private const string CurrentStoryChanged = "CurrentStoryChanged";
         private const string NewCurrentStory = "NewCurrentStory";
@@ -235,23 +235,29 @@ namespace PlanitPoker.Models.Hubs
                 return;
             }
 
-            (var res, bool sc) = GetValueFromRoomAsync(room, rm =>
-                  {
-                      return rm.StoredRoom.Users.Select(x => new { userId = x.UserConnectionId, vote = x.Vote ?? 0 });
-                  });
-
-            if (!sc)
+            var result = await _planitPokerService.GetEndVoteInfo(room);
+            if (result == null)
             {
-                //TODO
+                //todo
                 return;
             }
+            //(var res, bool sc) = GetValueFromRoomAsync(room, rm =>
+            //      {
+            //          return rm.StoredRoom.Users.Select(x => new { userId = x.PlaningAppUserId, vote = x.Vote ?? 0 });
+            //      });
+
+            //if (!sc)
+            //{
+            //    //TODO
+            //    return;
+            //}
 
 
-            var result = new EndVoteInfo();
-            result.MinVote = res.Min(x => x.vote);
-            result.MaxVote = res.Max(x => x.vote);
-            result.Average = res.Average(x => x.vote);
-            result.UsersInfo = res.Select(x => new EndVoteUserInfo() { Id = x.userId, Vote = x.vote }).ToList();
+            //var result = new EndVoteInfo();
+            //result.MinVote = res.Min(x => x.vote);
+            //result.MaxVote = res.Max(x => x.vote);
+            //result.Average = res.Average(x => x.vote);
+            //result.UsersInfo = res.Select(x => new EndVoteUserInfo() { Id = x.userId, Vote = x.vote }).ToList();
 
             await Clients.Group(roomname).SendAsync(VoteEnd, result);
         }
@@ -339,30 +345,30 @@ namespace PlanitPoker.Models.Hubs
 
         }
 
-        public async Task AddNewStatusToUser(string roomname, string userId, string newRole)
+        public async Task AddNewRoleToUser(string roomname, string userId, string newRole)
         {
 
             roomname = ValidateString(roomname);
             userId = ValidateString(userId);
             newRole = ValidateString(newRole);
 
-            var sc = await _planitPokerRepository.AddNewStatusToUser(roomname, userId, newRole, GetConnectionId());
+            var sc = await _planitPokerRepository.AddNewRoleToUser(roomname, userId, newRole, GetConnectionId());
             if (sc)
             {
-                await Clients.Group(roomname).SendAsync(UserStatusChanged, userId, 1, newRole);
+                await Clients.Group(roomname).SendAsync(UserRoleChanged, userId, 1, newRole);
             }
         }
 
-        public async Task RemoveStatusUser(string roomname, string userId, string oldRole)
+        public async Task RemoveRoleUser(string roomname, string userId, string oldRole)
         {
             roomname = ValidateString(roomname);
             userId = ValidateString(userId);
             oldRole = ValidateString(oldRole);
 
-            var sc = await _planitPokerRepository.RemoveStatusUser(roomname, userId, oldRole, GetConnectionId());
+            var sc = await _planitPokerRepository.RemoveRoleUser(roomname, userId, oldRole, GetConnectionId());
             if (sc)
             {
-                await Clients.Group(roomname).SendAsync(UserStatusChanged, userId, 2, oldRole);
+                await Clients.Group(roomname).SendAsync(UserRoleChanged, userId, 2, oldRole);
             }
         }
 

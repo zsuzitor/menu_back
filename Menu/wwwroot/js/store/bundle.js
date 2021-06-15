@@ -2789,7 +2789,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,2DAA2D;IAC3D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,uDAAuD;IACvD,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,eAAe;IACf,6BAA6B;IAC7B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,iBAAiB;IACjB,oBAAoB;AACxB;;AAEA;IACI,qCAAqC;AACzC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,uBAAuB;IACvB,mBAAmB;AACvB","sourcesContent":[".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n\r\n.stories-data-list{\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,2DAA2D;IAC3D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,uDAAuD;IACvD,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,eAAe;IACf,6BAA6B;IAC7B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,iBAAiB;IACjB,oBAAoB;AACxB;;AAEA;IACI,qCAAqC;AACzC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;;AAGA;IACI,iBAAiB;IACjB,cAAc;AAClB","sourcesContent":[".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n\r\n.stories-data-list{\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10012,6 +10012,9 @@ var Index = function (props) {
             window.G_AddAbsoluteAlertToState(alert);
             return;
         });
+        return function cleanUp() {
+            props.MyHubConnection.off("RoomNotCreated");
+        };
     }, []);
     var createRoom = function () {
         //этот метод вроде как  может подождать результат выполнения и как то получить ответ
@@ -10303,7 +10306,7 @@ var PlaningPokerMain = function () {
         //  console.log("PlaningPokerMain");
         // alert("PlaningPokerMain");
         // hubConnection.start();
-        hubConnection.on("NotifyFromServer", function (data) {
+        hubConnection.on("PlaningNotifyFromServer", function (data) {
             var alert = new AlertData_1.AlertData();
             alert.Text = data.text;
             alert.Type = data.status;
@@ -10319,6 +10322,7 @@ var PlaningPokerMain = function () {
                 var newState = __assign({}, prevState);
                 newState.RoomInfo.InRoom = true;
                 newState.User.UserId = roomUserId;
+                newState.RoomInfo.Password = "";
                 return newState;
             });
             document.cookie = "planing_poker_roomname=" + localState.RoomInfo.Name + "; path=/;";
@@ -10373,6 +10377,12 @@ var PlaningPokerMain = function () {
         // let newState = { ...localState };
         // newState.MyHubConnection = hubConnection;
         // setLocalState(newState);
+        return function cleanUp() {
+            hubConnection.off("ConnectedToRoomError");
+            hubConnection.off("EnteredInRoom");
+            hubConnection.off("PlaningNotifyFromServer");
+            hubConnection.off("");
+        };
     }, []);
     var userNameChange = function (newName) {
         // let newState = { ...localState };
@@ -10721,7 +10731,10 @@ var Room = function (props) {
             // setLocalState(newState);
             setLocalState(function (prevState) {
                 var newState = __assign({}, prevState);
-                newState.UsersList.push(us);
+                var existUser = GetUserById(newState.UsersList, dataTyped.id);
+                if (!existUser) {
+                    newState.UsersList.push(us);
+                }
                 return newState;
             });
             //         console.log("newuser");
@@ -10804,7 +10817,7 @@ var Room = function (props) {
                 return newState;
             });
         });
-        props.MyHubConnection.on("UserStatusChanged", function (userId, changeType, role) {
+        props.MyHubConnection.on("UserRoleChanged", function (userId, changeType, role) {
             if (!userId) {
                 return;
             }
@@ -10983,6 +10996,20 @@ var Room = function (props) {
                 return newState;
             });
         });
+        return function cleanUp() {
+            props.MyHubConnection.off("MovedStoryToComplete");
+            props.MyHubConnection.off("DeletedStory");
+            props.MyHubConnection.off("CurrentStoryChanged");
+            props.MyHubConnection.off("NewCurrentStory");
+            props.MyHubConnection.off("AddedNewStory");
+            props.MyHubConnection.off("VoteEnd");
+            props.MyHubConnection.off("VoteStart");
+            props.MyHubConnection.off("UserRoleChanged");
+            props.MyHubConnection.off("VoteChanged");
+            props.MyHubConnection.off("UserLeaved");
+            props.MyHubConnection.off("UserNameChanged");
+            props.MyHubConnection.off("NewUserInRoom");
+        };
     }, []);
     var fillVoteInfo = function (state, data) {
         // let newState = state || { ...localState };
@@ -11471,7 +11498,7 @@ var StoriesSection = function (props) {
                     });
                 }, type: "checkbox" }),
             react_1.default.createElement("div", null,
-                props.Stories.filter(function (x) { return x.Completed === storiesState.ShowOnlyCompleted; }).map(function (x) { return react_1.default.createElement("div", { key: x.Id },
+                react_1.default.createElement("div", { className: "stories-data-list" }, props.Stories.filter(function (x) { return x.Completed === storiesState.ShowOnlyCompleted; }).map(function (x) { return react_1.default.createElement("div", { key: x.Id },
                     react_1.default.createElement("p", null,
                         "Id: ",
                         x.Id),
@@ -11482,13 +11509,14 @@ var StoriesSection = function (props) {
                         "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435: ",
                         x.Description),
                     adminButtonInList(x.Id),
-                    react_1.default.createElement("hr", null)); }),
+                    react_1.default.createElement("hr", null)); })),
                 react_1.default.createElement("div", null,
-                    react_1.default.createElement("button", { onClick: function () { return alert("todo"); } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043F\u0440\u043E\u0448\u043B\u044B\u0435"))),
+                    react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return alert("todo"); } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043F\u0440\u043E\u0448\u043B\u044B\u0435"))),
             react_1.default.createElement("div", null, addNewForm));
     };
     return react_1.default.createElement("div", null,
         react_1.default.createElement("div", null, currentStoryDescriptionRender()),
+        react_1.default.createElement("div", { className: "padding-10-top" }),
         react_1.default.createElement("div", null, storiesListRender()));
 };
 exports.default = StoriesSection;
@@ -11538,11 +11566,11 @@ var UserInList = function (props) {
     //     if (props.HubConnected) {
     //     }
     // }, [props.HubConnected]);
-    var addNewStatusToUser = function () {
-        props.MyHubConnection.send("AddNewStatusToUser", props.RoomName, props.User.Id, selectedEditRole);
+    var addNewRoleToUser = function () {
+        props.MyHubConnection.send("AddNewRoleToUser", props.RoomName, props.User.Id, selectedEditRole);
     };
-    var removeStatusUser = function () {
-        props.MyHubConnection.send("RemoveStatusUser", props.RoomName, props.User.Id, selectedEditRole);
+    var removeRoleUser = function () {
+        props.MyHubConnection.send("RemoveRoleUser", props.RoomName, props.User.Id, selectedEditRole);
     };
     var delButton = react_1.default.createElement("div", null);
     var statusChange = react_1.default.createElement("div", null);
@@ -11550,7 +11578,7 @@ var UserInList = function (props) {
         delButton = react_1.default.createElement("div", null,
             react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return props.TryToRemoveUserFromRoom(props.User.Id); } }, "\u0412\u044B\u0433\u043D\u0430\u0442\u044C"));
         statusChange = react_1.default.createElement("div", null,
-            react_1.default.createElement("select", { value: selectedEditRole, onChange: function (e) {
+            react_1.default.createElement("select", { className: "form-control", value: selectedEditRole, onChange: function (e) {
                     // changeSelectedEditRoleState(e.target.value)
                     changeSelectedEditRoleState(function (prevState) {
                         return e.target.value;
@@ -11560,8 +11588,8 @@ var UserInList = function (props) {
                 react_1.default.createElement("option", { value: RoomInfo_1.UserRoles.User }, RoomInfo_1.UserRoles.User),
                 react_1.default.createElement("option", { value: RoomInfo_1.UserRoles.Admin }, RoomInfo_1.UserRoles.Admin),
                 react_1.default.createElement("option", { value: RoomInfo_1.UserRoles.Observer }, RoomInfo_1.UserRoles.Observer)),
-            react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return addNewStatusToUser(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u0442\u0430\u0442\u0443\u0441"),
-            react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return removeStatusUser(); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0441\u0442\u0430\u0442\u0443\u0441"));
+            react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return addNewRoleToUser(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0440\u043E\u043B\u044C"),
+            react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return removeRoleUser(); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0440\u043E\u043B\u044C"));
     }
     var vote = "отсутствует";
     if (props.User.Vote && !props.HideVote) {

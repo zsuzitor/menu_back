@@ -52,8 +52,8 @@ namespace PlanitPoker.Models.Repositories.Interfaces
         Task<List<string>> GetAdminsId(string roomName);
         Task ClearOldRooms();
 
-        Task<bool> AddNewStatusToUser(string roomName, string userId, string newRole, string userConnectionIdRequest);
-        Task<bool> RemoveStatusUser(string roomName, string userId, string oldRole, string userConnectionIdRequest);
+        Task<bool> AddNewRoleToUser(string roomName, string userId, string newRole, string userConnectionIdRequest);
+        Task<bool> RemoveRoleUser(string roomName, string userId, string oldRole, string userConnectionIdRequest);
 
         Task<bool> AddNewStory(string roomName, string userConnectionIdRequest, Story newStory);
         Task<bool> ChangeStory(string roomName, string userConnectionIdRequest, Story newData);
