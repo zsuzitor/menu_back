@@ -60,8 +60,22 @@ namespace PlanitPoker.Models.Repositories.Interfaces
         Task<bool> ChangeCurrentStory(string roomName, string userConnectionIdRequest, long storyId);
         Task<bool> DeleteStory(string roomName, string userConnectionIdRequest, long storyId);
 
-        Task<bool> MakeStoryComplete(string roomName, long storyId, string userConnectionIdRequest);
-        Task<bool> MakeStoryComplete(Room room, long storyId, string userConnectionIdRequest);
+        /// <summary>
+        /// возвращает копию если все прошло ок
+        /// </summary>
+        /// <param name="roomName"></param>
+        /// <param name="storyId"></param>
+        /// <param name="userConnectionIdRequest"></param>
+        /// <returns></returns>
+        Task<Story> MakeStoryComplete(string roomName, long storyId, string userConnectionIdRequest);
+        /// <summary>
+        /// возвращает копию если все прошло ок
+        /// </summary>
+        /// <param name="room"></param>
+        /// <param name="storyId"></param>
+        /// <param name="userConnectionIdRequest"></param>
+        /// <returns></returns>
+        Task<Story> MakeStoryComplete(Room room, long storyId, string userConnectionIdRequest);
 
 
     }

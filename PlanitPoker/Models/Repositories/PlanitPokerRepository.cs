@@ -536,16 +536,17 @@ namespace PlanitPoker.Models.Repositories
 
 
 
-        public async Task<bool> MakeStoryComplete(string roomName, long storyId, string userConnectionIdRequest)
+        public async Task<Story> MakeStoryComplete(string roomName, long storyId, string userConnectionIdRequest)
         {
             var room = await TryGetRoom(roomName);
             return await MakeStoryComplete(room, storyId, userConnectionIdRequest);
         }
 
 
-        public async Task<bool> MakeStoryComplete(Room room, long storyId, string userConnectionIdRequest)
+        public async Task<Story> MakeStoryComplete(Room room, long storyId, string userConnectionIdRequest)
         {
-            return await UpdateIfCan(room, userConnectionIdRequest, rm =>
+            Story res = null;
+            var sc = await UpdateIfCan(room, userConnectionIdRequest, rm =>
               {
                   var story = rm.Stories.FirstOrDefault(x => x.Id == storyId);
                   if (story == null)
@@ -558,9 +559,16 @@ namespace PlanitPoker.Models.Repositories
                   // или ждать уже полное сохранение комнаты
                   story.Completed = true;
                   story.Date = DateTime.Now;
+                  res = story.Clone();
                   return true;
               });
             //room.SetConcurentValue(_multiThreadHelper);
+            if (sc)
+            {
+                return res;
+            }
+
+            return null;
         }
 
 

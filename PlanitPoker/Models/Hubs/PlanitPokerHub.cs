@@ -49,6 +49,7 @@ namespace PlanitPoker.Models.Hubs
         private const string NewCurrentStory = "NewCurrentStory";
         private const string DeletedStory = "DeletedStory";
         private const string MovedStoryToComplete = "MovedStoryToComplete";
+        private const string NeedRefreshTokens = "NeedRefreshTokens";
 
 
 
@@ -99,9 +100,10 @@ namespace PlanitPoker.Models.Hubs
             catch
             { }
 
-            if (expired)
+            if (expired && userInfo != null)
             {
-                //todo тут надо что то типо вернуть ошибку на рефреш
+                //не прерываем процесс создания румы, но сообщаем о том что нужен рефреш
+                await Clients.Caller.SendAsync(NeedRefreshTokens);
             }
 
             var user = new PlanitUser()
@@ -171,9 +173,10 @@ namespace PlanitPoker.Models.Hubs
             catch
             { }
 
-            if (expired)
+            if (expired && userInfo != null)
             {
-                //todo тут надо что то типо вернуть ошибку на рефреш
+                //не прерываем процесс подключения, но сообщаем о том что нужен рефреш
+                await Clients.Caller.SendAsync(NeedRefreshTokens);
             }
 
             var user = new PlanitUser()
@@ -441,10 +444,10 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task MakeStoryComplete(string roomname, long storyId)
         {
-            var res = await _planitPokerRepository.MakeStoryComplete(roomname, storyId, GetConnectionId());
-            if (res)
+            var story = await _planitPokerRepository.MakeStoryComplete(roomname, storyId, GetConnectionId());
+            if (story != null)
             {
-                await Clients.Group(roomname).SendAsync(MovedStoryToComplete, storyId);
+                await Clients.Group(roomname).SendAsync(MovedStoryToComplete, new StoryReturn(story));
             }
             //
         }
@@ -516,6 +519,7 @@ namespace PlanitPoker.Models.Hubs
             var username = user.Name;
             var userConnectionId = user.UserConnectionId;
             var userId = user.PlaningAppUserId;
+            var mainAppUserId = user.MainAppUserId;
 
             var (sc, oldConnectionId) = await _planitPokerRepository.AddUserIntoRoom(room, user);
             if (!sc)
@@ -562,7 +566,7 @@ namespace PlanitPoker.Models.Hubs
             //    //TODO отключить юзера и попросить переконнектиться
             //    return false;
             //}
-            await Clients.Caller.SendAsync(EnteredInRoom, userId); //,usersInRoom//todo мб лучше отдельным запросом?
+            await Clients.Caller.SendAsync(EnteredInRoom, userId, userId == mainAppUserId?.ToString()); //,usersInRoom//todo мб лучше отдельным запросом?
             return true;
         }
 
