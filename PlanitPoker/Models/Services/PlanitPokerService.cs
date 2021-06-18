@@ -647,6 +647,7 @@ namespace PlanitPoker.Models.Services
         public async Task<Story> MakeStoryComplete(Room room, long storyId, string userConnectionIdRequest)
         {
             Story res = null;
+            var voteInfo = await GetEndVoteInfo(room);//todo тут можно упростить тк все данные не нужны и забрать момжно внутри блокировки ниже
             var sc = await UpdateIfCan(room, userConnectionIdRequest, rm =>
             {
                 var story = rm.Stories.FirstOrDefault(x => x.Id == storyId);
@@ -659,6 +660,7 @@ namespace PlanitPoker.Models.Services
                 //или может отдавать юзеру ответ и параллельно это делать
                 // или ждать уже полное сохранение комнаты
                 story.Completed = true;
+                story.Vote = voteInfo?.Average ?? 0;
                 story.Date = DateTime.Now;
                 res = story.Clone();
                 return true;

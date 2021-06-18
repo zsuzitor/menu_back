@@ -2789,7 +2789,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.planing-story-in-list {}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,2DAA2D;IAC3D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,uDAAuD;IACvD,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,eAAe;IACf,6BAA6B;IAC7B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,iBAAiB;IACjB,oBAAoB;AACxB;;AAEA;IACI,qCAAqC;AACzC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA,wBAAwB;;AAExB;IACI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.planing-story-in-list {}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.planing-story-in-list {}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 50px;\r\n    height: 50px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;;\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,2DAA2D;IAC3D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,uDAAuD;IACvD,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,eAAe;IACf,6BAA6B;IAC7B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,iBAAiB;IACjB,oBAAoB;AACxB;;AAEA;IACI,qCAAqC;AACzC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA,wBAAwB;;AAExB;IACI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;AAC7B","sourcesContent":[".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.planing-story-in-list {}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 50px;\r\n    height: 50px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10126,6 +10126,7 @@ var PlaningPokerUserInfo = /** @class */ (function () {
         this.UserName = "";
         this.UserId = "";
         this.UserConnectionId = "";
+        this.LoginnedInMainApp = false;
     }
     return PlaningPokerUserInfo;
 }());
@@ -10303,25 +10304,18 @@ var PlaningPokerMain = function () {
     var _b = react_1.useState(false), hubConnected = _b[0], sethubConnectedState = _b[1];
     //componentdidmount, должен вызваться уже когда childs отрендерятся
     react_1.useEffect(function () {
-        //  console.log("PlaningPokerMain");
-        // alert("PlaningPokerMain");
-        // hubConnection.start();
         hubConnection.on("PlaningNotifyFromServer", function (data) {
             var alert = new AlertData_1.AlertData();
             alert.Text = data.text;
             alert.Type = data.status;
             window.G_AddAbsoluteAlertToState(alert);
         });
-        hubConnection.on("EnteredInRoom", function (roomUserId) {
-            // window.history.pushState(null, "Room", "/");
-            // window.history.pushState(null, "Room", "/planing-poker/room");
-            // let newState = { ...localState };
-            // newState.RoomInfo.InRoom = true;
-            // setLocalState(newState);
+        hubConnection.on("EnteredInRoom", function (roomUserId, loginnedInMainApp) {
             setLocalState(function (prevState) {
                 var newState = __assign({}, prevState);
                 newState.RoomInfo.InRoom = true;
                 newState.User.UserId = roomUserId;
+                newState.User.LoginnedInMainApp = loginnedInMainApp;
                 newState.RoomInfo.Password = "";
                 return newState;
             });
@@ -10347,6 +10341,9 @@ var PlaningPokerMain = function () {
                 window.location.href = "/planing-poker/" + roomName;
             }
             return;
+        });
+        hubConnection.on("NeedRefreshTokens", function () {
+            window.G_AuthenticateController.RefreshAccessToken(true, null);
         });
         // возможно тут стоит выделить в child components методы которые вызвать до старта
         //Update, не стоит тк они актуальны только в самих компонентах
@@ -10374,35 +10371,19 @@ var PlaningPokerMain = function () {
                 return false;
             });
         });
-        // let newState = { ...localState };
-        // newState.MyHubConnection = hubConnection;
-        // setLocalState(newState);
         return function cleanUp() {
             hubConnection.off("ConnectedToRoomError");
             hubConnection.off("EnteredInRoom");
             hubConnection.off("PlaningNotifyFromServer");
-            hubConnection.off("");
+            hubConnection.off("NeedRefreshTokens");
         };
     }, []);
     var userNameChange = function (newName) {
-        // let newState = { ...localState };
-        // newState.User.UserName = newName;
-        // setLocalState(newState);
         setLocalState(function (prevState) {
             var newState = __assign({}, prevState);
             newState.User.UserName = newName;
             return newState;
         });
-        // if (localState.RoomInfo.InRoom) {
-        //     hubConnection.invoke("UserNameChange", newState.RoomInfo.Name, newName).then(dt => {
-        //         if (!dt) {
-        //             let alert = new AlertData();
-        //             alert.Text = "изменить имя не удалось";
-        //             alert.Type = AlertTypeEnum.Error;
-        //             window.G_AddAbsoluteAlertToState(alert);
-        //         }
-        //     });
-        // }
     };
     var roomNameChanged = function (name) {
         // let newState = { ...localState };
@@ -10652,9 +10633,6 @@ var Room = function (props) {
     var _f = react_1.useState(initStories), storiesState = _f[0], setStoriesState = _f[1];
     var storiesHelper = new RoomInfo_1.StoriesHelper();
     var currentUserIsAdmin = CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId);
-    // const [roomIsGoodState, setRoomIsGoodState] = useState(false);
-    // console.log("room");
-    // console.log(localState);
     react_1.useEffect(function () {
         if (!props.RoomInfo.InRoom) {
             return;
@@ -10672,15 +10650,6 @@ var Room = function (props) {
                     us.FillByBackModel(x);
                     return us;
                 });
-                // let newState = { ...localState };
-                // //реинициализировать нельзя, почему то отваливается
-                // newState.UsersList.splice(0, newState.UsersList.length);
-                // newState.UsersList.push(...newUsersData);
-                // // newState.RoomStatus = data.status;
-                // // newState.UsersList = newUsersData;
-                // setRoomStatusState(data.room.status);
-                // fillVoteInfo(newState, data.end_vote_info);
-                // setLocalState(newState);
                 setRoomStatusState(function (prevState) {
                     // let newState = { ...prevState };
                     return data.room.status;
@@ -10691,19 +10660,9 @@ var Room = function (props) {
                     var newState = __assign({}, prevState);
                     newState.UsersList.splice(0, newState.UsersList.length);
                     (_a = newState.UsersList).push.apply(_a, newUsersData_1);
-                    // newState.RoomStatus = data.status;
-                    // newState.UsersList = newUsersData;
                     fillVoteInfo(newState, data.end_vote_info);
                     return newState;
                 });
-                // let newStoriesState = { ...storiesState };
-                // newStoriesState.CurrentStoryId = data.room.current_story_id;
-                // newStoriesState.Stories = data.room.actual_stories.map(x => {
-                //     let st = new Story();
-                //     st.FillByBackModel(x);
-                //     return st;
-                // });
-                // setStoriesState(newStoriesState);
                 setStoriesState(function (prevState) {
                     var newStoriesState = __assign({}, prevState);
                     newStoriesState.CurrentStoryId = data.room.current_story_id;
@@ -10726,9 +10685,6 @@ var Room = function (props) {
             var dataTyped = data;
             var us = new RoomInfo_1.UserInRoom();
             us.FillByBackModel(dataTyped);
-            // let newState = { ...localState };
-            // newState.UsersList.push(us);
-            // setLocalState(newState);
             setLocalState(function (prevState) {
                 var newState = __assign({}, prevState);
                 var existUser = GetUserById(newState.UsersList, dataTyped.id);
@@ -10737,20 +10693,11 @@ var Room = function (props) {
                 }
                 return newState;
             });
-            //         console.log("newuser");
-            // console.log(newState);
         });
         props.MyHubConnection.on("UserNameChanged", function (userId, newUserName) {
             if (!userId) {
                 return;
             }
-            // let newState = { ...localState };
-            // let user = GetUserById(newState.UsersList, userId);
-            // if (!user) {
-            //     return;
-            // }
-            // user.Name = newUserName;
-            // setLocalState(newState);
             setLocalState(function (prevState) {
                 var newState = __assign({}, prevState);
                 var user = GetUserById(newState.UsersList, userId);
@@ -10761,30 +10708,27 @@ var Room = function (props) {
                 return newState;
             });
         });
-        props.MyHubConnection.on("UserLeaved", function (userId) {
-            if (!userId) {
+        props.MyHubConnection.on("UserLeaved", function (usersId) {
+            if (!usersId) {
                 return;
             }
-            if (userId == props.UserInfo.UserId) {
-                alert("you kicked or leave"); //TODO может как то получше сделать, и хорошо бы без перезагрузки\редиректа
-                window.location.href = "/planing-poker";
-                props.ClearUserId();
-                return;
-            }
-            // let newState = { ...localState };
-            // let userIndex = GetUserIndexById(newState.UsersList, userId);
-            // if (userIndex < 0) {
-            //     return;
-            // }
-            // newState.UsersList.splice(userIndex, 1);
-            // setLocalState(newState);
+            usersId.forEach(function (x) {
+                if (x == props.UserInfo.UserId) {
+                    alert("you kicked or leave"); //TODO может как то получше сделать, и хорошо бы без перезагрузки\редиректа
+                    window.location.href = "/planing-poker";
+                    props.ClearUserId(); //todo тут наверное стоит еще что то чистить
+                    return;
+                }
+            });
             setLocalState(function (prevState) {
                 var newState = __assign({}, prevState);
-                var userIndex = GetUserIndexById(newState.UsersList, userId);
-                if (userIndex < 0) {
-                    return newState;
-                }
-                newState.UsersList.splice(userIndex, 1);
+                usersId.forEach(function (x) {
+                    var userIndex = GetUserIndexById(newState.UsersList, x);
+                    if (userIndex < 0) {
+                        return newState;
+                    }
+                    newState.UsersList.splice(userIndex, 1);
+                });
                 return newState;
             });
         });
@@ -10792,18 +10736,6 @@ var Room = function (props) {
             if (!userId) {
                 return;
             }
-            // let newState = { ...localState };
-            // let user = GetUserById(newState.UsersList, userId);
-            // if (!user) {
-            //     return;
-            // }
-            // user.HasVote = true;
-            // if (!isNaN(vote)) {
-            //     user.Vote = vote;
-            // }
-            // // else{
-            // // }
-            // setLocalState(newState);
             setLocalState(function (prevState) {
                 var newState = __assign({}, prevState);
                 var user = GetUserById(newState.UsersList, userId);
@@ -10821,23 +10753,6 @@ var Room = function (props) {
             if (!userId) {
                 return;
             }
-            // let newState = { ...localState };
-            // let user = GetUserById(newState.UsersList, userId);
-            // if (!user) {
-            //     return;
-            // }
-            // if (changeType === 1) {
-            //     //добавлен
-            //     user.Roles.push(role);
-            // }
-            // else {
-            //     //удален
-            //     let index = user.Roles.findIndex(x => x === role);
-            //     if (index >= 0) {
-            //         user.Roles.splice(index, 1);
-            //     }
-            // }
-            // setLocalState(newState);
             setLocalState(function (prevState) {
                 var newState = __assign({}, prevState);
                 var user = GetUserById(newState.UsersList, userId);
@@ -10859,19 +10774,9 @@ var Room = function (props) {
             });
         });
         props.MyHubConnection.on("VoteStart", function () {
-            // let newState = { ...localState };
-            // newState.RoomStatus = RoomSatus.AllCanVote;
-            // newState.SelectedVoteCard = -1;
-            // setSelectedVoteCard(-1);
             setSelectedVoteCard(function (prevState) {
                 return -1;
             });
-            // newState.UsersList.forEach(x => {
-            //     x.Vote = null;
-            //     x.HasVote = false;
-            // });
-            // newState.VoteInfo = new VoteInfo();
-            // setLocalState(newState);
             setLocalState(function (prevState) {
                 var newState = __assign({}, prevState);
                 newState.UsersList.forEach(function (x) {
@@ -10903,11 +10808,6 @@ var Room = function (props) {
             });
         });
         props.MyHubConnection.on("AddedNewStory", function (data) {
-            // let newState = { ...storiesState };
-            // let newStory = new Story();
-            // newStory.FillByBackModel(data);
-            // newState.Stories.push(newStory);
-            // setStoriesState(newState);
             setStoriesState(function (prevState) {
                 var newState = __assign({}, prevState);
                 var newStory = new RoomInfo_1.Story();
@@ -10918,9 +10818,6 @@ var Room = function (props) {
         });
         props.MyHubConnection.on("NewCurrentStory", function (id) {
             //изменении в целом объекта текущей истории
-            // let newState = { ...storiesState };
-            // newState.CurrentStoryId = id;
-            // setStoriesState(newState);
             setStoriesState(function (prevState) {
                 var newState = __assign({}, prevState);
                 newState.CurrentStoryId = id;
@@ -10929,17 +10826,6 @@ var Room = function (props) {
         });
         props.MyHubConnection.on("CurrentStoryChanged", function (id, newName, newDescription) {
             //изменение данных текущей истории
-            // let newState = { ...storiesState };
-            // let story = storiesHelper.GetStoryById(newState.Stories, id);
-            // if (story) {
-            //     newState.CurrentStoryId = id;
-            //     story.Name = newName;
-            //     story.Description = newDescription;
-            //     setStoriesState(newState);
-            //     if (storiesState.ClearTmpFuncForStories) {
-            //         storiesState.ClearTmpFuncForStories();
-            //     }
-            // }
             setStoriesState(function (prevState) {
                 var newState = __assign({}, prevState);
                 var story = storiesHelper.GetStoryById(newState.Stories, id);
@@ -10949,25 +10835,12 @@ var Room = function (props) {
                     newState.CurrentStoryId = id;
                     story.Name = newName;
                     story.Description = newDescription;
-                    // if (storiesState.ClearTmpFuncForStories) {
-                    //     storiesState.ClearTmpFuncForStories();
-                    // }
                 }
                 return newState;
             });
         });
         props.MyHubConnection.on("DeletedStory", function (id) {
             //изменение данных текущей истории
-            // let newState = { ...storiesState };
-            // let storyIndex = storiesHelper.GetStoryIndexById(newState.Stories, id);
-            // if (storyIndex < 0) {
-            //     return;
-            // }
-            // newState.Stories.splice(storyIndex, 1);
-            // if (newState.CurrentStoryId == id) {
-            //     newState.CurrentStoryId = -1;
-            // }
-            // setStoriesState(newState);
             setStoriesState(function (prevState) {
                 var newState = __assign({}, prevState);
                 var storyIndex = storiesHelper.GetStoryIndexById(newState.Stories, id);
@@ -10981,13 +10854,17 @@ var Room = function (props) {
                 return newState;
             });
         });
-        props.MyHubConnection.on("MovedStoryToComplete", function (id) {
+        props.MyHubConnection.on("MovedStoryToComplete", function (newData) {
+            if (!newData) {
+                return;
+            }
             setStoriesState(function (prevState) {
                 var newState = __assign({}, prevState);
-                var story = storiesHelper.GetStoryById(newState.Stories, id);
+                var story = storiesHelper.GetStoryById(newState.Stories, newData.id);
                 if (story) {
-                    story.Completed = true;
-                    if (newState.CurrentStoryId === id) {
+                    story.Completed = newData.completed;
+                    story.Date = newData.date;
+                    if (newState.CurrentStoryId === newData.id) {
                         newState.CurrentStoryId = -1;
                     }
                     newState.CurrentStoryDescriptionChange = "";
@@ -11062,8 +10939,6 @@ var Room = function (props) {
                     if (!voted) {
                         return [2 /*return*/];
                     }
-                    // newState.SelectedVoteCard = +voteCardBlock.target.dataset.vote;
-                    // setSelectedVoteCard(+voteCardBlock.target.dataset.vote);
                     setSelectedVoteCard(function (prevState) {
                         return +voteCardBlock.target.dataset.vote;
                     });
@@ -11110,16 +10985,12 @@ var Room = function (props) {
     var deleteStory = function (id) {
         props.MyHubConnection.send("DeleteStory", props.RoomInfo.Name, id);
     };
-    // const setClearTmpFuncForStories = (func: () => void) => {
-    //     // let newState = { ...storiesState };
-    //     // newState.ClearTmpFuncForStories = func;
-    //     // setStoriesState(newState);
-    //     setStoriesState(prevState => {
-    //         let newState = { ...prevState };
-    //         newState.ClearTmpFuncForStories = func;
-    //         return newState;
-    //     });
-    // }
+    var saveRoom = function () {
+        props.MyHubConnection.send("SaveRoom", props.RoomInfo.Name).then(function () { return alert("Сохранено"); });
+    };
+    var deleteRoom = function () {
+        props.MyHubConnection.send("DeleteRoom", props.RoomInfo.Name);
+    };
     var currentStoryDescriptionOnChange = function (str) {
         setStoriesState(function (prevState) {
             var newState = __assign({}, prevState);
@@ -11139,7 +11010,9 @@ var Room = function (props) {
         if (currentUserIsAdmin) {
             return react_1.default.createElement("div", null,
                 react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return tryStartVote(); } }, "\u041D\u0430\u0447\u0430\u0442\u044C \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u0435"),
-                react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return tryEndVote(); } }, "\u0417\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u0435"));
+                react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return tryEndVote(); } }, "\u0417\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u0435"),
+                react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return saveRoom(); } }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443"),
+                react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return deleteRoom(); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443"));
         }
         return react_1.default.createElement("div", null);
     };
@@ -11183,12 +11056,6 @@ var Room = function (props) {
                         us.FillByBackModel(x);
                         return us;
                     });
-                    // let newState = { ...localState };
-                    // //реинициализировать нельзя, почему то отваливается
-                    // newState.UsersList.splice(0, newState.UsersList.length);
-                    // newState.UsersList.push(...newUsersData);
-                    // // newState.UsersList = newUsersData;
-                    // setLocalState(newState);
                     setLocalState(function (prevState) {
                         var _a;
                         var newState = __assign({}, prevState);
@@ -11213,12 +11080,19 @@ var Room = function (props) {
             react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return updateAllUsers(); } }, "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u044C \u0441\u043F\u0438\u0441\u043E\u043A \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439"),
             hideVotesSetting);
     };
+    var renderNotAuthMessage = function () {
+        if (props.UserInfo.LoginnedInMainApp) {
+            return react_1.default.createElement("div", null);
+        }
+        return react_1.default.createElement("div", { className: "planing-room-not-auth", title: "при обновлении страницы, вы подключаетесь как новый пользователь(исключение-вы авторизованы в основном приложении)." +
+                "при создании комнаты неавторизованным пользователем, комната не будет сохраняться" });
+    };
     return react_1.default.createElement("div", { className: "container" },
         react_1.default.createElement("div", { className: "padding-10-top" }),
         react_1.default.createElement("h1", null,
-            "Room ",
+            "Room: ",
             props.RoomInfo.Name),
-        react_1.default.createElement("p", null, "\u043F\u0440\u0438 \u043E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u0438\u0438 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u044B, \u0432\u044B \u043F\u043E\u0434\u043A\u043B\u044E\u0447\u0430\u0435\u0442\u0435\u0441\u044C \u043A\u0430\u043A \u043D\u043E\u0432\u044B\u0439 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C(\u0438\u0441\u043A\u043B\u044E\u0447\u0435\u043D\u0438\u0435-\u0432\u044B \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u043D\u044B \u0432 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u043C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438(TODO))."),
+        renderNotAuthMessage(),
         react_1.default.createElement("div", { className: "row" },
             react_1.default.createElement("div", { className: "planit-room-left-part col-12 col-md-9" },
                 react_1.default.createElement("div", null,
@@ -11306,73 +11180,24 @@ var StoriesSection = function (props) {
         ResetCurrentStoryById();
     }, [props.CurrentStoryId]);
     react_1.useEffect(function () {
-        // props.SetClearTmpFuncForStories(() => {
-        //     ResetCurrentStoryById();
-        // });
     }, []);
     var cancelChangeCurrentStory = function () {
-        // let newState = { ...storiesState };
-        // let story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
-        // if (!story) {
-        //     return;
-        // }
-        // newState.CurrentStoryDescriptionChange = story.Description;
-        // newState.CurrentStoryNameChange = story.Name;
-        // setStoriesState(newState);
         var story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
         props.CurrentStoryDescriptionOnChange(story.Description);
         props.CurrentStoryNameOnChange(story.Name);
-        // setStoriesState(prevState => {
-        //     let newState = { ...prevState };
-        //     let story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
-        //     if (!story) {
-        //         return newState;
-        //     }
-        //     // newState.CurrentStoryDescriptionChange = story.Description;
-        //     // newState.CurrentStoryNameChange = story.Name;
-        //     return newState;
-        // });
     };
     var changeCurrentStory = function () {
         props.MyHubConnection.send("ChangeCurrentStory", props.RoomName, props.CurrentStoryId, props.CurrentStoryNameChange, props.CurrentStoryDescriptionChange);
     };
     var ResetCurrentStoryById = function () {
         if (props.CurrentStoryId < 0) {
-            // let newState = { ...storiesState };
-            // newState.CurrentStoryDescriptionChange = "";
-            // newState.CurrentStoryNameChange = "";
-            // setStoriesState(newState);
             props.CurrentStoryDescriptionOnChange("");
             props.CurrentStoryNameOnChange("");
-            // setStoriesState(prevState => {
-            //     let newState = { ...prevState };
-            //     newState.CurrentStoryDescriptionChange = "";
-            //     newState.CurrentStoryNameChange = "";
-            //     return newState;
-            // });
             return;
         }
-        // let newState = { ...storiesState };
-        // let story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
-        // if (!story) {
-        //     return;
-        // }
-        // newState.CurrentStoryDescriptionChange = story.Description;
-        // newState.CurrentStoryNameChange = story.Name;
-        // setStoriesState(newState);
         var story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
         props.CurrentStoryDescriptionOnChange(story.Description);
         props.CurrentStoryNameOnChange(story.Name);
-        // setStoriesState(prevState => {
-        //     let newState = { ...prevState };
-        //     let story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
-        //     if (!story) {
-        //         return newState;
-        //     }
-        //     newState.CurrentStoryDescriptionChange = story.Description;
-        //     newState.CurrentStoryNameChange = story.Name;
-        //     return newState;
-        // });
     };
     var tryMakeStoryComplete = function () {
         //если не задан voteInfo как то уведомить что оценки не запишутся
@@ -11415,26 +11240,10 @@ var StoriesSection = function (props) {
             if (props.IsAdmin) {
                 return react_1.default.createElement("div", null,
                     react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435", value: props.CurrentStoryNameChange, type: "text", onChange: function (e) {
-                            // let newState = { ...storiesState };
-                            // newState.CurrentStoryNameChange = e.target.value;
-                            // setStoriesState(newState);
                             props.CurrentStoryNameOnChange(e.target.value);
-                            // setStoriesState(prevState => {
-                            //     let newState = { ...prevState };
-                            //     newState.CurrentStoryNameChange = e.target.value;
-                            //     return newState;
-                            // });
                         } }),
                     react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435", value: props.CurrentStoryDescriptionChange, type: "text", onChange: function (e) {
-                            // let newState = { ...storiesState };
-                            // newState.CurrentStoryDescriptionChange = e.target.value;
-                            // setStoriesState(newState);
                             props.CurrentStoryDescriptionOnChange(e.target.value);
-                            // setStoriesState(prevState => {
-                            //     let newState = { ...prevState };
-                            //     newState.CurrentStoryDescriptionChange = e.target.value;
-                            //     return newState;
-                            // });
                         } }));
             }
             else {
@@ -11478,9 +11287,6 @@ var StoriesSection = function (props) {
                 react_1.default.createElement("p", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043D\u043E\u0432\u0443\u044E:"),
                 react_1.default.createElement("span", null, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435:"),
                 react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435", value: storiesState.NameForAdd, type: "text", onChange: function (e) {
-                        // let newState = { ...storiesState };
-                        // newState.NameForAdd = e.target.value;
-                        // setStoriesState(newState);
                         setStoriesState(function (prevState) {
                             var newState = __assign({}, prevState);
                             newState.NameForAdd = e.target.value;
@@ -11489,9 +11295,6 @@ var StoriesSection = function (props) {
                     } }),
                 react_1.default.createElement("span", null, "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435:"),
                 react_1.default.createElement("textarea", { className: "persent-100-width form-control", placeholder: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435", value: storiesState.DescriptionForAdd, onChange: function (e) {
-                        // let newState = { ...storiesState };
-                        // newState.DescriptionForAdd = e.target.value;
-                        // setStoriesState(newState);
                         setStoriesState(function (prevState) {
                             var newState = __assign({}, prevState);
                             newState.DescriptionForAdd = e.target.value;
@@ -14759,8 +14562,8 @@ var AuthenticateController = /** @class */ (function () {
     AuthenticateController.prototype.Logout = function () {
         alert('not inplemented');
     };
-    AuthenticateController.prototype.RefreshAccessToken = function () {
-        alert('not inplemented');
+    AuthenticateController.prototype.RefreshAccessToken = function (notRedirectWhenNotAuth, callBack) {
+        G_AjaxHelper.TryRefreshToken(notRedirectWhenNotAuth, callBack);
     };
     return AuthenticateController;
 }());
