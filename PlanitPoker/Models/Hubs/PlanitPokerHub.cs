@@ -27,6 +27,7 @@ namespace PlanitPoker.Models.Hubs
         private readonly IPlanitPokerService _planitPokerService;
         private readonly IJWTService _jwtService;
         private readonly IApiHelper _apiHealper;
+        private readonly IJWTHasher _hasher;
 
         //private static IServiceProvider _serviceProvider;
 
@@ -59,7 +60,7 @@ namespace PlanitPoker.Models.Hubs
 
         public PlanitPokerHub(IPlanitPokerRepository planitPokerRepository, MultiThreadHelper multiThreadHelper,
             IStringValidator stringValidator, IPlanitPokerService planitPokerService,
-            IApiHelper apiHealper, IJWTService jwtService)
+            IApiHelper apiHealper, IJWTService jwtService, IJWTHasher hasher)
         {
             _planitPokerRepository = planitPokerRepository;
             _multiThreadHelper = multiThreadHelper;
@@ -67,6 +68,7 @@ namespace PlanitPoker.Models.Hubs
             _planitPokerService = planitPokerService;
             _apiHealper = apiHealper;
             _jwtService = jwtService;
+            _hasher = hasher;
         }
 
         //static void InitStaticMembers()
@@ -90,6 +92,14 @@ namespace PlanitPoker.Models.Hubs
         {
             roomname = ValidateString(roomname);
             username = ValidateString(username);
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                password = null;
+            }
+            else
+            {
+                password = _hasher.GetHash(password);
+            }
 
             UserInfo userInfo = null;
             var expired = false;
@@ -152,6 +162,16 @@ namespace PlanitPoker.Models.Hubs
         {
             roomname = ValidateString(roomname);
             username = ValidateString(username);
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                password = null;
+            }
+            else
+            {
+                password = _hasher.GetHash(password);
+            }
+
+
             if (string.IsNullOrEmpty(roomname))
             {
                 await Clients.Caller.SendAsync(ConnectedToRoomError);

@@ -1,5 +1,6 @@
 ﻿using BO.Models.DAL.Domain;
 using BO.Models.MenuApp.DAL.Domain;
+using BO.Models.PlaningPoker.DAL;
 using BO.Models.WordsCardsApp.DAL.Domain;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,7 +17,13 @@ namespace DAL.Models.DAL
 
         public DbSet<WordCardWordList> WordCardWordList { get; set; }
 
-        
+
+        public DbSet<PlaningRoomDal> PlaningRooms { get; set; }
+        public DbSet<PlaningRoomUserDal> PlaningRoomUsers { get; set; }
+        public DbSet<PlaningStoryDal> PlaningStories { get; set; }
+
+
+
 
         public MenuDbContext(DbContextOptions<MenuDbContext> options)
                : base(options)
@@ -42,7 +49,7 @@ namespace DAL.Models.DAL
             modelBuilder.Entity<User>().HasMany(x => x.WordsLists).WithOne(x => x.User).HasForeignKey(x => x.UserId);
 
             modelBuilder.Entity<Article>().HasKey(x => x.Id);
-            modelBuilder.Entity<Article>().HasMany(x => x.AdditionalImages).WithOne(x => x.Article).HasForeignKey(x => x.ArticleId).OnDelete(DeleteBehavior.Cascade); 
+            modelBuilder.Entity<Article>().HasMany(x => x.AdditionalImages).WithOne(x => x.Article).HasForeignKey(x => x.ArticleId).OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<CustomImage>().HasKey(x => x.Id);
             //modelBuilder.Entity<CustomImage>().HasOne(x => x.Article);
@@ -53,9 +60,27 @@ namespace DAL.Models.DAL
             modelBuilder.Entity<WordsList>().HasKey(x => x.Id);
             modelBuilder.Entity<WordsList>().HasMany(x => x.WordCardWordList).WithOne(x => x.WordsList).HasForeignKey(x => x.WordsListId).OnDelete(DeleteBehavior.Cascade);
 
-
             //many to many
             modelBuilder.Entity<WordCardWordList>().HasKey(x => x.Id);
+
+
+            //planingPoker
+            #region planingPoker
+            modelBuilder.Entity<PlaningRoomDal>().HasKey(x => x.Id);
+            modelBuilder.Entity<PlaningRoomDal>().Property(x => x.Name).IsRequired();
+            modelBuilder.Entity<PlaningRoomDal>().HasIndex(x => x.Name).IsUnique();
+            modelBuilder.Entity<PlaningRoomDal>().HasMany(x => x.Stories).WithOne(x => x.Room).HasForeignKey(x => x.RoomId).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<PlaningRoomDal>().HasMany(x => x.Users).WithOne(x => x.Room).HasForeignKey(x => x.RoomId).OnDelete(DeleteBehavior.Cascade);
+
+
+            modelBuilder.Entity<PlaningRoomUserDal>().HasKey(x => x.Id);
+            modelBuilder.Entity<PlaningRoomUserDal>().Property(x => x.MainAppUserId).IsRequired();
+            modelBuilder.Entity<PlaningRoomUserDal>().HasOne(x => x.MainAppUser).WithMany().HasForeignKey(x => x.MainAppUserId);
+
+            modelBuilder.Entity<PlaningStoryDal>().HasKey(x => x.Id);
+            modelBuilder.Entity<PlaningStoryDal>().HasOne(x => x.Room).WithMany(x => x.Stories).HasForeignKey(x => x.RoomId);
+
+            #endregion planingPoker
 
 
             base.OnModelCreating(modelBuilder);
