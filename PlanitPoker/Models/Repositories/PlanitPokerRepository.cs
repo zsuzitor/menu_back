@@ -20,16 +20,6 @@ namespace PlanitPoker.Models.Repositories
             _multiThreadHelper = multiThreadHelper;
         }
 
-        //public Task<bool> AddAdmin(string roomName, string userId)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
-
-        //public Task<bool> AddAdmin(Room room, string userId)
-        //{
-        //    throw new System.NotImplementedException();
-        //}
-
         public Task<bool> AddTimeAliveRoom(string roomName)
         {
             throw new System.NotImplementedException();
@@ -90,28 +80,8 @@ namespace PlanitPoker.Models.Repositories
                 rm.Status = newStatus;
                 return true;
             });
-            //if (room == null || string.IsNullOrWhiteSpace(userId))
-            //{
-            //    return false;
-            //}
+            
 
-            //bool result = false;
-            //room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
-            //{
-            //    var user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserIdentifier == userId);
-            //    if (user == null)
-            //    {
-            //        return;
-            //    }
-            //    if (!user.IsAdmin)
-            //    {
-            //        return;
-            //    }
-            //    rm.StoredRoom.Status = newStatus;
-            //    result = true;
-            //});
-
-            //return result;
         }
 
         public async Task<(bool sc, string userId)> ChangeVote(Room room, string connectionUserId, int vote)
@@ -279,45 +249,14 @@ namespace PlanitPoker.Models.Repositories
 
             return await UpdateIfCan(room, userConnectionIdRequest, (rm) =>
             {
-                //var userForDelIndex = rm.Users.Select((us, index) => new { us, index })
-                //    .FirstOrDefault(x => x.us.UserIdentifier == userId)?.index;
-                //if (userForDelIndex == null)
-                //{
-                //    return false;
-                //}
+              
 
                 //rm.Users.RemoveAt((int)userForDelIndex);
                 rm.Users.RemoveAll(x => x.PlaningAppUserId == userId);
                 return true;
             });
 
-            //if (room == null || string.IsNullOrWhiteSpace(userIdRequest) || string.IsNullOrWhiteSpace(userId))
-            //{
-            //    return false;
-            //}
-
-            //bool result = false;
-            //room.SetConcurentValue<Room>(_multiThreadHelper, (rm) =>
-            //{
-            //    var usRequest = rm.StoredRoom.Users.FirstOrDefault(x => x.UserIdentifier == userIdRequest);
-            //    if (!usRequest.IsAdmin)
-            //    {
-            //        return;
-            //    }
-            //    //x => x.UserIdentifier == userId
-            //    //rm.StoredRoom.Users.IndexOf(,);
-            //    var userForDelIndex = rm.StoredRoom.Users.Select((us, index) => new { us, index })
-            //        .FirstOrDefault(x => x.us.UserIdentifier == userId)?.index;
-            //    if (userForDelIndex == null)
-            //    {
-            //        return;
-            //    }
-
-            //    rm.StoredRoom.Users.RemoveAt((int)userForDelIndex);
-            //    result = true;
-            //});
-
-            //return result;
+         
         }
 
         public async Task<bool> RoomIsExist(string roomName)
@@ -522,11 +461,7 @@ namespace PlanitPoker.Models.Repositories
                     room.CurrentStoryId = -1;
                 }
 
-                //var story = room.Stories.FirstOrDefault(x => x.Id == storyId);
-                //if (story == null)
-                //{
-                //    return false;
-                //}
+              
 
                 room.Stories.RemoveAll(x => x.Id == storyId);
 
@@ -571,6 +506,16 @@ namespace PlanitPoker.Models.Repositories
             return null;
         }
 
+
+        public async Task<Room> DeleteRoom(string roomName)
+        {
+            if(Rooms.Remove(roomName, out var room))
+            {
+                return room;
+            }
+
+            return null;
+        }
 
 
         //---------------------------------------------------------------------private
