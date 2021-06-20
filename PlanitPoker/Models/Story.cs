@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BO.Models.PlaningPoker.DAL;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -23,6 +24,30 @@ namespace PlanitPoker.Models
         {
             var res = (Story)this.MemberwiseClone();
             return res;
+        }
+
+
+        public PlaningStoryDal ToDbObject(long roomId)
+        {
+            var forDb = new PlaningStoryDal();
+            forDb.Completed = Completed;
+            forDb.Date = Date;
+            forDb.Description= Description;
+            forDb.Name= Name;
+            forDb.RoomId= roomId;
+            forDb.Vote= Vote;
+            return forDb;
+        }
+
+        public void FromDbObject(PlaningStoryDal obj)
+        {
+            Completed = obj.Completed;
+            Date = obj.Date;
+            Description = obj.Description;
+            Id = obj.Id;
+            Name = obj.Name;
+            Vote = obj.Vote;
+
         }
     }
 }

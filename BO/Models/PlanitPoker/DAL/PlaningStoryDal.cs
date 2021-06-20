@@ -1,8 +1,9 @@
-﻿using System;
+﻿using BO.Models.DAL;
+using System;
 
 namespace BO.Models.PlaningPoker.DAL
 {
-    public class PlaningStoryDal
+    public class PlaningStoryDal : IDomainRecord<long>
     {
         public long Id { get; set; }
         public string Name { get; set; }

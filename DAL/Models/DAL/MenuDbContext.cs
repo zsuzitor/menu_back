@@ -76,6 +76,7 @@ namespace DAL.Models.DAL
             modelBuilder.Entity<PlaningRoomUserDal>().HasKey(x => x.Id);
             modelBuilder.Entity<PlaningRoomUserDal>().Property(x => x.MainAppUserId).IsRequired();
             modelBuilder.Entity<PlaningRoomUserDal>().HasOne(x => x.MainAppUser).WithMany().HasForeignKey(x => x.MainAppUserId);
+            modelBuilder.Entity<PlaningRoomUserDal>().HasOne(x => x.Room).WithMany(x => x.Users).HasForeignKey(x => x.RoomId);
 
             modelBuilder.Entity<PlaningStoryDal>().HasKey(x => x.Id);
             modelBuilder.Entity<PlaningStoryDal>().HasOne(x => x.Room).WithMany(x => x.Stories).HasForeignKey(x => x.RoomId);

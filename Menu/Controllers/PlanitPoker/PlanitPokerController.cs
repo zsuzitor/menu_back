@@ -48,7 +48,7 @@ namespace Menu.Controllers.PlanitPoker
             //либо брать на бэке(перетаскивать логику в хаб)
             //либо закрывать id юзеров
             //а лучше и то и то
-            roomname = _stringValidator.Validate(roomname);
+            roomname = _stringValidator.Validate(roomname).ToUpper();
             userConnectionId = _stringValidator.Validate(userConnectionId);
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -70,7 +70,7 @@ namespace Menu.Controllers.PlanitPoker
             //либо брать на бэке(перетаскивать логику в хаб)
             //либо закрывать id юзеров
             //а лучше и то и то
-            roomname = _stringValidator.Validate(roomname);
+            roomname = _stringValidator.Validate(roomname).ToUpper();
             userConnectionId = _stringValidator.Validate(userConnectionId);
             await _apiHealper.DoStandartSomething(
                 async () =>

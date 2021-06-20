@@ -31,5 +31,13 @@ namespace PlanitPoker.Models
                set(this);
            }, this.RWL);
         }
+
+        public Task<bool> SetConcurentValueAsync<T>(MultiThreadHelper multiThreadHelper, Func<Room, Task> set)
+        {//TODO перетащить в репо
+            return multiThreadHelper.SetValue(this,async rm =>
+            {
+                await set(this);
+            }, this.RWL);
+        }
     }
 }

@@ -92,9 +92,12 @@ namespace Menu
             services.AddScoped<IImageRepository, ImageRepository>();
             services.AddScoped<IWordsCardsRepository, WordsCardsRepository>();
             services.AddScoped<IWordsListRepository, WordsListRepository>();
-            services.AddScoped<IPlanitPokerRepository, PlanitPokerRepository>();
+            //services.AddScoped<IPlanitPokerRepository, PlanitPokerRepository>();
+            services.AddScoped<IPlaningUserRepository, PlaningUserRepository>();
+            services.AddScoped<IRoomRepository, RoomRepository>();
+            services.AddScoped<IStoryRepository, StoryRepository>();
 
-            
+
 
             //healpers
             services.AddScoped<IApiHelper, ApiHelper>();

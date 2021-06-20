@@ -1,13 +1,14 @@
 ﻿
 
+using BO.Models.DAL;
 using System.Collections.Generic;
 
 namespace BO.Models.PlaningPoker.DAL
 {
-    public class PlaningRoomDal
+    public class PlaningRoomDal: IDomainRecord<long>
     {
         public long Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; }//может тоже хешить?
         public string Password { get; set; }//TODO потом зашифровать
 
         public List<PlaningStoryDal> Stories { get; set; }

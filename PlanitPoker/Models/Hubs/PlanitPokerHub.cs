@@ -21,13 +21,16 @@ namespace PlanitPoker.Models.Hubs
     //https://metanit.com/sharp/aspnet5/30.3.php
     public class PlanitPokerHub : Hub
     {
-        private readonly IPlanitPokerRepository _planitPokerRepository;
+        
         private readonly MultiThreadHelper _multiThreadHelper;
         private readonly IStringValidator _stringValidator;
         private readonly IPlanitPokerService _planitPokerService;
         private readonly IJWTService _jwtService;
         private readonly IApiHelper _apiHealper;
         private readonly IJWTHasher _hasher;
+
+     
+
 
         //private static IServiceProvider _serviceProvider;
 
@@ -62,13 +65,14 @@ namespace PlanitPoker.Models.Hubs
             IStringValidator stringValidator, IPlanitPokerService planitPokerService,
             IApiHelper apiHealper, IJWTService jwtService, IJWTHasher hasher)
         {
-            _planitPokerRepository = planitPokerRepository;
             _multiThreadHelper = multiThreadHelper;
             _stringValidator = stringValidator;
             _planitPokerService = planitPokerService;
             _apiHealper = apiHealper;
             _jwtService = jwtService;
             _hasher = hasher;
+
+            
         }
 
         //static void InitStaticMembers()
@@ -90,7 +94,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task CreateRoom(string roomname, string password, string username)
         {
-            roomname = ValidateString(roomname);
+            roomname = ValidateString(roomname).ToUpper();
             username = ValidateString(username);
             if (string.IsNullOrWhiteSpace(password))
             {
@@ -139,7 +143,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task AliveRoom(string roomname)
         {
-            roomname = ValidateString(roomname);
+            roomname = ValidateString(roomname).ToUpper();
             var room = await _planitPokerService.TryGetRoom(roomname);
             if (room == null)
             {
@@ -160,7 +164,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task EnterInRoom(string roomname, string password, string username)
         {
-            roomname = ValidateString(roomname);
+            roomname = ValidateString(roomname).ToUpper();
             username = ValidateString(username);
             if (string.IsNullOrWhiteSpace(password))
             {
@@ -214,7 +218,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task StartVote(string roomname)
         {//TODO слишком много запросов, надо вынести в 1 и засунуть его в сервис лучше
-            roomname = ValidateString(roomname);
+            roomname = ValidateString(roomname).ToUpper();
             var room = await _planitPokerService.TryGetRoom(roomname);
             if (room == null)
             {
@@ -244,7 +248,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task EndVote(string roomname)
         {
-            roomname = ValidateString(roomname);
+            roomname = ValidateString(roomname).ToUpper();
             var room = await _planitPokerService.TryGetRoom(roomname);
             if (room == null)
             {
@@ -288,7 +292,7 @@ namespace PlanitPoker.Models.Hubs
         public async Task<bool> Vote(string roomname, int vote)
         {
 
-            roomname = ValidateString(roomname);
+            roomname = ValidateString(roomname).ToUpper();
 
             var room = await _planitPokerService.TryGetRoom(roomname);
             if (room == null)
@@ -335,7 +339,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task KickUser(string roomname, string userId)
         {
-            roomname = ValidateString(roomname);
+            roomname = ValidateString(roomname).ToUpper();
             userId = ValidateString(userId);
             var kicked = await _planitPokerService.KickFromRoom(roomname, GetConnectionId(), userId);
 
@@ -353,7 +357,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task<bool> UserNameChange(string roomname, string newUserName)
         {
-            roomname = ValidateString(roomname);
+            roomname = ValidateString(roomname).ToUpper();
             newUserName = ValidateString(newUserName);
             string userConnectionId = GetConnectionId();
             (bool sc, string userId) = await _planitPokerService.ChangeUserName(roomname, userConnectionId, newUserName);
@@ -371,7 +375,7 @@ namespace PlanitPoker.Models.Hubs
         public async Task AddNewRoleToUser(string roomname, string userId, string newRole)
         {
 
-            roomname = ValidateString(roomname);
+            roomname = ValidateString(roomname).ToUpper();
             userId = ValidateString(userId);
             newRole = ValidateString(newRole);
 
@@ -398,7 +402,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task AddNewStory(string roomname, string storyName, string storyDescription)
         {
-            roomname = ValidateString(roomname);
+            roomname = ValidateString(roomname).ToUpper();
             storyName = ValidateString(storyName);
             storyDescription = ValidateString(storyDescription);
             //invoke AddedNewStory
@@ -419,7 +423,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task ChangeCurrentStory(string roomname, long storyId, string storyName, string storyDescription)
         {
-            roomname = ValidateString(roomname);
+            roomname = ValidateString(roomname).ToUpper();
             storyName = ValidateString(storyName);
             storyDescription = ValidateString(storyDescription);
             var newStory = new Story()
@@ -439,7 +443,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task MakeCurrentStory(string roomname, long storyId)
         {
-            roomname = ValidateString(roomname);
+            roomname = ValidateString(roomname).ToUpper();
             //todo NewCurrentStory
             var sc = await _planitPokerService.ChangeCurrentStory(roomname, GetConnectionId(), storyId);
 
@@ -451,7 +455,7 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task DeleteStory(string roomname, long storyId)
         {
-            roomname = ValidateString(roomname);
+            roomname = ValidateString(roomname).ToUpper();
             //todo DeletedStory
             var sc = await _planitPokerService.DeleteStory(roomname, GetConnectionId(), storyId);
 
@@ -464,10 +468,11 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task MakeStoryComplete(string roomname, long storyId)
         {
-            var story = await _planitPokerService.MakeStoryComplete(roomname, storyId, GetConnectionId());
+            roomname = ValidateString(roomname).ToUpper();
+            (var oldId, var story) = await _planitPokerService.MakeStoryComplete(roomname, storyId, GetConnectionId());
             if (story != null)
             {
-                await Clients.Group(roomname).SendAsync(MovedStoryToComplete, new StoryReturn(story));
+                await Clients.Group(roomname).SendAsync(MovedStoryToComplete, oldId, new StoryReturn(story));
             }
             //
         }
@@ -482,6 +487,28 @@ namespace PlanitPoker.Models.Hubs
         //public async Task RemoveStory(string roomname, string storyId)
         //{
         //}
+
+
+
+
+        public async Task<bool> SaveRoom(string roomName)
+        {
+            roomName = ValidateString(roomName).ToUpper();
+            return await _planitPokerService.SaveRoom(roomName);
+        }
+
+        public async Task DeleteRoom(string roomName)
+        {
+            roomName = ValidateString(roomName).ToUpper();
+            var room = await _planitPokerService.DeleteRoom(roomName, GetConnectionId());
+            var usersId = room.StoredRoom.Users.Select(x => x.PlaningAppUserId).ToList();
+            if (usersId != null && usersId.Count > 0)
+            {
+                await Clients.Group(roomName).SendAsync(UserLeaved, usersId);
+            }
+        }
+
+
 
 
 
@@ -503,6 +530,7 @@ namespace PlanitPoker.Models.Hubs
             var cookiesHasRoomName = httpContext.Request.Cookies.TryGetValue("planing_poker_roomname", out string roomName);
             if (cookiesHasRoomName && !string.IsNullOrWhiteSpace(roomName))
             {
+                roomName = ValidateString(roomName).ToUpper();
                 var userConnectionId = GetConnectionId();
                 (bool sc, string userId) = await _planitPokerService.LeaveFromRoom(roomName, userConnectionId);
                 if (sc)
@@ -518,20 +546,7 @@ namespace PlanitPoker.Models.Hubs
 
 
 
-        public async Task<bool> SaveRoom(string roomName)
-        {
-            return await _planitPokerService.SaveRoom(roomName);
-        }
-
-        public async Task DeleteRoom(string roomName)
-        {
-            var room = await _planitPokerService.DeleteRoom(roomName);
-            var usersId = room.StoredRoom.Users.Select(x => x.PlaningAppUserId).ToList();
-            if (usersId != null && usersId.Count > 0)
-            {
-                await Clients.Group(roomName).SendAsync(UserLeaved, usersId);
-            }
-        }
+    
 
 
 

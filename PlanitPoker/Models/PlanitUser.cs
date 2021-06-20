@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BO.Models.PlaningPoker.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -66,6 +67,28 @@ namespace PlanitPoker.Models
             var res = (PlanitUser)this.MemberwiseClone();
             res.Role = new List<string>(this.Role);
             return res;
+        }
+
+        public PlaningRoomUserDal ToDbObject(long roomId)
+        {
+            if (MainAppUserId == null)
+            {
+                return null;
+            }
+            var forDb = new PlaningRoomUserDal();
+            forDb.MainAppUserId = (long)MainAppUserId;
+            forDb.Name = Name;
+            forDb.Roles = string.Join(",", Role);
+            forDb.RoomId= roomId;
+
+            return forDb;
+        }
+
+        public void FromDbObject(PlaningRoomUserDal obj)
+        {
+            Name = obj.Name;
+            MainAppUserId = obj.MainAppUserId;
+            Role = obj.Roles.Split(',').ToList();
         }
 
 

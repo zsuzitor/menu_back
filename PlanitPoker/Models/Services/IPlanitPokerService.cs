@@ -14,7 +14,7 @@ namespace PlanitPoker.Models.Services
         Task<EndVoteInfo> GetEndVoteInfo(string roomName);
         Task<EndVoteInfo> GetEndVoteInfo(Room room);
         //Task<List<string>> DeleteRoom(string roomName);
-        Task<Room> DeleteRoom(string roomName);
+        Task<Room> DeleteRoom(string roomName, string userConnectionIdRequest);
 
         Task<bool> SaveRoom(string roomName);
 
@@ -49,7 +49,7 @@ namespace PlanitPoker.Models.Services
 
         Task<bool> ChangeStatusIfCan(Room room, string userConnectionIdRequest, RoomSatus newStatus);
 
-        Task<bool> RoomIsExist(string roomName);
+        //Task<bool> RoomIsExist(string roomName);
         Task<Room> TryGetRoom(string roomName, string password);
         Task<Room> TryGetRoom(string roomName);
         Task<bool> UserIsAdmin(string roomName, string userConnectionIdRequest);
@@ -75,7 +75,7 @@ namespace PlanitPoker.Models.Services
         /// <param name="storyId"></param>
         /// <param name="userConnectionIdRequest"></param>
         /// <returns></returns>
-        Task<Story> MakeStoryComplete(string roomName, long storyId, string userConnectionIdRequest);
+        Task<(long oldId, Story story)> MakeStoryComplete(string roomName, long storyId, string userConnectionIdRequest);
         /// <summary>
         /// возвращает копию если все прошло ок
         /// </summary>
@@ -83,7 +83,7 @@ namespace PlanitPoker.Models.Services
         /// <param name="storyId"></param>
         /// <param name="userConnectionIdRequest"></param>
         /// <returns></returns>
-        Task<Story> MakeStoryComplete(Room room, long storyId, string userConnectionIdRequest);
+        Task<(long oldId, Story story)> MakeStoryComplete(Room room, long storyId, string userConnectionIdRequest);
 
 
 
