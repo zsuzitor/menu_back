@@ -17,8 +17,8 @@ namespace PlanitPoker.Models
         public RoomSatus Status { get; set; }
 
         public List<Story> Stories { get; set; }
-        public long CurrentStoryId { get; set; }
-        public long StoryForAddMaxTmpId { get; set; }
+        public string CurrentStoryId { get; set; }
+        //public long StoryForAddMaxTmpId { get; set; }
 
         public StoredRoom()
         {
@@ -26,7 +26,7 @@ namespace PlanitPoker.Models
             Users = new List<PlanitUser>();
             Stories = new List<Story>();
             DieDate = DateTime.Now.AddHours(2);
-            CurrentStoryId = -1;
+            CurrentStoryId = "";
         }
 
         public StoredRoom(string name, string password) : this()

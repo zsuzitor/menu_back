@@ -29,10 +29,22 @@ namespace PlanitPoker.Models.Repositories
         public async Task<PlaningRoomDal> DeleteByName(string name)
         {
             var res = await GetByName(name);
-             _db.PlaningRooms.Remove(res);
+            _db.PlaningRooms.Remove(res);
             await _db.SaveChangesAsync();
             return res;
         }
 
+
+        public async Task LoadStories(PlaningRoomDal room)
+        {
+            _db.PlaningRooms.Attach(room);
+            await _db.Entry(room).Collection(x => x.Stories).LoadAsync();
+        }
+
+        public async Task LoadUsers(PlaningRoomDal room)
+        {
+            _db.PlaningRooms.Attach(room);
+            await _db.Entry(room).Collection(x => x.Users).LoadAsync();
+        }
     }
 }

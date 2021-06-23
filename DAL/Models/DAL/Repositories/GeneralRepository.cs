@@ -62,5 +62,12 @@ namespace DAL.Models.DAL.Repositories
             await _db.SaveChangesAsync();
             return record;
         }
+
+        public async virtual Task<IEnumerable<T1>> Update(IEnumerable<T1> records)
+        {
+            _db.Set<T1>().AttachRange(records);
+            await _db.SaveChangesAsync();
+            return records;
+        }
     }
 }

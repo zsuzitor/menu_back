@@ -16,7 +16,7 @@ namespace PlanitPoker.Models.Services
         //Task<List<string>> DeleteRoom(string roomName);
         Task<Room> DeleteRoom(string roomName, string userConnectionIdRequest);
 
-        Task<bool> SaveRoom(string roomName);
+        Task<bool> SaveRoom(string roomName, string userConnectionIdRequest);
 
 
 
@@ -51,7 +51,7 @@ namespace PlanitPoker.Models.Services
 
         //Task<bool> RoomIsExist(string roomName);
         Task<Room> TryGetRoom(string roomName, string password);
-        Task<Room> TryGetRoom(string roomName);
+        Task<Room> TryGetRoom(string roomName, bool cacheOnly = true);
         Task<bool> UserIsAdmin(string roomName, string userConnectionIdRequest);
         Task<bool> UserIsAdmin(Room room, string userConnectionIdRequest);
         //Task<bool> AddAdmin(string roomName, string userId);
@@ -65,8 +65,8 @@ namespace PlanitPoker.Models.Services
 
         Task<bool> AddNewStory(string roomName, string userConnectionIdRequest, Story newStory);
         Task<bool> ChangeStory(string roomName, string userConnectionIdRequest, Story newData);
-        Task<bool> ChangeCurrentStory(string roomName, string userConnectionIdRequest, long storyId);
-        Task<bool> DeleteStory(string roomName, string userConnectionIdRequest, long storyId);
+        Task<bool> ChangeCurrentStory(string roomName, string userConnectionIdRequest, string storyId);
+        Task<bool> DeleteStory(string roomName, string userConnectionIdRequest, string storyId);
 
         /// <summary>
         /// возвращает копию если все прошло ок
@@ -75,7 +75,7 @@ namespace PlanitPoker.Models.Services
         /// <param name="storyId"></param>
         /// <param name="userConnectionIdRequest"></param>
         /// <returns></returns>
-        Task<(long oldId, Story story)> MakeStoryComplete(string roomName, long storyId, string userConnectionIdRequest);
+        Task<(long oldId, Story story)> MakeStoryComplete(string roomName, string storyId, string userConnectionIdRequest);
         /// <summary>
         /// возвращает копию если все прошло ок
         /// </summary>
@@ -83,7 +83,7 @@ namespace PlanitPoker.Models.Services
         /// <param name="storyId"></param>
         /// <param name="userConnectionIdRequest"></param>
         /// <returns></returns>
-        Task<(long oldId, Story story)> MakeStoryComplete(Room room, long storyId, string userConnectionIdRequest);
+        Task<(long oldId, Story story)> MakeStoryComplete(Room room, string storyId, string userConnectionIdRequest);
 
 
 

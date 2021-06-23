@@ -10,5 +10,7 @@ namespace PlanitPoker.Models.Repositories.Interfaces
     {
         Task<PlaningRoomDal> GetByName(string name);
         Task<PlaningRoomDal> DeleteByName(string name);
+        Task LoadStories(PlaningRoomDal room);
+        Task LoadUsers(PlaningRoomDal room);
     }
 }

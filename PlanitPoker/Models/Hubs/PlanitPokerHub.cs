@@ -421,14 +421,20 @@ namespace PlanitPoker.Models.Hubs
         }
 
 
-        public async Task ChangeCurrentStory(string roomname, long storyId, string storyName, string storyDescription)
+        public async Task ChangeCurrentStory(string roomname, string storyId, string storyName, string storyDescription)
         {
             roomname = ValidateString(roomname).ToUpper();
             storyName = ValidateString(storyName);
             storyDescription = ValidateString(storyDescription);
+            var storyIdIsGuid = Guid.TryParse(storyId, out var storyIdG);
+            if (!storyIdIsGuid)
+            {
+                return;//todo
+            }
+
             var newStory = new Story()
             {
-                Id = storyId,
+                TmpId = storyIdG,
                 Name = storyName,
                 Description = storyDescription,
             };
@@ -441,7 +447,7 @@ namespace PlanitPoker.Models.Hubs
             }
         }
 
-        public async Task MakeCurrentStory(string roomname, long storyId)
+        public async Task MakeCurrentStory(string roomname, string storyId)
         {
             roomname = ValidateString(roomname).ToUpper();
             //todo NewCurrentStory
@@ -453,7 +459,7 @@ namespace PlanitPoker.Models.Hubs
             }
         }
 
-        public async Task DeleteStory(string roomname, long storyId)
+        public async Task DeleteStory(string roomname, string storyId)
         {
             roomname = ValidateString(roomname).ToUpper();
             //todo DeletedStory
@@ -466,7 +472,7 @@ namespace PlanitPoker.Models.Hubs
         }
 
 
-        public async Task MakeStoryComplete(string roomname, long storyId)
+        public async Task MakeStoryComplete(string roomname, string storyId)
         {
             roomname = ValidateString(roomname).ToUpper();
             (var oldId, var story) = await _planitPokerService.MakeStoryComplete(roomname, storyId, GetConnectionId());

@@ -6,7 +6,7 @@ namespace PlanitPoker.Models.Returns
     public class StoryReturn
     {
         [JsonPropertyName("id")]
-        public long Id { get; set; }
+        public string Id { get; set; }
         [JsonPropertyName("name")]
         public string Name { get; set; }
         [JsonPropertyName("description")]
