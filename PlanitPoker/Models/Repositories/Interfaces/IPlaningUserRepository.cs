@@ -9,8 +9,8 @@ namespace PlanitPoker.Models.Repositories.Interfaces
 {
     public interface IPlaningUserRepository : IGeneralRepository<PlaningRoomUserDal, long>
     {
-        Task<List<PlaningRoomUserDal>> GetForRoom(string roomName);
-        Task<PlaningRoomUserDal> GetByMainAppId(string roomName, long mainAppUserId);
+        //Task<List<PlaningRoomUserDal>> GetForRoom(long roomId);
+        //Task<PlaningRoomUserDal> GetByMainAppId(string roomName, long mainAppUserId);
 
     }
 }

@@ -21,7 +21,7 @@ namespace PlanitPoker.Models.Hubs
     //https://metanit.com/sharp/aspnet5/30.3.php
     public class PlanitPokerHub : Hub
     {
-        
+
         private readonly MultiThreadHelper _multiThreadHelper;
         private readonly IStringValidator _stringValidator;
         private readonly IPlanitPokerService _planitPokerService;
@@ -29,7 +29,7 @@ namespace PlanitPoker.Models.Hubs
         private readonly IApiHelper _apiHealper;
         private readonly IJWTHasher _hasher;
 
-     
+
 
 
         //private static IServiceProvider _serviceProvider;
@@ -61,7 +61,7 @@ namespace PlanitPoker.Models.Hubs
 
 
 
-        public PlanitPokerHub(IPlanitPokerRepository planitPokerRepository, MultiThreadHelper multiThreadHelper,
+        public PlanitPokerHub(MultiThreadHelper multiThreadHelper,
             IStringValidator stringValidator, IPlanitPokerService planitPokerService,
             IApiHelper apiHealper, IJWTService jwtService, IJWTHasher hasher)
         {
@@ -72,7 +72,7 @@ namespace PlanitPoker.Models.Hubs
             _jwtService = jwtService;
             _hasher = hasher;
 
-            
+
         }
 
         //static void InitStaticMembers()
@@ -500,7 +500,7 @@ namespace PlanitPoker.Models.Hubs
         public async Task<bool> SaveRoom(string roomName)
         {
             roomName = ValidateString(roomName).ToUpper();
-            return await _planitPokerService.SaveRoom(roomName);
+            return await _planitPokerService.SaveRoom(roomName, GetConnectionId());
         }
 
         public async Task DeleteRoom(string roomName)
@@ -552,7 +552,7 @@ namespace PlanitPoker.Models.Hubs
 
 
 
-    
+
 
 
 

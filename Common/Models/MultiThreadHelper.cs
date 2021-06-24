@@ -7,7 +7,7 @@ namespace Common.Models
     public class MultiThreadHelper
     {
         public (T1 res, bool success) GetValue<T1, T2>
-            (T2 obj, Func<T2, T1> get, ReaderWriterLock rwl, int timeOut = 100)
+            (T2 obj, Func<T2, T1> get, ReaderWriterLock rwl, int timeOut = 60000)
         //where T1 : class
         {
             try
@@ -19,7 +19,10 @@ namespace Common.Models
                 }
                 finally
                 {
-                    rwl?.ReleaseReaderLock();
+                    //if (rwl?.IsReaderLockHeld ?? false)
+                    {
+                        rwl?.ReleaseReaderLock();
+                    }
                 }
             }
             catch
@@ -29,7 +32,7 @@ namespace Common.Models
         }
 
         public async Task<bool> SetValue<T1>
-            (T1 obj, Func<T1, Task> set, ReaderWriterLock rwl, int timeOut = 100)
+            (T1 obj, Func<T1, Task> set, ReaderWriterLock rwl, int timeOut = 60000)
         //where T1 : class
         {
             try
@@ -42,7 +45,10 @@ namespace Common.Models
                 }
                 finally
                 {
-                    rwl?.ReleaseWriterLock();
+                    //if(rwl?.IsWriterLockHeld ?? false)
+                    {
+                        rwl?.ReleaseWriterLock();
+                    }
                 }
             }
             catch
@@ -54,7 +60,7 @@ namespace Common.Models
 
 
         public bool SetValue<T1>
-            (T1 obj, Action<T1> set, ReaderWriterLock rwl, int timeOut = 100)
+            (T1 obj, Action<T1> set, ReaderWriterLock rwl, int timeOut = 60000)
         //where T1 : class
         {
             try
@@ -67,7 +73,10 @@ namespace Common.Models
                 }
                 finally
                 {
-                    rwl?.ReleaseWriterLock();
+                    //if (rwl?.IsWriterLockHeld ?? false)
+                    {
+                        rwl?.ReleaseWriterLock();
+                    }
                 }
             }
             catch

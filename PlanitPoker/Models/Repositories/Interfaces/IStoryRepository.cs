@@ -9,7 +9,7 @@ namespace PlanitPoker.Models.Repositories.Interfaces
 {
     public interface IStoryRepository : IGeneralRepository<PlaningStoryDal, long>
     {
-        Task<List<PlaningStoryDal>> GetActualForRoom(string roomName);
+        Task<List<PlaningStoryDal>> GetActualForRoom(long roomId);
 
     }
 }

@@ -2789,7 +2789,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.planing-story-in-list {}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 50px;\r\n    height: 50px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;;\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,2DAA2D;IAC3D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,uDAAuD;IACvD,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,eAAe;IACf,6BAA6B;IAC7B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,iBAAiB;IACjB,oBAAoB;AACxB;;AAEA;IACI,qCAAqC;AACzC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA,wBAAwB;;AAExB;IACI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;AAC7B","sourcesContent":[".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.planing-story-in-list {}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 50px;\r\n    height: 50px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.planing-story-in-list {}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 50px;\r\n    height: 50px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 180%;\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,2DAA2D;IAC3D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,uDAAuD;IACvD,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,eAAe;IACf,6BAA6B;IAC7B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,iBAAiB;IACjB,oBAAoB;AACxB;;AAEA;IACI,qCAAqC;AACzC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,uBAAuB;IACvB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA,wBAAwB;;AAExB;IACI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,eAAe;AACnB","sourcesContent":[".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to right, transparent, #745959);\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    background: linear-gradient(to left, transparent, gray);\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n}\r\n\r\n.planing-enter-inner {\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 20px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.planing-story-in-list {}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 50px;\r\n    height: 50px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 180%;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10005,7 +10005,7 @@ var Index = function (props) {
             props.RoomNameChanged(pathNameUrlSplit[2]);
         }
         // console.log("Index");
-        props.MyHubConnection.on("RoomNotCreated", function () {
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.RoomNotCreated, function () {
             var alert = new AlertData_1.AlertData();
             alert.Text = "Комната не создана";
             alert.Type = 1;
@@ -10013,17 +10013,17 @@ var Index = function (props) {
             return;
         });
         return function cleanUp() {
-            props.MyHubConnection.off("RoomNotCreated");
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.RoomNotCreated);
         };
     }, []);
     var createRoom = function () {
         //этот метод вроде как  может подождать результат выполнения и как то получить ответ
         // props.MyHubConnection.invoke("CreateRoom", localState.RoomName, localState.RoomPassword, props.Username);
         //а вот этот не ждет
-        props.MyHubConnection.send("CreateRoom", props.RoomInfo.Name, props.RoomInfo.Password, props.Username);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.CreateRoom, props.RoomInfo.Name, props.RoomInfo.Password, props.Username);
     };
     var enterInRoom = function () {
-        props.MyHubConnection.send("EnterInRoom", props.RoomInfo.Name, props.RoomInfo.Password, props.Username);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.EnterInRoom, props.RoomInfo.Name, props.RoomInfo.Password, props.Username);
     };
     // let withoutPasswordOnClick = () => {
     //     setWithoutPasswordState(!withoutPasswordState);
@@ -10142,7 +10142,7 @@ var VoteInfo = /** @class */ (function () {
 exports.VoteInfo = VoteInfo;
 var Story = /** @class */ (function () {
     function Story() {
-        this.Id = 0;
+        this.Id = "";
         // this.InitWithServer = false;
         this.Name = "";
         this.Description = "";
@@ -10165,7 +10165,7 @@ var StoriesHelper = /** @class */ (function () {
     function StoriesHelper() {
         var _this = this;
         this.GetStoryIndexById = function (stories, storyId) {
-            if (storyId < 0) {
+            if (!storyId) {
                 return -1;
             }
             var index = stories.findIndex(function (x) { return x.Id === storyId; });
@@ -10304,13 +10304,13 @@ var PlaningPokerMain = function () {
     var _b = react_1.useState(false), hubConnected = _b[0], sethubConnectedState = _b[1];
     //componentdidmount, должен вызваться уже когда childs отрендерятся
     react_1.useEffect(function () {
-        hubConnection.on("PlaningNotifyFromServer", function (data) {
+        hubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.PlaningNotifyFromServer, function (data) {
             var alert = new AlertData_1.AlertData();
             alert.Text = data.text;
             alert.Type = data.status;
             window.G_AddAbsoluteAlertToState(alert);
         });
-        hubConnection.on("EnteredInRoom", function (roomUserId, loginnedInMainApp) {
+        hubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.EnteredInRoom, function (roomUserId, loginnedInMainApp) {
             setLocalState(function (prevState) {
                 var newState = __assign({}, prevState);
                 newState.RoomInfo.InRoom = true;
@@ -10331,7 +10331,7 @@ var PlaningPokerMain = function () {
             // history.pushState(null, '/messages');
             // window.document.title
         });
-        hubConnection.on("ConnectedToRoomError", function () {
+        hubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.ConnectedToRoomError, function () {
             var alert = new AlertData_1.AlertData();
             alert.Text = "подключение не удалось";
             alert.Type = 1;
@@ -10342,14 +10342,14 @@ var PlaningPokerMain = function () {
             }
             return;
         });
-        hubConnection.on("NeedRefreshTokens", function () {
+        hubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.NeedRefreshTokens, function () {
             window.G_AuthenticateController.RefreshAccessToken(true, null);
         });
         // возможно тут стоит выделить в child components методы которые вызвать до старта
         //Update, не стоит тк они актуальны только в самих компонентах
         hubConnection.start()
             .then(function () {
-            hubConnection.invoke("GetConnectionId")
+            hubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.GetConnectionId)
                 .then(function (connectionId) {
                 // let newState = { ...localState };
                 // newState.User.UserId = connectionId;
@@ -10372,10 +10372,10 @@ var PlaningPokerMain = function () {
             });
         });
         return function cleanUp() {
-            hubConnection.off("ConnectedToRoomError");
-            hubConnection.off("EnteredInRoom");
-            hubConnection.off("PlaningNotifyFromServer");
-            hubConnection.off("NeedRefreshTokens");
+            hubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.ConnectedToRoomError);
+            hubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.EnteredInRoom);
+            hubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.PlaningNotifyFromServer);
+            hubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NeedRefreshTokens);
         };
     }, []);
     var userNameChange = function (newName) {
@@ -10537,7 +10537,7 @@ var StoriesInfo = /** @class */ (function () {
     // DescriptionForAdd: string;
     function StoriesInfo() {
         this.Stories = [];
-        this.CurrentStoryId = -1;
+        this.CurrentStoryId = "";
         // this.ClearTmpFuncForStories = null;
         // this.NameForAdd = "";
         // this.DescriptionForAdd = "";
@@ -10601,7 +10601,7 @@ var Room = function (props) {
     }, [props.RoomInfo.Name]);
     react_1.useEffect(function () {
         if (props.HubConnected && props.RoomInfo.Name && !props.RoomInfo.InRoom) {
-            props.MyHubConnection.send("EnterInRoom", props.RoomInfo.Name, props.RoomInfo.Password, props.UserInfo.UserName);
+            props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.EnterInRoom, props.RoomInfo.Name, props.RoomInfo.Password, props.UserInfo.UserName);
         }
     }, [props.HubConnected]);
     // console.log("render Room");
@@ -10678,7 +10678,7 @@ var Room = function (props) {
         window.G_PlaningPokerController.GetRoomInfo(props.RoomInfo.Name, props.UserInfo.UserConnectionId, getRoomInfo);
     }, [props.RoomInfo.InRoom]);
     react_1.useEffect(function () {
-        props.MyHubConnection.on("NewUserInRoom", function (data) {
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.NewUserInRoom, function (data) {
             if (!data) {
                 return;
             }
@@ -10694,7 +10694,7 @@ var Room = function (props) {
                 return newState;
             });
         });
-        props.MyHubConnection.on("UserNameChanged", function (userId, newUserName) {
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.UserNameChanged, function (userId, newUserName) {
             if (!userId) {
                 return;
             }
@@ -10708,7 +10708,7 @@ var Room = function (props) {
                 return newState;
             });
         });
-        props.MyHubConnection.on("UserLeaved", function (usersId) {
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.UserLeaved, function (usersId) {
             if (!usersId) {
                 return;
             }
@@ -10732,7 +10732,7 @@ var Room = function (props) {
                 return newState;
             });
         });
-        props.MyHubConnection.on("VoteChanged", function (userId, vote) {
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.VoteChanged, function (userId, vote) {
             if (!userId) {
                 return;
             }
@@ -10749,7 +10749,7 @@ var Room = function (props) {
                 return newState;
             });
         });
-        props.MyHubConnection.on("UserRoleChanged", function (userId, changeType, role) {
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.UserRoleChanged, function (userId, changeType, role) {
             if (!userId) {
                 return;
             }
@@ -10773,7 +10773,7 @@ var Room = function (props) {
                 return newState;
             });
         });
-        props.MyHubConnection.on("VoteStart", function () {
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.VoteStart, function () {
             setSelectedVoteCard(function (prevState) {
                 return -1;
             });
@@ -10793,7 +10793,7 @@ var Room = function (props) {
                 // return newState;
             });
         });
-        props.MyHubConnection.on("VoteEnd", function (data) {
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.VoteEnd, function (data) {
             // fillVoteInfo(null, data);
             setLocalState(function (prevState) {
                 var newState = __assign({}, prevState);
@@ -10807,7 +10807,7 @@ var Room = function (props) {
                 // return newState;
             });
         });
-        props.MyHubConnection.on("AddedNewStory", function (data) {
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.AddedNewStory, function (data) {
             setStoriesState(function (prevState) {
                 var newState = __assign({}, prevState);
                 var newStory = new RoomInfo_1.Story();
@@ -10816,7 +10816,7 @@ var Room = function (props) {
                 return newState;
             });
         });
-        props.MyHubConnection.on("NewCurrentStory", function (id) {
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.NewCurrentStory, function (id) {
             //изменении в целом объекта текущей истории
             setStoriesState(function (prevState) {
                 var newState = __assign({}, prevState);
@@ -10824,7 +10824,7 @@ var Room = function (props) {
                 return newState;
             });
         });
-        props.MyHubConnection.on("CurrentStoryChanged", function (id, newName, newDescription) {
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.CurrentStoryChanged, function (id, newName, newDescription) {
             //изменение данных текущей истории
             setStoriesState(function (prevState) {
                 var newState = __assign({}, prevState);
@@ -10839,7 +10839,7 @@ var Room = function (props) {
                 return newState;
             });
         });
-        props.MyHubConnection.on("DeletedStory", function (id) {
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.DeletedStory, function (id) {
             //изменение данных текущей истории
             setStoriesState(function (prevState) {
                 var newState = __assign({}, prevState);
@@ -10849,23 +10849,25 @@ var Room = function (props) {
                 }
                 newState.Stories.splice(storyIndex, 1);
                 if (newState.CurrentStoryId == id) {
-                    newState.CurrentStoryId = -1;
+                    newState.CurrentStoryId = "";
                 }
                 return newState;
             });
         });
-        props.MyHubConnection.on("MovedStoryToComplete", function (newData) {
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.MovedStoryToComplete, function (oldId, newData) {
             if (!newData) {
                 return;
             }
             setStoriesState(function (prevState) {
                 var newState = __assign({}, prevState);
-                var story = storiesHelper.GetStoryById(newState.Stories, newData.id);
+                var story = storiesHelper.GetStoryById(newState.Stories, oldId);
                 if (story) {
+                    story.Id = newData.id;
                     story.Completed = newData.completed;
                     story.Date = newData.date;
+                    story.Vote = newData.vote;
                     if (newState.CurrentStoryId === newData.id) {
-                        newState.CurrentStoryId = -1;
+                        newState.CurrentStoryId = "";
                     }
                     newState.CurrentStoryDescriptionChange = "";
                     newState.CurrentStoryNameChange = "";
@@ -10874,18 +10876,18 @@ var Room = function (props) {
             });
         });
         return function cleanUp() {
-            props.MyHubConnection.off("MovedStoryToComplete");
-            props.MyHubConnection.off("DeletedStory");
-            props.MyHubConnection.off("CurrentStoryChanged");
-            props.MyHubConnection.off("NewCurrentStory");
-            props.MyHubConnection.off("AddedNewStory");
-            props.MyHubConnection.off("VoteEnd");
-            props.MyHubConnection.off("VoteStart");
-            props.MyHubConnection.off("UserRoleChanged");
-            props.MyHubConnection.off("VoteChanged");
-            props.MyHubConnection.off("UserLeaved");
-            props.MyHubConnection.off("UserNameChanged");
-            props.MyHubConnection.off("NewUserInRoom");
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.MovedStoryToComplete);
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.DeletedStory);
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.CurrentStoryChanged);
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NewCurrentStory);
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.AddedNewStory);
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.VoteEnd);
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.VoteStart);
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.UserRoleChanged);
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.VoteChanged);
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.UserLeaved);
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.UserNameChanged);
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NewUserInRoom);
         };
     }, []);
     var fillVoteInfo = function (state, data) {
@@ -10912,7 +10914,7 @@ var Room = function (props) {
         if (!currentUserIsAdmin) {
             return;
         }
-        props.MyHubConnection.send("KickUser", props.RoomInfo.Name, userId);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.KickUser, props.RoomInfo.Name, userId);
     };
     var doVote = function (voteCardBlock) { return __awaiter(void 0, void 0, void 0, function () {
         var alert_1, voted;
@@ -10974,22 +10976,22 @@ var Room = function (props) {
                     localState.VoteInfo.AverageVote)));
     };
     var tryStartVote = function () {
-        props.MyHubConnection.send("StartVote", props.RoomInfo.Name);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.StartVote, props.RoomInfo.Name);
     };
     var tryEndVote = function () {
-        props.MyHubConnection.send("EndVote", props.RoomInfo.Name);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.EndVote, props.RoomInfo.Name);
     };
     var makeCurrentStory = function (id) {
-        props.MyHubConnection.send("MakeCurrentStory", props.RoomInfo.Name, id);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.MakeCurrentStory, props.RoomInfo.Name, id);
     };
     var deleteStory = function (id) {
-        props.MyHubConnection.send("DeleteStory", props.RoomInfo.Name, id);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.DeleteStory, props.RoomInfo.Name, id);
     };
     var saveRoom = function () {
-        props.MyHubConnection.send("SaveRoom", props.RoomInfo.Name).then(function () { return alert("Сохранено"); });
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.SaveRoom, props.RoomInfo.Name).then(function () { return alert("Сохранено"); });
     };
     var deleteRoom = function () {
-        props.MyHubConnection.send("DeleteRoom", props.RoomInfo.Name);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.DeleteRoom, props.RoomInfo.Name);
     };
     var currentStoryDescriptionOnChange = function (str) {
         setStoriesState(function (prevState) {
@@ -11007,11 +11009,15 @@ var Room = function (props) {
     };
     var roomMainActionButton = function () {
         // let isAdmin = CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId);
+        var saveBut = react_1.default.createElement(react_1.default.Fragment, null);
+        if (props.UserInfo.LoginnedInMainApp) {
+            saveBut = react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return saveRoom(); } }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443");
+        }
         if (currentUserIsAdmin) {
             return react_1.default.createElement("div", null,
                 react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return tryStartVote(); } }, "\u041D\u0430\u0447\u0430\u0442\u044C \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u0435"),
                 react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return tryEndVote(); } }, "\u0417\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u0435"),
-                react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return saveRoom(); } }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443"),
+                saveBut,
                 react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return deleteRoom(); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443"));
         }
         return react_1.default.createElement("div", null);
@@ -11032,7 +11038,7 @@ var Room = function (props) {
                         }, type: "checkbox" })));
         }
         var changeUserName = function () {
-            props.MyHubConnection.invoke("UserNameChange", props.RoomInfo.Name, userNameLocalState).then(function (dt) {
+            props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.UserNameChange, props.RoomInfo.Name, userNameLocalState).then(function (dt) {
                 if (!dt) {
                     var alert_2 = new AlertData_1.AlertData();
                     alert_2.Text = "изменить имя не удалось";
@@ -11085,7 +11091,7 @@ var Room = function (props) {
             return react_1.default.createElement("div", null);
         }
         return react_1.default.createElement("div", { className: "planing-room-not-auth", title: "при обновлении страницы, вы подключаетесь как новый пользователь(исключение-вы авторизованы в основном приложении)." +
-                "при создании комнаты неавторизованным пользователем, комната не будет сохраняться" });
+                "при создании комнаты неавторизованным пользователем, комната не будет сохраняться" }, "!");
     };
     return react_1.default.createElement("div", { className: "container" },
         react_1.default.createElement("div", { className: "padding-10-top" }),
@@ -11187,10 +11193,10 @@ var StoriesSection = function (props) {
         props.CurrentStoryNameOnChange(story.Name);
     };
     var changeCurrentStory = function () {
-        props.MyHubConnection.send("ChangeCurrentStory", props.RoomName, props.CurrentStoryId, props.CurrentStoryNameChange, props.CurrentStoryDescriptionChange);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.ChangeCurrentStory, props.RoomName, props.CurrentStoryId, props.CurrentStoryNameChange, props.CurrentStoryDescriptionChange);
     };
     var ResetCurrentStoryById = function () {
-        if (props.CurrentStoryId < 0) {
+        if (!props.CurrentStoryId) {
             props.CurrentStoryDescriptionOnChange("");
             props.CurrentStoryNameOnChange("");
             return;
@@ -11206,7 +11212,7 @@ var StoriesSection = function (props) {
             save = confirm('Комната не в статусе <закрытого голосования>, История будет сохранена без оценок. Сохранить?');
         }
         if (save) {
-            props.MyHubConnection.send("MakeStoryComplete", props.RoomName, props.CurrentStoryId);
+            props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.MakeStoryComplete, props.RoomName, props.CurrentStoryId);
         }
     };
     var completedStoryInfo = function (story) {
@@ -11222,7 +11228,7 @@ var StoriesSection = function (props) {
                 story.Vote + ""));
     };
     var currentStoryDescriptionRender = function () {
-        if (props.CurrentStoryId < 0) {
+        if (!props.CurrentStoryId) {
             return react_1.default.createElement("div", null);
         }
         var story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
@@ -11266,7 +11272,7 @@ var StoriesSection = function (props) {
             adminButton);
     };
     var AddNewStory = function () {
-        props.MyHubConnection.send("AddNewStory", props.RoomName, storiesState.NameForAdd, storiesState.DescriptionForAdd);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.AddNewStory, props.RoomName, storiesState.NameForAdd, storiesState.DescriptionForAdd);
     };
     var storiesListRender = function () {
         var adminButtonInList = function (id) {
@@ -11384,10 +11390,10 @@ var UserInList = function (props) {
     //     }
     // }, [props.HubConnected]);
     var addNewRoleToUser = function () {
-        props.MyHubConnection.send("AddNewRoleToUser", props.RoomName, props.User.Id, selectedEditRole);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.AddNewRoleToUser, props.RoomName, props.User.Id, selectedEditRole);
     };
     var removeRoleUser = function () {
-        props.MyHubConnection.send("RemoveRoleUser", props.RoomName, props.User.Id, selectedEditRole);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.RemoveRoleUser, props.RoomName, props.User.Id, selectedEditRole);
     };
     var delButton = react_1.default.createElement("div", null);
     var statusChange = react_1.default.createElement("div", null);
@@ -14748,9 +14754,63 @@ exports.ArticleController = ArticleController;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.PlaningPokerController = void 0;
+exports.PlaningPokerController = exports.HubEndpoints = exports.HubEndpointsBack = exports.HubEndpointsFront = void 0;
+var HubEndpointsFront = /** @class */ (function () {
+    function HubEndpointsFront() {
+        this.MovedStoryToComplete = "MovedStoryToComplete";
+        this.DeletedStory = "DeletedStory";
+        this.CurrentStoryChanged = "CurrentStoryChanged";
+        this.NewCurrentStory = "NewCurrentStory";
+        this.AddedNewStory = "AddedNewStory";
+        this.VoteEnd = "VoteEnd";
+        this.VoteStart = "VoteStart";
+        this.UserRoleChanged = "UserRoleChanged";
+        this.VoteChanged = "VoteChanged";
+        this.UserLeaved = "UserLeaved";
+        this.UserNameChanged = "UserNameChanged";
+        this.NewUserInRoom = "NewUserInRoom";
+        this.RoomNotCreated = "RoomNotCreated";
+        this.ConnectedToRoomError = "ConnectedToRoomError";
+        this.EnteredInRoom = "EnteredInRoom";
+        this.PlaningNotifyFromServer = "PlaningNotifyFromServer";
+        this.NeedRefreshTokens = "NeedRefreshTokens";
+    }
+    return HubEndpointsFront;
+}());
+exports.HubEndpointsFront = HubEndpointsFront;
+var HubEndpointsBack = /** @class */ (function () {
+    function HubEndpointsBack() {
+        this.GetConnectionId = "GetConnectionId";
+        this.CreateRoom = "CreateRoom";
+        this.EnterInRoom = "EnterInRoom";
+        this.AddNewStory = "AddNewStory";
+        this.MakeStoryComplete = "MakeStoryComplete";
+        this.ChangeCurrentStory = "ChangeCurrentStory";
+        this.KickUser = "KickUser";
+        this.StartVote = "StartVote";
+        this.EndVote = "EndVote";
+        this.MakeCurrentStory = "MakeCurrentStory";
+        this.DeleteStory = "DeleteStory";
+        this.SaveRoom = "SaveRoom";
+        this.DeleteRoom = "DeleteRoom";
+        this.UserNameChange = "UserNameChange";
+        this.AddNewRoleToUser = "AddNewRoleToUser";
+        this.RemoveRoleUser = "RemoveRoleUser";
+    }
+    return HubEndpointsBack;
+}());
+exports.HubEndpointsBack = HubEndpointsBack;
+var HubEndpoints = /** @class */ (function () {
+    function HubEndpoints() {
+        this.EndpointsFront = new HubEndpointsFront();
+        this.EndpointsBack = new HubEndpointsBack();
+    }
+    return HubEndpoints;
+}());
+exports.HubEndpoints = HubEndpoints;
 var PlaningPokerController = /** @class */ (function () {
     function PlaningPokerController() {
+        this.EndPoints = new HubEndpoints();
     }
     PlaningPokerController.prototype.GetUsersIsRoom = function (roomname, userId, onSuccess) {
         G_AjaxHelper.GoAjaxRequest({

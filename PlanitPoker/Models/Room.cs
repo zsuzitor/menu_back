@@ -9,35 +9,53 @@ namespace PlanitPoker.Models
     public class Room
     {
         public StoredRoom StoredRoom { get; set; }
-        public object Lock { get; set; }
+        public object LockObject { get; set; }
         public ReaderWriterLock RWL { get; set; }
 
         public Room(StoredRoom rm)
         {
-            Lock = new object();
+            LockObject = new object();
             RWL = new ReaderWriterLock();
             StoredRoom = rm;
         }
 
         public (T res, bool sc) GetConcurentValue<T>(MultiThreadHelper multiThreadHelper, Func<Room, T> get)
-        {//TODO перетащить в репо
+        {
             return multiThreadHelper.GetValue(this, get, this.RWL);
+            //lock (LockObject)
+            //{
+            //    return (get(this),true);
+            //}
+            //var s = new SemaphoreSlim(1);
+            
         }
 
         public bool SetConcurentValue<T>(MultiThreadHelper multiThreadHelper, Action<Room> set)
-        {//TODO перетащить в репо
+        {
             return multiThreadHelper.SetValue(this, rm =>
            {
                set(this);
            }, this.RWL);
+
+            //lock (LockObject)
+            //{
+            //    set(this);
+            //    return true;
+            //}
         }
 
-        public Task<bool> SetConcurentValueAsync<T>(MultiThreadHelper multiThreadHelper, Func<Room, Task> set)
-        {//TODO перетащить в репо
-            return multiThreadHelper.SetValue(this,async rm =>
+        public async Task<bool> SetConcurentValueAsync<T>(MultiThreadHelper multiThreadHelper, Func<Room, Task> set)
+        {
+            return await multiThreadHelper.SetValue(this,async rm =>
             {
                 await set(this);
             }, this.RWL);
+
+            //lock (LockObject)
+            //{
+            //    await set(this);
+            //    return true;
+            //}
         }
     }
 }

@@ -117,7 +117,7 @@ namespace PlanitPoker.Models.Services
                     return null;
                 }
 
-                return rm.StoredRoom.Users.Where(x=>!string.IsNullOrWhiteSpace(x.UserConnectionId))
+                return rm.StoredRoom.Users.Where(x => !string.IsNullOrWhiteSpace(x.UserConnectionId))
                     .Select(x => new { userId = x.PlaningAppUserId, vote = x.Vote ?? 0, hasVote = x.Vote.HasValue });
             });
 
@@ -189,16 +189,17 @@ namespace PlanitPoker.Models.Services
                     return;
                 }
 
-                var currentUserFromRoom = room.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest && x.IsAdmin);
+                var currentUserFromRoom = room.StoredRoom.Users.FirstOrDefault(x => 
+                    x.UserConnectionId == userConnectionIdRequest && x.IsAdmin && x.MainAppUserId != null);
                 if (currentUserFromRoom == null)
                 {
                     return;
                 }
 
-                if (!room.StoredRoom.Users.Any(x => x.MainAppUserId != null && x.IsAdmin))
-                {
-                    return;
-                }
+                //if (!room.StoredRoom.Users.Any(x => x.MainAppUserId != null && x.IsAdmin))
+                //{
+                //    return;
+                //}
 
                 var roomFromDB = await _roomRepository.GetByName(roomName);
 
@@ -299,14 +300,14 @@ namespace PlanitPoker.Models.Services
                     || (user.MainAppUserId.HasValue ? x.MainAppUserId == user.MainAppUserId : false));
                 if (us == null)
                 {
-                    if (user.MainAppUserId != null)
-                    {
-                        var userFromDb = await _planingUserRepository.GetByMainAppId(rm.StoredRoom.Name, user.MainAppUserId.Value);
-                        if (userFromDb != null)
-                        {
-                            user.Role = userFromDb.Roles.Split(',').ToList();
-                        }
-                    }
+                    //if (user.MainAppUserId != null)
+                    //{
+                    //    var userFromDb = await _planingUserRepository.GetByMainAppId(rm.StoredRoom.Name, user.MainAppUserId.Value);
+                    //    if (userFromDb != null)
+                    //    {
+                    //        user.Role = userFromDb.Roles.Split(',').ToList();
+                    //    }
+                    //}
                     rm.StoredRoom.Users.Add(user);
                 }
                 else
@@ -613,7 +614,7 @@ namespace PlanitPoker.Models.Services
                 }
 
                 var roomFromDb = await _roomRepository.GetByName(roomName);
-                
+
 
                 var dbRoom = await GetRoomFromDbObject(roomFromDb);
                 if (dbRoom == null)
@@ -893,8 +894,13 @@ namespace PlanitPoker.Models.Services
                 var admins = rm.StoredRoom.Users.Where(x => x.IsAdmin);
                 //проверить залогинен ли пользак в мейн апе, и если залогенен то НЕ передавать админку!
                 var currentUser = admins.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
+                if (currentUser == null)
+                {
+                    result = true;
+                    return;
+                }
 
-                if (admins.Count() < 2 && currentUser != null && currentUser.MainAppUserId == null)
+                if (admins.Count() < 2 && currentUser.MainAppUserId == null)
                 {
                     var newAdmin = rm.StoredRoom.Users.FirstOrDefault(x => !x.IsAdmin);
                     if (newAdmin != null)
@@ -903,8 +909,16 @@ namespace PlanitPoker.Models.Services
                     }
                 }
 
-                userId = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest)?.PlaningAppUserId;
-                rm.StoredRoom.Users.RemoveAll(x => x.UserConnectionId == userConnectionIdRequest);
+                //userId = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest)?.PlaningAppUserId;
+                userId = currentUser.PlaningAppUserId;
+                if (currentUser.MainAppUserId == null)
+                {
+                    rm.StoredRoom.Users.RemoveAll(x => x.UserConnectionId == userConnectionIdRequest);
+                }
+                else
+                {
+                    currentUser.UserConnectionId = null;
+                }
 
                 result = true;
             });
@@ -984,9 +998,9 @@ namespace PlanitPoker.Models.Services
 
             var storedRoom = new StoredRoom();
             storedRoom.Name = roomDb.Name;
-            storedRoom.Password = roomDb.Name;
+            storedRoom.Password = roomDb.Password;
 
-            storedRoom.Stories = (await _storyRepository.GetActualForRoom(roomDb.Name)).Select(x =>
+            storedRoom.Stories = (await _storyRepository.GetActualForRoom(roomDb.Id)).Select(x =>
             {
                 var st = new Story();
                 st.FromDbObject(x);
@@ -994,7 +1008,9 @@ namespace PlanitPoker.Models.Services
 
             }).ToList();
 
-            storedRoom.Users = (await _planingUserRepository.GetForRoom(roomDb.Name)).Select(x =>
+            await _roomRepository.LoadUsers(roomDb);
+            storedRoom.Users = //(await _planingUserRepository.GetForRoom(roomDb.Id))
+                roomDb.Users.Select(x =>
             {
                 var st = new PlanitUser();
                 st.FromDbObject(x);

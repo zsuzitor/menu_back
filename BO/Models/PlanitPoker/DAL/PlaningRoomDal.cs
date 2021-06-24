@@ -14,6 +14,11 @@ namespace BO.Models.PlaningPoker.DAL
         public List<PlaningStoryDal> Stories { get; set; }
         public List<PlaningRoomUserDal> Users { get; set; }
 
+        public PlaningRoomDal()
+        {
+            Stories = new List<PlaningStoryDal>();
+            Users = new List<PlaningRoomUserDal>();
+        }
 
     }
 }

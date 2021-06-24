@@ -24,14 +24,14 @@ namespace PlanitPoker.Models.Returns
         [JsonPropertyName("actual_stories")]
         public List<StoryReturn> Stories { get; set; }
         [JsonPropertyName("current_story_id")]
-        public long CurrentStoryId { get; set; }
+        public string CurrentStoryId { get; set; }
 
 
         public StoredRoomReturn()
         {
             Users = new List<PlanitUserReturn>();
             Stories = new List<StoryReturn>();
-            CurrentStoryId = -1;
+            CurrentStoryId = "";
         }
 
         public StoredRoomReturn(StoredRoom obj) : this()

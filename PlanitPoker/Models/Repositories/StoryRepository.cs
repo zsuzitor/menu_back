@@ -3,7 +3,11 @@
 using BO.Models.PlaningPoker.DAL;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
+using Microsoft.EntityFrameworkCore;
 using PlanitPoker.Models.Repositories.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PlanitPoker.Models.Repositories
 {
@@ -17,5 +21,9 @@ namespace PlanitPoker.Models.Repositories
             _db = db;
         }
 
+        public async Task<List<PlaningStoryDal>> GetActualForRoom(long roomId)
+        {
+            return await _db.PlaningStories.Where(x => x.RoomId == roomId && !x.Completed).ToListAsync();
+        }
     }
 }
