@@ -75,7 +75,7 @@ namespace PlanitPoker.Models.Services
         /// <param name="storyId"></param>
         /// <param name="userConnectionIdRequest"></param>
         /// <returns></returns>
-        Task<(long oldId, Story story)> MakeStoryComplete(string roomName, string storyId, string userConnectionIdRequest);
+        Task<(string oldId, Story story)> MakeStoryComplete(string roomName, string storyId, string userConnectionIdRequest);
         /// <summary>
         /// возвращает копию если все прошло ок
         /// </summary>
@@ -83,7 +83,7 @@ namespace PlanitPoker.Models.Services
         /// <param name="storyId"></param>
         /// <param name="userConnectionIdRequest"></param>
         /// <returns></returns>
-        Task<(long oldId, Story story)> MakeStoryComplete(Room room, string storyId, string userConnectionIdRequest);
+        Task<(string oldId, Story story)> MakeStoryComplete(Room room, string storyId, string userConnectionIdRequest);
 
 
 

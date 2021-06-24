@@ -1,5 +1,6 @@
 ﻿using BO.Models.PlaningPoker.DAL;
 using Common.Models;
+using DAL.Models.DAL;
 using PlanitPoker.Models.Enums;
 using PlanitPoker.Models.Repositories.Interfaces;
 using PlanitPoker.Models.Returns;
@@ -25,11 +26,17 @@ namespace PlanitPoker.Models.Services
         private readonly IStoryRepository _storyRepository;
 
 
+        //MenuDbContext db;
+
+
 
         public PlanitPokerService(//IPlanitPokerRepository planitRepo,
             MultiThreadHelper multiThreadHelper,
             IPlaningUserRepository planingUserRepository,
-            IRoomRepository roomRepository, IStoryRepository storyRepository)
+            IRoomRepository roomRepository, IStoryRepository storyRepository
+
+            //MenuDbContext db
+            )
         {
             _multiThreadHelper = multiThreadHelper;
             //_planitPokerRepository = planitRepo;
@@ -37,6 +44,8 @@ namespace PlanitPoker.Models.Services
             _planingUserRepository = planingUserRepository;
             _roomRepository = roomRepository;
             _storyRepository = storyRepository;
+
+            //this.db = db;
         }
 
         public async Task<List<PlanitUser>> GetAllUsersWithRight(Room room, string userConnectionId)
@@ -163,6 +172,8 @@ namespace PlanitPoker.Models.Services
             }
 
             await _roomRepository.DeleteByName(roomName);
+
+
             return room;//or ?
         }
 
@@ -182,14 +193,13 @@ namespace PlanitPoker.Models.Services
             var success = false;
             await room.SetConcurentValueAsync<Room>(_multiThreadHelper, async rm =>
             {
-
                 var objForSave = await GetRoomDbObject(room);
                 if (objForSave == null)
                 {
                     return;
                 }
 
-                var currentUserFromRoom = room.StoredRoom.Users.FirstOrDefault(x => 
+                var currentUserFromRoom = room.StoredRoom.Users.FirstOrDefault(x =>
                     x.UserConnectionId == userConnectionIdRequest && x.IsAdmin && x.MainAppUserId != null);
                 if (currentUserFromRoom == null)
                 {
@@ -205,10 +215,13 @@ namespace PlanitPoker.Models.Services
 
                 if (roomFromDB == null)
                 {
-                    objForSave = await _roomRepository.Add(objForSave);
-                    await _planingUserRepository.Add(
+                    objForSave.Users.AddRange(
                         room.StoredRoom.Users.Where(x => x.MainAppUserId != null)
                         .Select(x => x.ToDbObject(objForSave.Id)).ToList());
+                    objForSave = await _roomRepository.Add(objForSave);
+                    //await _planingUserRepository.Add(
+                    //    room.StoredRoom.Users.Where(x => x.MainAppUserId != null)
+                    //    .Select(x => x.ToDbObject(objForSave.Id)).ToList());
 
                     var st = room.StoredRoom.Stories.Select(x => new { tmpId = x.TmpId, story = x.ToDbObject(objForSave.Id) }).ToList();
                     await AddNewStoriesToDb(room, objForSave.Id);
@@ -219,7 +232,7 @@ namespace PlanitPoker.Models.Services
                     roomFromDB.Name = objForSave.Name;
                     roomFromDB.Password = objForSave.Password;
                     //истории и пользователей лишних удалить, новые добавить \ обновить
-                    await _roomRepository.Update(roomFromDB);
+                    //await _roomRepository.Update(roomFromDB);
                     await _roomRepository.LoadStories(roomFromDB);
                     await _roomRepository.LoadUsers(roomFromDB);
                     await AddNewStoriesToDb(room, roomFromDB.Id);
@@ -233,7 +246,7 @@ namespace PlanitPoker.Models.Services
                             continue;
                         }
 
-                        var existUs = roomFromDB.Users.FirstOrDefault(x => x.Id == usCh.MainAppUserId);
+                        var existUs = roomFromDB.Users.FirstOrDefault(x => x.MainAppUserId == usCh.MainAppUserId);
                         if (existUs == null)
                         {
                             //forAdd.Add(usCh);
@@ -626,6 +639,8 @@ namespace PlanitPoker.Models.Services
                 {
                     return null;
                 }
+
+                room = dbRoom;
             }
 
             return room;
@@ -762,18 +777,18 @@ namespace PlanitPoker.Models.Services
 
 
 
-        public async Task<(long oldId, Story story)> MakeStoryComplete(string roomName, string storyId, string userConnectionIdRequest)
+        public async Task<(string oldId, Story story)> MakeStoryComplete(string roomName, string storyId, string userConnectionIdRequest)
         {
             var room = await TryGetRoom(roomName);
             return await MakeStoryComplete(room, storyId, userConnectionIdRequest);
         }
 
 
-        public async Task<(long oldId, Story story)> MakeStoryComplete(Room room, string storyId, string userConnectionIdRequest)
+        public async Task<(string oldId, Story story)> MakeStoryComplete(Room room, string storyId, string userConnectionIdRequest)
         {
             Story res = null;
             var voteInfo = await GetEndVoteInfo(room);//todo тут можно упростить тк все данные не нужны и забрать момжно внутри блокировки ниже
-            long oldId = -1;
+            string oldId = null;
             var sc = await UpdateIfCan(room, userConnectionIdRequest, async rm =>
             {
                 var story = rm.Stories.FirstOrDefault(x => x.Id == storyId);
@@ -787,10 +802,10 @@ namespace PlanitPoker.Models.Services
                 story.Vote = voteInfo?.Average ?? 0;
                 story.Date = DateTime.Now;
 
-
                 //var dbRecord = story.ToDbObject();//походу тут нельзя сохранять тк еще нет id румы
                 //await _storyRepository.Add(dbRecord);
-                //oldId = story.Id;
+                oldId = story.Id;
+
                 //story.Id = dbRecord.Id;
                 res = story.Clone();
 
@@ -802,7 +817,7 @@ namespace PlanitPoker.Models.Services
                 return (oldId, res);
             }
 
-            return (-1, null);
+            return (null, null);
         }
 
 
