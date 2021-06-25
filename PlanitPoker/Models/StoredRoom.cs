@@ -7,7 +7,7 @@ namespace PlanitPoker.Models
 {
     public class StoredRoom
     {
-        //public long Id { get; set; }
+        public long? Id { get; set; }//только для уже существующих в бд записей
         public string Name { get; set; }
         public string Password { get; set; }//TODO потом зашифровать
 
@@ -18,6 +18,7 @@ namespace PlanitPoker.Models
 
         public List<Story> Stories { get; set; }
         public string CurrentStoryId { get; set; }
+        public bool OldStoriesAreLoaded { get; set; }
         //public long StoryForAddMaxTmpId { get; set; }
 
         public StoredRoom()

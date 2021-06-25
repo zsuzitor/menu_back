@@ -821,6 +821,49 @@ namespace PlanitPoker.Models.Services
         }
 
 
+        public async Task<List<Story>> LoadNotActualStories(string roomName)
+        {
+            var room = await TryGetRoom(roomName);
+            if (room == null)
+            {
+                return new List<Story>();
+            }
+
+            var roomId = room.GetConcurentValue(_multiThreadHelper, rm => rm.StoredRoom.Id);
+            if (!roomId.sc || roomId.res == null)
+            {
+                return new List<Story>();
+            }
+
+            List<Story> res = new List<Story>();
+
+            await room.SetConcurentValueAsync<Room>(_multiThreadHelper, async rm =>
+            {
+                if (rm.StoredRoom.OldStoriesAreLoaded)
+                {
+                    return;
+                }
+
+                var notActualList = await _storyRepository.GetNotActualForRoom(roomId.res.Value);
+                List<Story> forAddCollection = new List<Story>();
+
+                foreach (var newStory in notActualList)
+                {
+                    if (!rm.StoredRoom.Stories.Any(x => x.IdDb == newStory.Id))
+                    {
+                        var typedNewStory = new Story();
+                        typedNewStory.FromDbObject(newStory);
+                        forAddCollection.Add(typedNewStory);
+                    }
+                }
+                rm.StoredRoom.Stories.AddRange(forAddCollection);
+                rm.StoredRoom.OldStoriesAreLoaded = true;
+                res = rm.StoredRoom.Stories.Where(x => x.Completed).ToList();
+            });
+
+            return res;
+        }
+
 
 
         //---------------------------------------------------------------------private
@@ -993,6 +1036,7 @@ namespace PlanitPoker.Models.Services
             var res = new PlaningRoomDal();
             res.Name = roomDb.StoredRoom.Name;
             res.Password = roomDb.StoredRoom.Password;
+            res.Id = roomDb.StoredRoom.Id ?? 0;
 
             return res;
             //а есть ли права на сохран
@@ -1014,6 +1058,7 @@ namespace PlanitPoker.Models.Services
             var storedRoom = new StoredRoom();
             storedRoom.Name = roomDb.Name;
             storedRoom.Password = roomDb.Password;
+            storedRoom.Id = roomDb.Id;
 
             storedRoom.Stories = (await _storyRepository.GetActualForRoom(roomDb.Id)).Select(x =>
             {

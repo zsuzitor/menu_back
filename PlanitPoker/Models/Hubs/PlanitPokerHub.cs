@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BO.Models.Auth;
 using Common.Models;
+using Common.Models.Error.services.Interfaces;
 using Common.Models.Validators;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.SignalR;
@@ -28,7 +29,7 @@ namespace PlanitPoker.Models.Hubs
         private readonly IJWTService _jwtService;
         private readonly IApiHelper _apiHealper;
         private readonly IJWTHasher _hasher;
-
+        private readonly IErrorService _errorService;
 
 
 
@@ -63,7 +64,7 @@ namespace PlanitPoker.Models.Hubs
 
         public PlanitPokerHub(MultiThreadHelper multiThreadHelper,
             IStringValidator stringValidator, IPlanitPokerService planitPokerService,
-            IApiHelper apiHealper, IJWTService jwtService, IJWTHasher hasher)
+            IApiHelper apiHealper, IJWTService jwtService, IJWTHasher hasher, IErrorService errorService)
         {
             _multiThreadHelper = multiThreadHelper;
             _stringValidator = stringValidator;
@@ -71,7 +72,7 @@ namespace PlanitPoker.Models.Hubs
             _apiHealper = apiHealper;
             _jwtService = jwtService;
             _hasher = hasher;
-
+            _errorService = errorService;
 
         }
 
@@ -512,6 +513,13 @@ namespace PlanitPoker.Models.Hubs
             {
                 await Clients.Group(roomName).SendAsync(UserLeaved, usersId);
             }
+        }
+
+        public async Task<IEnumerable<StoryReturn>> LoadNotActualStories(string roomName)
+        {
+            roomName = ValidateString(roomName).ToUpper();
+            var stories = await _planitPokerService.LoadNotActualStories(roomName);
+            return stories.Select(x => new StoryReturn(x));
         }
 
 

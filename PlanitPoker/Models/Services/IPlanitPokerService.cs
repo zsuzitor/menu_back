@@ -68,6 +68,9 @@ namespace PlanitPoker.Models.Services
         Task<bool> ChangeCurrentStory(string roomName, string userConnectionIdRequest, string storyId);
         Task<bool> DeleteStory(string roomName, string userConnectionIdRequest, string storyId);
 
+        Task<List<Story>> LoadNotActualStories(string roomName);
+        
+
         /// <summary>
         /// возвращает копию если все прошло ок
         /// </summary>

@@ -23,7 +23,12 @@ namespace PlanitPoker.Models.Repositories
 
         public async Task<List<PlaningStoryDal>> GetActualForRoom(long roomId)
         {
-            return await _db.PlaningStories.Where(x => x.RoomId == roomId && !x.Completed).ToListAsync();
+            return await _db.PlaningStories.Where(x => x.RoomId == roomId && !x.Completed).AsNoTracking().ToListAsync();
+        }
+
+        public async Task<List<PlaningStoryDal>> GetNotActualForRoom(long roomId)
+        {
+            return await _db.PlaningStories.Where(x => x.RoomId == roomId && x.Completed).AsNoTracking().ToListAsync();
         }
     }
 }

@@ -10988,10 +10988,24 @@ var Room = function (props) {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.DeleteStory, props.RoomInfo.Name, id);
     };
     var saveRoom = function () {
-        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.SaveRoom, props.RoomInfo.Name).then(function () { return alert("Сохранено"); });
+        props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.SaveRoom, props.RoomInfo.Name).then(function () { return alert("Сохранено"); });
     };
     var deleteRoom = function () {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.DeleteRoom, props.RoomInfo.Name);
+    };
+    var storiesLoaded = function (stories) {
+        setStoriesState(function (prevState) {
+            var newState = __assign({}, prevState);
+            stories.forEach(function (newStory) {
+                var story = storiesHelper.GetStoryById(newState.Stories, newStory.id);
+                if (!story) {
+                    var storyForAdd = new RoomInfo_1.Story();
+                    storyForAdd.FillByBackModel(newStory);
+                    newState.Stories.push(storyForAdd);
+                }
+            });
+            return newState;
+        });
     };
     var currentStoryDescriptionOnChange = function (str) {
         setStoriesState(function (prevState) {
@@ -11091,7 +11105,7 @@ var Room = function (props) {
             return react_1.default.createElement("div", null);
         }
         return react_1.default.createElement("div", { className: "planing-room-not-auth", title: "при обновлении страницы, вы подключаетесь как новый пользователь(исключение-вы авторизованы в основном приложении)." +
-                "при создании комнаты неавторизованным пользователем, комната не будет сохраняться" }, "!");
+                "если в комнате все пользвоатели - неавторизованы, комната не будет сохраняться" }, "!");
     };
     return react_1.default.createElement("div", { className: "container" },
         react_1.default.createElement("div", { className: "padding-10-top" }),
@@ -11105,7 +11119,7 @@ var Room = function (props) {
                     roomMainActionButton(),
                     renderVotePlaceIfNeed(),
                     renderVoteResultIfNeed()),
-                react_1.default.createElement(StoriesSection_1.default, { CurrentStoryId: storiesState.CurrentStoryId, MyHubConnection: props.MyHubConnection, RoomName: props.RoomInfo.Name, Stories: storiesState.Stories, DeleteStory: deleteStory, MakeCurrentStory: makeCurrentStory, IsAdmin: currentUserIsAdmin, CurrentStoryDescriptionChange: storiesState.CurrentStoryDescriptionChange, CurrentStoryNameChange: storiesState.CurrentStoryNameChange, CurrentStoryDescriptionOnChange: currentStoryDescriptionOnChange, CurrentStoryNameOnChange: currentStoryNameOnChange, RoomStatus: roomStatusState })),
+                react_1.default.createElement(StoriesSection_1.default, { CurrentStoryId: storiesState.CurrentStoryId, MyHubConnection: props.MyHubConnection, RoomName: props.RoomInfo.Name, Stories: storiesState.Stories, DeleteStory: deleteStory, MakeCurrentStory: makeCurrentStory, IsAdmin: currentUserIsAdmin, CurrentStoryDescriptionChange: storiesState.CurrentStoryDescriptionChange, CurrentStoryNameChange: storiesState.CurrentStoryNameChange, CurrentStoryDescriptionOnChange: currentStoryDescriptionOnChange, CurrentStoryNameOnChange: currentStoryNameOnChange, RoomStatus: roomStatusState, StoriesLoaded: storiesLoaded })),
             react_1.default.createElement("div", { className: "planit-room-right-part col-12 col-md-3" },
                 react_1.default.createElement("div", null, settingsUpUserListRender()),
                 react_1.default.createElement("div", { className: "padding-10-top" }),
@@ -11161,7 +11175,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "react"));
-// import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 var RoomInfo_1 = __webpack_require__(/*! ./Models/RoomInfo */ "./src/components/Body/PlaningPoker/Models/RoomInfo.ts");
 var StoriesSectionProp = /** @class */ (function () {
     function StoriesSectionProp() {
@@ -11194,6 +11207,12 @@ var StoriesSection = function (props) {
     };
     var changeCurrentStory = function () {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.ChangeCurrentStory, props.RoomName, props.CurrentStoryId, props.CurrentStoryNameChange, props.CurrentStoryDescriptionChange);
+    };
+    var loadOldStories = function () {
+        props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.LoadNotActualStories, props.RoomName).then(function (data) {
+            var dataTyped = data;
+            props.StoriesLoaded(dataTyped);
+        });
     };
     var ResetCurrentStoryById = function () {
         if (!props.CurrentStoryId) {
@@ -11334,7 +11353,7 @@ var StoriesSection = function (props) {
                     adminButtonInList(x.Id),
                     react_1.default.createElement("hr", null)); })),
                 react_1.default.createElement("div", null,
-                    react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return alert("todo"); } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043F\u0440\u043E\u0448\u043B\u044B\u0435"))),
+                    react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return loadOldStories(); } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043F\u0440\u043E\u0448\u043B\u044B\u0435"))),
             react_1.default.createElement("div", null, addNewForm));
     };
     return react_1.default.createElement("div", null,
@@ -14796,6 +14815,7 @@ var HubEndpointsBack = /** @class */ (function () {
         this.UserNameChange = "UserNameChange";
         this.AddNewRoleToUser = "AddNewRoleToUser";
         this.RemoveRoleUser = "RemoveRoleUser";
+        this.LoadNotActualStories = "LoadNotActualStories";
     }
     return HubEndpointsBack;
 }());
