@@ -7877,21 +7877,29 @@ var MenuMain_1 = __webpack_require__(/*! ./Body/Menu/MenuMain */ "./src/componen
 var MenuAppMain_1 = __webpack_require__(/*! ./Body/MenuApp/MenuAppMain */ "./src/components/Body/MenuApp/MenuAppMain.tsx");
 var WordsCardsAppMain_1 = __webpack_require__(/*! ./Body/WordsCardsApp/WordsCardsAppMain */ "./src/components/Body/WordsCardsApp/WordsCardsAppMain.tsx");
 var PlaningPokerMain_1 = __importDefault(__webpack_require__(/*! ./Body/PlaningPoker/PlaningPokerMain */ "./src/components/Body/PlaningPoker/PlaningPokerMain.tsx"));
+// 
+var AppRouterProps = /** @class */ (function () {
+    function AppRouterProps() {
+    }
+    return AppRouterProps;
+}());
 var AppRouter = /** @class */ (function (_super) {
     __extends(AppRouter, _super);
     function AppRouter(props) {
         return _super.call(this, props) || this;
     }
     AppRouter.prototype.render = function () {
+        var _this = this;
         // return <MainAuth login={true}/>
         // return <BodyCardsListMain />
         //TODO попробовать достучаться незалогиненным по ссылкам и поправить то что вылезет
         // return <BodyCardsListMain/> 
+        // let props1 = this.props;
         return React.createElement(react_router_dom_1.Switch, null,
             React.createElement(react_router_dom_1.Route, { exact: true, path: "/menu", component: MenuMain_1.MenuMain }),
             React.createElement(react_router_dom_1.Route, { path: "/menu-app/", component: MenuAppMain_1.MenuAppMain }),
             React.createElement(react_router_dom_1.Route, { path: "/words-cards-app", component: WordsCardsAppMain_1.WordsCardsAppMain }),
-            React.createElement(react_router_dom_1.Route, { path: "/planing-poker", component: PlaningPokerMain_1.default }),
+            React.createElement(react_router_dom_1.Route, { path: "/planing-poker", render: function (props) { return (React.createElement(PlaningPokerMain_1.default, __assign({}, props, { AuthInfo: _this.props.AuthInfo }))); } }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/login", render: function (props) { return (React.createElement(MainAuth_1.MainAuth, __assign({}, props, { LoginPage: true }))); } }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/register", render: function (props) { return (React.createElement(MainAuth_1.MainAuth, __assign({}, props, { LoginPage: false }))); } }));
     };
@@ -10284,10 +10292,16 @@ var PlaningPokerMainState = /** @class */ (function () {
     }
     return PlaningPokerMainState;
 }());
+var PlaningPokerMainProps = /** @class */ (function () {
+    function PlaningPokerMainProps() {
+    }
+    return PlaningPokerMainProps;
+}());
 __webpack_require__(/*! ../../../../style/planing_poker.css */ "./style/planing_poker.css");
-var PlaningPokerMain = function () {
+var PlaningPokerMain = function (props) {
     var initState = new PlaningPokerMainState();
     initState.User.UserName = "enter_your_name";
+    // console.log(initState.User.UserName);
     var hubConnection = new signalR.HubConnectionBuilder()
         .withUrl("/planing-poker-hub"
     // , {
@@ -10378,6 +10392,15 @@ var PlaningPokerMain = function () {
             hubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NeedRefreshTokens);
         };
     }, []);
+    react_1.useEffect(function () {
+        if (props.AuthInfo.AuthSuccess) {
+            setLocalState(function (prevState) {
+                var newState = __assign({}, prevState);
+                newState.User.UserName = props.AuthInfo.User.Email;
+                return newState;
+            });
+        }
+    }, [props.AuthInfo.AuthSuccess]);
     var userNameChange = function (newName) {
         setLocalState(function (prevState) {
             var newState = __assign({}, prevState);
@@ -10514,6 +10537,7 @@ var RoomInfo_1 = __webpack_require__(/*! ./Models/RoomInfo */ "./src/components/
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var UserInList_1 = __importDefault(__webpack_require__(/*! ./UserInList */ "./src/components/Body/PlaningPoker/UserInList.tsx"));
 var OneVoteCard_1 = __importDefault(__webpack_require__(/*! ./OneVoteCard */ "./src/components/Body/PlaningPoker/OneVoteCard.tsx"));
+// import { IOneRoomReturn } from '../../_ComponentsLink/BackModel/PlaningPoker/OneRoomReturn';
 var AlertData_1 = __webpack_require__(/*! ../../_ComponentsLink/Models/AlertData */ "./src/components/_ComponentsLink/Models/AlertData.ts");
 var StoriesSection_1 = __importDefault(__webpack_require__(/*! ./StoriesSection */ "./src/components/Body/PlaningPoker/StoriesSection.tsx"));
 var RoomProps = /** @class */ (function () {
@@ -10522,27 +10546,16 @@ var RoomProps = /** @class */ (function () {
     return RoomProps;
 }());
 var RoomState = /** @class */ (function () {
-    // SelectedVoteCard: number;
     function RoomState() {
         this.UsersList = [];
-        // this.CurrentVote = null;
-        // this.SelectedVoteCard = -1;
         this.VoteInfo = new RoomInfo_1.VoteInfo();
-        // this.RoomStatus = RoomSatus.None;
     }
     return RoomState;
 }());
 var StoriesInfo = /** @class */ (function () {
-    // NameForAdd: string;
-    // DescriptionForAdd: string;
     function StoriesInfo() {
         this.Stories = [];
         this.CurrentStoryId = "";
-        // this.ClearTmpFuncForStories = null;
-        // this.NameForAdd = "";
-        // this.DescriptionForAdd = "";
-        // this.CurrentStoryName = "";
-        // this.CurrentStoryDescription = "";
         this.CurrentStoryNameChange = "";
         this.CurrentStoryDescriptionChange = "";
     }
@@ -10577,9 +10590,6 @@ var GetUserById = function (users, userId) {
     return users[index];
 };
 var Room = function (props) {
-    // useEffect(() => {
-    //     console.log("use_1");
-    // }, [1]);
     //эффект для доступа по прямой ссылке
     //
     react_1.useEffect(function () {
@@ -10593,38 +10603,14 @@ var Room = function (props) {
                 window.location.href = "/planing-poker";
             }
         }
-        // else {
-        //     if (!props.RoomInfo.InRoom) {
-        //         props.MyHubConnection.send("EnterInRoom", props.RoomInfo.Name, props.RoomInfo.Password, props.UserInfo.UserName);
-        //     }
-        // }
     }, [props.RoomInfo.Name]);
     react_1.useEffect(function () {
         if (props.HubConnected && props.RoomInfo.Name && !props.RoomInfo.InRoom) {
             props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.EnterInRoom, props.RoomInfo.Name, props.RoomInfo.Password, props.UserInfo.UserName);
         }
     }, [props.HubConnected]);
-    // console.log("render Room");
-    // console.log(props.RoomInfo.Name);
-    // if (!props.UserInfo.UserName) {
-    //     props.ChangeUserName("enter_your_name");//todo хотя бы math random сюда закинуть?
-    //     return <div></div>
-    // }
-    // if (!props.RoomInfo.InRoom) {
-    //     return <div></div>
-    //     //означает что мы пришли по прямой ссылке, не через форму входа с index page 
-    //     //и при этом комната еще не загружена\мы не вошли
-    //     // if (!props.RoomInfo.Name) {
-    //     //     //имя комнаты пустое. либо это первый рендер либо имя комнаты нет вообще
-    //     //     return <div></div>
-    //     // }
-    //     //это уже не первый рендер тк имя комнаты спаршено из урла и не пустое, означает что хаб подключен
-    //     //но мы еще не вошли у нее
-    //     // props.MyHubConnection.send("EnterInRoom", props.RoomInfo.Name, props.RoomInfo.Password, props.Username);
-    // }
     var initState = new RoomState();
     var _a = react_1.useState(initState), localState = _a[0], setLocalState = _a[1];
-    //НЕ заносить в общий объект, перестает работать, начинает сбрасываться при ререндере
     var _b = react_1.useState(RoomInfo_1.RoomStatus.None), roomStatusState = _b[0], setRoomStatusState = _b[1];
     var _c = react_1.useState(-1), selectedVoteCard = _c[0], setSelectedVoteCard = _c[1];
     var _d = react_1.useState(false), hideVoteState = _d[0], setHideVoteState = _d[1];
@@ -11186,8 +11172,7 @@ var StoriesSectionState = /** @class */ (function () {
         this.NameForAdd = "";
         this.DescriptionForAdd = "";
         this.ShowOnlyCompleted = false;
-        // this.CurrentStoryNameChange = "";
-        // this.CurrentStoryDescriptionChange = "";
+        this.NotActualStoriesLoaded = false;
     }
     return StoriesSectionState;
 }());
@@ -11211,6 +11196,11 @@ var StoriesSection = function (props) {
     var loadOldStories = function () {
         props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.LoadNotActualStories, props.RoomName).then(function (data) {
             var dataTyped = data;
+            setStoriesState(function (prevState) {
+                var newState = __assign({}, prevState);
+                newState.NotActualStoriesLoaded = true;
+                return newState;
+            });
             props.StoriesLoaded(dataTyped);
         });
     };
@@ -11337,7 +11327,7 @@ var StoriesSection = function (props) {
                         newState.ShowOnlyCompleted = !newState.ShowOnlyCompleted;
                         return newState;
                     });
-                }, type: "checkbox" }),
+                }, type: "checkbox", defaultChecked: storiesState.ShowOnlyCompleted }),
             react_1.default.createElement("div", null,
                 react_1.default.createElement("div", { className: "stories-data-list" }, props.Stories.filter(function (x) { return x.Completed === storiesState.ShowOnlyCompleted; }).map(function (x) { return react_1.default.createElement("div", { className: "planing-story-in-list " + (x.Completed ? "completed-story" : "not-completed-story"), key: x.Id },
                     react_1.default.createElement("p", null,
@@ -11352,8 +11342,10 @@ var StoriesSection = function (props) {
                     completedStoryInfo(x),
                     adminButtonInList(x.Id),
                     react_1.default.createElement("hr", null)); })),
-                react_1.default.createElement("div", null,
-                    react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return loadOldStories(); } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043F\u0440\u043E\u0448\u043B\u044B\u0435"))),
+                react_1.default.createElement("div", null, storiesState.ShowOnlyCompleted && !storiesState.NotActualStoriesLoaded ?
+                    react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return loadOldStories(); } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043F\u0440\u043E\u0448\u043B\u044B\u0435")
+                    :
+                        react_1.default.createElement("div", null))),
             react_1.default.createElement("div", null, addNewForm));
     };
     return react_1.default.createElement("div", null,
@@ -14164,10 +14156,12 @@ var MainComponent = /** @class */ (function (_super) {
         _this.AddMainALert = _this.AddMainALert.bind(_this);
         _this.RemoveMainALert = _this.RemoveMainALert.bind(_this);
         _this.LogOutHandler = _this.LogOutHandler.bind(_this);
+        _this.ReloadUserState = _this.ReloadUserState.bind(_this);
         window.G_AddAbsoluteAlertToState = _this.AddMainALert;
         var thisRef = _this;
-        return _this;
         // window.addEventListener("logout", function (e) { thisRef.LogOutHandler() });
+        window.addEventListener("tokens_was_refreshed", function (e) { thisRef.ReloadUserState(); });
+        return _this;
     }
     MainComponent.prototype.LogOutHandler = function () {
         var auth = {
@@ -14180,6 +14174,29 @@ var MainComponent = /** @class */ (function (_super) {
             Auth: auth,
             AbsoluteAlerts: [],
         });
+    };
+    MainComponent.prototype.ReloadUserState = function () {
+        var refThis = this;
+        var success = function (error, data) {
+            if (error) {
+                return;
+            }
+            var auth = {
+                AuthSuccess: true,
+                User: {
+                    Name: data.name,
+                    Image: data.main_image_path,
+                    Email: data.email,
+                    Id: data.id,
+                }
+            };
+            localStorage.setItem('header_auth', JSON.stringify(auth.User));
+            refThis.setState({
+                Auth: auth,
+                AbsoluteAlerts: [],
+            });
+        };
+        window.G_UsersController.GetShortestUserInfo(success);
     };
     MainComponent.prototype.AddMainALert = function (alert) {
         var _this = this;
@@ -14216,7 +14233,7 @@ var MainComponent = /** @class */ (function (_super) {
     };
     MainComponent.prototype.componentDidMount = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var authStoredJson, authStored, auth, refThis, success;
+            var authStoredJson, authStored, auth;
             return __generator(this, function (_a) {
                 authStoredJson = localStorage.getItem('header_auth');
                 authStored = JSON.parse(authStoredJson);
@@ -14226,6 +14243,8 @@ var MainComponent = /** @class */ (function (_super) {
                         User: {
                             Name: authStored.Name,
                             Image: authStored.Image,
+                            Id: authStored.Id,
+                            Email: authStored.Email,
                         }
                     };
                     this.setState({
@@ -14237,25 +14256,7 @@ var MainComponent = /** @class */ (function (_super) {
                 if (window.location.pathname.startsWith('/menu/auth/')) {
                     return [2 /*return*/];
                 }
-                refThis = this;
-                success = function (error, data) {
-                    if (error) {
-                        return;
-                    }
-                    var auth = {
-                        AuthSuccess: true,
-                        User: {
-                            Name: data.name,
-                            Image: data.main_image_path
-                        }
-                    };
-                    localStorage.setItem('header_auth', JSON.stringify(auth.User));
-                    refThis.setState({
-                        Auth: auth,
-                        AbsoluteAlerts: [],
-                    });
-                };
-                window.G_UsersController.GetShortestUSerInfo(success);
+                this.ReloadUserState();
                 return [2 /*return*/];
             });
         });
@@ -14264,7 +14265,7 @@ var MainComponent = /** @class */ (function (_super) {
         return React.createElement("div", null,
             React.createElement(react_router_dom_1.BrowserRouter, null,
                 React.createElement(HeaderMain_1.HeaderMain, { AuthInfo: this.state.Auth }),
-                React.createElement(AppRouter_1.AppRouter, null),
+                React.createElement(AppRouter_1.AppRouter, { AuthInfo: this.state.Auth }),
                 React.createElement(FooterMain_1.FooterMain, null),
                 React.createElement(MainAlertAbsolute_1.MainAlertAbsolute, { Data: this.state.AbsoluteAlerts, RemoveALert: this.RemoveMainALert })));
     };
@@ -14343,6 +14344,8 @@ var AjaxHelper = /** @class */ (function () {
                     }
                 }
                 else {
+                    var eventLogOut = new CustomEvent("tokens_was_refreshed", {});
+                    window.dispatchEvent(eventLogOut);
                     //TODO записываем полученные токены
                     if (callBack) {
                         callBack();
@@ -14896,7 +14899,7 @@ exports.UsersController = void 0;
 var UsersController = /** @class */ (function () {
     function UsersController() {
     }
-    UsersController.prototype.GetShortestUSerInfo = function (onSuccess) {
+    UsersController.prototype.GetShortestUserInfo = function (onSuccess) {
         G_AjaxHelper.GoAjaxRequest({
             Data: {},
             Type: "GET",

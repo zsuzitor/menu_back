@@ -100,7 +100,6 @@ namespace PlanitPoker.Models.Services
             var resRoom = scRoom.res;
             resRoom.Password = null;
             resRoom.Users = ClearHideData(resRoom.Status, userConnectionId, resRoom.Users);
-
             var res = new RoomInfoReturn()
             {
                 Room = new StoredRoomReturn(resRoom),
