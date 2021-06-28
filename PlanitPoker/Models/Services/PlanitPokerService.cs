@@ -131,13 +131,18 @@ namespace PlanitPoker.Models.Services
 
             if (!sc)
             {
-                //TODO
+                //TODO ошибка
+                return null;
+            }
+
+            if (res == null)
+            {
                 return null;
             }
 
             var arrForMath = res.Where(x => x.hasVote);
             var result = new EndVoteInfo();
-            if (arrForMath.Count() > 0)
+            if (/*arrForMath!=null &&*/ arrForMath.Any())
             {
                 result.MinVote = arrForMath.Min(x => x.vote);
                 result.MaxVote = arrForMath.Max(x => x.vote);
@@ -483,7 +488,7 @@ namespace PlanitPoker.Models.Services
             }
 
             (var usersInRoom, bool suc) = room.GetConcurentValue(_multiThreadHelper,
-                room => room.StoredRoom.Users.Select(x => x.Clone()).ToList());
+                rm => rm.StoredRoom.Users.Select(x => x.Clone()).ToList());
             if (!suc)
             {
                 //TODO отключить юзера и попросить переконнектиться?
@@ -786,7 +791,7 @@ namespace PlanitPoker.Models.Services
         public async Task<(string oldId, Story story)> MakeStoryComplete(Room room, string storyId, string userConnectionIdRequest)
         {
             Story res = null;
-            var voteInfo = await GetEndVoteInfo(room);//todo тут можно упростить тк все данные не нужны и забрать момжно внутри блокировки ниже
+            var voteInfo = await GetEndVoteInfo(room);//todo тут можно упростить тк все данные не нужны и забрать можно внутри блокировки ниже
             string oldId = null;
             var sc = await UpdateIfCan(room, userConnectionIdRequest, async rm =>
             {
@@ -848,7 +853,7 @@ namespace PlanitPoker.Models.Services
 
                 foreach (var newStory in notActualList)
                 {
-                    if (!rm.StoredRoom.Stories.Any(x => x.IdDb == newStory.Id))
+                    if (rm.StoredRoom.Stories.All(x => x.IdDb != newStory.Id))
                     {
                         var typedNewStory = new Story();
                         typedNewStory.FromDbObject(newStory);
@@ -1032,10 +1037,12 @@ namespace PlanitPoker.Models.Services
                 return null;
             }
 
-            var res = new PlaningRoomDal();
-            res.Name = roomDb.StoredRoom.Name;
-            res.Password = roomDb.StoredRoom.Password;
-            res.Id = roomDb.StoredRoom.Id ?? 0;
+            var res = new PlaningRoomDal
+            {
+                Name = roomDb.StoredRoom.Name,
+                Password = roomDb.StoredRoom.Password,
+                Id = roomDb.StoredRoom.Id ?? 0
+            };
 
             return res;
             //а есть ли права на сохран
@@ -1054,18 +1061,20 @@ namespace PlanitPoker.Models.Services
                 return null;
             }
 
-            var storedRoom = new StoredRoom();
-            storedRoom.Name = roomDb.Name;
-            storedRoom.Password = roomDb.Password;
-            storedRoom.Id = roomDb.Id;
-
-            storedRoom.Stories = (await _storyRepository.GetActualForRoom(roomDb.Id)).Select(x =>
+            var storedRoom = new StoredRoom
             {
-                var st = new Story();
-                st.FromDbObject(x);
-                return st;
+                Name = roomDb.Name,
+                Password = roomDb.Password,
+                Id = roomDb.Id,
 
-            }).ToList();
+                Stories = (await _storyRepository.GetActualForRoom(roomDb.Id)).Select(x =>
+                {
+                    var st = new Story();
+                    st.FromDbObject(x);
+                    return st;
+
+                }).ToList()
+            };
 
             await _roomRepository.LoadUsers(roomDb);
             storedRoom.Users = //(await _planingUserRepository.GetForRoom(roomDb.Id))

@@ -10605,8 +10605,11 @@ var Room = function (props) {
         }
     }, [props.RoomInfo.Name]);
     react_1.useEffect(function () {
-        if (props.HubConnected && props.RoomInfo.Name && !props.RoomInfo.InRoom) {
-            props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.EnterInRoom, props.RoomInfo.Name, props.RoomInfo.Password, props.UserInfo.UserName);
+        if (props.HubConnected) {
+            if (props.RoomInfo.Name && !props.RoomInfo.InRoom) {
+                props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.EnterInRoom, props.RoomInfo.Name, props.RoomInfo.Password, props.UserInfo.UserName);
+            }
+            setUserNameLocalState(props.UserInfo.UserName);
         }
     }, [props.HubConnected]);
     var initState = new RoomState();
@@ -10631,6 +10634,7 @@ var Room = function (props) {
                 return;
             }
             if (data) {
+                // console.log(data);
                 var newUsersData_1 = data.room.users.map(function (x) {
                     var us = new RoomInfo_1.UserInRoom();
                     us.FillByBackModel(x);
@@ -10647,6 +10651,13 @@ var Room = function (props) {
                     newState.UsersList.splice(0, newState.UsersList.length);
                     (_a = newState.UsersList).push.apply(_a, newUsersData_1);
                     fillVoteInfo(newState, data.end_vote_info);
+                    newState.UsersList.forEach(function (us) {
+                        if (us.Id === props.UserInfo.UserId) {
+                            if (us.Vote) {
+                                setSelectedVoteCard(us.Vote);
+                            }
+                        }
+                    });
                     return newState;
                 });
                 setStoriesState(function (prevState) {
@@ -10663,6 +10674,23 @@ var Room = function (props) {
         };
         window.G_PlaningPokerController.GetRoomInfo(props.RoomInfo.Name, props.UserInfo.UserConnectionId, getRoomInfo);
     }, [props.RoomInfo.InRoom]);
+    react_1.useEffect(function () {
+        if (props.UserInfo.UserName === "enter_your_name") {
+            return;
+        }
+        if (!props.HubConnected) {
+            return;
+        }
+        props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.UserNameChange, props.RoomInfo.Name, userNameLocalState).then(function (dt) {
+            if (!dt) {
+                var alert_1 = new AlertData_1.AlertData();
+                alert_1.Text = "изменить имя не удалось";
+                alert_1.Type = AlertData_1.AlertTypeEnum.Error;
+                window.G_AddAbsoluteAlertToState(alert_1);
+                return;
+            }
+        });
+    }, [props.UserInfo.UserName]);
     react_1.useEffect(function () {
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.NewUserInRoom, function (data) {
             if (!data) {
@@ -10882,12 +10910,25 @@ var Room = function (props) {
         setSelectedVoteCard(function (prevState) {
             return -1;
         });
+        if (!data) {
+            state.VoteInfo = new RoomInfo_1.VoteInfo();
+            return;
+        }
+        // let newVoteCurrentUserSetted = false;
         state.UsersList.forEach(function (x) {
             var userFromRes = data.users_info.find(function (x1) { return x1.id === x.Id; });
             if (userFromRes) {
                 x.Vote = userFromRes.vote;
             }
+            // if (x.Id === props.UserInfo.UserId) {
+            //     if (x.Vote) {
+            //         setSelectedVoteCard(x.Vote);
+            //         newVoteCurrentUserSetted = true;
+            //     }
+            // }
         });
+        // if (!newVoteCurrentUserSetted) {
+        // }
         state.VoteInfo.MaxVote = data.max_vote;
         state.VoteInfo.MinVote = data.min_vote;
         state.VoteInfo.AverageVote = data.average_vote;
@@ -10903,7 +10944,7 @@ var Room = function (props) {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.KickUser, props.RoomInfo.Name, userId);
     };
     var doVote = function (voteCardBlock) { return __awaiter(void 0, void 0, void 0, function () {
-        var alert_1, voted;
+        var alert_2, voted;
         var _a, _b;
         return __generator(this, function (_c) {
             switch (_c.label) {
@@ -10914,11 +10955,11 @@ var Room = function (props) {
                         return [2 /*return*/];
                     }
                     if (!CurrentUserCanVote(localState.UsersList, props.UserInfo.UserId)) {
-                        alert_1 = new AlertData_1.AlertData();
-                        alert_1.Text = "У обсерверов нет прав голосовать";
-                        alert_1.Type = AlertData_1.AlertTypeEnum.Error;
-                        alert_1.Timeout = 5000;
-                        window.G_AddAbsoluteAlertToState(alert_1);
+                        alert_2 = new AlertData_1.AlertData();
+                        alert_2.Text = "У обсерверов нет прав голосовать";
+                        alert_2.Type = AlertData_1.AlertTypeEnum.Error;
+                        alert_2.Timeout = 5000;
+                        window.G_AddAbsoluteAlertToState(alert_2);
                         return [2 /*return*/];
                     }
                     return [4 /*yield*/, props.MyHubConnection.invoke("Vote", props.RoomInfo.Name, +voteCardBlock.target.dataset.vote)];
@@ -11038,16 +11079,7 @@ var Room = function (props) {
                         }, type: "checkbox" })));
         }
         var changeUserName = function () {
-            props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.UserNameChange, props.RoomInfo.Name, userNameLocalState).then(function (dt) {
-                if (!dt) {
-                    var alert_2 = new AlertData_1.AlertData();
-                    alert_2.Text = "изменить имя не удалось";
-                    alert_2.Type = AlertData_1.AlertTypeEnum.Error;
-                    window.G_AddAbsoluteAlertToState(alert_2);
-                    return;
-                }
-                props.ChangeUserName(userNameLocalState);
-            });
+            props.ChangeUserName(userNameLocalState);
         };
         var updateAllUsers = function () {
             var loadedUsers = function (error, data) {
@@ -14049,21 +14081,6 @@ exports.HeaderUserMenu = HeaderUserMenu;
 "use strict";
 
 /// <reference path="../../typings/globals.d.ts" />
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -14094,45 +14111,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.MainComponent = void 0;
-var React = __importStar(__webpack_require__(/*! react */ "react"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "react"));
 var HeaderMain_1 = __webpack_require__(/*! ./Header/HeaderMain */ "./src/components/Header/HeaderMain.tsx");
 // import { BodyMain } from './Body/BodyMain';
 var FooterMain_1 = __webpack_require__(/*! ./Footer/FooterMain */ "./src/components/Footer/FooterMain.tsx");
@@ -14140,43 +14120,61 @@ var MainAlertAbsolute_1 = __webpack_require__(/*! ./Alerts/MainAlertAbsolute */ 
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var AlertData_1 = __webpack_require__(/*! ./_ComponentsLink/Models/AlertData */ "./src/components/_ComponentsLink/Models/AlertData.ts");
 var AppRouter_1 = __webpack_require__(/*! ./AppRouter */ "./src/components/AppRouter.tsx");
-var MainComponent = /** @class */ (function (_super) {
-    __extends(MainComponent, _super);
-    function MainComponent(props) {
-        var _this = _super.call(this, props) || this;
-        var localState = {
-            Auth: {
-                AuthSuccess: false,
-                User: null,
-            },
-            AbsoluteAlerts: [],
-            MaxIdMainAlert: 0,
-        };
-        _this.state = localState;
-        _this.AddMainALert = _this.AddMainALert.bind(_this);
-        _this.RemoveMainALert = _this.RemoveMainALert.bind(_this);
-        _this.LogOutHandler = _this.LogOutHandler.bind(_this);
-        _this.ReloadUserState = _this.ReloadUserState.bind(_this);
-        window.G_AddAbsoluteAlertToState = _this.AddMainALert;
-        var thisRef = _this;
+var MainComponent = function (props) {
+    var initState = {
+        Auth: {
+            AuthSuccess: false,
+            User: null,
+        },
+        AbsoluteAlerts: [],
+        MaxIdMainAlert: 0,
+    };
+    var _a = react_1.useState(initState), localState = _a[0], setLocalState = _a[1];
+    react_1.useEffect(function () {
+        window.G_AddAbsoluteAlertToState = AddMainALert;
+        // let thisRef = this;
         // window.addEventListener("logout", function (e) { thisRef.LogOutHandler() });
-        window.addEventListener("tokens_was_refreshed", function (e) { thisRef.ReloadUserState(); });
-        return _this;
-    }
-    MainComponent.prototype.LogOutHandler = function () {
+        window.addEventListener("tokens_was_refreshed", function (e) { ReloadUserState(); });
+        var authStoredJson = localStorage.getItem('header_auth');
+        var authStored = JSON.parse(authStoredJson);
+        if (authStoredJson && authStored) {
+            var auth_1 = {
+                AuthSuccess: true,
+                User: {
+                    Name: authStored.Name,
+                    Image: authStored.Image,
+                    Id: authStored.Id,
+                    Email: authStored.Email,
+                }
+            };
+            setLocalState(function (prevState) {
+                var newState = __assign({}, prevState);
+                newState.Auth = auth_1;
+                newState.AbsoluteAlerts = [];
+                return newState;
+            });
+            return;
+        }
+        if (window.location.pathname.startsWith('/menu/auth/')) {
+            return;
+        }
+        ReloadUserState();
+    }, []);
+    var LogOutHandler = function () {
         var auth = {
             AuthSuccess: false,
             User: null,
         };
         // localStorage.setItem('header_auth', JSON.stringify(auth));
         localStorage.removeItem("header_auth");
-        this.setState({
-            Auth: auth,
-            AbsoluteAlerts: [],
+        setLocalState(function (prevState) {
+            var newState = __assign({}, prevState);
+            newState.Auth = auth;
+            newState.AbsoluteAlerts = [];
+            return newState;
         });
     };
-    MainComponent.prototype.ReloadUserState = function () {
-        var refThis = this;
+    var ReloadUserState = function () {
         var success = function (error, data) {
             if (error) {
                 return;
@@ -14191,32 +14189,33 @@ var MainComponent = /** @class */ (function (_super) {
                 }
             };
             localStorage.setItem('header_auth', JSON.stringify(auth.User));
-            refThis.setState({
-                Auth: auth,
-                AbsoluteAlerts: [],
+            setLocalState(function (prevState) {
+                var newState = __assign({}, prevState);
+                newState.Auth = auth;
+                newState.AbsoluteAlerts = [];
+                return newState;
             });
         };
         window.G_UsersController.GetShortestUserInfo(success);
     };
-    MainComponent.prototype.AddMainALert = function (alert) {
-        var _this = this;
+    var AddMainALert = function (alert) {
         // console.log('1-AddMainALert');
         var storedAlert = new AlertData_1.AlertDataStored();
         storedAlert.FillByAlertData(alert);
-        this.setState(function (prevState) {
+        setLocalState(function (prevState) {
             var newState = __assign({}, prevState);
             storedAlert.Key = ++newState.MaxIdMainAlert;
             newState.AbsoluteAlerts.push(storedAlert);
             if (alert.Timeout) {
                 setTimeout(function () {
-                    _this.RemoveMainALert(storedAlert.Key);
+                    RemoveMainALert(storedAlert.Key);
                 }, alert.Timeout);
             }
             return newState;
         });
     };
-    MainComponent.prototype.RemoveMainALert = function (alertId) {
-        this.setState(function (prevState) {
+    var RemoveMainALert = function (alertId) {
+        setLocalState(function (prevState) {
             var newState = __assign({}, prevState);
             for (var i = 0; i < newState.AbsoluteAlerts.length; ++i) {
                 if (newState.AbsoluteAlerts[i].Key == alertId) {
@@ -14231,47 +14230,14 @@ var MainComponent = /** @class */ (function (_super) {
             return newState;
         });
     };
-    MainComponent.prototype.componentDidMount = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var authStoredJson, authStored, auth;
-            return __generator(this, function (_a) {
-                authStoredJson = localStorage.getItem('header_auth');
-                authStored = JSON.parse(authStoredJson);
-                if (authStoredJson && authStored) {
-                    auth = {
-                        AuthSuccess: true,
-                        User: {
-                            Name: authStored.Name,
-                            Image: authStored.Image,
-                            Id: authStored.Id,
-                            Email: authStored.Email,
-                        }
-                    };
-                    this.setState({
-                        Auth: auth,
-                        AbsoluteAlerts: [],
-                    });
-                    return [2 /*return*/];
-                }
-                if (window.location.pathname.startsWith('/menu/auth/')) {
-                    return [2 /*return*/];
-                }
-                this.ReloadUserState();
-                return [2 /*return*/];
-            });
-        });
-    };
-    MainComponent.prototype.render = function () {
-        return React.createElement("div", null,
-            React.createElement(react_router_dom_1.BrowserRouter, null,
-                React.createElement(HeaderMain_1.HeaderMain, { AuthInfo: this.state.Auth }),
-                React.createElement(AppRouter_1.AppRouter, { AuthInfo: this.state.Auth }),
-                React.createElement(FooterMain_1.FooterMain, null),
-                React.createElement(MainAlertAbsolute_1.MainAlertAbsolute, { Data: this.state.AbsoluteAlerts, RemoveALert: this.RemoveMainALert })));
-    };
-    return MainComponent;
-}(React.Component));
-exports.MainComponent = MainComponent;
+    return react_1.default.createElement("div", null,
+        react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
+            react_1.default.createElement(HeaderMain_1.HeaderMain, { AuthInfo: localState.Auth }),
+            react_1.default.createElement(AppRouter_1.AppRouter, { AuthInfo: localState.Auth }),
+            react_1.default.createElement(FooterMain_1.FooterMain, null),
+            react_1.default.createElement(MainAlertAbsolute_1.MainAlertAbsolute, { Data: localState.AbsoluteAlerts, RemoveALert: RemoveMainALert })));
+};
+exports.default = MainComponent;
 
 
 /***/ }),
@@ -14344,8 +14310,8 @@ var AjaxHelper = /** @class */ (function () {
                     }
                 }
                 else {
-                    var eventLogOut = new CustomEvent("tokens_was_refreshed", {});
-                    window.dispatchEvent(eventLogOut);
+                    var eventTokensRefresh = new CustomEvent("tokens_was_refreshed", {});
+                    window.dispatchEvent(eventTokensRefresh);
                     //TODO записываем полученные токены
                     if (callBack) {
                         callBack();
@@ -15576,10 +15542,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var React = __importStar(__webpack_require__(/*! react */ "react"));
 var ReactDOM = __importStar(__webpack_require__(/*! react-dom */ "react-dom"));
-var MainComponent_1 = __webpack_require__(/*! ./components/MainComponent */ "./src/components/MainComponent.tsx");
+var MainComponent_1 = __importDefault(__webpack_require__(/*! ./components/MainComponent */ "./src/components/MainComponent.tsx"));
 var AjaxLogic_1 = __webpack_require__(/*! ./components/_ComponentsLink/AjaxLogic */ "./src/components/_ComponentsLink/AjaxLogic.ts");
 var AuthenticateController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/AuthenticateController */ "./src/components/_ComponentsLink/Controllers/AuthenticateController.ts");
 var ArticleController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/MenuApp/ArticleController */ "./src/components/_ComponentsLink/Controllers/MenuApp/ArticleController.ts");
@@ -15619,7 +15588,7 @@ window.G_PlaningPokerController = new PlaningPokerController_1.PlaningPokerContr
 //
 // G_AddAbsoluteAlertToState -->MainComponent
 //
-ReactDOM.render(React.createElement(MainComponent_1.MainComponent, null), 
+ReactDOM.render(React.createElement(MainComponent_1.default, null), 
 // <div>test</div>,
 document.getElementById("menu_all_main_content_start"));
 
