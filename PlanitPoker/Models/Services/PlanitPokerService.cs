@@ -680,7 +680,20 @@ namespace PlanitPoker.Models.Services
             {
                 if (!user.Role.Contains(newRole))
                 {
+                    
+                    //if (newRole == Consts.Roles.Observer)
+                    //{
+
+                    //}
+
                     user.Role.Add(newRole);
+                    if (!user.CanVote)
+                    {
+                        user.Vote = null;
+                    }
+
+
+
                     return true;
                 }
 
@@ -1007,10 +1020,12 @@ namespace PlanitPoker.Models.Services
                     x.HasVote = true;//todo хорошо бы вытащить из модели
                 }
             });
+
             if (roomStatus != RoomSatus.AllCanVote)
             {
                 return users;
             }
+
             var user = users.FirstOrDefault(x => x.UserConnectionId == currentUserConnectionId);
             if (user == null)
             {
@@ -1021,7 +1036,10 @@ namespace PlanitPoker.Models.Services
             {
                 users.ForEach(x =>
                 {
-                    x.Vote = null;
+                    if (x.UserConnectionId != currentUserConnectionId)
+                    {
+                        x.Vote = null;
+                    }
                 });
             }
 

@@ -10784,6 +10784,15 @@ var Room = function (props) {
                         user.Roles.splice(index, 1);
                     }
                 }
+                if (!user.CanVote()) {
+                    //todo убрать все оценки
+                    // GetUserById(localState.UsersList,);
+                    // users
+                    user.Vote = null;
+                    if (userId === props.UserInfo.UserId) {
+                        setSelectedVoteCard(-1);
+                    }
+                }
                 return newState;
             });
         });
