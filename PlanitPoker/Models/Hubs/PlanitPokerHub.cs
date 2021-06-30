@@ -153,7 +153,7 @@ namespace PlanitPoker.Models.Hubs
             }
 
             await _planitPokerService.AddTimeAliveRoom(room);
-            (var dt, bool suc) = GetValueFromRoomAsync(room, room => room.StoredRoom.DieDate);
+            (var dt, bool suc) = GetValueFromRoomAsync(room, rm => rm.StoredRoom.DieDate);
             if (suc)
             {
                 await Clients.Group(roomname).SendAsync(NewRoomAlive, suc);
