@@ -38,12 +38,17 @@ namespace PlanitPoker.Models.Hubs
         //front endpoints
         private const string ConnectedToRoomError = "ConnectedToRoomError";
         private const string NewRoomAlive = "NewRoomAlive";
-        private const string NotifyFromServer = "PlaningNotifyFromServer";//todo будет принимать объект result с ошибками как в апи
+
+        private const string
+            NotifyFromServer = "PlaningNotifyFromServer"; //todo будет принимать объект result с ошибками как в апи
+
         private const string EnteredInRoom = "EnteredInRoom";
         private const string NewUserInRoom = "NewUserInRoom";
         private const string UserLeaved = "UserLeaved";
-        private const string VoteStart = "VoteStart";//голосование начато, оценки почищены
+        private const string VoteStart = "VoteStart"; //голосование начато, оценки почищены
+
         private const string VoteEnd = "VoteEnd";
+
         //private const string VoteSuccess = "VoteSuccess";
         private const string VoteChanged = "VoteChanged";
         private const string RoomNotCreated = "RoomNotCreated";
@@ -110,10 +115,12 @@ namespace PlanitPoker.Models.Hubs
             var expired = false;
             try
             {
-                (expired, userInfo) = _apiHealper.GetUserInfoWithExpired(Context.GetHttpContext().Request, _jwtService, false);
+                (expired, userInfo) =
+                    _apiHealper.GetUserInfoWithExpired(Context.GetHttpContext().Request, _jwtService, false);
             }
             catch
-            { }
+            {
+            }
 
             if (expired && userInfo != null)
             {
@@ -160,7 +167,8 @@ namespace PlanitPoker.Models.Hubs
                 return;
             }
 
-            await Clients.Caller.SendAsync(NotifyFromServer, new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
+            await Clients.Caller.SendAsync(NotifyFromServer,
+                new Notify() {Text = "retry plz", Status = NotyfyStatus.Error});
         }
 
         public async Task EnterInRoom(string roomname, string password, string username)
@@ -193,10 +201,12 @@ namespace PlanitPoker.Models.Hubs
             var expired = false;
             try
             {
-                (expired, userInfo) = _apiHealper.GetUserInfoWithExpired(Context.GetHttpContext().Request, _jwtService, false);
+                (expired, userInfo) =
+                    _apiHealper.GetUserInfoWithExpired(Context.GetHttpContext().Request, _jwtService, false);
             }
             catch
-            { }
+            {
+            }
 
             if (expired && userInfo != null)
             {
@@ -218,7 +228,8 @@ namespace PlanitPoker.Models.Hubs
         }
 
         public async Task StartVote(string roomname)
-        {//TODO слишком много запросов, надо вынести в 1 и засунуть его в сервис лучше
+        {
+            //TODO слишком много запросов, надо вынести в 1 и засунуть его в сервис лучше
             roomname = ValidateString(roomname).ToUpper();
             var room = await _planitPokerService.TryGetRoom(roomname);
             if (room == null)
@@ -227,11 +238,13 @@ namespace PlanitPoker.Models.Hubs
                 return;
             }
 
-            var success = await _planitPokerService.ChangeStatusIfCan(room, GetConnectionId(), Enums.RoomSatus.AllCanVote);
+            var success =
+                await _planitPokerService.ChangeStatusIfCan(room, GetConnectionId(), Enums.RoomSatus.AllCanVote);
             if (!success)
             {
                 return;
             }
+
             success = await _planitPokerService.ClearVotes(room);
             if (!success)
             {
@@ -257,7 +270,7 @@ namespace PlanitPoker.Models.Hubs
                 return;
             }
 
-            var success = await _planitPokerService.ChangeStatusIfCan(room, GetConnectionId(), Enums.RoomSatus.CloseVote);
+            var success = await _planitPokerService.ChangeStatusIfCan(room, GetConnectionId(), RoomSatus.CloseVote);
             if (!success)
             {
                 return;
@@ -302,10 +315,7 @@ namespace PlanitPoker.Models.Hubs
                 return false;
             }
 
-            (var res, bool sc) = GetValueFromRoomAsync(room, rm =>
-            {
-                return rm.StoredRoom.Status;
-            });
+            (var res, bool sc) = GetValueFromRoomAsync(room, rm => rm.StoredRoom.Status);
 
             if (!sc)
             {
@@ -346,11 +356,12 @@ namespace PlanitPoker.Models.Hubs
 
             if (kicked)
             {
-                await Clients.Group(roomname).SendAsync(UserLeaved, new List<string>() { userId });
+                await Clients.Group(roomname).SendAsync(UserLeaved, new List<string>() {userId});
                 return;
             }
 
-            await Clients.Caller.SendAsync(NotifyFromServer, new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
+            await Clients.Caller.SendAsync(NotifyFromServer,
+                new Notify() {Text = "retry plz", Status = NotyfyStatus.Error});
 
 
         }
@@ -361,7 +372,8 @@ namespace PlanitPoker.Models.Hubs
             roomname = ValidateString(roomname).ToUpper();
             newUserName = ValidateString(newUserName);
             string userConnectionId = GetConnectionId();
-            (bool sc, string userId) = await _planitPokerService.ChangeUserName(roomname, userConnectionId, newUserName);
+            (bool sc, string userId) =
+                await _planitPokerService.ChangeUserName(roomname, userConnectionId, newUserName);
 
             if (sc)
             {
@@ -430,7 +442,7 @@ namespace PlanitPoker.Models.Hubs
             var storyIdIsGuid = Guid.TryParse(storyId, out var storyIdG);
             if (!storyIdIsGuid)
             {
-                return;//todo
+                return; //todo
             }
 
             var newStory = new Story()
@@ -444,7 +456,8 @@ namespace PlanitPoker.Models.Hubs
 
             if (sc)
             {
-                await Clients.Group(roomname).SendAsync(CurrentStoryChanged, storyId, storyName, storyDescription);//new StoryReturn(newStory)
+                await Clients.Group(roomname)
+                    .SendAsync(CurrentStoryChanged, storyId, storyName, storyDescription); //new StoryReturn(newStory)
             }
         }
 
@@ -481,6 +494,7 @@ namespace PlanitPoker.Models.Hubs
             {
                 await Clients.Group(roomname).SendAsync(MovedStoryToComplete, oldId, new StoryReturn(story));
             }
+
             //
         }
 
@@ -508,7 +522,7 @@ namespace PlanitPoker.Models.Hubs
         {
             roomName = ValidateString(roomName).ToUpper();
             var room = await _planitPokerService.DeleteRoom(roomName, GetConnectionId());
-            var usersId = room.StoredRoom.Users.Select(x => x.PlaningAppUserId).ToList();
+            var usersId = room?.StoredRoom?.Users.Select(x => x.PlaningAppUserId).ToList();
             if (usersId != null && usersId.Count > 0)
             {
                 await Clients.Group(roomName).SendAsync(UserLeaved, usersId);
@@ -535,13 +549,15 @@ namespace PlanitPoker.Models.Hubs
             //await Clients.All.SendAsync("Notify", $"{Context.ConnectionId} вошел в чат");
             await base.OnConnectedAsync();
         }
+
         public override async Task OnDisconnectedAsync(Exception exception)
         {
             //await Clients.All.SendAsync("Notify", $"{Context.ConnectionId} покинул в чат");
             //TODO надо передать админку
             //название комнаты смогу вытащить из кук???
             var httpContext = Context.GetHttpContext();
-            var cookiesHasRoomName = httpContext.Request.Cookies.TryGetValue("planing_poker_roomname", out string roomName);
+            var cookiesHasRoomName =
+                httpContext.Request.Cookies.TryGetValue("planing_poker_roomname", out string roomName);
             if (cookiesHasRoomName && !string.IsNullOrWhiteSpace(roomName))
             {
                 roomName = ValidateString(roomName).ToUpper();
@@ -549,7 +565,7 @@ namespace PlanitPoker.Models.Hubs
                 (bool sc, string userId) = await _planitPokerService.LeaveFromRoom(roomName, userConnectionId);
                 if (sc)
                 {
-                    await Clients.Group(roomName).SendAsync(UserLeaved, new List<string>() { userId });
+                    await Clients.Group(roomName).SendAsync(UserLeaved, new List<string>() {userId});
 
                 }
             }
@@ -589,14 +605,15 @@ namespace PlanitPoker.Models.Hubs
             if (!sc)
             {
                 //TODO что то пошло не так
-                await Clients.Caller.SendAsync(NotifyFromServer, new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
+                await Clients.Caller.SendAsync(NotifyFromServer,
+                    new Notify() {Text = "retry plz", Status = NotyfyStatus.Error});
 
                 return false;
             }
 
             if (!string.IsNullOrWhiteSpace(oldConnectionId))
             {
-                await Clients.Client(oldConnectionId).SendAsync(UserLeaved, new List<string>() { userId });
+                await Clients.Client(oldConnectionId).SendAsync(UserLeaved, new List<string>() {userId});
             }
 
 
@@ -604,22 +621,24 @@ namespace PlanitPoker.Models.Hubs
             if (!roomnm.sc)
             {
                 //TODO что то пошло не так
-                await Clients.Caller.SendAsync(NotifyFromServer, new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
+                await Clients.Caller.SendAsync(NotifyFromServer,
+                    new Notify() {Text = "retry plz", Status = NotyfyStatus.Error});
 
                 return false;
             }
 
             //специально до добавления юзера в руму сигнала тк ему это сообщение не нужно
-            var us = GetValueFromRoomAsync(room, (rm) => rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionId));
-            PlanitUserReturn returnUser = null;
+            var us = GetValueFromRoomAsync(room,
+                (rm) => rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionId));
             if (!us.sc || us.res == null)
             {
                 //TODO что то пошло не так
-                await Clients.Caller.SendAsync(NotifyFromServer, new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
+                await Clients.Caller.SendAsync(NotifyFromServer,
+                    new Notify() {Text = "retry plz", Status = NotyfyStatus.Error});
                 return false;
             }
 
-            returnUser = new PlanitUserReturn(us.res);
+            var returnUser = new PlanitUserReturn(us.res);
 
             await Clients.Group(roomnm.res).SendAsync(NewUserInRoom, returnUser);
             await Groups.AddToGroupAsync(userConnectionId, roomnm.res);
@@ -630,19 +649,20 @@ namespace PlanitPoker.Models.Hubs
             //    //TODO отключить юзера и попросить переконнектиться
             //    return false;
             //}
-            await Clients.Caller.SendAsync(EnteredInRoom, userId, userId == mainAppUserId?.ToString()); //,usersInRoom//todo мб лучше отдельным запросом?
+            await Clients.Caller.SendAsync(EnteredInRoom, userId,
+                userId == mainAppUserId?.ToString()); //,usersInRoom//todo мб лучше отдельным запросом?
             return true;
         }
 
 
         private List<string> GetDefaultRoles()
         {
-            return new List<string>() { Consts.Roles.User };
+            return new List<string>() {Consts.Roles.User};
         }
 
         private List<string> GetCreatorRoles()
         {
-            return new List<string>(GetDefaultRoles()) { Consts.Roles.Creator, Consts.Roles.Admin };
+            return new List<string>(GetDefaultRoles()) {Consts.Roles.Creator, Consts.Roles.Admin};
         }
 
         //private static Task ClearRooms()
