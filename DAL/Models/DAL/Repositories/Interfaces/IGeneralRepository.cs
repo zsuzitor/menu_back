@@ -18,5 +18,6 @@ namespace DAL.Models.DAL.Repositories.Interfaces
         Task<List<T1>> Get(List<T2> ids);
         Task<List<T1>> Delete(List<T1> records);
         Task<T1> Delete(T1 record);
+        Task<T1> Delete(T2 recordId);
     }
 }

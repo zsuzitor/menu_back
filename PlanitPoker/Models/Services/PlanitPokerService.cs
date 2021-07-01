@@ -784,7 +784,11 @@ namespace PlanitPoker.Models.Services
                     room.CurrentStoryId = "";
                 }
 
-
+                var storyForDel = room.Stories.FirstOrDefault(x => x.Id == storyId);
+                if (storyForDel?.IdDb != null)
+                {
+                    await _storyRepository.Delete(storyForDel.IdDb.Value);
+                }
 
                 room.Stories.RemoveAll(x => x.Id == storyId);
 

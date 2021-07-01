@@ -46,6 +46,18 @@ namespace DAL.Models.DAL.Repositories
             return record;
         }
 
+        public async Task<T1> Delete(T2 recordId)
+        {
+            var recordForDel = await Get(recordId);
+            if (recordForDel != null)
+            {
+                _db.Remove(recordForDel);
+                await _db.SaveChangesAsync();
+            }
+            
+            return recordForDel;
+        }
+
         public async virtual Task<T1> Get(T2 id)
         {
             return await _db.Set<T1>().FirstOrDefaultAsync(x=>x.Id.Equals(id));
