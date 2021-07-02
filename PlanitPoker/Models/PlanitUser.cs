@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
 
 namespace PlanitPoker.Models
 {
@@ -78,7 +81,8 @@ namespace PlanitPoker.Models
             var forDb = new PlaningRoomUserDal();
             forDb.MainAppUserId = (long)MainAppUserId;
             forDb.Name = Name;
-            forDb.Roles = string.Join(",", Role);
+            //forDb.Roles = string.Join(",", Role);
+            forDb.Roles = JsonSerializer.Serialize(Role);
             forDb.RoomId= roomId;
 
             return forDb;
@@ -88,7 +92,8 @@ namespace PlanitPoker.Models
         {
             Name = obj.Name;
             MainAppUserId = obj.MainAppUserId;
-            Role = obj.Roles.Split(',').ToList();
+            //Role = obj.Roles.Split(',').ToList();
+            Role = JsonSerializer.Deserialize<List<string>>(obj.Roles);
         }
 
 

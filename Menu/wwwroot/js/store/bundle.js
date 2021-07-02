@@ -14944,6 +14944,7 @@ var StoriesSectionState = /** @class */ (function () {
         this.DescriptionForAdd = "";
         this.ShowOnlyCompleted = false;
         this.NotActualStoriesLoaded = false;
+        this.SortByDateAsc = false;
     }
     return StoriesSectionState;
 }());
@@ -15092,6 +15093,16 @@ var StoriesSection = function (props) {
                     } }),
                 adminButtonNotInList);
         }
+        var sortByDateButton = react_1.default.createElement(react_1.default.Fragment, null);
+        if (storiesState.ShowOnlyCompleted) {
+            sortByDateButton = react_1.default.createElement("button", { className: "btn btn-primary", onClick: function (e) {
+                    setStoriesState(function (prevState) {
+                        var newState = cloneDeep_1.default(prevState);
+                        newState.SortByDateAsc = !newState.SortByDateAsc;
+                        return newState;
+                    });
+                } }, "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430 \u043F\u043E \u0434\u0430\u0442\u0435");
+        }
         return react_1.default.createElement("div", { className: "planing-stories-list-main planing-poker-left-one-section" },
             react_1.default.createElement("p", null, "\u0418\u0441\u0442\u043E\u0440\u0438\u0438:"),
             react_1.default.createElement("span", null, "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u043D\u044B\u0435: "),
@@ -15103,20 +15114,35 @@ var StoriesSection = function (props) {
                         return newState;
                     });
                 }, type: "checkbox", defaultChecked: storiesState.ShowOnlyCompleted }),
+            sortByDateButton,
             react_1.default.createElement("div", null,
-                react_1.default.createElement("div", { className: "stories-data-list" }, props.Stories.filter(function (x) { return x.Completed === storiesState.ShowOnlyCompleted; }).map(function (x) { return react_1.default.createElement("div", { className: "planing-story-in-list " + (x.Completed ? "completed-story" : "not-completed-story"), key: x.Id },
-                    react_1.default.createElement("p", null,
-                        "Id: ",
-                        x.Id),
-                    react_1.default.createElement("p", null,
-                        "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435: ",
-                        x.Name),
-                    react_1.default.createElement("p", null,
-                        "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435: ",
-                        x.Description),
-                    completedStoryInfo(x),
-                    adminButtonInList(x.Id),
-                    react_1.default.createElement("hr", null)); })),
+                react_1.default.createElement("div", { className: "stories-data-list" }, props.Stories
+                    .filter(function (x) { return x.Completed === storiesState.ShowOnlyCompleted; })
+                    .sort(function (x1, x2) {
+                    var x1Date = new Date(x1.Date || 0);
+                    var x2Date = new Date(x2.Date || 0);
+                    if (storiesState.SortByDateAsc) {
+                        return (x1Date.valueOf() - x2Date.valueOf());
+                    }
+                    else {
+                        return (x2Date.valueOf() - x1Date.valueOf());
+                    }
+                })
+                    .map(function (x) {
+                    return react_1.default.createElement("div", { className: "planing-story-in-list " + (x.Completed ? "completed-story" : "not-completed-story"), key: x.Id },
+                        react_1.default.createElement("p", null,
+                            "Id: ",
+                            x.Id),
+                        react_1.default.createElement("p", null,
+                            "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435: ",
+                            x.Name),
+                        react_1.default.createElement("p", null,
+                            "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435: ",
+                            x.Description),
+                        completedStoryInfo(x),
+                        adminButtonInList(x.Id),
+                        react_1.default.createElement("hr", null));
+                })),
                 react_1.default.createElement("div", null, storiesState.ShowOnlyCompleted && !storiesState.NotActualStoriesLoaded ?
                     react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return loadOldStories(); } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043F\u0440\u043E\u0448\u043B\u044B\u0435")
                     :

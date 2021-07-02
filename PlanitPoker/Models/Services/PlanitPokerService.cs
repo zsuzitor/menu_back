@@ -127,7 +127,7 @@ namespace PlanitPoker.Models.Services
                 }
 
                 return rm.StoredRoom.Users.Where(x => !string.IsNullOrWhiteSpace(x.UserConnectionId))
-                    .Select(x => new {userId = x.PlaningAppUserId, vote = x.Vote ?? 0, hasVote = x.Vote.HasValue});
+                    .Select(x => new {userId = x.PlaningAppUserId, vote = x.Vote ?? 0, hasVote = x.Vote.HasValue}).ToList();
             });
 
             if (!sc)
@@ -357,10 +357,10 @@ namespace PlanitPoker.Models.Services
 
         public async Task<bool> ChangeStatusIfCan(Room room, string userConnectionIdRequest, RoomSatus newStatus)
         {
-            return await UpdateIfCan(room, userConnectionIdRequest, async rm =>
+            return await UpdateIfCan(room, userConnectionIdRequest,  rm =>
             {
                 rm.Status = newStatus;
-                return true;
+                return Task.FromResult(true);
             });
 
 
@@ -512,7 +512,7 @@ namespace PlanitPoker.Models.Services
 
 
 
-        public async Task<bool> KickFromRoom(string roomName, string userConnectionIdRequest, string userId)
+        public async Task<(PlanitUser user, bool sc)> KickFromRoom(string roomName, string userConnectionIdRequest, string userId)
         {
             var room = await TryGetRoom(roomName);
             return await KickFromRoom(room, userConnectionIdRequest, userId);
@@ -520,19 +520,23 @@ namespace PlanitPoker.Models.Services
 
         }
 
-        public async Task<bool> KickFromRoom(Room room, string userConnectionIdRequest, string userId)
+        public async Task<(PlanitUser user, bool sc)> KickFromRoom(Room room, string userConnectionIdRequest, string userId)
         {
             if (string.IsNullOrWhiteSpace(userId))
             {
-                return false;
+                return (null, false);
             }
 
-            return await UpdateIfCan(room, userConnectionIdRequest, (rm) =>
+            PlanitUser user = null;
+            var rs =  await UpdateIfCan(room, userConnectionIdRequest, (rm) =>
             {
                 //rm.Users.RemoveAt((int)userForDelIndex);
+                user = rm.Users.FirstOrDefault(x => x.PlaningAppUserId == userId);
                 rm.Users.RemoveAll(x => x.PlaningAppUserId == userId);
                 return Task.FromResult(true);
             });
+
+            return (user, rs);
         }
 
         //public async Task<bool> RoomIsExist(string roomName)
@@ -785,8 +789,14 @@ namespace PlanitPoker.Models.Services
                 }
 
                 var storyForDel = room.Stories.FirstOrDefault(x => x.Id == storyId);
-                if (storyForDel?.IdDb != null)
+                if (!(storyForDel?.Completed ?? false))
                 {
+                    return false;
+                }
+
+                if (storyForDel.IdDb != null)
+                {
+                    //if (!storyForDel.Completed)
                     await _storyRepository.Delete(storyForDel.IdDb.Value);
                 }
 
@@ -977,7 +987,7 @@ namespace PlanitPoker.Models.Services
             string userId = null;
             room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
             {
-                var admins = rm.StoredRoom.Users.Where(x => x.IsAdmin);
+                var admins = rm.StoredRoom.Users.Where(x => x.IsAdmin).ToList();
                 //проверить залогинен ли пользак в мейн апе, и если залогенен то НЕ передавать админку!
                 var currentUser = admins.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
                 if (currentUser == null)
@@ -1008,6 +1018,13 @@ namespace PlanitPoker.Models.Services
 
             return (result, userId);
         }
+
+
+
+
+
+
+        //------------------------------------------------------------PRIVATE
 
 
 
