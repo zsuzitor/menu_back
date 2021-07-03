@@ -9,7 +9,7 @@ namespace PlanitPoker.Models.Returns
         [JsonPropertyName("id")]
         public string Id { get; set; }
         [JsonPropertyName("vote")]
-        public int Vote { get; set; }
+        public string Vote { get; set; }
     }
 
     public class EndVoteInfo

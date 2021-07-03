@@ -13,12 +13,12 @@ namespace PlanitPoker.Models.Repositories
 {
     public class StoryRepository : GeneralRepository<PlaningStoryDal, long>, IStoryRepository
     {
-        private readonly MenuDbContext _db;
+        //private readonly MenuDbContext _db;
 
 
         public StoryRepository(MenuDbContext db) : base(db)
         {
-            _db = db;
+            //_db = db;
         }
 
         public async Task<List<PlaningStoryDal>> GetActualForRoom(long roomId)

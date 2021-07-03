@@ -12,11 +12,11 @@ namespace WordsCardsApp.DAL.Repositories
 {
     public class WordsCardsRepository : GeneralRepository<WordCard, long>, IWordsCardsRepository
     {
-        private readonly MenuDbContext _db;
+        //private readonly MenuDbContext _db;
 
         public WordsCardsRepository(MenuDbContext db):base(db)
         {
-            _db = db;
+            //_db = db;
         }
 
         public async Task<bool?> ChangeHideStatus(long id, long userId)

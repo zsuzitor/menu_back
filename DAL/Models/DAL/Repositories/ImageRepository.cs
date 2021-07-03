@@ -9,11 +9,11 @@ namespace DAL.Models.DAL.Repositories
 {
     public class ImageRepository: GeneralRepository<CustomImage, long>,IImageRepository
     {
-        private readonly MenuDbContext _db;
+        //private readonly MenuDbContext _db;
 
         public ImageRepository(MenuDbContext db):base(db)
         {
-            _db = db;
+            //_db = db;
         }
 
 

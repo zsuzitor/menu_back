@@ -303,10 +303,11 @@ namespace PlanitPoker.Models.Hubs
             await Clients.Group(roomName).SendAsync(VoteEnd, result);
         }
 
-        public async Task<bool> Vote(string roomName, int vote)
+        public async Task<bool> Vote(string roomName, string vote)
         {
 
             roomName = NormalizeRoomName(roomName);
+            vote = ValidateString(vote);
 
             var room = await _planitPokerService.TryGetRoom(roomName);
             if (room == null)

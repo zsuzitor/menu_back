@@ -5,19 +5,18 @@ using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 using PlanitPoker.Models.Repositories.Interfaces;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PlanitPoker.Models.Repositories
 {
     public class RoomRepository : GeneralRepository<PlaningRoomDal, long>, IRoomRepository
     {
-        private readonly MenuDbContext _db;
+        //private readonly MenuDbContext _db;
 
 
         public RoomRepository(MenuDbContext db) : base(db)
         {
-            _db = db;
+            //_db = db;
         }
 
 
@@ -29,20 +28,34 @@ namespace PlanitPoker.Models.Repositories
         public async Task<PlaningRoomDal> DeleteByName(string name)
         {
             var res = await GetByName(name);
-            _db.PlaningRooms.Remove(res);
-            await _db.SaveChangesAsync();
+            if (res != null)
+            {
+                _db.PlaningRooms.Remove(res);
+                await _db.SaveChangesAsync();
+            }
+
             return res;
         }
 
 
         public async Task LoadStories(PlaningRoomDal room)
         {
+            if (room == null)
+            {
+                return;
+            }
+
             _db.PlaningRooms.Attach(room);
             await _db.Entry(room).Collection(x => x.Stories).LoadAsync();
         }
 
         public async Task LoadUsers(PlaningRoomDal room)
         {
+            if (room == null)
+            {
+                return;
+            }
+
             _db.PlaningRooms.Attach(room);
             await _db.Entry(room).Collection(x => x.Users).LoadAsync();
         }

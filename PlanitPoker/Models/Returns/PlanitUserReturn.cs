@@ -17,7 +17,7 @@ namespace PlanitPoker.Models.Returns
         public string Name { get; set; }
         [JsonPropertyName("vote")]
 
-        public int? Vote { get; set; }
+        public string Vote { get; set; }
         [JsonPropertyName("has_vote")]
 
         public bool HasVote { get; set; }

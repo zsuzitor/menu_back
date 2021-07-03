@@ -10,12 +10,12 @@ namespace PlanitPoker.Models.Repositories
 {
     public class PlaningUserRepository : GeneralRepository<PlaningRoomUserDal, long>, IPlaningUserRepository
     {
-        private readonly MenuDbContext _db;
+        //private readonly MenuDbContext _db;
 
 
         public PlaningUserRepository(MenuDbContext db):base(db)
         {
-            _db = db;
+            //_db = db;
         }
 
         //public async Task<PlaningRoomUserDal> GetByMainAppId(string roomName, long mainAppUserId)

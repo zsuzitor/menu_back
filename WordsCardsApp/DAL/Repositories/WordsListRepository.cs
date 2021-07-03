@@ -13,10 +13,10 @@ namespace WordsCardsApp.DAL.Repositories
 {
     public class WordsListRepository : GeneralRepository<WordsList, long>, IWordsListRepository
     {
-        private readonly MenuDbContext _db;
+        //private readonly MenuDbContext _db;
         public WordsListRepository(MenuDbContext db) : base(db)
         {
-            _db = db;
+            //_db = db;
         }
 
         public async Task<WordCardWordList> AddToList( WordCardWordList relation)

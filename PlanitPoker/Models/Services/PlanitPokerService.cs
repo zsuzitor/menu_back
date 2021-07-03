@@ -127,7 +127,9 @@ namespace PlanitPoker.Models.Services
                 }
 
                 return rm.StoredRoom.Users.Where(x => !string.IsNullOrWhiteSpace(x.UserConnectionId))
-                    .Select(x => new {userId = x.PlaningAppUserId, vote = x.Vote ?? 0, hasVote = x.Vote.HasValue}).ToList();
+                    .Select(x => new
+                        {userId = x.PlaningAppUserId, vote = x.Vote, hasVote = !string.IsNullOrWhiteSpace(x.Vote)})
+                    .ToList();
             });
 
             if (!sc)
@@ -141,13 +143,14 @@ namespace PlanitPoker.Models.Services
                 return null;
             }
 
-            var arrForMath = res.Where(x => x.hasVote).ToList();
+            var arrForMath = res.Where(x => x.hasVote && int.TryParse(x.vote, out _)).Select(x => int.Parse(x.vote))
+                .ToList();
             var result = new EndVoteInfo();
             if ( /*arrForMath!=null &&*/ arrForMath.Any())
             {
-                result.MinVote = arrForMath.Min(x => x.vote);
-                result.MaxVote = arrForMath.Max(x => x.vote);
-                result.Average = arrForMath.Average(x => x.vote);
+                result.MinVote = arrForMath.Min(x => x);
+                result.MaxVote = arrForMath.Max(x => x);
+                result.Average = arrForMath.Average(x => x);
             }
 
             result.UsersInfo = res.Select(x => new EndVoteUserInfo() {Id = x.userId, Vote = x.vote}).ToList();
@@ -357,7 +360,7 @@ namespace PlanitPoker.Models.Services
 
         public async Task<bool> ChangeStatusIfCan(Room room, string userConnectionIdRequest, RoomSatus newStatus)
         {
-            return await UpdateIfCan(room, userConnectionIdRequest,  rm =>
+            return await UpdateIfCan(room, userConnectionIdRequest, rm =>
             {
                 rm.Status = newStatus;
                 return Task.FromResult(true);
@@ -366,7 +369,7 @@ namespace PlanitPoker.Models.Services
 
         }
 
-        public async Task<(bool sc, string userId)> ChangeVote(Room room, string connectionUserId, int vote)
+        public async Task<(bool sc, string userId)> ChangeVote(Room room, string connectionUserId, string vote)
         {
             if (room == null || string.IsNullOrWhiteSpace(connectionUserId))
             {
@@ -512,7 +515,8 @@ namespace PlanitPoker.Models.Services
 
 
 
-        public async Task<(PlanitUser user, bool sc)> KickFromRoom(string roomName, string userConnectionIdRequest, string userId)
+        public async Task<(PlanitUser user, bool sc)> KickFromRoom(string roomName, string userConnectionIdRequest,
+            string userId)
         {
             var room = await TryGetRoom(roomName);
             return await KickFromRoom(room, userConnectionIdRequest, userId);
@@ -520,7 +524,8 @@ namespace PlanitPoker.Models.Services
 
         }
 
-        public async Task<(PlanitUser user, bool sc)> KickFromRoom(Room room, string userConnectionIdRequest, string userId)
+        public async Task<(PlanitUser user, bool sc)> KickFromRoom(Room room, string userConnectionIdRequest,
+            string userId)
         {
             if (string.IsNullOrWhiteSpace(userId))
             {
@@ -528,7 +533,7 @@ namespace PlanitPoker.Models.Services
             }
 
             PlanitUser user = null;
-            var rs =  await UpdateIfCan(room, userConnectionIdRequest, (rm) =>
+            var rs = await UpdateIfCan(room, userConnectionIdRequest, (rm) =>
             {
                 //rm.Users.RemoveAt((int)userForDelIndex);
                 user = rm.Users.FirstOrDefault(x => x.PlaningAppUserId == userId);
@@ -990,16 +995,25 @@ namespace PlanitPoker.Models.Services
                 var admins = rm.StoredRoom.Users.Where(x => x.IsAdmin).ToList();
                 //проверить залогинен ли пользак в мейн апе, и если залогенен то НЕ передавать админку!
                 var currentUser = admins.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
+                if (currentUser != null)
+                {
+                    //result = true;
+                    //return;
+                    if (admins.Count() < 2 && currentUser.MainAppUserId == null)
+                    {
+                        var newAdmin = rm.StoredRoom.Users.FirstOrDefault(x => !x.IsAdmin);
+                        newAdmin?.Role.Add(Consts.Roles.Admin);
+                    }
+                }
+                else
+                {
+                    currentUser = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
+                }
+
                 if (currentUser == null)
                 {
                     result = true;
                     return;
-                }
-
-                if (admins.Count() < 2 && currentUser.MainAppUserId == null)
-                {
-                    var newAdmin = rm.StoredRoom.Users.FirstOrDefault(x => !x.IsAdmin);
-                    newAdmin?.Role.Add(Consts.Roles.Admin);
                 }
 
                 //userId = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest)?.PlaningAppUserId;

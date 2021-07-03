@@ -9,9 +9,9 @@ namespace DAL.Models.DAL.Repositories
 {
     public abstract class GeneralRepository<T1, T2> : IGeneralRepository<T1, T2> where T1 : class,  IDomainRecord<T2>
     {
-        private readonly MenuDbContext _db;
+        protected readonly MenuDbContext _db;
 
-        public GeneralRepository(MenuDbContext db)
+        protected GeneralRepository(MenuDbContext db)
         {
             _db = db;
         }

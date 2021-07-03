@@ -13,12 +13,12 @@ namespace MenuApp.Models.DAL.Repositories
 {
     public class ArticleRepository : GeneralRepository<Article, long>, IArticleRepository
     {
-        private readonly MenuDbContext _db;
+        //private readonly MenuDbContext _db;
 
 
         public ArticleRepository(MenuDbContext db) : base(db)
         {
-            _db = db;
+            //_db = db;
         }
 
         public async Task<List<Article>> GetAllUsersArticles(long userId)
