@@ -21,6 +21,7 @@ COPY ["BL/*.csproj", "BL/"]
 COPY ["BO/*.csproj", "BO/"]
 COPY ["Common/*.csproj", "Common/"]
 COPY ["DAL/*.csproj", "DAL/"]
+COPY ["WEB.Common/*.csproj", "WEB.Common/"]
 
 COPY ["Menu/*.csproj", "Menu/"]
 COPY ["MenuApp/*.csproj", "MenuApp/"]
@@ -36,6 +37,8 @@ COPY ["BL/", "BL/"]
 COPY ["BO/", "BO/"]
 COPY ["Common/", "Common/"]
 COPY ["DAL/", "DAL/"]
+COPY ["WEB.Common/", "WEB.Common/"]
+
 
 COPY ["Menu/", "Menu/"]
 COPY ["MenuApp/", "MenuApp/"]
