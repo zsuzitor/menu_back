@@ -1,5 +1,7 @@
 ﻿using BO.Models.PlaningPoker.DAL;
 using Common.Models;
+using Common.Models.Error.Interfaces;
+using Common.Models.Error.services.Interfaces;
 using PlanitPoker.Models.Enums;
 using PlanitPoker.Models.Repositories.Interfaces;
 using PlanitPoker.Models.Returns;
@@ -20,10 +22,11 @@ namespace PlanitPoker.Models.Services
 
 
         //private readonly IPlanitPokerRepository _planitPokerRepository;
-        private readonly IPlaningUserRepository _planingUserRepository;
+        //private readonly IPlaningUserRepository _planingUserRepository;
         private readonly IRoomRepository _roomRepository;
         private readonly IStoryRepository _storyRepository;
-
+        private readonly IErrorService _errorService;
+        private readonly IErrorContainer _errorContainer;
 
         //MenuDbContext db;
 
@@ -31,19 +34,21 @@ namespace PlanitPoker.Models.Services
 
         public PlanitPokerService( //IPlanitPokerRepository planitRepo,
             MultiThreadHelper multiThreadHelper,
-            IPlaningUserRepository planingUserRepository,
+            //IPlaningUserRepository planingUserRepository,
             IRoomRepository roomRepository, IStoryRepository storyRepository
-
-            //MenuDbContext db
+            , IErrorService errorService, IErrorContainer errorContainer
+        //MenuDbContext db
         )
         {
             _multiThreadHelper = multiThreadHelper;
             //_planitPokerRepository = planitRepo;
 
-            _planingUserRepository = planingUserRepository;
+            //_planingUserRepository = planingUserRepository;
             _roomRepository = roomRepository;
             _storyRepository = storyRepository;
 
+            _errorService = errorService;
+            _errorContainer = errorContainer;
             //this.db = db;
         }
 
@@ -310,9 +315,17 @@ namespace PlanitPoker.Models.Services
 
         public async Task<(bool sc, string oldConnectionId)> AddUserIntoRoom(Room room, PlanitUser user)
         {
-            if (room == null || string.IsNullOrWhiteSpace(user?.UserConnectionId) ||
+            
+            if (room == null)
+            {
+                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
+                return (false, null);
+            }
+
+            if (string.IsNullOrWhiteSpace(user?.UserConnectionId) ||
                 string.IsNullOrWhiteSpace(user.Name))
             {
+                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.PlanitUserNotFound));
                 return (false, null);
             }
 
@@ -339,10 +352,7 @@ namespace PlanitPoker.Models.Services
                     us.Name = user.Name;
                     oldConnectionId = us.UserConnectionId;
                     us.UserConnectionId = user.UserConnectionId;
-                    if (!us.MainAppUserId.HasValue) //мб это лишнее
-                    {
-                        us.MainAppUserId = user.MainAppUserId;
-                    }
+                    us.MainAppUserId ??= user.MainAppUserId;
                 }
 
                 return Task.CompletedTask;
@@ -421,8 +431,17 @@ namespace PlanitPoker.Models.Services
 
         public async Task<Room> CreateRoomWithUser(string roomName, string password, PlanitUser user)
         {
-            if (string.IsNullOrWhiteSpace(roomName) || user == null)
+            if (string.IsNullOrWhiteSpace(roomName))
             {
+                
+                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNameIsEmpty));
+                return null;
+            }
+
+            if (user == null)
+            {
+
+                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.PlanitUserNotFound));
                 return null;
             }
 
@@ -437,6 +456,7 @@ namespace PlanitPoker.Models.Services
             var roomFromDb = await _roomRepository.GetByName(roomName);
             if (roomFromDb != null)
             {
+                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomAlreadyExist));
                 return null; //todo комната уже есть, надо бы как то сообщить об этом
             }
 
@@ -446,6 +466,7 @@ namespace PlanitPoker.Models.Services
                 return room;
             }
 
+            _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.SomeErrorWithRoomCreating));
             return null;
         }
 

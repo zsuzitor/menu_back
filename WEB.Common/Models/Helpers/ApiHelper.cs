@@ -98,14 +98,12 @@ namespace WEB.Common.Models.Helpers
         public UserInfo GetUserInfoFromRequest(HttpRequest request, IJWTService jwtService)
         {
             var accessToken = GetAccessTokenFromRequest(request);
-
-            var userId = "";
             //if (withExpired) {
             //    userId = jwtService.GetUserIdFromAccessTokenIfCan(accessToken);
             //        }
             //else
             //{
-                userId = jwtService.GetUserIdFromAccessToken(accessToken);
+            string userId = jwtService.GetUserIdFromAccessToken(accessToken);
 
             //}
             if (!long.TryParse(userId, out long userIdLong))
@@ -127,8 +125,7 @@ namespace WEB.Common.Models.Helpers
         {
             var accessToken = GetAccessTokenFromRequest(request);
             bool expired = false;
-            var userId = "";
-
+            string userId;
             try
             {
                 userId = jwtService.GetUserIdFromAccessToken(accessToken);
@@ -250,7 +247,7 @@ namespace WEB.Common.Models.Helpers
         {
             try
             {
-                (var expired, var userInfo) = GetUserInfoWithExpiredFromRequest(request, jwtService);
+                var (expired, userInfo) = GetUserInfoWithExpiredFromRequest(request, jwtService);
                 if (userInfo == null || userInfo.UserId < 1)
                 {
                     //_errorService.AddError(_errorContainer.TryGetError("not_authorized"));
@@ -275,6 +272,11 @@ namespace WEB.Common.Models.Helpers
             return (false, null);
         }
 
+
+        //public async Task DoStandartSomethingWithOutErrorResponse(Func<Task> action, HttpResponse response, ILogger logger)
+        //{
+
+        //}
 
         public async Task DoStandartSomething(Func<Task> action, HttpResponse response, ILogger logger)
         {
@@ -419,7 +421,7 @@ namespace WEB.Common.Models.Helpers
         {
             mr.Position = 0;
             response.ContentType = "application/force-download";
-            response.Headers.Add("content-disposition", string.Format("inline;FileName=\"{0}\"", fileName));
+            response.Headers.Add("content-disposition", $"inline;FileName=\"{fileName}\"");
             await response.Body.WriteAsync(mr.ToArray(), 0, (int)mr.Length);
         }
     }

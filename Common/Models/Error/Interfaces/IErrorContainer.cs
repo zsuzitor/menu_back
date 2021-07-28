@@ -11,5 +11,6 @@ namespace Common.Models.Error.Interfaces
         /// <param name="key"></param>
         /// <returns></returns>
         OneError TryGetError(string key);
+        void InitError(string key, string value);
     }
 }

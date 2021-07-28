@@ -13,7 +13,7 @@ using BO.Models.Auth;
 using MenuApp.Models.BO;
 using MenuApp.Models.BO.Input;
 
-namespace Menu.Models.Services
+namespace MenuApp.Models.BL.Services
 {
     public class ArticleService : IArticleService
     {

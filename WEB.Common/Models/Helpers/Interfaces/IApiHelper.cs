@@ -38,6 +38,7 @@ namespace WEB.Common.Models.Helpers.Interfaces
         (bool expired, UserInfo ui) GetUserInfoWithExpired(HttpRequest request, IJWTService jwtService, bool withError = false);
 
         Task DoStandartSomething(Func<Task> action, HttpResponse response, ILogger logger);
+        //Task DoStandartSomethingWithOutErrorResponse(Func<Task> action, HttpResponse response, ILogger logger);
 
         void SetUserTokens(HttpResponse response, AllTokens tokens);
         void SetUserTokens(HttpResponse response, string accessToken, string refreshToken);

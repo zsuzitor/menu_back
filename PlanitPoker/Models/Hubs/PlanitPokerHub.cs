@@ -4,12 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using BO.Models.Auth;
 using Common.Models;
+using Common.Models.Error.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Validators;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.SignalR;
 using PlanitPoker.Models.Enums;
-using PlanitPoker.Models.Repositories.Interfaces;
 using PlanitPoker.Models.Returns;
 using PlanitPoker.Models.Services;
 using WEB.Common.Models.Helpers.Interfaces;
@@ -31,6 +31,7 @@ namespace PlanitPoker.Models.Hubs
         private readonly IJWTHasher _hasher;
         private readonly IErrorService _errorService;
 
+        private readonly IErrorContainer _errorContainer;
 
 
         //private static IServiceProvider _serviceProvider;
@@ -69,7 +70,8 @@ namespace PlanitPoker.Models.Hubs
 
         public PlanitPokerHub(MultiThreadHelper multiThreadHelper,
             IStringValidator stringValidator, IPlanitPokerService planitPokerService,
-            IApiHelper apiHealper, IJWTService jwtService, IJWTHasher hasher, IErrorService errorService)
+            IApiHelper apiHealper, IJWTService jwtService, IJWTHasher hasher, IErrorService errorService
+            , IErrorContainer errorContainer)
         {
             _multiThreadHelper = multiThreadHelper;
             _stringValidator = stringValidator;
@@ -78,6 +80,7 @@ namespace PlanitPoker.Models.Hubs
             _jwtService = jwtService;
             _hasher = hasher;
             _errorService = errorService;
+            _errorContainer = errorContainer;
 
         }
 
@@ -97,7 +100,7 @@ namespace PlanitPoker.Models.Hubs
             return Context.ConnectionId;
         }
 
-
+        // ReSharper disable once UnusedMember.Global
         public async Task CreateRoom(string roomName, string password, string username)
         {
             roomName = NormalizeRoomName(roomName);
@@ -138,9 +141,10 @@ namespace PlanitPoker.Models.Hubs
             };
 
             var room = await _planitPokerService.CreateRoomWithUser(roomName, password, user);
-            if (room == null)
+            if (room == null || await NotifyFromErrorService())
             {
                 await Clients.Caller.SendAsync(RoomNotCreated);
+
                 return;
             }
 
@@ -148,19 +152,21 @@ namespace PlanitPoker.Models.Hubs
 
         }
 
-
+        // ReSharper disable once UnusedMember.Global
         public async Task AliveRoom(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
             var room = await _planitPokerService.TryGetRoom(roomName);
             if (room == null)
             {
+                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
+                await NotifyFromErrorService();
                 await Clients.Caller.SendAsync(ConnectedToRoomError);
                 return;
             }
 
             await _planitPokerService.AddTimeAliveRoom(room);
-            (var dt, bool suc) = GetValueFromRoomAsync(room, rm => rm.StoredRoom.DieDate);
+            var ( dt,  suc) = GetValueFromRoomAsync(room, rm => rm.StoredRoom.DieDate);
             if (suc)
             {
                 await Clients.Group(roomName).SendAsync(NewRoomAlive, suc);
@@ -171,6 +177,7 @@ namespace PlanitPoker.Models.Hubs
                 new Notify() {Text = "retry plz", Status = NotyfyStatus.Error});
         }
 
+        // ReSharper disable once UnusedMember.Global
         public async Task EnterInRoom(string roomName, string password, string username)
         {
             roomName = NormalizeRoomName(roomName);
@@ -193,6 +200,8 @@ namespace PlanitPoker.Models.Hubs
             var room = await _planitPokerService.TryGetRoom(roomName, password);
             if (room == null)
             {
+                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
+                await NotifyFromErrorService();
                 await Clients.Caller.SendAsync(ConnectedToRoomError);
                 return;
             }
@@ -227,6 +236,7 @@ namespace PlanitPoker.Models.Hubs
 
         }
 
+        // ReSharper disable once UnusedMember.Global
         public async Task StartVote(string roomName)
         {
             //TODO слишком много запросов, надо вынести в 1 и засунуть его в сервис лучше
@@ -234,6 +244,8 @@ namespace PlanitPoker.Models.Hubs
             var room = await _planitPokerService.TryGetRoom(roomName);
             if (room == null)
             {
+                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
+                await NotifyFromErrorService();
                 await Clients.Caller.SendAsync(ConnectedToRoomError);
                 return;
             }
@@ -260,12 +272,15 @@ namespace PlanitPoker.Models.Hubs
 
         }
 
+        // ReSharper disable once UnusedMember.Global
         public async Task EndVote(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
             var room = await _planitPokerService.TryGetRoom(roomName);
             if (room == null)
             {
+                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
+                await NotifyFromErrorService();
                 await Clients.Caller.SendAsync(ConnectedToRoomError);
                 return;
             }
@@ -303,6 +318,7 @@ namespace PlanitPoker.Models.Hubs
             await Clients.Group(roomName).SendAsync(VoteEnd, result);
         }
 
+        // ReSharper disable once UnusedMember.Global
         public async Task<bool> Vote(string roomName, string vote)
         {
 
@@ -312,6 +328,8 @@ namespace PlanitPoker.Models.Hubs
             var room = await _planitPokerService.TryGetRoom(roomName);
             if (room == null)
             {
+                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
+                await NotifyFromErrorService();
                 await Clients.Caller.SendAsync(ConnectedToRoomError);
                 return false;
             }
@@ -349,6 +367,7 @@ namespace PlanitPoker.Models.Hubs
 
         }
 
+        // ReSharper disable once UnusedMember.Global
         public async Task KickUser(string roomName, string userId)
         {
             roomName = NormalizeRoomName(roomName);
@@ -369,6 +388,7 @@ namespace PlanitPoker.Models.Hubs
         }
 
 
+        // ReSharper disable once UnusedMember.Global
         public async Task<bool> UserNameChange(string roomName, string newUserName)
         {
             roomName = NormalizeRoomName(roomName);
@@ -387,6 +407,7 @@ namespace PlanitPoker.Models.Hubs
 
         }
 
+        // ReSharper disable once UnusedMember.Global
         public async Task AddNewRoleToUser(string roomName, string userId, string newRole)
         {
 
@@ -401,6 +422,7 @@ namespace PlanitPoker.Models.Hubs
             }
         }
 
+        // ReSharper disable once UnusedMember.Global
         public async Task RemoveRoleUser(string roomname, string userId, string oldRole)
         {
             roomname = ValidateString(roomname);
@@ -414,7 +436,7 @@ namespace PlanitPoker.Models.Hubs
             }
         }
 
-
+        // ReSharper disable once UnusedMember.Global
         public async Task AddNewStory(string roomName, string storyName, string storyDescription)
         {
             roomName = NormalizeRoomName(roomName);
@@ -435,7 +457,7 @@ namespace PlanitPoker.Models.Hubs
             }
         }
 
-
+        // ReSharper disable once UnusedMember.Global
         public async Task ChangeCurrentStory(string roomName, string storyId, string storyName, string storyDescription)
         {
             roomName = NormalizeRoomName(roomName);
@@ -463,6 +485,7 @@ namespace PlanitPoker.Models.Hubs
             }
         }
 
+        // ReSharper disable once UnusedMember.Global
         public async Task MakeCurrentStory(string roomName, string storyId)
         {
             roomName = NormalizeRoomName(roomName);
@@ -475,6 +498,7 @@ namespace PlanitPoker.Models.Hubs
             }
         }
 
+        // ReSharper disable once UnusedMember.Global
         public async Task DeleteStory(string roomName, string storyId)
         {
             roomName = NormalizeRoomName(roomName);
@@ -487,11 +511,11 @@ namespace PlanitPoker.Models.Hubs
             }
         }
 
-
+        // ReSharper disable once UnusedMember.Global
         public async Task MakeStoryComplete(string roomName, string storyId)
         {
             roomName = NormalizeRoomName(roomName);
-            (var oldId, var story) = await _planitPokerService.MakeStoryComplete(roomName, storyId, GetConnectionId());
+            var (oldId, story) = await _planitPokerService.MakeStoryComplete(roomName, storyId, GetConnectionId());
             if (story != null)
             {
                 await Clients.Group(roomName).SendAsync(MovedStoryToComplete, oldId, new StoryReturn(story));
@@ -513,13 +537,14 @@ namespace PlanitPoker.Models.Hubs
 
 
 
-
+        // ReSharper disable once UnusedMember.Global
         public async Task<bool> SaveRoom(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
             return await _planitPokerService.SaveRoom(roomName, GetConnectionId());
         }
 
+        // ReSharper disable once UnusedMember.Global
         public async Task DeleteRoom(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
@@ -535,6 +560,7 @@ namespace PlanitPoker.Models.Hubs
             }
         }
 
+        // ReSharper disable once UnusedMember.Global
         public async Task<IEnumerable<StoryReturn>> LoadNotActualStories(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
@@ -549,13 +575,14 @@ namespace PlanitPoker.Models.Hubs
         //------------------------------------ signal----------------------------------------------
 
 
-
+        // ReSharper disable once UnusedMember.Global
         public override async Task OnConnectedAsync()
         {
             //await Clients.All.SendAsync("Notify", $"{Context.ConnectionId} вошел в чат");
             await base.OnConnectedAsync();
         }
 
+        // ReSharper disable once UnusedMember.Global
         public override async Task OnDisconnectedAsync(Exception exception)
         {
             //название комнаты смогу вытащить из кук???
@@ -588,6 +615,19 @@ namespace PlanitPoker.Models.Hubs
         //----------------------------------------------------------------------------------private------------------
 
 
+        private async Task<bool> NotifyFromErrorService()
+        {
+            if (!_errorService.HasError())
+            {
+                return false;
+            }
+
+            await Clients.Caller.SendAsync(NotifyFromServer,
+                new Notify() {Text = "_errorService", Status = NotyfyStatus.Error});
+
+            return true;
+        }
+
         /// <summary>
         /// рума уже создана и добавлена, пользователь еще нет
         /// </summary>
@@ -601,7 +641,7 @@ namespace PlanitPoker.Models.Hubs
                 return false;
             }
 
-            var username = user.Name;
+            //var username = user.Name;
             var userConnectionId = user.UserConnectionId;
             var userId = user.PlaningAppUserId;
             var mainAppUserId = user.MainAppUserId;
@@ -610,6 +650,7 @@ namespace PlanitPoker.Models.Hubs
             if (!sc)
             {
                 //TODO что то пошло не так
+                await NotifyFromErrorService();
                 await Clients.Caller.SendAsync(NotifyFromServer,
                     new Notify() {Text = "retry plz", Status = NotyfyStatus.Error});
 
@@ -650,12 +691,7 @@ namespace PlanitPoker.Models.Hubs
             await Clients.Group(roomnm.res).SendAsync(NewUserInRoom, returnUser);
             await Groups.AddToGroupAsync(userConnectionId, roomnm.res);
 
-            //(var usersInRoom, bool suc) = GetValueFromRoomAsync(room, room => room.StoredRoom.Users.Select(x => x.Clone()));
-            //if (!suc)
-            //{
-            //    //TODO отключить юзера и попросить переконнектиться
-            //    return false;
-            //}
+
             await Clients.Caller.SendAsync(EnteredInRoom, userId,
                 userId == mainAppUserId?.ToString()); //,usersInRoom//todo мб лучше отдельным запросом?
             return true;

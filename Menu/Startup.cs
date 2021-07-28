@@ -20,27 +20,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MenuApp.Models.DAL.Repositories.Interfaces;
-using MenuApp.Models.DAL.Repositories;
 using WEB.Common.Models.Returns.Interfaces;
 using WEB.Common.Models.Returns;
 using BL.Models.Services.Interfaces;
 using BL.Models.Services;
-using System;
 using BO.Models.Config;
-using WordsCardsApp.BL.Services;
-using WordsCardsApp.BL.Services.Interfaces;
-using WordsCardsApp.DAL.Repositories.Interfaces;
-using WordsCardsApp.DAL;
 using Microsoft.Extensions.WebEncoders;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
-using WordsCardsApp.DAL.Repositories;
 using PlanitPoker.Models.Hubs;
-using PlanitPoker.Models.Repositories;
-using PlanitPoker.Models.Repositories.Interfaces;
 using Common.Models;
-using PlanitPoker.Models.Services;
 using Common.Models.Validators;
 using jwtLib.JWTAuth.Models.Poco;
 using BO.Models.MenuApp.DAL.Domain;
@@ -54,6 +43,8 @@ using Menu.Models.Returns.Types;
 using Menu.Models.Returns.Types.MenuApp;
 using Menu.Models.Returns.Types.WordsCardsApp;
 using Menu.Models.Returns.Types.PlanitPoker;
+using MenuApp.Models;
+using WordsCardsApp;
 
 namespace Menu
 {
@@ -86,16 +77,19 @@ namespace Menu
             services.AddSignalR();
 
 
+            var menuAppInitializer = new MenuAppInitializer();
+            var wordsCardsAppInitializer = new WordsCardsAppInitializer();
+            var planitPokerInitializer = new PlanitPokerInitializer();
+
             //repositories
-            services.AddScoped<IArticleRepository, ArticleRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
-            services.AddScoped<IWordsCardsRepository, WordsCardsRepository>();
-            services.AddScoped<IWordsListRepository, WordsListRepository>();
+
+            menuAppInitializer.RepositoriesInitialize(services);
+            wordsCardsAppInitializer.RepositoriesInitialize(services);
+            planitPokerInitializer.RepositoriesInitialize(services);
             //services.AddScoped<IPlanitPokerRepository, PlanitPokerRepository>();
-            services.AddScoped<IPlaningUserRepository, PlaningUserRepository>();
-            services.AddScoped<IRoomRepository, RoomRepository>();
-            services.AddScoped<IStoryRepository, StoryRepository>();
+
 
 
 
@@ -106,7 +100,7 @@ namespace Menu
             InitReturnTypeContainer(returnContainer);
             services.AddSingleton<MultiThreadHelper, MultiThreadHelper>();
             services.AddSingleton<IStringValidator, StringValidator>();
-            
+
 
 
             //services
@@ -114,11 +108,10 @@ namespace Menu
             services.AddScoped<IErrorService, ErrorService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IArticleService, ArticleService>();
-            services.AddScoped<IWordsCardsService, WordsCardsService>();
-            services.AddScoped<IWordsListService, WordsListService>();
-            services.AddScoped<IPlanitPokerService, PlanitPokerService>();
-            
+
+            menuAppInitializer.ServicesInitialize(services);
+            wordsCardsAppInitializer.ServicesInitialize(services);
+            planitPokerInitializer.ServicesInitialize(services);
 
             //cache
             //services.AddStackExchangeRedisCache(options =>
@@ -137,12 +130,14 @@ namespace Menu
             {
                 services.AddSingleton<IImageDataStorage, ImageDataIOStorage>();
             }
-            
+
 
 
             //&
-            services.AddSingleton<IErrorContainer, ErrorContainer>();
-            
+            var errorContainer = new ErrorContainer();
+            planitPokerInitializer.ErrorContainerInitialize(errorContainer);
+            services.AddSingleton<IErrorContainer, ErrorContainer>(x => errorContainer);
+
             //auth
             services.InjectJwtAuth(Configuration);
             services.AddScoped<IAuthService, AuthService>();
@@ -198,7 +193,7 @@ namespace Menu
             });
 
 
-           
+
 
         }
 
@@ -207,7 +202,7 @@ namespace Menu
 
         private void InitReturnTypeContainer(IReturnContainer container)
         {
-            //todo лучше вообще уюрать такой функционал
+            //todo лучше вообще убрать такой функционал
 
             container.AddTypeToContainer(typeof(AllTokens), new TokensReturnFactory());
             container.AddTypeToContainer(typeof(ErrorObject), new ErrorObjectReturnFactory());
