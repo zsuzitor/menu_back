@@ -1,6 +1,7 @@
 ﻿using Common.Models;
 using Common.Models.Error;
 using Microsoft.Extensions.DependencyInjection;
+using PlanitPoker.Models.Helpers;
 using PlanitPoker.Models.Repositories;
 using PlanitPoker.Models.Repositories.Interfaces;
 using PlanitPoker.Models.Services;
@@ -32,6 +33,8 @@ namespace PlanitPoker.Models
         {
             services.AddScoped<IPlanitPokerService, PlanitPokerService>();
 
+            services.AddScoped<IPlanitApiHelper, PlanitApiHelper>();
+            
         }
     }
 }

@@ -25,5 +25,33 @@ namespace PlanitPoker.Models
             public const string RoomNotFound = "room_not_found";
             public const string SomeErrorWithRoomCreating = "some_error_with_room_creating";
         }
+
+        public class PlanitPokerHubEndpoints
+        {
+            public const string ConnectedToRoomError = "ConnectedToRoomError";
+            public const string NewRoomAlive = "NewRoomAlive";
+
+            public const string
+                NotifyFromServer = "PlaningNotifyFromServer"; //todo будет принимать объект result с ошибками как в апи
+
+            public const string EnteredInRoom = "EnteredInRoom";
+            public const string NewUserInRoom = "NewUserInRoom";
+            public const string UserLeaved = "UserLeaved";
+            public const string VoteStart = "VoteStart"; //голосование начато, оценки почищены
+
+            public const string VoteEnd = "VoteEnd";
+
+            //private const string VoteSuccess = "VoteSuccess";
+            public const string VoteChanged = "VoteChanged";
+            public const string RoomNotCreated = "RoomNotCreated";
+            public const string UserNameChanged = "UserNameChanged";
+            public const string UserRoleChanged = "UserRoleChanged";
+            public const string AddedNewStory = "AddedNewStory";
+            public const string CurrentStoryChanged = "CurrentStoryChanged";
+            public const string NewCurrentStory = "NewCurrentStory";
+            public const string DeletedStory = "DeletedStory";
+            public const string MovedStoryToComplete = "MovedStoryToComplete";
+            public const string NeedRefreshTokens = "NeedRefreshTokens";
+        }
     }
 }

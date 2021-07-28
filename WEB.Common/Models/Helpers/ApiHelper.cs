@@ -21,21 +21,21 @@ namespace WEB.Common.Models.Helpers
 {
     public class ApiHelper : IApiHelper
     {
-        private readonly string _jsonContentType = "application/json";
-        private readonly string _headerAccessToken = "Authorization_Access_Token";
-        private readonly string _headerRefreshToken = "Authorization_Refresh_Token";
+        protected readonly string _jsonContentType = "application/json";
+        protected readonly string _headerAccessToken = "Authorization_Access_Token";
+        protected readonly string _headerRefreshToken = "Authorization_Refresh_Token";
 
 
-        private readonly IErrorService _errorService;
-        private readonly IErrorContainer _errorContainer;
-        private readonly long _fileMaxSize;
+        protected readonly IErrorService _errorService;
+        protected readonly IErrorContainer _errorContainer;
+        protected readonly long _fileMaxSize;
 
         /// <summary>
         /// только для моделей по умолчанию, те 1 тип маппится тут только с 1 return типом
         /// </summary>
-        private readonly IReturnContainer _returnContainer;
+        protected readonly IReturnContainer _returnContainer;
 
-        private readonly IStringValidator _stringValidator;
+        protected readonly IStringValidator _stringValidator;
 
 
 
@@ -197,7 +197,7 @@ namespace WEB.Common.Models.Helpers
         /// <param name="request"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        private string GetFromRequest(HttpRequest request, string key)
+        protected string GetFromRequest(HttpRequest request, string key)
         {
             if (request.Cookies.TryGetValue(key, out var authorizationToken) && !string.IsNullOrWhiteSpace(authorizationToken))
             {
@@ -278,7 +278,7 @@ namespace WEB.Common.Models.Helpers
 
         //}
 
-        public async Task DoStandartSomething(Func<Task> action, HttpResponse response, ILogger logger)
+        public virtual async Task DoStandartSomething(Func<Task> action, HttpResponse response, ILogger logger)
         {
             try
             {
@@ -299,6 +299,7 @@ namespace WEB.Common.Models.Helpers
                 {
                     _errorService.AddError(error);
                 }
+
                 await WriteReturnResponseAsync(response, _errorService.GetErrorsObject(), 401);//TODO 401
                 return;
             }
@@ -315,7 +316,7 @@ namespace WEB.Common.Models.Helpers
         /// добавляет ошибку в errorService и все
         /// </summary>
         /// <param name="e"></param>
-        private void ErrorFromCustomException(SomeCustomException e)
+        protected void ErrorFromCustomException(SomeCustomException e)
         {
             if (string.IsNullOrWhiteSpace(e.Message))
             {

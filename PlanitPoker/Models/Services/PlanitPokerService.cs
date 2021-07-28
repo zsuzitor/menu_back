@@ -10,6 +10,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Common.Models.Exceptions;
 
 namespace PlanitPoker.Models.Services
 {
@@ -318,15 +319,17 @@ namespace PlanitPoker.Models.Services
             
             if (room == null)
             {
-                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
-                return (false, null);
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+                //_errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
+                //return (false, null);
             }
 
             if (string.IsNullOrWhiteSpace(user?.UserConnectionId) ||
                 string.IsNullOrWhiteSpace(user.Name))
             {
-                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.PlanitUserNotFound));
-                return (false, null);
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.PlanitUserNotFound);
+                //_errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.PlanitUserNotFound));
+                //return (false, null);
             }
 
             string oldConnectionId = null;
@@ -370,6 +373,21 @@ namespace PlanitPoker.Models.Services
 
         public async Task<bool> ChangeStatusIfCan(Room room, string userConnectionIdRequest, RoomSatus newStatus)
         {
+            if (room == null)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+                //_errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
+                //return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(userConnectionIdRequest))
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.PlanitUserNotFound);
+                //_errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.PlanitUserNotFound));
+                //return false;
+
+            }
+
             return await UpdateIfCan(room, userConnectionIdRequest, rm =>
             {
                 rm.Status = newStatus;
@@ -423,26 +441,31 @@ namespace PlanitPoker.Models.Services
 
         public async Task<bool> ClearVotes(Room room)
         {
+            if (room == null)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+                //_errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
+                //return false;
+            }
+
             return room.SetConcurentValue<Room>(_multiThreadHelper,
                 rm => { rm.StoredRoom.Users.ForEach(x => { x.Vote = null; }); });
-
-
         }
 
         public async Task<Room> CreateRoomWithUser(string roomName, string password, PlanitUser user)
         {
             if (string.IsNullOrWhiteSpace(roomName))
             {
-                
-                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNameIsEmpty));
-                return null;
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNameIsEmpty);
+                //_errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNameIsEmpty));
+                //return null;
             }
 
             if (user == null)
             {
-
-                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.PlanitUserNotFound));
-                return null;
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.PlanitUserNotFound);
+                //_errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.PlanitUserNotFound));
+                //return null;
             }
 
             if (string.IsNullOrWhiteSpace(password))
@@ -456,8 +479,9 @@ namespace PlanitPoker.Models.Services
             var roomFromDb = await _roomRepository.GetByName(roomName);
             if (roomFromDb != null)
             {
-                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomAlreadyExist));
-                return null; //todo комната уже есть, надо бы как то сообщить об этом
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomAlreadyExist);
+                //_errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomAlreadyExist));
+                //return null; //todo комната уже есть, надо бы как то сообщить об этом
             }
 
             var added = Rooms.TryAdd(roomName, room);
@@ -466,8 +490,9 @@ namespace PlanitPoker.Models.Services
                 return room;
             }
 
-            _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.SomeErrorWithRoomCreating));
-            return null;
+            throw new SomeCustomException(Consts.PlanitPokerErrorConsts.SomeErrorWithRoomCreating);
+            //_errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.SomeErrorWithRoomCreating));
+            //return null;
         }
 
         public async Task<List<string>> GetAdminsId(Room room)
