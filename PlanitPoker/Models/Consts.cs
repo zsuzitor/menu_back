@@ -24,6 +24,7 @@ namespace PlanitPoker.Models
             public const string RoomAlreadyExist = "room_already_exist";
             public const string RoomNotFound = "room_not_found";
             public const string SomeErrorWithRoomCreating = "some_error_with_room_creating";
+            public const string DontHaveAccess = "dont_have_access";
         }
 
         public class PlanitPokerHubEndpoints

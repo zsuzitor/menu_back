@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Common.Models.Exceptions;
+using Common.Models.Error;
 
 namespace PlanitPoker.Models.Services
 {
@@ -1026,6 +1027,7 @@ namespace PlanitPoker.Models.Services
             if (room == null || string.IsNullOrWhiteSpace(userConnectionIdRequest) || workWithRoom == null)
             {
                 return false;
+
             }
 
             bool result = false;
@@ -1033,11 +1035,22 @@ namespace PlanitPoker.Models.Services
             {
                 if (!rm.StoredRoom.Users.Any(x => x.UserConnectionId == userConnectionIdRequest && x.IsAdmin))
                 {
+                    _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.DontHaveAccess));
                     return;
                 }
 
                 result = await workWithRoom(rm.StoredRoom);
             });
+
+            if (!result)
+            {
+                if (_errorService.HasError())
+                {
+                    throw new StopException();
+                }
+
+                throw new SomeCustomException(ErrorConsts.SomeError);
+            }
 
             return result;
         }
@@ -1046,6 +1059,11 @@ namespace PlanitPoker.Models.Services
             Func<StoredRoom, Task<bool>> workWithRoom)
         {
             var room = await TryGetRoom(roomName);
+            if (room == null)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+            }
+
             return await UpdateIfCan(room, userConnectionIdRequest, workWithRoom);
 
         }
@@ -1056,8 +1074,12 @@ namespace PlanitPoker.Models.Services
         {
             //возможно объеденить с UpdateIfCan
             var room = await TryGetRoom(roomName);
+            if (room == null)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+            }
 
-            if (room == null || string.IsNullOrWhiteSpace(userId))
+            if (string.IsNullOrWhiteSpace(userId))
             {
                 return false;
             }
@@ -1068,6 +1090,7 @@ namespace PlanitPoker.Models.Services
                 var user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
                 if (user == null || !user.IsAdmin)
                 {
+                    _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.DontHaveAccess));
                     return;
                 }
 
@@ -1076,6 +1099,7 @@ namespace PlanitPoker.Models.Services
                     user = rm.StoredRoom.Users.FirstOrDefault(x => x.PlaningAppUserId == userId);
                     if (user == null)
                     {
+                        _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.PlanitUserNotFound));
                         return;
                     }
                 }
@@ -1083,6 +1107,16 @@ namespace PlanitPoker.Models.Services
                 result = userChange(user);
 
             });
+
+            if (!result)
+            {
+                if (_errorService.HasError())
+                {
+                    throw new StopException();
+                }
+
+                throw new SomeCustomException(ErrorConsts.SomeError);
+            }
 
             return result;
         }
