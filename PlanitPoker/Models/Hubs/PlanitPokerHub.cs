@@ -14,6 +14,7 @@ using PlanitPoker.Models.Helpers;
 using PlanitPoker.Models.Returns;
 using PlanitPoker.Models.Services;
 using WEB.Common.Models.Helpers.Interfaces;
+using Microsoft.Extensions.Logging;
 
 namespace PlanitPoker.Models.Hubs
 {
@@ -33,7 +34,7 @@ namespace PlanitPoker.Models.Hubs
         private readonly IErrorService _errorService;
 
         private readonly IErrorContainer _errorContainer;
-
+        private readonly ILogger _logger;
 
         //private static IServiceProvider _serviceProvider;
 
@@ -60,6 +61,7 @@ namespace PlanitPoker.Models.Hubs
             _errorService = errorService;
             _errorContainer = errorContainer;
 
+            _logger = null;//todo
 
             _apiHealper = apiHealper;
             _apiHealper.InitByHub(this);
@@ -84,52 +86,58 @@ namespace PlanitPoker.Models.Hubs
         // ReSharper disable once UnusedMember.Global
         public async Task CreateRoom(string roomName, string password, string username)
         {
-            roomName = NormalizeRoomName(roomName);
-            username = ValidateString(username);
-            if (string.IsNullOrWhiteSpace(password))
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
             {
-                password = null;
-            }
-            else
-            {
-                password = _hasher.GetHash(password);
-            }
+                roomName = NormalizeRoomName(roomName);
+                username = ValidateString(username);
+                if (string.IsNullOrWhiteSpace(password))
+                {
+                    password = null;
+                }
+                else
+                {
+                    password = _hasher.GetHash(password);
+                }
 
-            UserInfo userInfo = null;
-            var expired = false;
-            try
-            {
-                (expired, userInfo) =
-                    _apiHealper.GetUserInfoWithExpired(Context.GetHttpContext().Request, _jwtService, false);
-            }
-            catch
-            {
-            }
+                UserInfo userInfo = null;
+                var expired = false;
+                try
+                {
+                    (expired, userInfo) =
+                        _apiHealper.GetUserInfoWithExpired(httpContext.Request, _jwtService, false);
+                }
+                catch
+                {
+                }
 
-            if (expired && userInfo != null)
-            {
-                //не прерываем процесс создания румы, но сообщаем о том что нужен рефреш
-                await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NeedRefreshTokens);
-            }
+                if (expired && userInfo != null)
+                {
+                    //не прерываем процесс создания румы, но сообщаем о том что нужен рефреш
+                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NeedRefreshTokens);
+                }
 
-            var user = new PlanitUser()
-            {
-                MainAppUserId = userInfo?.UserId,
-                PlaningAppUserId = GenerateUniqueUserId(),
-                UserConnectionId = GetConnectionId(),
-                Name = username,
-                Role = GetCreatorRoles(),
-            };
+                var user = new PlanitUser()
+                {
+                    MainAppUserId = userInfo?.UserId,
+                    PlaningAppUserId = GenerateUniqueUserId(),
+                    UserConnectionId = GetConnectionId(),
+                    Name = username,
+                    Role = GetCreatorRoles(),
+                };
 
-            var room = await _planitPokerService.CreateRoomWithUser(roomName, password, user);
-            if (room == null || await NotifyFromErrorService())
-            {
-                await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.RoomNotCreated);
+                var room = await _planitPokerService.CreateRoomWithUser(roomName, password, user);
+                if (room == null)
+                {
+                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.RoomNotCreated);
 
+                    return;
+                }
+
+                _ = await EnterInRoom(room, user);
                 return;
-            }
+            }, httpContext.Response, _logger);
 
-            _ = await EnterInRoom(room, user);
 
         }
 
@@ -137,25 +145,30 @@ namespace PlanitPoker.Models.Hubs
         public async Task AliveRoom(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
-            var room = await _planitPokerService.TryGetRoom(roomName);
-            if (room == null)
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
             {
-                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
-                await NotifyFromErrorService();
-                await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
-                return;
-            }
+                var room = await _planitPokerService.TryGetRoom(roomName);
+                if (room == null)
+                {
+                    _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
+                    await _apiHealper.NotifyFromErrorService();
+                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
+                    return;
+                }
 
-            await _planitPokerService.AddTimeAliveRoom(room);
-            var (dt, suc) = GetValueFromRoomAsync(room, rm => rm.StoredRoom.DieDate);
-            if (suc)
-            {
-                await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.NewRoomAlive, suc);
-                return;
-            }
+                await _planitPokerService.AddTimeAliveRoom(room);
+                var (dt, suc) = GetValueFromRoomAsync(room, rm => rm.StoredRoom.DieDate);
+                if (suc)
+                {
+                    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.NewRoomAlive, suc);
+                    return;
+                }
 
-            await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NotifyFromServer,
-                new Notify() {Text = "retry plz", Status = NotyfyStatus.Error});
+                await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NotifyFromServer,
+                    new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
+            }, httpContext.Response, _logger);
+
         }
 
         // ReSharper disable once UnusedMember.Global
@@ -163,59 +176,64 @@ namespace PlanitPoker.Models.Hubs
         {
             roomName = NormalizeRoomName(roomName);
             username = ValidateString(username);
-            if (string.IsNullOrWhiteSpace(password))
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
             {
-                password = null;
-            }
-            else
-            {
-                password = _hasher.GetHash(password);
-            }
+                if (string.IsNullOrWhiteSpace(password))
+                {
+                    password = null;
+                }
+                else
+                {
+                    password = _hasher.GetHash(password);
+                }
 
 
-            if (string.IsNullOrEmpty(roomName))
-            {
-                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNameIsEmpty));
-                await NotifyFromErrorService();
-                await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
-            }
+                if (string.IsNullOrEmpty(roomName))
+                {
+                    _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNameIsEmpty));
+                    await _apiHealper.NotifyFromErrorService();
+                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
+                }
 
-            var room = await _planitPokerService.TryGetRoom(roomName, password);
-            if (room == null)
-            {
-                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
-                await NotifyFromErrorService();
-                await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
-                return;
-            }
+                var room = await _planitPokerService.TryGetRoom(roomName, password);
+                if (room == null)
+                {
+                    _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
+                    await _apiHealper.NotifyFromErrorService();
+                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
+                    return;
+                }
 
-            UserInfo userInfo = null;
-            var expired = false;
-            try
-            {
-                (expired, userInfo) =
-                    _apiHealper.GetUserInfoWithExpired(Context.GetHttpContext().Request, _jwtService, false);
-            }
-            catch
-            {
-            }
+                UserInfo userInfo = null;
+                var expired = false;
+                try
+                {
+                    (expired, userInfo) =
+                        _apiHealper.GetUserInfoWithExpired(Context.GetHttpContext().Request, _jwtService, false);
+                }
+                catch
+                {
+                }
 
-            if (expired && userInfo != null)
-            {
-                //не прерываем процесс подключения, но сообщаем о том что нужен рефреш
-                await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NeedRefreshTokens);
-            }
+                if (expired && userInfo != null)
+                {
+                    //не прерываем процесс подключения, но сообщаем о том что нужен рефреш
+                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NeedRefreshTokens);
+                }
 
-            var user = new PlanitUser()
-            {
-                MainAppUserId = userInfo?.UserId,
-                PlaningAppUserId = GenerateUniqueUserId(),
-                UserConnectionId = GetConnectionId(),
-                Name = username,
-                Role = GetDefaultRoles(),
-            };
+                var user = new PlanitUser()
+                {
+                    MainAppUserId = userInfo?.UserId,
+                    PlaningAppUserId = GenerateUniqueUserId(),
+                    UserConnectionId = GetConnectionId(),
+                    Name = username,
+                    Role = GetDefaultRoles(),
+                };
 
-            _ = await EnterInRoom(room, user);
+                _ = await EnterInRoom(room, user);
+            }, httpContext.Response, _logger);
+
 
         }
 
@@ -224,33 +242,38 @@ namespace PlanitPoker.Models.Hubs
         {
             //TODO слишком много запросов, надо вынести в 1 и засунуть его в сервис лучше
             roomName = NormalizeRoomName(roomName);
-            var room = await _planitPokerService.TryGetRoom(roomName);
-            if (room == null)
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
             {
-                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
-                await NotifyFromErrorService();
-                await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
-                return;
-            }
+                var room = await _planitPokerService.TryGetRoom(roomName);
+                if (room == null)
+                {
+                    _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
+                    await _apiHealper.NotifyFromErrorService();
+                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
+                    return;
+                }
 
-            var success =
-                await _planitPokerService.ChangeStatusIfCan(room, GetConnectionId(), Enums.RoomSatus.AllCanVote);
-            if (!success)
-            {
-                return;
-            }
+                var success =
+                    await _planitPokerService.ChangeStatusIfCan(room, GetConnectionId(), Enums.RoomSatus.AllCanVote);
+                if (!success)
+                {
+                    return;
+                }
 
-            success = await _planitPokerService.ClearVotes(room);
-            if (!success)
-            {
-                return;
-            }
-            //await _multiThreadHelper.SetValue(room,async rm=> {
-            //    await _planitPokerService.ChangeStatus(rm, Enums.RoomSatus.AllCanVote);
+                success = await _planitPokerService.ClearVotes(room);
+                if (!success)
+                {
+                    return;
+                }
+                //await _multiThreadHelper.SetValue(room,async rm=> {
+                //    await _planitPokerService.ChangeStatus(rm, Enums.RoomSatus.AllCanVote);
 
-            //}, room.RWL);
+                //}, room.RWL);
 
-            await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.VoteStart);
+                await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.VoteStart);
+
+            }, httpContext.Response, _logger);
 
 
         }
@@ -259,46 +282,51 @@ namespace PlanitPoker.Models.Hubs
         public async Task EndVote(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
-            var room = await _planitPokerService.TryGetRoom(roomName);
-            if (room == null)
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
             {
-                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
-                await NotifyFromErrorService();
-                await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
-                return;
-            }
+                var room = await _planitPokerService.TryGetRoom(roomName);
+                if (room == null)
+                {
+                    _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
+                    await _apiHealper.NotifyFromErrorService();
+                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
+                    return;
+                }
 
-            var success = await _planitPokerService.ChangeStatusIfCan(room, GetConnectionId(), RoomSatus.CloseVote);
-            if (!success)
-            {
-                return;
-            }
+                var success = await _planitPokerService.ChangeStatusIfCan(room, GetConnectionId(), RoomSatus.CloseVote);
+                if (!success)
+                {
+                    return;
+                }
 
-            var result = await _planitPokerService.GetEndVoteInfo(room);
-            if (result == null)
-            {
-                //todo
-                return;
-            }
-            //(var res, bool sc) = GetValueFromRoomAsync(room, rm =>
-            //      {
-            //          return rm.StoredRoom.Users.Select(x => new { userId = x.PlaningAppUserId, vote = x.Vote ?? 0 });
-            //      });
+                var result = await _planitPokerService.GetEndVoteInfo(room);
+                if (result == null)
+                {
+                    //todo
+                    return;
+                }
+                //(var res, bool sc) = GetValueFromRoomAsync(room, rm =>
+                //      {
+                //          return rm.StoredRoom.Users.Select(x => new { userId = x.PlaningAppUserId, vote = x.Vote ?? 0 });
+                //      });
 
-            //if (!sc)
-            //{
-            //    //TODO
-            //    return;
-            //}
+                //if (!sc)
+                //{
+                //    //TODO
+                //    return;
+                //}
 
 
-            //var result = new EndVoteInfo();
-            //result.MinVote = res.Min(x => x.vote);
-            //result.MaxVote = res.Max(x => x.vote);
-            //result.Average = res.Average(x => x.vote);
-            //result.UsersInfo = res.Select(x => new EndVoteUserInfo() { Id = x.userId, Vote = x.vote }).ToList();
+                //var result = new EndVoteInfo();
+                //result.MinVote = res.Min(x => x.vote);
+                //result.MaxVote = res.Max(x => x.vote);
+                //result.Average = res.Average(x => x.vote);
+                //result.UsersInfo = res.Select(x => new EndVoteUserInfo() { Id = x.userId, Vote = x.vote }).ToList();
 
-            await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.VoteEnd, result);
+                await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.VoteEnd, result);
+            }, httpContext.Response, _logger);
+
         }
 
         // ReSharper disable once UnusedMember.Global
@@ -307,47 +335,51 @@ namespace PlanitPoker.Models.Hubs
 
             roomName = NormalizeRoomName(roomName);
             vote = ValidateString(vote);
-
-            var room = await _planitPokerService.TryGetRoom(roomName);
-            if (room == null)
+            var httpContext = Context.GetHttpContext();
+            return await _apiHealper.DoStandartSomething(async () =>
             {
-                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
-                await NotifyFromErrorService();
-                await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
-                return false;
-            }
+                var room = await _planitPokerService.TryGetRoom(roomName);
+                if (room == null)
+                {
+                    _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
+                    await _apiHealper.NotifyFromErrorService();
+                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
+                    return false;
+                }
 
-            (var res, bool sc) = GetValueFromRoomAsync(room, rm => rm.StoredRoom.Status);
+                (var res, bool sc) = GetValueFromRoomAsync(room, rm => rm.StoredRoom.Status);
 
-            if (!sc)
-            {
-                //TODO
-                return false;
-            }
+                if (!sc)
+                {
+                    //TODO
+                    return false;
+                }
 
-            if (res != RoomSatus.AllCanVote)
-            {
-                //todo можно написать что голосовать нельзя
-                return false;
-            }
+                if (res != RoomSatus.AllCanVote)
+                {
+                    //todo можно написать что голосовать нельзя
+                    return false;
+                }
 
 
-            (bool sc1, string userId) = await _planitPokerService.ChangeVote(room, GetConnectionId(), vote);
-            if (!sc1)
-            {
-                return false;
-            }
+                (bool sc1, string userId) = await _planitPokerService.ChangeVote(room, GetConnectionId(), vote);
+                if (!sc1)
+                {
+                    return false;
+                }
 
-            var adminsId = await _planitPokerService.GetAdminsId(room);
-            if (adminsId != null && adminsId.Count > 0)
-            {
-                await Clients.Clients(adminsId).SendAsync(Consts.PlanitPokerHubEndpoints.VoteChanged, userId, vote);
-            }
+                var adminsId = await _planitPokerService.GetAdminsId(room);
+                if (adminsId != null && adminsId.Count > 0)
+                {
+                    await Clients.Clients(adminsId).SendAsync(Consts.PlanitPokerHubEndpoints.VoteChanged, userId, vote);
+                }
 
-            await Clients.GroupExcept(roomName, adminsId)
-                .SendAsync(Consts.PlanitPokerHubEndpoints.VoteChanged, userId, "?");
-            //await Clients.Caller.SendAsync(VoteSuccess, vote);
-            return true;
+                await Clients.GroupExcept(roomName, adminsId)
+                    .SendAsync(Consts.PlanitPokerHubEndpoints.VoteChanged, userId, "?");
+                //await Clients.Caller.SendAsync(VoteSuccess, vote);
+                return true;
+            }, false, httpContext.Response, _logger);
+
 
         }
 
@@ -356,18 +388,24 @@ namespace PlanitPoker.Models.Hubs
         {
             roomName = NormalizeRoomName(roomName);
             userId = ValidateString(userId);
-            var kicked = await _planitPokerService.KickFromRoom(roomName, GetConnectionId(), userId);
-
-            if (kicked.sc)
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
             {
-                await Groups.RemoveFromGroupAsync(kicked.user.UserConnectionId, roomName);
-                await Clients.Group(roomName)
-                    .SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved, new List<string>() {userId});
-                return;
-            }
+                var kicked = await _planitPokerService.KickFromRoom(roomName, GetConnectionId(), userId);
 
-            await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NotifyFromServer,
-                new Notify() {Text = "retry plz", Status = NotyfyStatus.Error});
+                if (kicked.sc)
+                {
+                    await Groups.RemoveFromGroupAsync(kicked.user.UserConnectionId, roomName);
+                    await Clients.Group(roomName)
+                        .SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved, new List<string>() { userId });
+                    return;
+                }
+
+                await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NotifyFromServer,
+                    new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
+            }, httpContext.Response, _logger);
+
+
 
 
         }
@@ -378,18 +416,24 @@ namespace PlanitPoker.Models.Hubs
         {
             roomName = NormalizeRoomName(roomName);
             newUserName = ValidateString(newUserName);
-            string userConnectionId = GetConnectionId();
-            (bool sc, string userId) =
-                await _planitPokerService.ChangeUserName(roomName, userConnectionId, newUserName);
-
-            if (sc)
+            var httpContext = Context.GetHttpContext();
+            return await _apiHealper.DoStandartSomething(async () =>
             {
-                await Clients.Group(roomName)
-                    .SendAsync(Consts.PlanitPokerHubEndpoints.UserNameChanged, userId, newUserName);
-                return true;
-            }
+                string userConnectionId = GetConnectionId();
+                (bool sc, string userId) =
+                    await _planitPokerService.ChangeUserName(roomName, userConnectionId, newUserName);
 
-            return false;
+                if (sc)
+                {
+                    await Clients.Group(roomName)
+                        .SendAsync(Consts.PlanitPokerHubEndpoints.UserNameChanged, userId, newUserName);
+                    return true;
+                }
+
+                return false;
+            }, false, httpContext.Response, _logger);
+
+
 
         }
 
@@ -400,13 +444,17 @@ namespace PlanitPoker.Models.Hubs
             roomName = NormalizeRoomName(roomName);
             userId = ValidateString(userId);
             newRole = ValidateString(newRole);
-
-            var sc = await _planitPokerService.AddNewRoleToUser(roomName, userId, newRole, GetConnectionId());
-            if (sc)
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
             {
-                await Clients.Group(roomName)
-                    .SendAsync(Consts.PlanitPokerHubEndpoints.UserRoleChanged, userId, 1, newRole);
-            }
+                var sc = await _planitPokerService.AddNewRoleToUser(roomName, userId, newRole, GetConnectionId());
+                if (sc)
+                {
+                    await Clients.Group(roomName)
+                        .SendAsync(Consts.PlanitPokerHubEndpoints.UserRoleChanged, userId, 1, newRole);
+                }
+            }, httpContext.Response, _logger);
+
         }
 
         // ReSharper disable once UnusedMember.Global
@@ -415,13 +463,17 @@ namespace PlanitPoker.Models.Hubs
             roomname = ValidateString(roomname);
             userId = ValidateString(userId);
             oldRole = ValidateString(oldRole);
-
-            var sc = await _planitPokerService.RemoveRoleUser(roomname, userId, oldRole, GetConnectionId());
-            if (sc)
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
             {
-                await Clients.Group(roomname)
-                    .SendAsync(Consts.PlanitPokerHubEndpoints.UserRoleChanged, userId, 2, oldRole);
-            }
+                var sc = await _planitPokerService.RemoveRoleUser(roomname, userId, oldRole, GetConnectionId());
+                if (sc)
+                {
+                    await Clients.Group(roomname)
+                        .SendAsync(Consts.PlanitPokerHubEndpoints.UserRoleChanged, userId, 2, oldRole);
+                }
+            }, httpContext.Response, _logger);
+
         }
 
         // ReSharper disable once UnusedMember.Global
@@ -430,20 +482,25 @@ namespace PlanitPoker.Models.Hubs
             roomName = NormalizeRoomName(roomName);
             storyName = ValidateString(storyName);
             storyDescription = ValidateString(storyDescription);
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
+            {
+                var newStory = new Story()
+                {
+                    Name = storyName,
+                    Description = storyDescription,
+                };
+
+                var sc = await _planitPokerService.AddNewStory(roomName, GetConnectionId(), newStory);
+
+                if (sc)
+                {
+                    await Clients.Group(roomName)
+                        .SendAsync(Consts.PlanitPokerHubEndpoints.AddedNewStory, new StoryReturn(newStory));
+                }
+            }, httpContext.Response, _logger);
             //invoke AddedNewStory
-            var newStory = new Story()
-            {
-                Name = storyName,
-                Description = storyDescription,
-            };
 
-            var sc = await _planitPokerService.AddNewStory(roomName, GetConnectionId(), newStory);
-
-            if (sc)
-            {
-                await Clients.Group(roomName)
-                    .SendAsync(Consts.PlanitPokerHubEndpoints.AddedNewStory, new StoryReturn(newStory));
-            }
         }
 
         // ReSharper disable once UnusedMember.Global
@@ -452,65 +509,85 @@ namespace PlanitPoker.Models.Hubs
             roomName = NormalizeRoomName(roomName);
             storyName = ValidateString(storyName);
             storyDescription = ValidateString(storyDescription);
-            var storyIdIsGuid = Guid.TryParse(storyId, out var storyIdG);
-            if (!storyIdIsGuid)
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
             {
-                return; //todo
-            }
+                var storyIdIsGuid = Guid.TryParse(storyId, out var storyIdG);
+                if (!storyIdIsGuid)
+                {
+                    return; //todo
+                }
 
-            var newStory = new Story()
-            {
-                TmpId = storyIdG,
-                Name = storyName,
-                Description = storyDescription,
-            };
+                var newStory = new Story()
+                {
+                    TmpId = storyIdG,
+                    Name = storyName,
+                    Description = storyDescription,
+                };
 
-            var sc = await _planitPokerService.ChangeStory(roomName, GetConnectionId(), newStory);
+                var sc = await _planitPokerService.ChangeStory(roomName, GetConnectionId(), newStory);
 
-            if (sc)
-            {
-                await Clients.Group(roomName)
-                    .SendAsync(Consts.PlanitPokerHubEndpoints.CurrentStoryChanged, storyId, storyName,
-                        storyDescription); //new StoryReturn(newStory)
-            }
+                if (sc)
+                {
+                    await Clients.Group(roomName)
+                        .SendAsync(Consts.PlanitPokerHubEndpoints.CurrentStoryChanged, storyId, storyName,
+                            storyDescription); //new StoryReturn(newStory)
+                }
+            }, httpContext.Response, _logger);
+
         }
 
         // ReSharper disable once UnusedMember.Global
         public async Task MakeCurrentStory(string roomName, string storyId)
         {
             roomName = NormalizeRoomName(roomName);
-            //todo NewCurrentStory
-            var sc = await _planitPokerService.ChangeCurrentStory(roomName, GetConnectionId(), storyId);
-
-            if (sc)
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
             {
-                await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.NewCurrentStory, storyId);
-            }
+                var sc = await _planitPokerService.ChangeCurrentStory(roomName, GetConnectionId(), storyId);
+
+                if (sc)
+                {
+                    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.NewCurrentStory, storyId);
+                }
+            }, httpContext.Response, _logger);
+            //todo NewCurrentStory
+
         }
 
         // ReSharper disable once UnusedMember.Global
         public async Task DeleteStory(string roomName, string storyId)
         {
             roomName = NormalizeRoomName(roomName);
-            //todo DeletedStory
-            var sc = await _planitPokerService.DeleteStory(roomName, GetConnectionId(), storyId);
-
-            if (sc)
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
             {
-                await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.DeletedStory, storyId);
-            }
+                var sc = await _planitPokerService.DeleteStory(roomName, GetConnectionId(), storyId);
+
+                if (sc)
+                {
+                    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.DeletedStory, storyId);
+                }
+            }, httpContext.Response, _logger);
+            //todo DeletedStory
+
         }
 
         // ReSharper disable once UnusedMember.Global
         public async Task MakeStoryComplete(string roomName, string storyId)
         {
             roomName = NormalizeRoomName(roomName);
-            var (oldId, story) = await _planitPokerService.MakeStoryComplete(roomName, storyId, GetConnectionId());
-            if (story != null)
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
             {
-                await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.MovedStoryToComplete, oldId,
-                    new StoryReturn(story));
-            }
+                var (oldId, story) = await _planitPokerService.MakeStoryComplete(roomName, storyId, GetConnectionId());
+                if (story != null)
+                {
+                    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.MovedStoryToComplete, oldId,
+                        new StoryReturn(story));
+                }
+            }, httpContext.Response, _logger);
+
 
             //
         }
@@ -532,32 +609,47 @@ namespace PlanitPoker.Models.Hubs
         public async Task<bool> SaveRoom(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
-            return await _planitPokerService.SaveRoom(roomName, GetConnectionId());
+            var httpContext = Context.GetHttpContext();
+            return await _apiHealper.DoStandartSomething(async () =>
+             {
+                 return await _planitPokerService.SaveRoom(roomName, GetConnectionId());
+
+             }, false, httpContext.Response, _logger);
         }
 
         // ReSharper disable once UnusedMember.Global
         public async Task DeleteRoom(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
-            var room = await _planitPokerService.DeleteRoom(roomName, GetConnectionId());
-            var usersId = room?.StoredRoom?.Users.Select(x => new {x.PlaningAppUserId, x.UserConnectionId}).ToList();
-            if (usersId != null && usersId.Count > 0)
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
             {
-                await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved,
-                    usersId.Select(x => x.PlaningAppUserId));
-                foreach (var userConId in usersId)
+                var room = await _planitPokerService.DeleteRoom(roomName, GetConnectionId());
+                var usersId = room?.StoredRoom?.Users.Select(x => new { x.PlaningAppUserId, x.UserConnectionId }).ToList();
+                if (usersId != null && usersId.Count > 0)
                 {
-                    await Groups.RemoveFromGroupAsync(userConId.UserConnectionId, roomName);
+                    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved,
+                        usersId.Select(x => x.PlaningAppUserId));
+                    foreach (var userConId in usersId)
+                    {
+                        await Groups.RemoveFromGroupAsync(userConId.UserConnectionId, roomName);
+                    }
                 }
-            }
+            }, httpContext.Response, _logger);
+
         }
 
         // ReSharper disable once UnusedMember.Global
         public async Task<IEnumerable<StoryReturn>> LoadNotActualStories(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
-            var stories = await _planitPokerService.LoadNotActualStories(roomName);
-            return stories.Select(x => new StoryReturn(x));
+            var httpContext = Context.GetHttpContext();
+            return await _apiHealper.DoStandartSomething(async () =>
+            {
+                var stories = await _planitPokerService.LoadNotActualStories(roomName);
+                return stories.Select(x => new StoryReturn(x));
+            }, new List<StoryReturn>(), httpContext.Response, _logger);
+
         }
 
 
@@ -590,7 +682,7 @@ namespace PlanitPoker.Models.Hubs
                 {
                     await Groups.RemoveFromGroupAsync(userConnectionId, roomName);
                     await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved,
-                        new List<string>() {userId});
+                        new List<string>() { userId });
 
                 }
             }
@@ -632,9 +724,8 @@ namespace PlanitPoker.Models.Hubs
             if (!sc)
             {
                 //TODO что то пошло не так
-                await NotifyFromErrorService();
                 await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NotifyFromServer,
-                    new Notify() {Text = "retry plz", Status = NotyfyStatus.Error});
+                    new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
 
                 return false;
             }
@@ -644,7 +735,7 @@ namespace PlanitPoker.Models.Hubs
                 var roomName = room.GetConcurentValue(_multiThreadHelper, rm => rm.StoredRoom.Name);
                 await Groups.RemoveFromGroupAsync(oldConnectionId, roomName.res);
                 await Clients.Client(oldConnectionId)
-                    .SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved, new List<string>() {userId});
+                    .SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved, new List<string>() { userId });
             }
 
 
@@ -653,7 +744,7 @@ namespace PlanitPoker.Models.Hubs
             {
                 //TODO что то пошло не так
                 await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NotifyFromServer,
-                    new Notify() {Text = "retry plz", Status = NotyfyStatus.Error});
+                    new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
 
                 return false;
             }
@@ -665,7 +756,7 @@ namespace PlanitPoker.Models.Hubs
             {
                 //TODO что то пошло не так
                 await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NotifyFromServer,
-                    new Notify() {Text = "retry plz", Status = NotyfyStatus.Error});
+                    new Notify() { Text = "retry plz", Status = NotyfyStatus.Error });
                 return false;
             }
 
@@ -683,12 +774,12 @@ namespace PlanitPoker.Models.Hubs
 
         private List<string> GetDefaultRoles()
         {
-            return new List<string>() {Consts.Roles.User};
+            return new List<string>() { Consts.Roles.User };
         }
 
         private List<string> GetCreatorRoles()
         {
-            return new List<string>(GetDefaultRoles()) {Consts.Roles.Creator, Consts.Roles.Admin};
+            return new List<string>(GetDefaultRoles()) { Consts.Roles.Creator, Consts.Roles.Admin };
         }
 
         //private static Task ClearRooms()

@@ -134,7 +134,7 @@ namespace PlanitPoker.Models.Services
 
                 return rm.StoredRoom.Users.Where(x => !string.IsNullOrWhiteSpace(x.UserConnectionId))
                     .Select(x => new
-                        {userId = x.PlaningAppUserId, vote = x.Vote, hasVote = !string.IsNullOrWhiteSpace(x.Vote)})
+                    { userId = x.PlaningAppUserId, vote = x.Vote, hasVote = !string.IsNullOrWhiteSpace(x.Vote) })
                     .ToList();
             });
 
@@ -159,7 +159,7 @@ namespace PlanitPoker.Models.Services
                 result.Average = arrForMath.Average(x => x);
             }
 
-            result.UsersInfo = res.Select(x => new EndVoteUserInfo() {Id = x.userId, Vote = x.vote}).ToList();
+            result.UsersInfo = res.Select(x => new EndVoteUserInfo() { Id = x.userId, Vote = x.vote }).ToList();
             return result;
         }
 
@@ -300,11 +300,13 @@ namespace PlanitPoker.Models.Services
 
         public Task<bool> AddTimeAliveRoom(string roomName)
         {
+            //todo
             throw new System.NotImplementedException();
         }
 
         public Task<bool> AddTimeAliveRoom(Room room)
         {
+            //todo
             throw new System.NotImplementedException();
         }
 
@@ -316,7 +318,7 @@ namespace PlanitPoker.Models.Services
 
         public async Task<(bool sc, string oldConnectionId)> AddUserIntoRoom(Room room, PlanitUser user)
         {
-            
+
             if (room == null)
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
@@ -952,7 +954,71 @@ namespace PlanitPoker.Models.Services
 
 
 
-        //---------------------------------------------------------------------private
+        public async Task<(bool sc, string userId)> LeaveFromRoom(string roomName, string userConnectionIdRequest)
+        {
+            var room = await TryGetRoom(roomName);
+            return await LeaveFromRoom(room, userConnectionIdRequest);
+        }
+
+        public async Task<(bool sc, string userId)> LeaveFromRoom(Room room, string userConnectionIdRequest)
+        {
+            if (room == null)
+            {
+                return (false, null);
+            }
+
+            bool result = false;
+            string userId = null;
+            room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
+            {
+                var admins = rm.StoredRoom.Users.Where(x => x.IsAdmin).ToList();
+                //проверить залогинен ли пользак в мейн апе, и если залогенен то НЕ передавать админку!
+                var currentUser = admins.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
+                if (currentUser != null)
+                {
+                    //result = true;
+                    //return;
+                    if (admins.Count() < 2 && currentUser.MainAppUserId == null)
+                    {
+                        var newAdmin = rm.StoredRoom.Users.FirstOrDefault(x => !x.IsAdmin);
+                        newAdmin?.Role.Add(Consts.Roles.Admin);
+                    }
+                }
+                else
+                {
+                    currentUser = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
+                }
+
+                if (currentUser == null)
+                {
+                    result = true;
+                    return;
+                }
+
+                //userId = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest)?.PlaningAppUserId;
+                userId = currentUser.PlaningAppUserId;
+                if (currentUser.MainAppUserId == null)
+                {
+                    rm.StoredRoom.Users.RemoveAll(x => x.UserConnectionId == userConnectionIdRequest);
+                }
+                else
+                {
+                    currentUser.UserConnectionId = null;
+                }
+
+                result = true;
+            });
+
+            return (result, userId);
+        }
+
+
+
+
+
+
+
+        #region private
 
         private async Task<bool> UpdateIfCan(Room room, string userConnectionIdRequest,
             Func<StoredRoom, Task<bool>> workWithRoom)
@@ -1021,70 +1087,9 @@ namespace PlanitPoker.Models.Services
             return result;
         }
 
-        public async Task<(bool sc, string userId)> LeaveFromRoom(string roomName, string userConnectionIdRequest)
-        {
-            var room = await TryGetRoom(roomName);
-            return await LeaveFromRoom(room, userConnectionIdRequest);
-        }
-
-        public async Task<(bool sc, string userId)> LeaveFromRoom(Room room, string userConnectionIdRequest)
-        {
-            if (room == null)
-            {
-                return (false, null);
-            }
-
-            bool result = false;
-            string userId = null;
-            room.SetConcurentValue<Room>(_multiThreadHelper, rm =>
-            {
-                var admins = rm.StoredRoom.Users.Where(x => x.IsAdmin).ToList();
-                //проверить залогинен ли пользак в мейн апе, и если залогенен то НЕ передавать админку!
-                var currentUser = admins.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
-                if (currentUser != null)
-                {
-                    //result = true;
-                    //return;
-                    if (admins.Count() < 2 && currentUser.MainAppUserId == null)
-                    {
-                        var newAdmin = rm.StoredRoom.Users.FirstOrDefault(x => !x.IsAdmin);
-                        newAdmin?.Role.Add(Consts.Roles.Admin);
-                    }
-                }
-                else
-                {
-                    currentUser = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
-                }
-
-                if (currentUser == null)
-                {
-                    result = true;
-                    return;
-                }
-
-                //userId = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest)?.PlaningAppUserId;
-                userId = currentUser.PlaningAppUserId;
-                if (currentUser.MainAppUserId == null)
-                {
-                    rm.StoredRoom.Users.RemoveAll(x => x.UserConnectionId == userConnectionIdRequest);
-                }
-                else
-                {
-                    currentUser.UserConnectionId = null;
-                }
-
-                result = true;
-            });
-
-            return (result, userId);
-        }
 
 
 
-
-
-
-        //------------------------------------------------------------PRIVATE
 
 
 
@@ -1199,7 +1204,7 @@ namespace PlanitPoker.Models.Services
         private async Task AddNewStoriesToDb(Room room, long roomId) //IEnumerable<Story> stories)
         {
             var storiesForSave = room.StoredRoom.Stories.Where(x => x.IdDb == null)
-                .Select(x => new {tmpId = x.TmpId, story = x.ToDbObject(roomId)}).ToList();
+                .Select(x => new { tmpId = x.TmpId, story = x.ToDbObject(roomId) }).ToList();
             await _storyRepository.Add(storiesForSave.Select(x => x.story).ToList());
             foreach (var item in storiesForSave)
             {
@@ -1210,6 +1215,9 @@ namespace PlanitPoker.Models.Services
                 }
             }
         }
+
+
+        #endregion private
 
     }
 }
