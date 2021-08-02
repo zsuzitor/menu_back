@@ -54,12 +54,15 @@ namespace PlanitPoker.Models.Hubs
             _multiThreadHelper = multiThreadHelper;
             _stringValidator = stringValidator;
             _planitPokerService = planitPokerService;
-            _apiHealper = apiHealper;
+
             _jwtService = jwtService;
             _hasher = hasher;
             _errorService = errorService;
             _errorContainer = errorContainer;
 
+
+            _apiHealper = apiHealper;
+            _apiHealper.InitByHub(this);
         }
 
         //static void InitStaticMembers()

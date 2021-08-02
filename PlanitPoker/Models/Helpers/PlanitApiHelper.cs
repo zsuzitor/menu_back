@@ -53,7 +53,7 @@ namespace PlanitPoker.Models.Helpers
             {
             }
             catch (NotAuthException)
-            {//ветка вообще не особо актцально для покера
+            {//ветка вообще не особо актуально для покера
                 var error = _errorContainer.TryGetError(ErrorConsts.NotAuthorized);
                 if (error != null)
                 {
@@ -70,7 +70,8 @@ namespace PlanitPoker.Models.Helpers
                 logger?.LogError(e, ErrorConsts.SomeError);
             }
 
-            await WriteReturnResponseAsync(response, _errorService.GetErrorsObject());
+            //await WriteReturnResponseAsync(response, _errorService.GetErrorsObject());
+            await NotifyFromErrorService();
         }
 
         public async Task<bool> NotifyFromErrorService()
