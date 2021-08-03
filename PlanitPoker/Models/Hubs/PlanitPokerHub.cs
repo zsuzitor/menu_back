@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using BO.Models.Auth;
 using Common.Models;
+using Common.Models.Error;
 using Common.Models.Error.Interfaces;
 using Common.Models.Error.services.Interfaces;
+using Common.Models.Exceptions;
 using Common.Models.Validators;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.SignalR;
@@ -259,46 +261,14 @@ namespace PlanitPoker.Models.Hubs
             var httpContext = Context.GetHttpContext();
             await _apiHealper.DoStandartSomething(async () =>
             {
-                var room = await _planitPokerService.TryGetRoom(roomName);
-                if (room == null)
-                {
-                    _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
-                    await _apiHealper.NotifyFromErrorService();
-                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
-                    return;
-                }
-
-                var success = await _planitPokerService.ChangeStatusIfCan(room, GetConnectionId(), RoomSatus.CloseVote);
-                if (!success)
-                {
-                    return;
-                }
-
-                var result = await _planitPokerService.GetEndVoteInfo(room);
+                var result = await _planitPokerService.EndVote(roomName, GetConnectionId());
                 if (result == null)
                 {
-                    //todo
-                    return;
+                    throw new SomeCustomException(ErrorConsts.SomeError);
                 }
-                //(var res, bool sc) = GetValueFromRoomAsync(room, rm =>
-                //      {
-                //          return rm.StoredRoom.Users.Select(x => new { userId = x.PlaningAppUserId, vote = x.Vote ?? 0 });
-                //      });
-
-                //if (!sc)
-                //{
-                //    //TODO
-                //    return;
-                //}
-
-
-                //var result = new EndVoteInfo();
-                //result.MinVote = res.Min(x => x.vote);
-                //result.MaxVote = res.Max(x => x.vote);
-                //result.Average = res.Average(x => x.vote);
-                //result.UsersInfo = res.Select(x => new EndVoteUserInfo() { Id = x.userId, Vote = x.vote }).ToList();
 
                 await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.VoteEnd, result);
+
             }, httpContext.Response, _logger);
 
         }
@@ -315,31 +285,28 @@ namespace PlanitPoker.Models.Hubs
                 var room = await _planitPokerService.TryGetRoom(roomName);
                 if (room == null)
                 {
-                    _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
-                    await _apiHealper.NotifyFromErrorService();
                     await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
-                    return false;
+                    throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
                 }
 
-                (var res, bool sc) = GetValueFromRoomAsync(room, rm => rm.StoredRoom.Status);
+                //(var res, bool sc) = GetValueFromRoomAsync(room, rm => rm.StoredRoom.Status);
 
-                if (!sc)
-                {
-                    //TODO
-                    return false;
-                }
+                //if (!sc)
+                //{
+                //    throw new SomeCustomException(ErrorConsts.SomeError);
+                //}
 
-                if (res != RoomSatus.AllCanVote)
-                {
-                    //todo можно написать что голосовать нельзя
-                    return false;
-                }
+                //if (res != RoomSatus.AllCanVote)
+                //{
+                //    //todo можно написать что голосовать нельзя
+                //    return false;
+                //}
 
 
                 (bool sc1, string userId) = await _planitPokerService.ChangeVote(room, GetConnectionId(), vote);
                 if (!sc1)
                 {
-                    return false;
+                    throw new SomeCustomException(ErrorConsts.SomeError);
                 }
 
                 var adminsId = await _planitPokerService.GetAdminsId(room);
@@ -353,9 +320,8 @@ namespace PlanitPoker.Models.Hubs
                 //await Clients.Caller.SendAsync(VoteSuccess, vote);
                 return true;
             }, false, httpContext.Response, _logger);
-
-
         }
+
 
         // ReSharper disable once UnusedMember.Global
         public async Task KickUser(string roomName, string userId)
@@ -404,10 +370,9 @@ namespace PlanitPoker.Models.Hubs
                     return true;
                 }
 
-                return false;
+                throw new SomeCustomException(ErrorConsts.SomeError);
+
             }, false, httpContext.Response, _logger);
-
-
 
         }
 
@@ -427,6 +392,8 @@ namespace PlanitPoker.Models.Hubs
                     await Clients.Group(roomName)
                         .SendAsync(Consts.PlanitPokerHubEndpoints.UserRoleChanged, userId, 1, newRole);
                 }
+
+                throw new SomeCustomException(ErrorConsts.SomeError);
             }, httpContext.Response, _logger);
 
         }
@@ -489,7 +456,7 @@ namespace PlanitPoker.Models.Hubs
                 var storyIdIsGuid = Guid.TryParse(storyId, out var storyIdG);
                 if (!storyIdIsGuid)
                 {
-                    return; //todo
+                    throw "наверно указана история";
                 }
 
                 var newStory = new Story()
