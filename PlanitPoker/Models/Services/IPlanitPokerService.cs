@@ -72,6 +72,8 @@ namespace PlanitPoker.Models.Services
         Task<bool> AddNewRoleToUser(string roomName, string userId, string newRole, string userConnectionIdRequest);
         Task<bool> RemoveRoleUser(string roomName, string userId, string oldRole, string userConnectionIdRequest);
 
+        Task StartVote(string roomName, string userConnectionIdRequest);
+
         Task<bool> AddNewStory(string roomName, string userConnectionIdRequest, Story newStory);
         Task<bool> ChangeStory(string roomName, string userConnectionIdRequest, Story newData);
         Task<bool> ChangeCurrentStory(string roomName, string userConnectionIdRequest, string storyId);

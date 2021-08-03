@@ -240,42 +240,16 @@ namespace PlanitPoker.Models.Hubs
         // ReSharper disable once UnusedMember.Global
         public async Task StartVote(string roomName)
         {
-            //TODO слишком много запросов, надо вынести в 1 и засунуть его в сервис лучше
             roomName = NormalizeRoomName(roomName);
             var httpContext = Context.GetHttpContext();
             await _apiHealper.DoStandartSomething(async () =>
             {
-                var room = await _planitPokerService.TryGetRoom(roomName);
-                if (room == null)
-                {
-                    _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
-                    await _apiHealper.NotifyFromErrorService();
-                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
-                    return;
-                }
-
-                var success =
-                    await _planitPokerService.ChangeStatusIfCan(room, GetConnectionId(), Enums.RoomSatus.AllCanVote);
-                if (!success)
-                {
-                    return;
-                }
-
-                success = await _planitPokerService.ClearVotes(room);
-                if (!success)
-                {
-                    return;
-                }
-                //await _multiThreadHelper.SetValue(room,async rm=> {
-                //    await _planitPokerService.ChangeStatus(rm, Enums.RoomSatus.AllCanVote);
-
-                //}, room.RWL);
+                await _planitPokerService.StartVote(roomName, GetConnectionId());
+                //todo Consts.PlanitPokerHubEndpoints.ConnectedToRoomError
 
                 await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.VoteStart);
 
             }, httpContext.Response, _logger);
-
-
         }
 
         // ReSharper disable once UnusedMember.Global

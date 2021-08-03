@@ -379,16 +379,11 @@ namespace PlanitPoker.Models.Services
             if (room == null)
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
-                //_errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
-                //return false;
             }
 
             if (string.IsNullOrWhiteSpace(userConnectionIdRequest))
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.PlanitUserNotFound);
-                //_errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.PlanitUserNotFound));
-                //return false;
-
             }
 
             return await UpdateIfCan(room, userConnectionIdRequest, rm =>
@@ -396,8 +391,6 @@ namespace PlanitPoker.Models.Services
                 rm.Status = newStatus;
                 return Task.FromResult(true);
             });
-
-
         }
 
         public async Task<(bool sc, string userId)> ChangeVote(Room room, string connectionUserId, string vote)
@@ -447,8 +440,6 @@ namespace PlanitPoker.Models.Services
             if (room == null)
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
-                //_errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
-                //return false;
             }
 
             return room.SetConcurentValue<Room>(_multiThreadHelper,
@@ -782,6 +773,29 @@ namespace PlanitPoker.Models.Services
 
 
 
+        public async Task StartVote(string roomName, string userConnectionIdRequest)
+        {
+            var room = await TryGetRoom(roomName);
+            if (room == null)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+                //await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
+            }
+
+            var success =
+                await ChangeStatusIfCan(room, userConnectionIdRequest, Enums.RoomSatus.AllCanVote);
+            if (!success)
+            {
+                throw new SomeCustomException(ErrorConsts.SomeError);
+            }
+
+            success = await ClearVotes(room);
+            if (!success)
+            {
+                throw new SomeCustomException(ErrorConsts.SomeError);
+            }
+        }
+
         public async Task<bool> AddNewStory(string roomName, string userConnectionIdRequest, Story newStory)
         {
             return await UpdateIfCan(roomName, userConnectionIdRequest, (room) =>
@@ -1027,7 +1041,6 @@ namespace PlanitPoker.Models.Services
             if (room == null || string.IsNullOrWhiteSpace(userConnectionIdRequest) || workWithRoom == null)
             {
                 return false;
-
             }
 
             bool result = false;
