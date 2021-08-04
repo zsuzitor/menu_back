@@ -7,7 +7,7 @@ namespace Common.Models.Exceptions
     /// exc for fast return
     /// dont error
     /// </summary>
-    public class StopException : Exception
+    public class StopException : Exception, IBaseCusomException
     {
         public StopException() : base()
         {

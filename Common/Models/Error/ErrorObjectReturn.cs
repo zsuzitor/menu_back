@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 
-namespace Menu.Models.Returns.Types
+namespace Common.Models.Error
 {
     public class ErrorObjectReturnFactory : IReturnObjectFactory
     {

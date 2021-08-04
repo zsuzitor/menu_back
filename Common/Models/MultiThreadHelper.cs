@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Common.Models.Exceptions;
 
 namespace Common.Models
 {
     public class MultiThreadHelper
     {
+        [Obsolete("ReaderWriterLock - не работает с потоками")]
         public (T1 res, bool success) GetValue<T1, T2>
             (T2 obj, Func<T2, T1> get, ReaderWriterLock rwl, int timeOut = 60000)
         //where T1 : class
@@ -32,7 +34,7 @@ namespace Common.Models
         }
 
 
-
+        [Obsolete("ReaderWriterLock - не работает с потоками")]
         public async Task<bool> SetValue<T1>
             (T1 obj, Func<T1, Task> set, ReaderWriterLock rwl, int timeOut = 60000)
         //where T1 : class
@@ -61,6 +63,7 @@ namespace Common.Models
         }
 
 
+        [Obsolete("ReaderWriterLock - не работает с потоками")]
         public bool SetValue<T1>
             (T1 obj, Action<T1> set, ReaderWriterLock rwl, int timeOut = 60000)
         //where T1 : class
@@ -107,8 +110,13 @@ namespace Common.Models
                     smSl.Release();
                 }
             }
-            catch
+            catch (Exception e)
             {
+                //if (e is IBaseCusomException)
+                {
+                    throw;
+                }
+
                 return (default, false);
             }
         }
@@ -121,7 +129,7 @@ namespace Common.Models
             {
                 try
                 {
-                    smSl.Wait();
+                    await smSl.WaitAsync();
                     await set(obj);
                     return true;
                 }
@@ -130,8 +138,13 @@ namespace Common.Models
                     smSl.Release();
                 }
             }
-            catch
+            catch (Exception e)
             {
+                //if (e is IBaseCusomException)
+                {
+                    throw;
+                }
+
                 return false;
             }
         }
@@ -154,8 +167,14 @@ namespace Common.Models
                     smSl.Release();
                 }
             }
-            catch
+            catch (Exception e)
             {
+                //if (e is IBaseCusomException)
+                {
+                    throw;
+                }
+                //возможно тут всегда надо бросать исключение
+
                 //TODO конечно бы транзакцию хорошо бы
                 return false;
             }

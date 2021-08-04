@@ -5,7 +5,7 @@ namespace Common.Models.Exceptions
     /// <summary>
     /// user not auth
     /// </summary>
-    public class NotAuthException : Exception
+    public class NotAuthException : Exception, IBaseCusomException
     {
         public NotAuthException() : base()
         {

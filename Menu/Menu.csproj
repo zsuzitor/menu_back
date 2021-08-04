@@ -5,9 +5,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Helpers\Interfaces\" />
+    <Compile Remove="Models\Helpers\**" />
+    <Compile Remove="Models\Returns\Interfaces\**" />
+    <Content Remove="Models\Helpers\**" />
+    <Content Remove="Models\Returns\Interfaces\**" />
+    <EmbeddedResource Remove="Models\Helpers\**" />
+    <EmbeddedResource Remove="Models\Returns\Interfaces\**" />
+    <None Remove="Models\Helpers\**" />
+    <None Remove="Models\Returns\Interfaces\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Models\Logging\Interfaces\" />
-    <Folder Include="Models\Returns\Interfaces\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

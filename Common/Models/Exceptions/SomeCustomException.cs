@@ -2,7 +2,7 @@
 
 namespace Common.Models.Exceptions
 {
-    public class SomeCustomException : Exception
+    public class SomeCustomException : Exception, IBaseCusomException
     {
         /// <summary>
         /// если не задано то key пойдет как body на фронт, если не будет найден в обработчике ошибок

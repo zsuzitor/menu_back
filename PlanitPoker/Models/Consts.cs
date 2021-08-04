@@ -26,6 +26,8 @@ namespace PlanitPoker.Models
             public const string SomeErrorWithRoomCreating = "some_error_with_room_creating";
             public const string DontHaveAccess = "dont_have_access";
             public const string CantVote = "cant_vote";
+            public const string StoryNotFound = "story_not_found";
+            public const string StoryBadStatus = "story_bad_status";
         }
 
         public class PlanitPokerHubEndpoints

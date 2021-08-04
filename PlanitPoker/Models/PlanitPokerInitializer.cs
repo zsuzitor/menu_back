@@ -19,7 +19,11 @@ namespace PlanitPoker.Models
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomNotFound, "Комната не найдена");
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.DontHaveAccess, "Нет доступа");
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.CantVote, "Нельзя проголосовать");
+            errorContainer.InitError(Consts.PlanitPokerErrorConsts.StoryNotFound, "История не найдена");
+            errorContainer.InitError(Consts.PlanitPokerErrorConsts.StoryBadStatus, "Неверный статус истории");
+
             
+
 
 
         }

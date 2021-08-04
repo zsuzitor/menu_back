@@ -51,8 +51,10 @@ namespace PlanitPoker.Models.Helpers
                 return false;
             }
 
+            
+            var erF = new ErrorObjectReturnFactory();
             await _planitHub.Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NotifyFromServer,
-                new Notify() { Text = "_errorService", Status = NotyfyStatus.Error });
+                erF.GetObjectReturn(_errorService.GetErrorsObject()));
 
             return true;
         }
