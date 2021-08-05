@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using Common.Models;
 using WEB.Common.Models.Returns.Interfaces;
 
 namespace WEB.Common.Models.Returns

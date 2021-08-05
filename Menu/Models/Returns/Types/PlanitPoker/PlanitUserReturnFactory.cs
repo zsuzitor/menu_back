@@ -3,6 +3,7 @@ using PlanitPoker.Models;
 using PlanitPoker.Models.Returns;
 using System.Collections.Generic;
 using System.Linq;
+using Common.Models;
 
 namespace Menu.Models.Returns.Types.PlanitPoker
 {

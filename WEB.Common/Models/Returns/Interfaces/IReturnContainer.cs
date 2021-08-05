@@ -1,6 +1,7 @@
 ﻿
 
 using System;
+using Common.Models;
 
 namespace WEB.Common.Models.Returns.Interfaces
 {

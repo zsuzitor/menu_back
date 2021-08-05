@@ -3,6 +3,9 @@ using WEB.Common.Models.Returns.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
+using BO.Models.Return;
+using Common.Models;
+using Common.Models.Return;
 
 namespace Menu.Models.Returns.Types.MenuApp
 {

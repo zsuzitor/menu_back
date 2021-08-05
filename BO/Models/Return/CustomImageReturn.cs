@@ -1,7 +1,7 @@
-﻿using BO.Models.DAL.Domain;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
+using BO.Models.DAL.Domain;
 
-namespace Menu.Models.Returns.Types
+namespace BO.Models.Return
 {
     public class CustomImageReturn
     {

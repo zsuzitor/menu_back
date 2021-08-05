@@ -1,8 +1,7 @@
-﻿using Common.Models.Poco;
-using WEB.Common.Models.Returns.Interfaces;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
+using Common.Models.Poco;
 
-namespace Menu.Models.Returns.Types
+namespace Common.Models.Return
 {
     public class BoolResultFactory : IReturnObjectFactory
     {

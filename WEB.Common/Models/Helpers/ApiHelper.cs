@@ -9,19 +9,22 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Text.Json;
 using System.Threading.Tasks;
 using System.Linq;
 using BO.Models.Auth;
 using WEB.Common.Models.Returns.Interfaces;
 using System.IO;
 using Common.Models.Validators;
+using WEB.Common.Models.Returns;
 
 namespace WEB.Common.Models.Helpers
 {
     public class ApiHelper : IApiHelper
     {
-        protected readonly string _jsonContentType = "application/json";
+        //можно виртуал свойство enum например и по нему уже фабрику, но хз есть ли смысл
+        public virtual IApiSerializer ApiSerializer { get; } = new JsonApiSerializer();
+
+        //protected readonly string _jsonContentType = "application/json";
         protected readonly string _headerAccessToken = "Authorization_Access_Token";
         protected readonly string _headerRefreshToken = "Authorization_Refresh_Token";
 
@@ -54,8 +57,8 @@ namespace WEB.Common.Models.Helpers
 
         public async Task WriteResponseAsync<T>(HttpResponse response, T data)
         {
-            response.ContentType = _jsonContentType;
-            await response.WriteAsync(JsonSerializer.Serialize(data));
+            response.ContentType = ApiSerializer.ContentType;
+            await response.WriteAsync(ApiSerializer.Serialize(data));
         }
 
         /// <summary>
@@ -68,8 +71,9 @@ namespace WEB.Common.Models.Helpers
         /// <returns></returns>
         public async Task WriteReturnResponseAsync<T>(HttpResponse response, T data)
         {
-            response.ContentType = _jsonContentType;
-            await response.WriteAsync(JsonSerializer.Serialize(GetReturnType(data)));
+            response.ContentType = ApiSerializer.ContentType;
+
+            await response.WriteAsync(ApiSerializer.Serialize(GetReturnType(data)));
         }
 
         /// <summary>
@@ -83,9 +87,9 @@ namespace WEB.Common.Models.Helpers
         /// <returns></returns>
         public async Task WriteReturnResponseAsync<T>(HttpResponse response, T data, int status)
         {
-            response.ContentType = _jsonContentType;
+            response.ContentType = ApiSerializer.ContentType;
             response.StatusCode = status;
-            await response.WriteAsync(JsonSerializer.Serialize(GetReturnType(data)));
+            await response.WriteAsync(ApiSerializer.Serialize(GetReturnType(data)));
         }
 
 

@@ -3,6 +3,7 @@
 using BO.Models.DAL.Domain;
 using WEB.Common.Models.Returns.Interfaces;
 using System.Text.Json.Serialization;
+using Common.Models;
 
 namespace Menu.Models.Returns.Types
 {

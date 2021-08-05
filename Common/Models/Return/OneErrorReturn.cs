@@ -1,9 +1,8 @@
-﻿using Common.Models.Error;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using Common.Models.Error;
 
-namespace Menu.Models.Returns.Types
+namespace Common.Models.Return
 {
     public class OneErrorReturn
     {

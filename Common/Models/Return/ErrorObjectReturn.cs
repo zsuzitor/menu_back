@@ -1,11 +1,9 @@
-﻿using Common.Models.Error;
-using WEB.Common.Models.Returns.Interfaces;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
+using Common.Models.Error;
 
-namespace Common.Models.Error
+namespace Common.Models.Return
 {
     public class ErrorObjectReturnFactory : IReturnObjectFactory
     {
