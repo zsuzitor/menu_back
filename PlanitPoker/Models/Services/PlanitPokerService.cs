@@ -773,7 +773,6 @@ namespace PlanitPoker.Models.Services
             if (room == null)
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
-                //await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
             }
 
             var success =
@@ -796,7 +795,6 @@ namespace PlanitPoker.Models.Services
             if (room == null)
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
-                //await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
             }
 
             var success = await ChangeStatusIfCan(room, userConnectionIdRequest, RoomSatus.CloseVote);

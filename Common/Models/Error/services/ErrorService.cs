@@ -37,13 +37,13 @@ namespace Common.Models.Error.services
                 return;
             }
 
-            var error = new OneError(key, body);
             if (_errors.ContainsKey(key))
             {
                 _errors[key].Errors.Add(body);
             }
             else
             {
+                var error = new OneError(key, body);
                 _errors.TryAdd(error.Key, error);
             }
 
@@ -66,6 +66,14 @@ namespace Common.Models.Error.services
             return _errors.Count > 0;
         }
 
-       
+        public bool HasError(string key)
+        {
+            if (string.IsNullOrWhiteSpace(key))
+            {
+                return false;
+            }
+
+            return _errors.ContainsKey(key);
+        }
     }
 }
