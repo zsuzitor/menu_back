@@ -8,6 +8,7 @@ using Common.Models.Error;
 using Common.Models.Error.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
+using Common.Models.Return;
 using Common.Models.Validators;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.SignalR;
@@ -305,10 +306,18 @@ namespace PlanitPoker.Models.Hubs
                     throw new SomeCustomException(ErrorConsts.SomeError);
                 }
 
+                var allVoted = await _planitPokerService.AllVoted(room);
                 var adminsId = await _planitPokerService.GetAdminsId(room);
                 if (adminsId != null && adminsId.Count > 0)
                 {
                     await Clients.Clients(adminsId).SendAsync(Consts.PlanitPokerHubEndpoints.VoteChanged, userId, vote);
+                }
+
+                if (allVoted)
+                {
+                    var erF = new ErrorObjectReturnFactory();
+                    await Clients.Clients(adminsId).SendAsync(Consts.PlanitPokerHubEndpoints.NotifyFromServer,
+                        erF.GetObjectReturn(new ErrorObject(){Errors = new List<OneError>(){new OneError(Consts.PlanitPokerNotifyConsts.AllAreWoted, "все участники проголосовали") }}));
                 }
 
                 await Clients.GroupExcept(roomName, adminsId)
@@ -389,13 +398,15 @@ namespace PlanitPoker.Models.Hubs
             await _apiHealper.DoStandartSomething(async () =>
             {
                 var sc = await _planitPokerService.AddNewRoleToUser(roomName, userId, newRole, GetConnectionId());
-                if (sc)
+                if (!sc)
                 {
-                    await Clients.Group(roomName)
-                        .SendAsync(Consts.PlanitPokerHubEndpoints.UserRoleChanged, userId, 1, newRole);
+                    throw new SomeCustomException(ErrorConsts.SomeError);
                 }
 
-                throw new SomeCustomException(ErrorConsts.SomeError);
+                await Clients.Group(roomName)
+                    .SendAsync(Consts.PlanitPokerHubEndpoints.UserRoleChanged, userId, 1, newRole);
+                return;
+
             }, httpContext.Response, _logger);
 
         }

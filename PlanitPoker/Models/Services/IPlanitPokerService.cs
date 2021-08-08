@@ -44,6 +44,7 @@ namespace PlanitPoker.Models.Services
 
         Task<bool> ClearVotes(Room room);
         Task<(bool sc, string userId)> ChangeVote(Room room, string connectionUserId, string vote);
+        Task<bool> AllVoted(Room room);
 
 
         Task<(PlanitUser user, bool sc)> KickFromRoom(string roomName, string userConnectionIdRequest, string userId);

@@ -14039,6 +14039,7 @@ var PlaningPokerMain = function (props) {
                 errLvl1.errors.forEach(function (errTxt) {
                     alert.Text = errTxt;
                     alert.Type = AlertData_1.AlertTypeEnum.Error;
+                    alert.Timeout = 5000;
                 });
             });
             // alert.Text = data.text;
@@ -14454,6 +14455,7 @@ var Room = function (props) {
             }
             usersId.forEach(function (x) {
                 if (x == __planing_room_props_ref__.UserInfo.UserId) {
+                    document.cookie = "planing_poker_roomname=; path=/;";
                     alert("you kicked or leave"); //TODO может как то получше сделать, и хорошо бы без перезагрузки\редиректа
                     window.location.href = "/planing-poker";
                     __planing_room_props_ref__.ClearUserId(); //todo тут наверное стоит еще что то чистить

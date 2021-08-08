@@ -7,10 +7,12 @@ using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using WEB.Common.Models.Helpers.Interfaces;
 using Common.Models.Poco;
+using Common.Models.Return;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Menu.Models.InputModels.MenuApp;
+using Menu.Models.Returns.Types.MenuApp;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -30,6 +32,11 @@ namespace Menu.Controllers
         private readonly ILogger _logger;
         //private readonly IWebHostEnvironment _webHostEnvironment;
 
+        private readonly ErrorObjectReturnFactory _errRetrunFactory;
+        private readonly ArticleShortReturnFactory _articleShortReturnFactory;
+        private readonly ArticleReturnFactory _articleReturnFactory;
+        private readonly BoolResultFactory _boolResultFactory;
+
 
         public ArticleController(
              IJWTService jwtService, IApiHelper apiHealper, IArticleService articleService,
@@ -43,6 +50,11 @@ namespace Menu.Controllers
             _errorContainer = errorContainer;
             _logger = logger;
             //_webHostEnvironment = webHostEnvironment;
+
+            _errRetrunFactory = new ErrorObjectReturnFactory();
+            _articleShortReturnFactory = new ArticleShortReturnFactory();
+            _articleReturnFactory = new ArticleReturnFactory();
+            _boolResultFactory = new BoolResultFactory();
         }
 
         [Route("get-all-short-for-user")]
@@ -57,7 +69,7 @@ namespace Menu.Controllers
 
                     var res = await _articleService.GetAllUsersArticlesShort(userInfo);
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, _articleShortReturnFactory.GetObjectReturn(res));
 
                 }, Response, _logger);
 
@@ -74,7 +86,7 @@ namespace Menu.Controllers
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _articleService.GetAllUsersArticles(userInfo);
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, _articleReturnFactory.GetObjectReturn(res));
                 }, Response, _logger);
 
         }
@@ -89,7 +101,7 @@ namespace Menu.Controllers
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                    var res = await _articleService.GetFullByIdIfAccess(id, userInfo);
-                   await _apiHealper.WriteReturnResponseAsync(Response, res);
+                   await _apiHealper.WriteResponseAsync(Response, _articleReturnFactory.GetObjectReturn(res));
                }, Response, _logger);
 
         }
@@ -105,7 +117,7 @@ namespace Menu.Controllers
 
                    bool res = await _articleService.ChangeFollowStatus(id, userInfo);
 
-                   await _apiHealper.WriteReturnResponseAsync(Response, new BoolResult(res));
+                   await _apiHealper.WriteResponseAsync(Response, _boolResultFactory.GetObjectReturn(new BoolResult(res)));
                }, Response, _logger);
 
 
@@ -128,7 +140,7 @@ namespace Menu.Controllers
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                   
                    var newArticle = await _articleService.Create(newData.GetModel(), userInfo);
-                   await _apiHealper.WriteReturnResponseAsync(Response, newArticle);
+                   await _apiHealper.WriteResponseAsync(Response, _articleReturnFactory.GetObjectReturn(newArticle));
                }, Response, _logger);
 
         }
@@ -156,7 +168,7 @@ namespace Menu.Controllers
                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                    
                    var res = await _articleService.Update(newData.GetModel(), userInfo);
-                   await _apiHealper.WriteReturnResponseAsync(Response, res);
+                   await _apiHealper.WriteResponseAsync(Response, _articleReturnFactory.GetObjectReturn(res));
                }, Response, _logger);
 
         }

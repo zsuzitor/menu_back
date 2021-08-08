@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PlanitPoker.Models.Services;
 using System.Threading.Tasks;
+using Menu.Models.Returns.Types.PlanitPoker;
 
 namespace Menu.Controllers.PlanitPoker
 {
@@ -24,6 +25,9 @@ namespace Menu.Controllers.PlanitPoker
 
         private readonly IStringValidator _stringValidator;
 
+
+        private readonly PlanitUserReturnFactory _planitUserReturnFactory;
+
         public PlanitPokerController(IApiHelper apiHealper,
             ILogger<PlanitPokerController> logger,
             IPlanitPokerService planitPokerService,
@@ -37,6 +41,8 @@ namespace Menu.Controllers.PlanitPoker
             _stringValidator = stringValidator;
             //_errorService = errorService;
             //hubContext.
+
+            _planitUserReturnFactory = new PlanitUserReturnFactory();
         }
 
 
@@ -52,7 +58,7 @@ namespace Menu.Controllers.PlanitPoker
                 {
                     var users = await _planitPokerService.GetAllUsersWithRight(roomname, userConnectionId);
                     //TODO ошибку если null? сейчас там возвращается пустая строка везде. и вообще посмотреть что будет на фронте
-                    await _apiHealper.WriteReturnResponseAsync(Response, users);
+                    await _apiHealper.WriteResponseAsync(Response, _planitUserReturnFactory.GetObjectReturn(users));
 
                 }, Response, _logger);
         }
@@ -77,7 +83,7 @@ namespace Menu.Controllers.PlanitPoker
                         throw new SomeCustomException(ErrorConsts.SomeError);
                     }
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, roomInfo);
+                    await _apiHealper.WriteResponseAsync(Response, roomInfo);
 
                 }, Response, _logger);
         }

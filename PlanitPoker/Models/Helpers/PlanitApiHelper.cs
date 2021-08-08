@@ -10,11 +10,8 @@ using Common.Models.Validators;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
-using PlanitPoker.Models.Enums;
-using PlanitPoker.Models.Returns;
 using WEB.Common.Models.Helpers;
 using WEB.Common.Models.Helpers.Interfaces;
-using WEB.Common.Models.Returns.Interfaces;
 
 namespace PlanitPoker.Models.Helpers
 {
@@ -29,8 +26,8 @@ namespace PlanitPoker.Models.Helpers
     {
         private Hub _planitHub;
 
-        public PlanitApiHelper(IErrorService errorService, IErrorContainer errorContainer, IReturnContainer returnContainer,
-            IStringValidator stringValidator) : base(errorService, errorContainer, returnContainer, stringValidator)
+        public PlanitApiHelper(IErrorService errorService, IErrorContainer errorContainer,
+            IStringValidator stringValidator) : base(errorService, errorContainer, stringValidator)
         {
             _planitHub = null;
         }

@@ -7,6 +7,8 @@ using Menu.Models.InputModels.WordsCardsApp;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
+using Common.Models.Return;
+using Menu.Models.Returns.Types.WordsCardsApp;
 using WordsCardsApp.BL.Services.Interfaces;
 
 namespace Menu.Controllers.WordsCardsApp
@@ -21,6 +23,12 @@ namespace Menu.Controllers.WordsCardsApp
         private readonly IWordsListService _wordsListService;
         private readonly IErrorService _errorService;
 
+
+
+        private readonly BoolResultFactory _boolResultFactory;
+        private readonly WordListReturnFactory _wordListReturnFactory;
+        private readonly WordCardWordListReturnFactory _wordCardWordListReturnFactory;
+
         public WordsListController(IJWTService jwtService, IApiHelper apiHealper,
             ILogger<WordsListController> logger, IErrorService errorService, IWordsListService wordsListService)
         {
@@ -30,6 +38,9 @@ namespace Menu.Controllers.WordsCardsApp
             _errorService = errorService;
             _wordsListService = wordsListService;
 
+            _boolResultFactory = new BoolResultFactory();
+            _wordListReturnFactory = new WordListReturnFactory();
+            _wordCardWordListReturnFactory = new WordCardWordListReturnFactory();
         }
 
 
@@ -44,7 +55,7 @@ namespace Menu.Controllers.WordsCardsApp
 
                     var res = await _wordsListService.GetAllForUser(userInfo);
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, _wordListReturnFactory.GetObjectReturn(res));
 
                 }, Response, _logger);
 
@@ -68,7 +79,7 @@ namespace Menu.Controllers.WordsCardsApp
 
                     var res = await _wordsListService.Create(newData.GetModel(), userInfo);
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, _wordListReturnFactory.GetObjectReturn(res));
 
                 }, Response, _logger);
 
@@ -86,7 +97,7 @@ namespace Menu.Controllers.WordsCardsApp
 
                     var res = await _wordsListService.RemoveFromList(card_id, list_id, userInfo);
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, new BoolResult(res != null));
+                    await _apiHealper.WriteResponseAsync(Response, _boolResultFactory.GetObjectReturn(new BoolResult(res != null)));
 
                 }, Response, _logger);
 
@@ -94,7 +105,8 @@ namespace Menu.Controllers.WordsCardsApp
 
         [Route("add-to-list")]
         [HttpPut]
-        public async Task AddToList([FromForm] long card_id, [FromForm] long list_id)
+        public async Task AddToList([FromForm(Name = "card_id")] long card_id, [FromForm(Name = "list_id")] long list_id)
+        //public async Task AddToList([FromForm(Name = "cardId")] long card_id, [FromForm(Name = "listId")] long list_id)//todo
         {
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -103,7 +115,7 @@ namespace Menu.Controllers.WordsCardsApp
 
                     var res = await _wordsListService.AddToList(card_id, list_id, userInfo);
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, _wordCardWordListReturnFactory.GetObjectReturn(res));
 
                 }, Response, _logger);
 
@@ -121,7 +133,7 @@ namespace Menu.Controllers.WordsCardsApp
 
                     var res = await _wordsListService.Delete(id, userInfo);
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, _wordListReturnFactory.GetObjectReturn(res));
 
                 }, Response, _logger);
 
@@ -145,7 +157,7 @@ namespace Menu.Controllers.WordsCardsApp
 
                     var res = await _wordsListService.Update(newData.GetModel(), userInfo);
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, _wordListReturnFactory.GetObjectReturn(res));
 
                 }, Response, _logger);
 

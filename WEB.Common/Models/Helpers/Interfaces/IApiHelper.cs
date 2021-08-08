@@ -21,6 +21,8 @@ namespace WEB.Common.Models.Helpers.Interfaces
         /// <param name="data"></param>
         /// <returns></returns>
         Task WriteResponseAsync<T>(HttpResponse response, T data);
+        Task WriteResponseAsync<T>(HttpResponse response, T data, int status);
+        
         /// <summary>
         /// пытается приобразовать к return типу и пишет в response
         /// </summary>
@@ -28,7 +30,7 @@ namespace WEB.Common.Models.Helpers.Interfaces
         /// <param name="response"></param>
         /// <param name="data"></param>
         /// <returns></returns>
-        Task WriteReturnResponseAsync<T>(HttpResponse response, T data);
+        //Task WriteReturnResponseAsync<T>(HttpResponse response, T data);
         string GetAccessTokenFromRequest(HttpRequest request);
         string GetRefreshTokenFromRequest(HttpRequest request);
         void ClearUsersTokens(HttpResponse response);
@@ -46,7 +48,7 @@ namespace WEB.Common.Models.Helpers.Interfaces
         void StopIfModelStateError(ModelStateDictionary modelState);
 
 
-        object GetReturnType<TIn>(TIn obj);
+        //object GetReturnType<TIn>(TIn obj);
 
         bool ErrorsFromModelState(ModelStateDictionary modelState);
         string StringValidator(string str);

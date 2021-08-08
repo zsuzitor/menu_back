@@ -8,6 +8,9 @@ using Common.Models.Error.services.Interfaces;
 using Microsoft.Extensions.Logging;
 using Common.Models.Exceptions;
 using Common.Models.Error;
+using Common.Models.Return;
+using Menu.Models.Returns.Types;
+
 //using NLog;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -23,6 +26,10 @@ namespace Menu.Controllers
         private readonly IErrorService _errorService;
         private readonly ILogger _logger;
 
+        private readonly ErrorObjectReturnFactory _errRetrunFactory;
+        private readonly TokensReturnFactory _tokensReturnFactory;
+        private readonly BoolResultFactory _boolResultFactory;
+
         public AuthenticateController(IErrorService errorService, IApiHelper apiHealper, IAuthService authSrvice, ILogger<AuthenticateController> logger)
         {
             _authSrvice = authSrvice;
@@ -30,6 +37,9 @@ namespace Menu.Controllers
             _errorService = errorService;
             _logger = logger;
 
+            _errRetrunFactory = new ErrorObjectReturnFactory();
+            _tokensReturnFactory = new TokensReturnFactory();
+            _boolResultFactory = new BoolResultFactory();
         }
 
 
@@ -44,7 +54,7 @@ namespace Menu.Controllers
                    //throw new System.Exception();
                    if (_apiHealper.ErrorsFromModelState(ModelState))
                    {
-                       await _apiHealper.WriteReturnResponseAsync(Response, _errorService.GetErrorsObject());
+                       await _apiHealper.WriteResponseAsync(Response, _errRetrunFactory.GetObjectReturn((_errorService.GetErrorsObject())));
                        return;
                    }
 
@@ -55,7 +65,7 @@ namespace Menu.Controllers
                    }
 
                    _apiHealper.SetUserTokens(Response, tokens);
-                   await _apiHealper.WriteReturnResponseAsync(Response, tokens);
+                   await _apiHealper.WriteResponseAsync(Response, _tokensReturnFactory.GetObjectReturn(tokens));
                }, Response, _logger);
 
 
@@ -72,7 +82,7 @@ namespace Menu.Controllers
                   //RegisterModel registerModel=null;
                   if (_apiHealper.ErrorsFromModelState(ModelState))
                   {
-                      await _apiHealper.WriteReturnResponseAsync(Response, _errorService.GetErrorsObject());
+                      await _apiHealper.WriteResponseAsync(Response, _errRetrunFactory.GetObjectReturn(_errorService.GetErrorsObject()));
                       return;
                   }
 
@@ -83,7 +93,7 @@ namespace Menu.Controllers
                   }
 
                   _apiHealper.SetUserTokens(Response, tokens);
-                  await _apiHealper.WriteReturnResponseAsync(Response, tokens);
+                  await _apiHealper.WriteResponseAsync(Response, _tokensReturnFactory.GetObjectReturn(tokens));
               }, Response, _logger);
 
         }
@@ -102,7 +112,8 @@ namespace Menu.Controllers
                       _apiHealper.ClearUsersTokens(Response);
                   }
 
-                  await _apiHealper.WriteReturnResponseAsync(Response, logout);
+
+                  await _apiHealper.WriteResponseAsync(Response, _boolResultFactory.GetObjectReturn(logout));
               }, Response, _logger);
 
         }
@@ -124,7 +135,7 @@ namespace Menu.Controllers
                       throw new NotAuthException();
                   }
                   _apiHealper.SetUserTokens(Response, allTokens);
-                  await _apiHealper.WriteReturnResponseAsync(Response, allTokens);
+                  await _apiHealper.WriteResponseAsync(Response, _tokensReturnFactory.GetObjectReturn(allTokens));
               }, Response, _logger);
 
         }

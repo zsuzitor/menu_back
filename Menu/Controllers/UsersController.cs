@@ -1,6 +1,7 @@
 ﻿
 using System.Threading.Tasks;
 using jwtLib.JWTAuth.Interfaces;
+using Menu.Models.Returns.Types;
 using WEB.Common.Models.Helpers.Interfaces;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -18,12 +19,15 @@ namespace Menu.Controllers
         private readonly IUserService _userService;
 
 
+        private readonly ShortUserReturnFactory _shortUserReturnFactory;
+
         public UsersController(IJWTService jwtService, IApiHelper apiHealper, ILogger<UsersController> logger, IUserService userService)
         {
             _apiHealper = apiHealper;
             _logger = logger;
             _jwtService = jwtService;
             _userService = userService;
+            _shortUserReturnFactory = new ShortUserReturnFactory();
         }
 
 
@@ -42,7 +46,7 @@ namespace Menu.Controllers
 
                     var res = await _userService.GetShortInfo(userInfo.UserId);
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, _shortUserReturnFactory.GetObjectReturn(res));
 
                 }, Response, _logger);
               }, Response, _logger);

@@ -30,6 +30,12 @@ namespace PlanitPoker.Models
             public const string StoryBadStatus = "story_bad_status";
         }
 
+        public class PlanitPokerNotifyConsts
+        {//какой то тоже контейнер или может что то еще
+            public const string AllAreWoted = "all_are_woted";
+
+        }
+
         public class PlanitPokerHubEndpoints
         {
             public const string ConnectedToRoomError = "ConnectedToRoomError";

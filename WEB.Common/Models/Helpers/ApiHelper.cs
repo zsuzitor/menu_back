@@ -12,8 +12,9 @@ using System;
 using System.Threading.Tasks;
 using System.Linq;
 using BO.Models.Auth;
-using WEB.Common.Models.Returns.Interfaces;
+//using WEB.Common.Models.Returns.Interfaces;
 using System.IO;
+using Common.Models.Return;
 using Common.Models.Validators;
 using WEB.Common.Models.Returns;
 
@@ -36,21 +37,21 @@ namespace WEB.Common.Models.Helpers
         /// <summary>
         /// только для моделей по умолчанию, те 1 тип маппится тут только с 1 return типом
         /// </summary>
-        protected readonly IReturnContainer _returnContainer;
+        //protected readonly IReturnContainer _returnContainer;
 
         protected readonly IStringValidator _stringValidator;
 
 
 
 
-        public ApiHelper(IErrorService errorService, IErrorContainer errorContainer, IReturnContainer returnContainer,
+        public ApiHelper(IErrorService errorService, IErrorContainer errorContainer,
             IStringValidator stringValidator)
         {
             _fileMaxSize = 1024 * 1024 * 3;
 
             _errorService = errorService;
             _errorContainer = errorContainer;
-            _returnContainer = returnContainer;
+            //_returnContainer = returnContainer;
             _stringValidator = stringValidator;
         }
 
@@ -58,6 +59,13 @@ namespace WEB.Common.Models.Helpers
         public async Task WriteResponseAsync<T>(HttpResponse response, T data)
         {
             response.ContentType = ApiSerializer.ContentType;
+            await response.WriteAsync(ApiSerializer.Serialize(data));
+        }
+
+        public async Task WriteResponseAsync<T>(HttpResponse response, T data, int status)
+        {
+            response.ContentType = ApiSerializer.ContentType;
+            response.StatusCode = status;
             await response.WriteAsync(ApiSerializer.Serialize(data));
         }
 
@@ -69,12 +77,12 @@ namespace WEB.Common.Models.Helpers
         /// <param name="response"></param>
         /// <param name="data"></param>
         /// <returns></returns>
-        public async Task WriteReturnResponseAsync<T>(HttpResponse response, T data)
-        {
-            response.ContentType = ApiSerializer.ContentType;
+        //public async Task WriteReturnResponseAsync<T>(HttpResponse response, T data)
+        //{
+        //    response.ContentType = ApiSerializer.ContentType;
 
-            await response.WriteAsync(ApiSerializer.Serialize(GetReturnType(data)));
-        }
+        //    await response.WriteAsync(ApiSerializer.Serialize(GetReturnType(data)));
+        //}
 
         /// <summary>
         /// map return type with return_type_container and write response
@@ -85,12 +93,12 @@ namespace WEB.Common.Models.Helpers
         /// <param name="data"></param>
         /// <param name="status"></param>
         /// <returns></returns>
-        public async Task WriteReturnResponseAsync<T>(HttpResponse response, T data, int status)
-        {
-            response.ContentType = ApiSerializer.ContentType;
-            response.StatusCode = status;
-            await response.WriteAsync(ApiSerializer.Serialize(GetReturnType(data)));
-        }
+        //public async Task WriteReturnResponseAsync<T>(HttpResponse response, T data, int status)
+        //{
+        //    response.ContentType = ApiSerializer.ContentType;
+        //    response.StatusCode = status;
+        //    await response.WriteAsync(ApiSerializer.Serialize(GetReturnType(data)));
+        //}
 
 
         /// <summary>
@@ -303,8 +311,8 @@ namespace WEB.Common.Models.Helpers
                 {
                     _errorService.AddError(error);
                 }
-
-                await WriteReturnResponseAsync(response, _errorService.GetErrorsObject(), 401);//TODO 401
+                
+                await WriteResponseAsync(response, new ErrorObjectReturnFactory().GetObjectReturn(_errorService.GetErrorsObject()), 401);//TODO 401
                 return;
             }
             catch (Exception e)
@@ -313,7 +321,7 @@ namespace WEB.Common.Models.Helpers
                 logger?.LogError(e, ErrorConsts.SomeError);
             }
 
-            await WriteReturnResponseAsync(response, _errorService.GetErrorsObject());
+            await WriteResponseAsync(response, new ErrorObjectReturnFactory().GetObjectReturn(_errorService.GetErrorsObject()));
         }
 
         /// <summary>
@@ -351,10 +359,10 @@ namespace WEB.Common.Models.Helpers
         }
 
 
-        public object GetReturnType<TIn>(TIn obj)
-        {
-            return _returnContainer.GetReturnType(obj);
-        }
+        //public object GetReturnType<TIn>(TIn obj)
+        //{
+        //    return _returnContainer.GetReturnType(obj);
+        //}
 
         public void StopIfModelStateError(ModelStateDictionary modelState)
         {

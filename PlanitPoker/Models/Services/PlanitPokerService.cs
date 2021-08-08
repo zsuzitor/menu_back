@@ -126,6 +126,11 @@ namespace PlanitPoker.Models.Services
 
         public async Task<EndVoteInfo> GetEndVoteInfo(Room room)
         {
+            if (room == null)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+            }
+
             (var res, bool sc) = room.GetConcurentValue(_multiThreadHelper, rm =>
             {
                 if (rm.StoredRoom.Status != RoomSatus.CloseVote)
@@ -488,7 +493,7 @@ namespace PlanitPoker.Models.Services
         {
             if (room == null)
             {
-                return new List<string>();
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
             }
 
             var res = room.GetConcurentValue(_multiThreadHelper,
@@ -521,8 +526,9 @@ namespace PlanitPoker.Models.Services
         {
             if (room == null)
             {
-                return new List<PlanitUser>();
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
             }
+
 
             (var usersInRoom, bool suc) = room.GetConcurentValue(_multiThreadHelper,
                 rm => rm.StoredRoom.Users.Select(x => x.Clone()).ToList());
@@ -565,6 +571,11 @@ namespace PlanitPoker.Models.Services
             if (string.IsNullOrWhiteSpace(userId))
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.PlanitUserNotFound);
+            }
+
+            if (room == null)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
             }
 
             PlanitUser user = null;
@@ -698,6 +709,11 @@ namespace PlanitPoker.Models.Services
 
         public async Task<bool> UserIsAdmin(Room room, string userConnectionIdRequest)
         {
+            if (room == null)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+            }
+
             if (room == null || string.IsNullOrWhiteSpace(userConnectionIdRequest))
             {
                 return false;
@@ -874,7 +890,7 @@ namespace PlanitPoker.Models.Services
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.StoryNotFound);
                 }
 
-                if (!storyForDel.Completed)
+                if (storyForDel.Completed)
                 {
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.StoryBadStatus);
                 }
@@ -1278,6 +1294,20 @@ namespace PlanitPoker.Models.Services
                     oldStory.IdDb = item.story.Id;
                 }
             }
+        }
+
+        public Task<bool> AllVoted(Room room)
+        {
+            var (res, sc) = room.GetConcurentValue(_multiThreadHelper, rm =>
+                rm.StoredRoom.Users.All(x =>
+                    !string.IsNullOrWhiteSpace(x.UserConnectionId)
+                    && (!x.CanVote || !string.IsNullOrWhiteSpace(x.Vote))));
+            if (!sc)
+            {
+                throw new SomeCustomException(ErrorConsts.SomeError);
+            }
+
+            return Task.FromResult(res);
         }
 
 

@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using Common.Models.Poco;
+using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
 using WEB.Common.Models.Helpers.Interfaces;
 using Menu.Models.InputModels.WordsCardsApp;
+using Menu.Models.Returns.Types.WordsCardsApp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -30,6 +32,9 @@ namespace Menu.Controllers.WordsCardsApp
         private readonly IWordsCardsService _wordsCardsService;
 
 
+        private readonly WordCardReturnFactory _wordCardReturnFactory;
+        private readonly BoolResultFactory _boolResultFactory;
+
 
 
         public WordsCardsController(IJWTService jwtService, IApiHelper apiHealper,
@@ -40,8 +45,9 @@ namespace Menu.Controllers.WordsCardsApp
             _logger = logger;
             _wordsCardsService = wordsCardsService;
             _errorService = errorService;
-            
 
+            _wordCardReturnFactory = new WordCardReturnFactory();
+            _boolResultFactory = new BoolResultFactory();
         }
 
         [Route("get-all-for-user")]
@@ -55,7 +61,7 @@ namespace Menu.Controllers.WordsCardsApp
 
                     var res = await _wordsCardsService.GetAllForUserForView(userInfo);
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, _wordCardReturnFactory.GetObjectReturn(res));
 
                 }, Response, _logger);
 
@@ -79,7 +85,7 @@ namespace Menu.Controllers.WordsCardsApp
 
                     var res = await _wordsCardsService.Create(newData.GetModel(), userInfo);
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, _wordCardReturnFactory.GetObjectReturn(res));
 
                 }, Response, _logger);
 
@@ -101,7 +107,7 @@ namespace Menu.Controllers.WordsCardsApp
                     }
 
                     var res = await _wordsCardsService.Create(newData.Select(x => x.GetModel()).ToList(), userInfo);
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, _wordCardReturnFactory.GetObjectReturn(res));
 
                 }, Response, _logger);
 
@@ -119,7 +125,7 @@ namespace Menu.Controllers.WordsCardsApp
 
                     var res = await _wordsCardsService.Delete(id, userInfo);
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, _wordCardReturnFactory.GetObjectReturn(res));
 
                 }, Response, _logger);
 
@@ -146,7 +152,7 @@ namespace Menu.Controllers.WordsCardsApp
 
                     var res = await _wordsCardsService.Update(newData.GetModel(), userInfo);
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, _wordCardReturnFactory.GetObjectReturn(res));
 
                 }, Response, _logger);
 
@@ -163,7 +169,7 @@ namespace Menu.Controllers.WordsCardsApp
 
                     var res = await _wordsCardsService.ChangeHideStatus(id, userInfo);
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, new BoolResult(res));
+                    await _apiHealper.WriteResponseAsync(Response, _boolResultFactory.GetObjectReturn(new BoolResult(res)));
 
                 }, Response, _logger);
 
@@ -180,7 +186,7 @@ namespace Menu.Controllers.WordsCardsApp
 
                     var res = await _wordsCardsService.CreateFromFile(file, userInfo);
 
-                    await _apiHealper.WriteReturnResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, _wordCardReturnFactory.GetObjectReturn(res));
 
                 }, Response, _logger);
 
