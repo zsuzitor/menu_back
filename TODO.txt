@@ -426,5 +426,46 @@ C:\Users\Stanislav_Avdosev\AppData\Roaming\npm\npm -> C:\Users\Stanislav_Avdosev
 
 
 
+https://docs.microsoft.com/ru-ru/ef/core/modeling/generated-properties?tabs=fluent-api
+
+migrationBuilder.Sql(@"CREATE TRIGGER [MainLogTable_UPDATE] ON [dbo].[MainLogTable]
+            AFTER UPDATE
+            AS
+                BEGIN
+            SET NOCOUNT ON;
+
+            IF((SELECT TRIGGER_NESTLEVEL()) > 1) RETURN;
+
+            DECLARE @Id uniqueidentifier
+
+            SELECT @Id = INSERTED.Id
+            FROM INSERTED
+
+            UPDATE dbo.MainLogTable
+            SET EnteredDate = GETDATE()
+            WHERE Id = @Id
+            END");
+
+
+
+
+
+
+  migrationBuilder.Sql(@"
+            DROP TRIGGER  IF EXISTS  [MainLogTable_UPDATE]   
+            ON ALL SERVER");
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

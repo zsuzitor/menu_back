@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Threading.Tasks;
 using Menu.Models.InputModels.Auth;
 using Auth.Models.Auth.Services.Interfaces;
@@ -51,6 +52,8 @@ namespace Menu.Controllers
             await _apiHealper.DoStandartSomething(
                async () =>
                {
+                   //throw new Exception("test exc");
+
                    //throw new System.Exception();
                    if (_apiHealper.ErrorsFromModelState(ModelState))
                    {
@@ -128,7 +131,6 @@ namespace Menu.Controllers
                   //throw new SomeCustomException("assadads");
                   var accessToken = _apiHealper.GetAccessTokenFromRequest(Request);
                   var refreshToken = _apiHealper.GetRefreshTokenFromRequest(Request);
-
                   var allTokens = await _authSrvice.Refresh(accessToken, refreshToken);
                   if (allTokens == null)
                   {
