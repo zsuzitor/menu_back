@@ -306,19 +306,19 @@ namespace PlanitPoker.Models.Hubs
                     throw new SomeCustomException(ErrorConsts.SomeError);
                 }
 
-                var allVoted = await _planitPokerService.AllVoted(room);
+                //var allVoted = await _planitPokerService.AllVoted(room);
                 var adminsId = await _planitPokerService.GetAdminsId(room);
                 if (adminsId != null && adminsId.Count > 0)
                 {
                     await Clients.Clients(adminsId).SendAsync(Consts.PlanitPokerHubEndpoints.VoteChanged, userId, vote);
                 }
 
-                if (allVoted)
-                {
-                    var erF = new ErrorObjectReturnFactory();
-                    await Clients.Clients(adminsId).SendAsync(Consts.PlanitPokerHubEndpoints.NotifyFromServer,
-                        erF.GetObjectReturn(new ErrorObject(){Errors = new List<OneError>(){new OneError(Consts.PlanitPokerNotifyConsts.AllAreWoted, "все участники проголосовали") }}));
-                }
+                //if (allVoted)
+                //{
+                //    var erF = new ErrorObjectReturnFactory();
+                //    await Clients.Clients(adminsId).SendAsync(Consts.PlanitPokerHubEndpoints.NotifyFromServer,
+                //        erF.GetObjectReturn(new ErrorObject(){Errors = new List<OneError>(){new OneError(Consts.PlanitPokerNotifyConsts.AllAreWoted, "все участники проголосовали") }}));
+                //}
 
                 await Clients.GroupExcept(roomName, adminsId)
                     .SendAsync(Consts.PlanitPokerHubEndpoints.VoteChanged, userId, "?");

@@ -50,7 +50,7 @@ namespace PlanitPoker.Models
             }
         }
 
-        public bool CanVote
+        public bool CanVote//должно быть синхронно с фронтом
         {
             get
             {

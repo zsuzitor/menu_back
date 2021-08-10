@@ -13840,6 +13840,7 @@ var UserInRoom = /** @class */ (function () {
     };
     ;
     UserInRoom.prototype.CanVote = function () {
+        //должно быть синхронно с бэком
         return !this.Roles.includes(UserRoles.Observer);
     };
     ;
@@ -13861,7 +13862,14 @@ var VoteInfo = /** @class */ (function () {
         this.MaxVote = 0;
         this.MinVote = 0;
         this.AverageVote = 0;
+        this.AllAreVoted = false;
     }
+    VoteInfo.prototype.FillByBackModel = function (newData) {
+        this.MaxVote = newData.max_vote;
+        this.MinVote = newData.min_vote;
+        this.AverageVote = newData.average_vote;
+        this.AllAreVoted = false;
+    };
     return VoteInfo;
 }());
 exports.VoteInfo = VoteInfo;
@@ -14479,6 +14487,7 @@ var Room = function (props) {
             if (!userId) {
                 return;
             }
+            var allAreVotedChanged = false;
             setLocalState(function (prevState) {
                 // let newState = { ...prevState };
                 var newState = cloneDeep_1.default(prevState);
@@ -14491,8 +14500,20 @@ var Room = function (props) {
                 if (vote !== "?") {
                     user.Vote = vote;
                 }
+                if (newState.UsersList.every(function (x) { return x.HasVote || !x.CanVote(); }) && !newState.VoteInfo.AllAreVoted) {
+                    newState.VoteInfo.AllAreVoted = true;
+                    allAreVotedChanged = true;
+                    // return;
+                }
                 return newState;
             });
+            if (allAreVotedChanged) {
+                var alert_2 = new AlertData_1.AlertData();
+                alert_2.Text = "Все участники проголосовали";
+                alert_2.Type = AlertData_1.AlertTypeEnum.Success;
+                alert_2.Timeout = 5000;
+                window.G_AddAbsoluteAlertToState(alert_2);
+            }
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.UserRoleChanged, function (userId, changeType, role) {
             if (!userId) {
@@ -14681,9 +14702,7 @@ var Room = function (props) {
         });
         // if (!newVoteCurrentUserSetted) {
         // }
-        state.VoteInfo.MaxVote = data.max_vote;
-        state.VoteInfo.MinVote = data.min_vote;
-        state.VoteInfo.AverageVote = data.average_vote;
+        state.VoteInfo.FillByBackModel(data);
     };
     if (!props.RoomInfo.InRoom) {
         return react_1.default.createElement("h1", null, "\u043F\u044B\u0442\u0430\u0435\u043C\u0441\u044F \u0432\u043E\u0439\u0442\u0438");
@@ -14696,7 +14715,7 @@ var Room = function (props) {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.KickUser, props.RoomInfo.Name, userId);
     };
     var doVote = function (voteCardBlock) { return __awaiter(void 0, void 0, void 0, function () {
-        var alert_2, voted;
+        var alert_3, voted;
         var _a, _b;
         return __generator(this, function (_c) {
             switch (_c.label) {
@@ -14707,11 +14726,11 @@ var Room = function (props) {
                         return [2 /*return*/];
                     }
                     if (!CurrentUserCanVote(localState.UsersList, props.UserInfo.UserId)) {
-                        alert_2 = new AlertData_1.AlertData();
-                        alert_2.Text = "Вы не можете голосовать";
-                        alert_2.Type = AlertData_1.AlertTypeEnum.Error;
-                        alert_2.Timeout = 5000;
-                        window.G_AddAbsoluteAlertToState(alert_2);
+                        alert_3 = new AlertData_1.AlertData();
+                        alert_3.Text = "Вы не можете голосовать";
+                        alert_3.Type = AlertData_1.AlertTypeEnum.Error;
+                        alert_3.Timeout = 5000;
+                        window.G_AddAbsoluteAlertToState(alert_3);
                         return [2 /*return*/];
                     }
                     if (selectedVoteCard === voteCardBlock.target.dataset.vote) {
