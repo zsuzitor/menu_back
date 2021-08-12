@@ -8,15 +8,12 @@ using Common.Models.Error;
 using Common.Models.Error.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
-using Common.Models.Return;
 using Common.Models.Validators;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.SignalR;
-using PlanitPoker.Models.Enums;
 using PlanitPoker.Models.Helpers;
 using PlanitPoker.Models.Returns;
 using PlanitPoker.Models.Services;
-using WEB.Common.Models.Helpers.Interfaces;
 using Microsoft.Extensions.Logging;
 
 namespace PlanitPoker.Models.Hubs
@@ -621,6 +618,10 @@ namespace PlanitPoker.Models.Hubs
         // ReSharper disable once UnusedMember.Global
         public override async Task OnDisconnectedAsync(Exception exception)
         {
+            //IHttpContextFeature hcf = (IHttpContextFeature)this.Context.Features[typeof(IHttpContextFeature)];
+            //HttpContext hc = hcf.HttpContext;
+            //string myCookieValue = hc.Request.Cookies["planing_poker_roomname"];
+
             //название комнаты смогу вытащить из кук???
             var httpContext = Context.GetHttpContext();
             var cookiesHasRoomName =

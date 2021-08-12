@@ -471,6 +471,11 @@ namespace PlanitPoker.Models.Services
                 password = null;
             }
 
+            if (Rooms.ContainsKey(roomName))
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomAlreadyExist);
+            }
+
             var roomData = new StoredRoom(roomName, password);
             //roomData.Status = RoomSatus.AllCanVote;//todo потом убрать
             var room = new Room(roomData);
