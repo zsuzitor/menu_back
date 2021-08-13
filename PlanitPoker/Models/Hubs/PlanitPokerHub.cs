@@ -544,6 +544,31 @@ namespace PlanitPoker.Models.Hubs
 
 
 
+        public async Task OnWindowClosedAsync(string roomName)//, string userId
+        {
+            var httpContext = Context.GetHttpContext();
+            await _apiHealper.DoStandartSomething(async () =>
+            {
+                if (!string.IsNullOrWhiteSpace(roomName))
+                {
+                    roomName = NormalizeRoomName(roomName);
+                    var userConnectionId = GetConnectionId();
+                    (bool sc, string userId) = await _planitPokerService.LeaveFromRoom(roomName, userConnectionId);
+                    if (sc)
+                    {
+                        await Groups.RemoveFromGroupAsync(userConnectionId, roomName);
+                        await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved,
+                            new List<string>() { userId });
+
+                    }
+                }
+
+            }, httpContext.Response, _logger);
+
+
+        }
+
+
 
         //public async Task SetCurrentStory(string roomname, string storyId)
         //{
@@ -623,22 +648,22 @@ namespace PlanitPoker.Models.Hubs
             //string myCookieValue = hc.Request.Cookies["planing_poker_roomname"];
 
             //название комнаты смогу вытащить из кук???
-            var httpContext = Context.GetHttpContext();
-            var cookiesHasRoomName =
-                httpContext.Request.Cookies.TryGetValue("planing_poker_roomname", out string roomName);
-            if (cookiesHasRoomName && !string.IsNullOrWhiteSpace(roomName))
-            {
-                roomName = NormalizeRoomName(roomName);
-                var userConnectionId = GetConnectionId();
-                (bool sc, string userId) = await _planitPokerService.LeaveFromRoom(roomName, userConnectionId);
-                if (sc)
-                {
-                    await Groups.RemoveFromGroupAsync(userConnectionId, roomName);
-                    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved,
-                        new List<string>() {userId});
+            //var httpContext = Context.GetHttpContext();
+            //var cookiesHasRoomName =
+            //    httpContext.Request.Cookies.TryGetValue("planing_poker_roomname", out string roomName);
+            //if (cookiesHasRoomName && !string.IsNullOrWhiteSpace(roomName))
+            //{
+            //    roomName = NormalizeRoomName(roomName);
+            //    var userConnectionId = GetConnectionId();
+            //    (bool sc, string userId) = await _planitPokerService.LeaveFromRoom(roomName, userConnectionId);
+            //    if (sc)
+            //    {
+            //        await Groups.RemoveFromGroupAsync(userConnectionId, roomName);
+            //        await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved,
+            //            new List<string>() {userId});
 
-                }
-            }
+            //    }
+            //}
 
             await base.OnDisconnectedAsync(exception);
         }

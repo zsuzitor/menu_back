@@ -14015,6 +14015,7 @@ var PlaningPokerMainProps = /** @class */ (function () {
 __webpack_require__(/*! ../../../../style/planing_poker.css */ "./style/planing_poker.css");
 //см коммент для __planing_room_props_ref__
 var __planing_poker_main_state_ref__ = null;
+var __planing_poker_hubConnected_ref__ = false;
 var PlaningPokerMain = function (props) {
     var initState = new PlaningPokerMainState();
     initState.User.UserName = "enter_your_name";
@@ -14035,8 +14036,33 @@ var PlaningPokerMain = function (props) {
     var _b = react_1.useState(initState), localState = _b[0], setLocalState = _b[1];
     __planing_poker_main_state_ref__ = localState;
     var _c = react_1.useState(false), hubConnected = _c[0], sethubConnectedState = _c[1];
+    __planing_poker_hubConnected_ref__ = hubConnected;
     //componentdidmount, должен вызваться уже когда childs отрендерятся
     react_1.useEffect(function () {
+        hubConnection.onclose(function () {
+            // console.log(JSON.stringify(__planing_poker_main_state_ref__));
+            // alert("asd");
+            //todo тут сообщение об ошибке или что то еще мб перезагрузить страницу\редирект?
+        });
+        // window.onbeforeunload = function(e) {
+        //     var dialogText = 'Dialog text here';
+        //     e.returnValue = dialogText;
+        //     return dialogText;
+        //   };
+        window.addEventListener('beforeunload', function (event) {
+            var _a;
+            if (__planing_poker_hubConnected_ref__) {
+                hubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.OnWindowClosedAsync, (_a = __planing_poker_main_state_ref__ === null || __planing_poker_main_state_ref__ === void 0 ? void 0 : __planing_poker_main_state_ref__.RoomInfo) === null || _a === void 0 ? void 0 : _a.Name);
+            }
+            // console.log(JSON.stringify(__planing_poker_main_state_ref__));
+            // var dialogText = 'Dialog text here';
+            // event.returnValue = dialogText;
+            // return dialogText;
+            // Отмените событие, как указано в стандарте.
+            //event.preventDefault();
+            // Chrome требует установки возвратного значения.
+            //event.returnValue = '';
+        });
         hubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.PlaningNotifyFromServer, function (data) {
             var dataT = data;
             var alert = new AlertData_1.AlertData();
@@ -18583,6 +18609,7 @@ var HubEndpointsBack = /** @class */ (function () {
         this.RemoveRoleUser = "RemoveRoleUser";
         this.LoadNotActualStories = "LoadNotActualStories";
         this.Vote = "Vote";
+        this.OnWindowClosedAsync = "OnWindowClosedAsync";
     }
     return HubEndpointsBack;
 }());
