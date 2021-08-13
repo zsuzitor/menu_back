@@ -56,8 +56,8 @@ namespace DAL.Models.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<MainNLogEntity>().HasKey(x => x.Id);
-            modelBuilder.Entity<MainNLogEntity>().Property(x => x.Id).HasDefaultValueSql("NEWID()"); ;
+            modelBuilder.Entity<MainNLogEntity>().HasKey(x => x.Id).IsClustered(false);
+            modelBuilder.Entity<MainNLogEntity>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
                 
 
             modelBuilder.Entity<MainNLogEntity>().HasIndex(x => x.EnteredDate);
