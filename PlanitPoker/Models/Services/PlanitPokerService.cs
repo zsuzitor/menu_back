@@ -22,41 +22,31 @@ namespace PlanitPoker.Models.Services
 
         private readonly MultiThreadHelper _multiThreadHelper;
 
-
-        //private readonly IPlanitPokerRepository _planitPokerRepository;
-        //private readonly IPlaningUserRepository _planingUserRepository;
         private readonly IRoomRepository _roomRepository;
         private readonly IStoryRepository _storyRepository;
         private readonly IErrorService _errorService;
         private readonly IErrorContainer _errorContainer;
 
-        //MenuDbContext db;
 
 
 
-        public PlanitPokerService( //IPlanitPokerRepository planitRepo,
+        public PlanitPokerService(
             MultiThreadHelper multiThreadHelper,
-            //IPlaningUserRepository planingUserRepository,
             IRoomRepository roomRepository, IStoryRepository storyRepository
             , IErrorService errorService, IErrorContainer errorContainer
-            //MenuDbContext db
         )
         {
             _multiThreadHelper = multiThreadHelper;
-            //_planitPokerRepository = planitRepo;
-
-            //_planingUserRepository = planingUserRepository;
             _roomRepository = roomRepository;
             _storyRepository = storyRepository;
 
             _errorService = errorService;
             _errorContainer = errorContainer;
-            //this.db = db;
         }
 
-        public async Task<List<PlanitUser>> GetAllUsersWithRight(Room room, string userConnectionId)
+        public List<PlanitUser> GetAllUsersWithRight(Room room, string userConnectionId)
         {
-            var users = await GetAllUsers(room);
+            var users = GetAllUsers(room);
             if (users == null || users.Count == 0)
             {
                 return new List<PlanitUser>();
@@ -74,16 +64,16 @@ namespace PlanitPoker.Models.Services
         public async Task<List<PlanitUser>> GetAllUsersWithRight(string roomName, string userConnectionId)
         {
             var room = await TryGetRoom(roomName);
-            return await GetAllUsersWithRight(room, userConnectionId);
+            return GetAllUsersWithRight(room, userConnectionId);
         }
 
         public async Task<RoomInfoReturn> GetRoomInfoWithRight(string roomName, string userConnectionId)
         {
             var room = await TryGetRoom(roomName);
-            return await GetRoomInfoWithRight(room, userConnectionId);
+            return GetRoomInfoWithRight(room, userConnectionId);
         }
 
-        public async Task<RoomInfoReturn> GetRoomInfoWithRight(Room room, string userConnectionId)
+        public RoomInfoReturn GetRoomInfoWithRight(Room room, string userConnectionId)
         {
             if (string.IsNullOrWhiteSpace(userConnectionId))
             {
@@ -95,9 +85,8 @@ namespace PlanitPoker.Models.Services
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
             }
 
-            var roomInfo =
-                await GetEndVoteInfo(
-                    room); //todo это можно сделать без локов тк ниже рума полностью копируется, можно создать новый метод
+            //todo это можно сделать без локов тк ниже рума полностью копируется, можно создать новый метод
+            var roomInfo = GetEndVoteInfo(room);
             var scRoom = room.GetConcurentValue(_multiThreadHelper, rm => rm.StoredRoom.Clone());
             if (!scRoom.sc)
             {
@@ -120,11 +109,11 @@ namespace PlanitPoker.Models.Services
         public async Task<EndVoteInfo> GetEndVoteInfo(string roomName)
         {
             var room = await TryGetRoom(roomName);
-            return await GetEndVoteInfo(room);
+            return GetEndVoteInfo(room);
 
         }
 
-        public async Task<EndVoteInfo> GetEndVoteInfo(Room room)
+        public EndVoteInfo GetEndVoteInfo(Room room)
         {
             if (room == null)
             {
@@ -199,16 +188,8 @@ namespace PlanitPoker.Models.Services
 
         public async Task<bool> SaveRoom(string roomName, string userConnectionIdRequest)
         {
-
-            //UpdateIfCan
-
             //только из памяти берем
             var room = await TryGetRoom(roomName);
-            //var isAdmin = await UserIsAdmin(room, userConnectionIdRequest);
-            //if (!isAdmin)
-            //{
-            //    return false;
-            //}
             if (room == null)
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
@@ -217,7 +198,7 @@ namespace PlanitPoker.Models.Services
             var success = false;
             await room.SetConcurentValueAsync<Room>(_multiThreadHelper, async rm =>
             {
-                var objForSave = await GetRoomDbObject(room);
+                var objForSave = GetRoomDbObject(room);
                 if (objForSave == null)
                 {
                     throw new SomeCustomException(ErrorConsts.SomeError);
@@ -374,7 +355,7 @@ namespace PlanitPoker.Models.Services
             });
         }
 
-        public async Task<(bool sc, string userId)> ChangeVote(Room room, string connectionUserId, string vote)
+        public (bool sc, string userId) ChangeVote(Room room, string connectionUserId, string vote)
         {
             if (room == null)
             {
@@ -414,7 +395,7 @@ namespace PlanitPoker.Models.Services
 
 
 
-        public async Task<bool> ClearVotes(Room room)
+        public bool ClearVotes(Room room)
         {
             if (room == null)
             {
@@ -497,7 +478,7 @@ namespace PlanitPoker.Models.Services
         /// </summary>
         /// <param name="room"></param>
         /// <returns></returns>
-        public async Task<List<PlanitUser>> GetAllUsers(Room room)
+        public List<PlanitUser> GetAllUsers(Room room)
         {
             if (room == null)
             {
@@ -524,10 +505,8 @@ namespace PlanitPoker.Models.Services
         public async Task<List<PlanitUser>> GetAllUsers(string roomName)
         {
             var room = await TryGetRoom(roomName);
-            return await GetAllUsers(room);
+            return GetAllUsers(room);
         }
-
-
 
 
 
@@ -669,10 +648,10 @@ namespace PlanitPoker.Models.Services
         public async Task<bool> UserIsAdmin(string roomName, string userConnectionIdRequest)
         {
             var room = await TryGetRoom(roomName, false);
-            return await UserIsAdmin(room, userConnectionIdRequest);
+            return UserIsAdmin(room, userConnectionIdRequest);
         }
 
-        public async Task<bool> UserIsAdmin(Room room, string userConnectionIdRequest)
+        public bool UserIsAdmin(Room room, string userConnectionIdRequest)
         {
             if (room == null)
             {
@@ -755,7 +734,7 @@ namespace PlanitPoker.Models.Services
                 throw new SomeCustomException(ErrorConsts.SomeError);
             }
 
-            success = await ClearVotes(room);
+            success = ClearVotes(room);
             if (!success)
             {
                 throw new SomeCustomException(ErrorConsts.SomeError);
@@ -776,7 +755,7 @@ namespace PlanitPoker.Models.Services
                 throw new SomeCustomException(ErrorConsts.SomeError);
             }
 
-            var result = await GetEndVoteInfo(room);
+            var result = GetEndVoteInfo(room);
             return result;
 
         }
@@ -877,7 +856,7 @@ namespace PlanitPoker.Models.Services
         {
             Story res = null;
             //todo тут можно упростить тк все данные не нужны и забрать можно внутри блокировки ниже
-            var voteInfo = await GetEndVoteInfo(room);
+            var voteInfo = GetEndVoteInfo(room);
             string oldId = null;
             var sc = await UpdateIfCan(room, userConnectionIdRequest, rm =>
             {
@@ -958,10 +937,10 @@ namespace PlanitPoker.Models.Services
         public async Task<(bool sc, string userId)> LeaveFromRoom(string roomName, string userConnectionIdRequest)
         {
             var room = await TryGetRoom(roomName);
-            return await LeaveFromRoom(room, userConnectionIdRequest);
+            return LeaveFromRoom(room, userConnectionIdRequest);
         }
 
-        public async Task<(bool sc, string userId)> LeaveFromRoom(Room room, string userConnectionIdRequest)
+        public (bool sc, string userId) LeaveFromRoom(Room room, string userConnectionIdRequest)
         {
             if (room == null)
             {
@@ -1164,7 +1143,7 @@ namespace PlanitPoker.Models.Services
 
 
 
-        private async Task<PlaningRoomDal> GetRoomDbObject(Room roomDb)
+        private PlaningRoomDal GetRoomDbObject(Room roomDb)
         {
             if (roomDb == null)
             {

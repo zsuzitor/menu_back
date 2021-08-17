@@ -7,16 +7,16 @@ namespace PlanitPoker.Models.Services
 {
     public interface IPlanitPokerService
     {
-        Task<List<PlanitUser>> GetAllUsersWithRight(Room room, string userId);
+        List<PlanitUser> GetAllUsersWithRight(Room room, string userId);
         Task<List<PlanitUser>> GetAllUsersWithRight(string roomName, string userId);
 
         //todo наверное стоит создать аналогичную сущность без return и тут заюзать
         Task<RoomInfoReturn> GetRoomInfoWithRight(string roomName, string currentUserId);
 
-        Task<RoomInfoReturn> GetRoomInfoWithRight(Room room, string currentUserId);
+        RoomInfoReturn GetRoomInfoWithRight(Room room, string currentUserId);
         Task<EndVoteInfo> GetEndVoteInfo(string roomName);
 
-        Task<EndVoteInfo> GetEndVoteInfo(Room room);
+        EndVoteInfo GetEndVoteInfo(Room room);
 
         //Task<List<string>> DeleteRoom(string roomName);
         Task<Room> DeleteRoom(string roomName, string userConnectionIdRequest);
@@ -31,7 +31,7 @@ namespace PlanitPoker.Models.Services
 
         Task<(bool sc, string oldConnectionId)> AddUserIntoRoom(string roomName, PlanitUser user);
         Task<(bool sc, string oldConnectionId)> AddUserIntoRoom(Room room, PlanitUser user);
-        Task<List<PlanitUser>> GetAllUsers(Room room);
+        List<PlanitUser> GetAllUsers(Room room);
 
         /// <summary>
         /// просто получить пользователей
@@ -42,15 +42,15 @@ namespace PlanitPoker.Models.Services
 
         Task<(bool sc, string userId)> ChangeUserName(string roomName, string connectionUserId, string newUserName);
 
-        Task<bool> ClearVotes(Room room);
-        Task<(bool sc, string userId)> ChangeVote(Room room, string connectionUserId, string vote);
+        bool ClearVotes(Room room);
+        (bool sc, string userId) ChangeVote(Room room, string connectionUserId, string vote);
         Task<bool> AllVoted(Room room);
 
 
         Task<(PlanitUser user, bool sc)> KickFromRoom(string roomName, string userConnectionIdRequest, string userId);
         Task<(PlanitUser user, bool sc)> KickFromRoom(Room room, string userConnectionIdRequest, string userId);
         Task<(bool sc, string userId)> LeaveFromRoom(string roomName, string userConnectionIdRequest);
-        Task<(bool sc, string userId)> LeaveFromRoom(Room room, string userConnectionIdRequest);
+        (bool sc, string userId) LeaveFromRoom(Room room, string userConnectionIdRequest);
 
 
         Task<bool> ChangeStatusIfCan(string roomName, string userConnectionIdRequest, RoomSatus newStatus);
@@ -62,7 +62,7 @@ namespace PlanitPoker.Models.Services
         Task<Room> TryGetRoom(string roomName, bool cacheOnly = true);
         Task<bool> UserIsAdmin(string roomName, string userConnectionIdRequest);
 
-        Task<bool> UserIsAdmin(Room room, string userConnectionIdRequest);
+        bool UserIsAdmin(Room room, string userConnectionIdRequest);
 
         //Task<bool> AddAdmin(string roomName, string userId);
         //Task<bool> AddAdmin(Room room, string userId);
