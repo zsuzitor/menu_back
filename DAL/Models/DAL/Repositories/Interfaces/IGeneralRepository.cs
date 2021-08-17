@@ -16,6 +16,9 @@ namespace DAL.Models.DAL.Repositories.Interfaces
 
         Task<T1> Get(T2 id);
         Task<List<T1>> Get(List<T2> ids);
+        Task<T1> GetNoTrack(T2 id);
+        Task<List<T1>> GetNoTrack(List<T2> ids);
+        Task<bool> Exist(T2 id);
         Task<List<T1>> Delete(List<T1> records);
         Task<T1> Delete(T1 record);
         Task<T1> Delete(T2 recordId);

@@ -16,21 +16,23 @@ namespace DAL.Models.DAL.Repositories
             _db = db;
         }
 
-        public async virtual Task<T1> Add(T1 newRecord)
+        public virtual async Task<T1> Add(T1 newRecord)
         {
             _db.Set<T1>().Add(newRecord);
             await _db.SaveChangesAsync();
             return newRecord;
         }
 
-        public async virtual Task<List<T1>> Add(List<T1> newRecords)
+        public virtual async Task<List<T1>> Add(List<T1> newRecords)
         {
             _db.Set<T1>().AddRange(newRecords);
             await _db.SaveChangesAsync();
             return newRecords;
         }
 
-        public async virtual Task<List<T1>> Delete(List<T1> records)
+        
+
+        public virtual async Task<List<T1>> Delete(List<T1> records)
         {
             _db.Set<T1>().AttachRange(records);
             _db.Set<T1>().RemoveRange(records);
@@ -38,7 +40,7 @@ namespace DAL.Models.DAL.Repositories
             return records;
         }
 
-        public async virtual Task<T1> Delete(T1 record)
+        public virtual async Task<T1> Delete(T1 record)
         {
             _db.Set<T1>().Attach(record);
             _db.Set<T1>().Remove(record);
@@ -58,24 +60,39 @@ namespace DAL.Models.DAL.Repositories
             return recordForDel;
         }
 
-        public async virtual Task<T1> Get(T2 id)
+        public virtual async Task<T1> Get(T2 id)
         {
             return await _db.Set<T1>().FirstOrDefaultAsync(x=>x.Id.Equals(id));
         }
 
-        public async virtual Task<List<T1>> Get(List<T2> ids)
+        public virtual async Task<List<T1>> Get(List<T2> ids)
         {
             return await _db.Set<T1>().Where(x => ids.Contains(x.Id)).ToListAsync();
         }
 
-        public async virtual Task<T1> Update(T1 record)
+        public virtual async Task<T1> GetNoTrack(T2 id)
+        {
+            return await _db.Set<T1>().AsNoTracking().FirstOrDefaultAsync(x => x.Id.Equals(id));
+        }
+
+        public virtual async Task<List<T1>> GetNoTrack(List<T2> ids)
+        {
+            return await _db.Set<T1>().AsNoTracking().Where(x => ids.Contains(x.Id)).ToListAsync();
+        }
+
+        public async Task<bool> Exist(T2 id)
+        {
+            return (await _db.Set<T1>().Where(x => x.Id.Equals(id)).Select(x => x.Id).FirstOrDefaultAsync()) != null;
+        }
+
+        public virtual async Task<T1> Update(T1 record)
         {
             _db.Set<T1>().Attach(record);
             await _db.SaveChangesAsync();
             return record;
         }
 
-        public async virtual Task<IEnumerable<T1>> Update(IEnumerable<T1> records)
+        public virtual async Task<IEnumerable<T1>> Update(IEnumerable<T1> records)
         {
             _db.Set<T1>().AttachRange(records);
             await _db.SaveChangesAsync();

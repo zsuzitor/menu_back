@@ -19,22 +19,22 @@ namespace PlanitPoker.Models
 
         public class PlanitPokerErrorConsts
         {
-            public const string RoomNameIsEmpty = "room_name_is_empty";
-            public const string PlanitUserNotFound = "planit_user_not_found";
-            public const string RoomAlreadyExist = "room_already_exist";
-            public const string RoomNotFound = "room_not_found";
-            public const string SomeErrorWithRoomCreating = "some_error_with_room_creating";
-            public const string DontHaveAccess = "dont_have_access";
-            public const string CantVote = "cant_vote";
-            public const string StoryNotFound = "story_not_found";
-            public const string StoryBadStatus = "story_bad_status";
+            public const string RoomNameIsEmpty = "planing_poker_room_name_is_empty";
+            public const string PlanitUserNotFound = "planing_poker_planit_user_not_found";
+            public const string RoomAlreadyExist = "planing_poker_room_already_exist";
+            public const string RoomNotFound = "planing_poker_room_not_found";
+            public const string SomeErrorWithRoomCreating = "planing_poker_some_error_with_room_creating";
+            public const string DontHaveAccess = "planing_poker_dont_have_access";
+            public const string CantVote = "planing_poker_cant_vote";
+            public const string StoryNotFound = "planing_poker_story_not_found";
+            public const string StoryBadStatus = "planing_poker_story_bad_status";
         }
 
-        public class PlanitPokerNotifyConsts
-        {//какой то тоже контейнер или может что то еще
-            public const string AllAreWoted = "all_are_woted";
+        //public class PlanitPokerNotifyConsts
+        //{//какой то тоже контейнер или может что то еще
+        //    public const string AllAreWoted = "all_are_woted";
 
-        }
+        //}
 
         public class PlanitPokerHubEndpoints
         {
