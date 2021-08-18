@@ -211,10 +211,7 @@ namespace PlanitPoker.Models.Services
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.DontHaveAccess);
                 }
 
-                //if (!room.StoredRoom.Users.Any(x => x.MainAppUserId != null && x.IsAdmin))
-                //{
-                //    return;
-                //}
+               
 
                 var roomFromDb = await _roomRepository.GetByName(roomName);
 
@@ -231,7 +228,7 @@ namespace PlanitPoker.Models.Services
                 {
                     roomFromDb.Name = objForSave.Name;
                     roomFromDb.Password = objForSave.Password;
-                    //истории и пользователей лишних удалить, новые добавить \ обновить
+                    //истории и пользователей лишние удалить, новые добавить \ обновить
                     await _roomRepository.LoadStories(roomFromDb);
                     await _roomRepository.LoadUsers(roomFromDb);
                     await AddNewStoriesToDb(room, roomFromDb.Id);
@@ -267,22 +264,38 @@ namespace PlanitPoker.Models.Services
         }
 
 
-        public Task<bool> AddTimeAliveRoom(string roomName)
+        public async Task<DateTime> AddTimeAliveRoom(string roomName)
         {
-            //todo
-            throw new NotImplementedException();
+            var room = await TryGetRoom(roomName);
+            return AddTimeAliveRoom(room);
         }
 
-        public Task<bool> AddTimeAliveRoom(Room room)
+        public DateTime AddTimeAliveRoom(Room room)
         {
-            //todo
-            throw new NotImplementedException();
+            var res = DateTime.MinValue;
+            room.SetConcurentValue<Room>(_multiThreadHelper,
+                rm =>
+                {
+                    res = DateTime.Now.AddHours(Consts.DefaultHourRoomAlive);
+                    rm.StoredRoom.DieDate = res;
+                });
+
+            return res;
         }
 
-        public Task ClearOldRooms()
+        public async Task ClearOldRooms()
         {
-            //TODO
-            throw new System.NotImplementedException();
+            foreach (var roomName in Rooms.Keys)
+            {
+                var curRoom = Rooms[roomName];
+                var dieDateCurRoom = curRoom.GetConcurentValue(_multiThreadHelper,
+                    rm => rm.StoredRoom.DieDate);
+                if (dieDateCurRoom.res < (DateTime.Now.AddHours(Consts.DefaultHourRoomAlive)))
+                {
+                    Rooms.Remove(roomName, out var room);
+                    room.
+                }
+            }
         }
 
         public async Task<(bool sc, string oldConnectionId)> AddUserIntoRoom(string roomName, PlanitUser user)

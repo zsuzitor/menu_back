@@ -26,7 +26,7 @@ namespace PlanitPoker.Models
             Status = RoomSatus.CloseVote;
             Users = new List<PlanitUser>();
             Stories = new List<Story>();
-            DieDate = DateTime.Now.AddHours(2);
+            DieDate = DateTime.Now.AddHours(Consts.DefaultHourRoomAlive);
             CurrentStoryId = "";
         }
 

@@ -4,6 +4,9 @@ namespace PlanitPoker.Models
 {
     public class Consts
     {
+        public const int DefaultHourRoomAlive = 2;
+
+
         public static class Roles
         {
             public const string User = "User";

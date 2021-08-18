@@ -158,13 +158,19 @@ namespace PlanitPoker.Models.Hubs
                     //return;
                 }
 
-                await _planitPokerService.AddTimeAliveRoom(room);
-                var (dt, suc) = GetValueFromRoomAsync(room, rm => rm.StoredRoom.DieDate);
-                if (suc)
+                var newDieDate = _planitPokerService.AddTimeAliveRoom(room);
+                if (newDieDate != DateTime.MinValue)
                 {
-                    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.NewRoomAlive, suc);
+                    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.NewRoomAlive, newDieDate);
                     return;
                 }
+
+                //var (dt, suc) = GetValueFromRoomAsync(room, rm => rm.StoredRoom.DieDate);
+                //if (suc)
+                //{
+                //    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.NewRoomAlive, dt);
+                //    return;
+                //}
 
                 throw new SomeCustomException(ErrorConsts.SomeError);
             }, httpContext.Response, _logger);
@@ -283,21 +289,8 @@ namespace PlanitPoker.Models.Hubs
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
                 }
 
-                //(var res, bool sc) = GetValueFromRoomAsync(room, rm => rm.StoredRoom.Status);
 
-                //if (!sc)
-                //{
-                //    throw new SomeCustomException(ErrorConsts.SomeError);
-                //}
-
-                //if (res != RoomSatus.AllCanVote)
-                //{
-                //    //todo можно написать что голосовать нельзя
-                //    return false;
-                //}
-
-
-                (bool sc1, string userId) = await _planitPokerService.ChangeVote(room, GetConnectionId(), vote);
+                (bool sc1, string userId) =  _planitPokerService.ChangeVote(room, GetConnectionId(), vote);
                 if (!sc1)
                 {
                     throw new SomeCustomException(ErrorConsts.SomeError);

@@ -1,4 +1,5 @@
-﻿using PlanitPoker.Models.Enums;
+﻿using System;
+using PlanitPoker.Models.Enums;
 using PlanitPoker.Models.Returns;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -26,8 +27,8 @@ namespace PlanitPoker.Models.Services
 
 
         Task<Room> CreateRoomWithUser(string roomName, string password, PlanitUser user);
-        Task<bool> AddTimeAliveRoom(string roomName);
-        Task<bool> AddTimeAliveRoom(Room room);
+        Task<DateTime> AddTimeAliveRoom(string roomName);
+        DateTime AddTimeAliveRoom(Room room);
 
         Task<(bool sc, string oldConnectionId)> AddUserIntoRoom(string roomName, PlanitUser user);
         Task<(bool sc, string oldConnectionId)> AddUserIntoRoom(Room room, PlanitUser user);
