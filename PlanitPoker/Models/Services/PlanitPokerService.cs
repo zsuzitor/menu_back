@@ -181,8 +181,6 @@ namespace PlanitPoker.Models.Services
             }
 
             await _roomRepository.DeleteByName(roomName);
-
-
             return room;
         }
 
@@ -195,15 +193,8 @@ namespace PlanitPoker.Models.Services
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
             }
 
-            var success = false;
-            await room.SetConcurentValueAsync<Room>(_multiThreadHelper, async rm =>
+            room.GetConcurentValue(_multiThreadHelper, rm =>
             {
-                var objForSave = GetRoomDbObject(room);
-                if (objForSave == null)
-                {
-                    throw new SomeCustomException(ErrorConsts.SomeError);
-                }
-
                 var currentUserFromRoom = room.StoredRoom.Users.FirstOrDefault(x =>
                     x.UserConnectionId == userConnectionIdRequest && x.IsAdmin && x.MainAppUserId != null);
                 if (currentUserFromRoom == null)
@@ -211,56 +202,10 @@ namespace PlanitPoker.Models.Services
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.DontHaveAccess);
                 }
 
-               
-
-                var roomFromDb = await _roomRepository.GetByName(roomName);
-
-                if (roomFromDb == null)
-                {
-                    objForSave.Users.AddRange(
-                        room.StoredRoom.Users.Where(x => x.MainAppUserId != null)
-                            .Select(x => x.ToDbObject(objForSave.Id)).ToList());
-                    objForSave = await _roomRepository.Add(objForSave);
-                    await AddNewStoriesToDb(room, objForSave.Id);
-                    success = true;
-                }
-                else
-                {
-                    roomFromDb.Name = objForSave.Name;
-                    roomFromDb.Password = objForSave.Password;
-                    //истории и пользователей лишние удалить, новые добавить \ обновить
-                    await _roomRepository.LoadStories(roomFromDb);
-                    await _roomRepository.LoadUsers(roomFromDb);
-                    await AddNewStoriesToDb(room, roomFromDb.Id);
-                    foreach (var usCh in room.StoredRoom.Users)
-                    {
-                        if (usCh.MainAppUserId == null)
-                        {
-                            continue;
-                        }
-
-                        var existUs = roomFromDb.Users.FirstOrDefault(x => x.MainAppUserId == usCh.MainAppUserId);
-                        if (existUs == null)
-                        {
-                            roomFromDb.Users.Add(usCh.ToDbObject(roomFromDb.Id));
-                        }
-                        else
-                        {
-
-                            var tmpUs = usCh.ToDbObject(roomFromDb.Id);
-                            existUs.Name = tmpUs.Name;
-                            existUs.Roles = tmpUs.Roles;
-                        }
-                    }
-
-                    await _roomRepository.Update(roomFromDb);
-
-                    success = true;
-                }
+                return true;
             });
 
-
-            return success;
+            return await SaveRoomWithoutRights(room);
         }
 
 
@@ -283,9 +228,14 @@ namespace PlanitPoker.Models.Services
             return res;
         }
 
+        /// <summary>
+        /// то надо сохраняет, что надо чистит
+        /// </summary>
+        /// <returns></returns>
         public async Task ClearOldRooms()
         {
-            foreach (var roomName in Rooms.Keys)
+            var roomKeys = Rooms.Keys.ToList();
+            foreach (var roomName in roomKeys)
             {
                 var curRoom = Rooms[roomName];
                 var dieDateCurRoom = curRoom.GetConcurentValue(_multiThreadHelper,
@@ -293,7 +243,16 @@ namespace PlanitPoker.Models.Services
                 if (dieDateCurRoom.res < (DateTime.Now.AddHours(Consts.DefaultHourRoomAlive)))
                 {
                     Rooms.Remove(roomName, out var room);
-                    room.
+                    if (room == null)
+                    {
+                        continue;
+                    }
+
+                    if (NeedSaveRoom(room))
+                    {
+                        await SaveRoomWithoutRights(room);
+
+                    }
                 }
             }
         }
@@ -1005,6 +964,22 @@ namespace PlanitPoker.Models.Services
 
 
 
+        public Task<bool> AllVoted(Room room)
+        {
+            var (res, sc) = room.GetConcurentValue(_multiThreadHelper, rm =>
+                rm.StoredRoom.Users.All(x =>
+                    !string.IsNullOrWhiteSpace(x.UserConnectionId)
+                    && (!x.CanVote || !string.IsNullOrWhiteSpace(x.Vote))));
+            if (!sc)
+            {
+                throw new SomeCustomException(ErrorConsts.SomeError);
+            }
+
+            return Task.FromResult(res);
+        }
+
+
+
 
 
 
@@ -1216,6 +1191,12 @@ namespace PlanitPoker.Models.Services
         }
 
 
+        /// <summary>
+        /// не потокобезопасно!
+        /// </summary>
+        /// <param name="room"></param>
+        /// <param name="roomId"></param>
+        /// <returns></returns>
         private async Task AddNewStoriesToDb(Room room, long roomId) //IEnumerable<Story> stories)
         {
             var storiesForSave = room.StoredRoom.Stories.Where(x => x.IdDb == null)
@@ -1231,20 +1212,85 @@ namespace PlanitPoker.Models.Services
             }
         }
 
-        public Task<bool> AllVoted(Room room)
-        {
-            var (res, sc) = room.GetConcurentValue(_multiThreadHelper, rm =>
-                rm.StoredRoom.Users.All(x =>
-                    !string.IsNullOrWhiteSpace(x.UserConnectionId)
-                    && (!x.CanVote || !string.IsNullOrWhiteSpace(x.Vote))));
-            if (!sc)
-            {
-                throw new SomeCustomException(ErrorConsts.SomeError);
-            }
 
-            return Task.FromResult(res);
+        private bool NeedSaveRoom(Room room)
+        {
+            var res = room.GetConcurentValue(_multiThreadHelper,
+                rm => rm.StoredRoom.Users.Any(x => x.MainAppUserId != null));
+            return res.sc && res.res;
         }
 
+
+        public async Task<bool> SaveRoomWithoutRights(Room room)
+        {
+            var success = false;
+            await room.SetConcurentValueAsync<Room>(_multiThreadHelper, async rm =>
+            {
+                var objForSave = GetRoomDbObject(room);
+                if (objForSave == null)
+                {
+                    throw new SomeCustomException(ErrorConsts.SomeError);
+                }
+
+
+                PlaningRoomDal roomFromDb = null;
+                if (rm.StoredRoom.Id != null)
+                {
+                    roomFromDb = await _roomRepository.Get(rm.StoredRoom.Id.Value);
+                }
+
+                //вообще смысла вроде как нет, но на всякий случай пусть будет
+                var roomFromDbByName = await _roomRepository.GetByName(rm.StoredRoom.Name);
+                if (roomFromDbByName?.Id != roomFromDb?.Id)
+                {
+                    throw new SomeCustomException("имя каким то образом задублилось"); //todo
+                }
+
+                if (roomFromDb == null)
+                {
+                    objForSave.Users.AddRange(
+                        room.StoredRoom.Users.Where(x => x.MainAppUserId != null)
+                            .Select(x => x.ToDbObject(objForSave.Id)).ToList());
+                    objForSave = await _roomRepository.Add(objForSave);
+                    await AddNewStoriesToDb(room, objForSave.Id);
+                    success = true;
+                }
+                else
+                {
+                    roomFromDb.Name = objForSave.Name;
+                    roomFromDb.Password = objForSave.Password;
+                    //истории и пользователей лишние удалить, новые добавить \ обновить
+                    await _roomRepository.LoadStories(roomFromDb);
+                    await _roomRepository.LoadUsers(roomFromDb);
+                    await AddNewStoriesToDb(room, roomFromDb.Id);
+                    foreach (var usCh in room.StoredRoom.Users)
+                    {
+                        if (usCh.MainAppUserId == null)
+                        {
+                            continue;
+                        }
+
+                        var existUs = roomFromDb.Users.FirstOrDefault(x => x.MainAppUserId == usCh.MainAppUserId);
+                        if (existUs == null)
+                        {
+                            roomFromDb.Users.Add(usCh.ToDbObject(roomFromDb.Id));
+                        }
+                        else
+                        {
+                            var tmpUs = usCh.ToDbObject(roomFromDb.Id);
+                            existUs.Name = tmpUs.Name;
+                            existUs.Roles = tmpUs.Roles;
+                        }
+                    }
+
+                    await _roomRepository.Update(roomFromDb);
+
+                    success = true;
+                }
+            });
+
+            return success;
+        }
 
         #endregion private
 

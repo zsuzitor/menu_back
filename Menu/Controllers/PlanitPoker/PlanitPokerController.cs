@@ -7,6 +7,8 @@ using Microsoft.Extensions.Logging;
 using PlanitPoker.Models.Services;
 using System.Threading.Tasks;
 using Menu.Models.Returns.Types.PlanitPoker;
+using Microsoft.AspNetCore.SignalR;
+using PlanitPoker.Models.Hubs;
 
 namespace Menu.Controllers.PlanitPoker
 {
@@ -20,7 +22,7 @@ namespace Menu.Controllers.PlanitPoker
 
         private readonly IPlanitPokerService _planitPokerService;
         //private readonly IErrorService _errorService;
-        //private readonly IHubContext<PlanitPokerHub> hubContext;
+        //private readonly IHubContext<PlanitPokerHub> _hubContext;
 
 
         private readonly IStringValidator _stringValidator;
@@ -61,6 +63,7 @@ namespace Menu.Controllers.PlanitPoker
                     await _apiHealper.WriteResponseAsync(Response, _planitUserReturnFactory.GetObjectReturn(users));
 
                 }, Response, _logger);
+
         }
 
 
@@ -85,6 +88,20 @@ namespace Menu.Controllers.PlanitPoker
 
                     await _apiHealper.WriteResponseAsync(Response, roomInfo);
 
+                }, Response, _logger);
+        }
+
+
+
+
+        [Route("start-clearing")]
+        [HttpGet]
+        public async Task StartClearing()
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    await _planitPokerService.ClearOldRooms();
                 }, Response, _logger);
         }
 

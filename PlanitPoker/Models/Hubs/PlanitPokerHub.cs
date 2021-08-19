@@ -595,6 +595,7 @@ namespace PlanitPoker.Models.Hubs
                     .ToList();
                 if (usersId != null && usersId.Count > 0)
                 {
+                    //await Clients.Group(roomName).
                     await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved,
                         usersId.Select(x => x.PlaningAppUserId));
                     foreach (var userConId in usersId)
