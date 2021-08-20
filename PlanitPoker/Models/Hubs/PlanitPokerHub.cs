@@ -152,10 +152,6 @@ namespace PlanitPoker.Models.Hubs
                 if (room == null)
                 {
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
-                    //_errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNotFound));
-                    //await _apiHealper.NotifyFromErrorService();
-                    //await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
-                    //return;
                 }
 
                 var newDieDate = _planitPokerService.AddTimeAliveRoom(room);
@@ -165,12 +161,6 @@ namespace PlanitPoker.Models.Hubs
                     return;
                 }
 
-                //var (dt, suc) = GetValueFromRoomAsync(room, rm => rm.StoredRoom.DieDate);
-                //if (suc)
-                //{
-                //    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.NewRoomAlive, dt);
-                //    return;
-                //}
 
                 throw new SomeCustomException(ErrorConsts.SomeError);
             }, httpContext.Response, _logger);

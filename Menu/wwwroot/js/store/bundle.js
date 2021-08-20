@@ -14090,7 +14090,7 @@ var PlaningPokerMain = function (props) {
                 newState.RoomInfo.Password = "";
                 return newState;
             });
-            document.cookie = "planing_poker_roomname=" + __planing_poker_main_state_ref__.RoomInfo.Name + "; path=/;";
+            // document.cookie = "planing_poker_roomname=" + __planing_poker_main_state_ref__.RoomInfo.Name + "; path=/;";
             var lk = document.getElementById('move_to_room_link_react');
             //todo типо костыль
             //если этой линки нет, значит мы уже на странице румы
@@ -14293,6 +14293,7 @@ var OneVoteCard_1 = __importDefault(__webpack_require__(/*! ./OneVoteCard */ "./
 var AlertData_1 = __webpack_require__(/*! ../../_ComponentsLink/Models/AlertData */ "./src/components/_ComponentsLink/Models/AlertData.ts");
 var StoriesSection_1 = __importDefault(__webpack_require__(/*! ./StoriesSection */ "./src/components/Body/PlaningPoker/StoriesSection.tsx"));
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
+var RoomTimer_1 = __importDefault(__webpack_require__(/*! ./RoomTimer */ "./src/components/Body/PlaningPoker/RoomTimer.tsx"));
 var RoomProps = /** @class */ (function () {
     function RoomProps() {
     }
@@ -14302,6 +14303,7 @@ var RoomState = /** @class */ (function () {
     function RoomState() {
         this.UsersList = [];
         this.VoteInfo = new RoomInfo_1.VoteInfo();
+        this.DieRoomTime = null;
     }
     return RoomState;
 }());
@@ -14369,6 +14371,7 @@ var Room = function (props) {
             setUserNameLocalState(props.UserInfo.UserName);
         }
     }, [props.HubConnected]);
+    //#state
     var initState = new RoomState();
     var _a = react_1.useState(initState), localState = _a[0], setLocalState = _a[1];
     var _b = react_1.useState(RoomInfo_1.RoomStatus.None), roomStatusState = _b[0], setRoomStatusState = _b[1];
@@ -14408,6 +14411,7 @@ var Room = function (props) {
                     var newState = cloneDeep_1.default(prevState);
                     newState.UsersList.splice(0, newState.UsersList.length);
                     (_a = newState.UsersList).push.apply(_a, newUsersData_1);
+                    newState.DieRoomTime = new Date(data.room.die_date);
                     fillVoteInfo(newState, data.end_vote_info);
                     newState.UsersList.forEach(function (us) {
                         if (us.Id === props.UserInfo.UserId) {
@@ -14489,7 +14493,7 @@ var Room = function (props) {
             }
             usersId.forEach(function (x) {
                 if (x == __planing_room_props_ref__.UserInfo.UserId) {
-                    document.cookie = "planing_poker_roomname=; path=/;";
+                    // document.cookie = "planing_poker_roomname=; path=/;";
                     alert("you kicked or leave"); //TODO может как то получше сделать, и хорошо бы без перезагрузки\редиректа
                     window.location.href = "/planing-poker";
                     __planing_room_props_ref__.ClearUserId(); //todo тут наверное стоит еще что то чистить
@@ -14688,6 +14692,17 @@ var Room = function (props) {
                 return newState;
             });
         });
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.NewRoomAlive, function (newDieTime) {
+            if (!newDieTime) {
+                return;
+            }
+            setLocalState(function (prevState) {
+                // let newState = { ...prevState };
+                var newState = cloneDeep_1.default(prevState);
+                newState.DieRoomTime = new Date(newDieTime);
+                return newState;
+            });
+        });
         return function cleanUp() {
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.MovedStoryToComplete);
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.DeletedStory);
@@ -14701,6 +14716,7 @@ var Room = function (props) {
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.UserLeaved);
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.UserNameChanged);
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NewUserInRoom);
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NewRoomAlive);
         };
     }, []);
     var fillVoteInfo = function (state, data) {
@@ -14819,6 +14835,9 @@ var Room = function (props) {
     var deleteRoom = function () {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.DeleteRoom, props.RoomInfo.Name);
     };
+    var aliveRoom = function () {
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.AliveRoom, props.RoomInfo.Name);
+    };
     var storiesLoaded = function (stories) {
         setStoriesState(function (prevState) {
             // let newState = { ...prevState };
@@ -14930,6 +14949,8 @@ var Room = function (props) {
         react_1.default.createElement("h1", null,
             "Room: ",
             props.RoomInfo.Name),
+        react_1.default.createElement("div", null,
+            react_1.default.createElement(RoomTimer_1.default, { DieDate: localState.DieRoomTime, AliveRoom: aliveRoom })),
         renderNotAuthMessage(),
         react_1.default.createElement("div", { className: "row" },
             react_1.default.createElement("div", { className: "planit-room-left-part col-12 col-md-9" },
@@ -14949,6 +14970,70 @@ var Room = function (props) {
                 react_1.default.createElement(react_router_dom_1.Link, { id: "move_to_index_link_react", to: "/planing-poker/" }, "hidden"))));
 };
 exports.default = Room;
+
+
+/***/ }),
+
+/***/ "./src/components/Body/PlaningPoker/RoomTimer.tsx":
+/*!********************************************************!*\
+  !*** ./src/components/Body/PlaningPoker/RoomTimer.tsx ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "react"));
+var __planing_room_timer_props_ref__ = null;
+var RoomTimer = function (props) {
+    var _a = react_1.useState(0), lifeTime = _a[0], setLifeTime = _a[1];
+    // const [interval, setStateInterval] = useState(null);
+    __planing_room_timer_props_ref__ = props;
+    // const secRender = new Date().getSeconds();
+    react_1.useEffect(function () {
+        var interv = setInterval(function () {
+            if (__planing_room_timer_props_ref__.DieDate) {
+                setLifeTime(__planing_room_timer_props_ref__.DieDate.getTime() - new Date().getTime());
+            }
+        }, 1000);
+        // setStateInterval(interv);
+        return function () {
+            // clearInterval(interval);
+            clearInterval(interv);
+            // setStateInterval(null);
+        };
+    }, []);
+    var lifeTimeDate = new Date(lifeTime); //это не совсем красиво
+    return react_1.default.createElement("div", null,
+        react_1.default.createElement("h3", { title: "\u041F\u043E \u0438\u0441\u0442\u0435\u0447\u0435\u043D\u0438\u0438 \u0432\u0440\u0435\u043C\u0435\u043D\u0438 \u0436\u0438\u0437\u043D\u0438 \u043A\u043E\u043C\u043D\u0430\u0442\u0430 \u043F\u043E\u043C\u0435\u0449\u0430\u0435\u0442\u0441\u044F \u0432 \u043E\u0447\u0435\u0440\u0435\u0434\u044C \u043D\u0430 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u0435, \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u043A\u043E\u043C\u043D\u0430\u0442\u044B \u043B\u0443\u0447\u0448\u0435 \u043D\u0435 \u0434\u043E\u0432\u043E\u0434\u0438\u0442\u044C \u0434\u043E \u0442\u0430\u043A\u043E\u0433\u043E \u0441\u043E\u0441\u0442\u043E\u044F\u043D\u0438\u044F" },
+            "\u0412\u0440\u0435\u043C\u044F \u0436\u0438\u0437\u043D\u0438 \u043A\u043E\u043C\u043D\u0430\u0442\u044B: ",
+            lifeTimeDate.getUTCHours(),
+            ":",
+            lifeTimeDate.getUTCMinutes(),
+            ":",
+            lifeTimeDate.getUTCSeconds()),
+        react_1.default.createElement("button", { className: "btn btn-primary", onClick: props.AliveRoom }, "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0442\u044C \u0432\u0440\u0435\u043C\u044F \u0434\u043E 2\u0445 \u0447\u0430\u0441\u043E\u0432"));
+};
+exports.default = RoomTimer;
 
 
 /***/ }),
@@ -18585,6 +18670,7 @@ var HubEndpointsFront = /** @class */ (function () {
         this.EnteredInRoom = "EnteredInRoom";
         this.PlaningNotifyFromServer = "PlaningNotifyFromServer";
         this.NeedRefreshTokens = "NeedRefreshTokens";
+        this.NewRoomAlive = "NewRoomAlive";
     }
     return HubEndpointsFront;
 }());
@@ -18610,6 +18696,7 @@ var HubEndpointsBack = /** @class */ (function () {
         this.LoadNotActualStories = "LoadNotActualStories";
         this.Vote = "Vote";
         this.OnWindowClosedAsync = "OnWindowClosedAsync";
+        this.AliveRoom = "AliveRoom";
     }
     return HubEndpointsBack;
 }());
