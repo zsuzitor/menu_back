@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Auth.Models.Auth;
 using Auth.Models.Auth.Services;
 using Auth.Models.Auth.Services.Interfaces;
@@ -21,7 +22,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 //using WEB.Common.Models.Returns.Interfaces;
-using WEB.Common.Models.Returns;
+//using WEB.Common.Models.Returns;
 using BL.Models.Services.Interfaces;
 using BL.Models.Services;
 using BO.Models.Config;
@@ -31,6 +32,8 @@ using System.Text.Unicode;
 using PlanitPoker.Models.Hubs;
 using Common.Models;
 using Common.Models.Validators;
+using Hangfire;
+using Hangfire.SqlServer;
 using PlanitPoker.Models;
 using MenuApp.Models;
 using WordsCardsApp;
@@ -55,6 +58,29 @@ namespace Menu
             services.AddDbContext<MenuDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+
+            //
+            services.AddHangfire(configuration => configuration
+                .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+                .UseSimpleAssemblyNameTypeSerializer()
+                .UseRecommendedSerializerSettings()
+                .UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection"), new SqlServerStorageOptions
+                {
+                    CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+                    SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+                    QueuePollInterval = TimeSpan.Zero,
+                    UseRecommendedIsolationLevel = true,
+                    DisableGlobalLocks = true
+                }));
+
+            // Add the processing server as IHostedService
+            services.AddHangfireServer();
+
+
+
+
+
 
 
             //конфигурируем encoders(HtmlEncoder и тд) что бы они не ломали русские буквы
@@ -97,6 +123,8 @@ namespace Menu
             services.AddScoped<IErrorService, ErrorService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IWorker, Worker>();
+            
 
             menuAppInitializer.ServicesInitialize(services);
             wordsCardsAppInitializer.ServicesInitialize(services);
@@ -156,6 +184,9 @@ namespace Menu
             }
 
 
+            app.UseHangfireDashboard();
+
+
             //app.UseHttpsRedirection();//TODO not work?
             app.UseStaticFiles();
             app.UseCookiePolicy();
@@ -186,31 +217,6 @@ namespace Menu
 
         }
 
-
-
-
-        //private void InitReturnTypeContainer(IReturnContainer container)
-        //{
-        //    //todo лучше вообще убрать такой функционал
-
-        //    container.AddTypeToContainer(typeof(AllTokens), new TokensReturnFactory());
-        //    container.AddTypeToContainer(typeof(ErrorObject), new ErrorObjectReturnFactory());
-        //    container.AddTypeToContainer(typeof(ArticleShort), new ArticleShortReturnFactory());
-        //    container.AddTypeToContainer(typeof(Article), new ArticleReturnFactory());
-        //    container.AddTypeToContainer(typeof(List<ArticleShort>), new ArticleShortReturnFactory());
-        //    container.AddTypeToContainer(typeof(List<Article>), new ArticleReturnFactory());
-        //    container.AddTypeToContainer(typeof(BoolResult), new BoolResultFactory());
-        //    container.AddTypeToContainer(typeof(User), new ShortUserReturnFactory());
-        //    container.AddTypeToContainer(typeof(WordCard), new WordCardReturnFactory());
-        //    container.AddTypeToContainer(typeof(List<WordCard>), new WordCardReturnFactory());
-        //    container.AddTypeToContainer(typeof(WordsList), new WordListReturnFactory());
-        //    container.AddTypeToContainer(typeof(List<WordsList>), new WordListReturnFactory());
-        //    container.AddTypeToContainer(typeof(WordCardWordList), new WordCardWordListReturnFactory());
-        //    container.AddTypeToContainer(typeof(List<WordCardWordList>), new WordCardWordListReturnFactory());
-        //    container.AddTypeToContainer(typeof(PlanitUser), new PlanitUserReturnFactory());
-        //    container.AddTypeToContainer(typeof(List<PlanitUser>), new PlanitUserReturnFactory());
-        //    container.AddTypeToContainer(typeof(StoredRoom), new StoredRoomReturnFactory());
-        //    container.AddTypeToContainer(typeof(List<StoredRoom>), new StoredRoomReturnFactory());
-        //}
+        
     }
 }
