@@ -42,6 +42,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Auth\Auth.csproj" />
+    <ProjectReference Include="..\CodeReviewApp\CodeReviewApp.csproj" />
     <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\DAL\DAL.csproj" />
     <ProjectReference Include="..\MenuApp\MenuApp.csproj" />

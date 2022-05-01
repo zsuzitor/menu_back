@@ -9,7 +9,7 @@ namespace BL.Models.Services
     {
         public void Recurring(string url, string cron)
         {
-            RecurringJob.AddOrUpdate(()=> Invoke(), ()=>cron);
+            RecurringJob.AddOrUpdate(() => Invoke(), () => cron);
         }
 
 

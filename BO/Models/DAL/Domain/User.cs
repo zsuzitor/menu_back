@@ -4,7 +4,7 @@ using jwtLib.JWTAuth.Interfaces;
 using System.Collections.Generic;
 using BO.Models.MenuApp.DAL.Domain;
 using BO.Models.WordsCardsApp.DAL.Domain;
-using System.ComponentModel.DataAnnotations.Schema;
+using BO.Models.CodeReviewApp.DAL.Domain;
 
 namespace BO.Models.DAL.Domain
 {
@@ -22,13 +22,15 @@ namespace BO.Models.DAL.Domain
         public List<Article> Articles { get; set; }
         public List<WordCard> WordsCards { get; set; }
         public List<WordsList> WordsLists { get; set; }
-        
+        public List<ProjectUser> CodeReviewProjects { get; set; }
+
 
         public User()
         {
             Articles = new List<Article>();
             WordsCards = new List<WordCard>();
             WordsLists = new List<WordsList>();
+            CodeReviewProjects = new List<ProjectUser>();
         }
     }
 }

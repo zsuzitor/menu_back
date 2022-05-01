@@ -37,6 +37,7 @@ using Hangfire.SqlServer;
 using PlanitPoker.Models;
 using MenuApp.Models;
 using WordsCardsApp;
+using CodeReviewApp.Models;
 
 namespace Menu
 {
@@ -105,6 +106,7 @@ namespace Menu
             var menuAppInitializer = new MenuAppInitializer();
             var wordsCardsAppInitializer = new WordsCardsAppInitializer();
             var planitPokerInitializer = new PlanitPokerInitializer();
+            var codeReviewAppInitializer = new CodeReviewAppInitializer();
 
             //repositories
             services.AddScoped<IUserRepository, UserRepository>();
@@ -113,6 +115,7 @@ namespace Menu
             menuAppInitializer.RepositoriesInitialize(services);
             wordsCardsAppInitializer.RepositoriesInitialize(services);
             planitPokerInitializer.RepositoriesInitialize(services);
+            codeReviewAppInitializer.RepositoriesInitialize(services);
             //services.AddScoped<IPlanitPokerRepository, PlanitPokerRepository>();
 
 
@@ -139,6 +142,7 @@ namespace Menu
             menuAppInitializer.ServicesInitialize(services);
             wordsCardsAppInitializer.ServicesInitialize(services);
             planitPokerInitializer.ServicesInitialize(services);
+            codeReviewAppInitializer.ServicesInitialize(services);
 
             //cache
             //services.AddStackExchangeRedisCache(options =>

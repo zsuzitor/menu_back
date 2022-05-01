@@ -1,4 +1,5 @@
-﻿using BO.Models.DAL.Domain;
+﻿using BO.Models.CodeReviewApp.DAL.Domain;
+using BO.Models.DAL.Domain;
 using BO.Models.MenuApp.DAL.Domain;
 using BO.Models.PlaningPoker.DAL;
 using BO.Models.WordsCardsApp.DAL.Domain;
@@ -135,6 +136,19 @@ namespace DAL.Models.DAL
 
             #endregion planingPoker
 
+
+            #region coreReviewApp
+            modelBuilder.Entity<Project>().HasKey(x => x.Id);
+            modelBuilder.Entity<Project>().HasMany(x => x.Tasks).WithOne(x => x.Project)
+                .HasForeignKey(x => x.ProjectId).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Project>().HasMany(x => x.Users).WithOne(x => x.Project)
+                .HasForeignKey(x => x.ProjectId).OnDelete(DeleteBehavior.Cascade);
+
+            //modelBuilder.Entity<ProjectUser>().has
+            modelBuilder.Entity<User>().HasMany(x => x.CodeReviewProjects).WithOne(x => x.MainAppUser)
+                .HasForeignKey(x => x.MainAppUserId).OnDelete(DeleteBehavior.Cascade);
+
+            #endregion coreReviewApp
 
             base.OnModelCreating(modelBuilder);
         }

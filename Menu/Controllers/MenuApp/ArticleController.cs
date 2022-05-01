@@ -32,7 +32,7 @@ namespace Menu.Controllers
         private readonly ILogger _logger;
         //private readonly IWebHostEnvironment _webHostEnvironment;
 
-        private readonly ErrorObjectReturnFactory _errRetrunFactory;
+        //private readonly ErrorObjectReturnFactory _errRetrunFactory;
         private readonly ArticleShortReturnFactory _articleShortReturnFactory;
         private readonly ArticleReturnFactory _articleReturnFactory;
         private readonly BoolResultFactory _boolResultFactory;
@@ -51,7 +51,7 @@ namespace Menu.Controllers
             _logger = logger;
             //_webHostEnvironment = webHostEnvironment;
 
-            _errRetrunFactory = new ErrorObjectReturnFactory();
+            //_errRetrunFactory = new ErrorObjectReturnFactory();
             _articleShortReturnFactory = new ArticleShortReturnFactory();
             _articleReturnFactory = new ArticleReturnFactory();
             _boolResultFactory = new BoolResultFactory();
