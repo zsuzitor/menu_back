@@ -804,7 +804,7 @@ namespace PlanitPoker.Models.Services
 
                 if (storyForDel.IdDb != null)
                 {
-                    await _storyRepository.Delete(storyForDel.IdDb.Value);
+                    await _storyRepository.DeleteAsync(storyForDel.IdDb.Value);
                 }
 
                 room.Stories.RemoveAll(x => x.Id == storyId);
@@ -1201,7 +1201,7 @@ namespace PlanitPoker.Models.Services
         {
             var storiesForSave = room.StoredRoom.Stories.Where(x => x.IdDb == null)
                 .Select(x => new {tmpId = x.TmpId, story = x.ToDbObject(roomId)}).ToList();
-            await _storyRepository.Add(storiesForSave.Select(x => x.story).ToList());
+            await _storyRepository.AddAsync(storiesForSave.Select(x => x.story).ToList());
             foreach (var item in storiesForSave)
             {
                 var oldStory = room.StoredRoom.Stories.FirstOrDefault(x => x.TmpId == item.tmpId);
@@ -1236,7 +1236,7 @@ namespace PlanitPoker.Models.Services
                 PlaningRoomDal roomFromDb = null;
                 if (rm.StoredRoom.Id != null)
                 {
-                    roomFromDb = await _roomRepository.Get(rm.StoredRoom.Id.Value);
+                    roomFromDb = await _roomRepository.GetAsync(rm.StoredRoom.Id.Value);
                 }
 
                 //вообще смысла вроде как нет, но на всякий случай пусть будет
@@ -1251,7 +1251,7 @@ namespace PlanitPoker.Models.Services
                     objForSave.Users.AddRange(
                         room.StoredRoom.Users.Where(x => x.MainAppUserId != null)
                             .Select(x => x.ToDbObject(objForSave.Id)).ToList());
-                    objForSave = await _roomRepository.Add(objForSave);
+                    objForSave = await _roomRepository.AddAsync(objForSave);
                     await AddNewStoriesToDb(room, objForSave.Id);
                     success = true;
                 }
@@ -1283,7 +1283,7 @@ namespace PlanitPoker.Models.Services
                         }
                     }
 
-                    await _roomRepository.Update(roomFromDb);
+                    await _roomRepository.UpdateAsync(roomFromDb);
 
                     success = true;
                 }

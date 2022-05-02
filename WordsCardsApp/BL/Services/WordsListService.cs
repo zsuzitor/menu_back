@@ -64,7 +64,7 @@ namespace WordsCardsApp.BL.Services
                 Title = input.Title,
                 UserId = userInfo.UserId,
             };
-            return await _wordsListRepository.Add(forAdd);
+            return await _wordsListRepository.AddAsync(forAdd);
             //throw new System.NotImplementedException();
         }
 
@@ -82,7 +82,7 @@ namespace WordsCardsApp.BL.Services
                 throw new SomeCustomException(ErrorConsts.NotFound);
             }
 
-            return await _wordsListRepository.Delete(rec);
+            return await _wordsListRepository.DeleteAsync(rec);
         }
 
         public async Task<List<WordsList>> GetAllForUser(UserInfo userInfo)
@@ -147,7 +147,7 @@ namespace WordsCardsApp.BL.Services
             }
 
             fromDb.Title = input.Title;
-            return await _wordsListRepository.Update(fromDb);
+            return await _wordsListRepository.UpdateAsync(fromDb);
 
         }
     }

@@ -11,9 +11,9 @@ namespace CodeReviewApp.Models.Services
     public class ProjectService : IProjectService
     {
         private readonly IProjectRepository _projectRepository;
-        private readonly IUserService _userService;
+        private readonly IProjectUserService _userService;
         private readonly ITaskReviewService _taskReviewService;
-        public ProjectService(IProjectRepository projectRepository, IUserService userService,
+        public ProjectService(IProjectRepository projectRepository, IProjectUserService userService,
             ITaskReviewService taskReviewService)
         {
             _projectRepository = projectRepository;
@@ -57,7 +57,7 @@ namespace CodeReviewApp.Models.Services
             }
 
             var user = new ProjectUser() { ProjectId = projectId, UserName = userName, MainAppUserId = mainAppUserId };
-            return await _userService.Create(user);
+            return await _userService.CreateAsync(user);
 
         }
 
@@ -78,7 +78,7 @@ namespace CodeReviewApp.Models.Services
             };
 
             //todo проверяем что creator+reviwer входит в проект. по идеи если что упадет с исключением
-            return await _taskReviewService.Create(newTask);
+            return await _taskReviewService.CreateAsync(newTask);
         }
     }
 }

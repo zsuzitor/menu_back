@@ -42,7 +42,14 @@ namespace DAL.Models.DAL
         #endregion PlaningPoker
 
 
+        #region coreReviewApp
+        public DbSet<Project> ReviewProject { get; set; }
+        public DbSet<ProjectUser> ReviewProjectUsers { get; set; }
+        public DbSet<TaskReview> ReviewTasks { get; set; }
+        public DbSet<CommentReview> ReviewComment { get; set; }
 
+
+        #endregion coreReviewApp
 
 
 
@@ -146,7 +153,15 @@ namespace DAL.Models.DAL
 
             //modelBuilder.Entity<ProjectUser>().has
             modelBuilder.Entity<User>().HasMany(x => x.CodeReviewProjects).WithOne(x => x.MainAppUser)
-                .HasForeignKey(x => x.MainAppUserId).OnDelete(DeleteBehavior.Cascade);
+                .HasForeignKey(x => x.MainAppUserId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<ProjectUser>().HasMany(x => x.Comments).WithOne(x => x.Creator)
+                .HasForeignKey(x => x.CreatorId).OnDelete(DeleteBehavior.NoAction);
+            modelBuilder.Entity<ProjectUser>().HasMany(x => x.CreateByUser).WithOne(x => x.Creator)
+                .HasForeignKey(x => x.CreatorId).OnDelete(DeleteBehavior.SetNull);
+            modelBuilder.Entity<ProjectUser>().HasMany(x => x.ReviewByUser).WithOne(x => x.Reviewer)
+                .HasForeignKey(x => x.ReviewerId).OnDelete(DeleteBehavior.SetNull);
+            modelBuilder.Entity<TaskReview>().HasMany(x => x.Comments).WithOne(x => x.Task)
+                .HasForeignKey(x => x.TaskId).OnDelete(DeleteBehavior.SetNull);
 
             #endregion coreReviewApp
 

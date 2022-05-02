@@ -1,4 +1,6 @@
-﻿using CodeReviewApp.Models.DAL.Repositories.Interfaces;
+﻿using CodeReviewApp.Models.DAL.Repositories;
+using CodeReviewApp.Models.DAL.Repositories.Interfaces;
+using CodeReviewApp.Models.Services;
 using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models;
 using Common.Models.Error;
@@ -16,18 +18,18 @@ namespace CodeReviewApp.Models
 
         public void RepositoriesInitialize(IServiceCollection services)
         {
-            services.AddScoped<IProjectRepository, >();
-            services.AddScoped<ITaskRepository, >();
-            services.AddScoped<IUserRepository, >();
+            services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<ITaskReviewRepository, TaskReviewRepository>();
+            services.AddScoped<IProjectUserRepository, UserRepository>();
 
             
         }
 
         public void ServicesInitialize(IServiceCollection services)
         {
-            services.AddScoped<IProjectService, >();
-            services.AddScoped<ITaskReviewService, >();
-            services.AddScoped<IUserService, >();
+            services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<ITaskReviewService, TaskReviewService>();
+            services.AddScoped<IProjectUserService, ProjectUserService>();
             
             //services.AddScoped<IProjectService, >();
         }

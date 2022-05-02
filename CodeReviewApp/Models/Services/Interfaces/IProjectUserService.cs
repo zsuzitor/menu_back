@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models.Services.Interfaces
 {
-    public interface IUserService
+    public interface IProjectUserService
     {
-        Task<ProjectUser> Create(ProjectUser user);
+        Task<ProjectUser> CreateAsync(ProjectUser user);
     }
 }

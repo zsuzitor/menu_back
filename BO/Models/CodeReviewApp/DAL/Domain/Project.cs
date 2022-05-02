@@ -1,10 +1,11 @@
 ﻿
+using BO.Models.DAL;
 using BO.Models.DAL.Domain;
 using System.Collections.Generic;
 
 namespace BO.Models.CodeReviewApp.DAL.Domain
 {
-    public class Project
+    public class Project: IDomainRecord<long>
     {
         public long Id { get; set; }
         public string Name { get; set; }

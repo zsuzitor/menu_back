@@ -1,8 +1,11 @@
-﻿using CodeReviewApp.Models.Services.Interfaces;
+﻿using BO.Models.CodeReviewApp.DAL.Domain;
+using CodeReviewApp.Models.Returns;
+using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
 
@@ -42,8 +45,40 @@ namespace Menu.Controllers.CodeReviewApp
                     //throw new NotAuthException();
 
                     var res = await _projectService.GetProjectsByMainAppUserIdAsync(userInfo.UserId);
+                    res = res ?? new System.Collections.Generic.List<Project>();
+                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new ProjectInList(x)));
 
-                    await _apiHealper.WriteResponseAsync(Response, _articleShortReturnFactory.GetObjectReturn(res));
+                }, Response, _logger);
+
+        }
+
+        [Route("add-new-project")]
+        [HttpPut]
+        public async Task AddProject([FromForm] string projectName)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _projectService.CreateAsync(projectName, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, new ProjectInList(res));
+
+                }, Response, _logger);
+
+        }
+
+        [Route("get-project-info")]
+        [HttpGet]
+        public async Task GetProjectInfo(long projectId)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _projectService.GetByIdIfAccessAsync(projectId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, "projectInfo_" + projectId);
 
                 }, Response, _logger);
 

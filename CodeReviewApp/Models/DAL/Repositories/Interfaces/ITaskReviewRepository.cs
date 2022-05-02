@@ -2,9 +2,9 @@
 using BO.Models.CodeReviewApp.DAL.Domain;
 using System.Threading.Tasks;
 
-namespace CodeReviewApp.Models.Services.Interfaces
+namespace CodeReviewApp.Models.DAL.Repositories.Interfaces
 {
-    public interface ITaskReviewService
+    public interface ITaskReviewRepository
     {
         Task<TaskReview> CreateAsync(TaskReview task);
     }

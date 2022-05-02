@@ -35,7 +35,7 @@ namespace Menu.Tests
                 ArticleId = newArticle.Id,
             };
 
-            await imgRepo.Add(imgForAdd);
+            await imgRepo.AddAsync(imgForAdd);
             var addedImg = db.Images.FirstOrDefault(x => x.Id == imgForAdd.Id);
             Assert.NotNull(addedImg);
             Assert.Equal(imgForAdd.Path, addedImg.Path);
@@ -84,7 +84,7 @@ namespace Menu.Tests
                 },
             };
 
-            await imgRepo.Add(imagesForAdd);
+            await imgRepo.AddAsync(imagesForAdd);
             var addedImg1 = db.Images.FirstOrDefault(x => x.Id == imagesForAdd[0].Id);
             var addedImg2 = db.Images.FirstOrDefault(x => x.Id == imagesForAdd[1].Id);
             Assert.NotNull(addedImg1);
@@ -108,7 +108,7 @@ namespace Menu.Tests
             ImageRepository imgRepo = new ImageRepository(db);
 
             var delImg = db.Images.OrderBy(x => x.Id).Skip(1).First();
-            var deleted = await imgRepo.Delete(new List<CustomImage>() { delImg });
+            var deleted = await imgRepo.DeleteAsync(new List<CustomImage>() { delImg });
 
             Assert.NotNull(deleted);
             Assert.Single(deleted);

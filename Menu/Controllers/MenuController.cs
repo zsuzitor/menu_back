@@ -31,6 +31,11 @@ namespace Menu.Controllers
             return View("Index");
         }
 
+        public ActionResult CodeReviewApp()
+        {
+            return View("Index");
+        }
+        
         public ActionResult PlaningPoker()
         {
             return View("Index");

@@ -19,9 +19,9 @@ namespace WordsCardsApp.DAL.Repositories
             //_db = db;
         }
 
-        public async Task<bool?> ChangeHideStatus(long id, long userId)
+        public async Task<bool?> ChangeHideStatusAsync(long id, long userId)
         {
-            var wordCard = await GetByIdIfAccess(id, userId);
+            var wordCard = await GetByIdIfAccessAsync(id, userId);
             if (wordCard == null)
             {
                 return null;
@@ -34,31 +34,31 @@ namespace WordsCardsApp.DAL.Repositories
 
 
 
-        public async Task<WordCard> Delete(long id, long userId)
+        public async Task<WordCard> DeleteAsync(long id, long userId)
         {
-            var wordCard = await GetByIdIfAccess(id, userId);
+            var wordCard = await GetByIdIfAccessAsync(id, userId);
             if (wordCard == null)
             {
                 return null;
             }
 
-            return await Delete(wordCard);
+            return await DeleteAsync(wordCard);
             //return wordCard;
         }
 
        
-        public async Task<List<WordCard>> GetAllUsersWordCards(long userId)
+        public async Task<List<WordCard>> GetAllUsersWordCardsAsync(long userId)
         {
             return await GetAllForUser(userId).ToListAsync();
         }
 
         //todo возможно есть случаи когда вызывается этот метод хотя нам надо просто узнать если ли доступ вообще
-        public async Task<WordCard> GetByIdIfAccess(long id, long userId)
+        public async Task<WordCard> GetByIdIfAccessAsync(long id, long userId)
         {
             return await _db.WordsCards.FirstOrDefaultAsync(x => x.UserId == userId && x.Id == id);
         }
 
-        public async Task<List<WordCard>> LoadWordListsId(List<WordCard> words)
+        public async Task<List<WordCard>> LoadWordListsIdAsync(List<WordCard> words)
         {
             if (words == null || words.Count == 0)
             {

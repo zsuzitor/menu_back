@@ -58,7 +58,7 @@ namespace MenuApp.Models.BL.Services
             {
                 article.MainImagePath = await _imageService.CreateUploadFileWithOutDbRecord(newArticle.MainImageNew);
 
-                article = await _articleRepository.Add(article);
+                article = await _articleRepository.AddAsync(article);
 
 
                 article.AdditionalImages = await _imageService.Upload(newArticle.AdditionalImages, article.Id);
@@ -121,7 +121,7 @@ namespace MenuApp.Models.BL.Services
 
             if (changed)//?
             {
-                await _articleRepository.Update(oldObj);
+                await _articleRepository.UpdateAsync(oldObj);
             }
 
             var newImages = await _imageService.Upload(newArticle.AdditionalImages, oldObj.Id);
@@ -189,7 +189,7 @@ namespace MenuApp.Models.BL.Services
 
         public async Task<Article> GetById(long id)
         {
-            return await _articleRepository.Get(id);
+            return await _articleRepository.GetAsync(id);
         }
 
         public async Task<Article> GetByIdIfAccess(long id, UserInfo userInfo)

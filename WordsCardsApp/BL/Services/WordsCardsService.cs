@@ -35,7 +35,7 @@ namespace WordsCardsApp.BL.Services
                 throw new NotAuthException();
             }
 
-            return await _wordCardRepository.GetByIdIfAccess(id, userInfo.UserId);
+            return await _wordCardRepository.GetByIdIfAccessAsync(id, userInfo.UserId);
         }
 
 
@@ -64,7 +64,7 @@ namespace WordsCardsApp.BL.Services
             try
             {
                 wordCardNew.ImagePath = await _imageService.CreateUploadFileWithOutDbRecord(input.MainImageNew);
-                var resWordCard = await _wordCardRepository.Add(wordCardNew);
+                var resWordCard = await _wordCardRepository.AddAsync(wordCardNew);
                 return resWordCard;
             }
             catch
@@ -107,7 +107,7 @@ namespace WordsCardsApp.BL.Services
                     forAdd.Add(wordCardNew);
                 }
 
-                var resWordCards = await _wordCardRepository.Add(forAdd);
+                var resWordCards = await _wordCardRepository.AddAsync(forAdd);
                 return resWordCards;
             }
             catch
@@ -157,7 +157,7 @@ namespace WordsCardsApp.BL.Services
 
             if (changed)//?
             {
-                await _wordCardRepository.Update(oldObj);
+                await _wordCardRepository.UpdateAsync(oldObj);
             }
 
             return oldObj;
@@ -171,7 +171,7 @@ namespace WordsCardsApp.BL.Services
         /// <returns></returns>
         public async Task<bool> ChangeHideStatus(long id, UserInfo userInfo)
         {
-            var hided = await _wordCardRepository.ChangeHideStatus(id, userInfo.UserId);
+            var hided = await _wordCardRepository.ChangeHideStatusAsync(id, userInfo.UserId);
             if (hided == null)
             {
                 throw new SomeCustomException(ErrorConsts.NotFound);
@@ -216,7 +216,7 @@ namespace WordsCardsApp.BL.Services
             }
 
             //strFile = await reader.ReadLineAsync();
-            return await _wordCardRepository.Add(dataForAdd);
+            return await _wordCardRepository.AddAsync(dataForAdd);
         }
 
         public async Task<WordCard> Delete(long id, UserInfo userInfo)
@@ -226,7 +226,7 @@ namespace WordsCardsApp.BL.Services
                 throw new NotAuthException();
             }
 
-            var deletedRecord = await _wordCardRepository.Delete(id, userInfo.UserId);
+            var deletedRecord = await _wordCardRepository.DeleteAsync(id, userInfo.UserId);
             if (deletedRecord == null)
             {
                 throw new SomeCustomException(ErrorConsts.NotFound);
@@ -244,7 +244,7 @@ namespace WordsCardsApp.BL.Services
                 throw new NotAuthException();
             }
 
-            return await _wordCardRepository.GetAllUsersWordCards(userInfo.UserId);
+            return await _wordCardRepository.GetAllUsersWordCardsAsync(userInfo.UserId);
         }
 
 
@@ -252,7 +252,7 @@ namespace WordsCardsApp.BL.Services
         public async Task<List<WordCard>> GetAllForUserForView(UserInfo userInfo)
         {
             var records = await GetAllForUser(userInfo);
-            return await _wordCardRepository.LoadWordListsId(records);
+            return await _wordCardRepository.LoadWordListsIdAsync(records);
         }
 
         private WordCard WordCardFromInputModelNew(WordCardInputModel input)

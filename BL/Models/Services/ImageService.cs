@@ -53,7 +53,7 @@ namespace Menu.Models.Services
                 Path = physImg,
             };
 
-            await _imageRepository.Add(res);
+            await _imageRepository.AddAsync(res);
             
             return res;
         }
@@ -104,7 +104,7 @@ namespace Menu.Models.Services
                 return new List<CustomImage>();
             }
 
-            await _imageRepository.Add(res);
+            await _imageRepository.AddAsync(res);
             return res;
         }
 
@@ -155,7 +155,7 @@ namespace Menu.Models.Services
 
         public async Task<CustomImage> DeleteById(long idImage)
         {
-            var imgFromDb = await _imageRepository.Get(idImage);
+            var imgFromDb = await _imageRepository.GetAsync(idImage);
             if (imgFromDb == null)
             {
                 return null;
@@ -176,7 +176,7 @@ namespace Menu.Models.Services
                 return new List<CustomImage>();
             }
 
-            var imgFromDb = await _imageRepository.Get(idImages);
+            var imgFromDb = await _imageRepository.GetAsync(idImages);
             return await DeleteFull(imgFromDb);
         }
 
@@ -187,7 +187,7 @@ namespace Menu.Models.Services
                 return new List<CustomImage>();
             }
 
-            await _imageRepository.Delete(images);
+            await _imageRepository.DeleteAsync(images);
             foreach (var img in images)
             {
                 await DeleteFileWithOutDbRecord(img.Path);

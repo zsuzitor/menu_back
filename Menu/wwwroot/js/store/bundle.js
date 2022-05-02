@@ -43237,20 +43237,13 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AppRouter = void 0;
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var MainAuth_1 = __webpack_require__(/*! ./Body/Auth/MainAuth */ "./src/components/Body/Auth/MainAuth.tsx");
-// export interface IHeaderLogoProps {
-// }
-// import {
-//     BrowserRouter as Router,
-//     Switch,
-//     Route,
-//     Link
-// } from "react-router-dom";
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 // import { BodyMain } from "./Body/BodyMain";
 var MenuMain_1 = __webpack_require__(/*! ./Body/Menu/MenuMain */ "./src/components/Body/Menu/MenuMain.tsx");
 var MenuAppMain_1 = __webpack_require__(/*! ./Body/MenuApp/MenuAppMain */ "./src/components/Body/MenuApp/MenuAppMain.tsx");
 var WordsCardsAppMain_1 = __webpack_require__(/*! ./Body/WordsCardsApp/WordsCardsAppMain */ "./src/components/Body/WordsCardsApp/WordsCardsAppMain.tsx");
 var PlaningPokerMain_1 = __importDefault(__webpack_require__(/*! ./Body/PlaningPoker/PlaningPokerMain */ "./src/components/Body/PlaningPoker/PlaningPokerMain.tsx"));
+var CodeReviewMain_1 = __importDefault(__webpack_require__(/*! ./Body/CodeReviewApp/CodeReviewMain */ "./src/components/Body/CodeReviewApp/CodeReviewMain.tsx"));
 // 
 var AppRouterProps = /** @class */ (function () {
     function AppRouterProps() {
@@ -43263,16 +43256,12 @@ var AppRouter = /** @class */ (function (_super) {
         return _super.call(this, props) || this;
     }
     AppRouter.prototype.render = function () {
-        // return <MainAuth login={true}/>
-        // return <BodyCardsListMain />
-        //TODO попробовать достучаться незалогиненным по ссылкам и поправить то что вылезет
-        // return <BodyCardsListMain/> 
-        // let props1 = this.props;
         return React.createElement(react_router_dom_1.Routes, null,
             React.createElement(react_router_dom_1.Route, { path: "/menu", element: React.createElement(MenuMain_1.MenuMain, null) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu-app/*", element: React.createElement(MenuAppMain_1.MenuAppMain, null) }),
             React.createElement(react_router_dom_1.Route, { path: "/words-cards-app/*", element: React.createElement(WordsCardsAppMain_1.WordsCardsAppMain, null) }),
             React.createElement(react_router_dom_1.Route, { path: "/planing-poker/*", element: React.createElement(PlaningPokerMain_1.default, { AuthInfo: this.props.AuthInfo }) }),
+            React.createElement(react_router_dom_1.Route, { path: "/code-review/*", element: React.createElement(CodeReviewMain_1.default, { AuthInfo: this.props.AuthInfo }) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/login/*", element: React.createElement(MainAuth_1.MainAuth, { LoginPage: true }) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/register/*", element: React.createElement(MainAuth_1.MainAuth, { LoginPage: false }) }));
     };
@@ -43672,6 +43661,152 @@ var Register = /** @class */ (function (_super) {
     return Register;
 }(React.Component));
 exports.Register = Register;
+
+
+/***/ }),
+
+/***/ "./src/components/Body/CodeReviewApp/CodeReviewMain.tsx":
+/*!**************************************************************!*\
+  !*** ./src/components/Body/CodeReviewApp/CodeReviewMain.tsx ***!
+  \**************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var ProjectDetail_1 = __importDefault(__webpack_require__(/*! ./ProjectDetail */ "./src/components/Body/CodeReviewApp/ProjectDetail.tsx"));
+var CodeReviewMainProps = /** @class */ (function () {
+    function CodeReviewMainProps() {
+    }
+    return CodeReviewMainProps;
+}());
+// class CodeReviewMainState{
+// }
+var CodeReviewMain = function (props) {
+    var _a = (0, react_1.useState)(-1), currentProjectId = _a[0], setCurrentProjectId = _a[1];
+    var _b = (0, react_1.useState)([]), projectsList = _b[0], setProjectsList = _b[1];
+    var _c = (0, react_1.useState)(''), newProjectName = _c[0], setNewProjectName = _c[1];
+    (0, react_1.useEffect)(function () {
+        var getProjects = function (error, data) {
+            if (error) {
+                //TODO выбить из комнаты?
+                alert("todo что то пошло не так лучше обновить страницу");
+                return;
+            }
+            if (data) {
+                setCurrentProjectId(-1);
+                setProjectsList(data);
+            }
+        };
+        window.G_CodeReviewController.GetUserProjects(getProjects);
+    }, []);
+    var addNewProject = function () {
+        var addProject = function (error, data) {
+            if (error) {
+                //TODO выбить из комнаты?
+                alert("todo что то пошло не так лучше обновить страницу");
+                return;
+            }
+            if (data) {
+                // setCurrentProjectId(-1);
+                setProjectsList(function (oldState) {
+                    var newState = __spreadArray(__spreadArray([], oldState, true), [data], false);
+                    return newState;
+                });
+            }
+        };
+        window.G_CodeReviewController.CreateNewProject(newProjectName, addProject);
+    };
+    return react_1.default.createElement("div", null,
+        react_1.default.createElement("div", null,
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("input", { type: 'text', placeholder: '\u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u0430', onChange: (function (e) { return setNewProjectName(e.target.value); }), value: newProjectName }),
+                react_1.default.createElement("button", { onClick: function () { return addNewProject(); } }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043F\u0440\u043E\u0435\u043A\u0442")),
+            projectsList.map(function (x) {
+                return react_1.default.createElement("div", { id: x.Id.toString(), onClick: function () { return setCurrentProjectId(x.Id); } },
+                    react_1.default.createElement("p", null, x.Name));
+            }),
+            react_1.default.createElement("p", null, "\u043F\u0440\u043E\u0435\u043A\u0442 1"),
+            react_1.default.createElement("p", null, "\u043F\u0440\u043E\u0435\u043A\u0442 2"),
+            react_1.default.createElement("p", null, "\u043F\u0440\u043E\u0435\u043A\u0442 3"),
+            react_1.default.createElement("p", null, "\u043F\u0440\u043E\u0435\u043A\u0442 4")),
+        react_1.default.createElement("div", null,
+            "\u0432\u044B\u0431\u0440\u0430\u043D\u043D\u044B\u0439 \u043F\u0440\u043E\u0435\u043A\u0442:",
+            react_1.default.createElement(ProjectDetail_1.default, { Project: projectsList.find(function (x) { return x.Id == currentProjectId; }) })));
+};
+exports["default"] = CodeReviewMain;
+
+
+/***/ }),
+
+/***/ "./src/components/Body/CodeReviewApp/ProjectDetail.tsx":
+/*!*************************************************************!*\
+  !*** ./src/components/Body/CodeReviewApp/ProjectDetail.tsx ***!
+  \*************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var ProjectDetail = function (props) {
+    if (!props.Project) {
+        return react_1.default.createElement("div", null,
+            react_1.default.createElement("p", null, "\u0432\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u0440\u043E\u0435\u043A\u0442"));
+    }
+    return react_1.default.createElement("div", null,
+        react_1.default.createElement("div", null,
+            react_1.default.createElement("p", null,
+                "\u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435: ",
+                props.Project.Name),
+            react_1.default.createElement("p", null,
+                "id: ",
+                props.Project.Id),
+            react_1.default.createElement("p", null, "\u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430"),
+            react_1.default.createElement("p", null, "\u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443")),
+        react_1.default.createElement("div", null,
+            react_1.default.createElement("div", null, "\u0444\u0438\u043B\u044C\u0442\u0440\u044B")));
+};
+exports["default"] = ProjectDetail;
 
 
 /***/ }),
@@ -45215,7 +45350,7 @@ var AppList = /** @class */ (function (_super) {
             new AppItem_1.AppItem({ Logo: G_EmptyImagePath, Name: "Dict", Path: "/words-cards-app" }),
             new AppItem_1.AppItem({ Logo: G_EmptyImagePath, Name: "TimeBooking", Path: "/menu-app" }),
             new AppItem_1.AppItem({ Logo: G_EmptyImagePath, Name: "PlaningPoker", Path: "/planing-poker" }),
-            new AppItem_1.AppItem({ Logo: G_EmptyImagePath, Name: "MenuApp", Path: "/menu-app" }),
+            new AppItem_1.AppItem({ Logo: G_EmptyImagePath, Name: "Code review", Path: "/code-review/" }),
         ];
         _this.state = {
             Apps: arr,
@@ -45434,13 +45569,6 @@ var IndexProps = /** @class */ (function () {
     return IndexProps;
 }());
 var Index = function (props) {
-    // const initState = new IndexState();
-    // const [localState, setLocalState] = useState(initState);
-    // const [test, setTestLocalState] = useState(false);
-    // const [withoutPasswordState, setWithoutPasswordState] = useState(false);
-    // if (!test) {
-    //     setTestLocalState(true);
-    // }
     (0, react_1.useEffect)(function () {
         var pathNameUrlSplit = document.location.pathname.split('/');
         if (pathNameUrlSplit && pathNameUrlSplit.length > 2) {
@@ -45467,15 +45595,6 @@ var Index = function (props) {
     var enterInRoom = function () {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.EnterInRoom, props.RoomInfo.Name, props.RoomInfo.Password, props.Username);
     };
-    // let withoutPasswordOnClick = () => {
-    //     setWithoutPasswordState(!withoutPasswordState);
-    // }
-    // let passwordAreaRender = () => {
-    //     if (withoutPasswordState) {
-    //         return <div></div>
-    //     }
-    //     return
-    // }
     //React.Fragment
     var actionsButton = react_1.default.createElement("div", null);
     if (props.Username) {
@@ -48224,18 +48343,6 @@ var WordsCardsListMain = /** @class */ (function (_super) {
             WordListSelected: -1,
             // WordListsLoaded:false,
         };
-        // for (let i = 0; i < 20; ++i) {
-        //     let card1 = new OneWordCardModel();
-        //     card1.Description = "description" + i;
-        //     card1.Id = i;
-        //     card1.Word = "words" + i;
-        //     card1.WordAnswer = "WordAnswer" + i;
-        //     this.state.Cards.push(card1);
-        // }
-        //действия над словами с бэком:
-        //добавить, удалить, получить список, обновить, спрятать, загрузить файл, скачать файл
-        //без бэка
-        //показать\спрятать: описание слово кратинку, перемешать, показать спрятанные, поиск
         _this.ChangeShowCurrentWordAnswer = _this.ChangeShowCurrentWordAnswer.bind(_this);
         _this.ChangeShowCurrentWord = _this.ChangeShowCurrentWord.bind(_this);
         _this.ChangeShowCurrentWordImage = _this.ChangeShowCurrentWordImage.bind(_this);
@@ -48282,34 +48389,6 @@ var WordsCardsListMain = /** @class */ (function (_super) {
             });
         };
         G_WordsCardsController.GetAllForUser(success);
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: {},
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             // console.log(xhr);
-        //             let dataBack = xhr as IOneWordCardBack[];
-        //             let dataFront: OneWordCardModel[] = [];
-        //             dataBack.forEach(bk => {
-        //                 let nd = new OneWordCardModel();
-        //                 nd.FillByBackModel(bk);
-        //                 dataFront.push(nd);
-        //             });
-        //             this.setState({//смержит?????
-        //                 Cards: dataFront,
-        //                 CardsLoaded: true,
-        //                 // FollowedCards: followed,
-        //                 // NotFollowedCards: notFollowed,
-        //             });
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/wordscards/get-all-for-user',
-        // }, true);
     };
     WordsCardsListMain.prototype.WordOnChange = function (event) {
         var newState = __assign({}, this.state);
@@ -48494,35 +48573,6 @@ var WordsCardsListMain = /** @class */ (function (_super) {
             }
         };
         G_WordsCardsController.Hide(cardId, success);
-        // let data = new FormData();
-        // let cardId = this.state.CurrentCard.Id;
-        // data.append('id', cardId + '');
-        // let refThis = this;
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: data,
-        //     Type: "PATCH",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             //TODO тут может быть ошибка, что мы не дождались ответа серва а выбранная картинка уже изменилась
-        //             let res = xhr as BoolResultBack;
-        //             let newState = { ...refThis.state };
-        //             let card = refThis.GetFromStateCardsById(newState, cardId);
-        //             if (card) {
-        //                 card.Hided = res.result;
-        //                 if ((!newState.ShowHidenCard) && card.Hided && newState.CurrentCard?.Id == cardId) {
-        //                     this.ChangeCurrentCard(newState);
-        //                 }
-        //                 refThis.setState(newState);
-        //             }
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/wordscards/hide',
-        // }, true);
     };
     WordsCardsListMain.prototype.AddCardToList = function (cardId, listId) {
         var _this = this;
@@ -48548,36 +48598,6 @@ var WordsCardsListMain = /** @class */ (function (_super) {
             }
         };
         G_WordsListController.AddToList(cardId, listId, success);
-        // let data = new FormData();
-        // data.append('card_id', cardId + '');
-        // data.append('list_id', listId + '');
-        // let refThis = this;
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: data,
-        //     Type: "PUT",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             //TODO тут может быть ошибка, что мы не дождались ответа серва а выбранная картинка уже изменилась
-        //             let res = xhr as IWordCardWordList;
-        //             if (res.id_list) {
-        //                 let newState = { ...refThis.state };
-        //                 card = this.GetFromStateCardsById(newState, cardId);
-        //                 if (card) {
-        //                     let newRec = new WordCardWordList();
-        //                     newRec.FillByBackModel(res);
-        //                     card.Lists.push(newRec);
-        //                     refThis.setState(newState);
-        //                 }
-        //             }
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/wordslist/add-to-list',
-        // }, true);
     };
     WordsCardsListMain.prototype.RemoveFromList = function (cardId, listId) {
         var _this = this;
@@ -48606,37 +48626,6 @@ var WordsCardsListMain = /** @class */ (function (_super) {
             }
         };
         G_WordsListController.RemoveFromList(cardId, listId, success);
-        // let data = new FormData();
-        // data.append('card_id', cardId + '');
-        // data.append('list_id', listId + '');
-        // let refThis = this;
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: data,
-        //     Type: "DELETE",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             //TODO тут может быть ошибка, что мы не дождались ответа серва а выбранная картинка уже изменилась
-        //             let res = xhr as BoolResultBack;
-        //             if (res.result) {
-        //                 let newState = { ...refThis.state };
-        //                 card = this.GetFromStateCardsById(newState, cardId);
-        //                 for (let i = 0; i < card.Lists.length; ++i) {
-        //                     if (card.Lists[i].IdList == listId) {
-        //                         card.Lists.splice(i, 1)
-        //                         refThis.setState(newState);
-        //                         return;
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/wordslist/remove-from-list',
-        // }, true);
     };
     WordsCardsListMain.prototype.DeleteCurrentCard = function () {
         if (!this.state.CurrentCard) {
@@ -48656,34 +48645,6 @@ var WordsCardsListMain = /** @class */ (function (_super) {
             }
         };
         G_WordsCardsController.Delete(cardId, success);
-        // let data = new FormData();
-        // let cardId = this.state.CurrentCard.Id;
-        // data.append('id', cardId + '');
-        // let refThis = this;
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: data,
-        //     Type: "DELETE",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             //TODO тут может быть ошибка, что мы не дождались ответа серва а выбранная картинка уже изменилась
-        //             let res = xhr as IOneWordCardBack;
-        //             if (res?.id && res.id > 0) {
-        //                 let newState = { ...refThis.state };
-        //                 let card = refThis.TryRemoveFromStateCardsById(newState, cardId);
-        //                 if (card) {
-        //                     this.ChangeCurrentCard(newState);
-        //                     refThis.setState(newState);
-        //                 }
-        //             }
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/wordscards/delete',
-        // }, true);
     };
     WordsCardsListMain.prototype.ShowHiddenCardsOnClick = function () {
         var _a;
@@ -50281,6 +50242,67 @@ exports.AuthenticateController = AuthenticateController;
 
 /***/ }),
 
+/***/ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewController.ts":
+/*!******************************************************************************************!*\
+  !*** ./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewController.ts ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CodeReviewController = void 0;
+var CodeReviewController = /** @class */ (function () {
+    function CodeReviewController() {
+        this.CreateNewProject = function (newProjectName, onSuccess) {
+            var data = {
+                "projectName": newProjectName,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PUT",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    var resp = xhr;
+                    if (resp.errors) {
+                        //TODO ошибка
+                        onSuccess(resp, null);
+                    }
+                    else {
+                        var dataBack = xhr;
+                        onSuccess(null, dataBack);
+                    }
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/project/add-new-project'
+            });
+        };
+        this.GetUserProjects = function (onSuccess) {
+            G_AjaxHelper.GoAjaxRequest({
+                Data: {},
+                Type: "GET",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    var resp = xhr;
+                    if (resp.errors) {
+                        //TODO ошибка
+                        onSuccess(resp, null);
+                    }
+                    else {
+                        var dataBack = xhr;
+                        onSuccess(null, dataBack);
+                    }
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/project/get-projects',
+            });
+        };
+    }
+    return CodeReviewController;
+}());
+exports.CodeReviewController = CodeReviewController;
+
+
+/***/ }),
+
 /***/ "./src/components/_ComponentsLink/Controllers/MenuApp/ArticleController.ts":
 /*!*********************************************************************************!*\
   !*** ./src/components/_ComponentsLink/Controllers/MenuApp/ArticleController.ts ***!
@@ -51274,6 +51296,7 @@ var client_1 = __importDefault(__webpack_require__(/*! react-dom/client */ "./no
 var MainComponent_1 = __importDefault(__webpack_require__(/*! ./components/MainComponent */ "./src/components/MainComponent.tsx"));
 var AjaxLogic_1 = __webpack_require__(/*! ./components/_ComponentsLink/AjaxLogic */ "./src/components/_ComponentsLink/AjaxLogic.ts");
 var AuthenticateController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/AuthenticateController */ "./src/components/_ComponentsLink/Controllers/AuthenticateController.ts");
+var CodeReviewController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewController */ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewController.ts");
 var ArticleController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/MenuApp/ArticleController */ "./src/components/_ComponentsLink/Controllers/MenuApp/ArticleController.ts");
 var PlaningPokerController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/PlaningPoker/PlaningPokerController */ "./src/components/_ComponentsLink/Controllers/PlaningPoker/PlaningPokerController.ts");
 var UsersController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/UsersController */ "./src/components/_ComponentsLink/Controllers/UsersController.ts");
@@ -51308,6 +51331,7 @@ window.G_ArticleController = new ArticleController_1.ArticleController();
 window.G_WordsCardsController = new WordsCardsController_1.WordsCardsController();
 window.G_WordsListController = new WordsListController_1.WordsListController();
 window.G_PlaningPokerController = new PlaningPokerController_1.PlaningPokerController();
+window.G_CodeReviewController = new CodeReviewController_1.CodeReviewController();
 //
 // G_AddAbsoluteAlertToState -->MainComponent
 //
