@@ -62,7 +62,7 @@ namespace CodeReviewApp.Models.Services
         }
 
 
-        public async Task<TaskReview> CreateTaskAsync(long projectId, string name, long creatorId, long reviewerId, UserInfo userInfo)
+        public async Task<TaskReview> CreateTaskAsync(long projectId, string name, long creatorId, long? reviewerId, UserInfo userInfo)
         {
             if (!await ExistIfAccessAsync(projectId, userInfo))
             {

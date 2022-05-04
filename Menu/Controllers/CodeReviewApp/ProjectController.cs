@@ -78,10 +78,49 @@ namespace Menu.Controllers.CodeReviewApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _projectService.GetByIdIfAccessAsync(projectId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, "projectInfo_" + projectId);
+                    тут надо дозагрузить пользаков и задачи
+                    await _apiHealper.WriteResponseAsync(Response, 
+                        new {Users=res. });//"projectInfo_" + projectId
 
                 }, Response, _logger);
 
         }
+
+
+        [Route("add-new-user")]
+        [HttpPut]
+        public async Task AddNewUser([FromForm] string userName, [FromForm] long projectId)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _projectService.CreateUserAsync(projectId, userName, null, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, new { Id = res.Id, Name = res.UserName });
+
+                }, Response, _logger);
+
+        }
+
+        [Route("add-new-task")]
+        [HttpPut]
+        public async Task AddNewTask([FromForm] string taskName, [FromForm] long taskCreatorId
+            , [FromForm] long? taskReviwerId, [FromForm] long projectId)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _projectService.CreateTaskAsync(projectId, taskName, taskCreatorId, taskReviwerId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response
+                        , new { Id = res.Id, Name = res.Name
+                        , CreatorId = res.CreatorId, ReviewerId = res.ReviewerId, Status = res.Status });
+
+                }, Response, _logger);
+
+        }
+
     }
 }
