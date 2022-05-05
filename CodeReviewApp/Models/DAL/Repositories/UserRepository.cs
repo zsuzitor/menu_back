@@ -3,6 +3,9 @@ using BO.Models.CodeReviewApp.DAL.Domain;
 using CodeReviewApp.Models.DAL.Repositories.Interfaces;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models.DAL.Repositories
@@ -13,9 +16,14 @@ namespace CodeReviewApp.Models.DAL.Repositories
         {
         }
 
-        public async Task<ProjectUser> Create(ProjectUser user)
+        public async Task<ProjectUser> CreateAsync(ProjectUser user)
         {
             return await base.AddAsync(user);
+        }
+
+        public async Task<List<ProjectUser>> GetProjectUsersAsync(long projectId)
+        {
+            return await _db.ReviewProjectUsers.Where(x => x.ProjectId == projectId).ToListAsync();
         }
     }
 }

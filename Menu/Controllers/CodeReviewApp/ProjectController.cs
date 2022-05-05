@@ -2,6 +2,7 @@
 using CodeReviewApp.Models.Returns;
 using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models.Error.services.Interfaces;
+using Common.Models.Exceptions;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -19,12 +20,16 @@ namespace Menu.Controllers.CodeReviewApp
         private readonly IApiHelper _apiHealper;
         private readonly IErrorService _errorService;
         private readonly ILogger _logger;
+
         private readonly IProjectService _projectService;
+        private readonly IProjectUserService _projectUserService;
+        private readonly ITaskReviewService _taskReviewService;
 
 
         public ProjectController(
              IJWTService jwtService, IApiHelper apiHealper, IErrorService errorService
-            , ILogger<ProjectController> logger, IProjectService projectService)
+            , ILogger<ProjectController> logger, IProjectService projectService,
+             IProjectUserService projectUserService, ITaskReviewService taskReviewService)
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
@@ -32,6 +37,8 @@ namespace Menu.Controllers.CodeReviewApp
             _logger = logger;
 
             _projectService = projectService;
+            _projectUserService = projectUserService;
+            _taskReviewService = taskReviewService;
         }
 
         [Route("get-projects")]
@@ -78,9 +85,18 @@ namespace Menu.Controllers.CodeReviewApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _projectService.GetByIdIfAccessAsync(projectId, userInfo);
-                    тут надо дозагрузить пользаков и задачи
-                    await _apiHealper.WriteResponseAsync(Response, 
-                        new {Users=res. });//"projectInfo_" + projectId
+                    if (res == null)
+                    {
+                        throw new SomeCustomException("project_not_found");
+                    }
+
+                    var users = await _projectUserService.GetProjectUsersAsync(projectId);
+                    var tasks = await _taskReviewService.GetTasksAsync(projectId, null, null, null);
+                    var usersReturn = users.Select(x => new ProjectUserReturn(x));
+                    var taskReturn = tasks.Select(x => new TaskReviewReturn(x));
+
+                    await _apiHealper.WriteResponseAsync(Response,
+                        new { Users = usersReturn, Tasks = taskReturn });//"projectInfo_" + projectId
 
                 }, Response, _logger);
 

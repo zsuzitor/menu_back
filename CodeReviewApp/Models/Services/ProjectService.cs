@@ -53,7 +53,7 @@ namespace CodeReviewApp.Models.Services
         {
             if (!await ExistIfAccessAsync(projectId, userInfo))
             {
-                throw new SomeCustomException("project_not_found");
+                throw new SomeCustomException("project_not_found");//todo поиск и вынести
             }
 
             var user = new ProjectUser() { ProjectId = projectId, UserName = userName, MainAppUserId = mainAppUserId };
