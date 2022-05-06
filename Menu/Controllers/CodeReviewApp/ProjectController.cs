@@ -127,12 +127,37 @@ namespace Menu.Controllers.CodeReviewApp
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
+                    if (taskReviwerId < 1)
+                    {
+                        taskReviwerId = null;
+                    }
+
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _projectService.CreateTaskAsync(projectId, taskName, taskCreatorId, taskReviwerId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new { Id = res.Id, Name = res.Name
                         , CreatorId = res.CreatorId, ReviewerId = res.ReviewerId, Status = res.Status });
+
+                }, Response, _logger);
+
+        }
+
+        [Route("delete-project")]
+        [HttpDelete]
+        public async Task DeleteProject([FromForm] long projectId)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _projectService.DeleteAsync(projectId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response
+                        , new
+                        {
+                            result = res,
+                        });
 
                 }, Response, _logger);
 

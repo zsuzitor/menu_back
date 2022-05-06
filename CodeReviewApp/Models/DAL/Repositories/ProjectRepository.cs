@@ -25,25 +25,33 @@ namespace CodeReviewApp.Models.DAL.Repositories
         public async Task<bool> ExistIfAccessAsync(long id, long mainAppUserId)
         {
             return await _db.ReviewProject.Include(x => x.Users)
-                .Where(x => x.Id == id
+                .Where(x => x.Id == id && !x.IsDeleted
                 && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId) != null).FirstOrDefaultAsync() != null;
         }
 
-       
+
+
+        public override async Task<Project> DeleteAsync(Project project)
+        {
+            _db.ReviewProject.Attach(project);
+            project.IsDeleted = true;
+            await _db.SaveChangesAsync();
+            return project;
+        }
 
         public async Task<Project> GetByIdIfAccessAsync(long id, long mainAppUserId)
         {
             return await _db.ReviewProject.Include(x => x.Users)
-                            .Where(x => x.Id == id
+                            .Where(x => x.Id == id && !x.IsDeleted
                             && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId) != null).FirstOrDefaultAsync();
         }
 
         public async Task<List<Project>> GetProjectsByMainAppUserIdAsync(long userId)
         {
             return await _db.ReviewProjectUsers.Where(x => x.MainAppUserId == userId)
-                .Include(x => x.Project).Select(x=>x.Project).ToListAsync();
+                .Include(x => x.Project).Select(x => x.Project).Where(x => !x.IsDeleted).ToListAsync();
 
-                //.Join(_db.ReviewProject,u=>u.ProjectId)
+            //.Join(_db.ReviewProject,u=>u.ProjectId)
 
         }
     }

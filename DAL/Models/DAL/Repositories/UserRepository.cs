@@ -94,6 +94,11 @@ namespace DAL.Models.DAL.Repositories
         {
             //TODO тут бы обрезать модель, грузить только то что надо и тд, но пока что так
             var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            if (user == null)
+            {
+                throw new NotAuthException();
+            }
+
             user.Login = null;
             user.PasswordHash = null;
             user.RefreshTokenHash = null;

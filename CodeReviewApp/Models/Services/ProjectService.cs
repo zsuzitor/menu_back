@@ -3,6 +3,7 @@ using BO.Models.CodeReviewApp.DAL.Domain;
 using CodeReviewApp.Models.DAL.Repositories.Interfaces;
 using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
+using Menu.Models.Services.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -13,18 +14,28 @@ namespace CodeReviewApp.Models.Services
         private readonly IProjectRepository _projectRepository;
         private readonly IProjectUserService _userService;
         private readonly ITaskReviewService _taskReviewService;
+        private readonly IUserService _mainAppUserService;
         public ProjectService(IProjectRepository projectRepository, IProjectUserService userService,
-            ITaskReviewService taskReviewService)
+            ITaskReviewService taskReviewService, IUserService mainAppUserService)
         {
             _projectRepository = projectRepository;
             _userService = userService;
             _taskReviewService = taskReviewService;
+            _mainAppUserService = mainAppUserService;
         }
 
         public async Task<Project> CreateAsync(string name, UserInfo userInfo)
         {
             //конечно не очень красиво отходить от репозиториев, но ладно
-            var user = new ProjectUser() { IsAdmin = true, UserName = "creator", MainAppUserId = userInfo.UserId };
+            var mainAppUserInfo = await _mainAppUserService.GetShortInfo(userInfo.UserId);
+
+            var user = new ProjectUser()
+            {
+                IsAdmin = true,
+                UserName = string.IsNullOrEmpty(mainAppUserInfo.Name) ? mainAppUserInfo.Email : mainAppUserInfo.Name,
+                MainAppUserId = userInfo.UserId,
+                NotifyEmail = mainAppUserInfo.Email,
+            };
             var project = await _projectRepository.CreateAsync(name, user);
             return project;
         }
@@ -62,7 +73,8 @@ namespace CodeReviewApp.Models.Services
         }
 
 
-        public async Task<TaskReview> CreateTaskAsync(long projectId, string name, long creatorId, long? reviewerId, UserInfo userInfo)
+        public async Task<TaskReview> CreateTaskAsync(long projectId, string name
+            , long creatorId, long? reviewerId, UserInfo userInfo)
         {
             if (!await ExistIfAccessAsync(projectId, userInfo))
             {
@@ -80,5 +92,13 @@ namespace CodeReviewApp.Models.Services
             //todo проверяем что creator+reviwer входит в проект. по идеи если что упадет с исключением
             return await _taskReviewService.CreateAsync(newTask);
         }
+
+        public async Task<bool> DeleteAsync(long projectId, UserInfo userInfo)
+        {
+            var project = await _projectRepository.GetByIdIfAccessAsync(projectId, userInfo.UserId);
+            await _projectRepository.DeleteAsync(project);
+            return true;
+        }
+
     }
 }
