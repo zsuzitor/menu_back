@@ -1,4 +1,5 @@
 ﻿
+using BO.Models.Auth;
 using BO.Models.CodeReviewApp.DAL.Domain;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -10,5 +11,6 @@ namespace CodeReviewApp.Models.Services.Interfaces
         Task<TaskReview> CreateAsync(TaskReview task);
         Task<List<TaskReview>> GetTasksAsync(long projectId, long? creatorId
             , long? reviewerId, CodeReviewTaskStatus? status);
+        Task<TaskReview> UpdateAsync(TaskReview task, UserInfo userInfo);
     }
 }

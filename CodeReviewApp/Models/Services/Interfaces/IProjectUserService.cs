@@ -1,4 +1,5 @@
 ﻿
+using BO.Models.Auth;
 using BO.Models.CodeReviewApp.DAL.Domain;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -15,5 +16,10 @@ namespace CodeReviewApp.Models.Services.Interfaces
         /// <param name="projectId"></param>
         /// <returns></returns>
         Task<List<ProjectUser>> GetProjectUsersAsync(long projectId);
+
+        Task<ProjectUser> ChangeAsync(long userId, string name, string email, UserInfo userInfo);
+        Task<ProjectUser> DeleteAsync(long userId, UserInfo userInfo);
+
+
     }
 }

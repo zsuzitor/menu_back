@@ -2,8 +2,6 @@
 
 using BO.Models.PlaningPoker.DAL;
 using DAL.Models.DAL.Repositories.Interfaces;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace PlanitPoker.Models.Repositories.Interfaces
 {

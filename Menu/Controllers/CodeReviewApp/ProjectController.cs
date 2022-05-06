@@ -6,6 +6,7 @@ using Common.Models.Exceptions;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
@@ -163,5 +164,76 @@ namespace Menu.Controllers.CodeReviewApp
 
         }
 
+        [Route("change-user")]
+        [HttpPatch]
+        public async Task ChangeUser([FromForm] long userId, [FromForm] string name, [FromForm] string email)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _projectUserService.ChangeAsync(userId, name, email, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response
+                        , new
+                        {
+                            result = res != null,
+                        });
+
+                }, Response, _logger);
+
+        }
+
+        [Route("delete-user")]
+        [HttpDelete]
+        public async Task DeleteUser([FromForm] long userId)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _projectUserService.DeleteAsync(userId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response
+                        , new
+                        {
+                            result = res != null,
+                        });
+
+                }, Response, _logger);
+
+        }
+
+        [Route("update-task")]
+        [HttpPatch]
+        public async Task UpdateTask([FromForm] long taskId, [FromForm] string name
+            , [FromForm] int status, [FromForm] long creatorId, [FromForm] long reviewerId)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    if (!Enum.GetValues(typeof(CodeReviewTaskStatus)).Cast<int>().Contains(status))
+                    {
+                        throw new SomeCustomException("bad_task_review_status");
+                    }
+
+                    var res = await _taskReviewService.UpdateAsync(new TaskReview()
+                    {
+                        Id = taskId,
+                        Name = name,
+                        Status = (CodeReviewTaskStatus)status,
+                        CreatorId = creatorId,
+                        ReviewerId = reviewerId
+                    }, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response
+                        , new
+                        {
+                            result = res != null,
+                        });
+
+                }, Response, _logger);
+
+        }
     }
 }
