@@ -46,10 +46,10 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException("task_not_founded");
             }
 
-            var canAddToProject = await _projectRepository.ExistIfAccessAsync(upTask.ProjectId, userInfo.UserId);
+            var canAddToProject = await _projectRepository.ExistIfAccessAdminAsync(upTask.ProjectId, userInfo.UserId);
             if (!canAddToProject)
             {
-                throw new SomeCustomException("project_not_found");
+                throw new SomeCustomException("project_have_no_access");
             }
 
             upTask.Status = task.Status;
@@ -58,6 +58,24 @@ namespace CodeReviewApp.Models.Services
             upTask.ReviewerId = task.ReviewerId;
             await _taskReviewRepository.UpdateAsync(upTask);
             return upTask;
+        }
+
+        public async Task<TaskReview> DeleteIfAccess(long id, UserInfo userInfo)
+        {
+            var task = await _taskReviewRepository.GetAsync(id);
+            if (task == null)
+            {
+                throw new SomeCustomException("task_not_found");
+
+            }
+            
+            var projectAccess =  await _projectRepository.ExistIfAccessAdminAsync(task.ProjectId, userInfo.UserId);
+            if (!projectAccess)
+            {
+                throw new SomeCustomException("project_have_no_access");
+            }
+
+            return await _taskReviewRepository.DeleteAsync(task);
         }
     }
 }

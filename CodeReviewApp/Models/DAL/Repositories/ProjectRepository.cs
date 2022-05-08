@@ -29,6 +29,14 @@ namespace CodeReviewApp.Models.DAL.Repositories
                 && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId) != null).FirstOrDefaultAsync() != null;
         }
 
+        public async Task<bool> ExistIfAccessAdminAsync(long id, long mainAppUserId)
+        {
+            return await _db.ReviewProject.Include(x => x.Users)
+                .Where(x => x.Id == id && !x.IsDeleted
+                && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId
+                    && u.IsAdmin) != null).FirstOrDefaultAsync() != null;
+        }
+
 
 
         public override async Task<Project> DeleteAsync(Project project)
@@ -44,6 +52,14 @@ namespace CodeReviewApp.Models.DAL.Repositories
             return await _db.ReviewProject.Include(x => x.Users)
                             .Where(x => x.Id == id && !x.IsDeleted
                             && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId) != null).FirstOrDefaultAsync();
+        }
+
+        public async Task<Project> GetByIdIfAccessAdminAsync(long id, long mainAppUserId)
+        {
+            return await _db.ReviewProject.Include(x => x.Users)
+                            .Where(x => x.Id == id && !x.IsDeleted
+                            && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId
+                                && u.IsAdmin) != null).FirstOrDefaultAsync();
         }
 
         public async Task<List<Project>> GetProjectsByMainAppUserIdAsync(long userId)

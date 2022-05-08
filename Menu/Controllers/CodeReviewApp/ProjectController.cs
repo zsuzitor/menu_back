@@ -284,7 +284,7 @@ namespace Menu.Controllers.CodeReviewApp
         [Route("update-task")]
         [HttpPatch]
         public async Task UpdateTask([FromForm] long taskId, [FromForm] string name
-            , [FromForm] int status, [FromForm] long creatorId, [FromForm] long reviewerId)
+            , [FromForm] int status, [FromForm] long creatorId, [FromForm] long? reviewerId)
         {
             name = _apiHealper.StringValidator(name);
 
@@ -305,6 +305,26 @@ namespace Menu.Controllers.CodeReviewApp
                         CreatorId = creatorId,
                         ReviewerId = reviewerId
                     }, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response
+                        , new
+                        {
+                            result = res != null,
+                        });
+
+                }, Response, _logger);
+
+        }
+
+        [Route("delete-task")]
+        [HttpDelete]
+        public async Task DeleteTask([FromForm] long taskId)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _taskReviewService.DeleteIfAccess(taskId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
                         {

@@ -55,14 +55,25 @@ namespace CodeReviewApp.Models.Services
             return await _projectRepository.GetByIdIfAccessAsync(id, userInfo.UserId);
         }
 
+        public async Task<Project> GetByIdIfAccessAdminAsync(long id, UserInfo userInfo)
+        {
+            return await _projectRepository.GetByIdIfAccessAdminAsync(id, userInfo.UserId);
+        }
+
         public async Task<bool> ExistIfAccessAsync(long id, UserInfo userInfo)
         {
             return await _projectRepository.ExistIfAccessAsync(id, userInfo.UserId);
         }
 
+        public async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)
+        {
+            return await _projectRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
+        }
+
+
         public async Task<ProjectUser> CreateUserAsync(long projectId, string userName, long? mainAppUserId, UserInfo userInfo)
         {
-            if (!await ExistIfAccessAsync(projectId, userInfo))
+            if (!await ExistIfAccessAdminAsync(projectId, userInfo))
             {
                 throw new SomeCustomException("project_not_found");//todo поиск и вынести
             }
@@ -76,7 +87,7 @@ namespace CodeReviewApp.Models.Services
         public async Task<TaskReview> CreateTaskAsync(long projectId, string name
             , long creatorId, long? reviewerId, UserInfo userInfo)
         {
-            if (!await ExistIfAccessAsync(projectId, userInfo))
+            if (!await ExistIfAccessAdminAsync(projectId, userInfo))
             {
                 throw new SomeCustomException("project_not_found");
             }

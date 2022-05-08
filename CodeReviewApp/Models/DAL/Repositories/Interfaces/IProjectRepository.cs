@@ -12,8 +12,9 @@ namespace CodeReviewApp.Models.DAL.Repositories.Interfaces
         Task<List<Project>> GetProjectsByMainAppUserIdAsync(long userId);
         Task<Project> GetAsync(long id);
         Task<Project> GetByIdIfAccessAsync(long id, long mainAppUserId);
+        Task<Project> GetByIdIfAccessAdminAsync(long id, long mainAppUserId);
         Task<bool> ExistIfAccessAsync(long id, long mainAppUserId);
         Task<Project> DeleteAsync(Project project);
-
+        Task<bool> ExistIfAccessAdminAsync(long id, long mainAppUserId);
     }
 }
