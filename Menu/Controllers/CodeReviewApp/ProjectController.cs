@@ -64,6 +64,8 @@ namespace Menu.Controllers.CodeReviewApp
         [HttpPut]
         public async Task AddProject([FromForm] string projectName)
         {
+            projectName = _apiHealper.StringValidator(projectName);
+
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
@@ -92,12 +94,73 @@ namespace Menu.Controllers.CodeReviewApp
                     }
 
                     var users = await _projectUserService.GetProjectUsersAsync(projectId);
-                    var tasks = await _taskReviewService.GetTasksAsync(projectId, null, null, null);
+                    //var tasks = await _taskReviewService.GetTasksAsync(projectId);
                     var usersReturn = users.Select(x => new ProjectUserReturn(x));
-                    var taskReturn = tasks.Select(x => new TaskReviewReturn(x));
+                    //var taskReturn = tasks.Select(x => new TaskReviewReturn(x));
 
                     await _apiHealper.WriteResponseAsync(Response,
-                        new { Users = usersReturn, Tasks = taskReturn });//"projectInfo_" + projectId
+                        new { Users = usersReturn });//, Tasks = taskReturn
+
+                }, Response, _logger);
+
+        }
+
+        [Route("get-project-tasks")]
+        [HttpGet]
+        public async Task GetProjectTasks(long projectId, string nameLike
+            , long? creatorId, long? reviewerId, int? status, int pageNumber, int pageSize)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    if (string.IsNullOrWhiteSpace(nameLike))
+                    {
+                        nameLike = null;
+                    }
+
+                    if (creatorId == -1)
+                    {
+                        creatorId = null;
+                    }
+
+                    if (reviewerId == -1)
+                    {
+                        reviewerId = null;
+                    }
+
+                    if (status == -1)
+                    {
+                        status = null;
+                    }
+
+                    CodeReviewTaskStatus? enumStatus = null;
+                    if (status != null)
+                    {
+                        if (!Enum.GetValues(typeof(CodeReviewTaskStatus)).Cast<int>().Contains((int)status))
+                        {
+                            throw new SomeCustomException("bad_task_review_status");
+                        }
+                        else
+                        {
+                            enumStatus = (CodeReviewTaskStatus)status;
+                        }
+                    }
+                    
+
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _projectService.GetByIdIfAccessAsync(projectId, userInfo);
+                    if (res == null)
+                    {
+                        throw new SomeCustomException("project_not_found");
+                    }
+
+                    var tasks = await _taskReviewService.GetTasksAsync(projectId
+                        , nameLike, creatorId, reviewerId, enumStatus, pageNumber,pageSize);
+                    var taskReturn = tasks.Select(x => new TaskReviewReturn(x));
+
+                await _apiHealper.WriteResponseAsync(Response,
+                    taskReturn);// new { Tasks = taskReturn });//"projectInfo_" + projectId
 
                 }, Response, _logger);
 
@@ -108,13 +171,15 @@ namespace Menu.Controllers.CodeReviewApp
         [HttpPut]
         public async Task AddNewUser([FromForm] string userName, [FromForm] long projectId)
         {
+            userName = _apiHealper.StringValidator(userName);
+
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _projectService.CreateUserAsync(projectId, userName, null, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new { Id = res.Id, Name = res.UserName });
+                    await _apiHealper.WriteResponseAsync(Response, new ProjectUserReturn(res));
 
                 }, Response, _logger);
 
@@ -125,6 +190,8 @@ namespace Menu.Controllers.CodeReviewApp
         public async Task AddNewTask([FromForm] string taskName, [FromForm] long taskCreatorId
             , [FromForm] long? taskReviwerId, [FromForm] long projectId)
         {
+            taskName = _apiHealper.StringValidator(taskName);
+
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
@@ -137,8 +204,14 @@ namespace Menu.Controllers.CodeReviewApp
 
                     var res = await _projectService.CreateTaskAsync(projectId, taskName, taskCreatorId, taskReviwerId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
-                        , new { Id = res.Id, Name = res.Name
-                        , CreatorId = res.CreatorId, ReviewerId = res.ReviewerId, Status = res.Status });
+                        , new
+                        {
+                            Id = res.Id,
+                            Name = res.Name,
+                            CreatorId = res.CreatorId,
+                            ReviewerId = res.ReviewerId,
+                            Status = res.Status,
+                        });
 
                 }, Response, _logger);
 
@@ -168,6 +241,10 @@ namespace Menu.Controllers.CodeReviewApp
         [HttpPatch]
         public async Task ChangeUser([FromForm] long userId, [FromForm] string name, [FromForm] string email)
         {
+            name = _apiHealper.StringValidator(name);
+            email = _apiHealper.StringValidator(email);
+
+
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
@@ -209,6 +286,8 @@ namespace Menu.Controllers.CodeReviewApp
         public async Task UpdateTask([FromForm] long taskId, [FromForm] string name
             , [FromForm] int status, [FromForm] long creatorId, [FromForm] long reviewerId)
         {
+            name = _apiHealper.StringValidator(name);
+
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {

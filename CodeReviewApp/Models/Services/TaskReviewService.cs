@@ -25,10 +25,17 @@ namespace CodeReviewApp.Models.Services
             return await _taskReviewRepository.CreateAsync(task);
         }
 
-        public async Task<List<TaskReview>> GetTasksAsync(long projectId, long? creatorId
-            , long? reviewerId, CodeReviewTaskStatus? status)
+        public async Task<List<TaskReview>> GetTasksAsync(long projectId)
         {
-            return await _taskReviewRepository.GetTasksAsync(projectId, creatorId, reviewerId, status);
+            return await _taskReviewRepository.GetTasksByProjectIdAsync(projectId);
+
+        }
+
+        public async Task<List<TaskReview>> GetTasksAsync(long projectId, string name, long? creatorId
+            , long? reviewerId, CodeReviewTaskStatus? status, int pageNumber, int pageSize)
+        {
+            return await _taskReviewRepository.GetTasksAsync(projectId, name
+                , creatorId, reviewerId, status, pageNumber, pageSize);
         }
 
         public async Task<TaskReview> UpdateAsync(TaskReview task, UserInfo userInfo)

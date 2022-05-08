@@ -20,14 +20,28 @@ namespace CodeReviewApp.Models.DAL.Repositories
             return await base.AddAsync(task);
         }
 
-        public async Task<List<TaskReview>> GetTasksAsync(long projectId, long? creatorId
-            , long? reviewerId, CodeReviewTaskStatus? status)
+        public async Task<List<TaskReview>> GetTasksAsync(long projectId, string name, long? creatorId
+            , long? reviewerId, CodeReviewTaskStatus? status, int pageNumber, int pageSize)
         {
+            if (pageNumber > 0)
+            {
+                pageNumber--;
+            }
+
+            var skipCount = pageNumber * pageSize;
             return await _db.ReviewTasks.Where(x => x.ProjectId == projectId
-                && (creatorId == null ? true : x.CreatorId == creatorId)
-                && (reviewerId == null ? true : x.ReviewerId == reviewerId)
-                && (status == null ? true : x.Status == status)).ToListAsync();
+                && (creatorId == null || x.CreatorId == creatorId)
+                && (reviewerId == null || x.ReviewerId == reviewerId)
+                && (status == null || x.Status == status)
+                && EF.Functions.Like(x.Name, $"%{name}%")).OrderBy(x => x.Id)
+                .Skip(skipCount).Take(pageSize).ToListAsync();
         }
+
+        public async Task<List<TaskReview>> GetTasksByProjectIdAsync(long projectId)
+        {
+            return await _db.ReviewTasks.Where(x => x.ProjectId == projectId).ToListAsync();
+        }
+
 
     }
 }
