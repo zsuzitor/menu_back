@@ -110,14 +110,14 @@ namespace Common.Models
                     smSl.Release();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //if (e is IBaseCusomException)
                 {
                     throw;
                 }
 
-                return (default, false);
+                //return (default, false);
             }
         }
 
@@ -138,14 +138,14 @@ namespace Common.Models
                     smSl.Release();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //if (e is IBaseCusomException)
                 {
                     throw;
                 }
 
-                return false;
+                //return false;
             }
         }
 
@@ -167,7 +167,7 @@ namespace Common.Models
                     smSl.Release();
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 //if (e is IBaseCusomException)
                 {
@@ -176,7 +176,7 @@ namespace Common.Models
                 //возможно тут всегда надо бросать исключение
 
                 //TODO конечно бы транзакцию хорошо бы
-                return false;
+                //return false;
             }
         }
     }

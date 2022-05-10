@@ -31,5 +31,11 @@ namespace CodeReviewApp.Models.DAL.Repositories
             return await _db.ReviewProjectUsers
                 .FirstOrDefaultAsync(x => x.ProjectId == projectId && x.MainAppUserId == mainAppUserId);
         }
+
+        public async Task<ProjectUser> GetByMainAppIdAsync(long userId)
+        {
+            return await _db.ReviewProjectUsers
+                .FirstOrDefaultAsync(x => x.MainAppUserId == userId);
+        }
     }
 }

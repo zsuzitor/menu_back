@@ -15,5 +15,10 @@ namespace BO.Models.CodeReviewApp.DAL.Domain
 
         public long CreatorId { get; set; }
         public ProjectUser Creator { get; set; }
+
+        public CommentReview()
+        {
+            CreateDate = DateTime.Now;
+        }
     }
 }

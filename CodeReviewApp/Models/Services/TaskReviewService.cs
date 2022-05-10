@@ -13,11 +13,16 @@ namespace CodeReviewApp.Models.Services
     {
         private readonly ITaskReviewRepository _taskReviewRepository;
         private readonly IProjectRepository _projectRepository;
+        private readonly IProjectUserService _projectUserService;
+        private readonly ITaskReviewCommentService _taskReviewCommentService;
         public TaskReviewService(ITaskReviewRepository taskReviewRepository,
-            IProjectRepository projectRepository)
+            IProjectRepository projectRepository, IProjectUserService projectUserService
+            , ITaskReviewCommentService taskReviewCommentService)
         {
             _taskReviewRepository = taskReviewRepository;
             _projectRepository = projectRepository;
+            _projectUserService = projectUserService;
+            _taskReviewCommentService = taskReviewCommentService;
         }
 
         public async Task<TaskReview> CreateAsync(TaskReview task)
@@ -31,6 +36,17 @@ namespace CodeReviewApp.Models.Services
 
         }
 
+        /// <summary>
+        /// без валидации
+        /// </summary>
+        /// <param name="projectId"></param>
+        /// <param name="name"></param>
+        /// <param name="creatorId"></param>
+        /// <param name="reviewerId"></param>
+        /// <param name="status"></param>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
         public async Task<List<TaskReview>> GetTasksAsync(long projectId, string name, long? creatorId
             , long? reviewerId, CodeReviewTaskStatus? status, int pageNumber, int pageSize)
         {
@@ -66,7 +82,6 @@ namespace CodeReviewApp.Models.Services
             if (task == null)
             {
                 throw new SomeCustomException("task_not_found");
-
             }
             
             var projectAccess =  await _projectRepository.ExistIfAccessAdminAsync(task.ProjectId, userInfo.UserId);
@@ -76,6 +91,49 @@ namespace CodeReviewApp.Models.Services
             }
 
             return await _taskReviewRepository.DeleteAsync(task);
+        }
+
+        public async Task<List<CommentReview>> GetCommentsAsync(long taskId, UserInfo userInfo)
+        {
+            var task = await _taskReviewRepository.GetTaskWithCommentsAsync(taskId);
+            if (task == null)
+            {
+                throw new SomeCustomException("task_not_found");
+            }
+
+            var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
+            if (!projectAccessed)
+            {
+                throw new SomeCustomException("project_not_found");
+            }
+
+            return task.Comments;
+        }
+
+        public async Task<TaskReview> GetByIdIfAccessAsync(long id, UserInfo userInfo)
+        {
+            var task = await _taskReviewRepository.GetAsync(id);
+            if (task == null)
+            {
+                throw new SomeCustomException("task_not_found");
+            }
+
+            var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
+            if (!projectAccessed)
+            {
+                throw new SomeCustomException("project_not_found");
+            }
+
+            return task;
+        }
+
+        public async Task<CommentReview> CreateCommentAsync(long taskId, string text, UserInfo userInfo)
+        {
+            _ = await GetByIdIfAccessAsync(taskId, userInfo);
+            var projectUser = await _projectUserService.GetByMainAppIdAsync(userInfo);
+            //projectUser - уже должен быть свалидирован по GetByIdIfAccessAsync
+            var newComment = new CommentReview() { CreatorId = projectUser.Id, TaskId = taskId, Text = text };
+            return await _taskReviewCommentService.CreateAsync(newComment);
         }
     }
 }

@@ -21,8 +21,9 @@ namespace CodeReviewApp.Models
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<ITaskReviewRepository, TaskReviewRepository>();
             services.AddScoped<IProjectUserRepository, UserRepository>();
+            services.AddScoped<ITaskReviewCommentRepository, TaskReviewCommentRepository>();
 
-            
+
         }
 
         public void ServicesInitialize(IServiceCollection services)
@@ -30,7 +31,8 @@ namespace CodeReviewApp.Models
             services.AddScoped<IProjectService, ProjectService>();
             services.AddScoped<ITaskReviewService, TaskReviewService>();
             services.AddScoped<IProjectUserService, ProjectUserService>();
-            
+            services.AddScoped<ITaskReviewCommentService, TaskReviewCommentService>();
+
             //services.AddScoped<IProjectService, >();
         }
     }

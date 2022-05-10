@@ -25,12 +25,13 @@ namespace Menu.Controllers.CodeReviewApp
         private readonly IProjectService _projectService;
         private readonly IProjectUserService _projectUserService;
         private readonly ITaskReviewService _taskReviewService;
-
+        private readonly ITaskReviewCommentService _taskReviewCommentService;
 
         public ProjectController(
              IJWTService jwtService, IApiHelper apiHealper, IErrorService errorService
             , ILogger<ProjectController> logger, IProjectService projectService,
-             IProjectUserService projectUserService, ITaskReviewService taskReviewService)
+             IProjectUserService projectUserService, ITaskReviewService taskReviewService,
+             ITaskReviewCommentService taskReviewCommentService)
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
@@ -40,6 +41,7 @@ namespace Menu.Controllers.CodeReviewApp
             _projectService = projectService;
             _projectUserService = projectUserService;
             _taskReviewService = taskReviewService;
+            _taskReviewCommentService = taskReviewCommentService;
         }
 
         [Route("get-projects")]
@@ -145,22 +147,22 @@ namespace Menu.Controllers.CodeReviewApp
                             enumStatus = (CodeReviewTaskStatus)status;
                         }
                     }
-                    
+
 
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _projectService.GetByIdIfAccessAsync(projectId, userInfo);
-                    if (res == null)
+                    var res = await _projectService.ExistIfAccessAsync(projectId, userInfo);
+                    if (!res)
                     {
                         throw new SomeCustomException("project_not_found");
                     }
 
                     var tasks = await _taskReviewService.GetTasksAsync(projectId
-                        , nameLike, creatorId, reviewerId, enumStatus, pageNumber,pageSize);
+                        , nameLike, creatorId, reviewerId, enumStatus, pageNumber, pageSize);
                     var taskReturn = tasks.Select(x => new TaskReviewReturn(x));
 
-                await _apiHealper.WriteResponseAsync(Response,
-                    taskReturn);// new { Tasks = taskReturn });//"projectInfo_" + projectId
+                    await _apiHealper.WriteResponseAsync(Response,
+                        taskReturn);// new { Tasks = taskReturn });//"projectInfo_" + projectId
 
                 }, Response, _logger);
 
@@ -325,6 +327,83 @@ namespace Menu.Controllers.CodeReviewApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _taskReviewService.DeleteIfAccess(taskId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response
+                        , new
+                        {
+                            result = res != null,
+                        });
+
+                }, Response, _logger);
+
+        }
+
+        [Route("create-comment")]
+        [HttpPut]
+        public async Task CreateComment([FromForm] long taskId, [FromForm] string text)
+        {
+            text = _apiHealper.StringValidator(text);
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _taskReviewService.CreateCommentAsync(taskId, text, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, new CommentReviewReturn(res));
+
+                }, Response, _logger);
+
+        }
+
+        [Route("delete-comment")]
+        [HttpDelete]
+        public async Task DeleteComment([FromForm] long commentId)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _taskReviewCommentService.DeleteAsync(commentId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response
+                        , new
+                        {
+                            result = res != null,
+                        });
+
+                }, Response, _logger);
+
+        }
+
+        [Route("get-comments")]
+        [HttpGet]
+        public async Task GetComments(long taskId)
+        {
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _taskReviewService.GetCommentsAsync(taskId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, res.Select(x=>new CommentReviewReturn(x)));
+
+                }, Response, _logger);
+
+        }
+
+        [Route("edit-comment")]
+        [HttpPatch]
+        public async Task EditComment([FromForm] long commentId, [FromForm] string text)
+        {
+            text = _apiHealper.StringValidator(text);
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _taskReviewCommentService.EditAsync(commentId, text, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
                         {

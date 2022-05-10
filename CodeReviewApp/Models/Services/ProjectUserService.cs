@@ -70,5 +70,10 @@ namespace CodeReviewApp.Models.Services
             await _projectUserRepository.DeleteAsync(user);
             return user;
         }
+
+        public async Task<ProjectUser> GetByMainAppIdAsync(UserInfo userInfo)
+        {
+            return await _projectUserRepository.GetByMainAppIdAsync(userInfo.UserId);
+        }
     }
 }

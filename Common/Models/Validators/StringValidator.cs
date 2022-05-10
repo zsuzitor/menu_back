@@ -29,9 +29,10 @@ namespace Common.Models.Validators
 
         public string Validate(string str)
         {
-            string res = _htmlEncoder.Encode(str);
+            string res = str;
             res = _javaScriptEncoder.Encode(res);
-            res = _urlEncoder.Encode(res);
+            res = _htmlEncoder.Encode(res);
+            //res = _urlEncoder.Encode(res);//todo зачем это?
             return res;
         }
     }

@@ -42,6 +42,18 @@ namespace CodeReviewApp.Models.DAL.Repositories
             return await _db.ReviewTasks.Where(x => x.ProjectId == projectId).ToListAsync();
         }
 
+        public async Task<TaskReview> GetTaskWithCommentsAsync(long id)
+        {
+            return await _db.ReviewTasks.Include(x => x.Comments).FirstOrDefaultAsync(x => x.Id == id);
 
+        }
+
+        public async Task<TaskReview> GetAsync(long id, long projectId)
+        {
+            return await _db.ReviewTasks.FirstOrDefaultAsync(x =>
+            x.Id == id
+            && x.ProjectId == projectId);
+
+        }
     }
 }
