@@ -370,7 +370,6 @@ namespace PlanitPoker.Models.Hubs
         // ReSharper disable once UnusedMember.Global
         public async Task AddNewRoleToUser(string roomName, string userId, string newRole)
         {
-
             roomName = NormalizeRoomName(roomName);
             userId = ValidateString(userId);
             newRole = ValidateString(newRole);
@@ -394,7 +393,8 @@ namespace PlanitPoker.Models.Hubs
         // ReSharper disable once UnusedMember.Global
         public async Task RemoveRoleUser(string roomname, string userId, string oldRole)
         {
-            roomname = ValidateString(roomname);
+            //roomname = ValidateString(roomname);
+            roomname = NormalizeRoomName(roomname);
             userId = ValidateString(userId);
             oldRole = ValidateString(oldRole);
             var httpContext = Context.GetHttpContext();
