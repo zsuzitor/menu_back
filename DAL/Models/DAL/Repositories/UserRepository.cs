@@ -80,7 +80,20 @@ namespace DAL.Models.DAL.Repositories
                 throw new SomeCustomException("не передан логин или почта");
             }
 
+            //return await _db.Users.AnyAsync(x => 
+            //    x.Email.Equals(email, System.StringComparison.OrdinalIgnoreCase) 
+            //        || x.Login.Equals(login, System.StringComparison.OrdinalIgnoreCase));
             return await _db.Users.AnyAsync(x => x.Email == email || x.Login == login);
+        }
+
+        public async Task<long?> GetIdByEmailAsync(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                throw new SomeCustomException("не передана почта");
+            }
+
+            return (await _db.Users.FirstOrDefaultAsync(x => x.Email == email)).Id;
         }
 
         public async Task<User> CreateNewAsync(User newUser)

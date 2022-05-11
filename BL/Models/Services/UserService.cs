@@ -34,7 +34,7 @@ namespace Menu.Models.Services
             return await _userRepository.GetUserByIdAsync(userId);
         }
 
-        public async Task<bool> RemoveRefreshToken(long userId, string refreshToken)
+        public async Task<bool> RemoveRefreshTokenAsync(long userId, string refreshToken)
         {
             if (string.IsNullOrWhiteSpace(refreshToken))
             {
@@ -48,7 +48,7 @@ namespace Menu.Models.Services
         }
 
 
-        public async Task<bool> RemoveRefreshToken(long userId)
+        public async Task<bool> RemoveRefreshTokenAsync(long userId)
         {
             return await _userRepository.RemoveRefreshToken(userId);
         }
@@ -75,6 +75,15 @@ namespace Menu.Models.Services
             return await GetByEmailAndPasswordHashAsync(email, passwordHash);
         }
 
+        public async Task<long?> GetIdByEmailAsync(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return null;
+            }
+            return await _userRepository.GetIdByEmailAsync(email);
+        }
+
         public async Task<User> CreateNewAsync(User newUser)
         {
             try
@@ -98,7 +107,7 @@ namespace Menu.Models.Services
         }
 
 
-        public async Task<User> GetShortInfo(long userId)
+        public async Task<User> GetShortInfoAsync(long userId)
         {
             var res = await _userRepository.GetShortInfo(userId);
             if (res == null)

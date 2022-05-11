@@ -4,6 +4,7 @@ using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using jwtLib.JWTAuth.Interfaces;
+using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -26,12 +27,14 @@ namespace Menu.Controllers.CodeReviewApp
         private readonly IProjectUserService _projectUserService;
         private readonly ITaskReviewService _taskReviewService;
         private readonly ITaskReviewCommentService _taskReviewCommentService;
+        private readonly IUserService _mainAppUserService;
+
 
         public ProjectController(
              IJWTService jwtService, IApiHelper apiHealper, IErrorService errorService
             , ILogger<ProjectController> logger, IProjectService projectService,
              IProjectUserService projectUserService, ITaskReviewService taskReviewService,
-             ITaskReviewCommentService taskReviewCommentService)
+             ITaskReviewCommentService taskReviewCommentService, IUserService mainAppUserService)
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
@@ -42,6 +45,7 @@ namespace Menu.Controllers.CodeReviewApp
             _projectUserService = projectUserService;
             _taskReviewService = taskReviewService;
             _taskReviewCommentService = taskReviewCommentService;
+            _mainAppUserService = mainAppUserService;
         }
 
         [Route("get-projects")]
@@ -171,7 +175,7 @@ namespace Menu.Controllers.CodeReviewApp
 
         [Route("add-new-user")]
         [HttpPut]
-        public async Task AddNewUser([FromForm] string userName, [FromForm] long projectId)
+        public async Task AddNewUser([FromForm] string userName, [FromForm] string mainAppUserEmail, [FromForm] long projectId)
         {
             userName = _apiHealper.StringValidator(userName);
 
@@ -179,8 +183,13 @@ namespace Menu.Controllers.CodeReviewApp
                 async () =>
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    long? userIdForAdd = null;
+                    if (!string.IsNullOrWhiteSpace(mainAppUserEmail))
+                    {
+                        userIdForAdd = await _mainAppUserService.GetIdByEmailAsync(mainAppUserEmail);
+                    }
 
-                    var res = await _projectService.CreateUserAsync(projectId, userName, null, userInfo);
+                    var res = await _projectService.CreateUserAsync(projectId, userName, userIdForAdd, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new ProjectUserReturn(res));
 
                 }, Response, _logger);

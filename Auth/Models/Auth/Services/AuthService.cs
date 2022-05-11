@@ -80,7 +80,7 @@ namespace Auth.Models.Auth.Services
                 return false;
             }
 
-            return await _userService.RemoveRefreshToken(userIdLong);
+            return await _userService.RemoveRefreshTokenAsync(userIdLong);
         }
 
 

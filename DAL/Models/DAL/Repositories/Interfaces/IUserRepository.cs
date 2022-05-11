@@ -13,6 +13,7 @@ namespace DAL.Models.DAL.Repositories.Interfaces
         Task<User> GetByEmailAndPasswordHashAsync(string email, string passwordHash);
         Task<User> CreateNewAsync(User newUser);
         Task<bool> UserIsExist(string email, string login = null);
+        Task<long?> GetIdByEmailAsync(string email);
 
         Task<User> GetShortInfo(long userId);
     }

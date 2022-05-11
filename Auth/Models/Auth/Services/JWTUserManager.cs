@@ -37,7 +37,7 @@ namespace Auth.Models.Auth.Services
                 return false;
             }
 
-            return await _userService.RemoveRefreshToken(longId, refreshToken);
+            return await _userService.RemoveRefreshTokenAsync(longId, refreshToken);
         }
 
         public async Task<bool> DeleteRefreshTokenFromUserAsync([NotNull] string userId)
@@ -47,7 +47,7 @@ namespace Auth.Models.Auth.Services
                 return false;
             }
 
-            return await _userService.RemoveRefreshToken(longId);
+            return await _userService.RemoveRefreshTokenAsync(longId);
         }
 
         public ClaimsIdentity GetIdentity(IJWTUser jwtUser, string authenticationType)

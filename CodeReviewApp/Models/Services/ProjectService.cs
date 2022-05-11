@@ -27,7 +27,7 @@ namespace CodeReviewApp.Models.Services
         public async Task<Project> CreateAsync(string name, UserInfo userInfo)
         {
             //конечно не очень красиво отходить от репозиториев, но ладно
-            var mainAppUserInfo = await _mainAppUserService.GetShortInfo(userInfo.UserId);
+            var mainAppUserInfo = await _mainAppUserService.GetShortInfoAsync(userInfo.UserId);
 
             var user = new ProjectUser()
             {

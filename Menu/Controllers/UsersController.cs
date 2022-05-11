@@ -44,7 +44,7 @@ namespace Menu.Controllers
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _userService.GetShortInfo(userInfo.UserId);
+                    var res = await _userService.GetShortInfoAsync(userInfo.UserId);
 
                     await _apiHealper.WriteResponseAsync(Response, _shortUserReturnFactory.GetObjectReturn(res));
 
