@@ -214,6 +214,9 @@ namespace Menu
 
             #endregion planitPoker
 
+            ImageDataIOStorage.Init(env.WebRootPath);
+
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute("default_menu_react", "menu/{*url}", new { controller = "Menu", action = "Index" });

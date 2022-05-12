@@ -2,7 +2,7 @@
 using System.IO;
 using System.Threading.Tasks;
 
-namespace BL.Models.Services.Interfaces
+namespace DAL.Models.DAL.Repositories.Interfaces
 {
     public interface IImageDataStorage
     {

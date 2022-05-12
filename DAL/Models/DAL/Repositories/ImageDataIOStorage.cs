@@ -1,21 +1,27 @@
-﻿using BL.Models.Services.Interfaces;
-using Microsoft.AspNetCore.Hosting;
+﻿using DAL.Models.DAL.Repositories.Interfaces;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace BL.Models.Services
+namespace DAL.Models.DAL.Repositories
 {
     public class ImageDataIOStorage : IImageDataStorage
     {
 
         private readonly IFileService _fileService;
-        private readonly IWebHostEnvironment _webHostEnvironment;
+        //private readonly IWebHostEnvironment _webHostEnvironment;//не хочу тут на это ссылаться, поэтому просто static строкой. _webHostEnvironment.WebRootPath
+        private static string WebRootPath;
 
-        public ImageDataIOStorage(IWebHostEnvironment webHostEnvironment, IFileService fileService)
+        public ImageDataIOStorage(IFileService fileService)
         {
-            _webHostEnvironment = webHostEnvironment;
             _fileService = fileService;
+            WebRootPath = "./";
         }
+
+        public static void Init(string webRootPath)
+        {
+            WebRootPath = webRootPath;
+        }
+
         public async Task<string> Create(Stream readStream, string fileName)
         {
             if (readStream == null)
@@ -24,7 +30,7 @@ namespace BL.Models.Services
             }
 
 
-            string filePath = _fileService.PathCombine(_webHostEnvironment.WebRootPath, "images", fileName);
+            string filePath = _fileService.PathCombine(WebRootPath, "images", fileName);
             //using (MemoryStream memStream = new MemoryStream((int)image.Length))//todo ing??
             //{
             //    image.OpenReadStream();
@@ -47,7 +53,7 @@ namespace BL.Models.Services
             }
 
             string resPath =  _fileService.PathCombine("images", "uploads", fileName);
-            string filePath = _fileService.PathCombine(_webHostEnvironment.WebRootPath,  resPath);
+            string filePath = _fileService.PathCombine(WebRootPath,  resPath);
             await _fileService.Create(readStream, filePath);
             return "\\" + resPath;
         }
@@ -64,7 +70,7 @@ namespace BL.Models.Services
                 path = path[1..];
             }
 
-            return await _fileService.DeletePhysicalFile(_fileService.PathCombine(_webHostEnvironment.WebRootPath, path));
+            return await _fileService.DeletePhysicalFile(_fileService.PathCombine(WebRootPath, path));
         }
 
         public Task Init()

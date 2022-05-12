@@ -1,10 +1,10 @@
 ﻿using Azure.Storage.Blobs;
-using BL.Models.Services.Interfaces;
+using DAL.Models.DAL.Repositories.Interfaces;
 using BO.Models.Config;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace BL.Models.Services
+namespace DAL.Models.DAL.Repositories
 {
     public class ImageDataBlobStorage : IImageDataStorage
     {

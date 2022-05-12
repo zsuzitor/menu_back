@@ -1,8 +1,8 @@
-﻿using BL.Models.Services.Interfaces;
+﻿using DAL.Models.DAL.Repositories.Interfaces;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace BL.Models.Services
+namespace DAL.Models.DAL.Repositories
 {
     public class PhysicalFileService : IFileService
     {
