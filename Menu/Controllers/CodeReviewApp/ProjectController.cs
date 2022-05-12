@@ -163,10 +163,12 @@ namespace Menu.Controllers.CodeReviewApp
 
                     var tasks = await _taskReviewService.GetTasksAsync(projectId
                         , nameLike, creatorId, reviewerId, enumStatus, pageNumber, pageSize);
+                    var tasksCount = await _taskReviewService.GetTasksCountAsync(projectId
+                        , nameLike, creatorId, reviewerId, enumStatus);
                     var taskReturn = tasks.Select(x => new TaskReviewReturn(x));
 
                     await _apiHealper.WriteResponseAsync(Response,
-                        taskReturn);// new { Tasks = taskReturn });//"projectInfo_" + projectId
+                        new {Tasks= taskReturn, TasksCount = tasksCount });// new { Tasks = taskReturn });//"projectInfo_" + projectId
 
                 }, Response, _logger);
 

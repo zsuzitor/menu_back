@@ -54,6 +54,13 @@ namespace CodeReviewApp.Models.Services
                 , creatorId, reviewerId, status, pageNumber, pageSize);
         }
 
+        public async Task<long> GetTasksCountAsync(long projectId, string name, long? creatorId
+            , long? reviewerId, CodeReviewTaskStatus? status)
+        {
+            return await _taskReviewRepository.GetTasksCountAsync(projectId, name
+                , creatorId, reviewerId, status);
+        }
+
         public async Task<TaskReview> UpdateAsync(TaskReview task, UserInfo userInfo)
         {
             var upTask = await _taskReviewRepository.GetAsync(task.Id);

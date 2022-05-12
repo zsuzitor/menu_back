@@ -12,7 +12,8 @@ namespace CodeReviewApp.Models.DAL.Repositories.Interfaces
         Task<TaskReview> CreateAsync(TaskReview task);
         Task<List<TaskReview>> GetTasksAsync(long projectId, string name, long? creatorId
             , long? reviewerId, CodeReviewTaskStatus? status, int pageNumber, int pageSize);
-
+        Task<long> GetTasksCountAsync(long projectId, string name, long? creatorId
+            , long? reviewerId, CodeReviewTaskStatus? status);
         Task<List<TaskReview>> GetTasksByProjectIdAsync(long projectId);
         Task<TaskReview> GetTaskWithCommentsAsync(long id);
 

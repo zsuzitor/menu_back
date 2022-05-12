@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace BO.Models.Config
+﻿
+namespace BO.Models.Configs
 {
     public class ImageConfig
     {

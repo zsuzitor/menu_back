@@ -25,7 +25,6 @@ using Microsoft.Extensions.Hosting;
 //using WEB.Common.Models.Returns;
 using BL.Models.Services.Interfaces;
 using BL.Models.Services;
-using BO.Models.Config;
 using Microsoft.Extensions.WebEncoders;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
@@ -38,6 +37,7 @@ using PlanitPoker.Models;
 using MenuApp.Models;
 using WordsCardsApp;
 using CodeReviewApp.Models;
+using BO.Models.Configs;
 
 namespace Menu
 {
@@ -137,7 +137,7 @@ namespace Menu
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IWorker, Worker>();
-            
+            services.AddScoped<IEmailServiceSender, EmailService>();
 
             menuAppInitializer.ServicesInitialize(services);
             wordsCardsAppInitializer.ServicesInitialize(services);
@@ -162,11 +162,16 @@ namespace Menu
                 services.AddSingleton<IImageDataStorage, ImageDataIOStorage>();
             }
 
+            var mailSendingConfig = new MailSendingConfig();
+            Configuration.GetSection("MailingSettings").Bind(mailSendingConfig);
+            services.AddSingleton<MailSendingConfig>(x => mailSendingConfig);
+
 
 
             //&
             var errorContainer = new ErrorContainer();
             planitPokerInitializer.ErrorContainerInitialize(errorContainer);
+            codeReviewAppInitializer.ErrorContainerInitialize(errorContainer);
             services.AddSingleton<IErrorContainer, ErrorContainer>(x => errorContainer);
 
             //auth

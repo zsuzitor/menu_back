@@ -1,4 +1,5 @@
-﻿using CodeReviewApp.Models.DAL.Repositories;
+﻿using BL.Models.Services.Interfaces;
+using CodeReviewApp.Models.DAL.Repositories;
 using CodeReviewApp.Models.DAL.Repositories.Interfaces;
 using CodeReviewApp.Models.Services;
 using CodeReviewApp.Models.Services.Interfaces;
@@ -13,7 +14,6 @@ namespace CodeReviewApp.Models
     {
         public void ErrorContainerInitialize(ErrorContainer errorContainer)
         {
-            throw new NotImplementedException();
         }
 
         public void RepositoriesInitialize(IServiceCollection services)
@@ -32,7 +32,9 @@ namespace CodeReviewApp.Models
             services.AddScoped<ITaskReviewService, TaskReviewService>();
             services.AddScoped<IProjectUserService, ProjectUserService>();
             services.AddScoped<ITaskReviewCommentService, TaskReviewCommentService>();
+            services.AddScoped<IEmailService, ReviewAppEmailService>();
 
+            
             //services.AddScoped<IProjectService, >();
         }
     }

@@ -37,6 +37,16 @@ namespace CodeReviewApp.Models.DAL.Repositories
                 .Skip(skipCount).Take(pageSize).ToListAsync();
         }
 
+        public async Task<long> GetTasksCountAsync(long projectId, string name, long? creatorId
+            , long? reviewerId, CodeReviewTaskStatus? status)
+        {
+            return await _db.ReviewTasks.Where(x => x.ProjectId == projectId
+                && (creatorId == null || x.CreatorId == creatorId)
+                && (reviewerId == null || x.ReviewerId == reviewerId)
+                && (status == null || x.Status == status)
+                && EF.Functions.Like(x.Name, $"%{name}%")).CountAsync();
+        }
+
         public async Task<List<TaskReview>> GetTasksByProjectIdAsync(long projectId)
         {
             return await _db.ReviewTasks.Where(x => x.ProjectId == projectId).ToListAsync();

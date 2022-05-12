@@ -3,7 +3,6 @@ using Hangfire;
 
 namespace BL.Models.Services
 {
-    //todo это надо убрать из BL и выпилить ссылку на hangfire
     //Hangfire.AspNetCore
     public class Worker : IWorker
     {

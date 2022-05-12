@@ -12,6 +12,8 @@ namespace CodeReviewApp.Models.Services.Interfaces
         Task<List<TaskReview>> GetTasksAsync(long projectId);
         Task<List<TaskReview>> GetTasksAsync(long projectId, string name, long? creatorId
             , long? reviewerId, CodeReviewTaskStatus? status, int pageNumber, int pageSize);
+        Task<long> GetTasksCountAsync(long projectId, string name, long? creatorId
+            , long? reviewerId, CodeReviewTaskStatus? status);
         Task<TaskReview> UpdateAsync(TaskReview task, UserInfo userInfo);
         Task<TaskReview> DeleteIfAccess(long id, UserInfo userInfo);
         Task<List<CommentReview>> GetCommentsAsync(long taskId, UserInfo userInfo);

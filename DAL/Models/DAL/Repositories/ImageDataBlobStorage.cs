@@ -1,6 +1,6 @@
 ﻿using Azure.Storage.Blobs;
 using DAL.Models.DAL.Repositories.Interfaces;
-using BO.Models.Config;
+using BO.Models.Configs;
 using System.IO;
 using System.Threading.Tasks;
 
