@@ -62252,7 +62252,7 @@ var Paggination_1 = __importDefault(__webpack_require__(/*! ../Paggination/Paggi
 __webpack_require__(/*! ./ProjectDetail.css */ "./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css");
 var ProjectDetail = function (props) {
     var _a;
-    var tasksOnPageCount = 2;
+    var tasksOnPageCount = 5;
     var _b = (0, react_1.useState)([]), currentProjectTasks = _b[0], setCurrentProjectTasks = _b[1];
     var _c = (0, react_1.useState)(0), allTasksCount = _c[0], setAllTasksCount = _c[1];
     var _d = (0, react_1.useState)(''), newUserName = _d[0], setNewUserName = _d[1];
