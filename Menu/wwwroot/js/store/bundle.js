@@ -2583,6 +2583,33 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".one-review-task-block {\r\n    border
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/Paggination/Paggination.css":
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/Paggination/Paggination.css ***!
+  \*************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".one-paggination-button {\r\n    width: 15px;\r\n    height: 15px;\r\n    border: 1px solid black;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/Paggination/Paggination.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;AAC3B","sourcesContent":[".one-paggination-button {\r\n    width: 15px;\r\n    height: 15px;\r\n    border: 1px solid black;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css":
 /*!*****************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css ***!
@@ -2603,7 +2630,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".project-review-user-list {\r\n    transition: 1s;\r\n    overflow: hidden;\r\n    border: 1px solid black;\r\n    max-height: 300px;\r\n    overflow: auto;\r\n}\r\n\r\n.project-review-user-list-show {\r\n    max-height: 300px;\r\n    overflow: auto;\r\n}\r\n\r\n.review-project-detail-main {\r\n    padding-top: 20px;\r\n}\r\n\r\n.review-project-new-task-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-tasks-filters-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-delete-button{\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css"],"names":[],"mappings":"AAAA;IACI,cAAc;IACd,gBAAgB;IAChB,uBAAuB;IACvB,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,oBAAoB;AACxB;;AAEA;IACI,uBAAuB;IACvB,oBAAoB;AACxB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB","sourcesContent":[".project-review-user-list {\r\n    transition: 1s;\r\n    overflow: hidden;\r\n    border: 1px solid black;\r\n    max-height: 300px;\r\n    overflow: auto;\r\n}\r\n\r\n.project-review-user-list-show {\r\n    max-height: 300px;\r\n    overflow: auto;\r\n}\r\n\r\n.review-project-detail-main {\r\n    padding-top: 20px;\r\n}\r\n\r\n.review-project-new-task-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-tasks-filters-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-delete-button{\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".project-review-user-list {\r\n    transition: 1s;\r\n    overflow: hidden;\r\n    border: 1px solid black;\r\n    max-height: 300px;\r\n    overflow: auto;\r\n    background-color: slategray;\r\n    /* box-shadow: 0px 0px 5px 1px black; */\r\n}\r\n\r\n.project-review-user-list-show {\r\n    max-height: 300px;\r\n    overflow: auto;\r\n}\r\n\r\n.review-project-detail-main {\r\n    padding-top: 20px;\r\n}\r\n\r\n.review-project-new-task-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-tasks-filters-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-delete-button{\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css"],"names":[],"mappings":"AAAA;IACI,cAAc;IACd,gBAAgB;IAChB,uBAAuB;IACvB,iBAAiB;IACjB,cAAc;IACd,2BAA2B;IAC3B,uCAAuC;AAC3C;;AAEA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,oBAAoB;AACxB;;AAEA;IACI,uBAAuB;IACvB,oBAAoB;AACxB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB","sourcesContent":[".project-review-user-list {\r\n    transition: 1s;\r\n    overflow: hidden;\r\n    border: 1px solid black;\r\n    max-height: 300px;\r\n    overflow: auto;\r\n    background-color: slategray;\r\n    /* box-shadow: 0px 0px 5px 1px black; */\r\n}\r\n\r\n.project-review-user-list-show {\r\n    max-height: 300px;\r\n    overflow: auto;\r\n}\r\n\r\n.review-project-detail-main {\r\n    padding-top: 20px;\r\n}\r\n\r\n.review-project-new-task-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-tasks-filters-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-delete-button{\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -59788,6 +59815,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/components/Body/CodeReviewApp/Paggination/Paggination.css":
+/*!***********************************************************************!*\
+  !*** ./src/components/Body/CodeReviewApp/Paggination/Paggination.css ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./Paggination.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/Paggination/Paggination.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css":
 /*!***************************************************************************!*\
   !*** ./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css ***!
@@ -61927,7 +62009,7 @@ var OneReviewTask = function (props) {
         }
         setTaskName(props.Task.Name);
         setTaskStatus(props.Task.Status);
-        setTaskReviwer(props.Task.ReviewerId);
+        setTaskReviwer(props.Task.ReviewerId || -1);
         setTaskCreator(props.Task.CreatorId);
     };
     var updateTask = function () {
@@ -62044,6 +62126,89 @@ exports["default"] = OneReviewTask;
 
 /***/ }),
 
+/***/ "./src/components/Body/CodeReviewApp/Paggination/Paggination.tsx":
+/*!***********************************************************************!*\
+  !*** ./src/components/Body/CodeReviewApp/Paggination/Paggination.tsx ***!
+  \***********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+__webpack_require__(/*! ./Paggination.css */ "./src/components/Body/CodeReviewApp/Paggination/Paggination.css");
+var Paggination = function (props) {
+    // return <div></div>
+    //todo сделать подругому
+    //делаю кнопки:
+    // 1 < текущая страница > последняя страница .. тут кнопки перехода предыдущая следующая
+    var renderOneBut = function (num) {
+        return react_1.default.createElement("div", { className: 'one-paggination-button', onClick: function () { return props.SetPageNumber(num); } }, num);
+    };
+    var allPageCount = Math.floor(props.ElementsCount / props.ElementsOnPage);
+    // if (allPageCount < 1) {
+    //     allPageCount = 1;
+    // }
+    if (props.ElementsCount % props.ElementsOnPage != 0) {
+        allPageCount++;
+    }
+    var needPrevBut = true;
+    var needNextBut = true;
+    var needFirstBut = true;
+    var needLastBut = true;
+    if (props.PageNumber == 1) {
+        needPrevBut = false;
+        needFirstBut = false;
+    }
+    if (props.PageNumber == allPageCount) {
+        needNextBut = false;
+        needLastBut = false;
+    }
+    // if (allPageCount == 1) {
+    //     needLastBut = false;
+    // }
+    return react_1.default.createElement("div", null,
+        needFirstBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(1); }, className: 'btn-b btn-border' }, "1") : react_1.default.createElement(react_1.default.Fragment, null),
+        needPrevBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber - 1); }, className: 'btn-b btn-border' }, "prev") : react_1.default.createElement(react_1.default.Fragment, null),
+        react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber); }, className: 'btn-b btn-border' }, props.PageNumber),
+        needNextBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber + 1); }, className: 'btn-b btn-border' }, "next") : react_1.default.createElement(react_1.default.Fragment, null),
+        needLastBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(allPageCount); }, className: 'btn-b btn-border' }, allPageCount) : react_1.default.createElement(react_1.default.Fragment, null));
+    // let allBut = [];
+    // allBut.push(1);
+    // let startBut = 1;
+    // if (props.PageNumber === 1) {
+    //     startBut = 2;
+    // }
+    // else if (props.PageNumber === allPageCount) {
+    //     startBut = props.PageNumber - 4;
+    // }
+    // else {
+    //     startBut = props.PageNumber - 1;
+    // }
+    // if (startBut < 2) {
+    //     startBut = 2;
+    // }
+    // for (let i = 0; i < 3; ++i) {
+    //     if (startBut < allPageCount) {
+    //         allBut.push(startBut++);
+    //     }
+    // }
+    // if (startBut <= allPageCount) {
+    //     allBut.push(allPageCount);
+    // }
+    // else {
+    //     allBut.push(startBut++);
+    // }
+    return react_1.default.createElement("div", null);
+};
+exports["default"] = Paggination;
+
+
+/***/ }),
+
 /***/ "./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.tsx":
 /*!***************************************************************************!*\
   !*** ./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.tsx ***!
@@ -62083,22 +62248,25 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 var OneProjectUser_1 = __importDefault(__webpack_require__(/*! ../OneProjectUser/OneProjectUser */ "./src/components/Body/CodeReviewApp/OneProjectUser/OneProjectUser.tsx"));
 var OneReviewTask_1 = __importDefault(__webpack_require__(/*! ../OneReviewTask/OneReviewTask */ "./src/components/Body/CodeReviewApp/OneReviewTask/OneReviewTask.tsx"));
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
+var Paggination_1 = __importDefault(__webpack_require__(/*! ../Paggination/Paggination */ "./src/components/Body/CodeReviewApp/Paggination/Paggination.tsx"));
 __webpack_require__(/*! ./ProjectDetail.css */ "./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css");
 var ProjectDetail = function (props) {
     var _a;
+    var tasksOnPageCount = 2;
     var _b = (0, react_1.useState)([]), currentProjectTasks = _b[0], setCurrentProjectTasks = _b[1];
-    var _c = (0, react_1.useState)(''), newUserName = _c[0], setNewUserName = _c[1];
-    var _d = (0, react_1.useState)(''), userMainAppEmail = _d[0], setUserMainAppEmail = _d[1];
-    var _e = (0, react_1.useState)(''), newTaskName = _e[0], setNewTaskName = _e[1];
-    var _f = (0, react_1.useState)(-1), newTaskCreator = _f[0], setNewTaskCreator = _f[1]; //firstUser?.Id || 
-    var _g = (0, react_1.useState)(-1), newTaskReviwer = _g[0], setNewTaskReviwer = _g[1];
-    var _h = (0, react_1.useState)(-1), filterTaskCreator = _h[0], setFilterTaskCreator = _h[1];
-    var _j = (0, react_1.useState)(-1), filterTaskReviwer = _j[0], setFilterTaskReviwer = _j[1];
-    var _k = (0, react_1.useState)(-1), filterTaskStatus = _k[0], setFilterTaskStatus = _k[1];
-    var _l = (0, react_1.useState)(''), filterTaskName = _l[0], setFilterTaskName = _l[1];
-    var _m = (0, react_1.useState)(1), filterTaskPage = _m[0], setFilterTaskPage = _m[1];
-    var _o = (0, react_1.useState)(null), loadTasksTimerId = _o[0], setLoadTasksTimerId = _o[1];
-    var _p = (0, react_1.useState)(false), showUserList = _p[0], setShowUserList = _p[1];
+    var _c = (0, react_1.useState)(0), allTasksCount = _c[0], setAllTasksCount = _c[1];
+    var _d = (0, react_1.useState)(''), newUserName = _d[0], setNewUserName = _d[1];
+    var _e = (0, react_1.useState)(''), userMainAppEmail = _e[0], setUserMainAppEmail = _e[1];
+    var _f = (0, react_1.useState)(''), newTaskName = _f[0], setNewTaskName = _f[1];
+    var _g = (0, react_1.useState)(-1), newTaskCreator = _g[0], setNewTaskCreator = _g[1]; //firstUser?.Id || 
+    var _h = (0, react_1.useState)(-1), newTaskReviwer = _h[0], setNewTaskReviwer = _h[1];
+    var _j = (0, react_1.useState)(-1), filterTaskCreator = _j[0], setFilterTaskCreator = _j[1];
+    var _k = (0, react_1.useState)(-1), filterTaskReviwer = _k[0], setFilterTaskReviwer = _k[1];
+    var _l = (0, react_1.useState)(-1), filterTaskStatus = _l[0], setFilterTaskStatus = _l[1];
+    var _m = (0, react_1.useState)(''), filterTaskName = _m[0], setFilterTaskName = _m[1];
+    var _o = (0, react_1.useState)(1), filterTaskPage = _o[0], setFilterTaskPage = _o[1];
+    var _p = (0, react_1.useState)(null), loadTasksTimerId = _p[0], setLoadTasksTimerId = _p[1];
+    var _q = (0, react_1.useState)(false), showUserList = _q[0], setShowUserList = _q[1];
     (0, react_1.useEffect)(function () {
         if (newTaskCreator === -1) {
             var firstUser = props.ProjectUsers.find(function () { return true; });
@@ -62139,12 +62307,13 @@ var ProjectDetail = function (props) {
                 return;
             }
             if (data) {
-                setCurrentProjectTasks(data);
+                setCurrentProjectTasks(data.Tasks);
+                setAllTasksCount(data.TasksCount);
             }
         };
         var filter = {
             Name: filterTaskName, CreatorId: filterTaskCreator,
-            PageNumber: filterTaskPage, PageSize: 5,
+            PageNumber: filterTaskPage, PageSize: tasksOnPageCount,
             ProjectId: props.Project.Id, ReviewerId: filterTaskReviwer,
             Status: filterTaskStatus
         };
@@ -62280,7 +62449,9 @@ var ProjectDetail = function (props) {
                 react_1.default.createElement("option", { value: -1 }, "\u041B\u044E\u0431\u043E\u0439"),
                 react_1.default.createElement("option", { value: 0 }, "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E \u043A\u043E\u0434 \u0440\u0435\u0432\u044C\u044E"),
                 react_1.default.createElement("option", { value: 1 }, "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B \u043F\u0440\u0430\u0432\u043A\u0438"),
-                react_1.default.createElement("option", { value: 2 }, "\u0413\u043E\u0442\u043E\u0432\u043E"))),
+                react_1.default.createElement("option", { value: 2 }, "\u0413\u043E\u0442\u043E\u0432\u043E")),
+            react_1.default.createElement("div", null,
+                react_1.default.createElement(Paggination_1.default, { ElementsCount: allTasksCount, PageNumber: filterTaskPage, ElementsOnPage: tasksOnPageCount, SetPageNumber: setFilterTaskPage }))),
         react_1.default.createElement("div", null,
             react_1.default.createElement("h2", null, "\u0441\u043F\u0438\u0441\u043E\u043A \u0437\u0430\u0434\u0430\u0447"),
             currentProjectTasks.map(function (x) { return react_1.default.createElement(OneReviewTask_1.default, { key: x.Id, Task: x, ProjectUsers: props.ProjectUsers, UpdateTask: updateTaskProject, DeleteTask: deleteTask }); })));
