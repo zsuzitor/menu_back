@@ -157,11 +157,11 @@ namespace DAL.Models.DAL
             modelBuilder.Entity<ProjectUser>().HasMany(x => x.Comments).WithOne(x => x.Creator)
                 .HasForeignKey(x => x.CreatorId).OnDelete(DeleteBehavior.NoAction);
             modelBuilder.Entity<ProjectUser>().HasMany(x => x.CreateByUser).WithOne(x => x.Creator)
-                .HasForeignKey(x => x.CreatorId).OnDelete(DeleteBehavior.SetNull);
+                .HasForeignKey(x => x.CreatorId).OnDelete(DeleteBehavior.NoAction);
             modelBuilder.Entity<ProjectUser>().HasMany(x => x.ReviewByUser).WithOne(x => x.Reviewer)
-                .HasForeignKey(x => x.ReviewerId).OnDelete(DeleteBehavior.SetNull);
+                .HasForeignKey(x => x.ReviewerId).OnDelete(DeleteBehavior.NoAction);
             modelBuilder.Entity<TaskReview>().HasMany(x => x.Comments).WithOne(x => x.Task)
-                .HasForeignKey(x => x.TaskId).OnDelete(DeleteBehavior.SetNull);
+                .HasForeignKey(x => x.TaskId).OnDelete(DeleteBehavior.Cascade);
 
             #endregion coreReviewApp
 
