@@ -14,7 +14,7 @@ namespace WordsCardsApp
     {
         public void ErrorContainerInitialize(ErrorContainer errorContainer)
         {
-            throw new System.NotImplementedException();
+
         }
 
         public void RepositoriesInitialize(IServiceCollection services)
@@ -28,6 +28,11 @@ namespace WordsCardsApp
         {
             services.AddScoped<IWordsCardsService, WordsCardsService>();
             services.AddScoped<IWordsListService, WordsListService>();
+        }
+
+        public void WorkersInitialize(IWorker worker)
+        {
+
         }
     }
 }

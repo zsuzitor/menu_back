@@ -12,5 +12,6 @@ namespace Common.Models
         void ErrorContainerInitialize(ErrorContainer errorContainer);
         void ServicesInitialize(IServiceCollection services);
         void RepositoriesInitialize(IServiceCollection services);
+        void WorkersInitialize(IWorker worker);
     }
 }

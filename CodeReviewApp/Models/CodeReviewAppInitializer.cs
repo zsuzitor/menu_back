@@ -37,5 +37,10 @@ namespace CodeReviewApp.Models
             
             //services.AddScoped<IProjectService, >();
         }
+
+        public void WorkersInitialize(IWorker worker)
+        {
+            worker.Recurring("code_review_lert", "0 10 * * *",);
+        }
     }
 }

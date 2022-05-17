@@ -22,9 +22,6 @@ namespace PlanitPoker.Models
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.StoryNotFound, "История не найдена");
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.StoryBadStatus, "Неверный статус истории");
 
-            
-
-
 
         }
 
@@ -41,6 +38,11 @@ namespace PlanitPoker.Models
 
             services.AddScoped<IPlanitApiHelper, PlanitApiHelper>();
             
+        }
+
+        public void WorkersInitialize(IWorker worker)
+        {
+
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BL.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 
@@ -15,9 +16,11 @@ namespace Menu.Controllers
 
         public ValuesController(
             //IDistributedCache cache
+            //IWorker worker
             )
         {
             //_cache = cache;
+            //worker.Recurring("", "* * * * *");
         }
 
         [HttpGet("cache-test")]

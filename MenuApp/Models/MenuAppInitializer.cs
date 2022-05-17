@@ -14,7 +14,7 @@ namespace MenuApp.Models
     {
         public void ErrorContainerInitialize(ErrorContainer errorContainer)
         {
-            throw new System.NotImplementedException();
+
         }
 
         public void RepositoriesInitialize(IServiceCollection services)
@@ -26,6 +26,11 @@ namespace MenuApp.Models
         public void ServicesInitialize(IServiceCollection services)
         {
             services.AddScoped<IArticleService, ArticleService>();
+
+        }
+
+        public void WorkersInitialize(IWorker worker)
+        {
 
         }
     }

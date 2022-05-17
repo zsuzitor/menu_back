@@ -38,6 +38,8 @@ using MenuApp.Models;
 using WordsCardsApp;
 using CodeReviewApp.Models;
 using BO.Models.Configs;
+using System.Collections.Generic;
+using Hangfire.MemoryStorage;
 
 namespace Menu
 {
@@ -61,6 +63,11 @@ namespace Menu
                 services.AddDbContext<MenuDbContext>(options =>
                 //options.UseInMemoryDatabase(); //Microsoft.EntityFrameworkCore.InMemory
                 options.UseInMemoryDatabase("MenuDbContext"));
+                services.AddHangfire(configuration => configuration
+                    .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+                    .UseSimpleAssemblyNameTypeSerializer()
+                    .UseRecommendedSerializerSettings()
+                    .UseMemoryStorage());
 
             }
             else
@@ -68,22 +75,25 @@ namespace Menu
                 services.AddDbContext<MenuDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
+
+                services.AddHangfire(configuration => configuration
+                    .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+                    .UseSimpleAssemblyNameTypeSerializer()
+                    .UseRecommendedSerializerSettings()
+                    .UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection"), new SqlServerStorageOptions
+                    {
+                        CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+                        SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+                        QueuePollInterval = TimeSpan.Zero,
+                        UseRecommendedIsolationLevel = true,
+                        DisableGlobalLocks = true
+                    }));
             }
 
 
             //
-            services.AddHangfire(configuration => configuration
-                .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
-                .UseSimpleAssemblyNameTypeSerializer()
-                .UseRecommendedSerializerSettings()
-                .UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection"), new SqlServerStorageOptions
-                {
-                    CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
-                    SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
-                    QueuePollInterval = TimeSpan.Zero,
-                    UseRecommendedIsolationLevel = true,
-                    DisableGlobalLocks = true
-                }));
+
+            
 
             // Add the processing server as IHostedService
             services.AddHangfireServer();
@@ -103,22 +113,19 @@ namespace Menu
             services.AddSignalR();
 
 
-            var menuAppInitializer = new MenuAppInitializer();
-            var wordsCardsAppInitializer = new WordsCardsAppInitializer();
-            var planitPokerInitializer = new PlanitPokerInitializer();
-            var codeReviewAppInitializer = new CodeReviewAppInitializer();
+            var initializers = new List<IStartUpInitializer>() {
+                new MenuAppInitializer(),
+                new WordsCardsAppInitializer(),
+                new PlanitPokerInitializer(),
+                new CodeReviewAppInitializer()
+            };
+            
 
             //repositories
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
 
-            menuAppInitializer.RepositoriesInitialize(services);
-            wordsCardsAppInitializer.RepositoriesInitialize(services);
-            planitPokerInitializer.RepositoriesInitialize(services);
-            codeReviewAppInitializer.RepositoriesInitialize(services);
-            //services.AddScoped<IPlanitPokerRepository, PlanitPokerRepository>();
-
-
+            
 
 
             //healpers
@@ -136,13 +143,22 @@ namespace Menu
             services.AddScoped<IErrorService, ErrorService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IWorker, Worker>();
+            var worker = new Worker();
+            services.AddSingleton<IWorker>(svp => worker);
             services.AddScoped<IEmailServiceSender, EmailService>();
+            
+            //&
+            var errorContainer = new ErrorContainer();
+            services.AddSingleton<IErrorContainer, ErrorContainer>(x => errorContainer);
 
-            menuAppInitializer.ServicesInitialize(services);
-            wordsCardsAppInitializer.ServicesInitialize(services);
-            planitPokerInitializer.ServicesInitialize(services);
-            codeReviewAppInitializer.ServicesInitialize(services);
+            foreach (var init in initializers)
+            {
+                init.RepositoriesInitialize(services);
+                init.ServicesInitialize(services);
+                init.ErrorContainerInitialize(errorContainer);
+                init.WorkersInitialize(worker);
+            }
+
 
             //cache
             //services.AddStackExchangeRedisCache(options =>
@@ -168,11 +184,7 @@ namespace Menu
 
 
 
-            //&
-            var errorContainer = new ErrorContainer();
-            planitPokerInitializer.ErrorContainerInitialize(errorContainer);
-            codeReviewAppInitializer.ErrorContainerInitialize(errorContainer);
-            services.AddSingleton<IErrorContainer, ErrorContainer>(x => errorContainer);
+            
 
             //auth
             services.InjectJwtAuth(Configuration);
@@ -185,7 +197,7 @@ namespace Menu
                 options.SuppressModelStateInvalidFilter = true;
             });
 
-
+            //services.BuildServiceProvider();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
