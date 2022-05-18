@@ -111,5 +111,9 @@ namespace CodeReviewApp.Models.Services
             return true;
         }
 
+        public async Task AlertAsync()
+        {
+            var g = 10;
+        }
     }
 }

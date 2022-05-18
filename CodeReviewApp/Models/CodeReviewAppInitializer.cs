@@ -5,13 +5,17 @@ using CodeReviewApp.Models.Services;
 using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models;
 using Common.Models.Error;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models
 {
     public class CodeReviewAppInitializer : IStartUpInitializer
     {
+        public static IServiceProvider ServiceProvider;
+
         public void ErrorContainerInitialize(ErrorContainer errorContainer)
         {
         }
@@ -38,9 +42,35 @@ namespace CodeReviewApp.Models
             //services.AddScoped<IProjectService, >();
         }
 
-        public void WorkersInitialize(IWorker worker)
+        //public void WorkersInitialize(IWorker worker)
+        //{
+        //    worker.Recurring("code_review_lert", "0 10 * * *","todo_");
+        //}
+
+        public void WorkersInitialize(IServiceProvider serviceProvider)
         {
-            worker.Recurring("code_review_lert", "0 10 * * *",);
+            var worker = serviceProvider.GetRequiredService<IWorker>();
+            var config = serviceProvider.GetRequiredService<IConfiguration>();
+            var baseAppUrl = config["ApplicationHostingUrl"];
+            baseAppUrl += "api/codereview/Project/alert";//todo клеить не через сложение, погуглить что есть
+
+            //worker.Recurring("code_review_alert", "* * * * *", () => Test(serviceProvider));//"0 10 * * *"
+            //worker.Recurring("code_review_alert", "* * * * *", () => Test());//"0 10 * * *"
+            worker.Recurring("code_review_alert", "0 10 * * *", baseAppUrl);//"0 10 * * *"
+
+
+        }
+
+        public static Task Test()//IServiceProvider serviceProvider)
+        {
+            //return Task.CompletedTask;
+            using (var scope = ServiceProvider.CreateScope())
+            {
+                var projService = scope.ServiceProvider.GetRequiredService<IProjectService>();
+                return projService.AlertAsync();
+            }
+                
+
         }
     }
 }

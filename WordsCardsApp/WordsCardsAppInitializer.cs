@@ -3,6 +3,7 @@
 using Common.Models;
 using Common.Models.Error;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using WordsCardsApp.BL.Services;
 using WordsCardsApp.BL.Services.Interfaces;
 using WordsCardsApp.DAL.Repositories;
@@ -30,7 +31,10 @@ namespace WordsCardsApp
             services.AddScoped<IWordsListService, WordsListService>();
         }
 
-        public void WorkersInitialize(IWorker worker)
+        
+
+
+        public void WorkersInitialize(IServiceProvider serviceProvider)
         {
 
         }

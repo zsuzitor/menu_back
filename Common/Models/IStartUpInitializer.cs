@@ -1,5 +1,6 @@
 ﻿using Common.Models.Error;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Common.Models
 {
@@ -12,6 +13,6 @@ namespace Common.Models
         void ErrorContainerInitialize(ErrorContainer errorContainer);
         void ServicesInitialize(IServiceCollection services);
         void RepositoriesInitialize(IServiceCollection services);
-        void WorkersInitialize(IWorker worker);
+        void WorkersInitialize(IServiceProvider serviceProvider);
     }
 }

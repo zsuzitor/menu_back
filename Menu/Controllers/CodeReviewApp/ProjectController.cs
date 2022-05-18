@@ -168,7 +168,7 @@ namespace Menu.Controllers.CodeReviewApp
                     var taskReturn = tasks.Select(x => new TaskReviewReturn(x));
 
                     await _apiHealper.WriteResponseAsync(Response,
-                        new {Tasks= taskReturn, TasksCount = tasksCount });// new { Tasks = taskReturn });//"projectInfo_" + projectId
+                        new { Tasks = taskReturn, TasksCount = tasksCount });// new { Tasks = taskReturn });//"projectInfo_" + projectId
 
                 }, Response, _logger);
 
@@ -397,7 +397,7 @@ namespace Menu.Controllers.CodeReviewApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _taskReviewService.GetCommentsAsync(taskId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, res.Select(x=>new CommentReviewReturn(x)));
+                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new CommentReviewReturn(x)));
 
                 }, Response, _logger);
 
@@ -423,6 +423,20 @@ namespace Menu.Controllers.CodeReviewApp
 
                 }, Response, _logger);
 
+        }
+
+        [Route("alert")]
+        [HttpGet]
+        public async Task Alert()
+        {
+            await _apiHealper.DoStandartSomething(
+               async () =>
+               {
+                   _ = _projectService.AlertAsync();//не ждем
+                   await _apiHealper.WriteResponseAsync(Response
+                       , "true");
+
+               }, Response, _logger);
         }
     }
 }

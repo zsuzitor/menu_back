@@ -7,6 +7,7 @@ using MenuApp.Models.BL.Services;
 using MenuApp.Models.DAL.Repositories;
 using MenuApp.Models.DAL.Repositories.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace MenuApp.Models
 {
@@ -29,7 +30,8 @@ namespace MenuApp.Models
 
         }
 
-        public void WorkersInitialize(IWorker worker)
+
+        public void WorkersInitialize(IServiceProvider serviceProvider)
         {
 
         }

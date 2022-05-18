@@ -62163,7 +62163,7 @@ var Paggination = function (props) {
         needPrevBut = false;
         needFirstBut = false;
     }
-    if (props.PageNumber == allPageCount) {
+    if (props.PageNumber >= allPageCount) {
         needNextBut = false;
         needLastBut = false;
     }

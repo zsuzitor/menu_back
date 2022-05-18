@@ -19,5 +19,6 @@ namespace CodeReviewApp.Models.Services.Interfaces
         Task<List<CommentReview>> GetCommentsAsync(long taskId, UserInfo userInfo);
         Task<TaskReview> GetByIdIfAccessAsync(long id, UserInfo userInfo);
         Task<CommentReview> CreateCommentAsync(long taskId, string text, UserInfo userInfo);
+
     }
 }

@@ -5,6 +5,7 @@ using PlanitPoker.Models.Helpers;
 using PlanitPoker.Models.Repositories;
 using PlanitPoker.Models.Repositories.Interfaces;
 using PlanitPoker.Models.Services;
+using System;
 
 namespace PlanitPoker.Models
 {
@@ -40,9 +41,9 @@ namespace PlanitPoker.Models
             
         }
 
-        public void WorkersInitialize(IWorker worker)
-        {
 
+        public void WorkersInitialize(IServiceProvider serviceProvider)
+        {
         }
     }
 }

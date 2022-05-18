@@ -40,14 +40,26 @@ using CodeReviewApp.Models;
 using BO.Models.Configs;
 using System.Collections.Generic;
 using Hangfire.MemoryStorage;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server.Features;
+using CodeReviewApp.Models.Services.Interfaces;
 
 namespace Menu
 {
     public class Startup
     {
+
+        public static IServiceProvider ServiceProvider;
+        private readonly List<IStartUpInitializer> _appsInitializers;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            _appsInitializers = new List<IStartUpInitializer>() {
+                new MenuAppInitializer(),
+                new WordsCardsAppInitializer(),
+                new PlanitPokerInitializer(),
+                new CodeReviewAppInitializer()
+            };
         }
 
         public IConfiguration Configuration { get; }
@@ -113,12 +125,7 @@ namespace Menu
             services.AddSignalR();
 
 
-            var initializers = new List<IStartUpInitializer>() {
-                new MenuAppInitializer(),
-                new WordsCardsAppInitializer(),
-                new PlanitPokerInitializer(),
-                new CodeReviewAppInitializer()
-            };
+            
             
 
             //repositories
@@ -151,12 +158,12 @@ namespace Menu
             var errorContainer = new ErrorContainer();
             services.AddSingleton<IErrorContainer, ErrorContainer>(x => errorContainer);
 
-            foreach (var init in initializers)
+            foreach (var init in _appsInitializers)
             {
                 init.RepositoriesInitialize(services);
                 init.ServicesInitialize(services);
                 init.ErrorContainerInitialize(errorContainer);
-                init.WorkersInitialize(worker);
+                //init.WorkersInitialize(worker);
             }
 
 
@@ -197,12 +204,20 @@ namespace Menu
                 options.SuppressModelStateInvalidFilter = true;
             });
 
-            //services.BuildServiceProvider();
+            //var srvB = services.BuildServiceProvider();
+            //var server = srvB.GetService<IServer>();
+
+            //var addresses = server?.Features.Get<IServerAddressesFeature>();
+
+            //var g= addresses?.Addresses ?? Array.Empty<string>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
+            ServiceProvider = serviceProvider;
+            CodeReviewAppInitializer.ServiceProvider = serviceProvider;
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -216,6 +231,20 @@ namespace Menu
 
 
             app.UseHangfireDashboard();
+
+            foreach (var init in _appsInitializers)
+            {
+                init.WorkersInitialize(serviceProvider);
+            }
+
+            //var prt = collect.GetRequiredService<IProjectService>();
+            //prt.GetAsync(0);
+            //var wrk = collect.GetRequiredService<IWorker>();
+            //RecurringJob.AddOrUpdate("ffffff", () => prt.GetAsync(0), () => "* * * * *");
+            //wrk.Recurring("ttrr", "* * * * *", () => {
+            //    prt.GetAsync(0);
+            //});
+            //wrk.Recurring("ttrr", "* * * * *", () => prt.GetAsync(0));
 
 
             //app.UseHttpsRedirection();//TODO not work?
