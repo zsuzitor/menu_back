@@ -191,7 +191,8 @@ namespace Menu.Controllers.CodeReviewApp
                         userIdForAdd = await _mainAppUserService.GetIdByEmailAsync(mainAppUserEmail);
                     }
 
-                    var res = await _projectService.CreateUserAsync(projectId, userName, userIdForAdd, userInfo);
+                    var res = await _projectService.CreateUserAsync(projectId, userName
+                        , mainAppUserEmail, userIdForAdd, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new ProjectUserReturn(res));
 
                 }, Response, _logger);

@@ -3,34 +3,21 @@
 
 using BO.Models.DAL.Domain;
 using Menu.Models.Services.Interfaces;
-//using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DAL.Models.DAL.Repositories.Interfaces;
-using BL.Models.Services.Interfaces;
-//using System.IO;
 
 namespace Menu.Models.Services
 {
     public class ImageService : IImageService
     {
 
-        //private readonly dynamic _webHostEnvironment;
-        //private readonly MenuDbContext _db;
         private readonly IImageRepository _imageRepository;
         private readonly IImageDataStorage _imageDataStorage;
 
-        //private readonly IWebHostEnvironment _webHostEnvironment;
-        //private readonly MenuDbContext _db;
-
-        //public ImageService(IWebHostEnvironment webHostEnvironment, MenuDbContext db)
-        //{
-        //    _webHostEnvironment = webHostEnvironment;
-        //    _db = db;
-        //}
 
         public ImageService(IImageRepository imgRep, IImageDataStorage imageDataStorage)
         {
@@ -84,8 +71,6 @@ namespace Menu.Models.Services
                 imagesForAdd.Add(img);
             }
 
-            //_db.Images.AddRange(imagesForAdd);
-            //await _db.SaveChangesAsync();
             return imagesForAdd;
         }
 
@@ -119,7 +104,6 @@ namespace Menu.Models.Services
             string uniqueFileName = Guid.NewGuid().ToString() + "-"
                 + DateTime.Now.Ticks + "." + image.FileName.Split('.').Last();//TODO имя тут неправильно так передавать
             return await _imageDataStorage.Create(image.OpenReadStream(), uniqueFileName);
-            //return await CreatePhysicalFile(image, string.Empty);
         }
 
         public async Task<string> CreateUploadFileWithOutDbRecord(IFormFile image)
@@ -133,7 +117,6 @@ namespace Menu.Models.Services
             string uniqueFileName = Guid.NewGuid().ToString() + "-"
                 + DateTime.Now.Ticks + "." + image.FileName.Split('.').Last();//TODO имя тут неправильно так передавать
             return await _imageDataStorage.CreateUpload(image.OpenReadStream(), uniqueFileName);
-            //return await CreatePhysicalFile(image, "uploads");
         }
 
 

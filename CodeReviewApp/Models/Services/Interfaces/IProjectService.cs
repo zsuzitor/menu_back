@@ -16,7 +16,7 @@ namespace CodeReviewApp.Models.Services.Interfaces
         Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo);
 
         Task<Project> CreateAsync(string name, UserInfo userInfo);
-        Task<ProjectUser> CreateUserAsync(long projectId, string userName, long? mainAppUserId, UserInfo userInfo);
+        Task<ProjectUser> CreateUserAsync(long projectId, string userName, string email, long? mainAppUserId, UserInfo userInfo);
         Task<TaskReview> CreateTaskAsync(long projectId, string name, long creatorId, long? reviewerId, UserInfo userInfo);
         Task<bool> DeleteAsync(long projectId, UserInfo userInfo);
         Task AlertAsync();

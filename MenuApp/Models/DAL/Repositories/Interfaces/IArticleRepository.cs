@@ -10,7 +10,8 @@ namespace MenuApp.Models.DAL.Repositories.Interfaces
     {
         Task<List<Article>> GetAllUsersArticles(long userId);
         Task<List<ArticleShort>> GetAllUsersArticlesShort(long userId);
-        Task<Article> GetByIdIfAccess(long id, long userId);
+        Task<Article> GetByIdIfAccessAsync(long id, long userId);
+        Task<Article> GetByIdIfAccessNoTrackAsync(long id, long userId);
 
         Task<bool?> ChangeFollowStatus(long id, long userId);
         Task<Article> Delete(long userId, long articleId);

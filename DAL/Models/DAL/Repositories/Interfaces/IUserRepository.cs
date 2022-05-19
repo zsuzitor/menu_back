@@ -6,7 +6,9 @@ namespace DAL.Models.DAL.Repositories.Interfaces
     public interface IUserRepository //: IGeneralRepository<User, long>
     {
         Task<User> GetUserByIdAsync(long userId);
+        Task<User> GetUserByIdNoTrackAsync(long userId);
         Task<User> GetUserByIdAndRefreshTokenAsync(long userId, string refreshTokenHash);
+        Task<User> GetUserByIdAndRefreshTokenNoTrackAsync(long userId, string refreshTokenHash);
         Task<bool> RemoveRefreshTokenByOld(long userId, string refreshTokenHash);
         Task<bool> RemoveRefreshToken(long userId);
         Task<bool> SetRefreshTokenHashAsync(long userId, string refreshTokenHash);

@@ -10,6 +10,7 @@ namespace WordsCardsApp.DAL.Repositories.Interfaces
     public interface IWordsCardsRepository : IGeneralRepository<WordCard, long>
     {
         Task<WordCard> GetByIdIfAccessAsync(long id, long userId);
+        Task<WordCard> GetByIdIfAccessNoTrackAsync(long id, long userId);
 
         Task<WordCard> DeleteAsync(long id, long userId);
 

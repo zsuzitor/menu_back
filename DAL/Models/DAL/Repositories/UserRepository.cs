@@ -23,9 +23,19 @@ namespace DAL.Models.DAL.Repositories
             return await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
         }
 
+        public async Task<User> GetUserByIdNoTrackAsync(long userId)
+        {
+            return await _db.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Id == userId);
+        }
+
         public async Task<User> GetUserByIdAndRefreshTokenAsync(long userId, string refreshTokenHash)
         {
             return await _db.Users.FirstOrDefaultAsync(x => x.Id == userId && x.RefreshTokenHash == refreshTokenHash);
+        }
+
+        public async Task<User> GetUserByIdAndRefreshTokenNoTrackAsync(long userId, string refreshTokenHash)
+        {
+            return await _db.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Id == userId && x.RefreshTokenHash == refreshTokenHash);
         }
 
         public async Task<bool> RemoveRefreshTokenByOld(long userId, string refreshTokenHash)
@@ -69,8 +79,7 @@ namespace DAL.Models.DAL.Repositories
 
         public async Task<User> GetByEmailAndPasswordHashAsync(string email, string passwordHash)
         {
-            //var g= _db.Users.ToList();
-            return await _db.Users.FirstOrDefaultAsync(x => x.Email == email && x.PasswordHash == passwordHash);
+            return await _db.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Email == email && x.PasswordHash == passwordHash);
         }
 
         public async Task<bool> UserIsExist(string email, string login = null)
@@ -93,7 +102,7 @@ namespace DAL.Models.DAL.Repositories
                 throw new SomeCustomException("не передана почта");
             }
 
-            return (await _db.Users.FirstOrDefaultAsync(x => x.Email == email)).Id;
+            return (await _db.Users.FirstOrDefaultAsync(x => x.Email == email))?.Id;
         }
 
         public async Task<User> CreateNewAsync(User newUser)
@@ -106,7 +115,7 @@ namespace DAL.Models.DAL.Repositories
         public async Task<User> GetShortInfo(long userId)
         {
             //TODO тут бы обрезать модель, грузить только то что надо и тд, но пока что так
-            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            var user = await _db.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Id == userId);
             if (user == null)
             {
                 throw new NotAuthException();

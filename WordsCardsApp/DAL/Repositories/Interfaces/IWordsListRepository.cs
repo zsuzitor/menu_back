@@ -10,7 +10,9 @@ namespace WordsCardsApp.DAL.Repositories.Interfaces
    public  interface IWordsListRepository : IGeneralRepository<WordsList, long>
     {
         Task<WordsList> GetByIdIfAccess(long id, long userId);
+        Task<WordsList> GetByIdIfAccessNoTrack(long id, long userId);
         Task<List<WordsList>> GetByIdIfAccess(List<long> id, long userId);
+        Task<List<WordsList>> GetByIdIfAccessNoTrack(List<long> id, long userId);
         Task<List<WordsList>> GetAllForUser(long userId);
 
         Task<WordCardWordList> Get(long cardId, long listId);

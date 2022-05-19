@@ -14,8 +14,6 @@ namespace Menu.Models.Services
         private readonly IJWTHasher _hasher;
         private readonly IUserRepository _userRepository;
 
-        //private readonly MenuDbContext _db;
-
 
         public UserService(IUserRepository userRepository, IJWTHasher hasher)
         {
@@ -26,12 +24,12 @@ namespace Menu.Models.Services
 
         public async Task<User> GetUserByIdAndRefreshTokenHashAsync(long userId, string refreshTokenHash)
         {
-            return await _userRepository.GetUserByIdAndRefreshTokenAsync(userId, refreshTokenHash);
+            return await _userRepository.GetUserByIdAndRefreshTokenNoTrackAsync(userId, refreshTokenHash);
         }
 
         public async Task<User> GetUserByIdAsync(long userId)
         {
-            return await _userRepository.GetUserByIdAsync(userId);
+            return await _userRepository.GetUserByIdNoTrackAsync(userId);
         }
 
         public async Task<bool> RemoveRefreshTokenAsync(long userId, string refreshToken)

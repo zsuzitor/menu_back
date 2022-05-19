@@ -29,7 +29,7 @@ namespace CodeReviewApp.Models.DAL.Repositories
             }
 
             var skipCount = pageNumber * pageSize;
-            return await _db.ReviewTasks.Where(x => x.ProjectId == projectId
+            return await _db.ReviewTasks.AsNoTracking().Where(x => x.ProjectId == projectId
                 && (creatorId == null || x.CreatorId == creatorId)
                 && (reviewerId == null || x.ReviewerId == reviewerId)
                 && (status == null || x.Status == status)
@@ -49,20 +49,20 @@ namespace CodeReviewApp.Models.DAL.Repositories
 
         public async Task<List<TaskReview>> GetTasksByProjectIdAsync(long projectId)
         {
-            return await _db.ReviewTasks.Where(x => x.ProjectId == projectId).ToListAsync();
+            return await _db.ReviewTasks.AsNoTracking().Where(x => x.ProjectId == projectId).ToListAsync();
         }
 
         public async Task<TaskReview> GetTaskWithCommentsAsync(long id)
         {
-            return await _db.ReviewTasks.Include(x => x.Comments).FirstOrDefaultAsync(x => x.Id == id);
+            return await _db.ReviewTasks.AsNoTracking().Include(x => x.Comments).FirstOrDefaultAsync(x => x.Id == id);
 
         }
 
         public async Task<TaskReview> GetAsync(long id, long projectId)
         {
-            return await _db.ReviewTasks.FirstOrDefaultAsync(x =>
-            x.Id == id
-            && x.ProjectId == projectId);
+            return await _db.ReviewTasks.AsNoTracking().FirstOrDefaultAsync(x =>
+                x.Id == id
+                && x.ProjectId == projectId);
 
         }
     }

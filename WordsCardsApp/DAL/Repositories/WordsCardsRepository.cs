@@ -12,11 +12,9 @@ namespace WordsCardsApp.DAL.Repositories
 {
     public class WordsCardsRepository : GeneralRepository<WordCard, long>, IWordsCardsRepository
     {
-        //private readonly MenuDbContext _db;
 
         public WordsCardsRepository(MenuDbContext db):base(db)
         {
-            //_db = db;
         }
 
         public async Task<bool?> ChangeHideStatusAsync(long id, long userId)
@@ -49,13 +47,18 @@ namespace WordsCardsApp.DAL.Repositories
        
         public async Task<List<WordCard>> GetAllUsersWordCardsAsync(long userId)
         {
-            return await GetAllForUser(userId).ToListAsync();
+            return await GetAllForUser(userId).AsNoTracking().ToListAsync();
         }
 
         //todo возможно есть случаи когда вызывается этот метод хотя нам надо просто узнать если ли доступ вообще
         public async Task<WordCard> GetByIdIfAccessAsync(long id, long userId)
         {
             return await _db.WordsCards.FirstOrDefaultAsync(x => x.UserId == userId && x.Id == id);
+        }
+
+        public async Task<WordCard> GetByIdIfAccessNoTrackAsync(long id, long userId)
+        {
+            return await _db.WordsCards.AsNoTracking().FirstOrDefaultAsync(x => x.UserId == userId && x.Id == id);
         }
 
         public async Task<List<WordCard>> LoadWordListsIdAsync(List<WordCard> words)
@@ -67,7 +70,7 @@ namespace WordsCardsApp.DAL.Repositories
 
             var wordsIds = words.Select(x => x.Id);
             //GetAllForUser(userId).Include(x=>x.WordCardWordList);
-            var relations = await _db.WordCardWordList.Where(x => wordsIds.Contains(x.WordCardId)).ToListAsync();
+            var relations = await _db.WordCardWordList.AsNoTracking().Where(x => wordsIds.Contains(x.WordCardId)).ToListAsync();
 
             var grouped = relations.GroupBy(x => x.WordCardId);
             foreach (var gr in grouped)
@@ -88,7 +91,7 @@ namespace WordsCardsApp.DAL.Repositories
 
         private IQueryable<WordCard> GetAllForUser(long userId)
         {
-            return _db.WordsCards.Where(x => x.UserId == userId);
+            return _db.WordsCards.AsNoTracking().Where(x => x.UserId == userId);
         }
     }
 }

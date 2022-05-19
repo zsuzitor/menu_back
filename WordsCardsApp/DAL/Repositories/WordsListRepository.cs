@@ -13,13 +13,11 @@ namespace WordsCardsApp.DAL.Repositories
 {
     public class WordsListRepository : GeneralRepository<WordsList, long>, IWordsListRepository
     {
-        //private readonly MenuDbContext _db;
         public WordsListRepository(MenuDbContext db) : base(db)
         {
-            //_db = db;
         }
 
-        public async Task<WordCardWordList> AddToList( WordCardWordList relation)
+        public async Task<WordCardWordList> AddToList(WordCardWordList relation)
         {
             _db.WordCardWordList.Add(relation);
             await _db.SaveChangesAsync();
@@ -33,10 +31,15 @@ namespace WordsCardsApp.DAL.Repositories
 
         public async Task<List<WordsList>> GetAllForUser(long userId)
         {
-            return await _db.WordsLists.Where(x => x.UserId == userId).ToListAsync();
+            return await _db.WordsLists.AsNoTracking().Where(x => x.UserId == userId).ToListAsync();
         }
 
         public async Task<WordsList> GetByIdIfAccess(long id, long userId)
+        {
+            return await _db.WordsLists.FirstOrDefaultAsync(x => x.UserId == userId && x.Id == id);
+        }
+
+        public async Task<WordsList> GetByIdIfAccessNoTrack(long id, long userId)
         {
             return await _db.WordsLists.FirstOrDefaultAsync(x => x.UserId == userId && x.Id == id);
         }
@@ -49,6 +52,16 @@ namespace WordsCardsApp.DAL.Repositories
             }
             return await _db.WordsLists.Where(x => x.UserId == userId && id.Contains(x.Id)).ToListAsync();
         }
+
+        public async Task<List<WordsList>> GetByIdIfAccessNoTrack(List<long> id, long userId)
+        {
+            if (id == null || id.Count == 0)
+            {
+                return new List<WordsList>();
+            }
+            return await _db.WordsLists.AsNoTracking().Where(x => x.UserId == userId && id.Contains(x.Id)).ToListAsync();
+        }
+
 
         public async Task<WordCardWordList> RemoveFromList(WordCardWordList delObj)
         {

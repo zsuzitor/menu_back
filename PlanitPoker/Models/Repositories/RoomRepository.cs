@@ -12,12 +12,10 @@ namespace PlanitPoker.Models.Repositories
 {
     public class RoomRepository : GeneralRepository<PlaningRoomDal, long>, IRoomRepository
     {
-        //private readonly MenuDbContext _db;
 
 
         public RoomRepository(MenuDbContext db) : base(db)
         {
-            //_db = db;
         }
 
 

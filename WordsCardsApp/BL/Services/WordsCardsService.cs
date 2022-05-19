@@ -35,7 +35,7 @@ namespace WordsCardsApp.BL.Services
                 throw new NotAuthException();
             }
 
-            return await _wordCardRepository.GetByIdIfAccessAsync(id, userInfo.UserId);
+            return await _wordCardRepository.GetByIdIfAccessNoTrackAsync(id, userInfo.UserId);
         }
 
 
@@ -90,7 +90,7 @@ namespace WordsCardsApp.BL.Services
                 List<WordCard> forAdd = new List<WordCard>();
                 //var listsFromInput = new List<long>();
                 var listsFromInput = input.Where(x => x.ListId != null).Select(x => x.ListId.Value).Distinct().ToList();
-                var lst = await _wordCardListsRepository.GetByIdIfAccess(listsFromInput, userInfo.UserId);
+                var lst = await _wordCardListsRepository.GetByIdIfAccessNoTrack(listsFromInput, userInfo.UserId);
                 foreach (var i in input)
                 {
                     var wordCardNew = WordCardFromInputModelNew(i);

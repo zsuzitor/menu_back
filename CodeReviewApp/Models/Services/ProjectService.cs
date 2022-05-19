@@ -47,7 +47,7 @@ namespace CodeReviewApp.Models.Services
 
         public async Task<Project> GetAsync(long id)
         {
-            return await _projectRepository.GetAsync(id);
+            return await _projectRepository.GetNoTrackAsync(id);
         }
 
         public async Task<Project> GetByIdIfAccessAsync(long id, UserInfo userInfo)
@@ -71,14 +71,20 @@ namespace CodeReviewApp.Models.Services
         }
 
 
-        public async Task<ProjectUser> CreateUserAsync(long projectId, string userName, long? mainAppUserId, UserInfo userInfo)
+        public async Task<ProjectUser> CreateUserAsync(long projectId, string userName, string email, long? mainAppUserId, UserInfo userInfo)
         {
             if (!await ExistIfAccessAdminAsync(projectId, userInfo))
             {
                 throw new SomeCustomException("project_not_found");//todo поиск и вынести
             }
 
-            var user = new ProjectUser() { ProjectId = projectId, UserName = userName, MainAppUserId = mainAppUserId };
+            var user = new ProjectUser()
+            {
+                ProjectId = projectId,
+                UserName = userName,
+                MainAppUserId = mainAppUserId,
+                NotifyEmail = email
+            };
             return await _userService.CreateAsync(user);
 
         }
@@ -107,7 +113,13 @@ namespace CodeReviewApp.Models.Services
         public async Task<bool> DeleteAsync(long projectId, UserInfo userInfo)
         {
             var project = await _projectRepository.GetByIdIfAccessAsync(projectId, userInfo.UserId);
+            if (project == null)
+            {
+                throw new SomeCustomException("project_not_found");//todo поиск и вынести
+            }
             await _projectRepository.DeleteAsync(project);
+            //project.IsDeleted = true;
+            //await _projectRepository.UpdateAsync(project);
             return true;
         }
 

@@ -13,22 +13,20 @@ namespace PlanitPoker.Models.Repositories
 {
     public class StoryRepository : GeneralRepository<PlaningStoryDal, long>, IStoryRepository
     {
-        //private readonly MenuDbContext _db;
 
 
         public StoryRepository(MenuDbContext db) : base(db)
         {
-            //_db = db;
         }
 
         public async Task<List<PlaningStoryDal>> GetActualForRoom(long roomId)
         {
-            return await _db.PlaningStories.Where(x => x.RoomId == roomId && !x.Completed).AsNoTracking().ToListAsync();
+            return await _db.PlaningStories.AsNoTracking().Where(x => x.RoomId == roomId && !x.Completed).ToListAsync();
         }
 
         public async Task<List<PlaningStoryDal>> GetNotActualForRoom(long roomId)
         {
-            return await _db.PlaningStories.Where(x => x.RoomId == roomId && x.Completed).AsNoTracking().ToListAsync();
+            return await _db.PlaningStories.AsNoTracking().Where(x => x.RoomId == roomId && x.Completed).ToListAsync();
         }
     }
 }

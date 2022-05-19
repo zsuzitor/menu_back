@@ -99,11 +99,8 @@ namespace MenuApp.Models.BL.Services
             {
                 throw new SomeCustomException(ErrorConsts.NotFound);
             }
-
             
             var changed = FillArticleFromInputModelEdit(oldObj, newArticle);
-            
-
 
             if (newArticle.MainImageNew != null)
             {
@@ -189,7 +186,7 @@ namespace MenuApp.Models.BL.Services
 
         public async Task<Article> GetById(long id)
         {
-            return await _articleRepository.GetAsync(id);
+            return await _articleRepository.GetNoTrackAsync(id);
         }
 
         public async Task<Article> GetByIdIfAccess(long id, UserInfo userInfo)
@@ -199,17 +196,18 @@ namespace MenuApp.Models.BL.Services
                 throw new NotAuthException();
             }
 
-            return await _articleRepository.GetByIdIfAccess(id, userInfo.UserId);
+            return await _articleRepository.GetByIdIfAccessNoTrackAsync(id, userInfo.UserId);
         }
 
         public async Task<Article> GetFullByIdIfAccess(long id, UserInfo userInfo)
         {
+            //todo тут хорошо бы noTrack
             if (userInfo == null)
             {
                 throw new NotAuthException();
             }
 
-            var article = await _articleRepository.GetByIdIfAccess(id, userInfo.UserId);
+            var article = await _articleRepository.GetByIdIfAccessAsync(id, userInfo.UserId);
             if (article == null)
             {
                 throw new SomeCustomException(ErrorConsts.NotFound);

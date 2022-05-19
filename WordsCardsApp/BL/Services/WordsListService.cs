@@ -24,7 +24,7 @@ namespace WordsCardsApp.BL.Services
 
         public async Task<WordCardWordList> AddToList(long cardId, long listId, UserInfo userInfo)
         {
-            var list = await _wordsListRepository.GetByIdIfAccess(listId, userInfo.UserId);
+            var list = await _wordsListRepository.GetByIdIfAccessNoTrack(listId, userInfo.UserId);
             if (list == null)
             {
                 throw new SomeCustomException(ErrorConsts.NotFound);
@@ -102,12 +102,12 @@ namespace WordsCardsApp.BL.Services
                 throw new NotAuthException();
             }
 
-            return await _wordsListRepository.GetByIdIfAccess(id, userInfo.UserId);
+            return await _wordsListRepository.GetByIdIfAccessNoTrack(id, userInfo.UserId);
         }
 
         public async Task<WordCardWordList> RemoveFromList(long cardId, long listId, UserInfo userInfo)
         {
-            var list = await _wordsListRepository.GetByIdIfAccess(listId, userInfo.UserId);
+            var list = await _wordsListRepository.GetByIdIfAccessNoTrack(listId, userInfo.UserId);
             if (list == null)
             {
                 throw new SomeCustomException(ErrorConsts.NotFound);

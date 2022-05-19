@@ -17,14 +17,12 @@ namespace Auth.Models.Auth.Services
         private readonly IUserService _userService;
         private readonly IJWTService _jwtService;
         private readonly IErrorService _errorService;
-        //private readonly MenuDbContext _db;
 
 
 
 
-        public AuthService(IJWTHasher hasher, IUserService userService, IJWTService jwtService,IErrorService errorService)//, IJWTService jwtService)
+        public AuthService(IJWTHasher hasher, IUserService userService, IJWTService jwtService,IErrorService errorService)
         {
-            //_db = db;
             _hasher = hasher;
             _jwtService = jwtService;
             _userService = userService;

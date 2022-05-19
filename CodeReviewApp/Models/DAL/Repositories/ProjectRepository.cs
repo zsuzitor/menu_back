@@ -12,6 +12,7 @@ namespace CodeReviewApp.Models.DAL.Repositories
 {
     public class ProjectRepository : GeneralRepository<Project, long>, IProjectRepository
     {
+
         public ProjectRepository(MenuDbContext db) : base(db)
         {
         }
@@ -19,7 +20,10 @@ namespace CodeReviewApp.Models.DAL.Repositories
         public async Task<Project> CreateAsync(string name, ProjectUser user)
         {
             var newProject = new Project() { Name = name, Users = new List<ProjectUser>() { user } };
-            return await base.AddAsync(newProject);
+
+            await base.AddAsync(newProject);
+            return newProject;
+
         }
 
         public async Task<bool> ExistIfAccessAsync(long id, long mainAppUserId)
@@ -49,14 +53,14 @@ namespace CodeReviewApp.Models.DAL.Repositories
 
         public async Task<Project> GetByIdIfAccessAsync(long id, long mainAppUserId)
         {
-            return await _db.ReviewProject.Include(x => x.Users)
+            return await _db.ReviewProject.AsNoTracking().Include(x => x.Users)
                             .Where(x => x.Id == id && !x.IsDeleted
                             && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId) != null).FirstOrDefaultAsync();
         }
 
         public async Task<Project> GetByIdIfAccessAdminAsync(long id, long mainAppUserId)
         {
-            return await _db.ReviewProject.Include(x => x.Users)
+            return await _db.ReviewProject.AsNoTracking().Include(x => x.Users)
                             .Where(x => x.Id == id && !x.IsDeleted
                             && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId
                                 && u.IsAdmin) != null).FirstOrDefaultAsync();
@@ -64,7 +68,7 @@ namespace CodeReviewApp.Models.DAL.Repositories
 
         public async Task<List<Project>> GetProjectsByMainAppUserIdAsync(long userId)
         {
-            return await _db.ReviewProjectUsers.Where(x => x.MainAppUserId == userId)
+            return await _db.ReviewProjectUsers.AsNoTracking().Where(x => x.MainAppUserId == userId)
                 .Include(x => x.Project).Select(x => x.Project).Where(x => !x.IsDeleted).ToListAsync();
 
             //.Join(_db.ReviewProject,u=>u.ProjectId)

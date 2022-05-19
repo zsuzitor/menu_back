@@ -119,7 +119,7 @@ namespace CodeReviewApp.Models.Services
 
         public async Task<TaskReview> GetByIdIfAccessAsync(long id, UserInfo userInfo)
         {
-            var task = await _taskReviewRepository.GetAsync(id);
+            var task = await _taskReviewRepository.GetNoTrackAsync(id);
             if (task == null)
             {
                 throw new SomeCustomException("task_not_found");
