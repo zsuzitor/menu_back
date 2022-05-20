@@ -15,19 +15,29 @@ namespace CodeReviewApp.Models.Services
         private readonly IProjectRepository _projectRepository;
         private readonly IProjectUserService _projectUserService;
         private readonly ITaskReviewCommentService _taskReviewCommentService;
+        private readonly IReviewAppEmailService _reviewAppEmailService;
         public TaskReviewService(ITaskReviewRepository taskReviewRepository,
             IProjectRepository projectRepository, IProjectUserService projectUserService
-            , ITaskReviewCommentService taskReviewCommentService)
+            , ITaskReviewCommentService taskReviewCommentService, IReviewAppEmailService reviewAppEmailService)
         {
             _taskReviewRepository = taskReviewRepository;
             _projectRepository = projectRepository;
             _projectUserService = projectUserService;
             _taskReviewCommentService = taskReviewCommentService;
+            _reviewAppEmailService = reviewAppEmailService;
         }
 
         public async Task<TaskReview> CreateAsync(TaskReview task)
         {
-            return await _taskReviewRepository.CreateAsync(task);
+            var addedTask = await _taskReviewRepository.CreateAsync(task);
+            if (addedTask.ReviewerId != null)
+            {
+                var emailNotification = await _projectUserService.GetNotificationEmailAsync(task.ReviewerId.Value);
+                await _reviewAppEmailService.QueueReviewerInReviewTaskAsync(emailNotification, task.Name);
+            }
+
+            return addedTask;
+
         }
 
         public async Task<List<TaskReview>> GetTasksAsync(long projectId)
@@ -75,11 +85,23 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException("project_have_no_access");
             }
 
+            bool needNotifyReviewer = false;
+            if(upTask.ReviewerId!= task.ReviewerId&& task.ReviewerId != null)
+            {
+                needNotifyReviewer = true;
+            }
+
             upTask.Status = task.Status;
             upTask.Name = task.Name;
             upTask.CreatorId = task.CreatorId;
             upTask.ReviewerId = task.ReviewerId;
             await _taskReviewRepository.UpdateAsync(upTask);
+            if (needNotifyReviewer)
+            {
+                var emailNotification = await _projectUserService.GetNotificationEmailAsync(upTask.ReviewerId.Value);
+                await _reviewAppEmailService.QueueReviewerInReviewTaskAsync(emailNotification, task.Name);
+            }
+
             return upTask;
         }
 
@@ -90,8 +112,8 @@ namespace CodeReviewApp.Models.Services
             {
                 throw new SomeCustomException("task_not_found");
             }
-            
-            var projectAccess =  await _projectRepository.ExistIfAccessAdminAsync(task.ProjectId, userInfo.UserId);
+
+            var projectAccess = await _projectRepository.ExistIfAccessAdminAsync(task.ProjectId, userInfo.UserId);
             if (!projectAccess)
             {
                 throw new SomeCustomException("project_have_no_access");
@@ -136,11 +158,26 @@ namespace CodeReviewApp.Models.Services
 
         public async Task<CommentReview> CreateCommentAsync(long taskId, string text, UserInfo userInfo)
         {
-            _ = await GetByIdIfAccessAsync(taskId, userInfo);
-            var projectUser = await _projectUserService.GetByMainAppIdAsync(userInfo);
+            //todo много запросов что то получается
+            var task = await GetByIdIfAccessAsync(taskId, userInfo);
+            var projectUserId = await _projectUserService.GetIdByMainAppIdAsync(userInfo);
             //projectUser - уже должен быть свалидирован по GetByIdIfAccessAsync
-            var newComment = new CommentReview() { CreatorId = projectUser.Id, TaskId = taskId, Text = text };
-            return await _taskReviewCommentService.CreateAsync(newComment);
+            var newComment = new CommentReview() { CreatorId = projectUserId.Value, TaskId = taskId, Text = text };
+            var comment = await _taskReviewCommentService.CreateAsync(newComment);
+            var emailForNotification = new List<string>();
+            if (task.ReviewerId != projectUserId && task.ReviewerId != null)
+            {
+                emailForNotification.Add(await _projectUserService.GetNotificationEmailAsync(task.ReviewerId.Value));
+            }
+
+            if (task.CreatorId != projectUserId)
+            {
+                emailForNotification.Add(await _projectUserService.GetNotificationEmailAsync(task.CreatorId));
+
+            }
+
+            await _reviewAppEmailService.QueueNewCommentInReviewTaskAsync(emailForNotification, task.Name);
+            return comment;
         }
     }
 }

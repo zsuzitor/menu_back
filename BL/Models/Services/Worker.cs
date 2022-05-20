@@ -20,13 +20,6 @@ namespace BL.Models.Services
             _httpClient = new HttpClient();
         }
 
-        public void Recurring(string recurringJobId, string cron, Action invoke)
-        {
-            //RecurringJob.AddOrUpdate(recurringJobId, () => invoke.Invoke(), () => cron);
-            //RecurringJob.AddOrUpdate(recurringJobId, () => Invoke(), () => cron);
-            throw new NotImplementedException();
-
-        }
 
         public void Recurring<T>(string recurringJobId, string cron, Expression<Action<T>> invoke)
         {

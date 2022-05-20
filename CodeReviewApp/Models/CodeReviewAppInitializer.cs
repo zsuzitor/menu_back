@@ -37,7 +37,7 @@ namespace CodeReviewApp.Models
             services.AddScoped<ITaskReviewService, TaskReviewService>();
             services.AddScoped<IProjectUserService, ProjectUserService>();
             services.AddScoped<ITaskReviewCommentService, TaskReviewCommentService>();
-            services.AddScoped<IReviewAppEmailService, ReviewAppEmailService>();
+            services.AddSingleton<IReviewAppEmailService, ReviewAppEmailService>();
 
             
             //services.AddScoped<IProjectService, >();
@@ -46,9 +46,12 @@ namespace CodeReviewApp.Models
         public void WorkersInitialize(IServiceProvider serviceProvider)
         {
             //BackgroundJob.Schedule<IProjectService>(srv => srv.AlertAsync(), DateTimeOffset.Now.AddSeconds(15));
-            Expression<Action<IProjectService>> actAlert = prSrv => prSrv.AlertAsync();//.Wait();
+            //Expression<Action<IProjectService>> actAlert = prSrv => prSrv.AlertAsync();//.Wait();
+            Expression<Action<IReviewAppEmailService>> actAlert = prSrv => prSrv.SendQueueAsync();//.Wait();
             var worker = serviceProvider.GetRequiredService<IWorker>();
             worker.Recurring("code_review_alert", "*/5 * * * *", actAlert);//каждые 5 минут
+
+
             //return;
             //var config = serviceProvider.GetRequiredService<IConfiguration>();
             //var baseAppUrl = config["ApplicationHostingUrl"];

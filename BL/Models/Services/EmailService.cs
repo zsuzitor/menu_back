@@ -1,8 +1,10 @@
 ﻿
 using BL.Models.Services.Interfaces;
+using BO.Models;
 using BO.Models.Configs;
 using MailKit.Net.Smtp;
 using MimeKit;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BL.Models.Services
@@ -14,46 +16,65 @@ namespace BL.Models.Services
             , string email, string subject, string message,
             string mailingHost, int mailingPort, string mailingLogin, string mailingPassword)
         {
-            var emailMessage = new MimeMessage();
-
-            emailMessage.From.Add(new MailboxAddress(nameFrom, emailFrom));
-            emailMessage.To.Add(new MailboxAddress("", email));
-            emailMessage.Subject = subject;
-            emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
+            var conf = new MailSendingInstanceConfig()
             {
-                Text = message
+                EmailFrom = emailFrom,
+                MailingHost = mailingHost,
+                MailingPort = mailingPort,
+                MailingLogin = mailingLogin,
+                MailingPassword = mailingPassword,
+                NameFrom = nameFrom,
             };
-
-            using (var client = new SmtpClient())
-            {
-                await client.ConnectAsync(mailingHost, mailingPort, false);
-                await client.AuthenticateAsync(mailingLogin, mailingPassword);
-                await client.SendAsync(emailMessage);
-
-                await client.DisconnectAsync(true);
-            }
+            await SendEmailAsync(email, subject, message, conf);
         }
 
         public async Task SendEmailAsync(string email, string subject, string message,
             MailSendingInstanceConfig config)
         {
-            var emailMessage = new MimeMessage();
+            await SendEmailAsync(new OneMail()
+            { Email = email, Message = message, Subject = message }, config);
+        }
 
-            emailMessage.From.Add(new MailboxAddress(config.NameFrom, config.EmailFrom));
-            emailMessage.To.Add(new MailboxAddress("", email));
-            emailMessage.Subject = subject;
-            emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
+        public async Task SendEmailAsync(OneMail oneMail, MailSendingInstanceConfig config)
+        {
+            await SendEmailAsync(new List<OneMail>() { oneMail }, config);
+        }
+
+        public async Task SendEmailAsync(List<OneMail> mails, MailSendingInstanceConfig config)
+        {
+            try
             {
-                Text = message
-            };
+                using (var client = new SmtpClient())
+                {
+                    await client.ConnectAsync(config.MailingHost, config.MailingPort, false);
+                    try
+                    {
+                        await client.AuthenticateAsync(config.MailingLogin, config.MailingPassword);
+                        foreach (var mail in mails)
+                        {
+                            var emailMessage = new MimeMessage();
 
-            using (var client = new SmtpClient())
+                            emailMessage.From.Add(new MailboxAddress(config.NameFrom, config.EmailFrom));
+                            emailMessage.To.Add(new MailboxAddress("", mail.Email));
+                            emailMessage.Subject = mail.Subject;
+                            emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
+                            {
+                                Text = mail.Message
+                            };
+                            await client.SendAsync(emailMessage);
+
+                        }
+                    }
+                    catch
+                    {
+                        await client.DisconnectAsync(true);
+                        throw;
+                    }
+                }
+            }
+            catch
             {
-                await client.ConnectAsync(config.MailingHost, config.MailingPort, false);
-                await client.AuthenticateAsync(config.MailingLogin, config.MailingPassword);
-                await client.SendAsync(emailMessage);
-
-                await client.DisconnectAsync(true);
+                //todo хотя бы логи записать
             }
         }
     }

@@ -75,5 +75,16 @@ namespace CodeReviewApp.Models.Services
         {
             return await _projectUserRepository.GetByMainAppIdAsync(userInfo.UserId);
         }
+
+        public async Task<long?> GetIdByMainAppIdAsync(UserInfo userInfo)
+        {
+            return await _projectUserRepository.GetIdByMainAppIdAsync(userInfo.UserId);
+        }
+
+        public async Task<string> GetNotificationEmailAsync(long userId)
+        {
+            return await _projectUserRepository.GetNotificationEmailAsync(userId);
+
+        }
     }
 }

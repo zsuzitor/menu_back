@@ -150,9 +150,8 @@ namespace Menu
             services.AddScoped<IErrorService, ErrorService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
-            var worker = new Worker();
-            services.AddSingleton<IWorker>(svp => worker);
-            services.AddScoped<IEmailServiceSender, EmailService>();
+            services.AddSingleton<IWorker, Worker>();
+            services.AddSingleton<IEmailServiceSender, EmailService>();
             
             //&
             var errorContainer = new ErrorContainer();
@@ -163,7 +162,6 @@ namespace Menu
                 init.RepositoriesInitialize(services);
                 init.ServicesInitialize(services);
                 init.ErrorContainerInitialize(errorContainer);
-                //init.WorkersInitialize(worker);
             }
 
 

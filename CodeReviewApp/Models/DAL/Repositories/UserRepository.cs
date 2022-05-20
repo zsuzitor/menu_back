@@ -37,5 +37,17 @@ namespace CodeReviewApp.Models.DAL.Repositories
             return await _db.ReviewProjectUsers.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.MainAppUserId == userId);
         }
+
+        public async Task<long?> GetIdByMainAppIdAsync(long userId)
+        {
+            return (await _db.ReviewProjectUsers.Select(x => new {x.Id, x.MainAppUserId })
+                .FirstOrDefaultAsync(x => x.MainAppUserId == userId))?.Id;
+        }
+
+        public async Task<string> GetNotificationEmailAsync(long userId)
+        {
+            return (await _db.ReviewProjectUsers.Select(x => new { x.Id, x.NotifyEmail })
+                .FirstOrDefaultAsync(x => x.Id == userId))?.NotifyEmail;
+        }
     }
 }

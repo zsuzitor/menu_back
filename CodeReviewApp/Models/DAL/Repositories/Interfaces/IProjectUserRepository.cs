@@ -11,5 +11,8 @@ namespace CodeReviewApp.Models.DAL.Repositories.Interfaces
         Task<List<ProjectUser>> GetProjectUsersAsync(long projectId);
         Task<ProjectUser> GetByMainAppUserIdAsync(long projectId, long mainAppUserId);
         Task<ProjectUser> GetByMainAppIdAsync(long userId);
+        Task<long?> GetIdByMainAppIdAsync(long userId);
+        Task<string> GetNotificationEmailAsync(long userId);
+
     }
 }

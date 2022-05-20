@@ -20,7 +20,8 @@ namespace CodeReviewApp.Models.Services.Interfaces
         Task<ProjectUser> ChangeAsync(long userId, string name, string email, UserInfo userInfo);
         Task<ProjectUser> DeleteAsync(long userId, UserInfo userInfo);
         Task<ProjectUser> GetByMainAppIdAsync(UserInfo userInfo);
-
+        Task<long?> GetIdByMainAppIdAsync(UserInfo userInfo);
+        Task<string> GetNotificationEmailAsync(long userId);
 
     }
 }
