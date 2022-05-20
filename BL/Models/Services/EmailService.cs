@@ -1,5 +1,6 @@
 ﻿
 using BL.Models.Services.Interfaces;
+using BO.Models.Configs;
 using MailKit.Net.Smtp;
 using MimeKit;
 using System.Threading.Tasks;
@@ -27,6 +28,29 @@ namespace BL.Models.Services
             {
                 await client.ConnectAsync(mailingHost, mailingPort, false);
                 await client.AuthenticateAsync(mailingLogin, mailingPassword);
+                await client.SendAsync(emailMessage);
+
+                await client.DisconnectAsync(true);
+            }
+        }
+
+        public async Task SendEmailAsync(string email, string subject, string message,
+            MailSendingInstanceConfig config)
+        {
+            var emailMessage = new MimeMessage();
+
+            emailMessage.From.Add(new MailboxAddress(config.NameFrom, config.EmailFrom));
+            emailMessage.To.Add(new MailboxAddress("", email));
+            emailMessage.Subject = subject;
+            emailMessage.Body = new TextPart(MimeKit.Text.TextFormat.Html)
+            {
+                Text = message
+            };
+
+            using (var client = new SmtpClient())
+            {
+                await client.ConnectAsync(config.MailingHost, config.MailingPort, false);
+                await client.AuthenticateAsync(config.MailingLogin, config.MailingPassword);
                 await client.SendAsync(emailMessage);
 
                 await client.DisconnectAsync(true);

@@ -49,7 +49,7 @@ namespace Menu
     public class Startup
     {
 
-        public static IServiceProvider ServiceProvider;
+        //public static IServiceProvider ServiceProvider;
         private readonly List<IStartUpInitializer> _appsInitializers;
         public Startup(IConfiguration configuration)
         {
@@ -215,8 +215,6 @@ namespace Menu
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
-            ServiceProvider = serviceProvider;
-            CodeReviewAppInitializer.ServiceProvider = serviceProvider;
 
             if (env.IsDevelopment())
             {
@@ -231,6 +229,7 @@ namespace Menu
 
 
             app.UseHangfireDashboard();
+
 
             foreach (var init in _appsInitializers)
             {
@@ -282,6 +281,5 @@ namespace Menu
 
         }
 
-        
     }
 }

@@ -7,8 +7,14 @@ namespace Common.Models
 {
     public interface IWorker
     {
-        void Recurring(string recurringJobId, string cron, Action invoke);
-        void Recurring(string recurringJobId, string cron, Expression<Func<Task>> invoke);
+        /// <summary>
+        /// T - тип который зарезолвится из DI
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="recurringJobId"></param>
+        /// <param name="cron"></param>
+        /// <param name="invoke"></param>
+        void Recurring<T>(string recurringJobId, string cron, Expression<Action<T>> invoke);
         void Recurring(string recurringJobId, string cron, string url);
         void RemoveIfExists(string recurringJobId);
     }

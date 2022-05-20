@@ -5,7 +5,12 @@ using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models.Services
 {
-    public class ReviewAppEmailService : IEmailService
+    public interface IReviewAppEmailService: IEmailService
+    {
+
+    }
+
+    public class ReviewAppEmailService : IReviewAppEmailService
     {
         public static string ConfigurationKey = "CodeReviewApp";
 
@@ -22,10 +27,7 @@ namespace CodeReviewApp.Models.Services
         public async Task SendEmailAsync(string email, string subject, string message)
         {
             var reviewConfig = _config.Values[ConfigurationKey];
-            await _emailService.SendEmailAsync(reviewConfig.NameFrom, reviewConfig.EmailFrom
-                , email, subject, message, reviewConfig.MailingHost
-                , reviewConfig.MailingPort, reviewConfig.MailingLogin
-                , reviewConfig.MailingPassword);
+            await _emailService.SendEmailAsync(email, subject, message, reviewConfig);
         }
     }
 }

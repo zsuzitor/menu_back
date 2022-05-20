@@ -28,24 +28,16 @@ namespace BL.Models.Services
 
         }
 
-        public void Recurring(string recurringJobId, string cron, Expression<Func<Task>> invoke)
+        public void Recurring<T>(string recurringJobId, string cron, Expression<Action<T>> invoke)
         {
-            RecurringJob.AddOrUpdate(recurringJobId, invoke, () => cron);
+            RecurringJob.AddOrUpdate<T>(recurringJobId, invoke, () => cron);
 
         }
 
+        
 
         public void Recurring(string recurringJobId, string cron, string url)
         {
-            //Action httpInvoke = () =>
-            //{
-            //    lock (_locker)
-            //    {
-            //        //var httpClient = _httpClientFactory.CreateClient();
-            //        //todo тут есть перегрузка на cancel token может тупо сразу отменять?
-            //        _httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, url));
-            //    }
-            //};
             RecurringJob.AddOrUpdate(recurringJobId, () => Send(url), () => cron);
 
         }
@@ -58,7 +50,7 @@ namespace BL.Models.Services
                 //todo тут есть перегрузка на cancel token может тупо сразу отменять?
                 try
                 {
-                    _httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, url));
+                    _httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, url)).Wait();//todo поправить на семафор?
                 }
                 catch { }
             }
@@ -69,18 +61,8 @@ namespace BL.Models.Services
             RecurringJob.RemoveIfExists(recurringJobId);
         }
 
-        //public virtual string GetRecurringJobId()
-        //{
-        //    return "main_worker_id";
-        //}
+      
 
-
-        public void Invoke()
-        {
-            //todo нужно нормально оформить и отправлять тут запрос
-            var g = 10;
-            //throw new System.Exception("123");
-        }
-
+        
     }
 }
