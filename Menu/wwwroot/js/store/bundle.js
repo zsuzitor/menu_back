@@ -61606,7 +61606,7 @@ var CodeReviewMain = function (props) {
                 setProjectsList(data);
             }
         };
-        window.G_CodeReviewController.GetUserProjects(getProjects);
+        window.G_CodeReviewProjectController.GetUserProjects(getProjects);
     }, []);
     (0, react_1.useEffect)(function () {
         if (currentProjectId > 0) {
@@ -61621,7 +61621,7 @@ var CodeReviewMain = function (props) {
                     // setCurrentProjectTasks(data.Tasks);
                 }
             };
-            window.G_CodeReviewController.GetProjectInfo(currentProjectId, getProjectInfo);
+            window.G_CodeReviewProjectController.GetProjectInfo(currentProjectId, getProjectInfo);
         }
     }, [currentProjectId]);
     var addNewProject = function (newProjectName) {
@@ -61642,7 +61642,7 @@ var CodeReviewMain = function (props) {
                 });
             }
         };
-        window.G_CodeReviewController.CreateNewProject(newProjectName, addProject);
+        window.G_CodeReviewProjectController.CreateNewProject(newProjectName, addProject);
     };
     var addNewUserToProject = function (user) {
         setCurrentProjectUsers(function (oldState) {
@@ -61771,7 +61771,7 @@ var OneProjectUser = function (props) {
                 props.ChangeUser(newUserData);
             }
         };
-        window.G_CodeReviewController.ChangeProjectUser(newUserData, changeUser);
+        window.G_CodeReviewUserController.ChangeProjectUser(newUserData, changeUser);
     };
     var deleteUser = function () {
         var deleteUser = function (error, data) {
@@ -61784,7 +61784,7 @@ var OneProjectUser = function (props) {
                 props.DeleteUser(props.User.Id);
             }
         };
-        window.G_CodeReviewController.DeleteProjectUser(props.User.Id, deleteUser);
+        window.G_CodeReviewUserController.DeleteProjectUser(props.User.Id, deleteUser);
     };
     return react_1.default.createElement("div", { className: 'one-project-user-content' },
         react_1.default.createElement("span", null, "\u0418\u043C\u044F"),
@@ -61862,7 +61862,7 @@ var OneReviewTaskComment = function (props) {
                 props.DeleteComment(props.Comment.Id);
             }
         };
-        window.G_CodeReviewController.DeleteComment(props.Comment.Id, deleteComment);
+        window.G_CodeReviewCommentController.DeleteComment(props.Comment.Id, deleteComment);
     };
     var updateComment = function () {
         var updateComment = function (error, data) {
@@ -61876,7 +61876,7 @@ var OneReviewTaskComment = function (props) {
                 setEditMode(false);
             }
         };
-        window.G_CodeReviewController.UpdateComment(props.Comment.Id, changedText, updateComment);
+        window.G_CodeReviewCommentController.UpdateComment(props.Comment.Id, changedText, updateComment);
     };
     var cancelEditMode = function () {
         setEditMode(false);
@@ -61999,7 +61999,7 @@ var OneReviewTask = function (props) {
                 setComments(data);
             }
         };
-        window.G_CodeReviewController.LoadComments(props.Task.Id, loadComments);
+        window.G_CodeReviewCommentController.LoadComments(props.Task.Id, loadComments);
     }, [showComments]);
     // let creator = props.ProjectUsers.find(x => x.Id == props.Task.CreatorId);
     // let reviwer = props.ProjectUsers.find(x => x.Id == props.Task.ReviewerId);
@@ -62031,7 +62031,7 @@ var OneReviewTask = function (props) {
                 props.UpdateTask(forAdd);
             }
         };
-        window.G_CodeReviewController.UpdateTask(forAdd, updateTask);
+        window.G_CodeReviewTaskController.UpdateTask(forAdd, updateTask);
     };
     var deleteTask = function () {
         if (!confirm('Удалить задачу?')) {
@@ -62047,7 +62047,7 @@ var OneReviewTask = function (props) {
                 props.DeleteTask(props.Task.Id);
             }
         };
-        window.G_CodeReviewController.DeleteTask(props.Task.Id, deleteTask);
+        window.G_CodeReviewTaskController.DeleteTask(props.Task.Id, deleteTask);
     };
     var addComment = function () {
         var addComment = function (error, data) {
@@ -62064,7 +62064,7 @@ var OneReviewTask = function (props) {
                 });
             }
         };
-        window.G_CodeReviewController.AddComment(props.Task.Id, newCommentName, addComment);
+        window.G_CodeReviewCommentController.AddComment(props.Task.Id, newCommentName, addComment);
     };
     var deleteComment = function (id) {
         setComments(function (oldState) {
@@ -62317,7 +62317,7 @@ var ProjectDetail = function (props) {
             ProjectId: props.Project.Id, ReviewerId: filterTaskReviwer,
             Status: filterTaskStatus
         };
-        window.G_CodeReviewController.LoadTasks(filter, loadTasks);
+        window.G_CodeReviewTaskController.LoadTasks(filter, loadTasks);
     };
     var addNewUser = function () {
         if (!newUserName) {
@@ -62333,7 +62333,7 @@ var ProjectDetail = function (props) {
                 props.AddUserToProject(data);
             }
         };
-        window.G_CodeReviewController.AddUserToProject(newUserName, userMainAppEmail, props.Project.Id, addUser);
+        window.G_CodeReviewUserController.AddUserToProject(newUserName, userMainAppEmail, props.Project.Id, addUser);
         setNewUserName('');
     };
     var createNewTask = function () {
@@ -62350,7 +62350,7 @@ var ProjectDetail = function (props) {
                 setNewTaskName('');
             }
         };
-        window.G_CodeReviewController.AddTaskToProject(newTaskName, newTaskCreator, newTaskReviwer, props.Project.Id, addTask);
+        window.G_CodeReviewTaskController.AddTaskToProject(newTaskName, newTaskCreator, newTaskReviwer, props.Project.Id, addTask);
     };
     var deleteProject = function () {
         var deleteProject = function (error, data) {
@@ -62363,7 +62363,7 @@ var ProjectDetail = function (props) {
                 props.DeleteProject();
             }
         };
-        window.G_CodeReviewController.DeleteProject(props.Project.Id, deleteProject);
+        window.G_CodeReviewProjectController.DeleteProject(props.Project.Id, deleteProject);
     };
     // const addTaskToProject = (task: IProjectTaskDataBack) => {
     //     setCurrentProjectTasks(oldState => {
@@ -68966,18 +68966,18 @@ exports.AuthenticateController = AuthenticateController;
 
 /***/ }),
 
-/***/ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewController.ts":
-/*!******************************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewController.ts ***!
-  \******************************************************************************************/
+/***/ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewCommentController.ts":
+/*!*************************************************************************************************!*\
+  !*** ./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewCommentController.ts ***!
+  \*************************************************************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.CodeReviewController = void 0;
-var CodeReviewController = /** @class */ (function () {
-    function CodeReviewController() {
+exports.CodeReviewCommentController = void 0;
+var CodeReviewCommentController = /** @class */ (function () {
+    function CodeReviewCommentController() {
         var _this = this;
         this.UpdateComment = function (id, text, onSuccess) {
             var data = {
@@ -69037,88 +69037,40 @@ var CodeReviewController = /** @class */ (function () {
                 Url: G_PathToServer + 'api/codereview/project/get-comments'
             });
         };
-        this.DeleteTask = function (id, onSuccess) {
-            var data = {
-                "taskId": id,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "DELETE",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/delete-task'
-            });
+    }
+    CodeReviewCommentController.prototype.mapWithResult = function (onSuccess) {
+        return function (xhr, status, jqXHR) {
+            var resp = xhr;
+            if (resp.errors) {
+                //TODO ошибка
+                onSuccess(resp, null);
+            }
+            else {
+                var dataBack = xhr;
+                onSuccess(null, dataBack);
+            }
         };
-        this.LoadTasks = function (taskFilter, onSuccess) {
-            var data = {
-                "projectId": taskFilter.ProjectId,
-                "nameLike": taskFilter.Name,
-                "creatorId": taskFilter.CreatorId,
-                "reviewerId": taskFilter.ReviewerId,
-                "status": taskFilter.Status,
-                "pageNumber": taskFilter.PageNumber,
-                "pageSize": taskFilter.PageSize,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "GET",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/get-project-tasks'
-            });
-        };
-        this.UpdateTask = function (task, onSuccess) {
-            var data = {
-                "taskId": task.Id,
-                "name": task.Name,
-                "status": task.Status,
-                "creatorId": task.CreatorId,
-                "reviewerId": task.ReviewerId,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "PATCH",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/update-task'
-            });
-        };
-        this.DeleteProjectUser = function (id, onSuccess) {
-            var data = {
-                "userId": id,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "DELETE",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/delete-user'
-            });
-        };
-        this.ChangeProjectUser = function (user, onSuccess) {
-            var data = {
-                "userId": user.Id,
-                "name": user.Name,
-                "email": user.Email,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "PATCH",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/change-user'
-            });
-        };
+    };
+    return CodeReviewCommentController;
+}());
+exports.CodeReviewCommentController = CodeReviewCommentController;
+
+
+/***/ }),
+
+/***/ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewProjectController.ts":
+/*!*************************************************************************************************!*\
+  !*** ./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewProjectController.ts ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CodeReviewProjectController = void 0;
+var CodeReviewProjectController = /** @class */ (function () {
+    function CodeReviewProjectController() {
+        var _this = this;
         this.DeleteProject = function (projectId, onSuccess) {
             var data = {
                 "projectId": projectId,
@@ -69147,39 +69099,6 @@ var CodeReviewController = /** @class */ (function () {
                 Url: G_PathToServer + 'api/codereview/project/get-project-info'
             });
         };
-        this.AddTaskToProject = function (taskName, taskCreatorId, taskReviwerId, projectId, onSuccess) {
-            var data = {
-                "taskName": taskName,
-                "taskCreatorId": taskCreatorId,
-                "taskReviwerId": taskReviwerId,
-                "projectId": projectId,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "PUT",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/add-new-task'
-            });
-        };
-        this.AddUserToProject = function (newUserName, mainAppUserEmail, projectId, onSuccess) {
-            var data = {
-                "userName": newUserName,
-                "projectId": projectId,
-                "mainAppUserEmail": mainAppUserEmail,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "PUT",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/add-new-user'
-            });
-        };
         this.CreateNewProject = function (newProjectName, onSuccess) {
             var data = {
                 "projectName": newProjectName,
@@ -69206,7 +69125,8 @@ var CodeReviewController = /** @class */ (function () {
             });
         };
     }
-    CodeReviewController.prototype.mapWithResult = function (onSuccess) {
+    //todo вынести в какой то общей кусок
+    CodeReviewProjectController.prototype.mapWithResult = function (onSuccess) {
         return function (xhr, status, jqXHR) {
             var resp = xhr;
             if (resp.errors) {
@@ -69219,9 +69139,192 @@ var CodeReviewController = /** @class */ (function () {
             }
         };
     };
-    return CodeReviewController;
+    return CodeReviewProjectController;
 }());
-exports.CodeReviewController = CodeReviewController;
+exports.CodeReviewProjectController = CodeReviewProjectController;
+
+
+/***/ }),
+
+/***/ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewTaskController.ts":
+/*!**********************************************************************************************!*\
+  !*** ./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewTaskController.ts ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CodeReviewTaskController = void 0;
+var CodeReviewTaskController = /** @class */ (function () {
+    function CodeReviewTaskController() {
+        var _this = this;
+        this.AddTaskToProject = function (taskName, taskCreatorId, taskReviwerId, projectId, onSuccess) {
+            var data = {
+                "taskName": taskName,
+                "taskCreatorId": taskCreatorId,
+                "taskReviwerId": taskReviwerId,
+                "projectId": projectId,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PUT",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/project/add-new-task'
+            });
+        };
+        this.UpdateTask = function (task, onSuccess) {
+            var data = {
+                "taskId": task.Id,
+                "name": task.Name,
+                "status": task.Status,
+                "creatorId": task.CreatorId,
+                "reviewerId": task.ReviewerId,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PATCH",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/project/update-task'
+            });
+        };
+        this.LoadTasks = function (taskFilter, onSuccess) {
+            var data = {
+                "projectId": taskFilter.ProjectId,
+                "nameLike": taskFilter.Name,
+                "creatorId": taskFilter.CreatorId,
+                "reviewerId": taskFilter.ReviewerId,
+                "status": taskFilter.Status,
+                "pageNumber": taskFilter.PageNumber,
+                "pageSize": taskFilter.PageSize,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "GET",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/project/get-project-tasks'
+            });
+        };
+        this.DeleteTask = function (id, onSuccess) {
+            var data = {
+                "taskId": id,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "DELETE",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/project/delete-task'
+            });
+        };
+    }
+    CodeReviewTaskController.prototype.mapWithResult = function (onSuccess) {
+        return function (xhr, status, jqXHR) {
+            var resp = xhr;
+            if (resp.errors) {
+                //TODO ошибка
+                onSuccess(resp, null);
+            }
+            else {
+                var dataBack = xhr;
+                onSuccess(null, dataBack);
+            }
+        };
+    };
+    return CodeReviewTaskController;
+}());
+exports.CodeReviewTaskController = CodeReviewTaskController;
+
+
+/***/ }),
+
+/***/ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewUserController.ts":
+/*!**********************************************************************************************!*\
+  !*** ./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewUserController.ts ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CodeReviewUserController = void 0;
+var CodeReviewUserController = /** @class */ (function () {
+    function CodeReviewUserController() {
+        var _this = this;
+        this.DeleteProjectUser = function (id, onSuccess) {
+            var data = {
+                "userId": id,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "DELETE",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/project/delete-user'
+            });
+        };
+        this.AddUserToProject = function (newUserName, mainAppUserEmail, projectId, onSuccess) {
+            var data = {
+                "userName": newUserName,
+                "projectId": projectId,
+                "mainAppUserEmail": mainAppUserEmail,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PUT",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/project/add-new-user'
+            });
+        };
+        this.ChangeProjectUser = function (user, onSuccess) {
+            var data = {
+                "userId": user.Id,
+                "name": user.Name,
+                "email": user.Email,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PATCH",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/project/change-user'
+            });
+        };
+    }
+    CodeReviewUserController.prototype.mapWithResult = function (onSuccess) {
+        return function (xhr, status, jqXHR) {
+            var resp = xhr;
+            if (resp.errors) {
+                //TODO ошибка
+                onSuccess(resp, null);
+            }
+            else {
+                var dataBack = xhr;
+                onSuccess(null, dataBack);
+            }
+        };
+    };
+    return CodeReviewUserController;
+}());
+exports.CodeReviewUserController = CodeReviewUserController;
 
 
 /***/ }),
@@ -70219,7 +70322,10 @@ var client_1 = __importDefault(__webpack_require__(/*! react-dom/client */ "./no
 var MainComponent_1 = __importDefault(__webpack_require__(/*! ./components/MainComponent */ "./src/components/MainComponent.tsx"));
 var AjaxLogic_1 = __webpack_require__(/*! ./components/_ComponentsLink/AjaxLogic */ "./src/components/_ComponentsLink/AjaxLogic.ts");
 var AuthenticateController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/AuthenticateController */ "./src/components/_ComponentsLink/Controllers/AuthenticateController.ts");
-var CodeReviewController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewController */ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewController.ts");
+var CodeReviewCommentController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewCommentController */ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewCommentController.ts");
+var CodeReviewProjectController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewProjectController */ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewProjectController.ts");
+var CodeReviewTaskController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewTaskController */ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewTaskController.ts");
+var CodeReviewUserController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewUserController */ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewUserController.ts");
 var ArticleController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/MenuApp/ArticleController */ "./src/components/_ComponentsLink/Controllers/MenuApp/ArticleController.ts");
 var PlaningPokerController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/PlaningPoker/PlaningPokerController */ "./src/components/_ComponentsLink/Controllers/PlaningPoker/PlaningPokerController.ts");
 var UsersController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/UsersController */ "./src/components/_ComponentsLink/Controllers/UsersController.ts");
@@ -70254,7 +70360,10 @@ window.G_ArticleController = new ArticleController_1.ArticleController();
 window.G_WordsCardsController = new WordsCardsController_1.WordsCardsController();
 window.G_WordsListController = new WordsListController_1.WordsListController();
 window.G_PlaningPokerController = new PlaningPokerController_1.PlaningPokerController();
-window.G_CodeReviewController = new CodeReviewController_1.CodeReviewController();
+window.G_CodeReviewProjectController = new CodeReviewProjectController_1.CodeReviewProjectController();
+window.G_CodeReviewTaskController = new CodeReviewTaskController_1.CodeReviewTaskController();
+window.G_CodeReviewUserController = new CodeReviewUserController_1.CodeReviewUserController();
+window.G_CodeReviewCommentController = new CodeReviewCommentController_1.CodeReviewCommentController();
 //
 // G_AddAbsoluteAlertToState -->MainComponent
 //
