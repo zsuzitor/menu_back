@@ -27,7 +27,7 @@ namespace CodeReviewApp.Models.Services
 
         }
 
-        public async Task<ProjectUser> ChangeAsync(long userId, string name, string email, UserInfo userInfo)
+        public async Task<ProjectUser> ChangeAsync(long userId, string name, string email, bool isAdmin, UserInfo userInfo)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
@@ -48,6 +48,7 @@ namespace CodeReviewApp.Models.Services
 
             user.UserName = name;
             user.NotifyEmail = email;
+            user.IsAdmin = isAdmin;
             await _projectUserRepository.UpdateAsync(user);
             return user;
 

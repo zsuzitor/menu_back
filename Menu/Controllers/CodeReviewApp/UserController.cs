@@ -44,6 +44,7 @@ namespace Menu.Controllers.CodeReviewApp
         public async Task AddNewUser([FromForm] string userName, [FromForm] string mainAppUserEmail, [FromForm] long projectId)
         {
             userName = _apiHealper.StringValidator(userName);
+            mainAppUserEmail = _apiHealper.StringValidator(mainAppUserEmail);
 
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -65,7 +66,7 @@ namespace Menu.Controllers.CodeReviewApp
 
         [Route("change-user")]
         [HttpPatch]
-        public async Task ChangeUser([FromForm] long userId, [FromForm] string name, [FromForm] string email)
+        public async Task ChangeUser([FromForm] long userId, [FromForm] string name, [FromForm] string email, [FromForm] bool isAdmin = false)
         {
             name = _apiHealper.StringValidator(name);
             email = _apiHealper.StringValidator(email);
@@ -76,7 +77,7 @@ namespace Menu.Controllers.CodeReviewApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _projectUserService.ChangeAsync(userId, name, email, userInfo);
+                    var res = await _projectUserService.ChangeAsync(userId, name, email, isAdmin, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
                         {

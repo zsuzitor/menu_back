@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Text.Encodings.Web;
+﻿using System.Text.Encodings.Web;
 
 namespace Common.Models.Validators
 {
@@ -29,6 +26,11 @@ namespace Common.Models.Validators
 
         public string Validate(string str)
         {
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return str;
+            }
+
             string res = str;
             res = _javaScriptEncoder.Encode(res);
             res = _htmlEncoder.Encode(res);

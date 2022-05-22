@@ -20,6 +20,7 @@ namespace PlanitPoker.Models.Helpers
         Task<bool> NotifyFromErrorService();
         void InitByHub(Hub hub);
         Task<T> DoStandartSomething<T>(Func<Task<T>> action, T defaultResult, HttpResponse response, ILogger logger);
+        Task<T> DoStandartSomethingWithoutResponse<T>(Func<Task<T>> action, T defaultResult, ILogger logger);
     }
 
     public class PlanitApiHelper : ApiHelper, IPlanitApiHelper
@@ -35,6 +36,49 @@ namespace PlanitPoker.Models.Helpers
         public void InitByHub(Hub hub)
         {
             _planitHub = hub;
+        }
+
+        /// <summary>
+        /// без какого либо нотификаций
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="action"></param>
+        /// <param name="defaultResult"></param>
+        /// <param name="logger"></param>
+        /// <returns></returns>
+        public async Task<T> DoStandartSomethingWithoutResponse<T>(Func<Task<T>> action, T defaultResult, ILogger logger)
+        {
+            try
+            {
+                return await action();
+
+            }
+            catch (SomeCustomException e)
+            {
+                ErrorFromCustomException(e);
+            }
+            catch (StopException)
+            {
+            }
+            catch (NotAuthException)
+            {//ветка вообще не особо актуальная для покера
+                var error = _errorContainer.TryGetError(ErrorConsts.NotAuthorized);
+                if (error != null)
+                {
+                    _errorService.AddError(error);
+                }
+
+                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.PlanitUserNotFound));
+                //await WriteReturnResponseAsync(response, _errorService.GetErrorsObject(), 401);//TODO 401
+                //return;
+            }
+            catch (Exception e)
+            {
+                _errorService.AddError(_errorContainer.TryGetError(ErrorConsts.SomeError));
+                logger?.LogError(e, ErrorConsts.SomeError);
+            }
+
+            return defaultResult;
         }
 
         public async Task<bool> NotifyFromErrorService()
@@ -73,39 +117,11 @@ namespace PlanitPoker.Models.Helpers
 
         public async Task<T> DoStandartSomething<T>(Func<Task<T>> action, T defaultResult, HttpResponse response, ILogger logger)
         {
-            try
-            {
-                return await action();
 
-            }
-            catch (SomeCustomException e)
-            {
-                ErrorFromCustomException(e);
-            }
-            catch (StopException)
-            {
-            }
-            catch (NotAuthException)
-            {//ветка вообще не особо актуальная для покера
-                var error = _errorContainer.TryGetError(ErrorConsts.NotAuthorized);
-                if (error != null)
-                {
-                    _errorService.AddError(error);
-                }
-
-                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.PlanitUserNotFound));
-                //await WriteReturnResponseAsync(response, _errorService.GetErrorsObject(), 401);//TODO 401
-                //return;
-            }
-            catch (Exception e)
-            {
-                _errorService.AddError(_errorContainer.TryGetError(ErrorConsts.SomeError));
-                logger?.LogError(e, ErrorConsts.SomeError);
-            }
-
+            var res = await DoStandartSomethingWithoutResponse(action, defaultResult, logger);
             //await WriteReturnResponseAsync(response, _errorService.GetErrorsObject());
             await NotifyFromErrorService();
-            return defaultResult;
+            return res;
         }
 
 

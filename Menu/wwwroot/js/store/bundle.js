@@ -2448,6 +2448,60 @@ var VERSION = "1.0.27";
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/AdditionalWindow/AdditionalWindow.css":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/AdditionalWindow/AdditionalWindow.css ***!
+  \*********************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".additional-window-main {\r\n    z-index: 2;\r\n    color: white;\r\n    /* position: absolute; */\r\n    position: fixed;\r\n    top: 50px;\r\n    padding: 30px;\r\n    min-height: 200px;\r\n    width: 80%;\r\n    left: 10%;\r\n    background: #232323;\r\n    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.07), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 10px 50px rgba(0, 0, 0, 0.05);\r\n    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */\r\n    border-radius: 10px;\r\n\r\n}\r\n\r\n.additional-window-main-height {\r\n    overflow: auto;\r\n    bottom: 0;\r\n}\r\n\r\n.additional-window-close {\r\n    transform: matrix(-0.71, -0.71, -0.71, 0.71, 0, 0);\r\n    float: right;\r\n    font-size: 50px;\r\n    cursor: pointer;\r\n    margin-top: -15px;\r\n    line-height: 30px;\r\n}\r\n\r\n.additional-window-inner {\r\n    /* position: relative;\r\n    height: auto; */\r\n}\r\n\r\n.additional-window-main .title{\r\n    font-size: 30px;\r\n    color: goldenrod;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/AdditionalWindow/AdditionalWindow.css"],"names":[],"mappings":"AAAA;IACI,UAAU;IACV,YAAY;IACZ,wBAAwB;IACxB,eAAe;IACf,SAAS;IACT,aAAa;IACb,iBAAiB;IACjB,UAAU;IACV,SAAS;IACT,mBAAmB;IACnB,kJAAkJ;IAClJ,6CAA6C;IAC7C,mBAAmB;;AAEvB;;AAEA;IACI,cAAc;IACd,SAAS;AACb;;AAEA;IACI,kDAAkD;IAClD,YAAY;IACZ,eAAe;IACf,eAAe;IACf,iBAAiB;IACjB,iBAAiB;AACrB;;AAEA;IACI;mBACe;AACnB;;AAEA;IACI,eAAe;IACf,gBAAgB;AACpB","sourcesContent":[".additional-window-main {\r\n    z-index: 2;\r\n    color: white;\r\n    /* position: absolute; */\r\n    position: fixed;\r\n    top: 50px;\r\n    padding: 30px;\r\n    min-height: 200px;\r\n    width: 80%;\r\n    left: 10%;\r\n    background: #232323;\r\n    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.07), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 10px 50px rgba(0, 0, 0, 0.05);\r\n    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */\r\n    border-radius: 10px;\r\n\r\n}\r\n\r\n.additional-window-main-height {\r\n    overflow: auto;\r\n    bottom: 0;\r\n}\r\n\r\n.additional-window-close {\r\n    transform: matrix(-0.71, -0.71, -0.71, 0.71, 0, 0);\r\n    float: right;\r\n    font-size: 50px;\r\n    cursor: pointer;\r\n    margin-top: -15px;\r\n    line-height: 30px;\r\n}\r\n\r\n.additional-window-inner {\r\n    /* position: relative;\r\n    height: auto; */\r\n}\r\n\r\n.additional-window-main .title{\r\n    font-size: 30px;\r\n    color: goldenrod;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/AddTask/AddTask.css":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/AddTask/AddTask.css ***!
+  \*****************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".create-new-task-btn {\r\n    background-color: white !important;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/AddTask/AddTask.css"],"names":[],"mappings":"AAAA;IACI,kCAAkC;AACtC","sourcesContent":[".create-new-task-btn {\r\n    background-color: white !important;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.css":
 /*!*******************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.css ***!
@@ -2468,7 +2522,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".code-review-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n}\r\n\r\n\r\n\r\n.code-review-project-info {\r\n    flex-grow: 2;\r\n    padding-left: 15px;\r\n}\r\n\r\n.code-review-projects-menu-main {\r\n    position: relative;\r\n    border-right: 1px solid black;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;AACrB;;;;AAIA;IACI,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,6BAA6B;AACjC","sourcesContent":[".code-review-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n}\r\n\r\n\r\n\r\n.code-review-project-info {\r\n    flex-grow: 2;\r\n    padding-left: 15px;\r\n}\r\n\r\n.code-review-projects-menu-main {\r\n    position: relative;\r\n    border-right: 1px solid black;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".code-review-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    /* background-color: #666262; */\r\n}\r\n\r\n\r\n\r\n.code-review-project-info {\r\n    flex-grow: 2;\r\n    padding-left: 15px;\r\n}\r\n\r\n.code-review-projects-menu-main {\r\n    position: relative;\r\n    border-right: 1px solid black;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,+BAA+B;AACnC;;;;AAIA;IACI,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,6BAA6B;AACjC","sourcesContent":[".code-review-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    /* background-color: #666262; */\r\n}\r\n\r\n\r\n\r\n.code-review-project-info {\r\n    flex-grow: 2;\r\n    padding-left: 15px;\r\n}\r\n\r\n.code-review-projects-menu-main {\r\n    position: relative;\r\n    border-right: 1px solid black;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2522,7 +2576,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".project-user-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.project-user-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.project-user-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-project-user-buttons {\r\n    display: flex;\r\n}\r\n\r\n.one-project-user-content {\r\n    padding: 5px;\r\n    border-radius: 10px;\r\n    border: 1px solid black;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/OneProjectUser/OneProjectUser.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;IACZ,mBAAmB;IACnB,uBAAuB;AAC3B","sourcesContent":[".project-user-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.project-user-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.project-user-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-project-user-buttons {\r\n    display: flex;\r\n}\r\n\r\n.one-project-user-content {\r\n    padding: 5px;\r\n    border-radius: 10px;\r\n    border: 1px solid black;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n.project-user-action-btn{\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    background-color: white;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-project-user-buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n.one-project-user-content {\r\n    padding: 5px;\r\n    border-radius: 10px;\r\n    border: 1px solid white;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/OneProjectUser/OneProjectUser.css"],"names":[],"mappings":";AACA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,SAAS;AACb;;AAEA;IACI,YAAY;IACZ,mBAAmB;IACnB,uBAAuB;AAC3B","sourcesContent":["\r\n.project-user-action-btn{\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    background-color: white;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-project-user-buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n.one-project-user-content {\r\n    padding: 5px;\r\n    border-radius: 10px;\r\n    border: 1px solid white;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2603,7 +2657,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".one-paggination-button {\r\n    width: 15px;\r\n    height: 15px;\r\n    border: 1px solid black;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/Paggination/Paggination.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;AAC3B","sourcesContent":[".one-paggination-button {\r\n    width: 15px;\r\n    height: 15px;\r\n    border: 1px solid black;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".one-paggination-button {\r\n    width: 15px;\r\n    height: 15px;\r\n    border: 1px solid black;\r\n}\r\n\r\n.paggination-current{\r\n    background-color: #b5e29c;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/Paggination/Paggination.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;AAC3B;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".one-paggination-button {\r\n    width: 15px;\r\n    height: 15px;\r\n    border: 1px solid black;\r\n}\r\n\r\n.paggination-current{\r\n    background-color: #b5e29c;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2630,7 +2684,34 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".project-review-user-list {\r\n    transition: 1s;\r\n    overflow: hidden;\r\n    border: 1px solid black;\r\n    max-height: 300px;\r\n    overflow: auto;\r\n    background-color: slategray;\r\n    /* box-shadow: 0px 0px 5px 1px black; */\r\n}\r\n\r\n.project-review-user-list-show {\r\n    max-height: 300px;\r\n    overflow: auto;\r\n}\r\n\r\n.review-project-detail-main {\r\n    padding-top: 20px;\r\n}\r\n\r\n.review-project-new-task-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-tasks-filters-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-delete-button{\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css"],"names":[],"mappings":"AAAA;IACI,cAAc;IACd,gBAAgB;IAChB,uBAAuB;IACvB,iBAAiB;IACjB,cAAc;IACd,2BAA2B;IAC3B,uCAAuC;AAC3C;;AAEA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,oBAAoB;AACxB;;AAEA;IACI,uBAAuB;IACvB,oBAAoB;AACxB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB","sourcesContent":[".project-review-user-list {\r\n    transition: 1s;\r\n    overflow: hidden;\r\n    border: 1px solid black;\r\n    max-height: 300px;\r\n    overflow: auto;\r\n    background-color: slategray;\r\n    /* box-shadow: 0px 0px 5px 1px black; */\r\n}\r\n\r\n.project-review-user-list-show {\r\n    max-height: 300px;\r\n    overflow: auto;\r\n}\r\n\r\n.review-project-detail-main {\r\n    padding-top: 20px;\r\n}\r\n\r\n.review-project-new-task-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-tasks-filters-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-delete-button{\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n\r\n.review-project-detail-main {\r\n    padding-top: 20px;\r\n}\r\n\r\n.review-project-new-task-block {\r\n    /* border: 1px solid black; */\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-tasks-filters-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-delete-button{\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css"],"names":[],"mappings":";;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,oBAAoB;AACxB;;AAEA;IACI,uBAAuB;IACvB,oBAAoB;AACxB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB","sourcesContent":["\r\n\r\n.review-project-detail-main {\r\n    padding-top: 20px;\r\n}\r\n\r\n.review-project-new-task-block {\r\n    /* border: 1px solid black; */\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-tasks-filters-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-delete-button{\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/ProjectUsers/ProjectUsers.css":
+/*!***************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/ProjectUsers/ProjectUsers.css ***!
+  \***************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".project-review-user-list {\r\n    transition: 1s;\r\n    overflow: hidden;\r\n    /* border: 1px solid black; */\r\n    /* max-height: 300px; */\r\n    overflow: auto;\r\n    /* height: 100%; */\r\n    /* background-color: slategray; */\r\n    /* box-shadow: 0px 0px 5px 1px black; */\r\n}\r\n\r\n/* .project-review-user-list-show {\r\n    max-height: 300px;\r\n    overflow: auto;\r\n} */\r\n\r\n.add-new-review-person-btn {\r\n    background-color: white !important;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/ProjectUsers/ProjectUsers.css"],"names":[],"mappings":"AAAA;IACI,cAAc;IACd,gBAAgB;IAChB,6BAA6B;IAC7B,uBAAuB;IACvB,cAAc;IACd,kBAAkB;IAClB,iCAAiC;IACjC,uCAAuC;AAC3C;;AAEA;;;GAGG;;AAEH;IACI,kCAAkC;AACtC","sourcesContent":[".project-review-user-list {\r\n    transition: 1s;\r\n    overflow: hidden;\r\n    /* border: 1px solid black; */\r\n    /* max-height: 300px; */\r\n    overflow: auto;\r\n    /* height: 100%; */\r\n    /* background-color: slategray; */\r\n    /* box-shadow: 0px 0px 5px 1px black; */\r\n}\r\n\r\n/* .project-review-user-list-show {\r\n    max-height: 300px;\r\n    overflow: auto;\r\n} */\r\n\r\n.add-new-review-person-btn {\r\n    background-color: white !important;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2657,7 +2738,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".review-project-new-block {\r\n    padding-bottom: 10px;\r\n}\r\n\r\n.code-review-projects-menu {\r\n    /* flex-grow: 1; */\r\n    overflow: hidden;\r\n    /* border-right: 1px solid black; */\r\n}\r\n\r\n.code-review-projects-menu-hide {\r\n    width: 20px;\r\n    min-width: 20px;\r\n}\r\n\r\n.code-review-projects-menu-visible {\r\n    width: 215px;\r\n    min-width: 215px;\r\n}\r\n\r\n.hide-review-projects-list-button {\r\n    width: 20px;\r\n    height: 20px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n    position: absolute;\r\n    background-color: darkkhaki;\r\n    line-height: 16px;\r\n    right: -12px\r\n    /* margin-right: -14px; */\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/ProjectsList/ProjectsList.css"],"names":[],"mappings":"AAAA;IACI,oBAAoB;AACxB;;AAEA;IACI,kBAAkB;IAClB,gBAAgB;IAChB,mCAAmC;AACvC;;AAEA;IACI,WAAW;IACX,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,kBAAkB;IAClB,kBAAkB;IAClB,kBAAkB;IAClB,kBAAkB;IAClB,2BAA2B;IAC3B,iBAAiB;IACjB,WAAW;IACX,yBAAyB;AAC7B","sourcesContent":[".review-project-new-block {\r\n    padding-bottom: 10px;\r\n}\r\n\r\n.code-review-projects-menu {\r\n    /* flex-grow: 1; */\r\n    overflow: hidden;\r\n    /* border-right: 1px solid black; */\r\n}\r\n\r\n.code-review-projects-menu-hide {\r\n    width: 20px;\r\n    min-width: 20px;\r\n}\r\n\r\n.code-review-projects-menu-visible {\r\n    width: 215px;\r\n    min-width: 215px;\r\n}\r\n\r\n.hide-review-projects-list-button {\r\n    width: 20px;\r\n    height: 20px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n    position: absolute;\r\n    background-color: darkkhaki;\r\n    line-height: 16px;\r\n    right: -12px\r\n    /* margin-right: -14px; */\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".review-project-new-block {\r\n    padding-bottom: 10px;\r\n}\r\n\r\n.code-review-projects-menu {\r\n    /* flex-grow: 1; */\r\n    overflow: hidden;\r\n    /* border-right: 1px solid black; */\r\n    position: sticky;\r\n    top: 0;\r\n}\r\n\r\n.code-review-projects-menu-hide {\r\n    width: 0px;\r\n    /* min-width: 20px; */\r\n}\r\n\r\n.code-review-projects-menu-visible {\r\n    width: 215px;\r\n    min-width: 215px;\r\n}\r\n\r\n.hide-review-projects-list-button {\r\n    width: 20px;\r\n    height: 20px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n    position: absolute;\r\n    background-color: darkkhaki;\r\n    line-height: 16px;\r\n    right: -12px\r\n    /* margin-right: -14px; */\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/ProjectsList/ProjectsList.css"],"names":[],"mappings":"AAAA;IACI,oBAAoB;AACxB;;AAEA;IACI,kBAAkB;IAClB,gBAAgB;IAChB,mCAAmC;IACnC,gBAAgB;IAChB,MAAM;AACV;;AAEA;IACI,UAAU;IACV,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,kBAAkB;IAClB,kBAAkB;IAClB,kBAAkB;IAClB,kBAAkB;IAClB,2BAA2B;IAC3B,iBAAiB;IACjB,WAAW;IACX,yBAAyB;AAC7B","sourcesContent":[".review-project-new-block {\r\n    padding-bottom: 10px;\r\n}\r\n\r\n.code-review-projects-menu {\r\n    /* flex-grow: 1; */\r\n    overflow: hidden;\r\n    /* border-right: 1px solid black; */\r\n    position: sticky;\r\n    top: 0;\r\n}\r\n\r\n.code-review-projects-menu-hide {\r\n    width: 0px;\r\n    /* min-width: 20px; */\r\n}\r\n\r\n.code-review-projects-menu-visible {\r\n    width: 215px;\r\n    min-width: 215px;\r\n}\r\n\r\n.hide-review-projects-list-button {\r\n    width: 20px;\r\n    height: 20px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n    position: absolute;\r\n    background-color: darkkhaki;\r\n    line-height: 16px;\r\n    right: -12px\r\n    /* margin-right: -14px; */\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -59540,6 +59621,116 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./src/components/Body/AdditionalWindow/AdditionalWindow.css":
+/*!*******************************************************************!*\
+  !*** ./src/components/Body/AdditionalWindow/AdditionalWindow.css ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_AdditionalWindow_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js!./AdditionalWindow.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/AdditionalWindow/AdditionalWindow.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_AdditionalWindow_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_AdditionalWindow_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_AdditionalWindow_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_AdditionalWindow_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/components/Body/CodeReviewApp/AddTask/AddTask.css":
+/*!***************************************************************!*\
+  !*** ./src/components/Body/CodeReviewApp/AddTask/AddTask.css ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_AddTask_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./AddTask.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/AddTask/AddTask.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_AddTask_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_AddTask_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_AddTask_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_AddTask_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.css":
 /*!*****************************************************************************!*\
   !*** ./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.css ***!
@@ -59921,6 +60112,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ProjectDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_ProjectDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_ProjectDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/components/Body/CodeReviewApp/ProjectUsers/ProjectUsers.css":
+/*!*************************************************************************!*\
+  !*** ./src/components/Body/CodeReviewApp/ProjectUsers/ProjectUsers.css ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ProjectUsers_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./ProjectUsers.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/ProjectUsers/ProjectUsers.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ProjectUsers_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ProjectUsers_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_ProjectUsers_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_ProjectUsers_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -60897,6 +61143,1646 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/Models/AjaxLogic.ts":
+/*!*********************************!*\
+  !*** ./src/Models/AjaxLogic.ts ***!
+  \*********************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AjaxHelper = void 0;
+var AlertData_1 = __webpack_require__(/*! ./Models/AlertData */ "./src/Models/Models/AlertData.ts");
+var AjaxHelper = /** @class */ (function () {
+    function AjaxHelper() {
+    }
+    AjaxHelper.prototype.TryRefreshToken = function (notRedirectWhenNotAuth, callBack) {
+        this.GoAjaxRequest({
+            Data: {},
+            Type: "POST",
+            NeedTryRefreshToken: false,
+            NotRedirectWhenNotAuth: notRedirectWhenNotAuth,
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    localStorage.removeItem("header_auth");
+                    var eventLogOut = new CustomEvent("logout", {});
+                    window.dispatchEvent(eventLogOut);
+                    if (!notRedirectWhenNotAuth) {
+                        location.href = '/menu/auth/login/';
+                    }
+                }
+                else {
+                    var eventTokensRefresh = new CustomEvent("tokens_was_refreshed", {});
+                    window.dispatchEvent(eventTokensRefresh);
+                    //TODO записываем полученные токены
+                    if (callBack) {
+                        callBack();
+                    }
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/authenticate/refresh-access-token',
+        });
+    };
+    AjaxHelper.prototype.GoAjaxRequest = function (obj, fileLoad) {
+        if (fileLoad === void 0) { fileLoad = false; }
+        return __awaiter(this, void 0, void 0, function () {
+            var thisRef, ajaxObj, haders, _a;
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0:
+                        thisRef = this;
+                        if (!obj.Type)
+                            obj.Type = 'GET';
+                        if (!obj.DataType)
+                            obj.DataType = 'json'; //html
+                        if (obj.NeedTryRefreshToken !== false) {
+                            obj.NeedTryRefreshToken = true;
+                        }
+                        ajaxObj = {
+                            type: obj.Type,
+                            data: obj.Data,
+                            url: obj.Url,
+                            //processData: false, // Не обрабатываем файлы
+                            //contentType: false, // Так jQuery скажет серверу что это строковой запрос
+                            success: function (xhr, status, jqXHR) {
+                                //if(jqXHR.status==200){//EXAMPLE STATUS
+                                //DO SOMETHING
+                                //}
+                                if (obj.FuncSuccess) {
+                                    try {
+                                        obj.FuncSuccess(xhr, status, jqXHR);
+                                    }
+                                    catch (e) {
+                                        console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack);
+                                    }
+                                }
+                            },
+                            error: function (xhr, status, error) {
+                                //alert("ошибка загрузки");
+                                if (obj.FuncError)
+                                    obj.FuncError(xhr, status, error);
+                            },
+                            // shows the loader element before sending.
+                            beforeSend: function () {
+                                if (obj.FuncBeforeSend)
+                                    obj.FuncBeforeSend();
+                                //  PreloaderShowChange(true);
+                            },
+                            // hides the loader after completion of request, whether successfull or failor.
+                            complete: function (jqXHR, status) {
+                                if (jqXHR.status == 401) {
+                                    if (obj.NeedTryRefreshToken) {
+                                        thisRef.TryRefreshToken(obj.NotRedirectWhenNotAuth, function () {
+                                            obj.NeedTryRefreshToken = false;
+                                            thisRef.GoAjaxRequest(obj, fileLoad);
+                                        }); //TODO await или что то такое
+                                    }
+                                }
+                                else {
+                                    var resp = jqXHR.responseJSON;
+                                    if (resp.errors && Array.isArray(resp.errors)) {
+                                        //TODO ошибка
+                                        if (!obj.NotGlobalError && G_AddAbsoluteAlertToState) {
+                                            var alertLogic_1 = new AlertData_1.AlertData();
+                                            resp.errors.forEach(function (error) {
+                                                var errArr = alertLogic_1.GetByErrorBack(error);
+                                                errArr.forEach(function (alertForShow) {
+                                                    G_AddAbsoluteAlertToState(alertForShow);
+                                                });
+                                            });
+                                        }
+                                    }
+                                }
+                                if (obj.FuncComplete) {
+                                    try {
+                                        obj.FuncComplete(jqXHR, status);
+                                    }
+                                    catch (e) {
+                                        console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack);
+                                    }
+                                }
+                                //PreloaderShowChange(false);
+                                // console.log("ajax complete");
+                            },
+                            dataType: obj.DataType //'html'
+                        };
+                        // if(obj.dataType){
+                        //     ajaxObj.dataType=obj.dataType
+                        // }
+                        if (fileLoad) {
+                            //processData: false, // Не обрабатываем файлы
+                            //contentType: false,
+                            ajaxObj.processData = false;
+                            ajaxObj.contentType = false;
+                        }
+                        haders = { 'Authorization_Access_Token': localStorage.getItem('access_token') };
+                        if (obj.NeedTryRefreshToken) {
+                            haders['Authorization_Refresh_Token'] = localStorage.getItem('refresh_token');
+                        }
+                        ajaxObj.headers = haders;
+                        _b.label = 1;
+                    case 1:
+                        _b.trys.push([1, 3, , 4]);
+                        return [4 /*yield*/, this.TrySend(ajaxObj)];
+                    case 2:
+                        _b.sent();
+                        return [3 /*break*/, 4];
+                    case 3:
+                        _a = _b.sent();
+                        return [3 /*break*/, 4];
+                    case 4: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    AjaxHelper.prototype.TrySend = function (ajaxObj) {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: //async       : Promise<any>
+                    return [4 /*yield*/, $.ajax(ajaxObj)];
+                    case 1:
+                        _a.sent(); //await
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    return AjaxHelper;
+}());
+exports.AjaxHelper = AjaxHelper;
+
+
+/***/ }),
+
+/***/ "./src/Models/BackModel/MenuApp/OneCardInListDataBack.ts":
+/*!***************************************************************!*\
+  !*** ./src/Models/BackModel/MenuApp/OneCardInListDataBack.ts ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.OneCardInListDataBack = void 0;
+var OneCardInListDataBack = /** @class */ (function () {
+    function OneCardInListDataBack() {
+    }
+    OneCardInListDataBack.prototype.FillByFullMode = function (data) {
+        this.id = data.id;
+        this.title = data.title;
+        this.body = data.body;
+        this.image = data.main_image_path;
+        this.followed = data.followed;
+    };
+    return OneCardInListDataBack;
+}());
+exports.OneCardInListDataBack = OneCardInListDataBack;
+
+
+/***/ }),
+
+/***/ "./src/Models/Controllers/AuthenticateController.ts":
+/*!**********************************************************!*\
+  !*** ./src/Models/Controllers/AuthenticateController.ts ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AuthenticateController = exports.RegisterModel = exports.LoginModel = void 0;
+var LoginModel = /** @class */ (function () {
+    function LoginModel() {
+    }
+    return LoginModel;
+}());
+exports.LoginModel = LoginModel;
+var RegisterModel = /** @class */ (function () {
+    function RegisterModel() {
+    }
+    return RegisterModel;
+}());
+exports.RegisterModel = RegisterModel;
+var AuthenticateController = /** @class */ (function () {
+    function AuthenticateController() {
+    }
+    AuthenticateController.prototype.Login = function (model, onSuccess) {
+        var data = {
+            'email': model.Email,
+            'password': model.Password,
+        };
+        // let ajx: AjaxHelper.IAjaxHelper = new AjaxHelper.AjaxHelper();
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "POST",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    onSuccess(resp);
+                }
+                else {
+                    onSuccess(null);
+                    //TODO записываем полученные токены
+                    // document.location.href = "/menu";
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/authenticate/login',
+        });
+    };
+    AuthenticateController.prototype.Register = function (model, onSuccess) {
+        var data = {
+            'email': model.Email,
+            'password': model.Password,
+            "password_confirm": model.ConfirmPassword,
+        };
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "PUT",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    onSuccess(resp);
+                }
+                else {
+                    onSuccess(null);
+                    //TODO записываем полученные токены
+                    // document.location.href = "/menu";
+                }
+            },
+            Url: G_PathToServer + 'api/authenticate/register',
+        });
+    };
+    AuthenticateController.prototype.Logout = function () {
+        alert('not inplemented');
+    };
+    AuthenticateController.prototype.RefreshAccessToken = function (notRedirectWhenNotAuth, callBack) {
+        G_AjaxHelper.TryRefreshToken(notRedirectWhenNotAuth, callBack);
+    };
+    return AuthenticateController;
+}());
+exports.AuthenticateController = AuthenticateController;
+
+
+/***/ }),
+
+/***/ "./src/Models/Controllers/CodeReviewApp/CodeReviewCommentController.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/Models/Controllers/CodeReviewApp/CodeReviewCommentController.ts ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CodeReviewCommentController = void 0;
+var CodeReviewCommentController = /** @class */ (function () {
+    function CodeReviewCommentController() {
+        var _this = this;
+        this.UpdateComment = function (id, text, onSuccess) {
+            var data = {
+                "commentId": id,
+                "text": text,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PATCH",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/comment/edit-comment'
+            });
+        };
+        this.DeleteComment = function (id, onSuccess) {
+            var data = {
+                "commentId": id,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "DELETE",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/comment/delete-comment'
+            });
+        };
+        this.AddComment = function (taskId, text, onSuccess) {
+            var data = {
+                "taskId": taskId,
+                "text": text,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PUT",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/comment/create-comment'
+            });
+        };
+        this.LoadComments = function (id, onSuccess) {
+            var data = {
+                "taskId": id,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "GET",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/comment/get-comments'
+            });
+        };
+    }
+    CodeReviewCommentController.prototype.mapWithResult = function (onSuccess) {
+        return function (xhr, status, jqXHR) {
+            var resp = xhr;
+            if (resp.errors) {
+                //TODO ошибка
+                onSuccess(resp, null);
+            }
+            else {
+                var dataBack = xhr;
+                onSuccess(null, dataBack);
+            }
+        };
+    };
+    return CodeReviewCommentController;
+}());
+exports.CodeReviewCommentController = CodeReviewCommentController;
+
+
+/***/ }),
+
+/***/ "./src/Models/Controllers/CodeReviewApp/CodeReviewProjectController.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/Models/Controllers/CodeReviewApp/CodeReviewProjectController.ts ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CodeReviewProjectController = void 0;
+var CodeReviewProjectController = /** @class */ (function () {
+    function CodeReviewProjectController() {
+        var _this = this;
+        this.DeleteProject = function (projectId, onSuccess) {
+            var data = {
+                "projectId": projectId,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "DELETE",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/project/delete-project'
+            });
+        };
+        this.GetProjectInfo = function (projectId, onSuccess) {
+            var data = {
+                "projectId": projectId,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "GET",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/project/get-project-info'
+            });
+        };
+        this.CreateNewProject = function (newProjectName, onSuccess) {
+            var data = {
+                "projectName": newProjectName,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PUT",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/project/add-new-project'
+            });
+        };
+        this.GetUserProjects = function (onSuccess) {
+            G_AjaxHelper.GoAjaxRequest({
+                Data: {},
+                Type: "GET",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/project/get-projects',
+            });
+        };
+    }
+    //todo вынести в какой то общей кусок
+    CodeReviewProjectController.prototype.mapWithResult = function (onSuccess) {
+        return function (xhr, status, jqXHR) {
+            var resp = xhr;
+            if (resp.errors) {
+                //TODO ошибка
+                onSuccess(resp, null);
+            }
+            else {
+                var dataBack = xhr;
+                onSuccess(null, dataBack);
+            }
+        };
+    };
+    return CodeReviewProjectController;
+}());
+exports.CodeReviewProjectController = CodeReviewProjectController;
+
+
+/***/ }),
+
+/***/ "./src/Models/Controllers/CodeReviewApp/CodeReviewTaskController.ts":
+/*!**************************************************************************!*\
+  !*** ./src/Models/Controllers/CodeReviewApp/CodeReviewTaskController.ts ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CodeReviewTaskController = void 0;
+var CodeReviewTaskController = /** @class */ (function () {
+    function CodeReviewTaskController() {
+        var _this = this;
+        this.AddTaskToProject = function (taskName, taskCreatorId, taskReviwerId, projectId, onSuccess) {
+            var data = {
+                "taskName": taskName,
+                "taskCreatorId": taskCreatorId,
+                "taskReviwerId": taskReviwerId,
+                "projectId": projectId,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PUT",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/task/add-new-task'
+            });
+        };
+        this.UpdateTask = function (task, onSuccess) {
+            var data = {
+                "taskId": task.Id,
+                "name": task.Name,
+                "status": task.Status,
+                "creatorId": task.CreatorId,
+                "reviewerId": task.ReviewerId,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PATCH",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/task/update-task'
+            });
+        };
+        this.LoadTasks = function (taskFilter, onSuccess) {
+            var data = {
+                "projectId": taskFilter.ProjectId,
+                "nameLike": taskFilter.Name,
+                "creatorId": taskFilter.CreatorId,
+                "reviewerId": taskFilter.ReviewerId,
+                "status": taskFilter.Status,
+                "pageNumber": taskFilter.PageNumber,
+                "pageSize": taskFilter.PageSize,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "GET",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/task/get-project-tasks'
+            });
+        };
+        this.DeleteTask = function (id, onSuccess) {
+            var data = {
+                "taskId": id,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "DELETE",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/task/delete-task'
+            });
+        };
+    }
+    CodeReviewTaskController.prototype.mapWithResult = function (onSuccess) {
+        return function (xhr, status, jqXHR) {
+            var resp = xhr;
+            if (resp.errors) {
+                //TODO ошибка
+                onSuccess(resp, null);
+            }
+            else {
+                var dataBack = xhr;
+                onSuccess(null, dataBack);
+            }
+        };
+    };
+    return CodeReviewTaskController;
+}());
+exports.CodeReviewTaskController = CodeReviewTaskController;
+
+
+/***/ }),
+
+/***/ "./src/Models/Controllers/CodeReviewApp/CodeReviewUserController.ts":
+/*!**************************************************************************!*\
+  !*** ./src/Models/Controllers/CodeReviewApp/CodeReviewUserController.ts ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CodeReviewUserController = void 0;
+var CodeReviewUserController = /** @class */ (function () {
+    function CodeReviewUserController() {
+        var _this = this;
+        this.DeleteProjectUser = function (id, onSuccess) {
+            var data = {
+                "userId": id,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "DELETE",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/user/delete-user'
+            });
+        };
+        this.AddUserToProject = function (newUserName, mainAppUserEmail, projectId, onSuccess) {
+            var data = {
+                "userName": newUserName,
+                "projectId": projectId,
+                "mainAppUserEmail": mainAppUserEmail,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PUT",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/user/add-new-user'
+            });
+        };
+        this.ChangeProjectUser = function (user, onSuccess) {
+            var data = {
+                "userId": user.Id,
+                "name": user.Name,
+                "email": user.Email,
+                "isAdmin": user.IsAdmin,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PATCH",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/user/change-user'
+            });
+        };
+    }
+    CodeReviewUserController.prototype.mapWithResult = function (onSuccess) {
+        return function (xhr, status, jqXHR) {
+            var resp = xhr;
+            if (resp.errors) {
+                //TODO ошибка
+                onSuccess(resp, null);
+            }
+            else {
+                var dataBack = xhr;
+                onSuccess(null, dataBack);
+            }
+        };
+    };
+    return CodeReviewUserController;
+}());
+exports.CodeReviewUserController = CodeReviewUserController;
+
+
+/***/ }),
+
+/***/ "./src/Models/Controllers/MenuApp/ArticleController.ts":
+/*!*************************************************************!*\
+  !*** ./src/Models/Controllers/MenuApp/ArticleController.ts ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ArticleController = exports.IdInput = void 0;
+var IdInput = /** @class */ (function () {
+    function IdInput() {
+    }
+    return IdInput;
+}());
+exports.IdInput = IdInput;
+var ArticleController = /** @class */ (function () {
+    function ArticleController() {
+    }
+    ArticleController.prototype.GetAllShortForUser = function (onSuccess) {
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {},
+            Type: "GET",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    var dataBack = xhr;
+                    onSuccess(null, dataBack);
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/article/get-all-short-for-user',
+        });
+    };
+    ArticleController.prototype.GetAllForUser = function (nSuccess) {
+        alert('not implemented');
+    };
+    ArticleController.prototype.Detail = function (model, onSuccess) {
+        var data = {
+            "id": model.Id,
+        };
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "GET",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    var dataBack = xhr;
+                    if (dataBack.id && dataBack.id > 0) {
+                        onSuccess(null, dataBack);
+                    }
+                    else {
+                        //ошибка
+                    }
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/article/detail',
+        });
+    };
+    ArticleController.prototype.Follow = function (model, onSuccess) {
+        var data = {
+            "id": model.Id,
+        };
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "PATCH",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    var boolRes = xhr;
+                    if (boolRes.result === true || boolRes.result === false) {
+                        onSuccess(null, boolRes);
+                    }
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/article/follow',
+        });
+    };
+    ArticleController.prototype.Create = function (model, success) {
+        var data = {
+            "title": model.Title,
+            "body": model.Body,
+            // "main_image_new":newElement.Image,
+        };
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "PUT",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    success(resp, null);
+                }
+                else {
+                    var resBack = xhr;
+                    if (Number.isInteger(resBack.id) && resBack.id > 0) {
+                        success(null, resBack);
+                        // callBack(resBack);
+                    }
+                    else {
+                        //что то не то вернулось
+                    }
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/article/create',
+        });
+    };
+    ArticleController.prototype.Edit = function (model, success) {
+        var data = new FormData();
+        data.append('id', model.Id + '');
+        data.append('title', model.Title);
+        data.append('body', model.Body);
+        data.append('delete_main_image', JSON.stringify(model.NeedDeleteMainImage));
+        if (model.MainImageSave) {
+            data.append('main_image_new', model.MainImageSave);
+        }
+        if (model.AdditionalImagesSave) {
+            model.AdditionalImagesSave.forEach(function (addImage, index) {
+                data.append('additional_images', addImage); //' + index + '
+            });
+        }
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "PATCH",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    success(resp, null);
+                }
+                else {
+                    var res = xhr;
+                    if (res.id && res.id > 0) {
+                        success(null, res);
+                        // callBack(res);
+                    }
+                    else {
+                        //какая то ошибка
+                    }
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/article/edit',
+        }, true);
+    };
+    return ArticleController;
+}());
+exports.ArticleController = ArticleController;
+
+
+/***/ }),
+
+/***/ "./src/Models/Controllers/PlaningPoker/PlaningPokerController.ts":
+/*!***********************************************************************!*\
+  !*** ./src/Models/Controllers/PlaningPoker/PlaningPokerController.ts ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PlaningPokerController = exports.HubEndpoints = exports.HubEndpointsBack = exports.HubEndpointsFront = void 0;
+var HubEndpointsFront = /** @class */ (function () {
+    function HubEndpointsFront() {
+        this.MovedStoryToComplete = "MovedStoryToComplete";
+        this.DeletedStory = "DeletedStory";
+        this.CurrentStoryChanged = "CurrentStoryChanged";
+        this.NewCurrentStory = "NewCurrentStory";
+        this.AddedNewStory = "AddedNewStory";
+        this.VoteEnd = "VoteEnd";
+        this.VoteStart = "VoteStart";
+        this.UserRoleChanged = "UserRoleChanged";
+        this.VoteChanged = "VoteChanged";
+        this.UserLeaved = "UserLeaved";
+        this.UserNameChanged = "UserNameChanged";
+        this.NewUserInRoom = "NewUserInRoom";
+        this.RoomNotCreated = "RoomNotCreated";
+        this.ConnectedToRoomError = "ConnectedToRoomError";
+        this.EnteredInRoom = "EnteredInRoom";
+        this.PlaningNotifyFromServer = "PlaningNotifyFromServer";
+        this.NeedRefreshTokens = "NeedRefreshTokens";
+        this.NewRoomAlive = "NewRoomAlive";
+    }
+    return HubEndpointsFront;
+}());
+exports.HubEndpointsFront = HubEndpointsFront;
+var HubEndpointsBack = /** @class */ (function () {
+    function HubEndpointsBack() {
+        this.GetConnectionId = "GetConnectionId";
+        this.CreateRoom = "CreateRoom";
+        this.EnterInRoom = "EnterInRoom";
+        this.AddNewStory = "AddNewStory";
+        this.MakeStoryComplete = "MakeStoryComplete";
+        this.ChangeCurrentStory = "ChangeCurrentStory";
+        this.KickUser = "KickUser";
+        this.StartVote = "StartVote";
+        this.EndVote = "EndVote";
+        this.MakeCurrentStory = "MakeCurrentStory";
+        this.DeleteStory = "DeleteStory";
+        this.SaveRoom = "SaveRoom";
+        this.DeleteRoom = "DeleteRoom";
+        this.UserNameChange = "UserNameChange";
+        this.AddNewRoleToUser = "AddNewRoleToUser";
+        this.RemoveRoleUser = "RemoveRoleUser";
+        this.LoadNotActualStories = "LoadNotActualStories";
+        this.Vote = "Vote";
+        this.OnWindowClosedAsync = "OnWindowClosedAsync";
+        this.AliveRoom = "AliveRoom";
+    }
+    return HubEndpointsBack;
+}());
+exports.HubEndpointsBack = HubEndpointsBack;
+var HubEndpoints = /** @class */ (function () {
+    function HubEndpoints() {
+        this.EndpointsFront = new HubEndpointsFront();
+        this.EndpointsBack = new HubEndpointsBack();
+    }
+    return HubEndpoints;
+}());
+exports.HubEndpoints = HubEndpoints;
+var PlaningPokerController = /** @class */ (function () {
+    function PlaningPokerController() {
+        this.EndPoints = new HubEndpoints();
+    }
+    PlaningPokerController.prototype.GetUsersIsRoom = function (roomname, userId, onSuccess) {
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'roomname': roomname,
+                'userConnectionId': userId
+            },
+            Type: "GET",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    var dataBack = xhr;
+                    onSuccess(null, dataBack);
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
+        });
+    };
+    PlaningPokerController.prototype.GetRoomInfo = function (roomname, userId, onSuccess) {
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'roomname': roomname,
+                'userConnectionId': userId
+            },
+            Type: "GET",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    var dataBack = xhr;
+                    onSuccess(null, dataBack);
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/PlanitPoker/get-room-info',
+        });
+    };
+    return PlaningPokerController;
+}());
+exports.PlaningPokerController = PlaningPokerController;
+
+
+/***/ }),
+
+/***/ "./src/Models/Controllers/UsersController.ts":
+/*!***************************************************!*\
+  !*** ./src/Models/Controllers/UsersController.ts ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UsersController = void 0;
+var UsersController = /** @class */ (function () {
+    function UsersController() {
+    }
+    UsersController.prototype.GetShortestUserInfo = function (onSuccess) {
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {},
+            Type: "GET",
+            NotRedirectWhenNotAuth: true,
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    var dataBack = xhr;
+                    if (!dataBack.id) {
+                        //TODO какая то ошибка
+                        alert('что то сломалось-1');
+                        return;
+                    }
+                    onSuccess(null, dataBack);
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/users/get-shortest-user-info',
+        });
+    };
+    return UsersController;
+}());
+exports.UsersController = UsersController;
+
+
+/***/ }),
+
+/***/ "./src/Models/Controllers/WordsCardsApp/WordsCardsController.ts":
+/*!**********************************************************************!*\
+  !*** ./src/Models/Controllers/WordsCardsApp/WordsCardsController.ts ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WordsCardsController = void 0;
+var WordsCardsController = /** @class */ (function () {
+    function WordsCardsController() {
+    }
+    WordsCardsController.prototype.GetAllForUser = function (onSuccess) {
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {},
+            Type: "GET",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    // console.log(xhr);
+                    var dataBack = xhr;
+                    onSuccess(null, dataBack);
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/wordscards/get-all-for-user',
+        }, true);
+    };
+    WordsCardsController.prototype.Create = function (model, onSuccess) {
+        var data = new FormData();
+        data.append('word', model.Word);
+        data.append('word_answer', model.WordAnswer);
+        data.append('description', model.Description);
+        if (model.MainImageSave) {
+            data.append('main_image_new', model.MainImageSave);
+        }
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "PUT",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    var res = xhr;
+                    if (res.id && res.id > 0) {
+                        onSuccess(null, res);
+                    }
+                    else {
+                        //что то не то вернулось
+                    }
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/wordscards/create',
+        }, true);
+    };
+    WordsCardsController.prototype.CreateList = function (model, listForCards, success) {
+        var data = new FormData();
+        for (var i = 0; i < model.length; ++i) {
+            data.append('newData[' + i + '].word', model[i].Word);
+            data.append('newData[' + i + '].word_answer', model[i].WordAnswer);
+            data.append('newData[' + i + '].description', model[i].Description);
+            data.append('newData[' + i + '].list_id', listForCards);
+            // data.append('newData.word_answer', this.state.Cards[i].WordAnswer);
+            // data.append('newData.description', this.state.Cards[i].Description);
+        }
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "PUT",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    success(resp, null);
+                }
+                else {
+                    var res = xhr;
+                    if (res.length > 0) {
+                        success(null, res);
+                    }
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/wordscards/create-list',
+        }, true);
+    };
+    WordsCardsController.prototype.Delete = function (cardId, success) {
+        var data = new FormData();
+        data.append('id', cardId + '');
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "DELETE",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    success(resp, null);
+                }
+                else {
+                    //TODO тут может быть ошибка, что мы не дождались ответа серва а выбранная картинка уже изменилась
+                    var res = xhr;
+                    if ((res === null || res === void 0 ? void 0 : res.id) && res.id > 0) {
+                        success(null, res);
+                    }
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/wordscards/delete',
+        }, true);
+    };
+    WordsCardsController.prototype.Update = function (model, onSuccess) {
+        var data = new FormData();
+        data.append('id', model.Id + '');
+        data.append('word', model.Word);
+        data.append('word_answer', model.WordAnswer);
+        data.append('description', model.Description);
+        data.append('delete_main_image', JSON.stringify(model.NeedDeleteMainImage));
+        if (model.MainImageSave) {
+            data.append('main_image_new', model.MainImageSave);
+        }
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "PATCH",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    var res = xhr;
+                    if (res.id && res.id > 0) {
+                        onSuccess(null, res);
+                    }
+                    else {
+                        //что то не то вернулось
+                    }
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/wordscards/update',
+        }, true);
+    };
+    WordsCardsController.prototype.Hide = function (cardId, onSuccess) {
+        var data = new FormData();
+        data.append('id', cardId + '');
+        var refThis = this;
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "PATCH",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    //TODO тут может быть ошибка, что мы не дождались ответа серва а выбранная картинка уже изменилась
+                    var res = xhr;
+                    if (res.result === true || res.result === false) {
+                        onSuccess(null, res);
+                    }
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/wordscards/hide',
+        }, true);
+    };
+    WordsCardsController.prototype.CreateFromFile = function () {
+        alert('not implemented');
+    };
+    WordsCardsController.prototype.DownloadAllWordsFile = function () {
+        window.open("/api/wordscards/download-all-words-file");
+    };
+    return WordsCardsController;
+}());
+exports.WordsCardsController = WordsCardsController;
+
+
+/***/ }),
+
+/***/ "./src/Models/Controllers/WordsCardsApp/WordsListController.ts":
+/*!*********************************************************************!*\
+  !*** ./src/Models/Controllers/WordsCardsApp/WordsListController.ts ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WordsListController = void 0;
+var WordsListController = /** @class */ (function () {
+    function WordsListController() {
+    }
+    WordsListController.prototype.GetAllForUser = function (onSuccess) {
+        var refThis = this;
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {},
+            Type: "GET",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    var dataBack = xhr;
+                    if (dataBack.length > 0) {
+                        onSuccess(null, dataBack);
+                    }
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/wordslist/get-all-for-user',
+        }, true);
+    };
+    WordsListController.prototype.Create = function (title, onSuccess) {
+        var data = new FormData();
+        data.append('title', title);
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "PUT",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    var dataBack = xhr;
+                    if (dataBack.id < 1) {
+                        return;
+                    }
+                    onSuccess(null, dataBack);
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/wordslist/create',
+        }, true);
+    };
+    WordsListController.prototype.RemoveFromList = function (cardId, listId, onSuccess) {
+        var data = new FormData();
+        data.append('card_id', cardId + '');
+        data.append('list_id', listId + '');
+        var refThis = this;
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "DELETE",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    //TODO тут может быть ошибка, что мы не дождались ответа серва а выбранная картинка уже изменилась
+                    var res = xhr;
+                    if (res.result === true || res.result === false) {
+                        onSuccess(null, res);
+                    }
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/wordslist/remove-from-list',
+        }, true);
+    };
+    WordsListController.prototype.AddToList = function (cardId, listId, onSuccess) {
+        var data = new FormData();
+        data.append('card_id', cardId + '');
+        data.append('list_id', listId + '');
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "PUT",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    //TODO тут может быть ошибка, что мы не дождались ответа серва а выбранная картинка уже изменилась
+                    var res = xhr;
+                    if (res.id_list) {
+                        onSuccess(null, res);
+                    }
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/wordslist/add-to-list',
+        }, true);
+    };
+    WordsListController.prototype.Delete = function (id, onSuccess) {
+        var data = new FormData();
+        data.append('id', id + '');
+        var refThis = this;
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "DELETE",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    var dataBack = xhr;
+                    if (dataBack.id < 1) {
+                        return;
+                    }
+                    onSuccess(null, dataBack);
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/wordslist/delete',
+        }, true);
+    };
+    WordsListController.prototype.Update = function (model, onSuccess) {
+        var data = new FormData();
+        data.append('title', model.Title);
+        data.append('id', model.Id + '');
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "PATCH",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    var dataBack = xhr;
+                    if (dataBack.id < 1) {
+                        return;
+                    }
+                    onSuccess(null, dataBack);
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/wordslist/update',
+        }, true);
+    };
+    return WordsListController;
+}());
+exports.WordsListController = WordsListController;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/AlertData.ts":
+/*!****************************************!*\
+  !*** ./src/Models/Models/AlertData.ts ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AlertData = exports.AlertDataStored = exports.AlertTypeEnum = void 0;
+var AlertTypeEnum;
+(function (AlertTypeEnum) {
+    AlertTypeEnum[AlertTypeEnum["Error"] = 1] = "Error";
+    AlertTypeEnum[AlertTypeEnum["Success"] = 2] = "Success";
+})(AlertTypeEnum = exports.AlertTypeEnum || (exports.AlertTypeEnum = {}));
+;
+var AlertDataStored = /** @class */ (function () {
+    function AlertDataStored() {
+    }
+    AlertDataStored.prototype.FillByAlertData = function (data) {
+        this.Key = data.Key;
+        this.Text = data.Text;
+        this.Type = data.Type;
+    };
+    return AlertDataStored;
+}());
+exports.AlertDataStored = AlertDataStored;
+var AlertData = /** @class */ (function () {
+    function AlertData() {
+        this.Timeout = null;
+    }
+    AlertData.prototype.GetByErrorBack = function (data) {
+        var res = [];
+        data.errors.forEach(function (errBackText) {
+            var newAlert = new AlertData();
+            newAlert.Text = errBackText;
+            newAlert.Type = AlertTypeEnum.Error;
+            // newAlert.Key = data.key;
+            res.push(newAlert);
+        });
+        return res;
+    };
+    return AlertData;
+}());
+exports.AlertData = AlertData;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/CustomImage.ts":
+/*!******************************************!*\
+  !*** ./src/Models/Models/CustomImage.ts ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CustomImage = void 0;
+var CustomImage = /** @class */ (function () {
+    function CustomImage() {
+    }
+    CustomImage.prototype.FillByBackModel = function (newData) {
+        this.Id = newData.id;
+        this.Path = newData.path;
+        this.ArticleId = newData.article_id;
+    };
+    return CustomImage;
+}());
+exports.CustomImage = CustomImage;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/ErrorHandleLogic.ts":
+/*!***********************************************!*\
+  !*** ./src/Models/Models/ErrorHandleLogic.ts ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.MainErrorHandler = void 0;
+var MainErrorHandler = /** @class */ (function () {
+    function MainErrorHandler() {
+    }
+    MainErrorHandler.prototype.NotAuth = function () {
+        document.location.href = "/menu/auth/login/";
+    };
+    return MainErrorHandler;
+}());
+exports.MainErrorHandler = MainErrorHandler;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/MenuApp/OneCardInListData.ts":
+/*!********************************************************!*\
+  !*** ./src/Models/Models/MenuApp/OneCardInListData.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.OneCardInListData = void 0;
+var OneCardInListData = /** @class */ (function () {
+    function OneCardInListData(backModel) {
+        if (backModel) {
+            this.FillByBackModel(backModel);
+        }
+    }
+    OneCardInListData.prototype.FillByFullModel = function (newData) {
+        this.Id = newData.Id;
+        this.Title = newData.Title;
+        this.Body = newData.Body;
+        this.Image = newData.Image;
+        this.Followed = newData.Followed;
+    };
+    OneCardInListData.prototype.FillByBackModel = function (backModel) {
+        this.Id = backModel.id;
+        this.Title = backModel.title;
+        this.Body = backModel.body;
+        this.Image = backModel.image;
+        this.Followed = backModel.followed;
+    };
+    return OneCardInListData;
+}());
+exports.OneCardInListData = OneCardInListData;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/MenuApp/Poco/IOneCardFullDataEdit.ts":
+/*!****************************************************************!*\
+  !*** ./src/Models/Models/MenuApp/Poco/IOneCardFullDataEdit.ts ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.OneCardFullDataEdit = void 0;
+var OneCardFullDataEdit = /** @class */ (function () {
+    function OneCardFullDataEdit() {
+        this.AdditionalImagesSave = [];
+        // this.AdditionalImagesForRemove = [];
+        // this.AdditionalImagesEdit = [];
+    }
+    return OneCardFullDataEdit;
+}());
+exports.OneCardFullDataEdit = OneCardFullDataEdit;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/Poco/AppItem.ts":
+/*!*******************************************!*\
+  !*** ./src/Models/Models/Poco/AppItem.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AppItem = void 0;
+var AppItem = /** @class */ (function () {
+    function AppItem(init) {
+        Object.assign(this, init);
+    }
+    return AppItem;
+}());
+exports.AppItem = AppItem;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/WordsCardsApp/OneWordCard.ts":
+/*!********************************************************!*\
+  !*** ./src/Models/Models/WordsCardsApp/OneWordCard.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.OneWordCard = void 0;
+var WordCardWordList_1 = __webpack_require__(/*! ./WordCardWordList */ "./src/Models/Models/WordsCardsApp/WordCardWordList.ts");
+var OneWordCard = /** @class */ (function () {
+    function OneWordCard() {
+    }
+    OneWordCard.prototype.FillByBackModel = function (newData) {
+        this.Id = newData.id;
+        this.ImagePath = newData.image_path;
+        this.Word = newData.word;
+        this.WordAnswer = newData.word_answer;
+        this.Hided = newData.hided;
+        this.Description = newData.description;
+        this.UserId = newData.user_id;
+        this.Lists = newData.lists.map(function (x) {
+            var lst = new WordCardWordList_1.WordCardWordList();
+            lst.FillByBackModel(x);
+            return lst;
+        });
+    };
+    return OneWordCard;
+}());
+exports.OneWordCard = OneWordCard;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/WordsCardsApp/OneWordList.ts":
+/*!********************************************************!*\
+  !*** ./src/Models/Models/WordsCardsApp/OneWordList.ts ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.OneWordList = void 0;
+var OneWordList = /** @class */ (function () {
+    function OneWordList() {
+    }
+    OneWordList.prototype.FillByBackModel = function (newData) {
+        this.Id = newData.id;
+        this.Title = newData.title;
+    };
+    return OneWordList;
+}());
+exports.OneWordList = OneWordList;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/WordsCardsApp/WordCardWordList.ts":
+/*!*************************************************************!*\
+  !*** ./src/Models/Models/WordsCardsApp/WordCardWordList.ts ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.WordCardWordList = void 0;
+var WordCardWordList = /** @class */ (function () {
+    function WordCardWordList() {
+    }
+    WordCardWordList.prototype.FillByBackModel = function (newData) {
+        this.IdList = newData.id_list;
+        this.IdWord = newData.id_word;
+    };
+    return WordCardWordList;
+}());
+exports.WordCardWordList = WordCardWordList;
+
+
+/***/ }),
+
 /***/ "./src/components/Alerts/MainAlertAbsolute.tsx":
 /*!*****************************************************!*\
   !*** ./src/components/Alerts/MainAlertAbsolute.tsx ***!
@@ -61018,7 +62904,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OneAlert = void 0;
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var AlertData_1 = __webpack_require__(/*! ../_ComponentsLink/Models/AlertData */ "./src/components/_ComponentsLink/Models/AlertData.ts");
+var AlertData_1 = __webpack_require__(/*! ../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var OneAlert = /** @class */ (function (_super) {
     __extends(OneAlert, _super);
     function OneAlert(props) {
@@ -61137,6 +63023,35 @@ var AppRouter = /** @class */ (function (_super) {
 }(React.Component));
 exports.AppRouter = AppRouter;
 // </helloprops>
+
+
+/***/ }),
+
+/***/ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx":
+/*!*******************************************************************!*\
+  !*** ./src/components/Body/AdditionalWindow/AdditionalWindow.tsx ***!
+  \*******************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+__webpack_require__(/*! ./AdditionalWindow.css */ "./src/components/Body/AdditionalWindow/AdditionalWindow.css");
+var AdditionalWindow = function (props) {
+    var additionClassMain = '';
+    if (props.IsHeightWindow) {
+        additionClassMain += ' additional-window-main-height';
+    }
+    return react_1.default.createElement("div", { className: "additional-window-main" + additionClassMain },
+        react_1.default.createElement("label", { className: 'title' }, props.Title),
+        react_1.default.createElement("div", { className: "additional-window-close", onClick: function () { return props.CloseWindow(); } }, "+"),
+        react_1.default.createElement("div", { className: "additional-window-inner" }, props.InnerContent()));
+};
+exports["default"] = AdditionalWindow;
 
 
 /***/ }),
@@ -61533,6 +63448,87 @@ exports.Register = Register;
 
 /***/ }),
 
+/***/ "./src/components/Body/CodeReviewApp/AddTask/AddTask.tsx":
+/*!***************************************************************!*\
+  !*** ./src/components/Body/CodeReviewApp/AddTask/AddTask.tsx ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+__webpack_require__(/*! ./AddTask.css */ "./src/components/Body/CodeReviewApp/AddTask/AddTask.css");
+var AddTask = function (props) {
+    var _a = (0, react_1.useState)(''), newTaskName = _a[0], setNewTaskName = _a[1];
+    var _b = (0, react_1.useState)(-1), newTaskCreator = _b[0], setNewTaskCreator = _b[1]; //firstUser?.Id || 
+    var _c = (0, react_1.useState)(-1), newTaskReviwer = _c[0], setNewTaskReviwer = _c[1];
+    (0, react_1.useEffect)(function () {
+        if (newTaskCreator === -1) {
+            var firstUser = props.ProjectUsers.find(function () { return true; });
+            setNewTaskCreator((firstUser === null || firstUser === void 0 ? void 0 : firstUser.Id) || -1);
+        }
+        var reviwerExist = props.ProjectUsers.some(function (x) { return x.Id === newTaskReviwer; });
+        if (!reviwerExist) {
+            setNewTaskReviwer(-1);
+        }
+    }, [props.ProjectUsers.length]);
+    var createNewTask = function () {
+        var addTask = function (error, data) {
+            if (error) {
+                //TODO выбить из комнаты?
+                alert("todo что то пошло не так лучше обновить страницу");
+                return;
+            }
+            if (data) {
+                // props.AddUserToProject(data);
+                // addTaskToProject(data);
+                props.ReloadTasks();
+            }
+        };
+        window.G_CodeReviewTaskController.AddTaskToProject(newTaskName, newTaskCreator, newTaskReviwer, props.ProjectId, addTask);
+        setNewTaskName('');
+    };
+    return react_1.default.createElement("div", null,
+        react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', onChange: function (e) { return setNewTaskName(e.target.value); }, value: newTaskName, placeholder: '\u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435' }),
+        react_1.default.createElement("label", null, "creator:"),
+        react_1.default.createElement("select", { className: 'form-control-b', value: newTaskCreator, onChange: function (e) { return setNewTaskCreator(+e.target.value); } }, props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null, "reviewer:"),
+        react_1.default.createElement("select", { className: 'form-control-b', value: newTaskReviwer, onChange: function (e) { return setNewTaskReviwer(+e.target.value); } },
+            react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
+            props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("button", { className: 'btn-b btn-border create-new-task-btn', onClick: function () { return createNewTask(); } }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C"));
+};
+exports["default"] = AddTask;
+
+
+/***/ }),
+
 /***/ "./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.tsx":
 /*!*****************************************************************************!*\
   !*** ./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.tsx ***!
@@ -61660,8 +63656,11 @@ var CodeReviewMain = function (props) {
         setCurrentProjectUsers(function (oldState) {
             var newState = (0, cloneDeep_1.default)(oldState);
             var userState = newState.find(function (x) { return x.Id === user.Id; });
-            userState.Email = user.Email;
-            userState.Name = user.Name;
+            if (userState) {
+                userState.Email = user.Email;
+                userState.Name = user.Name;
+                userState.IsAdmin = user.IsAdmin;
+            }
             return newState;
         });
     };
@@ -61749,18 +63748,22 @@ __webpack_require__(/*! ./OneProjectUser.css */ "./src/components/Body/CodeRevie
 var OneProjectUser = function (props) {
     var _a = (0, react_1.useState)(props.User.Name), userName = _a[0], setUserName = _a[1];
     var _b = (0, react_1.useState)(props.User.Email || ''), userEmail = _b[0], setUserEmail = _b[1];
+    var _c = (0, react_1.useState)(false), userIsAdmin = _c[0], setUserIsAdmin = _c[1];
     (0, react_1.useEffect)(function () {
         setUserName(props.User.Name);
     }, [props.User.Name]);
     (0, react_1.useEffect)(function () {
         setUserEmail(props.User.Email || '');
     }, [props.User.Email]);
+    (0, react_1.useEffect)(function () {
+        setUserIsAdmin(props.User.IsAdmin);
+    }, [props.User.Email]);
     var changeUser = function () {
         if (!userName) {
             alert('Введите имя пользователя');
             return;
         }
-        var newUserData = { Id: props.User.Id, Name: userName, Email: userEmail };
+        var newUserData = { Id: props.User.Id, Name: userName, Email: userEmail, IsAdmin: userIsAdmin };
         var changeUser = function (error, data) {
             if (error) {
                 //TODO выбить из комнаты?
@@ -61787,20 +63790,23 @@ var OneProjectUser = function (props) {
         window.G_CodeReviewUserController.DeleteProjectUser(props.User.Id, deleteUser);
     };
     return react_1.default.createElement("div", { className: 'one-project-user-content' },
-        react_1.default.createElement("span", null, "\u0418\u043C\u044F"),
+        react_1.default.createElement("label", null, "\u0418\u043C\u044F"),
         react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: userName, placeholder: "\u0418\u043C\u044F", onChange: function (e) { return setUserName(e.target.value); } }),
         react_1.default.createElement("br", null),
-        react_1.default.createElement("span", null, "\u041F\u043E\u0447\u0442\u0430 \u0434\u043B\u044F \u0443\u0432\u0435\u0434\u043E\u043C\u043B\u0435\u043D\u0438\u0439"),
+        react_1.default.createElement("label", null, "\u041F\u043E\u0447\u0442\u0430 \u0434\u043B\u044F \u0443\u0432\u0435\u0434\u043E\u043C\u043B\u0435\u043D\u0438\u0439"),
         react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: userEmail, placeholder: "\u041F\u043E\u0447\u0442\u0430", onChange: function (e) { return setUserEmail(e.target.value); } }),
+        react_1.default.createElement("label", null, "\u0420\u043E\u043B\u044C \u0410\u0434\u043C\u0438\u043D\u0430"),
+        react_1.default.createElement("input", { type: "checkbox", checked: userIsAdmin, onChange: function (e) { return setUserIsAdmin(e.target.checked); } }),
         react_1.default.createElement("div", { className: 'one-project-user-buttons' },
-            react_1.default.createElement("div", { className: 'project-user-save-button', onClick: function () { return changeUser(); } },
+            react_1.default.createElement("div", { className: 'project-user-action-btn', onClick: function () { return changeUser(); } },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'save-icon.png', alt: "Save", title: '\u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C' })),
-            react_1.default.createElement("div", { className: 'project-user-cancel-button', onClick: function () {
+            react_1.default.createElement("div", { className: 'project-user-action-btn', onClick: function () {
                     setUserName(props.User.Name);
                     setUserEmail(props.User.Email);
+                    setUserIsAdmin(props.User.IsAdmin);
                 } },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u043E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' })),
-            react_1.default.createElement("div", { className: 'project-user-delete-button', onClick: function () { return deleteUser(); } },
+            react_1.default.createElement("div", { className: 'project-user-action-btn', onClick: function () { return deleteUser(); } },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0443\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' }))));
 };
 exports["default"] = OneProjectUser;
@@ -62173,7 +64179,7 @@ var Paggination = function (props) {
     return react_1.default.createElement("div", null,
         needFirstBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(1); }, className: 'btn-b btn-border' }, "1") : react_1.default.createElement(react_1.default.Fragment, null),
         needPrevBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber - 1); }, className: 'btn-b btn-border' }, "prev") : react_1.default.createElement(react_1.default.Fragment, null),
-        react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber); }, className: 'btn-b btn-border' }, props.PageNumber),
+        react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber); }, className: 'btn-b btn-border paggination-current' }, props.PageNumber),
         needNextBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber + 1); }, className: 'btn-b btn-border' }, "next") : react_1.default.createElement(react_1.default.Fragment, null),
         needLastBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(allPageCount); }, className: 'btn-b btn-border' }, allPageCount) : react_1.default.createElement(react_1.default.Fragment, null));
     // let allBut = [];
@@ -62245,43 +64251,33 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var OneProjectUser_1 = __importDefault(__webpack_require__(/*! ../OneProjectUser/OneProjectUser */ "./src/components/Body/CodeReviewApp/OneProjectUser/OneProjectUser.tsx"));
 var OneReviewTask_1 = __importDefault(__webpack_require__(/*! ../OneReviewTask/OneReviewTask */ "./src/components/Body/CodeReviewApp/OneReviewTask/OneReviewTask.tsx"));
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
 var Paggination_1 = __importDefault(__webpack_require__(/*! ../Paggination/Paggination */ "./src/components/Body/CodeReviewApp/Paggination/Paggination.tsx"));
+var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
+var ProjectUsers_1 = __importDefault(__webpack_require__(/*! ../ProjectUsers/ProjectUsers */ "./src/components/Body/CodeReviewApp/ProjectUsers/ProjectUsers.tsx"));
+var AddTask_1 = __importDefault(__webpack_require__(/*! ../AddTask/AddTask */ "./src/components/Body/CodeReviewApp/AddTask/AddTask.tsx"));
 __webpack_require__(/*! ./ProjectDetail.css */ "./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css");
 var ProjectDetail = function (props) {
     var _a;
     var tasksOnPageCount = 5;
     var _b = (0, react_1.useState)([]), currentProjectTasks = _b[0], setCurrentProjectTasks = _b[1];
     var _c = (0, react_1.useState)(0), allTasksCount = _c[0], setAllTasksCount = _c[1];
-    var _d = (0, react_1.useState)(''), newUserName = _d[0], setNewUserName = _d[1];
-    var _e = (0, react_1.useState)(''), userMainAppEmail = _e[0], setUserMainAppEmail = _e[1];
-    var _f = (0, react_1.useState)(''), newTaskName = _f[0], setNewTaskName = _f[1];
-    var _g = (0, react_1.useState)(-1), newTaskCreator = _g[0], setNewTaskCreator = _g[1]; //firstUser?.Id || 
-    var _h = (0, react_1.useState)(-1), newTaskReviwer = _h[0], setNewTaskReviwer = _h[1];
-    var _j = (0, react_1.useState)(-1), filterTaskCreator = _j[0], setFilterTaskCreator = _j[1];
-    var _k = (0, react_1.useState)(-1), filterTaskReviwer = _k[0], setFilterTaskReviwer = _k[1];
-    var _l = (0, react_1.useState)(-1), filterTaskStatus = _l[0], setFilterTaskStatus = _l[1];
-    var _m = (0, react_1.useState)(''), filterTaskName = _m[0], setFilterTaskName = _m[1];
-    var _o = (0, react_1.useState)(1), filterTaskPage = _o[0], setFilterTaskPage = _o[1];
-    var _p = (0, react_1.useState)(null), loadTasksTimerId = _p[0], setLoadTasksTimerId = _p[1];
-    var _q = (0, react_1.useState)(false), showUserList = _q[0], setShowUserList = _q[1];
+    var _d = (0, react_1.useState)(-1), filterTaskCreator = _d[0], setFilterTaskCreator = _d[1];
+    var _e = (0, react_1.useState)(-1), filterTaskReviwer = _e[0], setFilterTaskReviwer = _e[1];
+    var _f = (0, react_1.useState)(-1), filterTaskStatus = _f[0], setFilterTaskStatus = _f[1];
+    var _g = (0, react_1.useState)(''), filterTaskName = _g[0], setFilterTaskName = _g[1];
+    var _h = (0, react_1.useState)(1), filterTaskPage = _h[0], setFilterTaskPage = _h[1];
+    var _j = (0, react_1.useState)(null), loadTasksTimerId = _j[0], setLoadTasksTimerId = _j[1];
+    var _k = (0, react_1.useState)(false), showUserList = _k[0], setShowUserList = _k[1];
+    var _l = (0, react_1.useState)(false), showAddNewTaskForm = _l[0], setShowAddNewTaskForm = _l[1];
     (0, react_1.useEffect)(function () {
-        if (newTaskCreator === -1) {
-            var firstUser = props.ProjectUsers.find(function () { return true; });
-            setNewTaskCreator((firstUser === null || firstUser === void 0 ? void 0 : firstUser.Id) || -1);
-        }
-        var reviwerExist = props.ProjectUsers.some(function (x) { return x.Id === newTaskReviwer; });
-        if (!reviwerExist) {
-            setNewTaskReviwer(-1);
-        }
-        // let filterCreatorExist = props.ProjectUsers.some((x) => x.Id === filterTaskCreator);
-        if (!reviwerExist) {
+        var filterCreatorExist = props.ProjectUsers.some(function (x) { return x.Id === filterTaskCreator; });
+        if (!filterCreatorExist) {
             setFilterTaskCreator(-1);
         }
-        // let filterReviwerExist = props.ProjectUsers.some((x) => x.Id === filterTaskReviwer);
-        if (!reviwerExist) {
+        var filterReviwerExist = props.ProjectUsers.some(function (x) { return x.Id === filterTaskReviwer; });
+        if (!filterReviwerExist) {
             setFilterTaskReviwer(-1);
         }
     }, [props.ProjectUsers.length]); //[firstUser?.Id]);
@@ -62318,39 +64314,6 @@ var ProjectDetail = function (props) {
             Status: filterTaskStatus
         };
         window.G_CodeReviewTaskController.LoadTasks(filter, loadTasks);
-    };
-    var addNewUser = function () {
-        if (!newUserName) {
-            return;
-        }
-        var addUser = function (error, data) {
-            if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
-                return;
-            }
-            if (data) {
-                props.AddUserToProject(data);
-            }
-        };
-        window.G_CodeReviewUserController.AddUserToProject(newUserName, userMainAppEmail, props.Project.Id, addUser);
-        setNewUserName('');
-    };
-    var createNewTask = function () {
-        var addTask = function (error, data) {
-            if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
-                return;
-            }
-            if (data) {
-                // props.AddUserToProject(data);
-                // addTaskToProject(data);
-                reloadTasks();
-                setNewTaskName('');
-            }
-        };
-        window.G_CodeReviewTaskController.AddTaskToProject(newTaskName, newTaskCreator, newTaskReviwer, props.Project.Id, addTask);
     };
     var deleteProject = function () {
         var deleteProject = function (error, data) {
@@ -62409,30 +64372,12 @@ var ProjectDetail = function (props) {
                 } },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0443\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
             react_1.default.createElement("br", null),
-            react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return setShowUserList(function (e) { return !e; }); } }, "\u041B\u044E\u0434\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u0430:"),
-            react_1.default.createElement("div", { className: 'project-review-user-list' + userListClass },
-                react_1.default.createElement("span", null, "\u0418\u043C\u044F \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430"),
-                react_1.default.createElement("input", { className: 'form-control-b', type: 'text', placeholder: '\u0418\u043C\u044F \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430', onChange: function (e) { return setNewUserName(e.target.value); }, value: newUserName }),
-                react_1.default.createElement("br", null),
-                react_1.default.createElement("span", null, "\u041F\u043E\u0447\u0442\u0430 \u0438\u0437 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0433\u043E \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F"),
-                react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: userMainAppEmail, placeholder: "\u041F\u043E\u0447\u0442\u0430  \u0438\u0437 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0433\u043E \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F", onChange: function (e) { return setUserMainAppEmail(e.target.value); } }),
-                react_1.default.createElement("br", null),
-                react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return addNewUser(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430"),
-                react_1.default.createElement("br", null),
-                props.ProjectUsers.map(function (x) {
-                    return react_1.default.createElement(OneProjectUser_1.default, { User: x, key: x.Id, ChangeUser: props.ChangeUser, DeleteUser: props.DeleteUser });
-                })),
+            react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return setShowUserList(function (e) { return true; }); } }, "\u041B\u044E\u0434\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"),
+            showUserList ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowUserList(false); }, IsHeightWindow: true, Title: '\u041B\u044E\u0434\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u0430', InnerContent: function () { return react_1.default.createElement(ProjectUsers_1.default, { AddUserToProject: props.AddUserToProject, ChangeUser: props.ChangeUser, DeleteUser: props.DeleteUser, ProjectId: props.Project.Id, ProjectUsers: props.ProjectUsers }); } }) : react_1.default.createElement(react_1.default.Fragment, null),
             react_1.default.createElement("br", null),
             react_1.default.createElement("div", { className: 'review-project-new-task-block' },
-                react_1.default.createElement("p", null, "\u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443"),
-                react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', onChange: function (e) { return setNewTaskName(e.target.value); }, value: newTaskName, placeholder: '\u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435' }),
-                react_1.default.createElement("label", null, "creator:"),
-                react_1.default.createElement("select", { className: 'form-control-b', value: newTaskCreator, onChange: function (e) { return setNewTaskCreator(+e.target.value); } }, props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
-                react_1.default.createElement("label", null, "reviewer:"),
-                react_1.default.createElement("select", { className: 'form-control-b', value: newTaskReviwer, onChange: function (e) { return setNewTaskReviwer(+e.target.value); } },
-                    react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                    props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
-                react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return createNewTask(); } }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C"))),
+                react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return setShowAddNewTaskForm(true); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443"),
+                showAddNewTaskForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowAddNewTaskForm(false); }, IsHeightWindow: false, Title: '\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438', InnerContent: function () { return react_1.default.createElement(AddTask_1.default, { ProjectId: props.Project.Id, ProjectUsers: props.ProjectUsers, ReloadTasks: reloadTasks }); } }) : react_1.default.createElement(react_1.default.Fragment, null))),
         react_1.default.createElement("div", { className: 'review-project-tasks-filters-block' },
             react_1.default.createElement("div", null, "\u0444\u0438\u043B\u044C\u0442\u0440\u044B"),
             react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: filterTaskName, onChange: function (e) { return setFilterTaskName(e.target.value); }, placeholder: '\u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435' }),
@@ -62457,6 +64402,82 @@ var ProjectDetail = function (props) {
             currentProjectTasks.map(function (x) { return react_1.default.createElement(OneReviewTask_1.default, { key: x.Id, Task: x, ProjectUsers: props.ProjectUsers, UpdateTask: updateTaskProject, DeleteTask: deleteTask }); })));
 };
 exports["default"] = ProjectDetail;
+
+
+/***/ }),
+
+/***/ "./src/components/Body/CodeReviewApp/ProjectUsers/ProjectUsers.tsx":
+/*!*************************************************************************!*\
+  !*** ./src/components/Body/CodeReviewApp/ProjectUsers/ProjectUsers.tsx ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var OneProjectUser_1 = __importDefault(__webpack_require__(/*! ../OneProjectUser/OneProjectUser */ "./src/components/Body/CodeReviewApp/OneProjectUser/OneProjectUser.tsx"));
+__webpack_require__(/*! ./ProjectUsers.css */ "./src/components/Body/CodeReviewApp/ProjectUsers/ProjectUsers.css");
+var ProjectUsers = function (props) {
+    var _a = (0, react_1.useState)(''), newUserName = _a[0], setNewUserName = _a[1];
+    var _b = (0, react_1.useState)(''), userMainAppEmail = _b[0], setUserMainAppEmail = _b[1];
+    var addNewUser = function () {
+        if (!newUserName) {
+            return;
+        }
+        var addUser = function (error, data) {
+            if (error) {
+                //TODO выбить из комнаты?
+                alert("todo что то пошло не так лучше обновить страницу");
+                return;
+            }
+            if (data) {
+                props.AddUserToProject(data);
+            }
+        };
+        window.G_CodeReviewUserController.AddUserToProject(newUserName, userMainAppEmail, props.ProjectId, addUser);
+        setNewUserName('');
+    };
+    return react_1.default.createElement("div", { className: 'project-review-user-list' },
+        react_1.default.createElement("span", null, "\u0418\u043C\u044F \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430"),
+        react_1.default.createElement("input", { className: 'form-control-b', type: 'text', placeholder: '\u0418\u043C\u044F \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430', onChange: function (e) { return setNewUserName(e.target.value); }, value: newUserName }),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("span", null, "\u041F\u043E\u0447\u0442\u0430 \u0438\u0437 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0433\u043E \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F"),
+        react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: userMainAppEmail, placeholder: "\u041F\u043E\u0447\u0442\u0430  \u0438\u0437 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0433\u043E \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F", onChange: function (e) { return setUserMainAppEmail(e.target.value); } }),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("button", { className: 'btn-b btn-border add-new-review-person-btn', onClick: function () { return addNewUser(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430"),
+        react_1.default.createElement("br", null),
+        props.ProjectUsers.map(function (x) {
+            return react_1.default.createElement(OneProjectUser_1.default, { User: x, key: x.Id, ChangeUser: props.ChangeUser, DeleteUser: props.DeleteUser });
+        }));
+};
+exports["default"] = ProjectUsers;
 
 
 /***/ }),
@@ -62634,7 +64655,7 @@ exports.BodyCardsListMain = void 0;
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var MenuCardList_1 = __webpack_require__(/*! ./MenuCardList */ "./src/components/Body/MenuApp/CardsList/MenuCardList.tsx");
 var CardsFilters_1 = __webpack_require__(/*! ./CardsFilters */ "./src/components/Body/MenuApp/CardsList/CardsFilters.tsx");
-var OneCardInListData_1 = __webpack_require__(/*! ../../../_ComponentsLink/Models/MenuApp/OneCardInListData */ "./src/components/_ComponentsLink/Models/MenuApp/OneCardInListData.ts");
+var OneCardInListData_1 = __webpack_require__(/*! ../../../../Models/Models/MenuApp/OneCardInListData */ "./src/Models/Models/MenuApp/OneCardInListData.ts");
 var BodyCardsListMain = /** @class */ (function (_super) {
     __extends(BodyCardsListMain, _super);
     function BodyCardsListMain(props) {
@@ -62981,11 +65002,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OneMenuCard = void 0;
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var OneCardInListData_1 = __webpack_require__(/*! ../../../_ComponentsLink/Models/MenuApp/OneCardInListData */ "./src/components/_ComponentsLink/Models/MenuApp/OneCardInListData.ts");
+var OneCardInListData_1 = __webpack_require__(/*! ../../../../Models/Models/MenuApp/OneCardInListData */ "./src/Models/Models/MenuApp/OneCardInListData.ts");
 // export interface IHeaderLogoProps {
 // }
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-var OneCardInListDataBack_1 = __webpack_require__(/*! ../../../_ComponentsLink/BackModel/MenuApp/OneCardInListDataBack */ "./src/components/_ComponentsLink/BackModel/MenuApp/OneCardInListDataBack.ts");
+var OneCardInListDataBack_1 = __webpack_require__(/*! ../../../../Models/BackModel/MenuApp/OneCardInListDataBack */ "./src/Models/BackModel/MenuApp/OneCardInListDataBack.ts");
 var OneMenuCard = /** @class */ (function (_super) {
     __extends(OneMenuCard, _super);
     function OneMenuCard(props) {
@@ -63433,7 +65454,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AdditionalImages = exports.CustomImageEdit = void 0;
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var CustomImage_1 = __webpack_require__(/*! ../../../_ComponentsLink/Models/CustomImage */ "./src/components/_ComponentsLink/Models/CustomImage.ts");
+var CustomImage_1 = __webpack_require__(/*! ../../../../Models/Models/CustomImage */ "./src/Models/Models/CustomImage.ts");
 // export interface IHeaderLogoProps {
 // }
 var CustomImageEdit = /** @class */ (function (_super) {
@@ -63577,8 +65598,8 @@ exports.OneCardDetailMain = exports.OneCardFullDataView = void 0;
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var AdditionalImages_1 = __webpack_require__(/*! ./AdditionalImages */ "./src/components/Body/MenuApp/OneCardDetail/AdditionalImages.tsx");
 // import { IOneCardFullData, OneCardFullData } from '../../../_ComponentsLink/Models/MenuApp/OneCardFullData';
-var OneCardInListData_1 = __webpack_require__(/*! ../../../_ComponentsLink/Models/MenuApp/OneCardInListData */ "./src/components/_ComponentsLink/Models/MenuApp/OneCardInListData.ts");
-var IOneCardFullDataEdit_1 = __webpack_require__(/*! ../../../_ComponentsLink/Models/MenuApp/Poco/IOneCardFullDataEdit */ "./src/components/_ComponentsLink/Models/MenuApp/Poco/IOneCardFullDataEdit.ts");
+var OneCardInListData_1 = __webpack_require__(/*! ../../../../Models/Models/MenuApp/OneCardInListData */ "./src/Models/Models/MenuApp/OneCardInListData.ts");
+var IOneCardFullDataEdit_1 = __webpack_require__(/*! ../../../../Models/Models/MenuApp/Poco/IOneCardFullDataEdit */ "./src/Models/Models/MenuApp/Poco/IOneCardFullDataEdit.ts");
 var OneCardFullDataView = /** @class */ (function () {
     function OneCardFullDataView() {
     }
@@ -64063,7 +66084,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AppList = void 0;
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var AppItem_1 = __webpack_require__(/*! ../../_ComponentsLink/Models/Poco/AppItem */ "./src/components/_ComponentsLink/Models/Poco/AppItem.ts");
+var AppItem_1 = __webpack_require__(/*! ../../../Models/Models/Poco/AppItem */ "./src/Models/Models/Poco/AppItem.ts");
 var AppListItem_1 = __webpack_require__(/*! ./AppListItem */ "./src/components/Body/Menu/AppListItem.tsx");
 var AppList = /** @class */ (function (_super) {
     __extends(AppList, _super);
@@ -64277,7 +66298,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-var AlertData_1 = __webpack_require__(/*! ../../_ComponentsLink/Models/AlertData */ "./src/components/_ComponentsLink/Models/AlertData.ts");
+var AlertData_1 = __webpack_require__(/*! ../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var IndexState = /** @class */ (function () {
     // RoomName: string;
     // RoomPassword: string;
@@ -64554,7 +66575,7 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 // import * as signalR from "@microsoft/signalr";
 var Index_1 = __importDefault(__webpack_require__(/*! ./Index */ "./src/components/Body/PlaningPoker/Index.tsx"));
 var Room_1 = __importDefault(__webpack_require__(/*! ./Room */ "./src/components/Body/PlaningPoker/Room.tsx"));
-var AlertData_1 = __webpack_require__(/*! ../../_ComponentsLink/Models/AlertData */ "./src/components/_ComponentsLink/Models/AlertData.ts");
+var AlertData_1 = __webpack_require__(/*! ../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var RoomInfo_1 = __webpack_require__(/*! ./Models/RoomInfo */ "./src/components/Body/PlaningPoker/Models/RoomInfo.ts");
 // import { HubConnection } from '@microsoft/signalr';
 // import signalR, { HubConnection } from "@aspnet/signalr";
@@ -64864,7 +66885,7 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var UserInList_1 = __importDefault(__webpack_require__(/*! ./UserInList */ "./src/components/Body/PlaningPoker/UserInList.tsx"));
 var OneVoteCard_1 = __importDefault(__webpack_require__(/*! ./OneVoteCard */ "./src/components/Body/PlaningPoker/OneVoteCard.tsx"));
 // import { IOneRoomReturn } from '../../_ComponentsLink/BackModel/PlaningPoker/OneRoomReturn';
-var AlertData_1 = __webpack_require__(/*! ../../_ComponentsLink/Models/AlertData */ "./src/components/_ComponentsLink/Models/AlertData.ts");
+var AlertData_1 = __webpack_require__(/*! ../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var StoriesSection_1 = __importDefault(__webpack_require__(/*! ./StoriesSection */ "./src/components/Body/PlaningPoker/StoriesSection.tsx"));
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
 var RoomTimer_1 = __importDefault(__webpack_require__(/*! ./RoomTimer */ "./src/components/Body/PlaningPoker/RoomTimer.tsx"));
@@ -66152,8 +68173,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.WordsCardsForceAdd = void 0;
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-var AlertData_1 = __webpack_require__(/*! ../../../_ComponentsLink/Models/AlertData */ "./src/components/_ComponentsLink/Models/AlertData.ts");
-var OneWordList_1 = __webpack_require__(/*! ../../../_ComponentsLink/Models/WordsCardsApp/OneWordList */ "./src/components/_ComponentsLink/Models/WordsCardsApp/OneWordList.ts");
+var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
+var OneWordList_1 = __webpack_require__(/*! ../../../../Models/Models/WordsCardsApp/OneWordList */ "./src/Models/Models/WordsCardsApp/OneWordList.ts");
 var OneCard_1 = __webpack_require__(/*! ./OneCard */ "./src/components/Body/WordsCardsApp/ForceNew/OneCard.tsx");
 // export class CreateCardState {
 //     // Id: number;
@@ -67044,10 +69065,10 @@ exports.WordsCardsListMain = void 0;
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var OneWordCard_1 = __webpack_require__(/*! ./OneWordCard */ "./src/components/Body/WordsCardsApp/OneWordCard.tsx");
 var WordsCardsList_1 = __webpack_require__(/*! ./WordsCardsList */ "./src/components/Body/WordsCardsApp/WordsCardsList.tsx");
-var OneWordCard_2 = __webpack_require__(/*! ../../_ComponentsLink/Models/WordsCardsApp/OneWordCard */ "./src/components/_ComponentsLink/Models/WordsCardsApp/OneWordCard.ts");
-var AlertData_1 = __webpack_require__(/*! ../../_ComponentsLink/Models/AlertData */ "./src/components/_ComponentsLink/Models/AlertData.ts");
-var OneWordList_1 = __webpack_require__(/*! ../../_ComponentsLink/Models/WordsCardsApp/OneWordList */ "./src/components/_ComponentsLink/Models/WordsCardsApp/OneWordList.ts");
-var WordCardWordList_1 = __webpack_require__(/*! ../../_ComponentsLink/Models/WordsCardsApp/WordCardWordList */ "./src/components/_ComponentsLink/Models/WordsCardsApp/WordCardWordList.ts");
+var OneWordCard_2 = __webpack_require__(/*! ../../../Models/Models/WordsCardsApp/OneWordCard */ "./src/Models/Models/WordsCardsApp/OneWordCard.ts");
+var AlertData_1 = __webpack_require__(/*! ../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
+var OneWordList_1 = __webpack_require__(/*! ../../../Models/Models/WordsCardsApp/OneWordList */ "./src/Models/Models/WordsCardsApp/OneWordList.ts");
+var WordCardWordList_1 = __webpack_require__(/*! ../../../Models/Models/WordsCardsApp/WordCardWordList */ "./src/Models/Models/WordsCardsApp/WordCardWordList.ts");
 var WordsCardsListMain = /** @class */ (function (_super) {
     __extends(WordsCardsListMain, _super);
     function WordsCardsListMain(props) {
@@ -67661,7 +69682,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.WordsCardsListWork = exports.OneWordListState = exports.OneWordListEdit = void 0;
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-var OneWordList_1 = __webpack_require__(/*! ../../../_ComponentsLink/Models/WordsCardsApp/OneWordList */ "./src/components/_ComponentsLink/Models/WordsCardsApp/OneWordList.ts");
+var OneWordList_1 = __webpack_require__(/*! ../../../../Models/Models/WordsCardsApp/OneWordList */ "./src/Models/Models/WordsCardsApp/OneWordList.ts");
 var OneWordListEdit = /** @class */ (function () {
     function OneWordListEdit() {
         this.Id = null;
@@ -68518,7 +70539,7 @@ var HeaderMain_1 = __webpack_require__(/*! ./Header/HeaderMain */ "./src/compone
 var FooterMain_1 = __webpack_require__(/*! ./Footer/FooterMain */ "./src/components/Footer/FooterMain.tsx");
 var MainAlertAbsolute_1 = __webpack_require__(/*! ./Alerts/MainAlertAbsolute */ "./src/components/Alerts/MainAlertAbsolute.tsx");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-var AlertData_1 = __webpack_require__(/*! ./_ComponentsLink/Models/AlertData */ "./src/components/_ComponentsLink/Models/AlertData.ts");
+var AlertData_1 = __webpack_require__(/*! ../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var AppRouter_1 = __webpack_require__(/*! ./AppRouter */ "./src/components/AppRouter.tsx");
 var MainComponent = function (props) {
     var initState = {
@@ -68642,1645 +70663,6 @@ exports["default"] = MainComponent;
 
 /***/ }),
 
-/***/ "./src/components/_ComponentsLink/AjaxLogic.ts":
-/*!*****************************************************!*\
-  !*** ./src/components/_ComponentsLink/AjaxLogic.ts ***!
-  \*****************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.AjaxHelper = void 0;
-var AlertData_1 = __webpack_require__(/*! ./Models/AlertData */ "./src/components/_ComponentsLink/Models/AlertData.ts");
-var AjaxHelper = /** @class */ (function () {
-    function AjaxHelper() {
-    }
-    AjaxHelper.prototype.TryRefreshToken = function (notRedirectWhenNotAuth, callBack) {
-        this.GoAjaxRequest({
-            Data: {},
-            Type: "POST",
-            NeedTryRefreshToken: false,
-            NotRedirectWhenNotAuth: notRedirectWhenNotAuth,
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    localStorage.removeItem("header_auth");
-                    var eventLogOut = new CustomEvent("logout", {});
-                    window.dispatchEvent(eventLogOut);
-                    if (!notRedirectWhenNotAuth) {
-                        location.href = '/menu/auth/login/';
-                    }
-                }
-                else {
-                    var eventTokensRefresh = new CustomEvent("tokens_was_refreshed", {});
-                    window.dispatchEvent(eventTokensRefresh);
-                    //TODO записываем полученные токены
-                    if (callBack) {
-                        callBack();
-                    }
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/authenticate/refresh-access-token',
-        });
-    };
-    AjaxHelper.prototype.GoAjaxRequest = function (obj, fileLoad) {
-        if (fileLoad === void 0) { fileLoad = false; }
-        return __awaiter(this, void 0, void 0, function () {
-            var thisRef, ajaxObj, haders, _a;
-            return __generator(this, function (_b) {
-                switch (_b.label) {
-                    case 0:
-                        thisRef = this;
-                        if (!obj.Type)
-                            obj.Type = 'GET';
-                        if (!obj.DataType)
-                            obj.DataType = 'json'; //html
-                        if (obj.NeedTryRefreshToken !== false) {
-                            obj.NeedTryRefreshToken = true;
-                        }
-                        ajaxObj = {
-                            type: obj.Type,
-                            data: obj.Data,
-                            url: obj.Url,
-                            //processData: false, // Не обрабатываем файлы
-                            //contentType: false, // Так jQuery скажет серверу что это строковой запрос
-                            success: function (xhr, status, jqXHR) {
-                                //if(jqXHR.status==200){//EXAMPLE STATUS
-                                //DO SOMETHING
-                                //}
-                                if (obj.FuncSuccess) {
-                                    try {
-                                        obj.FuncSuccess(xhr, status, jqXHR);
-                                    }
-                                    catch (e) {
-                                        console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack);
-                                    }
-                                }
-                            },
-                            error: function (xhr, status, error) {
-                                //alert("ошибка загрузки");
-                                if (obj.FuncError)
-                                    obj.FuncError(xhr, status, error);
-                            },
-                            // shows the loader element before sending.
-                            beforeSend: function () {
-                                if (obj.FuncBeforeSend)
-                                    obj.FuncBeforeSend();
-                                //  PreloaderShowChange(true);
-                            },
-                            // hides the loader after completion of request, whether successfull or failor.
-                            complete: function (jqXHR, status) {
-                                if (jqXHR.status == 401) {
-                                    if (obj.NeedTryRefreshToken) {
-                                        thisRef.TryRefreshToken(obj.NotRedirectWhenNotAuth, function () {
-                                            obj.NeedTryRefreshToken = false;
-                                            thisRef.GoAjaxRequest(obj, fileLoad);
-                                        }); //TODO await или что то такое
-                                    }
-                                }
-                                else {
-                                    var resp = jqXHR.responseJSON;
-                                    if (resp.errors && Array.isArray(resp.errors)) {
-                                        //TODO ошибка
-                                        if (!obj.NotGlobalError && G_AddAbsoluteAlertToState) {
-                                            var alertLogic_1 = new AlertData_1.AlertData();
-                                            resp.errors.forEach(function (error) {
-                                                var errArr = alertLogic_1.GetByErrorBack(error);
-                                                errArr.forEach(function (alertForShow) {
-                                                    G_AddAbsoluteAlertToState(alertForShow);
-                                                });
-                                            });
-                                        }
-                                    }
-                                }
-                                if (obj.FuncComplete) {
-                                    try {
-                                        obj.FuncComplete(jqXHR, status);
-                                    }
-                                    catch (e) {
-                                        console.log('Ошибка ' + e.name + ":" + e.message + "\n" + e.stack);
-                                    }
-                                }
-                                //PreloaderShowChange(false);
-                                // console.log("ajax complete");
-                            },
-                            dataType: obj.DataType //'html'
-                        };
-                        // if(obj.dataType){
-                        //     ajaxObj.dataType=obj.dataType
-                        // }
-                        if (fileLoad) {
-                            //processData: false, // Не обрабатываем файлы
-                            //contentType: false,
-                            ajaxObj.processData = false;
-                            ajaxObj.contentType = false;
-                        }
-                        haders = { 'Authorization_Access_Token': localStorage.getItem('access_token') };
-                        if (obj.NeedTryRefreshToken) {
-                            haders['Authorization_Refresh_Token'] = localStorage.getItem('refresh_token');
-                        }
-                        ajaxObj.headers = haders;
-                        _b.label = 1;
-                    case 1:
-                        _b.trys.push([1, 3, , 4]);
-                        return [4 /*yield*/, this.TrySend(ajaxObj)];
-                    case 2:
-                        _b.sent();
-                        return [3 /*break*/, 4];
-                    case 3:
-                        _a = _b.sent();
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/];
-                }
-            });
-        });
-    };
-    AjaxHelper.prototype.TrySend = function (ajaxObj) {
-        return __awaiter(this, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: //async       : Promise<any>
-                    return [4 /*yield*/, $.ajax(ajaxObj)];
-                    case 1:
-                        _a.sent(); //await
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    return AjaxHelper;
-}());
-exports.AjaxHelper = AjaxHelper;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/BackModel/MenuApp/OneCardInListDataBack.ts":
-/*!***********************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/BackModel/MenuApp/OneCardInListDataBack.ts ***!
-  \***********************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.OneCardInListDataBack = void 0;
-var OneCardInListDataBack = /** @class */ (function () {
-    function OneCardInListDataBack() {
-    }
-    OneCardInListDataBack.prototype.FillByFullMode = function (data) {
-        this.id = data.id;
-        this.title = data.title;
-        this.body = data.body;
-        this.image = data.main_image_path;
-        this.followed = data.followed;
-    };
-    return OneCardInListDataBack;
-}());
-exports.OneCardInListDataBack = OneCardInListDataBack;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Controllers/AuthenticateController.ts":
-/*!******************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Controllers/AuthenticateController.ts ***!
-  \******************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.AuthenticateController = exports.RegisterModel = exports.LoginModel = void 0;
-var LoginModel = /** @class */ (function () {
-    function LoginModel() {
-    }
-    return LoginModel;
-}());
-exports.LoginModel = LoginModel;
-var RegisterModel = /** @class */ (function () {
-    function RegisterModel() {
-    }
-    return RegisterModel;
-}());
-exports.RegisterModel = RegisterModel;
-var AuthenticateController = /** @class */ (function () {
-    function AuthenticateController() {
-    }
-    AuthenticateController.prototype.Login = function (model, onSuccess) {
-        var data = {
-            'email': model.Email,
-            'password': model.Password,
-        };
-        // let ajx: AjaxHelper.IAjaxHelper = new AjaxHelper.AjaxHelper();
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "POST",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    onSuccess(resp);
-                }
-                else {
-                    onSuccess(null);
-                    //TODO записываем полученные токены
-                    // document.location.href = "/menu";
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/authenticate/login',
-        });
-    };
-    AuthenticateController.prototype.Register = function (model, onSuccess) {
-        var data = {
-            'email': model.Email,
-            'password': model.Password,
-            "password_confirm": model.ConfirmPassword,
-        };
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "PUT",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    onSuccess(resp);
-                }
-                else {
-                    onSuccess(null);
-                    //TODO записываем полученные токены
-                    // document.location.href = "/menu";
-                }
-            },
-            Url: G_PathToServer + 'api/authenticate/register',
-        });
-    };
-    AuthenticateController.prototype.Logout = function () {
-        alert('not inplemented');
-    };
-    AuthenticateController.prototype.RefreshAccessToken = function (notRedirectWhenNotAuth, callBack) {
-        G_AjaxHelper.TryRefreshToken(notRedirectWhenNotAuth, callBack);
-    };
-    return AuthenticateController;
-}());
-exports.AuthenticateController = AuthenticateController;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewCommentController.ts":
-/*!*************************************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewCommentController.ts ***!
-  \*************************************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.CodeReviewCommentController = void 0;
-var CodeReviewCommentController = /** @class */ (function () {
-    function CodeReviewCommentController() {
-        var _this = this;
-        this.UpdateComment = function (id, text, onSuccess) {
-            var data = {
-                "commentId": id,
-                "text": text,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "PATCH",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/edit-comment'
-            });
-        };
-        this.DeleteComment = function (id, onSuccess) {
-            var data = {
-                "commentId": id,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "DELETE",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/delete-comment'
-            });
-        };
-        this.AddComment = function (taskId, text, onSuccess) {
-            var data = {
-                "taskId": taskId,
-                "text": text,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "PUT",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/create-comment'
-            });
-        };
-        this.LoadComments = function (id, onSuccess) {
-            var data = {
-                "taskId": id,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "GET",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/get-comments'
-            });
-        };
-    }
-    CodeReviewCommentController.prototype.mapWithResult = function (onSuccess) {
-        return function (xhr, status, jqXHR) {
-            var resp = xhr;
-            if (resp.errors) {
-                //TODO ошибка
-                onSuccess(resp, null);
-            }
-            else {
-                var dataBack = xhr;
-                onSuccess(null, dataBack);
-            }
-        };
-    };
-    return CodeReviewCommentController;
-}());
-exports.CodeReviewCommentController = CodeReviewCommentController;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewProjectController.ts":
-/*!*************************************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewProjectController.ts ***!
-  \*************************************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.CodeReviewProjectController = void 0;
-var CodeReviewProjectController = /** @class */ (function () {
-    function CodeReviewProjectController() {
-        var _this = this;
-        this.DeleteProject = function (projectId, onSuccess) {
-            var data = {
-                "projectId": projectId,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "DELETE",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/delete-project'
-            });
-        };
-        this.GetProjectInfo = function (projectId, onSuccess) {
-            var data = {
-                "projectId": projectId,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "GET",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/get-project-info'
-            });
-        };
-        this.CreateNewProject = function (newProjectName, onSuccess) {
-            var data = {
-                "projectName": newProjectName,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "PUT",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/add-new-project'
-            });
-        };
-        this.GetUserProjects = function (onSuccess) {
-            G_AjaxHelper.GoAjaxRequest({
-                Data: {},
-                Type: "GET",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/get-projects',
-            });
-        };
-    }
-    //todo вынести в какой то общей кусок
-    CodeReviewProjectController.prototype.mapWithResult = function (onSuccess) {
-        return function (xhr, status, jqXHR) {
-            var resp = xhr;
-            if (resp.errors) {
-                //TODO ошибка
-                onSuccess(resp, null);
-            }
-            else {
-                var dataBack = xhr;
-                onSuccess(null, dataBack);
-            }
-        };
-    };
-    return CodeReviewProjectController;
-}());
-exports.CodeReviewProjectController = CodeReviewProjectController;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewTaskController.ts":
-/*!**********************************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewTaskController.ts ***!
-  \**********************************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.CodeReviewTaskController = void 0;
-var CodeReviewTaskController = /** @class */ (function () {
-    function CodeReviewTaskController() {
-        var _this = this;
-        this.AddTaskToProject = function (taskName, taskCreatorId, taskReviwerId, projectId, onSuccess) {
-            var data = {
-                "taskName": taskName,
-                "taskCreatorId": taskCreatorId,
-                "taskReviwerId": taskReviwerId,
-                "projectId": projectId,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "PUT",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/add-new-task'
-            });
-        };
-        this.UpdateTask = function (task, onSuccess) {
-            var data = {
-                "taskId": task.Id,
-                "name": task.Name,
-                "status": task.Status,
-                "creatorId": task.CreatorId,
-                "reviewerId": task.ReviewerId,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "PATCH",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/update-task'
-            });
-        };
-        this.LoadTasks = function (taskFilter, onSuccess) {
-            var data = {
-                "projectId": taskFilter.ProjectId,
-                "nameLike": taskFilter.Name,
-                "creatorId": taskFilter.CreatorId,
-                "reviewerId": taskFilter.ReviewerId,
-                "status": taskFilter.Status,
-                "pageNumber": taskFilter.PageNumber,
-                "pageSize": taskFilter.PageSize,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "GET",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/get-project-tasks'
-            });
-        };
-        this.DeleteTask = function (id, onSuccess) {
-            var data = {
-                "taskId": id,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "DELETE",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/delete-task'
-            });
-        };
-    }
-    CodeReviewTaskController.prototype.mapWithResult = function (onSuccess) {
-        return function (xhr, status, jqXHR) {
-            var resp = xhr;
-            if (resp.errors) {
-                //TODO ошибка
-                onSuccess(resp, null);
-            }
-            else {
-                var dataBack = xhr;
-                onSuccess(null, dataBack);
-            }
-        };
-    };
-    return CodeReviewTaskController;
-}());
-exports.CodeReviewTaskController = CodeReviewTaskController;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewUserController.ts":
-/*!**********************************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewUserController.ts ***!
-  \**********************************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.CodeReviewUserController = void 0;
-var CodeReviewUserController = /** @class */ (function () {
-    function CodeReviewUserController() {
-        var _this = this;
-        this.DeleteProjectUser = function (id, onSuccess) {
-            var data = {
-                "userId": id,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "DELETE",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/delete-user'
-            });
-        };
-        this.AddUserToProject = function (newUserName, mainAppUserEmail, projectId, onSuccess) {
-            var data = {
-                "userName": newUserName,
-                "projectId": projectId,
-                "mainAppUserEmail": mainAppUserEmail,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "PUT",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/add-new-user'
-            });
-        };
-        this.ChangeProjectUser = function (user, onSuccess) {
-            var data = {
-                "userId": user.Id,
-                "name": user.Name,
-                "email": user.Email,
-            };
-            G_AjaxHelper.GoAjaxRequest({
-                Data: data,
-                Type: "PATCH",
-                FuncSuccess: function (xhr, status, jqXHR) {
-                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-                },
-                FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/change-user'
-            });
-        };
-    }
-    CodeReviewUserController.prototype.mapWithResult = function (onSuccess) {
-        return function (xhr, status, jqXHR) {
-            var resp = xhr;
-            if (resp.errors) {
-                //TODO ошибка
-                onSuccess(resp, null);
-            }
-            else {
-                var dataBack = xhr;
-                onSuccess(null, dataBack);
-            }
-        };
-    };
-    return CodeReviewUserController;
-}());
-exports.CodeReviewUserController = CodeReviewUserController;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Controllers/MenuApp/ArticleController.ts":
-/*!*********************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Controllers/MenuApp/ArticleController.ts ***!
-  \*********************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ArticleController = exports.IdInput = void 0;
-var IdInput = /** @class */ (function () {
-    function IdInput() {
-    }
-    return IdInput;
-}());
-exports.IdInput = IdInput;
-var ArticleController = /** @class */ (function () {
-    function ArticleController() {
-    }
-    ArticleController.prototype.GetAllShortForUser = function (onSuccess) {
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {},
-            Type: "GET",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var dataBack = xhr;
-                    onSuccess(null, dataBack);
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/article/get-all-short-for-user',
-        });
-    };
-    ArticleController.prototype.GetAllForUser = function (nSuccess) {
-        alert('not implemented');
-    };
-    ArticleController.prototype.Detail = function (model, onSuccess) {
-        var data = {
-            "id": model.Id,
-        };
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "GET",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var dataBack = xhr;
-                    if (dataBack.id && dataBack.id > 0) {
-                        onSuccess(null, dataBack);
-                    }
-                    else {
-                        //ошибка
-                    }
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/article/detail',
-        });
-    };
-    ArticleController.prototype.Follow = function (model, onSuccess) {
-        var data = {
-            "id": model.Id,
-        };
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "PATCH",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var boolRes = xhr;
-                    if (boolRes.result === true || boolRes.result === false) {
-                        onSuccess(null, boolRes);
-                    }
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/article/follow',
-        });
-    };
-    ArticleController.prototype.Create = function (model, success) {
-        var data = {
-            "title": model.Title,
-            "body": model.Body,
-            // "main_image_new":newElement.Image,
-        };
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "PUT",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    success(resp, null);
-                }
-                else {
-                    var resBack = xhr;
-                    if (Number.isInteger(resBack.id) && resBack.id > 0) {
-                        success(null, resBack);
-                        // callBack(resBack);
-                    }
-                    else {
-                        //что то не то вернулось
-                    }
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/article/create',
-        });
-    };
-    ArticleController.prototype.Edit = function (model, success) {
-        var data = new FormData();
-        data.append('id', model.Id + '');
-        data.append('title', model.Title);
-        data.append('body', model.Body);
-        data.append('delete_main_image', JSON.stringify(model.NeedDeleteMainImage));
-        if (model.MainImageSave) {
-            data.append('main_image_new', model.MainImageSave);
-        }
-        if (model.AdditionalImagesSave) {
-            model.AdditionalImagesSave.forEach(function (addImage, index) {
-                data.append('additional_images', addImage); //' + index + '
-            });
-        }
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "PATCH",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    success(resp, null);
-                }
-                else {
-                    var res = xhr;
-                    if (res.id && res.id > 0) {
-                        success(null, res);
-                        // callBack(res);
-                    }
-                    else {
-                        //какая то ошибка
-                    }
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/article/edit',
-        }, true);
-    };
-    return ArticleController;
-}());
-exports.ArticleController = ArticleController;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Controllers/PlaningPoker/PlaningPokerController.ts":
-/*!*******************************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Controllers/PlaningPoker/PlaningPokerController.ts ***!
-  \*******************************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.PlaningPokerController = exports.HubEndpoints = exports.HubEndpointsBack = exports.HubEndpointsFront = void 0;
-var HubEndpointsFront = /** @class */ (function () {
-    function HubEndpointsFront() {
-        this.MovedStoryToComplete = "MovedStoryToComplete";
-        this.DeletedStory = "DeletedStory";
-        this.CurrentStoryChanged = "CurrentStoryChanged";
-        this.NewCurrentStory = "NewCurrentStory";
-        this.AddedNewStory = "AddedNewStory";
-        this.VoteEnd = "VoteEnd";
-        this.VoteStart = "VoteStart";
-        this.UserRoleChanged = "UserRoleChanged";
-        this.VoteChanged = "VoteChanged";
-        this.UserLeaved = "UserLeaved";
-        this.UserNameChanged = "UserNameChanged";
-        this.NewUserInRoom = "NewUserInRoom";
-        this.RoomNotCreated = "RoomNotCreated";
-        this.ConnectedToRoomError = "ConnectedToRoomError";
-        this.EnteredInRoom = "EnteredInRoom";
-        this.PlaningNotifyFromServer = "PlaningNotifyFromServer";
-        this.NeedRefreshTokens = "NeedRefreshTokens";
-        this.NewRoomAlive = "NewRoomAlive";
-    }
-    return HubEndpointsFront;
-}());
-exports.HubEndpointsFront = HubEndpointsFront;
-var HubEndpointsBack = /** @class */ (function () {
-    function HubEndpointsBack() {
-        this.GetConnectionId = "GetConnectionId";
-        this.CreateRoom = "CreateRoom";
-        this.EnterInRoom = "EnterInRoom";
-        this.AddNewStory = "AddNewStory";
-        this.MakeStoryComplete = "MakeStoryComplete";
-        this.ChangeCurrentStory = "ChangeCurrentStory";
-        this.KickUser = "KickUser";
-        this.StartVote = "StartVote";
-        this.EndVote = "EndVote";
-        this.MakeCurrentStory = "MakeCurrentStory";
-        this.DeleteStory = "DeleteStory";
-        this.SaveRoom = "SaveRoom";
-        this.DeleteRoom = "DeleteRoom";
-        this.UserNameChange = "UserNameChange";
-        this.AddNewRoleToUser = "AddNewRoleToUser";
-        this.RemoveRoleUser = "RemoveRoleUser";
-        this.LoadNotActualStories = "LoadNotActualStories";
-        this.Vote = "Vote";
-        this.OnWindowClosedAsync = "OnWindowClosedAsync";
-        this.AliveRoom = "AliveRoom";
-    }
-    return HubEndpointsBack;
-}());
-exports.HubEndpointsBack = HubEndpointsBack;
-var HubEndpoints = /** @class */ (function () {
-    function HubEndpoints() {
-        this.EndpointsFront = new HubEndpointsFront();
-        this.EndpointsBack = new HubEndpointsBack();
-    }
-    return HubEndpoints;
-}());
-exports.HubEndpoints = HubEndpoints;
-var PlaningPokerController = /** @class */ (function () {
-    function PlaningPokerController() {
-        this.EndPoints = new HubEndpoints();
-    }
-    PlaningPokerController.prototype.GetUsersIsRoom = function (roomname, userId, onSuccess) {
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {
-                'roomname': roomname,
-                'userConnectionId': userId
-            },
-            Type: "GET",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var dataBack = xhr;
-                    onSuccess(null, dataBack);
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
-        });
-    };
-    PlaningPokerController.prototype.GetRoomInfo = function (roomname, userId, onSuccess) {
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {
-                'roomname': roomname,
-                'userConnectionId': userId
-            },
-            Type: "GET",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var dataBack = xhr;
-                    onSuccess(null, dataBack);
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/PlanitPoker/get-room-info',
-        });
-    };
-    return PlaningPokerController;
-}());
-exports.PlaningPokerController = PlaningPokerController;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Controllers/UsersController.ts":
-/*!***********************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Controllers/UsersController.ts ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.UsersController = void 0;
-var UsersController = /** @class */ (function () {
-    function UsersController() {
-    }
-    UsersController.prototype.GetShortestUserInfo = function (onSuccess) {
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {},
-            Type: "GET",
-            NotRedirectWhenNotAuth: true,
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var dataBack = xhr;
-                    if (!dataBack.id) {
-                        //TODO какая то ошибка
-                        alert('что то сломалось-1');
-                        return;
-                    }
-                    onSuccess(null, dataBack);
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/users/get-shortest-user-info',
-        });
-    };
-    return UsersController;
-}());
-exports.UsersController = UsersController;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Controllers/WordsCardsApp/WordsCardsController.ts":
-/*!******************************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Controllers/WordsCardsApp/WordsCardsController.ts ***!
-  \******************************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.WordsCardsController = void 0;
-var WordsCardsController = /** @class */ (function () {
-    function WordsCardsController() {
-    }
-    WordsCardsController.prototype.GetAllForUser = function (onSuccess) {
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {},
-            Type: "GET",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    // console.log(xhr);
-                    var dataBack = xhr;
-                    onSuccess(null, dataBack);
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/wordscards/get-all-for-user',
-        }, true);
-    };
-    WordsCardsController.prototype.Create = function (model, onSuccess) {
-        var data = new FormData();
-        data.append('word', model.Word);
-        data.append('word_answer', model.WordAnswer);
-        data.append('description', model.Description);
-        if (model.MainImageSave) {
-            data.append('main_image_new', model.MainImageSave);
-        }
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "PUT",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var res = xhr;
-                    if (res.id && res.id > 0) {
-                        onSuccess(null, res);
-                    }
-                    else {
-                        //что то не то вернулось
-                    }
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/wordscards/create',
-        }, true);
-    };
-    WordsCardsController.prototype.CreateList = function (model, listForCards, success) {
-        var data = new FormData();
-        for (var i = 0; i < model.length; ++i) {
-            data.append('newData[' + i + '].word', model[i].Word);
-            data.append('newData[' + i + '].word_answer', model[i].WordAnswer);
-            data.append('newData[' + i + '].description', model[i].Description);
-            data.append('newData[' + i + '].list_id', listForCards);
-            // data.append('newData.word_answer', this.state.Cards[i].WordAnswer);
-            // data.append('newData.description', this.state.Cards[i].Description);
-        }
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "PUT",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    success(resp, null);
-                }
-                else {
-                    var res = xhr;
-                    if (res.length > 0) {
-                        success(null, res);
-                    }
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/wordscards/create-list',
-        }, true);
-    };
-    WordsCardsController.prototype.Delete = function (cardId, success) {
-        var data = new FormData();
-        data.append('id', cardId + '');
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "DELETE",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    success(resp, null);
-                }
-                else {
-                    //TODO тут может быть ошибка, что мы не дождались ответа серва а выбранная картинка уже изменилась
-                    var res = xhr;
-                    if ((res === null || res === void 0 ? void 0 : res.id) && res.id > 0) {
-                        success(null, res);
-                    }
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/wordscards/delete',
-        }, true);
-    };
-    WordsCardsController.prototype.Update = function (model, onSuccess) {
-        var data = new FormData();
-        data.append('id', model.Id + '');
-        data.append('word', model.Word);
-        data.append('word_answer', model.WordAnswer);
-        data.append('description', model.Description);
-        data.append('delete_main_image', JSON.stringify(model.NeedDeleteMainImage));
-        if (model.MainImageSave) {
-            data.append('main_image_new', model.MainImageSave);
-        }
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "PATCH",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var res = xhr;
-                    if (res.id && res.id > 0) {
-                        onSuccess(null, res);
-                    }
-                    else {
-                        //что то не то вернулось
-                    }
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/wordscards/update',
-        }, true);
-    };
-    WordsCardsController.prototype.Hide = function (cardId, onSuccess) {
-        var data = new FormData();
-        data.append('id', cardId + '');
-        var refThis = this;
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "PATCH",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    //TODO тут может быть ошибка, что мы не дождались ответа серва а выбранная картинка уже изменилась
-                    var res = xhr;
-                    if (res.result === true || res.result === false) {
-                        onSuccess(null, res);
-                    }
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/wordscards/hide',
-        }, true);
-    };
-    WordsCardsController.prototype.CreateFromFile = function () {
-        alert('not implemented');
-    };
-    WordsCardsController.prototype.DownloadAllWordsFile = function () {
-        window.open("/api/wordscards/download-all-words-file");
-    };
-    return WordsCardsController;
-}());
-exports.WordsCardsController = WordsCardsController;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Controllers/WordsCardsApp/WordsListController.ts":
-/*!*****************************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Controllers/WordsCardsApp/WordsListController.ts ***!
-  \*****************************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.WordsListController = void 0;
-var WordsListController = /** @class */ (function () {
-    function WordsListController() {
-    }
-    WordsListController.prototype.GetAllForUser = function (onSuccess) {
-        var refThis = this;
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {},
-            Type: "GET",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var dataBack = xhr;
-                    if (dataBack.length > 0) {
-                        onSuccess(null, dataBack);
-                    }
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/wordslist/get-all-for-user',
-        }, true);
-    };
-    WordsListController.prototype.Create = function (title, onSuccess) {
-        var data = new FormData();
-        data.append('title', title);
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "PUT",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var dataBack = xhr;
-                    if (dataBack.id < 1) {
-                        return;
-                    }
-                    onSuccess(null, dataBack);
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/wordslist/create',
-        }, true);
-    };
-    WordsListController.prototype.RemoveFromList = function (cardId, listId, onSuccess) {
-        var data = new FormData();
-        data.append('card_id', cardId + '');
-        data.append('list_id', listId + '');
-        var refThis = this;
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "DELETE",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    //TODO тут может быть ошибка, что мы не дождались ответа серва а выбранная картинка уже изменилась
-                    var res = xhr;
-                    if (res.result === true || res.result === false) {
-                        onSuccess(null, res);
-                    }
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/wordslist/remove-from-list',
-        }, true);
-    };
-    WordsListController.prototype.AddToList = function (cardId, listId, onSuccess) {
-        var data = new FormData();
-        data.append('card_id', cardId + '');
-        data.append('list_id', listId + '');
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "PUT",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    //TODO тут может быть ошибка, что мы не дождались ответа серва а выбранная картинка уже изменилась
-                    var res = xhr;
-                    if (res.id_list) {
-                        onSuccess(null, res);
-                    }
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/wordslist/add-to-list',
-        }, true);
-    };
-    WordsListController.prototype.Delete = function (id, onSuccess) {
-        var data = new FormData();
-        data.append('id', id + '');
-        var refThis = this;
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "DELETE",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var dataBack = xhr;
-                    if (dataBack.id < 1) {
-                        return;
-                    }
-                    onSuccess(null, dataBack);
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/wordslist/delete',
-        }, true);
-    };
-    WordsListController.prototype.Update = function (model, onSuccess) {
-        var data = new FormData();
-        data.append('title', model.Title);
-        data.append('id', model.Id + '');
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "PATCH",
-            FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var dataBack = xhr;
-                    if (dataBack.id < 1) {
-                        return;
-                    }
-                    onSuccess(null, dataBack);
-                }
-            },
-            FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/wordslist/update',
-        }, true);
-    };
-    return WordsListController;
-}());
-exports.WordsListController = WordsListController;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Models/AlertData.ts":
-/*!************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Models/AlertData.ts ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.AlertData = exports.AlertDataStored = exports.AlertTypeEnum = void 0;
-var AlertTypeEnum;
-(function (AlertTypeEnum) {
-    AlertTypeEnum[AlertTypeEnum["Error"] = 1] = "Error";
-    AlertTypeEnum[AlertTypeEnum["Success"] = 2] = "Success";
-})(AlertTypeEnum = exports.AlertTypeEnum || (exports.AlertTypeEnum = {}));
-;
-var AlertDataStored = /** @class */ (function () {
-    function AlertDataStored() {
-    }
-    AlertDataStored.prototype.FillByAlertData = function (data) {
-        this.Key = data.Key;
-        this.Text = data.Text;
-        this.Type = data.Type;
-    };
-    return AlertDataStored;
-}());
-exports.AlertDataStored = AlertDataStored;
-var AlertData = /** @class */ (function () {
-    function AlertData() {
-        this.Timeout = null;
-    }
-    AlertData.prototype.GetByErrorBack = function (data) {
-        var res = [];
-        data.errors.forEach(function (errBackText) {
-            var newAlert = new AlertData();
-            newAlert.Text = errBackText;
-            newAlert.Type = AlertTypeEnum.Error;
-            // newAlert.Key = data.key;
-            res.push(newAlert);
-        });
-        return res;
-    };
-    return AlertData;
-}());
-exports.AlertData = AlertData;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Models/CustomImage.ts":
-/*!**************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Models/CustomImage.ts ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.CustomImage = void 0;
-var CustomImage = /** @class */ (function () {
-    function CustomImage() {
-    }
-    CustomImage.prototype.FillByBackModel = function (newData) {
-        this.Id = newData.id;
-        this.Path = newData.path;
-        this.ArticleId = newData.article_id;
-    };
-    return CustomImage;
-}());
-exports.CustomImage = CustomImage;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Models/ErrorHandleLogic.ts":
-/*!*******************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Models/ErrorHandleLogic.ts ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.MainErrorHandler = void 0;
-var MainErrorHandler = /** @class */ (function () {
-    function MainErrorHandler() {
-    }
-    MainErrorHandler.prototype.NotAuth = function () {
-        document.location.href = "/menu/auth/login/";
-    };
-    return MainErrorHandler;
-}());
-exports.MainErrorHandler = MainErrorHandler;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Models/MenuApp/OneCardInListData.ts":
-/*!****************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Models/MenuApp/OneCardInListData.ts ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.OneCardInListData = void 0;
-var OneCardInListData = /** @class */ (function () {
-    function OneCardInListData(backModel) {
-        if (backModel) {
-            this.FillByBackModel(backModel);
-        }
-    }
-    OneCardInListData.prototype.FillByFullModel = function (newData) {
-        this.Id = newData.Id;
-        this.Title = newData.Title;
-        this.Body = newData.Body;
-        this.Image = newData.Image;
-        this.Followed = newData.Followed;
-    };
-    OneCardInListData.prototype.FillByBackModel = function (backModel) {
-        this.Id = backModel.id;
-        this.Title = backModel.title;
-        this.Body = backModel.body;
-        this.Image = backModel.image;
-        this.Followed = backModel.followed;
-    };
-    return OneCardInListData;
-}());
-exports.OneCardInListData = OneCardInListData;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Models/MenuApp/Poco/IOneCardFullDataEdit.ts":
-/*!************************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Models/MenuApp/Poco/IOneCardFullDataEdit.ts ***!
-  \************************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.OneCardFullDataEdit = void 0;
-var OneCardFullDataEdit = /** @class */ (function () {
-    function OneCardFullDataEdit() {
-        this.AdditionalImagesSave = [];
-        // this.AdditionalImagesForRemove = [];
-        // this.AdditionalImagesEdit = [];
-    }
-    return OneCardFullDataEdit;
-}());
-exports.OneCardFullDataEdit = OneCardFullDataEdit;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Models/Poco/AppItem.ts":
-/*!***************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Models/Poco/AppItem.ts ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.AppItem = void 0;
-var AppItem = /** @class */ (function () {
-    function AppItem(init) {
-        Object.assign(this, init);
-    }
-    return AppItem;
-}());
-exports.AppItem = AppItem;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Models/WordsCardsApp/OneWordCard.ts":
-/*!****************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Models/WordsCardsApp/OneWordCard.ts ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.OneWordCard = void 0;
-var WordCardWordList_1 = __webpack_require__(/*! ./WordCardWordList */ "./src/components/_ComponentsLink/Models/WordsCardsApp/WordCardWordList.ts");
-var OneWordCard = /** @class */ (function () {
-    function OneWordCard() {
-    }
-    OneWordCard.prototype.FillByBackModel = function (newData) {
-        this.Id = newData.id;
-        this.ImagePath = newData.image_path;
-        this.Word = newData.word;
-        this.WordAnswer = newData.word_answer;
-        this.Hided = newData.hided;
-        this.Description = newData.description;
-        this.UserId = newData.user_id;
-        this.Lists = newData.lists.map(function (x) {
-            var lst = new WordCardWordList_1.WordCardWordList();
-            lst.FillByBackModel(x);
-            return lst;
-        });
-    };
-    return OneWordCard;
-}());
-exports.OneWordCard = OneWordCard;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Models/WordsCardsApp/OneWordList.ts":
-/*!****************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Models/WordsCardsApp/OneWordList.ts ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.OneWordList = void 0;
-var OneWordList = /** @class */ (function () {
-    function OneWordList() {
-    }
-    OneWordList.prototype.FillByBackModel = function (newData) {
-        this.Id = newData.id;
-        this.Title = newData.title;
-    };
-    return OneWordList;
-}());
-exports.OneWordList = OneWordList;
-
-
-/***/ }),
-
-/***/ "./src/components/_ComponentsLink/Models/WordsCardsApp/WordCardWordList.ts":
-/*!*********************************************************************************!*\
-  !*** ./src/components/_ComponentsLink/Models/WordsCardsApp/WordCardWordList.ts ***!
-  \*********************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.WordCardWordList = void 0;
-var WordCardWordList = /** @class */ (function () {
-    function WordCardWordList() {
-    }
-    WordCardWordList.prototype.FillByBackModel = function (newData) {
-        this.IdList = newData.id_list;
-        this.IdWord = newData.id_word;
-    };
-    return WordCardWordList;
-}());
-exports.WordCardWordList = WordCardWordList;
-
-
-/***/ }),
-
 /***/ "./src/index.tsx":
 /*!***********************!*\
   !*** ./src/index.tsx ***!
@@ -70320,18 +70702,18 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var client_1 = __importDefault(__webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js"));
 var MainComponent_1 = __importDefault(__webpack_require__(/*! ./components/MainComponent */ "./src/components/MainComponent.tsx"));
-var AjaxLogic_1 = __webpack_require__(/*! ./components/_ComponentsLink/AjaxLogic */ "./src/components/_ComponentsLink/AjaxLogic.ts");
-var AuthenticateController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/AuthenticateController */ "./src/components/_ComponentsLink/Controllers/AuthenticateController.ts");
-var CodeReviewCommentController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewCommentController */ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewCommentController.ts");
-var CodeReviewProjectController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewProjectController */ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewProjectController.ts");
-var CodeReviewTaskController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewTaskController */ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewTaskController.ts");
-var CodeReviewUserController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewUserController */ "./src/components/_ComponentsLink/Controllers/CodeReviewApp/CodeReviewUserController.ts");
-var ArticleController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/MenuApp/ArticleController */ "./src/components/_ComponentsLink/Controllers/MenuApp/ArticleController.ts");
-var PlaningPokerController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/PlaningPoker/PlaningPokerController */ "./src/components/_ComponentsLink/Controllers/PlaningPoker/PlaningPokerController.ts");
-var UsersController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/UsersController */ "./src/components/_ComponentsLink/Controllers/UsersController.ts");
-var WordsCardsController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/WordsCardsApp/WordsCardsController */ "./src/components/_ComponentsLink/Controllers/WordsCardsApp/WordsCardsController.ts");
-var WordsListController_1 = __webpack_require__(/*! ./components/_ComponentsLink/Controllers/WordsCardsApp/WordsListController */ "./src/components/_ComponentsLink/Controllers/WordsCardsApp/WordsListController.ts");
-var ErrorHandleLogic_1 = __webpack_require__(/*! ./components/_ComponentsLink/Models/ErrorHandleLogic */ "./src/components/_ComponentsLink/Models/ErrorHandleLogic.ts");
+var AjaxLogic_1 = __webpack_require__(/*! ./Models/AjaxLogic */ "./src/Models/AjaxLogic.ts");
+var AuthenticateController_1 = __webpack_require__(/*! ./Models/Controllers/AuthenticateController */ "./src/Models/Controllers/AuthenticateController.ts");
+var CodeReviewCommentController_1 = __webpack_require__(/*! ./Models/Controllers/CodeReviewApp/CodeReviewCommentController */ "./src/Models/Controllers/CodeReviewApp/CodeReviewCommentController.ts");
+var CodeReviewProjectController_1 = __webpack_require__(/*! ./Models/Controllers/CodeReviewApp/CodeReviewProjectController */ "./src/Models/Controllers/CodeReviewApp/CodeReviewProjectController.ts");
+var CodeReviewTaskController_1 = __webpack_require__(/*! ./Models/Controllers/CodeReviewApp/CodeReviewTaskController */ "./src/Models/Controllers/CodeReviewApp/CodeReviewTaskController.ts");
+var CodeReviewUserController_1 = __webpack_require__(/*! ./Models/Controllers/CodeReviewApp/CodeReviewUserController */ "./src/Models/Controllers/CodeReviewApp/CodeReviewUserController.ts");
+var ArticleController_1 = __webpack_require__(/*! ./Models/Controllers/MenuApp/ArticleController */ "./src/Models/Controllers/MenuApp/ArticleController.ts");
+var PlaningPokerController_1 = __webpack_require__(/*! ./Models/Controllers/PlaningPoker/PlaningPokerController */ "./src/Models/Controllers/PlaningPoker/PlaningPokerController.ts");
+var UsersController_1 = __webpack_require__(/*! ./Models/Controllers/UsersController */ "./src/Models/Controllers/UsersController.ts");
+var WordsCardsController_1 = __webpack_require__(/*! ./Models/Controllers/WordsCardsApp/WordsCardsController */ "./src/Models/Controllers/WordsCardsApp/WordsCardsController.ts");
+var WordsListController_1 = __webpack_require__(/*! ./Models/Controllers/WordsCardsApp/WordsListController */ "./src/Models/Controllers/WordsCardsApp/WordsListController.ts");
+var ErrorHandleLogic_1 = __webpack_require__(/*! ./Models/Models/ErrorHandleLogic */ "./src/Models/Models/ErrorHandleLogic.ts");
 __webpack_require__(/*! ../style/main.css */ "./style/main.css");
 __webpack_require__(/*! ../style/auth.css */ "./style/auth.css");
 __webpack_require__(/*! ../style/body.css */ "./style/body.css");

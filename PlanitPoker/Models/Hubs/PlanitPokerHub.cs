@@ -530,7 +530,7 @@ namespace PlanitPoker.Models.Hubs
         public async Task OnWindowClosedAsync(string roomName)//, string userId
         {
             var httpContext = Context.GetHttpContext();
-            await _apiHealper.DoStandartSomething(async () =>
+            await _apiHealper.DoStandartSomethingWithoutResponse(async () =>
             {
                 if (!string.IsNullOrWhiteSpace(roomName))
                 {
@@ -546,7 +546,9 @@ namespace PlanitPoker.Models.Hubs
                     }
                 }
 
-            }, httpContext.Response, _logger);
+                return true;
+
+            }, true, _logger);
 
 
         }

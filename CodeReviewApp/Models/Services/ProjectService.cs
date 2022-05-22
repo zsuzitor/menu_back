@@ -112,7 +112,7 @@ namespace CodeReviewApp.Models.Services
 
         public async Task<bool> DeleteAsync(long projectId, UserInfo userInfo)
         {
-            var project = await _projectRepository.GetByIdIfAccessAsync(projectId, userInfo.UserId);
+            var project = await _projectRepository.GetByIdIfAccessAdminAsync(projectId, userInfo.UserId);
             if (project == null)
             {
                 throw new SomeCustomException("project_not_found");//todo поиск и вынести

@@ -17,7 +17,7 @@ namespace CodeReviewApp.Models.Services.Interfaces
         /// <returns></returns>
         Task<List<ProjectUser>> GetProjectUsersAsync(long projectId);
 
-        Task<ProjectUser> ChangeAsync(long userId, string name, string email, UserInfo userInfo);
+        Task<ProjectUser> ChangeAsync(long userId, string name, string email, bool isAdmin, UserInfo userInfo);
         Task<ProjectUser> DeleteAsync(long userId, UserInfo userInfo);
         Task<ProjectUser> GetByMainAppIdAsync(UserInfo userInfo);
         Task<long?> GetIdByMainAppIdAsync(UserInfo userInfo);
