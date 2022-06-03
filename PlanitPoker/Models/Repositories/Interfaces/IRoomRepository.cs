@@ -8,10 +8,10 @@ namespace PlanitPoker.Models.Repositories.Interfaces
 {
     public interface IRoomRepository : IGeneralRepository<PlaningRoomDal, long>
     {
-        Task<PlaningRoomDal> GetByName(string name);
-        Task<bool> Exist(string name);
-        Task<PlaningRoomDal> DeleteByName(string name);
-        Task LoadStories(PlaningRoomDal room);
-        Task LoadUsers(PlaningRoomDal room);
+        Task<PlaningRoomDal> GetByNameAsync(string name);
+        Task<bool> ExistAsync(string name);
+        Task<PlaningRoomDal> DeleteByNameAsync(string name);
+        Task LoadStoriesAsync(PlaningRoomDal room);
+        Task LoadUsersAsync(PlaningRoomDal room);
     }
 }

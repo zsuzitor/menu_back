@@ -17,10 +17,10 @@ namespace PlanitPoker.Models.Returns
         [JsonPropertyName("users_info")]
         public List<EndVoteUserInfo> UsersInfo { get; set; }
         [JsonPropertyName("average_vote")]
-        public double Average { get; set; }
+        public decimal Average { get; set; }
         [JsonPropertyName("min_vote")]
-        public int MinVote { get; set; }
+        public decimal MinVote { get; set; }
         [JsonPropertyName("max_vote")]
-        public int MaxVote { get; set; }
+        public decimal MaxVote { get; set; }
     }
 }

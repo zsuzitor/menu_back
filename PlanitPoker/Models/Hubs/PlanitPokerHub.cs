@@ -15,6 +15,7 @@ using PlanitPoker.Models.Helpers;
 using PlanitPoker.Models.Returns;
 using PlanitPoker.Models.Services;
 using Microsoft.Extensions.Logging;
+using System.Text.RegularExpressions;
 
 namespace PlanitPoker.Models.Hubs
 {
@@ -89,6 +90,7 @@ namespace PlanitPoker.Models.Hubs
             var httpContext = Context.GetHttpContext();
             await _apiHealper.DoStandartSomething(async () =>
             {
+                ValidateRoomName(roomName);
                 roomName = NormalizeRoomName(roomName);
                 username = ValidateString(username);
                 if (string.IsNullOrWhiteSpace(password))
@@ -758,6 +760,15 @@ namespace PlanitPoker.Models.Hubs
         private string NormalizeRoomName(string roomName)
         {
             return ValidateString(roomName).ToUpper();
+        }
+
+        private void ValidateRoomName(string roomName)
+        {
+            var rg = new Regex("^[a-zA-Z0-9_]{1,30}$");
+            if (!rg.Match(roomName).Success)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.BadRoomNameWithRoomCreating);
+            }
         }
     }
 }

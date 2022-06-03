@@ -11,7 +11,7 @@ namespace PlanitPoker.Models
         public StoredRoom StoredRoom { get; set; }
         //private object LockObject { get; set; }
         //private ReaderWriterLock RWL { get; set; }
-        private SemaphoreSlim SemaphoreSlimLock { get; set; }
+        private readonly SemaphoreSlim SemaphoreSlimLock;
 
         public Room(StoredRoom rm)
         {

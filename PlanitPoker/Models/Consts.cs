@@ -27,6 +27,7 @@ namespace PlanitPoker.Models
             public const string RoomAlreadyExist = "planing_poker_room_already_exist";
             public const string RoomNotFound = "planing_poker_room_not_found";
             public const string SomeErrorWithRoomCreating = "planing_poker_some_error_with_room_creating";
+            public const string BadRoomNameWithRoomCreating = "planing_poker_bad_roomname_with_room_creating";
             public const string DontHaveAccess = "planing_poker_dont_have_access";
             public const string CantVote = "planing_poker_cant_vote";
             public const string StoryNotFound = "planing_poker_story_not_found";

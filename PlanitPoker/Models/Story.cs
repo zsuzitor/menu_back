@@ -23,7 +23,7 @@ namespace PlanitPoker.Models
         public Guid TmpId { get; set; }//запись не добавлена в бд, временный id
         public string Name { get; set; }
         public string Description { get; set; }
-        public double Vote { get; set; }
+        public decimal Vote { get; set; }
         public DateTime Date { get; set; }
         public bool Completed { get; set; }
 

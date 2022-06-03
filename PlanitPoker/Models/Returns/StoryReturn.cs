@@ -12,7 +12,7 @@ namespace PlanitPoker.Models.Returns
         [JsonPropertyName("description")]
         public string Description { get; set; }
         [JsonPropertyName("vote")]
-        public double Vote { get; set; }
+        public decimal Vote { get; set; }
         [JsonPropertyName("date")]
         public DateTime Date { get; set; }
         [JsonPropertyName("completed")]

@@ -17,6 +17,7 @@ namespace PlanitPoker.Models
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.PlanitUserNotFound, "Пользователь не найден");
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomAlreadyExist, "Комната уже существует");
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.SomeErrorWithRoomCreating, "Неизвестная ошибка при создании комнаты");
+            errorContainer.InitError(Consts.PlanitPokerErrorConsts.BadRoomNameWithRoomCreating, "Нельзя использовать данное название, разрешены англ буквы+цифры до 30 знаков");
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomNotFound, "Комната не найдена");
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.DontHaveAccess, "Нет доступа");
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.CantVote, "Нельзя проголосовать");

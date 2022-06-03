@@ -19,14 +19,14 @@ namespace PlanitPoker.Models.Repositories
         }
 
 
-        public async Task<PlaningRoomDal> GetByName(string name)
+        public async Task<PlaningRoomDal> GetByNameAsync(string name)
         {
             return await _db.PlaningRooms.FirstOrDefaultAsync(x => x.Name == name.ToUpper());
         }
 
-        public async Task<PlaningRoomDal> DeleteByName(string name)
+        public async Task<PlaningRoomDal> DeleteByNameAsync(string name)
         {
-            var res = await GetByName(name);
+            var res = await GetByNameAsync(name);
             if (res != null)
             {
                 _db.PlaningRooms.Remove(res);
@@ -37,7 +37,7 @@ namespace PlanitPoker.Models.Repositories
         }
 
 
-        public async Task LoadStories(PlaningRoomDal room)
+        public async Task LoadStoriesAsync(PlaningRoomDal room)
         {
             if (room == null)
             {
@@ -48,12 +48,12 @@ namespace PlanitPoker.Models.Repositories
             await _db.Entry(room).Collection(x => x.Stories).LoadAsync();
         }
 
-        public async Task<bool> Exist(string name)
+        public async Task<bool> ExistAsync(string name)
         {
             return (await _db.PlaningRooms.Where(x => x.Name == name.ToUpper()).Select(x => x.Id).FirstOrDefaultAsync()) != 0;
         }
 
-        public async Task LoadUsers(PlaningRoomDal room)
+        public async Task LoadUsersAsync(PlaningRoomDal room)
         {
             if (room == null)
             {

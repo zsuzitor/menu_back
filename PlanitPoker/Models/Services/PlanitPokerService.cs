@@ -12,6 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Common.Models.Exceptions;
 using Common.Models.Error;
+using System.Globalization;
 
 namespace PlanitPoker.Models.Services
 {
@@ -143,7 +144,10 @@ namespace PlanitPoker.Models.Services
                 return null;
             }
 
-            var arrForMath = res.Where(x => x.hasVote && int.TryParse(x.vote, out _)).Select(x => int.Parse(x.vote))
+            NumberStyles styles = NumberStyles.Number;
+            var cultureInfo = new CultureInfo("en-US");
+            var arrForMath = res.Where(x => x.hasVote && decimal.TryParse(x.vote?.Replace('.', ','), styles, cultureInfo, out _))
+                .Select(x => decimal.Parse(x.vote, styles, cultureInfo))
                 .ToList();
             var result = new EndVoteInfo();
             if (arrForMath.Any())
@@ -180,7 +184,7 @@ namespace PlanitPoker.Models.Services
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
             }
 
-            await _roomRepository.DeleteByName(roomName);
+            await _roomRepository.DeleteByNameAsync(roomName);
             return room;
         }
 
@@ -402,7 +406,7 @@ namespace PlanitPoker.Models.Services
 
             var roomData = new StoredRoom(roomName, password);
             var room = new Room(roomData);
-            var roomFromDb = await _roomRepository.Exist(roomName);
+            var roomFromDb = await _roomRepository.ExistAsync(roomName);
             if (roomFromDb) // != null
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomAlreadyExist);
@@ -516,7 +520,12 @@ namespace PlanitPoker.Models.Services
             return (user, rs);
         }
 
-
+        /// <summary>
+        /// тянет еще и из бд
+        /// </summary>
+        /// <param name="roomName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public async Task<Room> TryGetRoom(string roomName, string password)
         {
             if (string.IsNullOrWhiteSpace(password))
@@ -595,7 +604,7 @@ namespace PlanitPoker.Models.Services
                     return null;
                 }
 
-                var roomFromDb = await _roomRepository.GetByName(roomName);
+                var roomFromDb = await _roomRepository.GetByNameAsync(roomName);
 
 
                 var dbRoom = await GetRoomFromDbObject(roomFromDb);
@@ -619,7 +628,7 @@ namespace PlanitPoker.Models.Services
 
         public async Task<bool> UserIsAdmin(string roomName, string userConnectionIdRequest)
         {
-            var room = await TryGetRoom(roomName, false);
+            var room = await TryGetRoom(roomName);
             return UserIsAdmin(room, userConnectionIdRequest);
         }
 
@@ -1175,7 +1184,7 @@ namespace PlanitPoker.Models.Services
                 }).ToList()
             };
 
-            await _roomRepository.LoadUsers(roomDb);
+            await _roomRepository.LoadUsersAsync(roomDb);
             storedRoom.Users = //(await _planingUserRepository.GetForRoom(roomDb.Id))
                 roomDb.Users.Select(x =>
                 {
@@ -1240,7 +1249,7 @@ namespace PlanitPoker.Models.Services
                 }
 
                 //вообще смысла вроде как нет, но на всякий случай пусть будет
-                var roomFromDbByName = await _roomRepository.GetByName(rm.StoredRoom.Name);
+                var roomFromDbByName = await _roomRepository.GetByNameAsync(rm.StoredRoom.Name);
                 if (roomFromDbByName?.Id != roomFromDb?.Id)
                 {
                     throw new SomeCustomException("имя каким то образом задублилось"); //todo
@@ -1260,8 +1269,8 @@ namespace PlanitPoker.Models.Services
                     roomFromDb.Name = objForSave.Name;
                     roomFromDb.Password = objForSave.Password;
                     //истории и пользователей лишние удалить, новые добавить \ обновить
-                    await _roomRepository.LoadStories(roomFromDb);
-                    await _roomRepository.LoadUsers(roomFromDb);
+                    await _roomRepository.LoadStoriesAsync(roomFromDb);
+                    await _roomRepository.LoadUsersAsync(roomFromDb);
                     await AddNewStoriesToDb(room, roomFromDb.Id);
                     foreach (var usCh in room.StoredRoom.Users)
                     {

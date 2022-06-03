@@ -62679,6 +62679,140 @@ exports.OneCardFullDataEdit = OneCardFullDataEdit;
 
 /***/ }),
 
+/***/ "./src/Models/Models/PlaningPoker/RoomInfo.ts":
+/*!****************************************************!*\
+  !*** ./src/Models/Models/PlaningPoker/RoomInfo.ts ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.StoriesHelper = exports.Story = exports.VoteInfo = exports.PlaningPokerUserInfo = exports.UserInRoom = exports.UserRoles = exports.RoomStatus = exports.RoomInfo = void 0;
+//todo хорошо бы по файликам раскидать
+var RoomInfo = /** @class */ (function () {
+    function RoomInfo() {
+        this.Name = "";
+        this.Password = "";
+        this.InRoom = false;
+    }
+    return RoomInfo;
+}());
+exports.RoomInfo = RoomInfo;
+var RoomStatus;
+(function (RoomStatus) {
+    RoomStatus[RoomStatus["None"] = 0] = "None";
+    RoomStatus[RoomStatus["AllCanVote"] = 1] = "AllCanVote";
+    RoomStatus[RoomStatus["CloseVote"] = 2] = "CloseVote";
+})(RoomStatus = exports.RoomStatus || (exports.RoomStatus = {}));
+;
+var UserRoles = /** @class */ (function () {
+    function UserRoles() {
+    }
+    UserRoles.User = "User";
+    UserRoles.Admin = "Admin";
+    UserRoles.Creator = "Creator";
+    UserRoles.Observer = "Observer";
+    return UserRoles;
+}());
+exports.UserRoles = UserRoles;
+var UserInRoom = /** @class */ (function () {
+    function UserInRoom() {
+    }
+    UserInRoom.prototype.FillByBackModel = function (newData) {
+        this.Id = newData.id;
+        this.Name = newData.name;
+        this.Vote = newData.vote;
+        this.Roles = newData.roles;
+        this.HasVote = newData.has_vote;
+    };
+    UserInRoom.prototype.IsAdmin = function () {
+        return this.Roles.includes(UserRoles.Creator) || this.Roles.includes(UserRoles.Admin);
+    };
+    ;
+    UserInRoom.prototype.CanVote = function () {
+        //должно быть синхронно с бэком
+        return !this.Roles.includes(UserRoles.Observer);
+    };
+    ;
+    return UserInRoom;
+}());
+exports.UserInRoom = UserInRoom;
+var PlaningPokerUserInfo = /** @class */ (function () {
+    function PlaningPokerUserInfo() {
+        this.UserName = "";
+        this.UserId = "";
+        this.UserConnectionId = "";
+        this.LoginnedInMainApp = false;
+    }
+    return PlaningPokerUserInfo;
+}());
+exports.PlaningPokerUserInfo = PlaningPokerUserInfo;
+var VoteInfo = /** @class */ (function () {
+    function VoteInfo() {
+        this.MaxVote = 0;
+        this.MinVote = 0;
+        this.AverageVote = 0;
+        this.AllAreVoted = false;
+    }
+    VoteInfo.prototype.FillByBackModel = function (newData) {
+        this.MaxVote = newData.max_vote;
+        this.MinVote = newData.min_vote;
+        this.AverageVote = newData.average_vote;
+        this.AllAreVoted = false;
+    };
+    return VoteInfo;
+}());
+exports.VoteInfo = VoteInfo;
+var Story = /** @class */ (function () {
+    function Story() {
+        this.Id = "";
+        // this.InitWithServer = false;
+        this.Name = "";
+        this.Description = "";
+        this.Vote = null;
+        this.Date = null;
+        this.Completed = false;
+    }
+    Story.prototype.FillByBackModel = function (newData) {
+        this.Id = newData.id;
+        this.Name = newData.name;
+        this.Description = newData.description;
+        this.Vote = newData.vote;
+        this.Date = newData.date;
+        this.Completed = newData.completed;
+    };
+    return Story;
+}());
+exports.Story = Story;
+var StoriesHelper = /** @class */ (function () {
+    function StoriesHelper() {
+        var _this = this;
+        this.GetStoryIndexById = function (stories, storyId) {
+            if (!storyId) {
+                return -1;
+            }
+            var index = stories.findIndex(function (x) { return x.Id === storyId; });
+            if (index < 0 || index >= stories.length) {
+                return -1;
+            }
+            return index;
+        };
+        this.GetStoryById = function (stories, storyId) {
+            var index = _this.GetStoryIndexById(stories, storyId);
+            if (index < 0) {
+                return;
+            }
+            return stories[index];
+        };
+    }
+    return StoriesHelper;
+}());
+exports.StoriesHelper = StoriesHelper;
+
+
+/***/ }),
+
 /***/ "./src/Models/Models/Poco/AppItem.ts":
 /*!*******************************************!*\
   !*** ./src/Models/Models/Poco/AppItem.ts ***!
@@ -66370,140 +66504,6 @@ exports["default"] = Index;
 
 /***/ }),
 
-/***/ "./src/components/Body/PlaningPoker/Models/RoomInfo.ts":
-/*!*************************************************************!*\
-  !*** ./src/components/Body/PlaningPoker/Models/RoomInfo.ts ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.StoriesHelper = exports.Story = exports.VoteInfo = exports.PlaningPokerUserInfo = exports.UserInRoom = exports.UserRoles = exports.RoomStatus = exports.RoomInfo = void 0;
-//todo хорошо бы по файликам раскидать
-var RoomInfo = /** @class */ (function () {
-    function RoomInfo() {
-        this.Name = "";
-        this.Password = "";
-        this.InRoom = false;
-    }
-    return RoomInfo;
-}());
-exports.RoomInfo = RoomInfo;
-var RoomStatus;
-(function (RoomStatus) {
-    RoomStatus[RoomStatus["None"] = 0] = "None";
-    RoomStatus[RoomStatus["AllCanVote"] = 1] = "AllCanVote";
-    RoomStatus[RoomStatus["CloseVote"] = 2] = "CloseVote";
-})(RoomStatus = exports.RoomStatus || (exports.RoomStatus = {}));
-;
-var UserRoles = /** @class */ (function () {
-    function UserRoles() {
-    }
-    UserRoles.User = "User";
-    UserRoles.Admin = "Admin";
-    UserRoles.Creator = "Creator";
-    UserRoles.Observer = "Observer";
-    return UserRoles;
-}());
-exports.UserRoles = UserRoles;
-var UserInRoom = /** @class */ (function () {
-    function UserInRoom() {
-    }
-    UserInRoom.prototype.FillByBackModel = function (newData) {
-        this.Id = newData.id;
-        this.Name = newData.name;
-        this.Vote = newData.vote;
-        this.Roles = newData.roles;
-        this.HasVote = newData.has_vote;
-    };
-    UserInRoom.prototype.IsAdmin = function () {
-        return this.Roles.includes(UserRoles.Creator) || this.Roles.includes(UserRoles.Admin);
-    };
-    ;
-    UserInRoom.prototype.CanVote = function () {
-        //должно быть синхронно с бэком
-        return !this.Roles.includes(UserRoles.Observer);
-    };
-    ;
-    return UserInRoom;
-}());
-exports.UserInRoom = UserInRoom;
-var PlaningPokerUserInfo = /** @class */ (function () {
-    function PlaningPokerUserInfo() {
-        this.UserName = "";
-        this.UserId = "";
-        this.UserConnectionId = "";
-        this.LoginnedInMainApp = false;
-    }
-    return PlaningPokerUserInfo;
-}());
-exports.PlaningPokerUserInfo = PlaningPokerUserInfo;
-var VoteInfo = /** @class */ (function () {
-    function VoteInfo() {
-        this.MaxVote = 0;
-        this.MinVote = 0;
-        this.AverageVote = 0;
-        this.AllAreVoted = false;
-    }
-    VoteInfo.prototype.FillByBackModel = function (newData) {
-        this.MaxVote = newData.max_vote;
-        this.MinVote = newData.min_vote;
-        this.AverageVote = newData.average_vote;
-        this.AllAreVoted = false;
-    };
-    return VoteInfo;
-}());
-exports.VoteInfo = VoteInfo;
-var Story = /** @class */ (function () {
-    function Story() {
-        this.Id = "";
-        // this.InitWithServer = false;
-        this.Name = "";
-        this.Description = "";
-        this.Vote = null;
-        this.Date = null;
-        this.Completed = false;
-    }
-    Story.prototype.FillByBackModel = function (newData) {
-        this.Id = newData.id;
-        this.Name = newData.name;
-        this.Description = newData.description;
-        this.Vote = newData.vote;
-        this.Date = newData.date;
-        this.Completed = newData.completed;
-    };
-    return Story;
-}());
-exports.Story = Story;
-var StoriesHelper = /** @class */ (function () {
-    function StoriesHelper() {
-        var _this = this;
-        this.GetStoryIndexById = function (stories, storyId) {
-            if (!storyId) {
-                return -1;
-            }
-            var index = stories.findIndex(function (x) { return x.Id === storyId; });
-            if (index < 0 || index >= stories.length) {
-                return -1;
-            }
-            return index;
-        };
-        this.GetStoryById = function (stories, storyId) {
-            var index = _this.GetStoryIndexById(stories, storyId);
-            if (index < 0) {
-                return;
-            }
-            return stories[index];
-        };
-    }
-    return StoriesHelper;
-}());
-exports.StoriesHelper = StoriesHelper;
-
-
-/***/ }),
-
 /***/ "./src/components/Body/PlaningPoker/OneVoteCard.tsx":
 /*!**********************************************************!*\
   !*** ./src/components/Body/PlaningPoker/OneVoteCard.tsx ***!
@@ -66576,7 +66576,7 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var Index_1 = __importDefault(__webpack_require__(/*! ./Index */ "./src/components/Body/PlaningPoker/Index.tsx"));
 var Room_1 = __importDefault(__webpack_require__(/*! ./Room */ "./src/components/Body/PlaningPoker/Room.tsx"));
 var AlertData_1 = __webpack_require__(/*! ../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
-var RoomInfo_1 = __webpack_require__(/*! ./Models/RoomInfo */ "./src/components/Body/PlaningPoker/Models/RoomInfo.ts");
+var RoomInfo_1 = __webpack_require__(/*! ../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
 // import { HubConnection } from '@microsoft/signalr';
 // import signalR, { HubConnection } from "@aspnet/signalr";
 var signalR = __importStar(__webpack_require__(/*! @aspnet/signalr */ "./node_modules/@aspnet/signalr/dist/esm/index.js"));
@@ -66880,7 +66880,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 // import * as React from "react";
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var RoomInfo_1 = __webpack_require__(/*! ./Models/RoomInfo */ "./src/components/Body/PlaningPoker/Models/RoomInfo.ts");
+var RoomInfo_1 = __webpack_require__(/*! ../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 var UserInList_1 = __importDefault(__webpack_require__(/*! ./UserInList */ "./src/components/Body/PlaningPoker/UserInList.tsx"));
 var OneVoteCard_1 = __importDefault(__webpack_require__(/*! ./OneVoteCard */ "./src/components/Body/PlaningPoker/OneVoteCard.tsx"));
@@ -67388,15 +67388,15 @@ var Room = function (props) {
     }); };
     var renderVotePlaceIfNeed = function () {
         if (roomStatusState !== RoomInfo_1.RoomStatus.AllCanVote) {
-            return react_1.default.createElement("div", null);
+            return react_1.default.createElement(react_1.default.Fragment, null);
         }
-        var voteArr = [1, 2, 3, 5, 7, 10, 13, 15, 18, 20, 25, 30, 35, 40, 50, "tea"];
-        return react_1.default.createElement("div", { onClick: function (e) { return doVote(e); }, className: "planing-cards-container" }, voteArr.map(function (x) { return react_1.default.createElement(OneVoteCard_1.default, { key: x, Val: x + '', NeedSelect: selectedVoteCard == x }); }));
+        var voteArr = [0.5, 1, 2, 3, 5, 7, 10, 13, 15, 18, 20, 25, 30, 35, 40, 50, "tea"];
+        return react_1.default.createElement("div", { onClick: function (e) { return doVote(e); }, className: "planing-cards-container" }, voteArr.map(function (x, i) { return react_1.default.createElement(OneVoteCard_1.default, { key: i, Val: x + '', NeedSelect: selectedVoteCard == x }); }));
     };
     var renderVoteResultIfNeed = function () {
         //UNCOMMENT
         if (roomStatusState !== RoomInfo_1.RoomStatus.CloseVote) {
-            return react_1.default.createElement("div", null);
+            return react_1.default.createElement(react_1.default.Fragment, null);
         }
         return react_1.default.createElement("div", null,
             react_1.default.createElement("div", { className: "padding-10-top" }),
@@ -67673,7 +67673,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var RoomInfo_1 = __webpack_require__(/*! ./Models/RoomInfo */ "./src/components/Body/PlaningPoker/Models/RoomInfo.ts");
+var RoomInfo_1 = __webpack_require__(/*! ../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
 var StoriesSectionProp = /** @class */ (function () {
     function StoriesSectionProp() {
@@ -67934,7 +67934,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var RoomInfo_1 = __webpack_require__(/*! ./Models/RoomInfo */ "./src/components/Body/PlaningPoker/Models/RoomInfo.ts");
+var RoomInfo_1 = __webpack_require__(/*! ../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
 var UserInListProp = /** @class */ (function () {
     function UserInListProp() {
     }

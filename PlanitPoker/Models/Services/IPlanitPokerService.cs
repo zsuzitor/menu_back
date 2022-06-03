@@ -59,6 +59,13 @@ namespace PlanitPoker.Models.Services
         Task<bool> ChangeStatusIfCan(Room room, string userConnectionIdRequest, RoomSatus newStatus);
 
         //Task<bool> RoomIsExist(string roomName);
+
+        /// <summary>
+        /// тянет еще и из бд
+        /// </summary>
+        /// <param name="roomName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         Task<Room> TryGetRoom(string roomName, string password);
         Task<Room> TryGetRoom(string roomName, bool cacheOnly = true);
         Task<bool> UserIsAdmin(string roomName, string userConnectionIdRequest);
