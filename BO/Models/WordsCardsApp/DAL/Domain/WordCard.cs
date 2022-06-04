@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BO.Models.WordsCardsApp.DAL.Domain
 {
-    public class WordCard : IDomainRecord<long>
+    public sealed class WordCard : IDomainRecord<long>
     {
         public long Id { get; set; }
         public string ImagePath { get; set; }

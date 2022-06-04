@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Common.Models.Error
 {
-    public class ErrorContainer : IErrorContainer
+    public sealed class ErrorContainer : IErrorContainer
     {
         //TODO надо сделать перечислением Dictionary<enum, OneError>
         public readonly Dictionary<string, OneError> StaticErrors;

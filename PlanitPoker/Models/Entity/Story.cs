@@ -1,9 +1,9 @@
 ﻿using BO.Models.PlaningPoker.DAL;
 using System;
 
-namespace PlanitPoker.Models
+namespace PlanitPoker.Models.Entity
 {
-    public class Story
+    public sealed class Story
     {
         public long? IdDb { get; set; }
         public string Id

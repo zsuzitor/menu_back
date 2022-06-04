@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Menu.Models.InputModels.Auth
 {
-    public class LoginModelApi //:IValidatableObject
+    public sealed class LoginModelApi //:IValidatableObject
     {
         [EmailAddress]
         [BindProperty(Name = "email", SupportsGet = false)]

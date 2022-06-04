@@ -2,7 +2,7 @@
 
 namespace WordsCardsApp.BO.Input
 {
-    public class WordCardInputModel
+    public sealed class WordCardInputModel
     {
         public long? Id { get; set; }//актуально только для редактирования
         public string Word { get; set; }

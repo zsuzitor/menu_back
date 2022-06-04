@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models.Services
 {
-    public class ProjectService : IProjectService
+    public sealed class ProjectService : IProjectService
     {
         private readonly IProjectRepository _projectRepository;
         private readonly IProjectUserService _userService;
@@ -75,7 +75,7 @@ namespace CodeReviewApp.Models.Services
         {
             if (!await ExistIfAccessAdminAsync(projectId, userInfo))
             {
-                throw new SomeCustomException("project_not_found");//todo поиск и вынести
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFound);
             }
 
             var user = new ProjectUser()
@@ -95,7 +95,7 @@ namespace CodeReviewApp.Models.Services
         {
             if (!await ExistIfAccessAdminAsync(projectId, userInfo))
             {
-                throw new SomeCustomException("project_not_found");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFound);
             }
 
             var newTask = new TaskReview()
@@ -115,7 +115,7 @@ namespace CodeReviewApp.Models.Services
             var project = await _projectRepository.GetByIdIfAccessAdminAsync(projectId, userInfo.UserId);
             if (project == null)
             {
-                throw new SomeCustomException("project_not_found");//todo поиск и вынести
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFound);
             }
             await _projectRepository.DeleteAsync(project);
             //project.IsDeleted = true;

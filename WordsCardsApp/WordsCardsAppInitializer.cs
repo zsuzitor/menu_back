@@ -11,7 +11,7 @@ using WordsCardsApp.DAL.Repositories.Interfaces;
 
 namespace WordsCardsApp
 {
-    public class WordsCardsAppInitializer : IStartUpInitializer
+    public sealed class WordsCardsAppInitializer : IStartUpInitializer
     {
         public void ErrorContainerInitialize(ErrorContainer errorContainer)
         {

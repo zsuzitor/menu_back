@@ -10,7 +10,7 @@ namespace CodeReviewApp.Models.Services
 {
 
 
-    public class ReviewAppEmailService : IReviewAppEmailService
+    public sealed class ReviewAppEmailService : IReviewAppEmailService
     {
         public static string ConfigurationKey = "CodeReviewApp";
 

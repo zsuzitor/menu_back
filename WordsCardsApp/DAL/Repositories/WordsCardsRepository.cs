@@ -10,7 +10,7 @@ using WordsCardsApp.DAL.Repositories.Interfaces;
 
 namespace WordsCardsApp.DAL.Repositories
 {
-    public class WordsCardsRepository : GeneralRepository<WordCard, long>, IWordsCardsRepository
+    public sealed class WordsCardsRepository : GeneralRepository<WordCard, long>, IWordsCardsRepository
     {
 
         public WordsCardsRepository(MenuDbContext db):base(db)

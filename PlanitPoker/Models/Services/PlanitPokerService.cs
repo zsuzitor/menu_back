@@ -5,6 +5,7 @@ using Common.Models.Error.services.Interfaces;
 using PlanitPoker.Models.Enums;
 using PlanitPoker.Models.Repositories.Interfaces;
 using PlanitPoker.Models.Returns;
+using PlanitPoker.Models.Entity;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ using System.Globalization;
 
 namespace PlanitPoker.Models.Services
 {
-    public class PlanitPokerService : IPlanitPokerService
+    public sealed class PlanitPokerService : IPlanitPokerService
     {
         private static readonly ConcurrentDictionary<string, Room> Rooms = new ConcurrentDictionary<string, Room>();
 
@@ -988,7 +989,10 @@ namespace PlanitPoker.Models.Services
         }
 
 
-
+        public async Task HandleInRoomsMemoryAsync()
+        {
+            //todo
+        }
 
 
 

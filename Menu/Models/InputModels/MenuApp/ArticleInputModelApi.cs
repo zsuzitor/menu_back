@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Menu.Models.InputModels.MenuApp
 {
-    public class ArticleInputModelApi
+    public sealed class ArticleInputModelApi
     {
         [BindProperty(Name = "id", SupportsGet = false)]
         public long? Id { get; set; }

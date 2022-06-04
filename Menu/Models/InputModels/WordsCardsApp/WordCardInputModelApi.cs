@@ -9,7 +9,7 @@ using WordsCardsApp.BO.Input;
 
 namespace Menu.Models.InputModels.WordsCardsApp
 {
-    public class WordCardInputModelApi
+    public sealed class WordCardInputModelApi
     {
         [BindProperty(Name = "id", SupportsGet = false)]
         public long? Id { get; set; }

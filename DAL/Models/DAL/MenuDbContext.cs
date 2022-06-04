@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Models.DAL
 {
-    public class MenuDbContext : DbContext
+    public sealed class MenuDbContext : DbContext
     {
         #region main
         public DbSet<MainNLogEntity> MainLogTable { get; set; }

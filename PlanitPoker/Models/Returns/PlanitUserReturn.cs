@@ -2,10 +2,11 @@
 
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
+using PlanitPoker.Models.Entity;
 
 namespace PlanitPoker.Models.Returns
 {
-    public class PlanitUserReturn
+    public sealed class PlanitUserReturn
     {
         [JsonPropertyName("id")]
         public string UserIdentifier { get; set; }

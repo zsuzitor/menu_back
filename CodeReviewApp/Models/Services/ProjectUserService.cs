@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models.Services
 {
-    public class ProjectUserService : IProjectUserService
+    public sealed class ProjectUserService : IProjectUserService
     {
         private readonly IProjectUserRepository _projectUserRepository;
         public ProjectUserService(IProjectUserRepository projectUserRepository)
@@ -31,19 +31,19 @@ namespace CodeReviewApp.Models.Services
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new SomeCustomException("empty_user_name");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyUserName);
             }
 
             var user = await _projectUserRepository.GetAsync(userId);
             if (user == null)
             {
-                throw new SomeCustomException("project_user_not_founded");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectUserNotFound);
             }
 
             var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(user.ProjectId, userInfo.UserId);
             if (userCurrent == null || !userCurrent.IsAdmin)
             {
-                throw new SomeCustomException("have_no_access_to_edit_project");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject);
             }
 
             user.UserName = name;
@@ -59,13 +59,13 @@ namespace CodeReviewApp.Models.Services
             var user = await _projectUserRepository.GetAsync(userId);
             if (user == null)
             {
-                throw new SomeCustomException("project_user_not_founded");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectUserNotFound);
             }
 
             var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(user.ProjectId, userInfo.UserId);
             if (userCurrent == null || !userCurrent.IsAdmin)
             {
-                throw new SomeCustomException("have_no_access_to_edit_project");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject);
             }
 
             await _projectUserRepository.DeleteAsync(user);

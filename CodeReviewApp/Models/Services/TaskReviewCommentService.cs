@@ -4,12 +4,11 @@ using BO.Models.CodeReviewApp.DAL.Domain;
 using CodeReviewApp.Models.DAL.Repositories.Interfaces;
 using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models.Services
 {
-    public class TaskReviewCommentService : ITaskReviewCommentService
+    public sealed class TaskReviewCommentService : ITaskReviewCommentService
     {
 
         private readonly ITaskReviewCommentRepository _taskReviewCommentRepository;
@@ -33,7 +32,7 @@ namespace CodeReviewApp.Models.Services
             var user = await _projectUserService.GetByMainAppIdAsync(userInfo);
             if (user == null)
             {
-                throw new SomeCustomException("user_not_found");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
             }
 
             return await _taskReviewCommentRepository.DeleteAsync(commentId, user.Id);
@@ -44,7 +43,7 @@ namespace CodeReviewApp.Models.Services
             var user = await _projectUserService.GetByMainAppIdAsync(userInfo);
             if (user == null)
             {
-                throw new SomeCustomException("user_not_found");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
             }
 
             return await _taskReviewCommentRepository.UpdateAsync(commentId, user.Id, text);

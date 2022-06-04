@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace BO.Models.MenuApp.DAL.Domain
 {
-    public class Article : IDomainRecord<long>
+    public sealed class Article : IDomainRecord<long>
     {
         public long Id { get; set; }
         public string Title { get; set; }

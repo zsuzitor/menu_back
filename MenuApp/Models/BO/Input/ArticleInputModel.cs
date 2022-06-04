@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MenuApp.Models.BO.Input
 {
-    public class ArticleInputModel
+    public sealed class ArticleInputModel
     {
         public long? Id { get; set; }
         public string Title { get; set; }

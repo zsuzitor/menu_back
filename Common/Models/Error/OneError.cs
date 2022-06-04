@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Common.Models.Error
 {
-    public class OneError
+    public sealed class OneError
     {
         public string Key { get; set; }
         public List<string> Errors { get; set; }

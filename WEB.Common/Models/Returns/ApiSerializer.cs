@@ -11,7 +11,7 @@ namespace WEB.Common.Models.Returns
     }
 
 
-    public class JsonApiSerializer : IApiSerializer
+    public sealed class JsonApiSerializer : IApiSerializer
     {
         public string ContentType => "application/json";
 

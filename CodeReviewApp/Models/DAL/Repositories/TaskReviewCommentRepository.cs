@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models.DAL.Repositories
 {
-    public class TaskReviewCommentRepository : GeneralRepository<CommentReview, long>, ITaskReviewCommentRepository
+    public sealed class TaskReviewCommentRepository : GeneralRepository<CommentReview, long>, ITaskReviewCommentRepository
     {
         public TaskReviewCommentRepository(MenuDbContext db) : base(db)
         {

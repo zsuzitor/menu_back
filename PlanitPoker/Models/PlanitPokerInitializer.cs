@@ -6,6 +6,7 @@ using PlanitPoker.Models.Repositories;
 using PlanitPoker.Models.Repositories.Interfaces;
 using PlanitPoker.Models.Services;
 using System;
+using System.Linq.Expressions;
 
 namespace PlanitPoker.Models
 {
@@ -45,6 +46,9 @@ namespace PlanitPoker.Models
 
         public void WorkersInitialize(IServiceProvider serviceProvider)
         {
+            Expression<Action<IPlanitPokerService>> actAlert = prSrv => prSrv.HandleInRoomsMemoryAsync();//.Wait();
+            var worker = serviceProvider.GetRequiredService<IWorker>();
+            worker.Recurring("planit_poker_clean", "0 * * * *", actAlert);//каждые час
         }
     }
 }

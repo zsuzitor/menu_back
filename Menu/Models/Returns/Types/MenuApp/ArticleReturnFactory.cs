@@ -10,7 +10,7 @@ namespace Menu.Models.Returns.Types.MenuApp
 {
 
 
-    public class ArticleReturnFactory : IReturnObjectFactory
+    public sealed class ArticleReturnFactory : IReturnObjectFactory
     {
         public object GetObjectReturn(object obj)
         {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models.Services
 {
-    public class TaskReviewService : ITaskReviewService
+    public sealed class TaskReviewService : ITaskReviewService
     {
         private readonly ITaskReviewRepository _taskReviewRepository;
         private readonly IProjectRepository _projectRepository;
@@ -76,13 +76,13 @@ namespace CodeReviewApp.Models.Services
             var upTask = await _taskReviewRepository.GetAsync(task.Id);
             if (upTask == null)
             {
-                throw new SomeCustomException("task_not_founded");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskNotFound);
             }
 
             var canAddToProject = await _projectRepository.ExistIfAccessAdminAsync(upTask.ProjectId, userInfo.UserId);
             if (!canAddToProject)
             {
-                throw new SomeCustomException("project_have_no_access");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectHaveNoAccess);
             }
 
             bool needNotifyReviewer = false;
@@ -110,13 +110,13 @@ namespace CodeReviewApp.Models.Services
             var task = await _taskReviewRepository.GetAsync(id);
             if (task == null)
             {
-                throw new SomeCustomException("task_not_found");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskNotFound);
             }
 
             var projectAccess = await _projectRepository.ExistIfAccessAdminAsync(task.ProjectId, userInfo.UserId);
             if (!projectAccess)
             {
-                throw new SomeCustomException("project_have_no_access");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectHaveNoAccess);
             }
 
             return await _taskReviewRepository.DeleteAsync(task);
@@ -127,13 +127,13 @@ namespace CodeReviewApp.Models.Services
             var task = await _taskReviewRepository.GetTaskWithCommentsAsync(taskId);
             if (task == null)
             {
-                throw new SomeCustomException("task_not_found");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskNotFound);
             }
 
             var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
             if (!projectAccessed)
             {
-                throw new SomeCustomException("project_not_found");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFound);
             }
 
             return task.Comments;
@@ -144,13 +144,13 @@ namespace CodeReviewApp.Models.Services
             var task = await _taskReviewRepository.GetNoTrackAsync(id);
             if (task == null)
             {
-                throw new SomeCustomException("task_not_found");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskNotFound);
             }
 
             var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
             if (!projectAccessed)
             {
-                throw new SomeCustomException("project_not_found");
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFound);
             }
 
             return task;

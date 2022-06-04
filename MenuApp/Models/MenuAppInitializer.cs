@@ -11,7 +11,7 @@ using System;
 
 namespace MenuApp.Models
 {
-    public class MenuAppInitializer : IStartUpInitializer
+    public sealed class MenuAppInitializer : IStartUpInitializer
     {
         public void ErrorContainerInitialize(ErrorContainer errorContainer)
         {

@@ -7,7 +7,7 @@ using Common.Models;
 
 namespace Menu.Models.Returns.Types.MenuApp
 {
-    public class ArticleShortReturnFactory : IReturnObjectFactory
+    public sealed class ArticleShortReturnFactory : IReturnObjectFactory
     {
         public object GetObjectReturn(object obj)
         {

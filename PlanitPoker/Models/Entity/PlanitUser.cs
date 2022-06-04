@@ -1,14 +1,12 @@
 ﻿using BO.Models.PlaningPoker.DAL;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 
 
-namespace PlanitPoker.Models
+namespace PlanitPoker.Models.Entity
 {
-    public class PlanitUser//:ICloneable
+    public sealed class PlanitUser//:ICloneable
     {
         public long? MainAppUserId { get; set; }//пользователь авторизован в основной апе
         private string _planingAppUserId = null;

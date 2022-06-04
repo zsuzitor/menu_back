@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BO.Models.PlaningPoker.DAL
 {
-    public class PlaningRoomDal: IDomainRecord<long>
+    public sealed class PlaningRoomDal: IDomainRecord<long>
     {
         public long Id { get; set; }
         public string Name { get; set; }//может тоже хешить?

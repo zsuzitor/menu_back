@@ -6,7 +6,7 @@ using Common.Models;
 
 namespace Menu.Models.Returns.Types.WordsCardsApp
 {
-    public class WordListReturnFactory : IReturnObjectFactory
+    public sealed class WordListReturnFactory : IReturnObjectFactory
     {
         public object GetObjectReturn(object obj)
         {

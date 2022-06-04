@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BO.Models.WordsCardsApp.DAL.Domain
 {
-   public class WordsList : IDomainRecord<long>
+    public sealed class WordsList : IDomainRecord<long>
     {
         public long Id { get; set; }
         public string Title { get; set; }

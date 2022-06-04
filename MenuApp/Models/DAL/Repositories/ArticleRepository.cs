@@ -11,7 +11,7 @@ using DAL.Models.DAL.Repositories;
 
 namespace MenuApp.Models.DAL.Repositories
 {
-    public class ArticleRepository : GeneralRepository<Article, long>, IArticleRepository
+    public sealed class ArticleRepository : GeneralRepository<Article, long>, IArticleRepository
     {
 
 

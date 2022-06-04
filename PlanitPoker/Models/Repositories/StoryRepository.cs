@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace PlanitPoker.Models.Repositories
 {
-    public class StoryRepository : GeneralRepository<PlaningStoryDal, long>, IStoryRepository
+    public sealed class StoryRepository : GeneralRepository<PlaningStoryDal, long>, IStoryRepository
     {
 
 

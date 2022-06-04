@@ -2,7 +2,7 @@
 
 namespace BO.Models.Auth
 {
-    public class UserInfo
+    public sealed class UserInfo
     {
         public long UserId { get; private set; }
         public string AccessToken { get; set; }

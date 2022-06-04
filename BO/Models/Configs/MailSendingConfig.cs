@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BO.Models.Configs
 {
-    public class MailSendingConfig
+    public sealed class MailSendingConfig
     {
         public Dictionary<string, MailSendingInstanceConfig> Values { get; set; }
     }

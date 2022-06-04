@@ -1,7 +1,7 @@
 ﻿
 namespace BO.Models
 {
-    public class OneMail
+    public sealed class OneMail
     {
         public string Email { get; set; }
         public string Subject { get; set; }

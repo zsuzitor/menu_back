@@ -5,7 +5,7 @@ using Common.Models.Error;
 
 namespace Common.Models.Return
 {
-    public class ErrorObjectReturnFactory : IReturnObjectFactory
+    public sealed class ErrorObjectReturnFactory : IReturnObjectFactory
     {
         public object GetObjectReturn(object obj)
         {

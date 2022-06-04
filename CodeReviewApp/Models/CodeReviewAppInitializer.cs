@@ -1,24 +1,29 @@
-﻿using BL.Models.Services.Interfaces;
+﻿
 using CodeReviewApp.Models.DAL.Repositories;
 using CodeReviewApp.Models.DAL.Repositories.Interfaces;
 using CodeReviewApp.Models.Services;
 using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models;
 using Common.Models.Error;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models
 {
-    public class CodeReviewAppInitializer : IStartUpInitializer
+    public sealed class CodeReviewAppInitializer : IStartUpInitializer
     {
         //public static IServiceProvider ServiceProvider;
 
         public void ErrorContainerInitialize(ErrorContainer errorContainer)
         {
+            errorContainer.InitError(Consts.CodeReviewErrorConsts.ProjectNotFound, "Проект не найден");
+            errorContainer.InitError(Consts.CodeReviewErrorConsts.EmptyUserName, "Не заполнено имя пользователя");
+            errorContainer.InitError(Consts.CodeReviewErrorConsts.ProjectUserNotFound, "Пользователь проекта не найден");
+            errorContainer.InitError(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject, "Нет прав на редактирование проекта");
+            errorContainer.InitError(Consts.CodeReviewErrorConsts.UserNotFound, "Пользователь не найден");
+            errorContainer.InitError(Consts.CodeReviewErrorConsts.TaskNotFound, "Задача не найдена");
+            errorContainer.InitError(Consts.CodeReviewErrorConsts.ProjectHaveNoAccess, "Нет доступа к проекту");
         }
 
         public void RepositoriesInitialize(IServiceCollection services)

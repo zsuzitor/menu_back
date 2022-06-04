@@ -15,6 +15,7 @@ using PlanitPoker.Models.Helpers;
 using PlanitPoker.Models.Returns;
 using PlanitPoker.Models.Services;
 using Microsoft.Extensions.Logging;
+using PlanitPoker.Models.Entity;
 using System.Text.RegularExpressions;
 
 namespace PlanitPoker.Models.Hubs

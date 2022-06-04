@@ -11,7 +11,7 @@ using WordsCardsApp.DAL.Repositories.Interfaces;
 
 namespace WordsCardsApp.DAL.Repositories
 {
-    public class WordsListRepository : GeneralRepository<WordsList, long>, IWordsListRepository
+    public sealed class WordsListRepository : GeneralRepository<WordsList, long>, IWordsListRepository
     {
         public WordsListRepository(MenuDbContext db) : base(db)
         {

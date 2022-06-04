@@ -9,7 +9,7 @@ using Common.Models.Error;
 
 namespace Menu.Models.Services
 {
-    public class UserService : IUserService
+    public sealed class UserService : IUserService
     {
         private readonly IJWTHasher _hasher;
         private readonly IUserRepository _userRepository;

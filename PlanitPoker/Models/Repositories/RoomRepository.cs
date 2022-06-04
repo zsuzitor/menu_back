@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PlanitPoker.Models.Repositories
 {
-    public class RoomRepository : GeneralRepository<PlaningRoomDal, long>, IRoomRepository
+    public sealed class RoomRepository : GeneralRepository<PlaningRoomDal, long>, IRoomRepository
     {
 
 

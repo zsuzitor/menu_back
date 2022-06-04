@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Menu.Models.InputModels.Auth
 {
-    public class RegisterModelApi //:IValidatableObject
+    public sealed class RegisterModelApi //:IValidatableObject
     {
         [EmailAddress]
         [BindProperty(Name = "email", SupportsGet = false)]

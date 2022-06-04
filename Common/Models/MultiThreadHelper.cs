@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Common.Models.Exceptions;
 
 namespace Common.Models
 {
-    public class MultiThreadHelper
+    public sealed class MultiThreadHelper
     {
         [Obsolete("ReaderWriterLock - не работает с потоками")]
         public (T1 res, bool success) GetValue<T1, T2>

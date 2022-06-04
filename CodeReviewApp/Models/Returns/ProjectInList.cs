@@ -1,10 +1,9 @@
 ﻿
 using BO.Models.CodeReviewApp.DAL.Domain;
-using System.Collections.Generic;
 
 namespace CodeReviewApp.Models.Returns
 {
-    public class ProjectInList
+    public sealed class ProjectInList
     {
         public long Id { get; set; }
         public string Name { get; set; }

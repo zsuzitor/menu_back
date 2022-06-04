@@ -1,12 +1,13 @@
-﻿using PlanitPoker.Models;
+﻿
 using PlanitPoker.Models.Returns;
+using PlanitPoker.Models.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using Common.Models;
 
 namespace Menu.Models.Returns.Types.PlanitPoker
 {
-    public class PlanitUserReturnFactory : IReturnObjectFactory
+    public sealed class PlanitUserReturnFactory : IReturnObjectFactory
     {
         public object GetObjectReturn(object obj)
         {

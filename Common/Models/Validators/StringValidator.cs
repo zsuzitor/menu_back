@@ -7,7 +7,7 @@ namespace Common.Models.Validators
         string Validate(string str);
     }
 
-    public class StringValidator : IStringValidator
+    public sealed class StringValidator : IStringValidator
     {
         private readonly HtmlEncoder _htmlEncoder;
         private readonly JavaScriptEncoder _javaScriptEncoder;

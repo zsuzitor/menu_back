@@ -11,7 +11,7 @@ using Menu.Models.Services.Interfaces;
 
 namespace Auth.Models.Auth.Services
 {
-    public class JWTUserManager: IJWTUserManager
+    public sealed class JWTUserManager: IJWTUserManager
     {
 
         private readonly IJWTHasher _hasher;

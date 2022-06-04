@@ -11,7 +11,7 @@ namespace BO.Models.CodeReviewApp.DAL.Domain
         Done
     }
 
-    public class TaskReview : IDomainRecord<long>
+    public sealed class TaskReview : IDomainRecord<long>
     {
         public long Id { get; set; }
         public string Name { get; set; }

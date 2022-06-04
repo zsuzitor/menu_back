@@ -4,7 +4,7 @@ using System;
 
 namespace BO.Models.CodeReviewApp.DAL.Domain
 {
-    public class CommentReview : IDomainRecord<long>
+    public sealed class CommentReview : IDomainRecord<long>
     {
         public long Id { get; set; }
         public string Text { get; set; }

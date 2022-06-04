@@ -1,6 +1,7 @@
 ﻿using System;
 using PlanitPoker.Models.Enums;
 using PlanitPoker.Models.Returns;
+using PlanitPoker.Models.Entity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -112,6 +113,6 @@ namespace PlanitPoker.Models.Services
         Task<(string oldId, Story story)> MakeStoryComplete(Room room, string storyId, string userConnectionIdRequest);
 
 
-        //string NormalizeRoomName(string roomName);
+        Task HandleInRoomsMemoryAsync();
     }
 }

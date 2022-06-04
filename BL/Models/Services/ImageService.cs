@@ -12,7 +12,7 @@ using DAL.Models.DAL.Repositories.Interfaces;
 
 namespace Menu.Models.Services
 {
-    public class ImageService : IImageService
+    public sealed class ImageService : IImageService
     {
 
         private readonly IImageRepository _imageRepository;

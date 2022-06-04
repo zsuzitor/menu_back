@@ -2,7 +2,7 @@
 
 namespace CodeReviewApp.Models.Returns
 {
-    public class ProjectUserReturn
+    public sealed class ProjectUserReturn
     {
         public long Id { get; set; }
         public string Name { get; set; }

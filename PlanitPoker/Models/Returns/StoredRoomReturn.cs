@@ -1,6 +1,7 @@
 ﻿
 
 using PlanitPoker.Models.Enums;
+using PlanitPoker.Models.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Text.Json.Serialization;
 
 namespace PlanitPoker.Models.Returns
 {
-    public class StoredRoomReturn
+    public sealed class StoredRoomReturn
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }

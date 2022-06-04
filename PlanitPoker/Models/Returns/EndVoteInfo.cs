@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace PlanitPoker.Models.Returns
 {
 
-    public class EndVoteUserInfo
+    public sealed class EndVoteUserInfo
     {
         [JsonPropertyName("id")]
         public string Id { get; set; }

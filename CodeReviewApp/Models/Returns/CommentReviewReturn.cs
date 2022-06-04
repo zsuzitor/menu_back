@@ -2,7 +2,7 @@
 
 namespace CodeReviewApp.Models.Returns
 {
-    public class CommentReviewReturn
+    public sealed class CommentReviewReturn
     {
         public long Id { get; set; }
         public string Text { get; set; }

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace BO.Models.CodeReviewApp.DAL.Domain
 {
-    public class ProjectUser : IDomainRecord<long>
+    public sealed class ProjectUser : IDomainRecord<long>
     {
         public long Id { get; set; }
         public bool IsAdmin { get; set; }

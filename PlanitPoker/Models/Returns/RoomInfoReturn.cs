@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace PlanitPoker.Models.Returns
 {
-    public class RoomInfoReturn
+    public sealed class RoomInfoReturn
     {
         [JsonPropertyName("room")]
         public StoredRoomReturn Room { get; set; }

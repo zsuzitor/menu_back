@@ -5,7 +5,7 @@ using BO.Models.DAL.Domain;
 
 namespace BO.Models.PlaningPoker.DAL
 {
-    public class PlaningRoomUserDal : IDomainRecord<long>
+    public sealed class PlaningRoomUserDal : IDomainRecord<long>
     {
         public long Id { get; set; }
         public string Roles { get; set; }

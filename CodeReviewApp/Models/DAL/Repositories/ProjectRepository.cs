@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models.DAL.Repositories
 {
-    public class ProjectRepository : GeneralRepository<Project, long>, IProjectRepository
+    public sealed class ProjectRepository : GeneralRepository<Project, long>, IProjectRepository
     {
 
         public ProjectRepository(MenuDbContext db) : base(db)

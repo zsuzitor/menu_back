@@ -23,7 +23,7 @@ namespace PlanitPoker.Models.Helpers
         Task<T> DoStandartSomethingWithoutResponse<T>(Func<Task<T>> action, T defaultResult, ILogger logger);
     }
 
-    public class PlanitApiHelper : ApiHelper, IPlanitApiHelper
+    public sealed class PlanitApiHelper : ApiHelper, IPlanitApiHelper
     {
         private Hub _planitHub;
 

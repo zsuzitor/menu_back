@@ -4,7 +4,7 @@ using Common.Models.Error;
 
 namespace Common.Models.Return
 {
-    public class OneErrorReturn
+    public sealed class OneErrorReturn
     {
         [JsonPropertyName("key")]
         public string Key { get; set; }

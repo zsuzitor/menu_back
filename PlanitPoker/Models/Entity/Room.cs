@@ -4,9 +4,9 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace PlanitPoker.Models
+namespace PlanitPoker.Models.Entity
 {
-    public class Room
+    public sealed class Room
     {
         public StoredRoom StoredRoom { get; set; }
         //private object LockObject { get; set; }

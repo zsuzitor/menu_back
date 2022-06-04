@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Common.Models.Error.services
 {
-    public class ErrorService : IErrorService
+    public sealed class ErrorService : IErrorService
     {
         private readonly Dictionary<string, OneError> _errors;
 

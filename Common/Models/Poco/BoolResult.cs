@@ -2,7 +2,7 @@
 
 namespace Common.Models.Poco
 {
-    public class BoolResult
+    public sealed class BoolResult
     {
         public bool Result { get; set; }
 

@@ -3,7 +3,7 @@ using BO.Models.DAL.Domain;
 
 namespace BO.Models.Return
 {
-    public class CustomImageReturn
+    public sealed class CustomImageReturn
     {
         [JsonPropertyName("id")]
         public long Id { get; set; }

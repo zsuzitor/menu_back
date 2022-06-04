@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BL.Models.Services
 {
-    public class EmailService : IEmailServiceSender
+    public sealed class EmailService : IEmailServiceSender
     {
         //https://github.com/myloveCc/NETCore.MailKit
         public async Task SendEmailAsync(string nameFrom, string emailFrom

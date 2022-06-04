@@ -3,7 +3,7 @@ using Common.Models.Poco;
 
 namespace Common.Models.Return
 {
-    public class BoolResultFactory : IReturnObjectFactory
+    public sealed class BoolResultFactory : IReturnObjectFactory
     {
         public object GetObjectReturn(object obj)
         {

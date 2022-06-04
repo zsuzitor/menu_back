@@ -4,7 +4,7 @@ using Common.Models;
 
 namespace Menu.Models.Returns.Types
 {
-    public class TokensReturnFactory : IReturnObjectFactory
+    public sealed class TokensReturnFactory : IReturnObjectFactory
     {
         public object GetObjectReturn(object obj)
         {

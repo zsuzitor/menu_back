@@ -4,7 +4,6 @@
 using Common.Models.Error;
 using Common.Models.Exceptions;
 using Menu.Models.Services.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using MenuApp.Models.DAL.Repositories.Interfaces;
@@ -15,7 +14,7 @@ using MenuApp.Models.BO.Input;
 
 namespace MenuApp.Models.BL.Services
 {
-    public class ArticleService : IArticleService
+    public sealed class ArticleService : IArticleService
     {
         private readonly IArticleRepository _articleRepository;
         private readonly IImageService _imageService;

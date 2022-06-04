@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BO.Models.DAL.Domain
 {
-    public class MainNLogEntity
+    public sealed class MainNLogEntity
     {
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         //[Key]

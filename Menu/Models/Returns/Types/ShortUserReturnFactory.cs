@@ -6,7 +6,7 @@ using Common.Models;
 
 namespace Menu.Models.Returns.Types
 {
-    public class ShortUserReturnFactory : IReturnObjectFactory
+    public sealed class ShortUserReturnFactory : IReturnObjectFactory
     {
         public object GetObjectReturn(object obj)
         {

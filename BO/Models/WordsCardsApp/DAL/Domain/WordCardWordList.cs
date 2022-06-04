@@ -3,7 +3,7 @@
 
 namespace BO.Models.WordsCardsApp.DAL.Domain
 {
-    public class WordCardWordList : IDomainRecord<long>
+    public sealed class WordCardWordList : IDomainRecord<long>
     {
         public long Id { get; set; }
         public long WordCardId { get; set; }

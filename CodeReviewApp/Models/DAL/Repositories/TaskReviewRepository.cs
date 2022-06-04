@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models.DAL.Repositories
 {
-    public class TaskReviewRepository : GeneralRepository<TaskReview, long>, ITaskReviewRepository
+    public sealed class TaskReviewRepository : GeneralRepository<TaskReview, long>, ITaskReviewRepository
     {
         public TaskReviewRepository(MenuDbContext db) : base(db)
         {

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models.DAL.Repositories
 {
-    internal class UserRepository : GeneralRepository<ProjectUser, long>, IProjectUserRepository
+    internal sealed class UserRepository : GeneralRepository<ProjectUser, long>, IProjectUserRepository
     {
         public UserRepository(MenuDbContext db) : base(db)
         {

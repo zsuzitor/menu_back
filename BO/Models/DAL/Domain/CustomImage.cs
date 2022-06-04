@@ -4,7 +4,7 @@
 
 namespace BO.Models.DAL.Domain
 {
-    public class CustomImage: IDomainRecord<long>
+    public sealed class CustomImage: IDomainRecord<long>
     {
         public long Id { get; set; }
         public string Path { get; set; }

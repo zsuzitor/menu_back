@@ -3,7 +3,6 @@ using jwtLib.JWTAuth.Models.Poco;
 using Auth.Models.Auth.Services.Interfaces;
 using BO.Models.DAL.Domain;
 using Common.Models.Error;
-using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using System.Threading.Tasks;
 using Menu.Models.Services.Interfaces;
@@ -11,22 +10,20 @@ using Auth.Models.Auth.Poco.Input;
 
 namespace Auth.Models.Auth.Services
 {
-    public class AuthService : IAuthService
+    public sealed class AuthService : IAuthService
     {
         private readonly IJWTHasher _hasher;
         private readonly IUserService _userService;
         private readonly IJWTService _jwtService;
-        private readonly IErrorService _errorService;
 
 
 
 
-        public AuthService(IJWTHasher hasher, IUserService userService, IJWTService jwtService,IErrorService errorService)
+        public AuthService(IJWTHasher hasher, IUserService userService, IJWTService jwtService)
         {
             _hasher = hasher;
             _jwtService = jwtService;
             _userService = userService;
-            _errorService = errorService;
         }
 
 

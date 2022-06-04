@@ -3,12 +3,11 @@ using System;
 using Common.Models;
 using System.Net.Http;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 
 namespace BL.Models.Services
 {
     //Hangfire.AspNetCore
-    public class Worker : IWorker
+    public sealed class Worker : IWorker
     {
         //static HttpClient client = new HttpClient();
         //private readonly IHttpClientFactory _httpClientFactory;

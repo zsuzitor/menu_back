@@ -4,7 +4,7 @@ using BO.Models.MenuApp.DAL.Domain;
 
 namespace MenuApp.Models.BO
 {
-    public class ArticleShort
+    public sealed class ArticleShort
     {
         public long Id { get; set; }
         public string Title { get; set; }

@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace PlanitPoker.Models
+namespace PlanitPoker.Models.Entity
 {
-    public class StoredRoom
+    public sealed class StoredRoom
     {
         public long? Id { get; set; }//только для уже существующих в бд записей
         public string Name { get; set; }

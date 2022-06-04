@@ -4,7 +4,7 @@ using jwtLib.JWTAuth.Interfaces;
 
 namespace Auth.Models.Auth.Settings
 {
-    public class JWTServiceSettings : IJWTServiceSettings, IJWTSettings
+    public sealed class JWTServiceSettings : IJWTServiceSettings, IJWTSettings
     {
         public int LifetimeAccessToken { get; set; }
         public int LifetimeRefreshToken { get; set; }

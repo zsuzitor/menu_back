@@ -8,7 +8,7 @@ using BO.Models.CodeReviewApp.DAL.Domain;
 
 namespace BO.Models.DAL.Domain
 {
-    public class User: IJWTUser, IDomainRecord<long>
+    public sealed class User: IJWTUser, IDomainRecord<long>
     {
         public long Id { get; set; }
         public string Name { get; set; }

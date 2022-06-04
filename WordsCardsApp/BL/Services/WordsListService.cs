@@ -11,7 +11,7 @@ using WordsCardsApp.DAL.Repositories.Interfaces;
 
 namespace WordsCardsApp.BL.Services
 {
-    public class WordsListService : IWordsListService
+    public sealed class WordsListService : IWordsListService
     {
         private readonly IWordsListRepository _wordsListRepository;
         private readonly IWordsCardsService _wordsCardsService;

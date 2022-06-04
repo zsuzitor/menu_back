@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Common.Models.Error
 {
-    public class ErrorObject
+    public sealed class ErrorObject
     {
         public int? Status { get; set; }
         public List<OneError> Errors { get; set; }
