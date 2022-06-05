@@ -48,7 +48,7 @@ namespace PlanitPoker.Models
         {
             Expression<Action<IPlanitPokerService>> actAlert = prSrv => prSrv.HandleInRoomsMemoryAsync();//.Wait();
             var worker = serviceProvider.GetRequiredService<IWorker>();
-            worker.Recurring("planit_poker_clean", "0 * * * *", actAlert);//каждые час
+            worker.Recurring("planit_poker_clean", "0 * * * *", actAlert);//каждый час
         }
     }
 }

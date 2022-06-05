@@ -28,5 +28,18 @@ namespace PlanitPoker.Models.Repositories
         {
             return await _db.PlaningStories.AsNoTracking().Where(x => x.RoomId == roomId && x.Completed).ToListAsync();
         }
+
+        public async Task<PlaningStoryDal> UpdateAsync(long id, string name, string description)
+        {
+            var rec = await _db.PlaningStories.FirstOrDefaultAsync(x => x.Id == id);
+            if (rec == null)
+            {
+                return null;
+            }
+
+            rec.Description = description;
+            rec.Name = name;
+            return await UpdateAsync(rec);
+        }
     }
 }

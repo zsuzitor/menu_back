@@ -449,18 +449,27 @@ namespace PlanitPoker.Models.Hubs
             var httpContext = Context.GetHttpContext();
             await _apiHealper.DoStandartSomething(async () =>
             {
-                var storyIdIsGuid = Guid.TryParse(storyId, out var storyIdG);
-                if (!storyIdIsGuid)
+                var newStory = new Story()
+                {
+                    Name = storyName,
+                    Description = storyDescription,
+                };
+
+                if(Guid.TryParse(storyId, out var storyIdG))
+                {
+                    newStory.TmpId = storyIdG;
+                }
+                else if(long.TryParse(storyId, out var idLong))
+                {
+                    newStory.IdDb = idLong;
+                }
+
+                if (string.IsNullOrEmpty(newStory.Id))
                 {
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.StoryNotFound);
                 }
 
-                var newStory = new Story()
-                {
-                    TmpId = storyIdG,
-                    Name = storyName,
-                    Description = storyDescription,
-                };
+                
 
                 var sc = await _planitPokerService.ChangeStory(roomName, GetConnectionId(), newStory);
 
@@ -574,7 +583,10 @@ namespace PlanitPoker.Models.Hubs
             roomName = NormalizeRoomName(roomName);
             var httpContext = Context.GetHttpContext();
             return await _apiHealper.DoStandartSomething(
-                async () => { return await _planitPokerService.SaveRoom(roomName, GetConnectionId()); }, false,
+                async () =>
+                {
+                    return await _planitPokerService.SaveRoom(roomName, GetConnectionId());
+                }, false,
                 httpContext.Response, _logger);
         }
 

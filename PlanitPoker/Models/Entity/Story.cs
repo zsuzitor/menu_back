@@ -29,7 +29,7 @@ namespace PlanitPoker.Models.Entity
 
         public Story()
         {
-
+            TmpId = Guid.NewGuid();
         }
 
 

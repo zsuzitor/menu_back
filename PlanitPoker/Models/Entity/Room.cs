@@ -39,7 +39,7 @@ namespace PlanitPoker.Models.Entity
 
         }
 
-        public bool SetConcurentValue<T>(MultiThreadHelper multiThreadHelper, Action<Room> set)
+        public bool SetConcurentValue(MultiThreadHelper multiThreadHelper, Action<Room> set)
         {
             // return multiThreadHelper.SetValue(this, rm =>
             //{
@@ -62,7 +62,7 @@ namespace PlanitPoker.Models.Entity
             //return true;
         }
 
-        public async Task<bool> SetConcurentValueAsync<T>(MultiThreadHelper multiThreadHelper, Func<Room, Task> set)
+        public async Task<bool> SetConcurentValueAsync(MultiThreadHelper multiThreadHelper, Func<Room, Task> set)
         {
             //return await multiThreadHelper.SetValue(this,async rm =>
             //{

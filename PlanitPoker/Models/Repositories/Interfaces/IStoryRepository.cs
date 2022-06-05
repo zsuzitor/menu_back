@@ -11,6 +11,7 @@ namespace PlanitPoker.Models.Repositories.Interfaces
     {
         Task<List<PlaningStoryDal>> GetActualForRoom(long roomId);
         Task<List<PlaningStoryDal>> GetNotActualForRoom(long roomId);
+        Task<PlaningStoryDal> UpdateAsync(long id, string name, string description);
 
     }
 }
