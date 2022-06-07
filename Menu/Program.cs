@@ -34,7 +34,7 @@ namespace Menu
                 .UseStartup<Startup>().ConfigureLogging(logging =>
                 {
                     logging.ClearProviders();
-                    logging.SetMinimumLevel(LogLevel.Information);//todo в конфиг
+                    logging.SetMinimumLevel(LogLevel.Trace);//todo в конфиг
                 }).UseNLog();
     }
 }

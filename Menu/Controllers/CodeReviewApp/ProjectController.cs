@@ -1,10 +1,8 @@
 ﻿using BO.Models.CodeReviewApp.DAL.Domain;
 using CodeReviewApp.Models.Returns;
 using CodeReviewApp.Models.Services.Interfaces;
-using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using jwtLib.JWTAuth.Interfaces;
-using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;

@@ -37,6 +37,7 @@ namespace PlanitPoker.Models.Hubs
 
         private readonly IErrorContainer _errorContainer;
         private readonly ILogger _logger;
+        private readonly ILogger _hublogger;
 
         //private static IServiceProvider _serviceProvider;
 
@@ -52,7 +53,7 @@ namespace PlanitPoker.Models.Hubs
         public PlanitPokerHub(MultiThreadHelper multiThreadHelper,
             IStringValidator stringValidator, IPlanitPokerService planitPokerService,
             IPlanitApiHelper apiHealper, IJWTService jwtService, IJWTHasher hasher, IErrorService errorService
-            , IErrorContainer errorContainer)
+            , IErrorContainer errorContainer, ILogger<PlanitPokerHub> logger, ILoggerFactory loggerFactory)
         {
             _multiThreadHelper = multiThreadHelper;
             _stringValidator = stringValidator;
@@ -63,22 +64,14 @@ namespace PlanitPoker.Models.Hubs
             _errorService = errorService;
             _errorContainer = errorContainer;
 
-            _logger = null; //todo
+            _logger = logger;
+            _hublogger = loggerFactory.CreateLogger("PlanitPoker");
 
             _apiHealper = apiHealper;
             _apiHealper.InitByHub(this);
         }
 
-        //static void InitStaticMembers()
-        //{
-        //    _serviceProvider = serviceProvider;
-        //}
-        //public async Task Send(string message)
-        //{
-        //    var userId = Context.UserIdentifier; --- так нельзя это что то дургое
-        //    //Groups.
-        //    await this.Clients.All.SendAsync("Send", message);
-        //}
+      
 
         public string GetConnectionId()
         {
@@ -781,6 +774,19 @@ namespace PlanitPoker.Models.Hubs
             if (!rg.Match(roomName).Success)
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.BadRoomNameWithRoomCreating);
+            }
+        }
+
+
+        private void Log()
+        {
+            //todo 
+            var config = new Dictionary<string, object>();
+            config.Add("my_order_id", "test");
+
+            using (_hublogger.BeginScope(config))
+            {
+                _hublogger.LogInformation("Test message");
             }
         }
     }

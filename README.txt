@@ -16,6 +16,12 @@ testmail@mail.com
 testPass123!
 
 
+logLevel
+указывается в 3х местах
+Program
+nlog config
+appsettings config
+
 
 
 ----------------
