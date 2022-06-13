@@ -79,7 +79,7 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskNotFound);
             }
 
-            var canAddToProject = await _projectRepository.ExistIfAccessAdminAsync(upTask.ProjectId, userInfo.UserId);
+            var canAddToProject = await _projectRepository.ExistIfAccessAsync(upTask.ProjectId, userInfo.UserId);
             if (!canAddToProject)
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectHaveNoAccess);
@@ -133,7 +133,7 @@ namespace CodeReviewApp.Models.Services
             var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
             if (!projectAccessed)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFound);
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return task.Comments;
@@ -150,7 +150,7 @@ namespace CodeReviewApp.Models.Services
             var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
             if (!projectAccessed)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFound);
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return task;
@@ -160,7 +160,7 @@ namespace CodeReviewApp.Models.Services
         {
             //todo много запросов что то получается
             var task = await GetByIdIfAccessAsync(taskId, userInfo);
-            var projectUserId = await _projectUserService.GetIdByMainAppIdAsync(userInfo);
+            var projectUserId = await _projectUserService.GetIdByMainAppIdAsync(userInfo, task.ProjectId);
             //projectUser - уже должен быть свалидирован по GetByIdIfAccessAsync
             var newComment = new CommentReview() { CreatorId = projectUserId.Value, TaskId = taskId, Text = text };
             var comment = await _taskReviewCommentService.CreateAsync(newComment);

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models.DAL.Repositories
 {
-    public abstract class GeneralRepository<T1, T2> : IGeneralRepository<T1, T2> where T1 : class,  IDomainRecord<T2>
+    public abstract class GeneralRepository<T1, T2> : IGeneralRepository<T1, T2> where T1 : class, IDomainRecord<T2>
     {
         protected readonly MenuDbContext _db;
 
@@ -30,7 +30,7 @@ namespace DAL.Models.DAL.Repositories
             return newRecords;
         }
 
-        
+
 
         public virtual async Task<List<T1>> DeleteAsync(List<T1> records)
         {
@@ -56,13 +56,13 @@ namespace DAL.Models.DAL.Repositories
                 _db.Remove(recordForDel);
                 await _db.SaveChangesAsync();
             }
-            
+
             return recordForDel;
         }
 
         public virtual async Task<T1> GetAsync(T2 id)
         {
-            return await _db.Set<T1>().FirstOrDefaultAsync(x=>x.Id.Equals(id));
+            return await _db.Set<T1>().FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
 
         public virtual async Task<List<T1>> GetAsync(List<T2> ids)

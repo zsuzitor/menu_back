@@ -75,7 +75,7 @@ namespace CodeReviewApp.Models.Services
         {
             if (!await ExistIfAccessAdminAsync(projectId, userInfo))
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFound);
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             var user = new ProjectUser()
@@ -93,9 +93,9 @@ namespace CodeReviewApp.Models.Services
         public async Task<TaskReview> CreateTaskAsync(long projectId, string name
             , long creatorId, long? reviewerId, UserInfo userInfo)
         {
-            if (!await ExistIfAccessAdminAsync(projectId, userInfo))
+            if (!await ExistIfAccessAsync(projectId, userInfo))
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFound);
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             var newTask = new TaskReview()
@@ -115,7 +115,7 @@ namespace CodeReviewApp.Models.Services
             var project = await _projectRepository.GetByIdIfAccessAdminAsync(projectId, userInfo.UserId);
             if (project == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFound);
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
             }
             await _projectRepository.DeleteAsync(project);
             //project.IsDeleted = true;

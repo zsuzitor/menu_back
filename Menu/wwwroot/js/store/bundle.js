@@ -63808,7 +63808,7 @@ var CodeReviewMain = function (props) {
         react_1.default.createElement("div", { className: 'code-review-projects-menu-main' },
             react_1.default.createElement(ProjectsList_1.default, { Projects: projectsList, AddNewProject: addNewProject, SetCurrentProject: setCurrentProjectId, CurrentProjectId: currentProjectId })),
         react_1.default.createElement("div", { className: 'code-review-project-info' },
-            react_1.default.createElement(ProjectDetail_1.default, { Project: projectsList.find(function (x) { return x.Id == currentProjectId; }), ProjectUsers: currentProjectUsers, AddUserToProject: addNewUserToProject, 
+            react_1.default.createElement(ProjectDetail_1.default, { Project: projectsList.find(function (x) { return x.Id == currentProjectId; }), AuthInfo: props.AuthInfo, ProjectUsers: currentProjectUsers, AddUserToProject: addNewUserToProject, 
                 // AddTaskToProject={addTaskToProject}
                 // ProjectTasks={currentProjectTasks}
                 DeleteProject: deleteProject, ChangeUser: changeUser, DeleteUser: deleteUser })));
@@ -63983,8 +63983,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 __webpack_require__(/*! ./OneReviewTaskComment.css */ "./src/components/Body/CodeReviewApp/OneReviewTaskComment/OneReviewTaskComment.css");
 var OneReviewTaskComment = function (props) {
-    var _a = (0, react_1.useState)(false), editMode = _a[0], setEditMode = _a[1];
-    var _b = (0, react_1.useState)(props.Comment.Text), changedText = _b[0], setChangedText = _b[1];
+    var _a, _b;
+    var _c = (0, react_1.useState)(false), editMode = _c[0], setEditMode = _c[1];
+    var _d = (0, react_1.useState)(props.Comment.Text), changedText = _d[0], setChangedText = _d[1];
     (0, react_1.useEffect)(function () {
         setChangedText(props.Comment.Text);
     }, [props.Comment.Text]);
@@ -64023,22 +64024,28 @@ var OneReviewTaskComment = function (props) {
         setChangedText(props.Comment.Text);
     };
     var user = props.ProjectUsers.find(function (x) { return x.Id == props.Comment.CreatorId; });
+    // let userCurrent = props.ProjectUsers.find(x => x.MainAppUserId == props.AuthInfo?.User?.Id);
+    var commentOwner = user && user.MainAppUserId === ((_b = (_a = props.AuthInfo) === null || _a === void 0 ? void 0 : _a.User) === null || _b === void 0 ? void 0 : _b.Id);
+    var haveChenges = changedText !== props.Comment.Text;
     if (editMode) {
         return react_1.default.createElement("div", { className: 'one-review-comment-block' },
-            react_1.default.createElement("p", null, (user === null || user === void 0 ? void 0 : user.Name) || "id:" + props.Comment.CreatorId),
+            react_1.default.createElement("span", null, (user === null || user === void 0 ? void 0 : user.Name) || "id:" + props.Comment.CreatorId),
             react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', value: changedText, onChange: function (e) { return setChangedText(e.target.value); } }),
-            react_1.default.createElement("div", { className: 'review-task-comment-cancel-button', onClick: function () { return cancelEditMode(); } },
-                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u043E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' })),
-            react_1.default.createElement("div", { className: 'review-task-comment-save-button', onClick: function () { return updateComment(); } },
-                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'save-icon.png', alt: "Save", title: '\u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C' })));
+            haveChenges ? react_1.default.createElement(react_1.default.Fragment, null,
+                react_1.default.createElement("div", { className: 'review-task-comment-cancel-button', onClick: function () { return cancelEditMode(); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u043E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' })),
+                react_1.default.createElement("div", { className: 'review-task-comment-save-button', onClick: function () { return updateComment(); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'save-icon.png', alt: "Save", title: '\u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C' }))) : react_1.default.createElement(react_1.default.Fragment, null));
     }
     return react_1.default.createElement("div", { className: 'one-review-comment-block' },
-        react_1.default.createElement("p", null, (user === null || user === void 0 ? void 0 : user.Name) || "id:" + props.Comment.CreatorId),
-        react_1.default.createElement("p", null, props.Comment.Text),
-        react_1.default.createElement("div", { className: 'review-task-comment-delete-button', onClick: function () { return deleteComment(); } },
-            react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0443\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
-        react_1.default.createElement("div", { className: 'review-task-comment-edit-button', onClick: function () { return setEditMode(function (st) { return true; }); } },
-            react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'edit-1.svg', alt: "Edit", title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C' })));
+        react_1.default.createElement("span", null, (user === null || user === void 0 ? void 0 : user.Name) || "id:" + props.Comment.CreatorId),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("span", null, props.Comment.Text),
+        commentOwner ? react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement("div", { className: 'review-task-comment-delete-button', onClick: function () { return deleteComment(); } },
+                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0443\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
+            react_1.default.createElement("div", { className: 'review-task-comment-edit-button', onClick: function () { return setEditMode(function (st) { return true; }); } },
+                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'edit-1.svg', alt: "Edit", title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C' }))) : react_1.default.createElement(react_1.default.Fragment, null));
 };
 exports["default"] = OneReviewTaskComment;
 
@@ -64228,7 +64235,7 @@ var OneReviewTask = function (props) {
         return react_1.default.createElement("div", { className: 'one-review-task-comments-block' },
             "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438:",
             comments.map(function (x) {
-                return react_1.default.createElement(OneReviewTaskComment_1.default, { Comment: x, DeleteComment: deleteComment, key: x.Id, UpdateComment: updateComment, ProjectUsers: props.ProjectUsers });
+                return react_1.default.createElement(OneReviewTaskComment_1.default, { AuthInfo: props.AuthInfo, Comment: x, DeleteComment: deleteComment, key: x.Id, UpdateComment: updateComment, ProjectUsers: props.ProjectUsers });
             }),
             react_1.default.createElement("div", null,
                 react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', value: newCommentName, onChange: function (e) { return setNewCommentName(e.target.value); } }),
@@ -64533,7 +64540,7 @@ var ProjectDetail = function (props) {
                 react_1.default.createElement(Paggination_1.default, { ElementsCount: allTasksCount, PageNumber: filterTaskPage, ElementsOnPage: tasksOnPageCount, SetPageNumber: setFilterTaskPage }))),
         react_1.default.createElement("div", null,
             react_1.default.createElement("h2", null, "\u0441\u043F\u0438\u0441\u043E\u043A \u0437\u0430\u0434\u0430\u0447"),
-            currentProjectTasks.map(function (x) { return react_1.default.createElement(OneReviewTask_1.default, { key: x.Id, Task: x, ProjectUsers: props.ProjectUsers, UpdateTask: updateTaskProject, DeleteTask: deleteTask }); })));
+            currentProjectTasks.map(function (x) { return react_1.default.createElement(OneReviewTask_1.default, { key: x.Id, AuthInfo: props.AuthInfo, Task: x, ProjectUsers: props.ProjectUsers, UpdateTask: updateTaskProject, DeleteTask: deleteTask }); })));
 };
 exports["default"] = ProjectDetail;
 
@@ -66638,7 +66645,7 @@ var PlaningPokerMain = function (props) {
         window.addEventListener('beforeunload', function (event) {
             var _a;
             if (__planing_poker_hubConnected_ref__) {
-                hubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.OnWindowClosedAsync, (_a = __planing_poker_main_state_ref__ === null || __planing_poker_main_state_ref__ === void 0 ? void 0 : __planing_poker_main_state_ref__.RoomInfo) === null || _a === void 0 ? void 0 : _a.Name);
+                hubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.OnWindowClosedAsync, (_a = __planing_poker_main_state_ref__ === null || __planing_poker_main_state_ref__ === void 0 ? void 0 : __planing_poker_main_state_ref__.RoomInfo) === null || _a === void 0 ? void 0 : _a.Name);
             }
             // console.log(JSON.stringify(__planing_poker_main_state_ref__));
             // var dialogText = 'Dialog text here';

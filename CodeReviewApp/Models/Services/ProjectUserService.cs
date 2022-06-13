@@ -40,7 +40,7 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectUserNotFound);
             }
 
-            var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(user.ProjectId, userInfo.UserId);
+            var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(userInfo.UserId, user.ProjectId);
             if (userCurrent == null || !userCurrent.IsAdmin)
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject);
@@ -62,7 +62,7 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectUserNotFound);
             }
 
-            var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(user.ProjectId, userInfo.UserId);
+            var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(userInfo.UserId, user.ProjectId);
             if (userCurrent == null || !userCurrent.IsAdmin)
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject);
@@ -72,14 +72,14 @@ namespace CodeReviewApp.Models.Services
             return user;
         }
 
-        public async Task<ProjectUser> GetByMainAppIdAsync(UserInfo userInfo)
+        public async Task<ProjectUser> GetByMainAppIdAsync(UserInfo userInfo, long projectId)
         {
-            return await _projectUserRepository.GetByMainAppIdAsync(userInfo.UserId);
+            return await _projectUserRepository.GetByMainAppUserIdAsync(userInfo.UserId, projectId);
         }
 
-        public async Task<long?> GetIdByMainAppIdAsync(UserInfo userInfo)
+        public async Task<long?> GetIdByMainAppIdAsync(UserInfo userInfo, long projectId)
         {
-            return await _projectUserRepository.GetIdByMainAppIdAsync(userInfo.UserId);
+            return await _projectUserRepository.GetIdByMainAppIdAsync(userInfo.UserId, projectId);
         }
 
         public async Task<string> GetNotificationEmailAsync(long userId)

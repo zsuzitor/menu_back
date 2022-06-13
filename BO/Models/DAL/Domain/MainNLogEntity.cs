@@ -18,7 +18,16 @@ namespace BO.Models.DAL.Domain
         public string LogMessage { get; set; }
         public string LogException { get; set; }
         public string LogStacktrace { get; set; }
+        public string ActionDateStart { get; set; }
+        public string ActionDateEnd { get; set; }
 
+
+        public string Action { get; set; }
+        public string ConnectionId { get; set; }
+        public string GroupName { get; set; }
+        public string UserId { get; set; }
+
+        
 
     }
 }

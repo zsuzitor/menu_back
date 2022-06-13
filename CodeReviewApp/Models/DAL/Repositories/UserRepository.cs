@@ -26,27 +26,21 @@ namespace CodeReviewApp.Models.DAL.Repositories
             return await _db.ReviewProjectUsers.AsNoTracking().Where(x => x.ProjectId == projectId).ToListAsync();
         }
 
-        public async Task<ProjectUser> GetByMainAppUserIdAsync(long projectId, long mainAppUserId)
+        public async Task<ProjectUser> GetByMainAppUserIdAsync(long mainAppUserId, long projectId)
         {
             return await _db.ReviewProjectUsers.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.ProjectId == projectId && x.MainAppUserId == mainAppUserId);
         }
 
-        public async Task<ProjectUser> GetByMainAppIdAsync(long userId)
+        public async Task<long?> GetIdByMainAppIdAsync(long userId, long projectId)
         {
-            return await _db.ReviewProjectUsers.AsNoTracking()
-                .FirstOrDefaultAsync(x => x.MainAppUserId == userId);
-        }
-
-        public async Task<long?> GetIdByMainAppIdAsync(long userId)
-        {
-            return (await _db.ReviewProjectUsers.Select(x => new {x.Id, x.MainAppUserId })
-                .FirstOrDefaultAsync(x => x.MainAppUserId == userId))?.Id;
+            return (await _db.ReviewProjectUsers.Select(x => new {x.Id, x.MainAppUserId, x.ProjectId })
+                .FirstOrDefaultAsync(x => x.MainAppUserId == userId && x.ProjectId == projectId))?.Id;
         }
 
         public async Task<string> GetNotificationEmailAsync(long userId)
         {
-            return (await _db.ReviewProjectUsers.Select(x => new { x.Id, x.NotifyEmail })
+            return (await _db.ReviewProjectUsers.Select(x => new { x.Id, x.NotifyEmail, x.ProjectId })
                 .FirstOrDefaultAsync(x => x.Id == userId))?.NotifyEmail;
         }
     }

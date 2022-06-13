@@ -81,11 +81,13 @@ namespace PlanitPoker.Models.Hubs
         // ReSharper disable once UnusedMember.Global
         public async Task CreateRoom(string roomName, string password, string username)
         {
+            roomName = NormalizeRoomName(roomName);
             var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(EnterInRoom), string.Empty, roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
                 ValidateRoomName(roomName);
-                roomName = NormalizeRoomName(roomName);
                 username = ValidateString(username);
                 if (string.IsNullOrWhiteSpace(password))
                 {
@@ -117,7 +119,7 @@ namespace PlanitPoker.Models.Hubs
                 {
                     MainAppUserId = userInfo?.UserId,
                     PlaningAppUserId = GenerateUniqueUserId(),
-                    UserConnectionId = GetConnectionId(),
+                    UserConnectionId = connectionId,
                     Name = username,
                     Role = GetCreatorRoles(),
                 };
@@ -141,7 +143,8 @@ namespace PlanitPoker.Models.Hubs
         public async Task AliveRoom(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(EnterInRoom), string.Empty, roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
                 var room = await _planitPokerService.TryGetRoom(roomName);
@@ -168,7 +171,8 @@ namespace PlanitPoker.Models.Hubs
         {
             roomName = NormalizeRoomName(roomName);
             username = ValidateString(username);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(EnterInRoom), string.Empty, roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
                 if (string.IsNullOrWhiteSpace(password))
@@ -215,7 +219,7 @@ namespace PlanitPoker.Models.Hubs
                 {
                     MainAppUserId = userInfo?.UserId,
                     PlaningAppUserId = GenerateUniqueUserId(),
-                    UserConnectionId = GetConnectionId(),
+                    UserConnectionId = connectionId,
                     Name = username,
                     Role = GetDefaultRoles(),
                 };
@@ -230,10 +234,11 @@ namespace PlanitPoker.Models.Hubs
         public async Task StartVote(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(StartVote), string.Empty, roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
-                await _planitPokerService.StartVote(roomName, GetConnectionId());
+                await _planitPokerService.StartVote(roomName, connectionId);
                 //todo Consts.PlanitPokerHubEndpoints.ConnectedToRoomError
 
                 await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.VoteStart);
@@ -245,10 +250,11 @@ namespace PlanitPoker.Models.Hubs
         public async Task EndVote(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(EndVote), string.Empty, roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
-                var result = await _planitPokerService.EndVote(roomName, GetConnectionId());
+                var result = await _planitPokerService.EndVote(roomName, connectionId);
                 if (result == null)
                 {
                     throw new SomeCustomException(ErrorConsts.SomeError);
@@ -266,7 +272,8 @@ namespace PlanitPoker.Models.Hubs
 
             roomName = NormalizeRoomName(roomName);
             vote = ValidateString(vote);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(Vote), string.Empty, roomName, connectionId, string.Empty);
             return await _apiHealper.DoStandartSomething(async () =>
             {
                 var room = await _planitPokerService.TryGetRoom(roomName);
@@ -276,7 +283,7 @@ namespace PlanitPoker.Models.Hubs
                 }
 
 
-                (bool sc1, string userId) = _planitPokerService.ChangeVote(room, GetConnectionId(), vote);
+                (bool sc1, string userId) = _planitPokerService.ChangeVote(room, connectionId, vote);
                 if (!sc1)
                 {
                     throw new SomeCustomException(ErrorConsts.SomeError);
@@ -309,11 +316,11 @@ namespace PlanitPoker.Models.Hubs
         {
             roomName = NormalizeRoomName(roomName);
             userId = ValidateString(userId);
-            var httpContext = Context.GetHttpContext();
-            string userConnectionId = GetConnectionId();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(KickUser), string.Empty, roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
-                var kicked = await _planitPokerService.KickFromRoom(roomName, GetConnectionId(), userId);
+                var kicked = await _planitPokerService.KickFromRoom(roomName, connectionId, userId);
 
                 if (kicked.sc)
                 {
@@ -343,12 +350,12 @@ namespace PlanitPoker.Models.Hubs
         {
             roomName = NormalizeRoomName(roomName);
             newUserName = ValidateString(newUserName);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(UserNameChange), string.Empty, roomName, connectionId, string.Empty);
             return await _apiHealper.DoStandartSomething(async () =>
             {
-                string userConnectionId = GetConnectionId();
                 (bool sc, string userId) =
-                    await _planitPokerService.ChangeUserName(roomName, userConnectionId, newUserName);
+                    await _planitPokerService.ChangeUserName(roomName, connectionId, newUserName);
 
                 if (sc)
                 {
@@ -369,10 +376,11 @@ namespace PlanitPoker.Models.Hubs
             roomName = NormalizeRoomName(roomName);
             userId = ValidateString(userId);
             newRole = ValidateString(newRole);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(AddNewRoleToUser), string.Empty, roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
-                var sc = await _planitPokerService.AddNewRoleToUser(roomName, userId, newRole, GetConnectionId());
+                var sc = await _planitPokerService.AddNewRoleToUser(roomName, userId, newRole, connectionId);
                 if (!sc)
                 {
                     throw new SomeCustomException(ErrorConsts.SomeError);
@@ -387,19 +395,20 @@ namespace PlanitPoker.Models.Hubs
         }
 
         // ReSharper disable once UnusedMember.Global
-        public async Task RemoveRoleUser(string roomname, string userId, string oldRole)
+        public async Task RemoveRoleUser(string roomName, string userId, string oldRole)
         {
             //roomname = ValidateString(roomname);
-            roomname = NormalizeRoomName(roomname);
+            roomName = NormalizeRoomName(roomName);
             userId = ValidateString(userId);
             oldRole = ValidateString(oldRole);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(RemoveRoleUser), string.Empty, roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
-                var sc = await _planitPokerService.RemoveRoleUser(roomname, userId, oldRole, GetConnectionId());
+                var sc = await _planitPokerService.RemoveRoleUser(roomName, userId, oldRole, connectionId);
                 if (sc)
                 {
-                    await Clients.Group(roomname)
+                    await Clients.Group(roomName)
                         .SendAsync(Consts.PlanitPokerHubEndpoints.UserRoleChanged, userId, 2, oldRole);
                 }
             }, _logger);
@@ -412,7 +421,8 @@ namespace PlanitPoker.Models.Hubs
             roomName = NormalizeRoomName(roomName);
             storyName = ValidateString(storyName);
             storyDescription = ValidateString(storyDescription);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(AddNewStory), string.Empty, roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
                 var newStory = new Story()
@@ -421,7 +431,7 @@ namespace PlanitPoker.Models.Hubs
                     Description = storyDescription,
                 };
 
-                var sc = await _planitPokerService.AddNewStory(roomName, GetConnectionId(), newStory);
+                var sc = await _planitPokerService.AddNewStory(roomName, connectionId, newStory);
 
                 if (sc)
                 {
@@ -439,7 +449,8 @@ namespace PlanitPoker.Models.Hubs
             roomName = NormalizeRoomName(roomName);
             storyName = ValidateString(storyName);
             storyDescription = ValidateString(storyDescription);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(ChangeCurrentStory), string.Empty, roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
                 var newStory = new Story()
@@ -462,9 +473,7 @@ namespace PlanitPoker.Models.Hubs
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.StoryNotFound);
                 }
 
-
-
-                var sc = await _planitPokerService.ChangeStory(roomName, GetConnectionId(), newStory);
+                var sc = await _planitPokerService.ChangeStory(roomName, connectionId, newStory);
 
                 if (sc)
                 {
@@ -480,10 +489,11 @@ namespace PlanitPoker.Models.Hubs
         public async Task MakeCurrentStory(string roomName, string storyId)
         {
             roomName = NormalizeRoomName(roomName);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(MakeCurrentStory), string.Empty, roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
-                var sc = await _planitPokerService.ChangeCurrentStory(roomName, GetConnectionId(), storyId);
+                var sc = await _planitPokerService.ChangeCurrentStory(roomName, connectionId, storyId);
 
                 if (sc)
                 {
@@ -497,10 +507,11 @@ namespace PlanitPoker.Models.Hubs
         public async Task DeleteStory(string roomName, string storyId)
         {
             roomName = NormalizeRoomName(roomName);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(DeleteStory), string.Empty, roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
-                var sc = await _planitPokerService.DeleteStory(roomName, GetConnectionId(), storyId);
+                var sc = await _planitPokerService.DeleteStory(roomName, connectionId, storyId);
 
                 if (sc)
                 {
@@ -515,7 +526,8 @@ namespace PlanitPoker.Models.Hubs
         public async Task MakeStoryComplete(string roomName, string storyId)
         {
             roomName = NormalizeRoomName(roomName);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(MakeStoryComplete), string.Empty, roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
                 var (oldId, story) = await _planitPokerService.MakeStoryComplete(roomName, storyId, GetConnectionId());
@@ -534,17 +546,17 @@ namespace PlanitPoker.Models.Hubs
 
         public async Task OnWindowClosedAsync(string roomName)//, string userId
         {
-            var httpContext = Context.GetHttpContext();
+            roomName = NormalizeRoomName(roomName);
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(OnWindowClosedAsync), string.Empty, roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomethingWithoutResponse(async () =>
             {
                 if (!string.IsNullOrWhiteSpace(roomName))
                 {
-                    roomName = NormalizeRoomName(roomName);
-                    var userConnectionId = GetConnectionId();
-                    (bool sc, string userId) = await _planitPokerService.LeaveFromRoom(roomName, userConnectionId);
+                    (bool sc, string userId) = await _planitPokerService.LeaveFromRoom(roomName, connectionId);
                     if (sc)
                     {
-                        await Groups.RemoveFromGroupAsync(userConnectionId, roomName);
+                        await Groups.RemoveFromGroupAsync(connectionId, roomName);
                         await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved,
                             new List<string>() { userId });
 
@@ -574,11 +586,12 @@ namespace PlanitPoker.Models.Hubs
         public async Task<bool> SaveRoom(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(SaveRoom), string.Empty, roomName, connectionId, string.Empty);
             return await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    return await _planitPokerService.SaveRoom(roomName, GetConnectionId());
+                    return await _planitPokerService.SaveRoom(roomName, connectionId);
                 }, false, _logger);
         }
 
@@ -586,10 +599,12 @@ namespace PlanitPoker.Models.Hubs
         public async Task DeleteRoom(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
-            var httpContext = Context.GetHttpContext();
+            string connectionId = GetConnectionId();
+            Log(LogLevel.Debug, nameof(DeleteRoom), string.Empty, roomName, connectionId, string.Empty);
+
             await _apiHealper.DoStandartSomething(async () =>
             {
-                var room = await _planitPokerService.DeleteRoom(roomName, GetConnectionId());
+                var room = await _planitPokerService.DeleteRoom(roomName, connectionId);
                 var usersId = room?.StoredRoom?.Users.Select(x => new { x.PlaningAppUserId, x.UserConnectionId })
                     .ToList();
                 if (usersId != null && usersId.Count > 0)
@@ -610,7 +625,7 @@ namespace PlanitPoker.Models.Hubs
         public async Task<IEnumerable<StoryReturn>> LoadNotActualStories(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
-            var httpContext = Context.GetHttpContext();
+            Log(LogLevel.Debug, nameof(LoadNotActualStories), string.Empty, roomName, GetConnectionId(), string.Empty);
             return await _apiHealper.DoStandartSomething(async () =>
             {
                 var stories = await _planitPokerService.LoadNotActualStories(roomName);
@@ -780,9 +795,9 @@ namespace PlanitPoker.Models.Hubs
         private void Log(LogLevel lvl, string action, string message, string roomName, string connectionId, string userId)
         {
             var config = new Dictionary<string, object>();
-            config.Add("action", action);
+            config.Add("action", $"PlanitPoker-{action}");
             config.Add("connection_id", connectionId);
-            config.Add("room_name", roomName);
+            config.Add("group_name", roomName);
             config.Add("user_id", userId);
             Log(lvl, message, config);
         }
