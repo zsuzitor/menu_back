@@ -8,6 +8,9 @@
 
 
 
+проверить var context = GlobalHost.ConnectionManager.GetHubContext<ChatHub>();
+
+
 !!!!!накатить логи
 
 проверить сохранение комнат планит покера в бд, сохранятся ли пользаки?

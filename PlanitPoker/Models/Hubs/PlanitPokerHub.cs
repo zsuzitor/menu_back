@@ -71,7 +71,7 @@ namespace PlanitPoker.Models.Hubs
             _apiHealper.InitByHub(this);
         }
 
-      
+
 
         public string GetConnectionId()
         {
@@ -132,7 +132,7 @@ namespace PlanitPoker.Models.Hubs
 
                 _ = await EnterInRoom(room, user);
 
-            }, httpContext.Response, _logger);
+            }, _logger);
 
 
         }
@@ -159,7 +159,7 @@ namespace PlanitPoker.Models.Hubs
 
 
                 throw new SomeCustomException(ErrorConsts.SomeError);
-            }, httpContext.Response, _logger);
+            }, _logger);
 
         }
 
@@ -221,7 +221,7 @@ namespace PlanitPoker.Models.Hubs
                 };
 
                 _ = await EnterInRoom(room, user);
-            }, httpContext.Response, _logger);
+            }, _logger);
 
 
         }
@@ -238,7 +238,7 @@ namespace PlanitPoker.Models.Hubs
 
                 await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.VoteStart);
 
-            }, httpContext.Response, _logger);
+            }, _logger);
         }
 
         // ReSharper disable once UnusedMember.Global
@@ -256,7 +256,7 @@ namespace PlanitPoker.Models.Hubs
 
                 await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.VoteEnd, result);
 
-            }, httpContext.Response, _logger);
+            }, _logger);
 
         }
 
@@ -276,7 +276,7 @@ namespace PlanitPoker.Models.Hubs
                 }
 
 
-                (bool sc1, string userId) =  _planitPokerService.ChangeVote(room, GetConnectionId(), vote);
+                (bool sc1, string userId) = _planitPokerService.ChangeVote(room, GetConnectionId(), vote);
                 if (!sc1)
                 {
                     throw new SomeCustomException(ErrorConsts.SomeError);
@@ -300,7 +300,7 @@ namespace PlanitPoker.Models.Hubs
                     .SendAsync(Consts.PlanitPokerHubEndpoints.VoteChanged, userId, "?");
                 //await Clients.Caller.SendAsync(VoteSuccess, vote);
                 return true;
-            }, false, httpContext.Response, _logger);
+            }, false, _logger);
         }
 
 
@@ -318,7 +318,7 @@ namespace PlanitPoker.Models.Hubs
                 if (kicked.sc)
                 {
                     await Clients.Group(roomName)
-                        .SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved, new List<string>() {userId});
+                        .SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved, new List<string>() { userId });
                     await Groups.RemoveFromGroupAsync(kicked.user.UserConnectionId, roomName);
 
                     //if (userConnectionId == kicked.user.UserConnectionId)
@@ -330,7 +330,7 @@ namespace PlanitPoker.Models.Hubs
                 }
 
                 throw new SomeCustomException(ErrorConsts.SomeError);
-            }, httpContext.Response, _logger);
+            }, _logger);
 
 
 
@@ -359,7 +359,7 @@ namespace PlanitPoker.Models.Hubs
 
                 throw new SomeCustomException(ErrorConsts.SomeError);
 
-            }, false, httpContext.Response, _logger);
+            }, false, _logger);
 
         }
 
@@ -382,7 +382,7 @@ namespace PlanitPoker.Models.Hubs
                     .SendAsync(Consts.PlanitPokerHubEndpoints.UserRoleChanged, userId, 1, newRole);
                 return;
 
-            }, httpContext.Response, _logger);
+            }, _logger);
 
         }
 
@@ -402,7 +402,7 @@ namespace PlanitPoker.Models.Hubs
                     await Clients.Group(roomname)
                         .SendAsync(Consts.PlanitPokerHubEndpoints.UserRoleChanged, userId, 2, oldRole);
                 }
-            }, httpContext.Response, _logger);
+            }, _logger);
 
         }
 
@@ -428,7 +428,7 @@ namespace PlanitPoker.Models.Hubs
                     await Clients.Group(roomName)
                         .SendAsync(Consts.PlanitPokerHubEndpoints.AddedNewStory, new StoryReturn(newStory));
                 }
-            }, httpContext.Response, _logger);
+            }, _logger);
             //invoke AddedNewStory
 
         }
@@ -448,11 +448,11 @@ namespace PlanitPoker.Models.Hubs
                     Description = storyDescription,
                 };
 
-                if(Guid.TryParse(storyId, out var storyIdG))
+                if (Guid.TryParse(storyId, out var storyIdG))
                 {
                     newStory.TmpId = storyIdG;
                 }
-                else if(long.TryParse(storyId, out var idLong))
+                else if (long.TryParse(storyId, out var idLong))
                 {
                     newStory.IdDb = idLong;
                 }
@@ -462,7 +462,7 @@ namespace PlanitPoker.Models.Hubs
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.StoryNotFound);
                 }
 
-                
+
 
                 var sc = await _planitPokerService.ChangeStory(roomName, GetConnectionId(), newStory);
 
@@ -472,7 +472,7 @@ namespace PlanitPoker.Models.Hubs
                         .SendAsync(Consts.PlanitPokerHubEndpoints.CurrentStoryChanged, storyId, storyName,
                             storyDescription); //new StoryReturn(newStory)
                 }
-            }, httpContext.Response, _logger);
+            }, _logger);
 
         }
 
@@ -489,7 +489,7 @@ namespace PlanitPoker.Models.Hubs
                 {
                     await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.NewCurrentStory, storyId);
                 }
-            }, httpContext.Response, _logger);
+            }, _logger);
 
         }
 
@@ -506,7 +506,7 @@ namespace PlanitPoker.Models.Hubs
                 {
                     await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.DeletedStory, storyId);
                 }
-            }, httpContext.Response, _logger);
+            }, _logger);
 
 
         }
@@ -524,7 +524,7 @@ namespace PlanitPoker.Models.Hubs
                     await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.MovedStoryToComplete, oldId,
                         new StoryReturn(story));
                 }
-            }, httpContext.Response, _logger);
+            }, _logger);
 
 
             //
@@ -579,8 +579,7 @@ namespace PlanitPoker.Models.Hubs
                 async () =>
                 {
                     return await _planitPokerService.SaveRoom(roomName, GetConnectionId());
-                }, false,
-                httpContext.Response, _logger);
+                }, false, _logger);
         }
 
         // ReSharper disable once UnusedMember.Global
@@ -591,7 +590,7 @@ namespace PlanitPoker.Models.Hubs
             await _apiHealper.DoStandartSomething(async () =>
             {
                 var room = await _planitPokerService.DeleteRoom(roomName, GetConnectionId());
-                var usersId = room?.StoredRoom?.Users.Select(x => new {x.PlaningAppUserId, x.UserConnectionId})
+                var usersId = room?.StoredRoom?.Users.Select(x => new { x.PlaningAppUserId, x.UserConnectionId })
                     .ToList();
                 if (usersId != null && usersId.Count > 0)
                 {
@@ -603,7 +602,7 @@ namespace PlanitPoker.Models.Hubs
                         await Groups.RemoveFromGroupAsync(userConId.UserConnectionId, roomName);
                     }
                 }
-            }, httpContext.Response, _logger);
+            }, _logger);
 
         }
 
@@ -616,7 +615,7 @@ namespace PlanitPoker.Models.Hubs
             {
                 var stories = await _planitPokerService.LoadNotActualStories(roomName);
                 return stories.Select(x => new StoryReturn(x));
-            }, new List<StoryReturn>(), httpContext.Response, _logger);
+            }, new List<StoryReturn>(), _logger);
 
         }
 
@@ -703,7 +702,7 @@ namespace PlanitPoker.Models.Hubs
                 var roomName = room.GetConcurentValue(_multiThreadHelper, rm => rm.StoredRoom.Name);
                 await Groups.RemoveFromGroupAsync(oldConnectionId, roomName.res);
                 await Clients.Client(oldConnectionId)
-                    .SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved, new List<string>() {userId});
+                    .SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved, new List<string>() { userId });
             }
 
 
@@ -734,12 +733,12 @@ namespace PlanitPoker.Models.Hubs
 
         private List<string> GetDefaultRoles()
         {
-            return new List<string>() {Consts.Roles.User};
+            return new List<string>() { Consts.Roles.User };
         }
 
         private List<string> GetCreatorRoles()
         {
-            return new List<string>(GetDefaultRoles()) {Consts.Roles.Creator, Consts.Roles.Admin};
+            return new List<string>(GetDefaultRoles()) { Consts.Roles.Creator, Consts.Roles.Admin };
         }
 
         //private static Task ClearRooms()
@@ -778,15 +777,43 @@ namespace PlanitPoker.Models.Hubs
         }
 
 
-        private void Log()
+        private void Log(LogLevel lvl, string action, string message, string roomName, string connectionId, string userId)
         {
-            //todo 
             var config = new Dictionary<string, object>();
-            config.Add("my_order_id", "test");
+            config.Add("action", action);
+            config.Add("connection_id", connectionId);
+            config.Add("room_name", roomName);
+            config.Add("user_id", userId);
+            Log(lvl, message, config);
+        }
 
+        private void Log(LogLevel lvl, string message, Dictionary<string, object> config)//, Action<ILogger> act)
+        {
             using (_hublogger.BeginScope(config))
             {
-                _hublogger.LogInformation("Test message");
+                //act(_hublogger);
+                _hublogger.Log(lvl, message);
+                //switch (lvl)
+                //{
+                //    case LogLevel.Debug:
+                //        _hublogger.LogDebug(message);
+                //        break;
+                //    case LogLevel.Information:
+                //        _hublogger.LogInformation(message);
+                //        break;
+                //    case LogLevel.Trace:
+                //        _hublogger.LogTrace(message);
+                //        break;
+                //    case LogLevel.Error:
+                //        _hublogger.LogError(message);
+                //        break;
+                //    case LogLevel.Critical:
+                //        _hublogger.LogCritical(message);
+                //        break;
+                //    case LogLevel.Warning:
+                //        _hublogger.LogWarning(message);
+                //        break;
+                //}
             }
         }
     }

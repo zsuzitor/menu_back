@@ -19,7 +19,8 @@ namespace PlanitPoker.Models.Helpers
     {
         Task<bool> NotifyFromErrorService();
         void InitByHub(Hub hub);
-        Task<T> DoStandartSomething<T>(Func<Task<T>> action, T defaultResult, HttpResponse response, ILogger logger);
+        Task<T> DoStandartSomething<T>(Func<Task<T>> action, T defaultResult, ILogger logger);
+        Task DoStandartSomething(Func<Task> action, ILogger logger);
         Task<T> DoStandartSomethingWithoutResponse<T>(Func<Task<T>> action, T defaultResult, ILogger logger);
     }
 
@@ -110,12 +111,21 @@ namespace PlanitPoker.Models.Helpers
             {
                 await action();
                 return true;
-            }, false, response, logger);
+            }, false, logger);
+        }
+
+        public async Task DoStandartSomething(Func<Task> action, ILogger logger)
+        {
+            await DoStandartSomething(async () =>
+            {
+                await action();
+                return true;
+            }, false,  logger);
         }
 
 
 
-        public async Task<T> DoStandartSomething<T>(Func<Task<T>> action, T defaultResult, HttpResponse response, ILogger logger)
+        public async Task<T> DoStandartSomething<T>(Func<Task<T>> action, T defaultResult, ILogger logger)
         {
 
             var res = await DoStandartSomethingWithoutResponse(action, defaultResult, logger);
