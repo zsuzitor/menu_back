@@ -86,7 +86,7 @@ namespace CodeReviewApp.Models.Services
             }
 
             bool needNotifyReviewer = false;
-            if(upTask.ReviewerId!= task.ReviewerId&& task.ReviewerId != null)
+            if (upTask.ReviewerId != task.ReviewerId && task.ReviewerId != null)
             {
                 needNotifyReviewer = true;
             }

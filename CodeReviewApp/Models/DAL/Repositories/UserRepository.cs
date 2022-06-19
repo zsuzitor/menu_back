@@ -34,14 +34,50 @@ namespace CodeReviewApp.Models.DAL.Repositories
 
         public async Task<long?> GetIdByMainAppIdAsync(long userId, long projectId)
         {
-            return (await _db.ReviewProjectUsers.Select(x => new {x.Id, x.MainAppUserId, x.ProjectId })
-                .FirstOrDefaultAsync(x => x.MainAppUserId == userId && x.ProjectId == projectId))?.Id;
+            return (await _db.ReviewProjectUsers.Select(x => new {x.Id, x.MainAppUserId, x.ProjectId, x.Deactivated })
+                .FirstOrDefaultAsync(x => x.MainAppUserId == userId && x.ProjectId == projectId && !x.Deactivated))?.Id;
         }
 
         public async Task<string> GetNotificationEmailAsync(long userId)
         {
             return (await _db.ReviewProjectUsers.Select(x => new { x.Id, x.NotifyEmail, x.ProjectId })
                 .FirstOrDefaultAsync(x => x.Id == userId))?.NotifyEmail;
+        }
+
+        public override async Task<ProjectUser> DeleteAsync(ProjectUser user)
+        {
+            _db.ReviewProjectUsers.Attach(user);
+            user.Deactivated = true;
+            await _db.SaveChangesAsync();
+            return user;
+        }
+
+        public override async Task<List<ProjectUser>> DeleteAsync(List<ProjectUser> records)
+        {
+            _db.ReviewProjectUsers.AttachRange(records);
+            foreach (var item in records)
+            {
+                item.Deactivated = true;
+            }
+
+            await _db.SaveChangesAsync();
+            return records;
+        }
+        public override async Task<ProjectUser> DeleteAsync(long recordId)
+        {
+            var record = await GetAsync(recordId);
+            if (record != null)
+            {
+                record.Deactivated = false;
+                await _db.SaveChangesAsync();
+            }
+
+            return record;
+        }
+
+        public async Task<bool> ExistAsync(long projectId, long userId)
+        {
+            return await _db.ReviewProjectUsers.AnyAsync(x => x.Id == userId && x.ProjectId == projectId);
         }
     }
 }

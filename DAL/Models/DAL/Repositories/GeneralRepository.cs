@@ -48,7 +48,7 @@ namespace DAL.Models.DAL.Repositories
             return record;
         }
 
-        public async Task<T1> DeleteAsync(T2 recordId)
+        public virtual async Task<T1> DeleteAsync(T2 recordId)
         {
             var recordForDel = await GetAsync(recordId);
             if (recordForDel != null)
@@ -80,7 +80,7 @@ namespace DAL.Models.DAL.Repositories
             return await _db.Set<T1>().AsNoTracking().Where(x => ids.Contains(x.Id)).ToListAsync();
         }
 
-        public async Task<bool> ExistAsync(T2 id)
+        public virtual async Task<bool> ExistAsync(T2 id)
         {
             return (await _db.Set<T1>().Where(x => x.Id.Equals(id)).Select(x => x.Id).FirstOrDefaultAsync()) != null;
         }

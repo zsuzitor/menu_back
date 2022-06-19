@@ -61799,6 +61799,7 @@ var CodeReviewUserController = /** @class */ (function () {
                 "name": user.Name,
                 "email": user.Email,
                 "isAdmin": user.IsAdmin,
+                "deactivated": user.Deactivated,
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
@@ -63631,10 +63632,11 @@ var AddTask = function (props) {
         }
     }, [props.ProjectUsers.length]);
     var createNewTask = function () {
+        if (!newTaskName) {
+            alert('Введите название');
+        }
         var addTask = function (error, data) {
             if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
                 return;
             }
             if (data) {
@@ -63727,8 +63729,6 @@ var CodeReviewMain = function (props) {
     (0, react_1.useEffect)(function () {
         var getProjects = function (error, data) {
             if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
                 return;
             }
             if (data) {
@@ -63742,8 +63742,6 @@ var CodeReviewMain = function (props) {
         if (currentProjectId > 0) {
             var getProjectInfo = function (error, data) {
                 if (error) {
-                    //TODO выбить из комнаты?
-                    alert("todo что то пошло не так лучше обновить страницу");
                     return;
                 }
                 if (data) {
@@ -63760,8 +63758,6 @@ var CodeReviewMain = function (props) {
         }
         var addProject = function (error, data) {
             if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
                 return;
             }
             if (data) {
@@ -63794,6 +63790,7 @@ var CodeReviewMain = function (props) {
                 userState.Email = user.Email;
                 userState.Name = user.Name;
                 userState.IsAdmin = user.IsAdmin;
+                userState.Deactivated = user.Deactivated;
             }
             return newState;
         });
@@ -63882,7 +63879,8 @@ __webpack_require__(/*! ./OneProjectUser.css */ "./src/components/Body/CodeRevie
 var OneProjectUser = function (props) {
     var _a = (0, react_1.useState)(props.User.Name), userName = _a[0], setUserName = _a[1];
     var _b = (0, react_1.useState)(props.User.Email || ''), userEmail = _b[0], setUserEmail = _b[1];
-    var _c = (0, react_1.useState)(false), userIsAdmin = _c[0], setUserIsAdmin = _c[1];
+    var _c = (0, react_1.useState)(props.User.IsAdmin), userIsAdmin = _c[0], setUserIsAdmin = _c[1];
+    var _d = (0, react_1.useState)(props.User.Deactivated), userIsDeactivated = _d[0], setUserIsDeactivated = _d[1];
     (0, react_1.useEffect)(function () {
         setUserName(props.User.Name);
     }, [props.User.Name]);
@@ -63891,17 +63889,21 @@ var OneProjectUser = function (props) {
     }, [props.User.Email]);
     (0, react_1.useEffect)(function () {
         setUserIsAdmin(props.User.IsAdmin);
-    }, [props.User.Email]);
+    }, [props.User.IsAdmin]);
+    (0, react_1.useEffect)(function () {
+        setUserIsDeactivated(props.User.Deactivated);
+    }, [props.User.Deactivated]);
     var changeUser = function () {
         if (!userName) {
             alert('Введите имя пользователя');
             return;
         }
-        var newUserData = { Id: props.User.Id, Name: userName, Email: userEmail, IsAdmin: userIsAdmin };
+        var newUserData = {
+            Id: props.User.Id, Name: userName,
+            Email: userEmail, IsAdmin: userIsAdmin, Deactivated: userIsDeactivated
+        };
         var changeUser = function (error, data) {
             if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
                 return;
             }
             if (data === null || data === void 0 ? void 0 : data.result) {
@@ -63910,19 +63912,21 @@ var OneProjectUser = function (props) {
         };
         window.G_CodeReviewUserController.ChangeProjectUser(newUserData, changeUser);
     };
-    var deleteUser = function () {
-        var deleteUser = function (error, data) {
-            if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
-                return;
-            }
-            if (data === null || data === void 0 ? void 0 : data.result) {
-                props.DeleteUser(props.User.Id);
-            }
-        };
-        window.G_CodeReviewUserController.DeleteProjectUser(props.User.Id, deleteUser);
-    };
+    // const deleteUser = () => {
+    //     let deleteUser = (error: MainErrorObjectBack, data: BoolResultBack) => {
+    //         if (error) {
+    //             return;
+    //         }
+    //         if (data?.result) {
+    //             props.DeleteUser(props.User.Id);
+    //         }
+    //     };
+    //     window.G_CodeReviewUserController.DeleteProjectUser(props.User.Id, deleteUser);
+    // }
+    var userHasChanges = userName !== props.User.Name ||
+        userEmail !== props.User.Email ||
+        userIsAdmin !== props.User.IsAdmin ||
+        userIsDeactivated !== props.User.Deactivated;
     return react_1.default.createElement("div", { className: 'one-project-user-content' },
         react_1.default.createElement("label", null, "\u0418\u043C\u044F"),
         react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: userName, placeholder: "\u0418\u043C\u044F", onChange: function (e) { return setUserName(e.target.value); } }),
@@ -63931,17 +63935,18 @@ var OneProjectUser = function (props) {
         react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: userEmail, placeholder: "\u041F\u043E\u0447\u0442\u0430", onChange: function (e) { return setUserEmail(e.target.value); } }),
         react_1.default.createElement("label", null, "\u0420\u043E\u043B\u044C \u0410\u0434\u043C\u0438\u043D\u0430"),
         react_1.default.createElement("input", { type: "checkbox", checked: userIsAdmin, onChange: function (e) { return setUserIsAdmin(e.target.checked); } }),
-        react_1.default.createElement("div", { className: 'one-project-user-buttons' },
+        react_1.default.createElement("label", null, "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C \u0434\u0435\u0430\u043A\u0442\u0438\u0432\u0438\u0440\u043E\u0432\u0430\u043D"),
+        react_1.default.createElement("input", { type: "checkbox", checked: userIsDeactivated, onChange: function (e) { return setUserIsDeactivated(e.target.checked); } }),
+        userHasChanges ? react_1.default.createElement("div", { className: 'one-project-user-buttons' },
             react_1.default.createElement("div", { className: 'project-user-action-btn', onClick: function () { return changeUser(); } },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'save-icon.png', alt: "Save", title: '\u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C' })),
             react_1.default.createElement("div", { className: 'project-user-action-btn', onClick: function () {
                     setUserName(props.User.Name);
                     setUserEmail(props.User.Email);
                     setUserIsAdmin(props.User.IsAdmin);
+                    setUserIsDeactivated(props.User.Deactivated);
                 } },
-                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u043E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' })),
-            react_1.default.createElement("div", { className: 'project-user-action-btn', onClick: function () { return deleteUser(); } },
-                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0443\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' }))));
+                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u043E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' }))) : react_1.default.createElement(react_1.default.Fragment, null));
 };
 exports["default"] = OneProjectUser;
 
@@ -63995,8 +64000,6 @@ var OneReviewTaskComment = function (props) {
         }
         var deleteComment = function (error, data) {
             if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
                 return;
             }
             if (data === null || data === void 0 ? void 0 : data.result) {
@@ -64008,8 +64011,6 @@ var OneReviewTaskComment = function (props) {
     var updateComment = function () {
         var updateComment = function (error, data) {
             if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
                 return;
             }
             if (data === null || data === void 0 ? void 0 : data.result) {
@@ -64114,7 +64115,7 @@ __webpack_require__(/*! ./OneReviewTask.css */ "./src/components/Body/CodeReview
 var OneReviewTask = function (props) {
     var _a = (0, react_1.useState)(props.Task.Name), taskName = _a[0], setTaskName = _a[1];
     var _b = (0, react_1.useState)(props.Task.Status), taskStatus = _b[0], setTaskStatus = _b[1];
-    var _c = (0, react_1.useState)(props.Task.ReviewerId || -1), taskReviwer = _c[0], setTaskReviwer = _c[1];
+    var _c = (0, react_1.useState)(props.Task.ReviewerId || -1), taskReviewer = _c[0], setTaskreviewer = _c[1];
     var _d = (0, react_1.useState)(props.Task.CreatorId), taskCreator = _d[0], setTaskCreator = _d[1];
     var _e = (0, react_1.useState)([]), comments = _e[0], setComments = _e[1];
     var _f = (0, react_1.useState)(false), showComments = _f[0], setShowComments = _f[1];
@@ -64126,7 +64127,7 @@ var OneReviewTask = function (props) {
         setTaskStatus(props.Task.Status);
     }, [props.Task.Status]);
     (0, react_1.useEffect)(function () {
-        setTaskReviwer(props.Task.ReviewerId || -1);
+        setTaskreviewer(props.Task.ReviewerId || -1);
     }, [props.Task.ReviewerId]);
     (0, react_1.useEffect)(function () {
         setTaskCreator(props.Task.CreatorId);
@@ -64138,8 +64139,6 @@ var OneReviewTask = function (props) {
         }
         var loadComments = function (error, data) {
             if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
                 return;
             }
             if (data) {
@@ -64149,14 +64148,14 @@ var OneReviewTask = function (props) {
         window.G_CodeReviewCommentController.LoadComments(props.Task.Id, loadComments);
     }, [showComments]);
     // let creator = props.ProjectUsers.find(x => x.Id == props.Task.CreatorId);
-    // let reviwer = props.ProjectUsers.find(x => x.Id == props.Task.ReviewerId);
+    // let reviewer = props.ProjectUsers.find(x => x.Id == props.Task.ReviewerId);
     var cancelTask = function () {
         if (!confirm('Отменить изменения?')) {
             return;
         }
         setTaskName(props.Task.Name);
         setTaskStatus(props.Task.Status);
-        setTaskReviwer(props.Task.ReviewerId || -1);
+        setTaskreviewer(props.Task.ReviewerId || -1);
         setTaskCreator(props.Task.CreatorId);
     };
     var updateTask = function () {
@@ -64166,12 +64165,10 @@ var OneReviewTask = function (props) {
         var forAdd = __assign({}, props.Task);
         forAdd.Name = taskName;
         forAdd.Status = taskStatus;
-        forAdd.ReviewerId = taskReviwer;
+        forAdd.ReviewerId = taskReviewer;
         forAdd.CreatorId = taskCreator;
         var updateTask = function (error, data) {
             if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
                 return;
             }
             if (data === null || data === void 0 ? void 0 : data.result) {
@@ -64186,8 +64183,6 @@ var OneReviewTask = function (props) {
         }
         var deleteTask = function (error, data) {
             if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
                 return;
             }
             if (data === null || data === void 0 ? void 0 : data.result) {
@@ -64199,8 +64194,6 @@ var OneReviewTask = function (props) {
     var addComment = function () {
         var addComment = function (error, data) {
             if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
                 return;
             }
             if (data) {
@@ -64241,27 +64234,43 @@ var OneReviewTask = function (props) {
                 react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', value: newCommentName, onChange: function (e) { return setNewCommentName(e.target.value); } }),
                 react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return addComment(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C")));
     };
+    var taskHasChanges = taskName !== props.Task.Name ||
+        taskStatus !== props.Task.Status ||
+        taskReviewer !== props.Task.ReviewerId ||
+        taskCreator !== props.Task.CreatorId;
+    var creator = props.ProjectUsers.find(function (x) { return x.Id === taskCreator; });
+    var creatorsList = props.ProjectUsers.filter(function (us) { return !us.Deactivated; });
+    if (creator && creator.Deactivated) {
+        creatorsList.push(creator);
+    }
+    var reviewer = props.ProjectUsers.find(function (x) { return x.Id === taskReviewer; });
+    var reviewerList = props.ProjectUsers.filter(function (us) { return !us.Deactivated; });
+    if (reviewer && reviewer.Deactivated) {
+        reviewerList.push(reviewer);
+    }
     return react_1.default.createElement("div", { className: 'one-review-task-block' },
         react_1.default.createElement("div", { className: 'one-review-task-block-flex' },
             react_1.default.createElement("div", { className: 'one-review-task-content' },
                 react_1.default.createElement("textarea", { className: 'form-control-b review-task-name-input', value: taskName, onChange: function (e) { return setTaskName(e.target.value); } }),
                 react_1.default.createElement("br", null),
                 react_1.default.createElement("span", null, "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u0442\u044C"),
-                react_1.default.createElement("select", { className: 'form-control-b', value: taskCreator, onChange: function (e) { return setTaskCreator(+e.target.value); } }, props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
+                react_1.default.createElement("select", { className: 'form-control-b', value: taskCreator, onChange: function (e) { return setTaskCreator(+e.target.value); } }, creatorsList.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
                 react_1.default.createElement("span", null, "\u0420\u0435\u0432\u044C\u044E\u0432\u0435\u0440"),
-                react_1.default.createElement("select", { className: 'form-control-b', value: taskReviwer, onChange: function (e) { return setTaskReviwer(+e.target.value); } },
+                react_1.default.createElement("select", { className: 'form-control-b', value: taskReviewer, onChange: function (e) { return setTaskreviewer(+e.target.value); } },
                     react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                    props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
+                    reviewerList.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
                 react_1.default.createElement("span", null, "\u0421\u0442\u0430\u0442\u0443\u0441"),
                 react_1.default.createElement("select", { className: 'form-control-b', onChange: function (e) { return setTaskStatus(+e.target.value); }, value: taskStatus },
                     react_1.default.createElement("option", { value: 0 }, "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E \u043A\u043E\u0434 \u0440\u0435\u0432\u044C\u044E"),
                     react_1.default.createElement("option", { value: 1 }, "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B \u043F\u0440\u0430\u0432\u043A\u0438"),
                     react_1.default.createElement("option", { value: 2 }, "\u0413\u043E\u0442\u043E\u0432\u043E"))),
             react_1.default.createElement("div", { className: 'one-review-task-buttons' },
-                react_1.default.createElement("div", { className: 'review-task-save-button', onClick: function () { return updateTask(); } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'save-icon.png', alt: "Save", title: '\u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C' })),
-                react_1.default.createElement("div", { className: 'review-task-cancel-button', onClick: function () { return cancelTask(); } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u043E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' })),
+                taskHasChanges ?
+                    react_1.default.createElement(react_1.default.Fragment, null,
+                        react_1.default.createElement("div", { className: 'review-task-save-button', onClick: function () { return updateTask(); } },
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'save-icon.png', alt: "Save", title: '\u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C' })),
+                        react_1.default.createElement("div", { className: 'review-task-cancel-button', onClick: function () { return cancelTask(); } },
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u043E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' }))) : react_1.default.createElement(react_1.default.Fragment, null),
                 react_1.default.createElement("div", { className: 'review-task-delete-button', onClick: function () { return deleteTask(); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0443\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
                 react_1.default.createElement("div", { className: 'review-task-comments-button', onClick: function () { return setShowComments(function (oldState) { return !oldState; }); } },
@@ -64439,8 +64448,6 @@ var ProjectDetail = function (props) {
     var reloadTasks = function () {
         var loadTasks = function (error, data) {
             if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
                 return;
             }
             if (data) {
@@ -64459,8 +64466,6 @@ var ProjectDetail = function (props) {
     var deleteProject = function () {
         var deleteProject = function (error, data) {
             if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
                 return;
             }
             if (data === null || data === void 0 ? void 0 : data.result) {
@@ -64518,7 +64523,7 @@ var ProjectDetail = function (props) {
             react_1.default.createElement("br", null),
             react_1.default.createElement("div", { className: 'review-project-new-task-block' },
                 react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return setShowAddNewTaskForm(true); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443"),
-                showAddNewTaskForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowAddNewTaskForm(false); }, IsHeightWindow: false, Title: '\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438', InnerContent: function () { return react_1.default.createElement(AddTask_1.default, { ProjectId: props.Project.Id, ProjectUsers: props.ProjectUsers, ReloadTasks: reloadTasks }); } }) : react_1.default.createElement(react_1.default.Fragment, null))),
+                showAddNewTaskForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowAddNewTaskForm(false); }, IsHeightWindow: false, Title: '\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438', InnerContent: function () { return react_1.default.createElement(AddTask_1.default, { ProjectId: props.Project.Id, ProjectUsers: props.ProjectUsers.filter(function (us) { return !us.Deactivated; }), ReloadTasks: reloadTasks }); } }) : react_1.default.createElement(react_1.default.Fragment, null))),
         react_1.default.createElement("div", { className: 'review-project-tasks-filters-block' },
             react_1.default.createElement("div", null, "\u0444\u0438\u043B\u044C\u0442\u0440\u044B"),
             react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: filterTaskName, onChange: function (e) { return setFilterTaskName(e.target.value); }, placeholder: '\u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435' }),
@@ -64594,8 +64599,6 @@ var ProjectUsers = function (props) {
         }
         var addUser = function (error, data) {
             if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
                 return;
             }
             if (data) {

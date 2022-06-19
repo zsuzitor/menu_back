@@ -9,6 +9,7 @@ namespace CodeReviewApp.Models.Returns
         public string Email { get; set; }
         public bool IsAdmin { get; set; }
         public long? MainAppUserId { get; set; }
+        public bool Deactivated { get; set; }
 
         public ProjectUserReturn(ProjectUser user)
         {
@@ -17,6 +18,7 @@ namespace CodeReviewApp.Models.Returns
             Email = user.NotifyEmail;
             IsAdmin = user.IsAdmin;
             MainAppUserId = user.MainAppUserId;
+            Deactivated = user.Deactivated;
         }
     }
 }

@@ -98,6 +98,21 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
+            var creatorExist = await _userService.ExistAsync(projectId, creatorId);
+            if (!creatorExist)
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
+            }
+
+            if (reviewerId != null)
+            {
+                var reviewerExist = await _userService.ExistAsync(projectId, reviewerId.Value);
+                if (!reviewerExist)
+                {
+                    throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
+                }
+            }
+
             var newTask = new TaskReview()
             {
                 CreatorId = creatorId,

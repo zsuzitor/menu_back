@@ -38,7 +38,7 @@ namespace CodeReviewApp.Models.DAL.Repositories
             return await _db.ReviewProject.Include(x => x.Users)
                 .Where(x => x.Id == id && !x.IsDeleted
                 && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId
-                    && u.IsAdmin) != null).FirstOrDefaultAsync() != null;
+                    && u.IsAdmin && !u.Deactivated) != null).FirstOrDefaultAsync() != null;
         }
 
 
@@ -50,6 +50,31 @@ namespace CodeReviewApp.Models.DAL.Repositories
             await _db.SaveChangesAsync();
             return project;
         }
+
+        public override async Task<List<Project>> DeleteAsync(List<Project> records)
+        {
+            _db.ReviewProject.AttachRange(records);
+            foreach (var item in records)
+            {
+                item.IsDeleted = true;
+            }
+
+            await _db.SaveChangesAsync();
+            return records;
+        }
+
+        public override async Task<Project> DeleteAsync(long recordId)
+        {
+            var project = await GetAsync(recordId);
+            if (project != null)
+            {
+                project.IsDeleted = false;
+                await _db.SaveChangesAsync();
+            }
+
+            return project;
+        }
+
 
         public async Task<Project> GetByIdIfAccessAsync(long id, long mainAppUserId)
         {
@@ -63,7 +88,7 @@ namespace CodeReviewApp.Models.DAL.Repositories
             return await _db.ReviewProject.AsNoTracking().Include(x => x.Users)
                             .Where(x => x.Id == id && !x.IsDeleted
                             && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId
-                                && u.IsAdmin) != null).FirstOrDefaultAsync();
+                                && u.IsAdmin && !u.Deactivated) != null).FirstOrDefaultAsync();
         }
 
         public async Task<List<Project>> GetProjectsByMainAppUserIdAsync(long userId)

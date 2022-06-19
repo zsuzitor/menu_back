@@ -16,8 +16,10 @@ namespace CodeReviewApp.Models.Services.Interfaces
         /// <param name="projectId"></param>
         /// <returns></returns>
         Task<List<ProjectUser>> GetProjectUsersAsync(long projectId);
+        Task<bool> ExistAsync(long projectId, long userId);
 
-        Task<ProjectUser> ChangeAsync(long userId, string name, string email, bool isAdmin, UserInfo userInfo);
+
+        Task<ProjectUser> ChangeAsync(long userId, string name, string email, bool isAdmin, bool deactivated, UserInfo userInfo);
         Task<ProjectUser> DeleteAsync(long userId, UserInfo userInfo);
         Task<ProjectUser> GetByMainAppIdAsync(UserInfo userInfo, long projectId);
         Task<long?> GetIdByMainAppIdAsync(UserInfo userInfo, long projectId);

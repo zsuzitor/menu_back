@@ -572,15 +572,6 @@ namespace PlanitPoker.Models.Hubs
 
 
 
-        //public async Task SetCurrentStory(string roomname, string storyId)
-        //{
-        //}
-
-        //public async Task RemoveStory(string roomname, string storyId)
-        //{
-        //}
-
-
 
         // ReSharper disable once UnusedMember.Global
         public async Task<bool> SaveRoom(string roomName)
@@ -756,10 +747,7 @@ namespace PlanitPoker.Models.Hubs
             return new List<string>(GetDefaultRoles()) { Consts.Roles.Creator, Consts.Roles.Admin };
         }
 
-        //private static Task ClearRooms()
-        //{
-
-        //}
+       
 
         private (T res, bool sc) GetValueFromRoomAsync<T>(Room room, Func<Room, T> get)
         {
@@ -802,33 +790,11 @@ namespace PlanitPoker.Models.Hubs
             Log(lvl, message, config);
         }
 
-        private void Log(LogLevel lvl, string message, Dictionary<string, object> config)//, Action<ILogger> act)
+        private void Log(LogLevel lvl, string message, Dictionary<string, object> config)
         {
             using (_hublogger.BeginScope(config))
             {
-                //act(_hublogger);
                 _hublogger.Log(lvl, message);
-                //switch (lvl)
-                //{
-                //    case LogLevel.Debug:
-                //        _hublogger.LogDebug(message);
-                //        break;
-                //    case LogLevel.Information:
-                //        _hublogger.LogInformation(message);
-                //        break;
-                //    case LogLevel.Trace:
-                //        _hublogger.LogTrace(message);
-                //        break;
-                //    case LogLevel.Error:
-                //        _hublogger.LogError(message);
-                //        break;
-                //    case LogLevel.Critical:
-                //        _hublogger.LogCritical(message);
-                //        break;
-                //    case LogLevel.Warning:
-                //        _hublogger.LogWarning(message);
-                //        break;
-                //}
             }
         }
     }

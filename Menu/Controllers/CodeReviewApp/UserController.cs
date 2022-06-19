@@ -66,7 +66,8 @@ namespace Menu.Controllers.CodeReviewApp
 
         [Route("change-user")]
         [HttpPatch]
-        public async Task ChangeUser([FromForm] long userId, [FromForm] string name, [FromForm] string email, [FromForm] bool isAdmin = false)
+        public async Task ChangeUser([FromForm] long userId, [FromForm] string name
+            , [FromForm] string email, [FromForm] bool deactivated, [FromForm] bool isAdmin = false)
         {
             name = _apiHealper.StringValidator(name);
             email = _apiHealper.StringValidator(email);
@@ -77,7 +78,7 @@ namespace Menu.Controllers.CodeReviewApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _projectUserService.ChangeAsync(userId, name, email, isAdmin, userInfo);
+                    var res = await _projectUserService.ChangeAsync(userId, name, email, isAdmin, deactivated, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
                         {
