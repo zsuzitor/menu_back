@@ -73,6 +73,11 @@ namespace CodeReviewApp.Models.Services
 
         public async Task<TaskReview> UpdateAsync(TaskReview task, UserInfo userInfo)
         {
+            if (string.IsNullOrWhiteSpace(task.Name))
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyTaskName);
+            }
+
             var upTask = await _taskReviewRepository.GetAsync(task.Id);
             if (upTask == null)
             {

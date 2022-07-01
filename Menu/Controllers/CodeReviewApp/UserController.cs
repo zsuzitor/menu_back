@@ -1,11 +1,13 @@
 ﻿using CodeReviewApp.Models.Returns;
 using CodeReviewApp.Models.Services.Interfaces;
+using Common.Models.Exceptions;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
+using CodeReviewApp.Models;
 
 namespace Menu.Controllers.CodeReviewApp
 {
@@ -54,6 +56,10 @@ namespace Menu.Controllers.CodeReviewApp
                     if (!string.IsNullOrWhiteSpace(mainAppUserEmail))
                     {
                         userIdForAdd = await _mainAppUserService.GetIdByEmailAsync(mainAppUserEmail);
+                        if(userIdForAdd == null)
+                        {
+                            throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserInMainAppNotFound);
+                        }
                     }
 
                     var res = await _projectService.CreateUserAsync(projectId, userName

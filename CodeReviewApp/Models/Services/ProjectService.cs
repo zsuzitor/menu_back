@@ -26,6 +26,10 @@ namespace CodeReviewApp.Models.Services
 
         public async Task<Project> CreateAsync(string name, UserInfo userInfo)
         {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyProjectName);
+            }
             //конечно не очень красиво отходить от репозиториев, но ладно
             var mainAppUserInfo = await _mainAppUserService.GetShortInfoAsync(userInfo.UserId);
 
@@ -78,6 +82,12 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
+            if (string.IsNullOrWhiteSpace(userName))
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyUserName);
+
+            }
+
             var user = new ProjectUser()
             {
                 ProjectId = projectId,
@@ -93,6 +103,11 @@ namespace CodeReviewApp.Models.Services
         public async Task<TaskReview> CreateTaskAsync(long projectId, string name
             , long creatorId, long? reviewerId, UserInfo userInfo)
         {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyTaskName);
+            }
+
             if (!await ExistIfAccessAsync(projectId, userInfo))
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);

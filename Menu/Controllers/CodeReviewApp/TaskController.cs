@@ -1,4 +1,5 @@
 ﻿using BO.Models.CodeReviewApp.DAL.Domain;
+using CodeReviewApp.Models;
 using CodeReviewApp.Models.Returns;
 using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
@@ -72,7 +73,7 @@ namespace Menu.Controllers.CodeReviewApp
                     {
                         if (!Enum.GetValues(typeof(CodeReviewTaskStatus)).Cast<int>().Contains((int)status))
                         {
-                            throw new SomeCustomException("bad_task_review_status");
+                            throw new SomeCustomException(Consts.CodeReviewErrorConsts.BadTaskReviewStatus);
                         }
                         else
                         {
@@ -148,7 +149,7 @@ namespace Menu.Controllers.CodeReviewApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     if (!Enum.GetValues(typeof(CodeReviewTaskStatus)).Cast<int>().Contains(status))
                     {
-                        throw new SomeCustomException("bad_task_review_status");
+                        throw new SomeCustomException(Consts.CodeReviewErrorConsts.BadTaskReviewStatus);
                     }
 
                     var res = await _taskReviewService.UpdateAsync(new TaskReview()

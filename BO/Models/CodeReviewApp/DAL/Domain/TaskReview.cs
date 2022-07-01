@@ -8,7 +8,8 @@ namespace BO.Models.CodeReviewApp.DAL.Domain
     {
         NeedReview,
         NeedFix,
-        Done
+        Done,
+        InProgress,
     }
 
     public sealed class TaskReview : IDomainRecord<long>

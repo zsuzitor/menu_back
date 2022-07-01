@@ -17,9 +17,15 @@ namespace CodeReviewApp.Models
 
         public void ErrorContainerInitialize(ErrorContainer errorContainer)
         {
+            errorContainer.InitError(Consts.CodeReviewErrorConsts.BadTaskReviewStatus, "Передан неверный статус задачи");
+            
+
             errorContainer.InitError(Consts.CodeReviewErrorConsts.ProjectNotFound, "Проект не найден");
             errorContainer.InitError(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible, "Проект не найден или недоступен");
+            errorContainer.InitError(Consts.CodeReviewErrorConsts.EmptyProjectName, "Не указано название проекта");
+
             
+
             errorContainer.InitError(Consts.CodeReviewErrorConsts.EmptyUserName, "Не заполнено имя пользователя");
             errorContainer.InitError(Consts.CodeReviewErrorConsts.ProjectUserNotFound, "Пользователь проекта не найден");
             errorContainer.InitError(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject, "Нет прав на редактирование проекта");
@@ -28,8 +34,10 @@ namespace CodeReviewApp.Models
             errorContainer.InitError(Consts.CodeReviewErrorConsts.ProjectHaveNoAccess, "Нет доступа к проекту");
             errorContainer.InitError(Consts.CodeReviewErrorConsts.CommentNotFoundOrNotAccess, "Комментарий не найден или нет доступа");
             errorContainer.InitError(Consts.CodeReviewErrorConsts.CommentNotFound, "Комментарий не найден");
+            errorContainer.InitError(Consts.CodeReviewErrorConsts.UserInMainAppNotFound, "Пользователь основного приложения не найден");
+            errorContainer.InitError(Consts.CodeReviewErrorConsts.EmptyTaskName, "Не указано название задачи");
 
-            
+
 
 
 
