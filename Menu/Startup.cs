@@ -120,6 +120,8 @@ namespace Menu
             services.Configure<WebEncoderOptions>(options =>
             {
                 options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All);
+                options.TextEncoderSettings.AllowCharacters('\n');
+                //System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
             });
 
             services.AddSignalR();

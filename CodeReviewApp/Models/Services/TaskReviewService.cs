@@ -85,9 +85,19 @@ namespace CodeReviewApp.Models.Services
             }
 
             var canAddToProject = await _projectRepository.ExistIfAccessAsync(upTask.ProjectId, userInfo.UserId);
-            if (!canAddToProject)
+            if (!canAddToProject.access)
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectHaveNoAccess);
+            }
+
+            if(upTask.CreatorEntityId != userInfo.UserId)
+            {
+                if (!canAddToProject.isAdmin)
+                {
+                    throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskHaveNoAccess);
+                }
+
+
             }
 
             bool needNotifyReviewer = false;
@@ -118,10 +128,18 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskNotFound);
             }
 
-            var projectAccess = await _projectRepository.ExistIfAccessAdminAsync(task.ProjectId, userInfo.UserId);
-            if (!projectAccess)
+            var canAddToProject = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
+            if (!canAddToProject.access)
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectHaveNoAccess);
+            }
+
+            if (task.CreatorEntityId != userInfo.UserId)
+            {
+                if (!canAddToProject.isAdmin)
+                {
+                    throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskHaveNoAccess);
+                }
             }
 
             return await _taskReviewRepository.DeleteAsync(task);
@@ -136,7 +154,7 @@ namespace CodeReviewApp.Models.Services
             }
 
             var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
-            if (!projectAccessed)
+            if (!projectAccessed.access)
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -153,7 +171,7 @@ namespace CodeReviewApp.Models.Services
             }
 
             var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
-            if (!projectAccessed)
+            if (!projectAccessed.access)
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
             }

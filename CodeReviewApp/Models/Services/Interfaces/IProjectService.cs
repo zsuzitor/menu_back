@@ -12,7 +12,7 @@ namespace CodeReviewApp.Models.Services.Interfaces
         Task<Project> GetByIdIfAccessAsync(long id, UserInfo userInfo);
         Task<Project> GetByIdIfAccessAdminAsync(long id, UserInfo userInfo);
 
-        Task<bool> ExistIfAccessAsync(long id, UserInfo userInfo);
+        Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, UserInfo userInfo);
         Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo);
 
         Task<Project> CreateAsync(string name, UserInfo userInfo);

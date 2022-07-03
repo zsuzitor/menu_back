@@ -16,13 +16,21 @@ namespace BO.Models.CodeReviewApp.DAL.Domain
     {
         public long Id { get; set; }
         public string Name { get; set; }
+
+        /// <summary>
+        /// id main app пользака который именно завел задачу в приложение
+        /// </summary>
+        public long CreatorEntityId { get; set; }
+        public CodeReviewTaskStatus Status { get; set; }
+
+
+
         public long ProjectId { get; set; }
         public Project Project { get; set; }
         public long CreatorId { get; set; }
         public ProjectUser Creator { get; set; }
         public long? ReviewerId { get; set; }
         public ProjectUser Reviewer { get; set; }
-        public CodeReviewTaskStatus Status { get; set; }
 
         public List<CommentReview> Comments { get; set; }
 

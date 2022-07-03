@@ -64,7 +64,7 @@ namespace CodeReviewApp.Models.Services
             return await _projectRepository.GetByIdIfAccessAdminAsync(id, userInfo.UserId);
         }
 
-        public async Task<bool> ExistIfAccessAsync(long id, UserInfo userInfo)
+        public async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, UserInfo userInfo)
         {
             return await _projectRepository.ExistIfAccessAsync(id, userInfo.UserId);
         }
@@ -108,7 +108,7 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyTaskName);
             }
 
-            if (!await ExistIfAccessAsync(projectId, userInfo))
+            if (!(await ExistIfAccessAsync(projectId, userInfo)).access)
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -134,6 +134,7 @@ namespace CodeReviewApp.Models.Services
                 Name = name,
                 ProjectId = projectId,
                 ReviewerId = reviewerId,
+                CreatorEntityId = userInfo.UserId,
             };
 
             //todo проверяем что creator+reviwer входит в проект. по идеи если что упадет с исключением

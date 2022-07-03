@@ -11,13 +11,24 @@ namespace CodeReviewApp.Models.Services
     public sealed class ProjectUserService : IProjectUserService
     {
         private readonly IProjectUserRepository _projectUserRepository;
-        public ProjectUserService(IProjectUserRepository projectUserRepository)
+        private readonly IProjectRepository _projectRepository;
+        public ProjectUserService(IProjectUserRepository projectUserRepository, IProjectRepository projectRepository)
         {
             _projectUserRepository = projectUserRepository;
+            _projectRepository = projectRepository;
         }
 
         public async Task<ProjectUser> CreateAsync(ProjectUser user)
         {
+            if (user?.MainAppUserId != null)
+            {
+                var exist = await _projectUserRepository.ExistByMainIdAsync(user.ProjectId, user.MainAppUserId.Value);
+                if (exist)
+                {
+                    throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserAlreadyAdded);
+                }
+            }
+
             return await _projectUserRepository.CreateAsync(user);
         }
 
@@ -26,7 +37,7 @@ namespace CodeReviewApp.Models.Services
             return await _projectUserRepository.GetProjectUsersAsync(projectId);
         }
 
-        
+
         public async Task<bool> ExistAsync(long projectId, long userId)
         {
             return await _projectUserRepository.ExistAsync(projectId, userId);
@@ -45,11 +56,22 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectUserNotFound);
             }
 
-            var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(userInfo.UserId, user.ProjectId);
-            if (userCurrent == null || !userCurrent.IsAdmin || userCurrent.Deactivated)
+            if(user.MainAppUserId == userInfo.UserId)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject);
+                await ThrowIfNotAccessToProject(userInfo.UserId, user.ProjectId, false);
             }
+            else
+            {
+                await ThrowIfNotAccessToProject(userInfo.UserId, user.ProjectId, true);
+            }
+
+            //var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(userInfo.UserId, user.ProjectId);
+            //if (userCurrent == null || !userCurrent.IsAdmin || userCurrent.Deactivated)
+            //{
+            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject);
+            //}
+
+
 
             user.UserName = name;
             user.NotifyEmail = email;
@@ -73,11 +95,12 @@ namespace CodeReviewApp.Models.Services
                 return user;
             }
 
-            var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(userInfo.UserId, user.ProjectId);
-            if (userCurrent == null || !userCurrent.IsAdmin || userCurrent.Deactivated)
-            {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject);
-            }
+            //var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(userInfo.UserId, user.ProjectId);
+            //if (userCurrent == null || !userCurrent.IsAdmin || userCurrent.Deactivated)
+            //{
+            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject);
+            //}
+            await ThrowIfNotAccessToProject(userInfo.UserId, user.ProjectId, true);
 
             await _projectUserRepository.DeleteAsync(user);
             return user;
@@ -102,6 +125,21 @@ namespace CodeReviewApp.Models.Services
         public async Task<string> GetNotificationEmailAsync(long userId)
         {
             return await _projectUserRepository.GetNotificationEmailAsync(userId);
+        }
+
+
+        private async Task ThrowIfNotAccessToProject(long mainAppUserId, long projectId, bool isAdmin)
+        {
+            var res = await _projectRepository.ExistIfAccessAsync(projectId, mainAppUserId);
+            //var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(mainAppUserId, projectId);
+            //if (userCurrent == null || !userCurrent.IsAdmin || userCurrent.Deactivated)
+            //{
+            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject);
+            //}
+            if (!res.access || (isAdmin && !res.isAdmin))
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+            }
         }
     }
 }

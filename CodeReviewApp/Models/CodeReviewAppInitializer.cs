@@ -27,6 +27,8 @@ namespace CodeReviewApp.Models
             
 
             errorContainer.InitError(Consts.CodeReviewErrorConsts.EmptyUserName, "Не заполнено имя пользователя");
+            errorContainer.InitError(Consts.CodeReviewErrorConsts.UserAlreadyAdded, "Пользователь уже был добавлен");
+            
             errorContainer.InitError(Consts.CodeReviewErrorConsts.ProjectUserNotFound, "Пользователь проекта не найден");
             errorContainer.InitError(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject, "Нет прав на редактирование проекта");
             errorContainer.InitError(Consts.CodeReviewErrorConsts.UserNotFound, "Пользователь не найден");

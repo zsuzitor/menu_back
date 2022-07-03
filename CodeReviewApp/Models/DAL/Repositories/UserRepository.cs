@@ -79,5 +79,11 @@ namespace CodeReviewApp.Models.DAL.Repositories
         {
             return await _db.ReviewProjectUsers.AnyAsync(x => x.Id == userId && x.ProjectId == projectId);
         }
+
+        public async Task<bool> ExistByMainIdAsync(long projectId, long mainAppUserId)
+        {
+            return await _db.ReviewProjectUsers.AnyAsync(x => x.MainAppUserId == mainAppUserId && x.ProjectId == projectId);
+
+        }
     }
 }

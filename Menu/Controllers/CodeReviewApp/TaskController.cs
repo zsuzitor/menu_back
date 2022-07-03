@@ -85,9 +85,9 @@ namespace Menu.Controllers.CodeReviewApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _projectService.ExistIfAccessAsync(projectId, userInfo);
-                    if (!res)
+                    if (!res.access)
                     {
-                        throw new SomeCustomException("project_not_found");
+                        throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFound);
                     }
 
                     var tasks = await _taskReviewService.GetTasksAsync(projectId

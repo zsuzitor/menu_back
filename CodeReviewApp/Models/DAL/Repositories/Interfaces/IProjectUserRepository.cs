@@ -10,6 +10,9 @@ namespace CodeReviewApp.Models.DAL.Repositories.Interfaces
         Task<ProjectUser> CreateAsync(ProjectUser user);
         Task<List<ProjectUser>> GetProjectUsersAsync(long projectId);
         Task<bool> ExistAsync(long projectId, long userId);
+        Task<bool> ExistByMainIdAsync(long projectId, long mainAppUserId);
+
+        
         Task<ProjectUser> GetByMainAppUserIdAsync(long mainAppUserId, long projectId);
 
         /// <summary>

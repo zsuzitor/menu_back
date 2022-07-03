@@ -26,21 +26,46 @@ namespace CodeReviewApp.Models.DAL.Repositories
 
         }
 
-        public async Task<bool> ExistIfAccessAsync(long id, long mainAppUserId)
+        public async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, long mainAppUserId)
         {
-            return await _db.ReviewProject.Include(x => x.Users)
+            var user = await _db.ReviewProject.AsNoTracking().Include(x => x.Users)
                 .Where(x => x.Id == id && !x.IsDeleted
-                && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId) != null).FirstOrDefaultAsync() != null;
+                    && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId && !u.Deactivated) != null)
+                .Select(x => x.Users.FirstOrDefault()).FirstOrDefaultAsync();
+            //user.IsAdmin;
+            //.FirstOrDefaultAsync() != null;
+            if (user == null)
+            {
+                return (false, false);
+            }
+
+            return (true, user.IsAdmin);
+        }
+
+        public async Task<Project> GetByIdIfAccessAsync(long id, long mainAppUserId)
+        {
+            //todo загрузит скорее всего с пользаками
+            return await _db.ReviewProject.AsNoTracking().Include(x => x.Users)
+                            .Where(x => x.Id == id && !x.IsDeleted
+                                && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId) != null).FirstOrDefaultAsync();
         }
 
         public async Task<bool> ExistIfAccessAdminAsync(long id, long mainAppUserId)
         {
-            return await _db.ReviewProject.Include(x => x.Users)
+            return await _db.ReviewProject.AsNoTracking().Include(x => x.Users)
                 .Where(x => x.Id == id && !x.IsDeleted
-                && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId
-                    && u.IsAdmin && !u.Deactivated) != null).FirstOrDefaultAsync() != null;
+                    && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId
+                    && u.IsAdmin && !u.Deactivated) != null).Select(x => x.Name).FirstOrDefaultAsync() != null;
         }
 
+        public async Task<Project> GetByIdIfAccessAdminAsync(long id, long mainAppUserId)
+        {
+            //todo загрузит скорее всего с пользаками
+            return await _db.ReviewProject.AsNoTracking().Include(x => x.Users)
+                            .Where(x => x.Id == id && !x.IsDeleted
+                                && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId
+                                && u.IsAdmin && !u.Deactivated) != null).FirstOrDefaultAsync();
+        }
 
 
         public override async Task<Project> DeleteAsync(Project project)
@@ -76,20 +101,9 @@ namespace CodeReviewApp.Models.DAL.Repositories
         }
 
 
-        public async Task<Project> GetByIdIfAccessAsync(long id, long mainAppUserId)
-        {
-            return await _db.ReviewProject.AsNoTracking().Include(x => x.Users)
-                            .Where(x => x.Id == id && !x.IsDeleted
-                            && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId) != null).FirstOrDefaultAsync();
-        }
+        
 
-        public async Task<Project> GetByIdIfAccessAdminAsync(long id, long mainAppUserId)
-        {
-            return await _db.ReviewProject.AsNoTracking().Include(x => x.Users)
-                            .Where(x => x.Id == id && !x.IsDeleted
-                            && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId
-                                && u.IsAdmin && !u.Deactivated) != null).FirstOrDefaultAsync();
-        }
+       
 
         public async Task<List<Project>> GetProjectsByMainAppUserIdAsync(long userId)
         {

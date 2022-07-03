@@ -1,4 +1,5 @@
 ﻿using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 namespace Common.Models.Validators
 {
@@ -32,7 +33,12 @@ namespace Common.Models.Validators
             }
 
             string res = str;
-            res = _javaScriptEncoder.Encode(res);
+
+            //var jsParam = new TextEncoderSettings(UnicodeRanges.All);
+            //jsParam.AllowCharacter('\n');
+            //var jsEncoder = JavaScriptEncoder.Create(jsParam);
+            //res = jsEncoder.Encode(res);
+            //res = _javaScriptEncoder.Encode(res);
             res = _htmlEncoder.Encode(res);
             //res = _urlEncoder.Encode(res);//todo зачем это?
             return res;
