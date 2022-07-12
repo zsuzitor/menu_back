@@ -2522,7 +2522,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".code-review-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    /* background-color: #666262; */\r\n}\r\n\r\n\r\n\r\n.code-review-project-info {\r\n    flex-grow: 2;\r\n    padding-left: 15px;\r\n}\r\n\r\n.code-review-projects-menu-main {\r\n    position: relative;\r\n    border-right: 1px solid black;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,+BAA+B;AACnC;;;;AAIA;IACI,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,6BAA6B;AACjC","sourcesContent":[".code-review-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    /* background-color: #666262; */\r\n}\r\n\r\n\r\n\r\n.code-review-project-info {\r\n    flex-grow: 2;\r\n    padding-left: 15px;\r\n}\r\n\r\n.code-review-projects-menu-main {\r\n    position: relative;\r\n    border-right: 1px solid black;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".code-review-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    /* background-color: #666262; */\r\n}\r\n\r\n\r\n\r\n.code-review-project-info {\r\n    flex-grow: 2;\r\n    padding-left: 15px;\r\n}\r\n\r\n.code-review-projects-menu-main {\r\n    position: relative;\r\n    border-right: 1px solid black;\r\n}\r\n\r\n.code-review-main-container .preloader{\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: black;\r\n    z-index: 40;\r\n    /* filter: blur(300px); */\r\n    opacity: 0.8;\r\n    /* transition: 1s; */\r\n    margin-top: -60px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,+BAA+B;AACnC;;;;AAIA;IACI,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,6BAA6B;AACjC;;AAEA;IACI,eAAe;IACf,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,WAAW;IACX,yBAAyB;IACzB,YAAY;IACZ,oBAAoB;IACpB,iBAAiB;AACrB","sourcesContent":[".code-review-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    /* background-color: #666262; */\r\n}\r\n\r\n\r\n\r\n.code-review-project-info {\r\n    flex-grow: 2;\r\n    padding-left: 15px;\r\n}\r\n\r\n.code-review-projects-menu-main {\r\n    position: relative;\r\n    border-right: 1px solid black;\r\n}\r\n\r\n.code-review-main-container .preloader{\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: black;\r\n    z-index: 40;\r\n    /* filter: blur(300px); */\r\n    opacity: 0.8;\r\n    /* transition: 1s; */\r\n    margin-top: -60px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -47432,7 +47432,9 @@ var CodeReviewCommentController = /** @class */ (function () {
         var _this = this;
         this.UpdateCommentRedux = function (comment) {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.UpdateComment(comment.Id, comment.Text, function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47459,7 +47461,9 @@ var CodeReviewCommentController = /** @class */ (function () {
         };
         this.DeleteCommentRedux = function (dataForDel) {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.DeleteComment(dataForDel.Id, function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47485,7 +47489,9 @@ var CodeReviewCommentController = /** @class */ (function () {
         };
         this.AddCommentRedux = function (taskId, text) {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.AddComment(taskId, text, function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47513,7 +47519,9 @@ var CodeReviewCommentController = /** @class */ (function () {
         };
         this.LoadCommentsRedux = function (id) {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.LoadComments(id, function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47554,6 +47562,22 @@ var CodeReviewCommentController = /** @class */ (function () {
             }
         };
     };
+    CodeReviewCommentController.prototype.preloader = function (show) {
+        if (!window.CodeReviewCounter) {
+            window.CodeReviewCounter = 0;
+        }
+        var preloader = document.getElementById('code_review_preloader');
+        if (show) {
+            window.CodeReviewCounter++;
+            preloader.style.display = 'block';
+        }
+        else {
+            window.CodeReviewCounter--;
+            if (!window.CodeReviewCounter) {
+                preloader.style.display = 'none';
+            }
+        }
+    };
     return CodeReviewCommentController;
 }());
 exports.CodeReviewCommentController = CodeReviewCommentController;
@@ -47578,7 +47602,9 @@ var CodeReviewProjectController = /** @class */ (function () {
         var _this = this;
         this.DeleteProjectRedux = function (projectId) {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.DeleteProject(projectId, function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47613,7 +47639,9 @@ var CodeReviewProjectController = /** @class */ (function () {
         };
         this.GetProjectInfoRedux = function (projectId) {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.GetProjectInfo(projectId, function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47639,7 +47667,9 @@ var CodeReviewProjectController = /** @class */ (function () {
         };
         this.CreateNewProjectRedux = function (newProjectName) {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.CreateNewProject(newProjectName, function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47665,7 +47695,9 @@ var CodeReviewProjectController = /** @class */ (function () {
         };
         this.GetUserProjectsRedux = function () {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.GetUserProjects(function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47702,6 +47734,22 @@ var CodeReviewProjectController = /** @class */ (function () {
             }
         };
     };
+    CodeReviewProjectController.prototype.preloader = function (show) {
+        if (!window.CodeReviewCounter) {
+            window.CodeReviewCounter = 0;
+        }
+        var preloader = document.getElementById('code_review_preloader');
+        if (show) {
+            window.CodeReviewCounter++;
+            preloader.style.display = 'block';
+        }
+        else {
+            window.CodeReviewCounter--;
+            if (!window.CodeReviewCounter) {
+                preloader.style.display = 'none';
+            }
+        }
+    };
     return CodeReviewProjectController;
 }());
 exports.CodeReviewProjectController = CodeReviewProjectController;
@@ -47725,7 +47773,9 @@ var CodeReviewTaskController = /** @class */ (function () {
         var _this = this;
         this.AddTaskToProjectRedux = function (taskName, taskCreatorId, taskReviwerId, projectId) {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.AddTaskToProject(taskName, taskCreatorId, taskReviwerId, projectId, function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47764,7 +47814,9 @@ var CodeReviewTaskController = /** @class */ (function () {
         };
         this.UpdateTaskRedux = function (task) {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.UpdateTask(task, function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47794,7 +47846,9 @@ var CodeReviewTaskController = /** @class */ (function () {
         };
         this.LoadTasksRedux = function (taskFilter) {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.LoadTasks(taskFilter, function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47826,7 +47880,9 @@ var CodeReviewTaskController = /** @class */ (function () {
         };
         this.DeleteTaskRedux = function (id) {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.DeleteTask(id, function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47864,6 +47920,22 @@ var CodeReviewTaskController = /** @class */ (function () {
             }
         };
     };
+    CodeReviewTaskController.prototype.preloader = function (show) {
+        if (!window.CodeReviewCounter) {
+            window.CodeReviewCounter = 0;
+        }
+        var preloader = document.getElementById('code_review_preloader');
+        if (show) {
+            window.CodeReviewCounter++;
+            preloader.style.display = 'block';
+        }
+        else {
+            window.CodeReviewCounter--;
+            if (!window.CodeReviewCounter) {
+                preloader.style.display = 'none';
+            }
+        }
+    };
     return CodeReviewTaskController;
 }());
 exports.CodeReviewTaskController = CodeReviewTaskController;
@@ -47887,7 +47959,9 @@ var CodeReviewUserController = /** @class */ (function () {
         var _this = this;
         this.DeleteProjectUserRedux = function (id) {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.DeleteProjectUser(id, function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47913,7 +47987,9 @@ var CodeReviewUserController = /** @class */ (function () {
         };
         this.AddUserToProjectRedux = function (newUserName, mainAppUserEmail, projectId) {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.AddUserToProject(newUserName, mainAppUserEmail, projectId, function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47941,7 +48017,9 @@ var CodeReviewUserController = /** @class */ (function () {
         };
         this.ChangeProjectUserRedux = function (user) {
             return function (dispatch, getState) {
+                _this.preloader(true);
                 _this.ChangeProjectUser(user, function (error, data) {
+                    _this.preloader(false);
                     if (error) {
                         return;
                     }
@@ -47982,6 +48060,22 @@ var CodeReviewUserController = /** @class */ (function () {
                 onSuccess(null, dataBack);
             }
         };
+    };
+    CodeReviewUserController.prototype.preloader = function (show) {
+        if (!window.CodeReviewCounter) {
+            window.CodeReviewCounter = 0;
+        }
+        var preloader = document.getElementById('code_review_preloader');
+        if (show) {
+            window.CodeReviewCounter++;
+            preloader.style.display = 'block';
+        }
+        else {
+            window.CodeReviewCounter--;
+            if (!window.CodeReviewCounter) {
+                preloader.style.display = 'none';
+            }
+        }
     };
     return CodeReviewUserController;
 }());
@@ -50527,6 +50621,7 @@ var CodeReviewMain = function (props) {
     //     });
     // }
     return react_1.default.createElement("div", { className: 'code-review-main-container' },
+        react_1.default.createElement("div", { className: 'preloader', id: 'code_review_preloader' }),
         react_1.default.createElement("div", { className: 'code-review-projects-menu-main' },
             react_1.default.createElement(ProjectsList_1.default, { Projects: props.ProjectsList, CurrentProjectId: props.CurrentProjectId })),
         react_1.default.createElement("div", { className: 'code-review-project-info' },
