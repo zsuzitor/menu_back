@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -19,11 +19,16 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.11" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\BO\BO.csproj" />
     <ProjectReference Include="..\Common\Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

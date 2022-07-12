@@ -43,6 +43,7 @@ using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using CodeReviewApp.Models.Services.Interfaces;
+using Hangfire.PostgreSql;
 
 namespace Menu
 {
@@ -85,21 +86,26 @@ namespace Menu
             else
             {
                 services.AddDbContext<MenuDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                //options.UseSqlServer(
+                //    Configuration.GetConnectionString("DefaultConnection"))
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
+                );
 
                 services.AddHangfire(configuration => configuration
                     .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
                     .UseSimpleAssemblyNameTypeSerializer()
                     .UseRecommendedSerializerSettings()
-                    .UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection"), new SqlServerStorageOptions
-                    {
-                        CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
-                        SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
-                        QueuePollInterval = TimeSpan.Zero,
-                        UseRecommendedIsolationLevel = true,
-                        DisableGlobalLocks = true
-                    }));
+                    .UsePostgreSqlStorage(Configuration.GetConnectionString("DefaultConnection"))
+                    //.UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection")
+                    //, new SqlServerStorageOptions
+                    //{
+                    //    CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+                    //    SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+                    //    QueuePollInterval = TimeSpan.Zero,
+                    //    UseRecommendedIsolationLevel = true,
+                    //    DisableGlobalLocks = true
+                    //})
+                    );
             }
 
 

@@ -10,7 +10,7 @@ namespace BO.Models.DAL.Domain
     {
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         //[Key]
-        public Guid Id { get; set; }
+        public long Id { get; set; }
         public DateTime? EnteredDate { get; set; }
         public string LogDate { get; set; }
         public string LogLevel { get; set; }

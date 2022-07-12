@@ -3,8 +3,8 @@ using System;
 using DAL.Models.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace DAL.Migrations
 {
@@ -15,19 +15,19 @@ namespace DAL.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
                 .HasAnnotation("ProductVersion", "3.1.11")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("BO.Models.CodeReviewApp.DAL.Domain.CommentReview", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<long>("CreatorId")
                         .HasColumnType("bigint");
@@ -36,7 +36,7 @@ namespace DAL.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -52,13 +52,13 @@ namespace DAL.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -70,25 +70,25 @@ namespace DAL.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<bool>("Deactivated")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<bool>("IsAdmin")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<long?>("MainAppUserId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("NotifyEmail")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<long>("ProjectId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -104,7 +104,7 @@ namespace DAL.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<long>("CreatorEntityId")
                         .HasColumnType("bigint");
@@ -113,7 +113,7 @@ namespace DAL.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<long>("ProjectId")
                         .HasColumnType("bigint");
@@ -122,7 +122,7 @@ namespace DAL.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<int>("Status")
-                        .HasColumnType("int");
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 
@@ -140,13 +140,13 @@ namespace DAL.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<long?>("ArticleId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Path")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -157,51 +157,51 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("BO.Models.DAL.Domain.MainNLogEntity", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                        .HasColumnType("bigint")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Action")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ActionDateEnd")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ActionDateStart")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ConnectionId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<DateTime?>("EnteredDate")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
-                        .HasDefaultValueSql("GETDATE()");
+                        .HasColumnType("timestamp without time zone")
+                        .HasDefaultValueSql("now()");
 
                     b.Property<string>("GroupName")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("LogDate")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("LogException")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("LogLevel")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("LogLogger")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("LogMessage")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("LogStacktrace")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id")
                         .HasAnnotation("SqlServer:Clustered", false);
@@ -216,28 +216,28 @@ namespace DAL.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Login")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("PasswordHash")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("RefreshTokenHash")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -252,19 +252,19 @@ namespace DAL.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Body")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<bool>("Followed")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("MainImagePath")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<long>("UserId")
                         .HasColumnType("bigint");
@@ -281,14 +281,14 @@ namespace DAL.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -303,16 +303,16 @@ namespace DAL.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<long>("MainAppUserId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Roles")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<long>("RoomId")
                         .HasColumnType("bigint");
@@ -331,25 +331,25 @@ namespace DAL.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<bool>("Completed")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<long>("RoomId")
                         .HasColumnType("bigint");
 
                     b.Property<decimal>("Vote")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("numeric");
 
                     b.HasKey("Id");
 
@@ -363,25 +363,25 @@ namespace DAL.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<bool>("Hided")
-                        .HasColumnType("bit");
+                        .HasColumnType("boolean");
 
                     b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<long?>("UserId")
                         .HasColumnType("bigint");
 
                     b.Property<string>("Word")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<string>("WordAnswer")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.HasKey("Id");
 
@@ -395,7 +395,7 @@ namespace DAL.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<long>("WordCardId")
                         .HasColumnType("bigint");
@@ -417,10 +417,10 @@ namespace DAL.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
                     b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("text");
 
                     b.Property<long?>("UserId")
                         .HasColumnType("bigint");
