@@ -32,7 +32,6 @@ using PlanitPoker.Models.Hubs;
 using Common.Models;
 using Common.Models.Validators;
 using Hangfire;
-using Hangfire.SqlServer;
 using PlanitPoker.Models;
 using MenuApp.Models;
 using WordsCardsApp;

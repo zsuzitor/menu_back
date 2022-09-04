@@ -64,9 +64,10 @@ namespace DAL.Models.DAL
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<MainNLogEntity>().HasKey(x => x.Id).IsClustered(false);
+            //modelBuilder.Entity<MainNLogEntity>().HasKey(x => x.Id).IsClustered(false);
+            modelBuilder.Entity<MainNLogEntity>().HasKey(x => x.Id);
             //modelBuilder.Entity<MainNLogEntity>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
-                
+
 
             modelBuilder.Entity<MainNLogEntity>().HasIndex(x => x.EnteredDate);
             //https://docs.microsoft.com/ru-ru/ef/core/modeling/generated-properties?tabs=fluent-api
