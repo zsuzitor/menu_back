@@ -19,6 +19,8 @@ appsettings config
 
 
 #db
+при накатке первй миграции надо выключать исключения nloga потому что он пытается логировать в несозданную бд
+throwExceptions="false"
  "Server=.\\SQLEXPRESS;Database=Menu-DataBase;Trusted_Connection=True;MultipleActiveResultSets=true"
 
 строка подключения находится в appsettings + nlog.config
