@@ -19,9 +19,10 @@ appsettings config
 
 
 #db
-при накатке первй миграции надо выключать исключения nloga потому что он пытается логировать в несозданную бд
+при накатке первой миграции надо выключать исключения nloga потому что он пытается логировать в несозданную бд
 throwExceptions="false"
  "Server=.\\SQLEXPRESS;Database=Menu-DataBase;Trusted_Connection=True;MultipleActiveResultSets=true"
+после update database надо локально запустить приложение, это нужно что бы hangfire прорастил в бд свои таблицы. просто update не хватит
 
 строка подключения находится в appsettings + nlog.config
 
