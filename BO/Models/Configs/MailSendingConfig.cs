@@ -5,6 +5,7 @@ namespace BO.Models.Configs
 {
     public sealed class MailSendingConfig
     {
+        public bool MockMailing { get; set; }
         public Dictionary<string, MailSendingInstanceConfig> Values { get; set; }
     }
 

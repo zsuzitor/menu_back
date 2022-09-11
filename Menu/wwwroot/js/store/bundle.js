@@ -47168,6 +47168,7 @@ var AjaxHelper = /** @class */ (function () {
             },
             FuncError: function (xhr, status, error) { },
             Url: G_PathToServer + 'api/authenticate/refresh-access-token',
+            NotGlobalError: true,
         });
     };
     AjaxHelper.prototype.GoAjaxRequest = function (obj, fileLoad) {
@@ -47227,7 +47228,7 @@ var AjaxHelper = /** @class */ (function () {
                                 }
                                 else {
                                     var resp = jqXHR.responseJSON;
-                                    if (resp.errors && Array.isArray(resp.errors)) {
+                                    if ((resp === null || resp === void 0 ? void 0 : resp.errors) && Array.isArray(resp.errors)) {
                                         //TODO ошибка
                                         if (!obj.NotGlobalError && G_AddAbsoluteAlertToState) {
                                             var alertLogic_1 = new AlertData_1.AlertData();
@@ -47401,8 +47402,86 @@ var AuthenticateController = /** @class */ (function () {
             Url: G_PathToServer + 'api/authenticate/register',
         });
     };
+    AuthenticateController.prototype.SendMessageForgotPassword = function (login, onSuccess) {
+        var data = {
+            'email': login,
+        };
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "POST",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    onSuccess(resp);
+                }
+                else {
+                    onSuccess(null);
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/authenticate/SendMessageForgotPassword',
+        });
+    };
+    AuthenticateController.prototype.CheckRecoverPasswordCode = function (code, onSuccess) {
+        var data = {
+            'code': code,
+        };
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "POST",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    onSuccess(resp);
+                }
+                else {
+                    onSuccess(null);
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/authenticate/CheckRecoverPasswordCode',
+        });
+    };
+    AuthenticateController.prototype.RecoverPassword = function (code, password, onSuccess) {
+        var data = {
+            'code': code,
+            'password': password,
+        };
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "POST",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    onSuccess(resp);
+                }
+                else {
+                    onSuccess(null);
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/authenticate/RecoverPassword',
+        });
+    };
     AuthenticateController.prototype.Logout = function () {
         alert('not inplemented');
+        return;
+        var data = {};
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "GET",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                // if (resp.errors) {
+                //     onSuccess(resp);
+                // }
+                // else {
+                //     onSuccess(null);
+                // }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/authenticate/logout',
+        });
     };
     AuthenticateController.prototype.RefreshAccessToken = function (notRedirectWhenNotAuth, callBack) {
         G_AjaxHelper.TryRefreshToken(notRedirectWhenNotAuth, callBack);
@@ -47567,6 +47646,9 @@ var CodeReviewCommentController = /** @class */ (function () {
             window.CodeReviewCounter = 0;
         }
         var preloader = document.getElementById('code_review_preloader');
+        if (!preloader) {
+            return;
+        }
         if (show) {
             window.CodeReviewCounter++;
             preloader.style.display = 'block';
@@ -47720,7 +47802,7 @@ var CodeReviewProjectController = /** @class */ (function () {
             });
         };
     }
-    //todo вынести в какой то общей кусок
+    //todo вынести в какой то общий кусок
     CodeReviewProjectController.prototype.mapWithResult = function (onSuccess) {
         return function (xhr, status, jqXHR) {
             var resp = xhr;
@@ -47739,6 +47821,9 @@ var CodeReviewProjectController = /** @class */ (function () {
             window.CodeReviewCounter = 0;
         }
         var preloader = document.getElementById('code_review_preloader');
+        if (!preloader) {
+            return;
+        }
         if (show) {
             window.CodeReviewCounter++;
             preloader.style.display = 'block';
@@ -47925,6 +48010,9 @@ var CodeReviewTaskController = /** @class */ (function () {
             window.CodeReviewCounter = 0;
         }
         var preloader = document.getElementById('code_review_preloader');
+        if (!preloader) {
+            return;
+        }
         if (show) {
             window.CodeReviewCounter++;
             preloader.style.display = 'block';
@@ -48066,6 +48154,9 @@ var CodeReviewUserController = /** @class */ (function () {
             window.CodeReviewCounter = 0;
         }
         var preloader = document.getElementById('code_review_preloader');
+        if (!preloader) {
+            return;
+        }
         if (show) {
             window.CodeReviewCounter++;
             preloader.style.display = 'block';
@@ -48795,7 +48886,7 @@ var AlertDataStored = /** @class */ (function () {
     function AlertDataStored() {
     }
     AlertDataStored.prototype.FillByAlertData = function (data) {
-        this.Key = data.Key;
+        // this.Key = data.Key;
         this.Text = data.Text;
         this.Type = data.Type;
     };
@@ -48812,11 +48903,28 @@ var AlertData = /** @class */ (function () {
             var newAlert = new AlertData();
             newAlert.Text = errBackText;
             newAlert.Type = AlertTypeEnum.Error;
+            newAlert.Timeout = AlertData.ErrorTimeoutDefault;
             // newAlert.Key = data.key;
             res.push(newAlert);
         });
         return res;
     };
+    AlertData.prototype.GetDefaultError = function (text) {
+        var res = new AlertData();
+        res.Type = AlertTypeEnum.Error;
+        res.Text = text;
+        res.Timeout = AlertData.ErrorTimeoutDefault;
+        return res;
+    };
+    AlertData.prototype.GetDefaultNotify = function (text) {
+        var res = new AlertData();
+        res.Type = AlertTypeEnum.Success;
+        res.Text = text;
+        res.Timeout = AlertData.NotifyTimeoutDefault;
+        return res;
+    };
+    AlertData.ErrorTimeoutDefault = 10000;
+    AlertData.NotifyTimeoutDefault = 5000;
     return AlertData;
 }());
 exports.AlertData = AlertData;
@@ -49955,6 +50063,7 @@ var MenuAppMain_1 = __webpack_require__(/*! ./Body/MenuApp/MenuAppMain */ "./src
 var WordsCardsAppMain_1 = __webpack_require__(/*! ./Body/WordsCardsApp/WordsCardsAppMain */ "./src/components/Body/WordsCardsApp/WordsCardsAppMain.tsx");
 var PlaningPokerMain_1 = __importDefault(__webpack_require__(/*! ./Body/PlaningPoker/PlaningPokerMain */ "./src/components/Body/PlaningPoker/PlaningPokerMain.tsx"));
 var CodeReviewMain_1 = __importDefault(__webpack_require__(/*! ./Body/CodeReviewApp/CodeReviewMain/CodeReviewMain */ "./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.tsx"));
+var Recovery_1 = __importDefault(__webpack_require__(/*! ./Body/Auth/Recovery/Recovery */ "./src/components/Body/Auth/Recovery/Recovery.tsx"));
 // 
 var AppRouterProps = /** @class */ (function () {
     function AppRouterProps() {
@@ -49974,7 +50083,8 @@ var AppRouter = /** @class */ (function (_super) {
             React.createElement(react_router_dom_1.Route, { path: "/planing-poker/*", element: React.createElement(PlaningPokerMain_1.default, { AuthInfo: this.props.AuthInfo }) }),
             React.createElement(react_router_dom_1.Route, { path: "/code-review/*", element: React.createElement(CodeReviewMain_1.default, { AuthInfo: this.props.AuthInfo }) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/login/*", element: React.createElement(MainAuth_1.MainAuth, { LoginPage: true }) }),
-            React.createElement(react_router_dom_1.Route, { path: "/menu/auth/register/*", element: React.createElement(MainAuth_1.MainAuth, { LoginPage: false }) }));
+            React.createElement(react_router_dom_1.Route, { path: "/menu/auth/register/*", element: React.createElement(MainAuth_1.MainAuth, { LoginPage: false }) }),
+            React.createElement(react_router_dom_1.Route, { path: "/menu/auth/password-recovery/*", element: React.createElement(Recovery_1.default, null) }));
     };
     return AppRouter;
 }(React.Component));
@@ -50114,13 +50224,16 @@ var Login = /** @class */ (function (_super) {
     function Login(props) {
         var _this = _super.call(this, props) || this;
         var newState = {
-            Login: null,
-            Password: null,
+            Login: '',
+            Password: '',
+            ShowForgetPassword: false,
         };
         _this.state = newState;
         _this.LoginOnChange = _this.LoginOnChange.bind(_this);
         _this.PasswordOnChange = _this.PasswordOnChange.bind(_this);
         _this.TryLogin = _this.TryLogin.bind(_this);
+        _this.SetForgetPassword = _this.SetForgetPassword.bind(_this);
+        _this.SendMessageForgotPassword = _this.SendMessageForgotPassword.bind(_this);
         return _this;
     }
     Login.prototype.LoginOnChange = function (e) {
@@ -50153,14 +50266,31 @@ var Login = /** @class */ (function (_super) {
             });
         });
     };
+    Login.prototype.SetForgetPassword = function () {
+        var newState = __assign({}, this.state); //Object.assign({}, this.state);
+        newState.ShowForgetPassword = !newState.ShowForgetPassword;
+        this.setState(newState);
+    };
+    Login.prototype.SendMessageForgotPassword = function () {
+        var onSuccess = function (error) {
+            if (!error) {
+                alert('Сообщение отправлено');
+                document.location.href = "/menu/auth/password-recovery/";
+            }
+        };
+        window.G_AuthenticateController.SendMessageForgotPassword(this.state.Login, onSuccess);
+    };
     Login.prototype.render = function () {
         return React.createElement("div", { className: 'persent-100-width' },
-            React.createElement("div", { className: 'persent-100-width' },
+            React.createElement("div", { className: 'persent-100-width padding-10-top' },
+                React.createElement("input", { className: 'form-control persent-100-width', type: 'text', placeholder: 'email', onChange: this.LoginOnChange, value: this.state.Login })),
+            this.state.ShowForgetPassword ? React.createElement(React.Fragment, null,
+                React.createElement("button", { className: 'btn persent-100-width', onClick: this.SetForgetPassword }, "\u0412\u043E\u0439\u0442\u0438"),
+                React.createElement("button", { className: 'btn persent-100-width', onClick: this.SendMessageForgotPassword }, "\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C \u043F\u0438\u0441\u044C\u043C\u043E \u043D\u0430 \u043F\u043E\u0447\u0442\u0443")) : React.createElement(React.Fragment, null,
                 React.createElement("div", { className: 'persent-100-width padding-10-top' },
-                    React.createElement("input", { className: 'form-control persent-100-width', type: 'text', placeholder: 'email', onChange: this.LoginOnChange })),
-                React.createElement("div", { className: 'persent-100-width padding-10-top' },
-                    React.createElement("input", { className: 'form-control persent-100-width', type: 'password', placeholder: 'password', onChange: this.PasswordOnChange })),
-                React.createElement("button", { className: 'btn persent-100-width', onClick: this.TryLogin }, "\u0412\u043E\u0439\u0442\u0438")));
+                    React.createElement("input", { className: 'form-control persent-100-width', type: 'password', placeholder: 'password', onChange: this.PasswordOnChange, value: this.state.Password })),
+                React.createElement("button", { className: 'btn persent-100-width', onClick: this.TryLogin }, "\u0412\u043E\u0439\u0442\u0438"),
+                React.createElement("button", { className: 'btn persent-100-width', onClick: this.SetForgetPassword }, "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C")));
     };
     return Login;
 }(React.Component));
@@ -50254,6 +50384,98 @@ var MainAuth = /** @class */ (function (_super) {
     return MainAuth;
 }(React.Component));
 exports.MainAuth = MainAuth;
+
+
+/***/ }),
+
+/***/ "./src/components/Body/Auth/Recovery/Recovery.tsx":
+/*!********************************************************!*\
+  !*** ./src/components/Body/Auth/Recovery/Recovery.tsx ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var RecoveryProps = function (props) {
+    var _a = (0, react_1.useState)(''), code = _a[0], setCode = _a[1];
+    var _b = (0, react_1.useState)(false), tokenChecked = _b[0], setTokenChecked = _b[1];
+    var _c = (0, react_1.useState)(''), newPassword = _c[0], setNewPassword = _c[1];
+    var _d = (0, react_1.useState)(''), newPasswordConfirm = _d[0], setNewPasswordConfirm = _d[1];
+    (0, react_1.useEffect)(function () {
+        var url = new URL(location.href);
+        // let urlParams = new URLSearchParams(location.href);
+        var args = new URLSearchParams(url.search);
+        var code = args.get('code');
+        if (code) {
+            setCode(code);
+        }
+    }, []);
+    var CheckCode = function () {
+        var onSuccess = function (error) {
+            if (!error) {
+                setTokenChecked(true);
+            }
+        };
+        window.G_AuthenticateController.CheckRecoverPasswordCode(code, onSuccess);
+    };
+    var ChangePassword = function () {
+        if (newPassword !== newPasswordConfirm) {
+            alert("Пароли не совпадают");
+            return;
+        }
+        var onSuccess = function (error) {
+            if (!error) {
+                document.location.href = "/menu/auth/login/";
+            }
+        };
+        window.G_AuthenticateController.RecoverPassword(code, newPassword, onSuccess);
+    };
+    return react_1.default.createElement("div", { className: 'main-recovery-container' },
+        react_1.default.createElement("div", { className: 'recovery-container-inner col-sm-6 col-md-5 col-lg-4 offset-sm-3 offset-lg-4' },
+            react_1.default.createElement("div", { className: 'persent-100-width padding-10-top' }, tokenChecked ? react_1.default.createElement(react_1.default.Fragment, null,
+                react_1.default.createElement("input", { className: 'form-control persent-100-width', type: 'password', placeholder: 'new password', onChange: function (e) { return setNewPassword(e.target.value); }, value: newPassword }),
+                react_1.default.createElement("input", { className: 'form-control persent-100-width', type: 'password', placeholder: 'confirm new password', onChange: function (e) { return setNewPasswordConfirm(e.target.value); }, value: newPasswordConfirm }),
+                react_1.default.createElement("button", { className: 'btn persent-100-width', onClick: ChangePassword }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C")) : react_1.default.createElement(react_1.default.Fragment, null,
+                react_1.default.createElement("input", { className: 'form-control persent-100-width', type: 'text', placeholder: 'token', onChange: function (e) { return setCode(e.target.value); }, value: code }),
+                react_1.default.createElement("button", { className: 'btn persent-100-width', onClick: CheckCode }, "\u041F\u0440\u043E\u0432\u0435\u0440\u0438\u0442\u044C")))));
+};
+var mapStateToProps = function (state, ownProps) {
+    var res = {};
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    return res;
+};
+var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+// and that function returns the connected, wrapper component:
+exports["default"] = connectToStore(RecoveryProps);
 
 
 /***/ }),
@@ -50366,25 +50588,6 @@ var Register = /** @class */ (function (_super) {
             }
         };
         window.G_AuthenticateController.Register(data, onSuccess);
-        // let data = {
-        //     'email': this.state.Login,
-        //     'password': this.state.Password,
-        //     "password_confirm": this.state.ConfirmPassword,
-        // };
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: data,
-        //     Type: "PUT",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //         }
-        //         else {
-        //             //TODO записываем полученные токены
-        //             document.location.href = "/menu";
-        //         }
-        //     },
-        //     Url: G_PathToServer + 'api/authenticate/register',
-        // });
     };
     //style={{align:"center"}}
     Register.prototype.render = function () {
@@ -53453,9 +53656,8 @@ var Index = function (props) {
         }
         // console.log("Index");
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.RoomNotCreated, function () {
-            var alert = new AlertData_1.AlertData();
-            alert.Text = "Комната не создана";
-            alert.Type = 1;
+            var alertFactory = new AlertData_1.AlertData();
+            var alert = alertFactory.GetDefaultError("Комната не создана");
             window.G_AddAbsoluteAlertToState(alert);
             return;
         });
@@ -53649,20 +53851,18 @@ var PlaningPokerMain = function (props) {
         });
         hubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.PlaningNotifyFromServer, function (data) {
             var dataT = data;
-            var alert = new AlertData_1.AlertData();
-            if (!dataT) {
+            if (!(dataT === null || dataT === void 0 ? void 0 : dataT.errors)) {
                 return;
             }
+            var alertFactory = new AlertData_1.AlertData();
             dataT.errors.forEach(function (errLvl1) {
                 errLvl1.errors.forEach(function (errTxt) {
-                    alert.Text = errTxt;
-                    alert.Type = AlertData_1.AlertTypeEnum.Error;
-                    alert.Timeout = 5000;
+                    var alert = alertFactory.GetDefaultError(errTxt);
+                    window.G_AddAbsoluteAlertToState(alert);
                 });
             });
             // alert.Text = data.text;
             // alert.Type = data.status;
-            window.G_AddAbsoluteAlertToState(alert);
         });
         hubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.EnteredInRoom, function (roomUserId, loginnedInMainApp) {
             setLocalState(function (prevState) {
@@ -53687,9 +53887,8 @@ var PlaningPokerMain = function (props) {
             // window.document.title
         });
         hubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.ConnectedToRoomError, function () {
-            var alert = new AlertData_1.AlertData();
-            alert.Text = "подключение не удалось";
-            alert.Type = 1;
+            var alertFactory = new AlertData_1.AlertData();
+            var alert = alertFactory.GetDefaultError("подключение не удалось");
             window.G_AddAbsoluteAlertToState(alert);
             if (!location.href.includes("/planing-poker") || location.href.includes("/planing-poker/room")) { // && !location.href.endsWith("/planing-poker/")) {
                 var roomName = __planing_poker_main_state_ref__.RoomInfo.Name || "";
@@ -54039,9 +54238,8 @@ var Room = function (props) {
         }
         props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.UserNameChange, props.RoomInfo.Name, userNameLocalState).then(function (dt) {
             if (!dt) {
-                var alert_1 = new AlertData_1.AlertData();
-                alert_1.Text = "изменить имя не удалось";
-                alert_1.Type = AlertData_1.AlertTypeEnum.Error;
+                var alertFactory = new AlertData_1.AlertData();
+                var alert_1 = alertFactory.GetDefaultError("изменить имя не удалось");
                 window.G_AddAbsoluteAlertToState(alert_1);
                 return;
             }
@@ -54131,10 +54329,8 @@ var Room = function (props) {
                 return newState;
             });
             if (allAreVotedChanged) {
-                var alert_2 = new AlertData_1.AlertData();
-                alert_2.Text = "Все участники проголосовали";
-                alert_2.Type = AlertData_1.AlertTypeEnum.Success;
-                alert_2.Timeout = 5000;
+                var alertFactory = new AlertData_1.AlertData();
+                var alert_2 = alertFactory.GetDefaultNotify("Все участники проголосовали");
                 window.G_AddAbsoluteAlertToState(alert_2);
             }
         });
@@ -54350,7 +54546,7 @@ var Room = function (props) {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.KickUser, props.RoomInfo.Name, userId);
     };
     var doVote = function (voteCardBlock) { return __awaiter(void 0, void 0, void 0, function () {
-        var alert_3, voted;
+        var alertFactory, alert_3, voted;
         var _a, _b;
         return __generator(this, function (_c) {
             switch (_c.label) {
@@ -54361,10 +54557,8 @@ var Room = function (props) {
                         return [2 /*return*/];
                     }
                     if (!CurrentUserCanVote(localState.UsersList, props.UserInfo.UserId)) {
-                        alert_3 = new AlertData_1.AlertData();
-                        alert_3.Text = "Вы не можете голосовать";
-                        alert_3.Type = AlertData_1.AlertTypeEnum.Error;
-                        alert_3.Timeout = 5000;
+                        alertFactory = new AlertData_1.AlertData();
+                        alert_3 = alertFactory.GetDefaultError("Вы не можете голосовать");
                         window.G_AddAbsoluteAlertToState(alert_3);
                         return [2 /*return*/];
                     }
@@ -55249,46 +55443,11 @@ var WordsCardsForceAdd = /** @class */ (function (_super) {
             var newState = __assign({}, refThis.state);
             newState.Cards = [];
             _this.setState(newState);
-            var alertL = new AlertData_1.AlertData();
-            alertL.Text = "Сохранено";
-            alertL.Type = AlertData_1.AlertTypeEnum.Success;
-            G_AddAbsoluteAlertToState(alertL);
+            var alertFactory = new AlertData_1.AlertData();
+            var alert = alertFactory.GetDefaultNotify('Сохранено');
+            G_AddAbsoluteAlertToState(alert);
         };
         G_WordsCardsController.CreateList(this.state.Cards, this.state.SelectedList + '', success);
-        // let data = new FormData();
-        // for (let i = 0; i < this.state.Cards.length; ++i) {
-        //     data.append('newData[' + i + '].word', this.state.Cards[i].Word);
-        //     data.append('newData[' + i + '].word_answer', this.state.Cards[i].WordAnswer);
-        //     data.append('newData[' + i + '].description', this.state.Cards[i].Description);
-        //     data.append('newData[' + i + '].list_id', this.state.SelectedList + '');
-        //     // data.append('newData.word_answer', this.state.Cards[i].WordAnswer);
-        //     // data.append('newData.description', this.state.Cards[i].Description);
-        // }
-        // let refThis = this;
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: data,
-        //     Type: "PUT",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             let res = xhr as IOneWordCardBack[];
-        //             if (res.length > 0) {
-        //                 let newState = { ...refThis.state };
-        //                 newState.Cards = [];
-        //                 this.setState(newState);
-        //                 let alertL = new AlertData();
-        //                 alertL.Text = "Сохранено";
-        //                 alertL.Type = AlertTypeEnum.Success;
-        //                 G_AddAbsoluteAlertToState(alertL);
-        //             }
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/wordscards/create-list',
-        // }, true);
     };
     WordsCardsForceAdd.prototype.LoadAllWordLists = function () {
         var refThis = this;
@@ -55308,34 +55467,6 @@ var WordsCardsForceAdd = /** @class */ (function (_super) {
             refThis.setState(newState);
         };
         G_WordsListController.GetAllForUser(success);
-        // let refThis = this;
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: {},
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             let dataBack = xhr as IWordListBack[];
-        //             if (dataBack.length > 0) {
-        //                 let newState = { ...refThis.state };
-        //                 let dataFront: OneWordList[] = [];
-        //                 dataBack.forEach(bk => {
-        //                     let nd = new OneWordList();
-        //                     nd.FillByBackModel(bk);
-        //                     dataFront.push(nd);
-        //                 });
-        //                 newState.ListsLoaded = true;
-        //                 newState.WordLists = dataFront;
-        //                 this.setState(newState);
-        //             }
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/wordslist/get-all-for-user',
-        // }, true);
     };
     WordsCardsForceAdd.prototype.ListOnChange = function (e) {
         // console.log(e);
@@ -56155,9 +56286,8 @@ var WordsCardsListMain = /** @class */ (function (_super) {
     };
     WordsCardsListMain.prototype.StartEditCard = function () {
         if (!this.state.CurrentCard) {
-            var alert_1 = new AlertData_1.AlertData();
-            alert_1.Text = 'Не выбрано слово';
-            alert_1.Type = AlertData_1.AlertTypeEnum.Error;
+            var alertFactory = new AlertData_1.AlertData();
+            var alert_1 = alertFactory.GetDefaultError('Не выбрано слово');
             G_AddAbsoluteAlertToState(alert_1);
             return;
         }
@@ -56235,9 +56365,6 @@ var WordsCardsListMain = /** @class */ (function (_super) {
     };
     WordsCardsListMain.prototype.CancelEditCard = function () {
         if (!this.state.EditCurrentCard) {
-            // let alert = new AlertData();
-            // alert.Text = 'Не выбрано слово';
-            // G_AddAbsoluteAlertToState(alert);
             return;
         }
         var newState = __assign({}, this.state);
@@ -56246,9 +56373,8 @@ var WordsCardsListMain = /** @class */ (function (_super) {
     };
     WordsCardsListMain.prototype.SaveCard = function () {
         if (!this.state.EditCurrentCard) {
-            var alert_2 = new AlertData_1.AlertData();
-            alert_2.Text = 'Активируйте режим редактирования';
-            alert_2.Type = AlertData_1.AlertTypeEnum.Error;
+            var alertFactory = new AlertData_1.AlertData();
+            var alert_2 = alertFactory.GetDefaultError('Активируйте режим редактирования');
             G_AddAbsoluteAlertToState(alert_2);
             return;
         }

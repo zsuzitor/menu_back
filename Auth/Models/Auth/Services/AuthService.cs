@@ -7,6 +7,10 @@ using Common.Models.Exceptions;
 using System.Threading.Tasks;
 using Menu.Models.Services.Interfaces;
 using Auth.Models.Auth.Poco.Input;
+using Microsoft.Extensions.Configuration;
+using System.Security.Claims;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Auth.Models.Auth.Services
 {
@@ -15,15 +19,25 @@ namespace Auth.Models.Auth.Services
         private readonly IJWTHasher _hasher;
         private readonly IUserService _userService;
         private readonly IJWTService _jwtService;
+        private readonly ITokenHandler _tokenHandler;
+        private readonly IConfiguration _configuration;
+        private readonly AuthEmailService _authEmailService;
 
 
+        private readonly string _userIdClaimName = "user_id";
 
 
-        public AuthService(IJWTHasher hasher, IUserService userService, IJWTService jwtService)
+        public AuthService(IJWTHasher hasher, IUserService userService
+            , IJWTService jwtService, ITokenHandler tokenHandler
+            , IConfiguration configuration
+            , AuthEmailService authEmailService)
         {
             _hasher = hasher;
             _jwtService = jwtService;
             _userService = userService;
+            _tokenHandler = tokenHandler;
+            _configuration = configuration;
+            _authEmailService = authEmailService;
         }
 
 
@@ -34,11 +48,11 @@ namespace Auth.Models.Auth.Services
 
 
 
-        public async Task<AllTokens> Login(LoginModel loginModel)
+        public async Task<AllTokens> LoginAsync(LoginModel loginModel)
         {
 
             var user = await _userService.GetByEmailAndPasswordAsync(loginModel.Email, loginModel.Password);
-            if(user == null)
+            if (user == null)
             {
                 throw new SomeCustomException(ErrorConsts.NotFound);
             }
@@ -47,7 +61,7 @@ namespace Auth.Models.Auth.Services
             //
         }
 
-        public async Task<AllTokens> Register(RegisterModel registerModel)
+        public async Task<AllTokens> RegisterAsync(RegisterModel registerModel)
         {
             var passwordHash = _hasher.GetHash(registerModel.Password);
             if (string.IsNullOrWhiteSpace(passwordHash))
@@ -67,7 +81,7 @@ namespace Auth.Models.Auth.Services
             return await _jwtService.CreateAndSetNewTokensAsync(newUser);
         }
 
-        public async Task<bool> LogOut(string accessToken)
+        public async Task<bool> LogOutAsync(string accessToken)
         {
             var userId = _jwtService.GetUserIdFromAccessTokenIfCan(accessToken);
             if (string.IsNullOrWhiteSpace(userId) || !long.TryParse(userId, out long userIdLong))
@@ -79,7 +93,7 @@ namespace Auth.Models.Auth.Services
         }
 
 
-        public async Task<AllTokens> Refresh(string accessToken, string refreshToken)
+        public async Task<AllTokens> RefreshAsync(string accessToken, string refreshToken)
         {
             var userId = _jwtService.GetUserIdFromAccessTokenIfCan(accessToken);
             if (string.IsNullOrWhiteSpace(userId) || !long.TryParse(userId, out _))
@@ -91,6 +105,78 @@ namespace Auth.Models.Auth.Services
 
         }
 
+        public async Task<bool> SendMessageForgotPasswordAsync(string email)
+        {
+            //тут не должно быть исключений, тк мы всегда(почти) должны сказать что 
+            //ЕСЛИ почта указана верно, сообщение было отправлено
+            var key = _configuration["RestorePasswordTokenKey"];
+
+            //_tokenHandler.DecodeToken
+            //_JWTUserManager.ItIsUserClaims;
+
+            var userId = await _userService.GetIdByEmailAsync(email);
+            if (userId == null)
+            {
+                return false;
+            }
+
+            var claims = new List<Claim>
+            {
+                new Claim(type: ClaimsIdentity.DefaultRoleClaimType, value: "user"),
+                new Claim(type: _userIdClaimName, value: userId.Value.ToString()),
+            };
+
+            ClaimsIdentity claimsIdentity =
+                new ClaimsIdentity(claims, "password_restore");
+            var token = _tokenHandler.GenerateToken(claimsIdentity, 10, key);//todo config
+            await _authEmailService.SendEmailAsync(email, "Восстановление пароля", token);
+            return true;
+        }
+
+        public async Task<bool> CheckRecoverPasswordCodeAsync(string code)
+        {
+            var userId = GetUserIdFromRecoverPasswordCode(code);//todo проверить что он не просрочен
+            return !string.IsNullOrWhiteSpace(userId);
+        }
+
+        public async Task<bool> RecoverPasswordAsync(string code, string newPassword)
+        {
+            var userId = GetUserIdFromRecoverPasswordCode(code);//todo проверить что он не просрочен
+            if (string.IsNullOrWhiteSpace(userId) || !long.TryParse(userId, out var userIdLong))
+            {
+                throw new SomeCustomException(AuthConst.AuthErrors.ProblemWithRecoverPasswordToken);
+            }
+
+            var user = await _userService.UpdateUserPasswordAsync(userIdLong, newPassword);
+            if (user == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
+
+            return true;
+        }
+
+        private string GetUserIdFromRecoverPasswordCode(string code)
+        {
+            var key = _configuration["RestorePasswordTokenKey"];
+            //var token = _tokenHandler.DecodeToken(code, key);//todo А ЧТО ЗА ДЕКОД БЕЗ КЛЮЧА, КАК ТАК
+            string userId = null;
+            try
+            {
+                var principal = _tokenHandler.GetClaimsFromToken(code, key, out _);
+                //SecurityTokenExpiredException
+
+                var claims = principal?.Identities?.SelectMany(x => x.Claims);
+                userId = claims.FirstOrDefault(x => string.Equals(x.Type, _userIdClaimName))?.Value;
+            }
+            //SecurityTokenExpiredException
+            catch
+            {
+                throw new SomeCustomException(AuthConst.AuthErrors.ProblemWithRecoverPasswordToken);
+            }
+
+            return userId;
+        }
 
 
 

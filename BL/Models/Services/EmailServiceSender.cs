@@ -4,12 +4,15 @@ using BO.Models;
 using BO.Models.Configs;
 using MailKit.Net.Smtp;
 using MimeKit;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BL.Models.Services
 {
-    public sealed class EmailService : IEmailServiceSender
+    public class EmailServiceSender : IEmailServiceSender
     {
         //https://github.com/myloveCc/NETCore.MailKit
         public async Task SendEmailAsync(string nameFrom, string emailFrom
@@ -31,8 +34,8 @@ namespace BL.Models.Services
         public async Task SendEmailAsync(string email, string subject, string message,
             MailSendingInstanceConfig config)
         {
-            await SendEmailAsync(new OneMail()
-            { Email = email, Message = message, Subject = message }, config);
+            await SendEmailAsync(
+                new OneMail() { Email = email, Message = message, Subject = subject }, config);
         }
 
         public async Task SendEmailAsync(OneMail oneMail, MailSendingInstanceConfig config)
@@ -40,7 +43,7 @@ namespace BL.Models.Services
             await SendEmailAsync(new List<OneMail>() { oneMail }, config);
         }
 
-        public async Task SendEmailAsync(List<OneMail> mails, MailSendingInstanceConfig config)
+        public virtual async Task SendEmailAsync(List<OneMail> mails, MailSendingInstanceConfig config)
         {
             try
             {
@@ -76,6 +79,23 @@ namespace BL.Models.Services
             {
                 //todo хотя бы логи записать
             }
+        }
+
+        
+    }
+
+    public class EmailServiceSenderMock : EmailServiceSender
+    {
+        public override async Task SendEmailAsync(List<OneMail> mails, MailSendingInstanceConfig config)
+        {
+            var resultFilePath = "./MailMock.txt";
+            //if (!File.Exists(resultFilePath))
+            //{
+            //    File.(resultFilePath);
+            //}
+
+            File.AppendAllLines(resultFilePath, mails.Select(x =>
+            $@"{DateTime.Now}-from:{config.EmailFrom}-to:{x.Email}-subject:{x.Subject}-message:{x.Message}"));
         }
     }
 }

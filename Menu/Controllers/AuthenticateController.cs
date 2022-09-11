@@ -11,6 +11,8 @@ using Common.Models.Exceptions;
 using Common.Models.Error;
 using Common.Models.Return;
 using Menu.Models.Returns.Types;
+using Common.Models.Poco;
+using System.ComponentModel.DataAnnotations;
 
 //using NLog;
 
@@ -61,7 +63,7 @@ namespace Menu.Controllers
                        return;
                    }
 
-                   var tokens = await _authSrvice.Login(loginModel.GetModel());
+                   var tokens = await _authSrvice.LoginAsync(loginModel.GetModel());
                    if (tokens == null)
                    {
                        throw new SomeCustomException(ErrorConsts.SomeError);
@@ -89,7 +91,7 @@ namespace Menu.Controllers
                       return;
                   }
 
-                  var tokens = await _authSrvice.Register(registerModel.GetModel());
+                  var tokens = await _authSrvice.RegisterAsync(registerModel.GetModel());
                   if (tokens == null)
                   {
                       return;//что то пошло не так TODO
@@ -109,7 +111,7 @@ namespace Menu.Controllers
               async () =>
               {
                   var accessToken = _apiHealper.GetAccessTokenFromRequest(Request);
-                  var logout = await _authSrvice.LogOut(accessToken);
+                  var logout = await _authSrvice.LogOutAsync(accessToken);
                   if (logout)
                   {
                       _apiHealper.ClearUsersTokens(Response);
@@ -131,7 +133,7 @@ namespace Menu.Controllers
                   //throw new SomeCustomException("assadads");
                   var accessToken = _apiHealper.GetAccessTokenFromRequest(Request);
                   var refreshToken = _apiHealper.GetRefreshTokenFromRequest(Request);
-                  var allTokens = await _authSrvice.Refresh(accessToken, refreshToken);
+                  var allTokens = await _authSrvice.RefreshAsync(accessToken, refreshToken);
                   if (allTokens == null)
                   {
                       throw new NotAuthException();
@@ -143,9 +145,71 @@ namespace Menu.Controllers
         }
 
 
+        [Route("SendMessageForgotPassword")]
+        [HttpPost]
+        public async Task SendMessageForgotPassword([FromForm][EmailAddress] string email)
+        {
+            await _apiHealper.DoStandartSomething(
+               async () =>
+               {
+                   if (_apiHealper.ErrorsFromModelState(ModelState))
+                   {
+                       await _apiHealper.WriteResponseAsync(Response
+                           , _errRetrunFactory.GetObjectReturn((_errorService.GetErrorsObject())));
+                       return;
+                   }
+
+                   //всегда отдаем true что бы не палить отсутствие пользака в бд
+                   _ = await _authSrvice.SendMessageForgotPasswordAsync(email);
+                   //if (!res)
+                   //{
+                   //    throw new SomeCustomException(ErrorConsts.SomeError);
+                   //}
+
+                   await _apiHealper.WriteResponseAsync(Response
+                       , _boolResultFactory.GetObjectReturn(new BoolResult(true)));
+               }, Response, _logger);
+        }
+
+
+        [Route("CheckRecoverPasswordCode")]
+        [HttpPost]
+        public async Task CheckRecoverPasswordCode([FromForm] string code)
+        {
+            await _apiHealper.DoStandartSomething(
+               async () =>
+               {
+                   var res = await _authSrvice.CheckRecoverPasswordCodeAsync(code);
+                   if (!res)
+                   {
+                       throw new SomeCustomException(ErrorConsts.SomeError);
+                   }
+
+                   await _apiHealper.WriteResponseAsync(Response
+                       , _boolResultFactory.GetObjectReturn(new BoolResult(res)));
+               }, Response, _logger);
+        }
+
+        [Route("RecoverPassword")]
+        [HttpPost]
+        public async Task RecoverPassword([FromForm] string code, [FromForm] string password)
+        {
+            await _apiHealper.DoStandartSomething(
+               async () =>
+               {
+                   var res = await _authSrvice.RecoverPasswordAsync(code, password);
+                   if (!res)
+                   {
+                       throw new SomeCustomException(ErrorConsts.SomeError);
+                   }
+
+                   await _apiHealper.WriteResponseAsync(Response
+                       , _boolResultFactory.GetObjectReturn(new BoolResult(res)));
+               }, Response, _logger);
+        }
         
 
-    }
 
+    }
 
 }

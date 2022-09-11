@@ -118,12 +118,24 @@ namespace DAL.Models.DAL.Repositories
             var user = await _db.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Id == userId);
             if (user == null)
             {
-                throw new NotAuthException();
+                return null;
             }
 
             user.Login = null;
             user.PasswordHash = null;
             user.RefreshTokenHash = null;
+            return user;
+        }
+
+        public async Task<User> UpdateUserPasswordAsync(long userId, string passwordHash)
+        {
+            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            if(user != null)
+            {
+                user.PasswordHash = passwordHash;
+                await _db.SaveChangesAsync();
+            }
+
             return user;
         }
     }

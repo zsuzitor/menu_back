@@ -55,10 +55,11 @@ namespace Menu
         {
             Configuration = configuration;
             _appsInitializers = new List<IStartUpInitializer>() {
+                new AuthInitializer(configuration),
                 new MenuAppInitializer(),
                 new WordsCardsAppInitializer(),
                 new PlanitPokerInitializer(),
-                new CodeReviewAppInitializer()
+                new CodeReviewAppInitializer(),
             };
         }
 
@@ -146,8 +147,12 @@ namespace Menu
             services.AddSingleton<IStringValidator, StringValidator>();
             services.AddSingleton<DBHelper>();
 
-            
 
+
+            var mailSendingConfig = new MailSendingConfig();
+            Configuration.GetSection("MailingSettings").Bind(mailSendingConfig);
+            services.AddSingleton<MailSendingConfig>(x => mailSendingConfig);
+            
 
 
             //services
@@ -156,7 +161,15 @@ namespace Menu
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
             services.AddSingleton<IWorker, Worker>();
-            services.AddSingleton<IEmailServiceSender, EmailService>();
+            if (mailSendingConfig.MockMailing)
+            {
+                services.AddSingleton<IEmailServiceSender, EmailServiceSenderMock>();
+            }
+            else
+            {
+                services.AddSingleton<IEmailServiceSender, EmailServiceSender>();
+            }
+
             
             //&
             var errorContainer = new ErrorContainer();
@@ -188,17 +201,16 @@ namespace Menu
                 services.AddSingleton<IImageDataStorage, ImageDataIOStorage>();
             }
 
-            var mailSendingConfig = new MailSendingConfig();
-            Configuration.GetSection("MailingSettings").Bind(mailSendingConfig);
-            services.AddSingleton<MailSendingConfig>(x => mailSendingConfig);
+            
+
 
 
 
             
 
             //auth
-            services.InjectJwtAuth(Configuration);
-            services.AddScoped<IAuthService, AuthService>();
+            //services.InjectJwtAuth(Configuration);
+            //services.AddScoped<IAuthService, AuthService>();
 
 
             services.Configure<ApiBehaviorOptions>(options =>

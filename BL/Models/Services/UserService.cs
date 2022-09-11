@@ -110,10 +110,17 @@ namespace Menu.Models.Services
             var res = await _userRepository.GetShortInfo(userId);
             if (res == null)
             {
+                throw new NotAuthException();//todo понять  можно ли убрать это, тк оно тут лишнее
                 throw new SomeCustomException(ErrorConsts.NotFound);
             }
+
             return res;
         }
 
+        public async Task<User> UpdateUserPasswordAsync(long userId, string password)
+        {
+            var passwordHash = _hasher.GetHash(password);
+            return await _userRepository.UpdateUserPasswordAsync(userId, passwordHash);
+        }
     }
 }
