@@ -2745,6 +2745,60 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".review-project-new-block {\r\n    pad
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/Index/Index.css":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/Index/Index.css ***!
+  \************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n    /* https://cssgradient.io/ */\r\n    /* background: rgb(2, 0, 39);\r\n    background: linear-gradient(360deg, rgba(2, 0, 39, 0.7150210425967262) 0%, rgba(255, 255, 255, 1) 100%); */\r\n    \r\n}\r\n\r\n\r\n\r\n.planing-enter-inner {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Index/Index.css"],"names":[],"mappings":";AACA;IACI,iBAAiB;IACjB,oBAAoB;IACpB,4BAA4B;IAC5B;8GAC0G;;AAE9G;;;;AAIA;IACI,6CAA6C;IAC7C,qCAAqC;AACzC","sourcesContent":["\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n    /* https://cssgradient.io/ */\r\n    /* background: rgb(2, 0, 39);\r\n    background: linear-gradient(360deg, rgba(2, 0, 39, 0.7150210425967262) 0%, rgba(255, 255, 255, 1) 100%); */\r\n    \r\n}\r\n\r\n\r\n\r\n.planing-enter-inner {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/OneVoteCard/OneVoteCard.css":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/OneVoteCard/OneVoteCard.css ***!
+  \************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".one-planing-vote-card {\r\n    width: 124px;\r\n    height: 144px;\r\n    border: 2px solid rgb(65 152 174);\r\n    /* display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center; */\r\n    align-items: center;\r\n    border-radius: 5px;\r\n    position: relative;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n.one-planing-vote-card .vote-card-inner {\r\n    border: 1px solid rgb(65 152 174);\r\n    width: 84px;\r\n    height: 90px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    font-size: 60px;\r\n    border-radius: 5px;\r\n    left: 20px;\r\n    top: 27px;\r\n    position: absolute;\r\n}\r\n\r\n.vote-card-mark-left {\r\n    font-size: 15px;\r\n    position: absolute;\r\n    left: 2px;\r\n    top: 0px;\r\n    font-weight: bold;\r\n}\r\n\r\n.vote-card-mark-right {\r\n    font-size: 15px;\r\n    position: absolute;\r\n    right: 2px;\r\n    bottom: 0px;\r\n    font-weight: bold;\r\n    rotate: 180deg;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/OneVoteCard/OneVoteCard.css"],"names":[],"mappings":"AAAA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC;;;;;;;6BAOyB;IACzB,mBAAmB;IACnB,kBAAkB;IAClB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;;AAGA;IACI,iCAAiC;IACjC,WAAW;IACX,YAAY;IACZ,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,wBAAwB;IACxB,qBAAqB;IACrB,uBAAuB;IACvB,eAAe;IACf,kBAAkB;IAClB,UAAU;IACV,SAAS;IACT,kBAAkB;AACtB;;AAEA;IACI,eAAe;IACf,kBAAkB;IAClB,SAAS;IACT,QAAQ;IACR,iBAAiB;AACrB;;AAEA;IACI,eAAe;IACf,kBAAkB;IAClB,UAAU;IACV,WAAW;IACX,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,sBAAsB;AAC1B","sourcesContent":[".one-planing-vote-card {\r\n    width: 124px;\r\n    height: 144px;\r\n    border: 2px solid rgb(65 152 174);\r\n    /* display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center; */\r\n    align-items: center;\r\n    border-radius: 5px;\r\n    position: relative;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n.one-planing-vote-card .vote-card-inner {\r\n    border: 1px solid rgb(65 152 174);\r\n    width: 84px;\r\n    height: 90px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    font-size: 60px;\r\n    border-radius: 5px;\r\n    left: 20px;\r\n    top: 27px;\r\n    position: absolute;\r\n}\r\n\r\n.vote-card-mark-left {\r\n    font-size: 15px;\r\n    position: absolute;\r\n    left: 2px;\r\n    top: 0px;\r\n    font-weight: bold;\r\n}\r\n\r\n.vote-card-mark-right {\r\n    font-size: 15px;\r\n    position: absolute;\r\n    right: 2px;\r\n    bottom: 0px;\r\n    font-weight: bold;\r\n    rotate: 180deg;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/RoomTimer/RoomTimer.css":
 /*!********************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/RoomTimer/RoomTimer.css ***!
@@ -2792,7 +2846,34 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 120px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    background-color: #dc3545;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Room/Room.css"],"names":[],"mappings":"AAAA;IACI,aAAa;;AAEjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 120px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    background-color: #dc3545;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but{\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 120px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    background-color: #dc3545;\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Room/Room.css"],"names":[],"mappings":"AAAA;IACI,aAAa;;AAEjB;;AAEA;IACI,6BAA6B;IAC7B;;kEAE8D;IAC9D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B;;8DAE0D;IAC1D,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,cAAc;IACd,eAAe;AACnB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,gCAAgC;IAChC,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,yBAAyB;AAC7B;;;AAGA;IACI,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,6BAA6B;IAC7B,2BAA2B;IAC3B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf","sourcesContent":[".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but{\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 120px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    background-color: #dc3545;\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css ***!
+  \******************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".room-stories-type-selector {\r\n    display: flex;\r\n    border-radius: 4px 4px 0 0;\r\n    border: 2px solid grey;\r\n    justify-content: space-around;\r\n}\r\n\r\n.room-stories-type-selector .type-section {\r\n    padding: 5px;\r\n    /* border-bottom: 2px solid grey; */\r\n    cursor: pointer;\r\n}\r\n\r\n.room-stories-type-selector .type-section-select {\r\n    border-bottom: 2px solid blue;\r\n}\r\n\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,0BAA0B;IAC1B,sBAAsB;IACtB,6BAA6B;AACjC;;AAEA;IACI,YAAY;IACZ,mCAAmC;IACnC,eAAe;AACnB;;AAEA;IACI,6BAA6B;AACjC;;;AAGA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".room-stories-type-selector {\r\n    display: flex;\r\n    border-radius: 4px 4px 0 0;\r\n    border: 2px solid grey;\r\n    justify-content: space-around;\r\n}\r\n\r\n.room-stories-type-selector .type-section {\r\n    padding: 5px;\r\n    /* border-bottom: 2px solid grey; */\r\n    cursor: pointer;\r\n}\r\n\r\n.room-stories-type-selector .type-section-select {\r\n    border-bottom: 2px solid blue;\r\n}\r\n\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2819,7 +2900,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".user-list-role-but {\r\n    display: flex;\r\n}\r\n\r\n.user-role-but {\r\n    width: 25px;\r\n    height: 25px;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n    font-size: 30px;\r\n    line-height: 19px;\r\n    cursor: pointer;\r\n}\r\n\r\n.user-role-but-add {\r\n    background-color: #28a745;\r\n\r\n}\r\n\r\n\r\n.user-role-but-del {\r\n    background-color: #dc3545;\r\n\r\n}\r\n\r\n.user-list-del-but {\r\n    background-color: #dc3545;\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/UserInList/UserInList.css"],"names":[],"mappings":"AAAA;IACI,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,kBAAkB;IAClB,eAAe;IACf,iBAAiB;IACjB,eAAe;AACnB;;AAEA;IACI,yBAAyB;;AAE7B;;;AAGA;IACI,yBAAyB;;AAE7B;;AAEA;IACI,yBAAyB;IACzB,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,eAAe;AACnB","sourcesContent":[".user-list-role-but {\r\n    display: flex;\r\n}\r\n\r\n.user-role-but {\r\n    width: 25px;\r\n    height: 25px;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n    font-size: 30px;\r\n    line-height: 19px;\r\n    cursor: pointer;\r\n}\r\n\r\n.user-role-but-add {\r\n    background-color: #28a745;\r\n\r\n}\r\n\r\n\r\n.user-role-but-del {\r\n    background-color: #dc3545;\r\n\r\n}\r\n\r\n.user-list-del-but {\r\n    background-color: #dc3545;\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".user-list-role-but {\r\n    display: flex;\r\n}\r\n\r\n.user-role-but {\r\n    width: 25px;\r\n    height: 25px;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n    font-size: 30px;\r\n    line-height: 19px;\r\n    cursor: pointer;\r\n}\r\n\r\n.user-role-but-add {\r\n    background-color: #28a745;\r\n\r\n}\r\n\r\n\r\n.user-role-but-del {\r\n    background-color: #dc3545;\r\n\r\n}\r\n\r\n.user-list-del-but {\r\n    background-color: #dc3545;\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/UserInList/UserInList.css"],"names":[],"mappings":"AAAA;IACI,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,kBAAkB;IAClB,eAAe;IACf,iBAAiB;IACjB,eAAe;AACnB;;AAEA;IACI,yBAAyB;;AAE7B;;;AAGA;IACI,yBAAyB;;AAE7B;;AAEA;IACI,yBAAyB;IACzB,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,eAAe;AACnB;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,6CAA6C;IAC7C,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,6BAA6B;AACjC","sourcesContent":[".user-list-role-but {\r\n    display: flex;\r\n}\r\n\r\n.user-role-but {\r\n    width: 25px;\r\n    height: 25px;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n    font-size: 30px;\r\n    line-height: 19px;\r\n    cursor: pointer;\r\n}\r\n\r\n.user-role-but-add {\r\n    background-color: #28a745;\r\n\r\n}\r\n\r\n\r\n.user-role-but-del {\r\n    background-color: #dc3545;\r\n\r\n}\r\n\r\n.user-list-del-but {\r\n    background-color: #dc3545;\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3117,33 +3198,6 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".one-card-header {\r\n    /* border:2px solid black; */\r\n    /* box-shadow: 0 0 5px; */\r\n}\r\n\r\n.one-card-header-info {\r\n    /* border:2px solid black; */\r\n    padding-bottom: 5px;\r\n    -webkit-box-shadow: 0 0 5px;\r\n    box-shadow: 0 0 5px;\r\n    border-radius: 3px;\r\n}\r\n\r\n.one-card-header-image {\r\n    /* border:2px solid black; */\r\n    text-align: center;\r\n    -webkit-box-shadow: 0 0 5px;\r\n    box-shadow: 0 0 5px;\r\n    border-radius: 3px;\r\n}\r\n\r\n.one-card-body-info {\r\n    /* border:2px solid black; */\r\n    -webkit-box-shadow: 0 0 5px;\r\n    box-shadow: 0 0 5px;\r\n    border-radius: 3px;\r\n}\r\n\r\n.one-card-page-follow-button {\r\n    /* width: 20px;\r\n    height: 20px; */\r\n}\r\n\r\n.one-card-page-edit-button {\r\n    /* width: 20px;\r\n    height: 20px; */\r\n}\r\n\r\n.one-card-page-save-button {\r\n    /* width: 20px;\r\n    height: 20px; */\r\n}\r\n\r\n.one-card-page-cancel-button {\r\n    /* width: 20px;\r\n    height: 20px; */\r\n}\r\n\r\ndiv.datail-one-card-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    /* border: 2px solid black; */\r\n    /* position: absolute; */\r\n    z-index: 5;\r\n    cursor: pointer;\r\n}", "",{"version":3,"sources":["webpack://./style/menu_app_one_card.css"],"names":[],"mappings":"AAAA;IACI,4BAA4B;IAC5B,yBAAyB;AAC7B;;AAEA;IACI,4BAA4B;IAC5B,mBAAmB;IACnB,2BAA2B;IAC3B,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,4BAA4B;IAC5B,kBAAkB;IAClB,2BAA2B;IAC3B,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,4BAA4B;IAC5B,2BAA2B;IAC3B,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI;mBACe;AACnB;;AAEA;IACI;mBACe;AACnB;;AAEA;IACI;mBACe;AACnB;;AAEA;IACI;mBACe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,6BAA6B;IAC7B,wBAAwB;IACxB,UAAU;IACV,eAAe;AACnB","sourcesContent":[".one-card-header {\r\n    /* border:2px solid black; */\r\n    /* box-shadow: 0 0 5px; */\r\n}\r\n\r\n.one-card-header-info {\r\n    /* border:2px solid black; */\r\n    padding-bottom: 5px;\r\n    -webkit-box-shadow: 0 0 5px;\r\n    box-shadow: 0 0 5px;\r\n    border-radius: 3px;\r\n}\r\n\r\n.one-card-header-image {\r\n    /* border:2px solid black; */\r\n    text-align: center;\r\n    -webkit-box-shadow: 0 0 5px;\r\n    box-shadow: 0 0 5px;\r\n    border-radius: 3px;\r\n}\r\n\r\n.one-card-body-info {\r\n    /* border:2px solid black; */\r\n    -webkit-box-shadow: 0 0 5px;\r\n    box-shadow: 0 0 5px;\r\n    border-radius: 3px;\r\n}\r\n\r\n.one-card-page-follow-button {\r\n    /* width: 20px;\r\n    height: 20px; */\r\n}\r\n\r\n.one-card-page-edit-button {\r\n    /* width: 20px;\r\n    height: 20px; */\r\n}\r\n\r\n.one-card-page-save-button {\r\n    /* width: 20px;\r\n    height: 20px; */\r\n}\r\n\r\n.one-card-page-cancel-button {\r\n    /* width: 20px;\r\n    height: 20px; */\r\n}\r\n\r\ndiv.datail-one-card-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    /* border: 2px solid black; */\r\n    /* position: absolute; */\r\n    z-index: 5;\r\n    cursor: pointer;\r\n}"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js!./style/planing_poker.css":
-/*!***********************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./style/planing_poker.css ***!
-  \***********************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n    /* https://cssgradient.io/ */\r\n    /* background: rgb(2, 0, 39);\r\n    background: linear-gradient(360deg, rgba(2, 0, 39, 0.7150210425967262) 0%, rgba(255, 255, 255, 1) 100%); */\r\n    \r\n}\r\n\r\n\r\n.planing-enter-inner {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.planing-story-in-list {}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}", "",{"version":3,"sources":["webpack://./style/planing_poker.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B;;kEAE8D;IAC9D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B;;8DAE0D;IAC1D,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC,eAAe;IACf,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,wBAAwB;IACxB,qBAAqB;IACrB,uBAAuB;IACvB,yBAAyB;IACzB,sBAAsB;IACtB,mBAAmB;IACnB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,6BAA6B;IAC7B,2BAA2B;IAC3B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,6CAA6C;IAC7C,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,iBAAiB;IACjB,oBAAoB;IACpB,4BAA4B;IAC5B;8GAC0G;;AAE9G;;;AAGA;IACI,6CAA6C;IAC7C,qCAAqC;AACzC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,6BAA6B;AACjC;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;AACtB;;AAEA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA,wBAAwB;;AAExB;IACI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,cAAc;IACd,eAAe;AACnB","sourcesContent":[".planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.one-planing-vote-card {\r\n    width: 100px;\r\n    height: 100px;\r\n    border: 2px solid rgb(65 152 174);\r\n    font-size: 60px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center;\r\n    align-items: center;\r\n    border-radius: 5px;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n}\r\n\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n    /* https://cssgradient.io/ */\r\n    /* background: rgb(2, 0, 39);\r\n    background: linear-gradient(360deg, rgba(2, 0, 39, 0.7150210425967262) 0%, rgba(255, 255, 255, 1) 100%); */\r\n    \r\n}\r\n\r\n\r\n.planing-enter-inner {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-current-story-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-stories-list-main {\r\n    /* border: 2px solid black; */\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.planing-story-in-list {}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46110,6 +46164,116 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/components/Body/PlaningPoker/Index/Index.css":
+/*!**********************************************************!*\
+  !*** ./src/components/Body/PlaningPoker/Index/Index.css ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_Index_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./Index.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/Index/Index.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_Index_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_Index_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_Index_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_Index_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/components/Body/PlaningPoker/OneVoteCard/OneVoteCard.css":
+/*!**********************************************************************!*\
+  !*** ./src/components/Body/PlaningPoker/OneVoteCard/OneVoteCard.css ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_OneVoteCard_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./OneVoteCard.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/OneVoteCard/OneVoteCard.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_OneVoteCard_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_OneVoteCard_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_OneVoteCard_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_OneVoteCard_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/components/Body/PlaningPoker/RoomTimer/RoomTimer.css":
 /*!******************************************************************!*\
   !*** ./src/components/Body/PlaningPoker/RoomTimer/RoomTimer.css ***!
@@ -46216,6 +46380,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_Room_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_Room_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_Room_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css":
+/*!****************************************************************************!*\
+  !*** ./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_StoriesSection_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./StoriesSection.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_StoriesSection_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_StoriesSection_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_StoriesSection_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_StoriesSection_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -46876,61 +47095,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_menu_app_one_card_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_menu_app_one_card_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_menu_app_one_card_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
-
-
-/***/ }),
-
-/***/ "./style/planing_poker.css":
-/*!*********************************!*\
-  !*** ./style/planing_poker.css ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_planing_poker_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../node_modules/css-loader/dist/cjs.js!./planing_poker.css */ "./node_modules/css-loader/dist/cjs.js!./style/planing_poker.css");
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var options = {};
-
-options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
-options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
-
-      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
-    
-options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
-options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_planing_poker_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
-
-
-
-
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_planing_poker_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_planing_poker_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_planing_poker_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -49713,6 +49877,7 @@ var Story = /** @class */ (function () {
         this.Vote = null;
         this.Date = null;
         this.Completed = false;
+        this.ThisSession = true;
     }
     Story.prototype.FillByBackModel = function (newData) {
         this.Id = newData.id;
@@ -49721,6 +49886,7 @@ var Story = /** @class */ (function () {
         this.Vote = newData.vote;
         this.Date = newData.date;
         this.Completed = newData.completed;
+        this.ThisSession = newData.currentSession;
     };
     return Story;
 }());
@@ -54011,10 +54177,10 @@ exports.MenuMain = MenuMain;
 
 /***/ }),
 
-/***/ "./src/components/Body/PlaningPoker/Index.tsx":
-/*!****************************************************!*\
-  !*** ./src/components/Body/PlaningPoker/Index.tsx ***!
-  \****************************************************/
+/***/ "./src/components/Body/PlaningPoker/Index/index.tsx":
+/*!**********************************************************!*\
+  !*** ./src/components/Body/PlaningPoker/Index/index.tsx ***!
+  \**********************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -54045,7 +54211,8 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-var AlertData_1 = __webpack_require__(/*! ../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
+var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
+__webpack_require__(/*! ./Index.css */ "./src/components/Body/PlaningPoker/Index/Index.css");
 var IndexState = /** @class */ (function () {
     // RoomName: string;
     // RoomPassword: string;
@@ -54124,10 +54291,10 @@ exports["default"] = Index;
 
 /***/ }),
 
-/***/ "./src/components/Body/PlaningPoker/OneVoteCard.tsx":
-/*!**********************************************************!*\
-  !*** ./src/components/Body/PlaningPoker/OneVoteCard.tsx ***!
-  \**********************************************************/
+/***/ "./src/components/Body/PlaningPoker/OneVoteCard/OneVoteCard.tsx":
+/*!**********************************************************************!*\
+  !*** ./src/components/Body/PlaningPoker/OneVoteCard/OneVoteCard.tsx ***!
+  \**********************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -54137,6 +54304,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+__webpack_require__(/*! ./OneVoteCard.css */ "./src/components/Body/PlaningPoker/OneVoteCard/OneVoteCard.css");
 var OneVoteCardProp = /** @class */ (function () {
     function OneVoteCardProp() {
     }
@@ -54147,7 +54315,10 @@ var OneVoteCard = function (props) {
     if (props.NeedSelect) {
         selectedClass += " one-planing-selected-vote-card";
     }
-    return react_1.default.createElement("div", { className: "one-planing-vote-card" + selectedClass, "data-vote": "" + props.Val }, props.Val);
+    return react_1.default.createElement("div", { className: "one-planing-vote-card" + selectedClass, "data-vote": "" + props.Val },
+        react_1.default.createElement("div", { className: 'vote-card-mark-left', "data-vote": "" + props.Val }, props.Val),
+        react_1.default.createElement("div", { className: 'vote-card-inner', "data-vote": "" + props.Val }, props.Val),
+        react_1.default.createElement("div", { className: 'vote-card-mark-right', "data-vote": "" + props.Val }, props.Val));
 };
 exports["default"] = OneVoteCard;
 
@@ -54193,7 +54364,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 // import * as signalR from "@microsoft/signalr";
-var Index_1 = __importDefault(__webpack_require__(/*! ./Index */ "./src/components/Body/PlaningPoker/Index.tsx"));
+var Index_1 = __importDefault(__webpack_require__(/*! ./Index */ "./src/components/Body/PlaningPoker/Index/index.tsx"));
 var Room_1 = __importDefault(__webpack_require__(/*! ./Room/Room */ "./src/components/Body/PlaningPoker/Room/Room.tsx"));
 var AlertData_1 = __webpack_require__(/*! ../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var RoomInfo_1 = __webpack_require__(/*! ../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
@@ -54204,7 +54375,6 @@ var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ ".
 // import * as signalR from '@aspnet/signalr'
 // "@microsoft/signalr": "^5.0.6",
 //
-__webpack_require__(/*! ../../../../style/planing_poker.css */ "./style/planing_poker.css");
 var PlaningPokerMainState = /** @class */ (function () {
     // InRoom: boolean;//по сути надо дернуть обновление стейта для перерендера
     function PlaningPokerMainState() {
@@ -54577,10 +54747,10 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 var UserInList_1 = __importDefault(__webpack_require__(/*! ../UserInList/UserInList */ "./src/components/Body/PlaningPoker/UserInList/UserInList.tsx"));
-var OneVoteCard_1 = __importDefault(__webpack_require__(/*! ../OneVoteCard */ "./src/components/Body/PlaningPoker/OneVoteCard.tsx"));
+var OneVoteCard_1 = __importDefault(__webpack_require__(/*! ../OneVoteCard/OneVoteCard */ "./src/components/Body/PlaningPoker/OneVoteCard/OneVoteCard.tsx"));
 // import { IOneRoomReturn } from '../../_ComponentsLink/BackModel/PlaningPoker/OneRoomReturn';
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
-var StoriesSection_1 = __importDefault(__webpack_require__(/*! ../StoriesSection */ "./src/components/Body/PlaningPoker/StoriesSection.tsx"));
+var StoriesSection_1 = __importDefault(__webpack_require__(/*! ../StoriesSection/StoriesSection */ "./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.tsx"));
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
 var RoomTimer_1 = __importDefault(__webpack_require__(/*! ../RoomTimer/RoomTimer */ "./src/components/Body/PlaningPoker/RoomTimer/RoomTimer.tsx"));
 __webpack_require__(/*! ./Room.css */ "./src/components/Body/PlaningPoker/Room/Room.css");
@@ -54970,6 +55140,7 @@ var Room = function (props) {
                     story.Completed = newData.completed;
                     story.Date = newData.date;
                     story.Vote = newData.vote;
+                    story.ThisSession = newData.currentSession;
                     if (newState.CurrentStoryId === newData.id) {
                         newState.CurrentStoryId = "";
                     }
@@ -55178,19 +55349,21 @@ var Room = function (props) {
         return react_1.default.createElement("div", null);
     };
     var settingsUpUserListRender = function () {
+        var showVoteImage = 'eye5.png';
+        if (hideVoteState) {
+            showVoteImage = 'eye1.png';
+        }
         var hideVotesSetting = react_1.default.createElement("div", null);
         // if (CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId)) {
         if (currentUserIsAdmin) {
             hideVotesSetting = react_1.default.createElement("div", null,
                 react_1.default.createElement("div", { className: "padding-10-top" }),
                 react_1.default.createElement("div", { className: "planning-vote-settings" },
-                    react_1.default.createElement("label", null, "\u0421\u043A\u0440\u044B\u0432\u0430\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0438"),
-                    react_1.default.createElement("input", { onClick: function () {
-                            // setHideVoteState(!hideVoteState)
-                            setHideVoteState(function (prevState) {
-                                return !hideVoteState;
-                            });
-                        }, type: "checkbox" })));
+                    react_1.default.createElement("label", null, "\u041E\u0446\u0435\u043D\u043A\u0438"),
+                    react_1.default.createElement("div", { className: 'planing-vote-show-but', title: '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C\\\u0441\u043A\u0440\u044B\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0438', onClick: function () { return setHideVoteState(function (prevState) {
+                            return !hideVoteState;
+                        }); } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + showVoteImage }))));
         }
         return react_1.default.createElement("div", null,
             react_1.default.createElement("p", null, "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C"),
@@ -55200,7 +55373,7 @@ var Room = function (props) {
                         return e.target.value;
                     });
                 }, value: userNameLocalState }),
-            react_1.default.createElement("div", { className: 'planing-name-change-but', onClick: function () { return props.ChangeUserName(userNameLocalState); } },
+            react_1.default.createElement("div", { className: 'planing-name-change-but', title: '\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u043C\u044F', onClick: function () { return props.ChangeUserName(userNameLocalState); } },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/pencil-edit.png" })),
             hideVotesSetting);
     };
@@ -55270,10 +55443,10 @@ exports["default"] = Room;
 
 /***/ }),
 
-/***/ "./src/components/Body/PlaningPoker/StoriesSection.tsx":
-/*!*************************************************************!*\
-  !*** ./src/components/Body/PlaningPoker/StoriesSection.tsx ***!
-  \*************************************************************/
+/***/ "./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.tsx":
+/*!****************************************************************************!*\
+  !*** ./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.tsx ***!
+  \****************************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -55306,8 +55479,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var RoomInfo_1 = __webpack_require__(/*! ../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
+var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
+var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
+__webpack_require__(/*! ./StoriesSection.css */ "./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css");
 var StoriesSectionProp = /** @class */ (function () {
     function StoriesSectionProp() {
     }
@@ -55317,7 +55492,7 @@ var StoriesSectionState = /** @class */ (function () {
     function StoriesSectionState() {
         this.NameForAdd = "";
         this.DescriptionForAdd = "";
-        this.ShowOnlyCompleted = false;
+        // this.ShowOnlyCompleted = false;
         this.NotActualStoriesLoaded = false;
         this.SortByDateAsc = false;
     }
@@ -55326,6 +55501,8 @@ var StoriesSectionState = /** @class */ (function () {
 var StoriesSection = function (props) {
     var initStories = new StoriesSectionState();
     var _a = (0, react_1.useState)(initStories), storiesState = _a[0], setStoriesState = _a[1];
+    var _b = (0, react_1.useState)(1), listStoryTypeState = _b[0], setListStoryTypeState = _b[1];
+    var _c = (0, react_1.useState)(false), showNewStoryForm = _c[0], setShowNewStoryForm = _c[1];
     var storiesHelper = new RoomInfo_1.StoriesHelper();
     (0, react_1.useEffect)(function () {
         ResetCurrentStoryById();
@@ -55373,16 +55550,17 @@ var StoriesSection = function (props) {
         }
     };
     var completedStoryInfo = function (story) {
-        if (!storiesState.ShowOnlyCompleted) {
+        if (!story.Completed) {
             return react_1.default.createElement("div", null);
         }
+        react_1.default.createElement("br", null);
         return react_1.default.createElement("div", null,
-            react_1.default.createElement("p", null,
-                "\u0414\u0430\u0442\u0430 \u043E\u0446\u0435\u043D\u043A\u0438: ",
-                story.Date),
-            react_1.default.createElement("p", null,
+            react_1.default.createElement("span", null,
                 "\u041E\u0446\u0435\u043D\u043A\u0430: ",
-                story.Vote + ""));
+                story.Vote + "   "),
+            react_1.default.createElement("span", null,
+                "\u0414\u0430\u0442\u0430 \u043E\u0446\u0435\u043D\u043A\u0438: ",
+                story.Date));
     };
     var currentStoryDescriptionRender = function () {
         if (!props.CurrentStoryId) {
@@ -55433,43 +55611,20 @@ var StoriesSection = function (props) {
     };
     var storiesListRender = function () {
         var adminButtonInList = function (id) {
-            return react_1.default.createElement(react_1.Fragment, null);
+            return react_1.default.createElement(react_1.default.Fragment, null);
         };
-        //todo как то норм назвать
         var addNewForm = react_1.default.createElement("div", null);
-        var adminButtonNotInList = react_1.default.createElement("div", null);
-        if (props.IsAdmin && !storiesState.ShowOnlyCompleted) {
+        if (props.IsAdmin && listStoryTypeState === 1) {
             adminButtonInList = function (id) {
                 return react_1.default.createElement("div", null,
                     react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return props.MakeCurrentStory(id); } }, "\u0421\u0434\u0435\u043B\u0430\u0442\u044C \u0442\u0435\u043A\u0443\u0449\u0435\u0439"),
                     react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return props.DeleteStory(id); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"));
             };
-            adminButtonNotInList = react_1.default.createElement("div", null,
-                react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return AddNewStory(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"));
-            addNewForm = react_1.default.createElement("div", null,
-                react_1.default.createElement("p", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043D\u043E\u0432\u0443\u044E:"),
-                react_1.default.createElement("span", null, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435:"),
-                react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435", value: storiesState.NameForAdd, type: "text", onChange: function (e) {
-                        setStoriesState(function (prevState) {
-                            // let newState = { ...prevState };
-                            var newState = (0, cloneDeep_1.default)(prevState);
-                            newState.NameForAdd = e.target.value;
-                            return newState;
-                        });
-                    } }),
-                react_1.default.createElement("span", null, "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435:"),
-                react_1.default.createElement("textarea", { className: "persent-100-width form-control", placeholder: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435", value: storiesState.DescriptionForAdd, onChange: function (e) {
-                        setStoriesState(function (prevState) {
-                            // let newState = { ...prevState };
-                            var newState = (0, cloneDeep_1.default)(prevState);
-                            newState.DescriptionForAdd = e.target.value;
-                            return newState;
-                        });
-                    } }),
-                adminButtonNotInList);
+            addNewForm = listStoryTypeState !== 1 ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement("div", null,
+                react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return setShowNewStoryForm(!showNewStoryForm); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u044E"));
         }
         var sortByDateButton = react_1.default.createElement(react_1.default.Fragment, null);
-        if (storiesState.ShowOnlyCompleted) {
+        if (listStoryTypeState === 2 || listStoryTypeState === 3) {
             sortByDateButton = react_1.default.createElement("button", { className: "btn btn-primary", onClick: function (e) {
                     setStoriesState(function (prevState) {
                         var newState = (0, cloneDeep_1.default)(prevState);
@@ -55479,20 +55634,38 @@ var StoriesSection = function (props) {
                 } }, "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430 \u043F\u043E \u0434\u0430\u0442\u0435");
         }
         return react_1.default.createElement("div", { className: "planing-stories-list-main planing-poker-left-one-section" },
-            react_1.default.createElement("p", null, "\u0418\u0441\u0442\u043E\u0440\u0438\u0438:"),
-            react_1.default.createElement("span", null, "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u043D\u044B\u0435: "),
-            react_1.default.createElement("input", { onClick: function () {
-                    setStoriesState(function (prevState) {
-                        // let newState = { ...prevState };
-                        var newState = (0, cloneDeep_1.default)(prevState);
-                        newState.ShowOnlyCompleted = !newState.ShowOnlyCompleted;
-                        return newState;
-                    });
-                }, type: "checkbox", defaultChecked: storiesState.ShowOnlyCompleted }),
+            !showNewStoryForm ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowNewStoryForm(false); }, IsHeightWindow: false, Title: '\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438', InnerContent: function () { return react_1.default.createElement("div", null,
+                    react_1.default.createElement("span", null, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435:"),
+                    react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435", value: storiesState.NameForAdd, type: "text", onChange: function (e) {
+                            setStoriesState(function (prevState) {
+                                // let newState = { ...prevState };
+                                var newState = (0, cloneDeep_1.default)(prevState);
+                                newState.NameForAdd = e.target.value;
+                                return newState;
+                            });
+                        } }),
+                    react_1.default.createElement("span", null, "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435:"),
+                    react_1.default.createElement("textarea", { className: "persent-100-width form-control", placeholder: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435", value: storiesState.DescriptionForAdd, onChange: function (e) {
+                            setStoriesState(function (prevState) {
+                                // let newState = { ...prevState };
+                                var newState = (0, cloneDeep_1.default)(prevState);
+                                newState.DescriptionForAdd = e.target.value;
+                                return newState;
+                            });
+                        } }),
+                    react_1.default.createElement("div", null,
+                        react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return AddNewStory(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"))); } }),
+            react_1.default.createElement("div", { className: 'room-stories-type-selector' },
+                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === 1 ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(1); } }, "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
+                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === 2 ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(2); } }, "\u041E\u0446\u0435\u043D\u0435\u043D\u043D\u044B\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
+                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === 3 ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(3); } }, "\u0412\u0441\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438")),
+            react_1.default.createElement("div", null, addNewForm),
             sortByDateButton,
             react_1.default.createElement("div", null,
                 react_1.default.createElement("div", { className: "stories-data-list" }, props.Stories
-                    .filter(function (x) { return x.Completed === storiesState.ShowOnlyCompleted; })
+                    .filter(function (x) { return (!x.Completed && listStoryTypeState === 1)
+                    || (x.Completed && listStoryTypeState === 2 && x.ThisSession)
+                    || (x.Completed && listStoryTypeState === 3 && !x.ThisSession); })
                     .sort(function (x1, x2) {
                     var x1Date = new Date(x1.Date || 0);
                     var x2Date = new Date(x2.Date || 0);
@@ -55505,24 +55678,17 @@ var StoriesSection = function (props) {
                 })
                     .map(function (x) {
                     return react_1.default.createElement("div", { className: "planing-story-in-list " + (x.Completed ? "completed-story" : "not-completed-story"), key: x.Id },
-                        react_1.default.createElement("p", null,
-                            "Id: ",
-                            x.Id),
-                        react_1.default.createElement("p", null,
+                        react_1.default.createElement("span", null,
                             "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435: ",
                             x.Name),
-                        react_1.default.createElement("p", null,
+                        react_1.default.createElement("br", null),
+                        react_1.default.createElement("span", null,
                             "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435: ",
                             x.Description),
                         completedStoryInfo(x),
                         adminButtonInList(x.Id),
                         react_1.default.createElement("hr", null));
-                })),
-                react_1.default.createElement("div", null, storiesState.ShowOnlyCompleted && !storiesState.NotActualStoriesLoaded ?
-                    react_1.default.createElement("button", { className: "btn btn-primary", onClick: function () { return loadOldStories(); } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C \u043F\u0440\u043E\u0448\u043B\u044B\u0435")
-                    :
-                        react_1.default.createElement("div", null))),
-            react_1.default.createElement("div", null, addNewForm));
+                }))));
     };
     return react_1.default.createElement("div", null,
         react_1.default.createElement("div", null, currentStoryDescriptionRender()),
@@ -55589,7 +55755,7 @@ var UserInList = function (props) {
     var delButton = react_1.default.createElement("div", null);
     var statusChange = react_1.default.createElement("div", null);
     if (props.RenderForAdmin) {
-        delButton = react_1.default.createElement("div", { className: 'user-list-del-but', onClick: function () { return props.TryToRemoveUserFromRoom(props.User.Id); } },
+        delButton = react_1.default.createElement("div", { className: 'user-list-del-but', title: '\u0412\u044B\u0433\u043D\u0430\u0442\u044C \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F', onClick: function () { return props.TryToRemoveUserFromRoom(props.User.Id); } },
             react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" }));
         statusChange = react_1.default.createElement("div", null,
             react_1.default.createElement("select", { className: "form-control", value: selectedEditRole, onChange: function (e) {

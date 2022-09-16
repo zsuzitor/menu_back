@@ -1217,7 +1217,7 @@ namespace PlanitPoker.Models.Services
 
                 Stories = (await _storyRepository.GetActualForRoom(roomDb.Id)).Select(x =>
                 {
-                    var st = new Story();
+                    var st = new Story() { CurrentSession = true };
                     st.FromDbObject(x);
                     return st;
 

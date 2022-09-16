@@ -26,10 +26,13 @@ namespace PlanitPoker.Models.Entity
         public decimal Vote { get; set; }
         public DateTime Date { get; set; }
         public bool Completed { get; set; }
+        public bool CurrentSession { get; set; }
+
 
         public Story()
         {
             TmpId = Guid.NewGuid();
+            CurrentSession = false;
         }
 
 

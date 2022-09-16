@@ -18,6 +18,8 @@ namespace PlanitPoker.Models.Returns
         public DateTime Date { get; set; }
         [JsonPropertyName("completed")]
         public bool Completed { get; set; }
+        [JsonPropertyName("currentSession")]
+        public bool CurrentSession { get; set; }
 
 
         public StoryReturn()
@@ -33,6 +35,7 @@ namespace PlanitPoker.Models.Returns
             Vote = obj.Vote;
             Date = obj.Date;
             Completed = obj.Completed;
+            CurrentSession = obj.CurrentSession;
         }
     }
 }

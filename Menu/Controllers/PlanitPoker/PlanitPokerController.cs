@@ -7,8 +7,6 @@ using Microsoft.Extensions.Logging;
 using PlanitPoker.Models.Services;
 using System.Threading.Tasks;
 using Menu.Models.Returns.Types.PlanitPoker;
-using Microsoft.AspNetCore.SignalR;
-using PlanitPoker.Models.Hubs;
 
 namespace Menu.Controllers.PlanitPoker
 {

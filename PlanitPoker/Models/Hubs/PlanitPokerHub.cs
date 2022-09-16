@@ -429,6 +429,7 @@ namespace PlanitPoker.Models.Hubs
                 {
                     Name = storyName,
                     Description = storyDescription,
+                    CurrentSession = true,
                 };
 
                 var sc = await _planitPokerService.AddNewStory(roomName, connectionId, newStory);
@@ -457,6 +458,7 @@ namespace PlanitPoker.Models.Hubs
                 {
                     Name = storyName,
                     Description = storyDescription,
+                    CurrentSession = true,
                 };
 
                 if (Guid.TryParse(storyId, out var storyIdG))

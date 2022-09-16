@@ -21,7 +21,7 @@ namespace PlanitPoker.Models.Returns
         [JsonPropertyName("status")]
         public RoomSatus Status { get; set; }
 
-        
+
         [JsonPropertyName("actual_stories")]
         public List<StoryReturn> Stories { get; set; }
         [JsonPropertyName("current_story_id")]
@@ -53,9 +53,9 @@ namespace PlanitPoker.Models.Returns
 
             }
 
-            if (obj.Stories!=null)
+            if (obj.Stories != null)
             {
-                Stories = obj.Stories.Select(x=>new StoryReturn(x)).ToList();
+                Stories = obj.Stories.Select(x => new StoryReturn(x)).ToList();
             }
         }
     }
