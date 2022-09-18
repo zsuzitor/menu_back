@@ -24,6 +24,9 @@ namespace PlanitPoker.Models.Returns
 
         [JsonPropertyName("actual_stories")]
         public List<StoryReturn> Stories { get; set; }
+        [JsonPropertyName("total_stories_count")]
+        public long TotalNotActualStoriesCount { get; set; }
+
         [JsonPropertyName("current_story_id")]
         public string CurrentStoryId { get; set; }
 
@@ -46,6 +49,7 @@ namespace PlanitPoker.Models.Returns
             DieDate = obj.DieDate;
             Status = obj.Status;
             CurrentStoryId = obj.CurrentStoryId;
+            TotalNotActualStoriesCount = obj.TotalNotActualStoriesCount;
 
             if (obj.Users != null)
             {

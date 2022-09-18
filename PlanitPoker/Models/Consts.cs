@@ -66,6 +66,7 @@ namespace PlanitPoker.Models
             public const string DeletedStory = "DeletedStory";
             public const string MovedStoryToComplete = "MovedStoryToComplete";
             public const string NeedRefreshTokens = "NeedRefreshTokens";
+            public const string RoomWasSaved = "RoomWasSaved";
         }
     }
 }

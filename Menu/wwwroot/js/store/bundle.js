@@ -2637,33 +2637,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".one-review-task-block {\r\n    border
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/Paggination/Paggination.css":
-/*!*************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/Paggination/Paggination.css ***!
-  \*************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
-// Imports
-
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".one-paggination-button {\r\n    width: 15px;\r\n    height: 15px;\r\n    border: 1px solid black;\r\n}\r\n\r\n.paggination-current{\r\n    background-color: #b5e29c;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/Paggination/Paggination.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;AAC3B;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".one-paggination-button {\r\n    width: 15px;\r\n    height: 15px;\r\n    border: 1px solid black;\r\n}\r\n\r\n.paggination-current{\r\n    background-color: #b5e29c;\r\n}"],"sourceRoot":""}]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css":
 /*!*****************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css ***!
@@ -2739,6 +2712,33 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".review-project-new-block {\r\n    padding-bottom: 10px;\r\n}\r\n\r\n.code-review-projects-menu {\r\n    /* flex-grow: 1; */\r\n    overflow: hidden;\r\n    /* border-right: 1px solid black; */\r\n    position: sticky;\r\n    top: 0;\r\n}\r\n\r\n.code-review-projects-menu-hide {\r\n    width: 0px;\r\n    /* min-width: 20px; */\r\n}\r\n\r\n.code-review-projects-menu-visible {\r\n    width: 215px;\r\n    min-width: 215px;\r\n}\r\n\r\n.hide-review-projects-list-button {\r\n    width: 20px;\r\n    height: 20px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n    position: absolute;\r\n    background-color: darkkhaki;\r\n    line-height: 16px;\r\n    right: -12px\r\n    /* margin-right: -14px; */\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/ProjectsList/ProjectsList.css"],"names":[],"mappings":"AAAA;IACI,oBAAoB;AACxB;;AAEA;IACI,kBAAkB;IAClB,gBAAgB;IAChB,mCAAmC;IACnC,gBAAgB;IAChB,MAAM;AACV;;AAEA;IACI,UAAU;IACV,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,kBAAkB;IAClB,kBAAkB;IAClB,kBAAkB;IAClB,kBAAkB;IAClB,2BAA2B;IAC3B,iBAAiB;IACjB,WAAW;IACX,yBAAyB;AAC7B","sourcesContent":[".review-project-new-block {\r\n    padding-bottom: 10px;\r\n}\r\n\r\n.code-review-projects-menu {\r\n    /* flex-grow: 1; */\r\n    overflow: hidden;\r\n    /* border-right: 1px solid black; */\r\n    position: sticky;\r\n    top: 0;\r\n}\r\n\r\n.code-review-projects-menu-hide {\r\n    width: 0px;\r\n    /* min-width: 20px; */\r\n}\r\n\r\n.code-review-projects-menu-visible {\r\n    width: 215px;\r\n    min-width: 215px;\r\n}\r\n\r\n.hide-review-projects-list-button {\r\n    width: 20px;\r\n    height: 20px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n    position: absolute;\r\n    background-color: darkkhaki;\r\n    line-height: 16px;\r\n    right: -12px\r\n    /* margin-right: -14px; */\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/Paggination/Paggination.css":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/Paggination/Paggination.css ***!
+  \***********************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".one-paggination-button {\r\n    width: 15px;\r\n    height: 15px;\r\n    border: 1px solid black;\r\n}\r\n\r\n.paggination-current{\r\n    background-color: #b5e29c;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/Paggination/Paggination.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;AAC3B;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".one-paggination-button {\r\n    width: 15px;\r\n    height: 15px;\r\n    border: 1px solid black;\r\n}\r\n\r\n.paggination-current{\r\n    background-color: #b5e29c;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -45944,61 +45944,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
-/***/ "./src/components/Body/CodeReviewApp/Paggination/Paggination.css":
-/*!***********************************************************************!*\
-  !*** ./src/components/Body/CodeReviewApp/Paggination/Paggination.css ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./Paggination.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/CodeReviewApp/Paggination/Paggination.css");
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var options = {};
-
-options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
-options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
-
-      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
-    
-options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
-options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
-
-
-
-
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
-
-
-/***/ }),
-
 /***/ "./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css":
 /*!***************************************************************************!*\
   !*** ./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css ***!
@@ -46160,6 +46105,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ProjectsList_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_ProjectsList_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_ProjectsList_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/components/Body/Paggination/Paggination.css":
+/*!*********************************************************!*\
+  !*** ./src/components/Body/Paggination/Paggination.css ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js!./Paggination.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/Paggination/Paggination.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_Paggination_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -48946,6 +48946,7 @@ var HubEndpointsFront = /** @class */ (function () {
         this.PlaningNotifyFromServer = "PlaningNotifyFromServer";
         this.NeedRefreshTokens = "NeedRefreshTokens";
         this.NewRoomAlive = "NewRoomAlive";
+        this.RoomWasSaved = "RoomWasSaved";
     }
     return HubEndpointsFront;
 }());
@@ -48988,6 +48989,30 @@ var PlaningPokerController = /** @class */ (function () {
     function PlaningPokerController() {
         this.EndPoints = new HubEndpoints();
     }
+    PlaningPokerController.prototype.GetNotActualStories = function (roomname, userId, page, countOnPage, onSuccess) {
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'roomname': roomname,
+                'userConnectionId': userId,
+                'pageNumber': page,
+                'pageSize': countOnPage,
+            },
+            Type: "GET",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                var resp = xhr;
+                if (resp.errors) {
+                    //TODO ошибка
+                    onSuccess(resp, null);
+                }
+                else {
+                    var dataBack = xhr;
+                    onSuccess(null, dataBack);
+                }
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/PlanitPoker/get-not-actual-stories',
+        });
+    };
     PlaningPokerController.prototype.GetUsersIsRoom = function (roomname, userId, onSuccess) {
         G_AjaxHelper.GoAjaxRequest({
             Data: {
@@ -49886,7 +49911,7 @@ var Story = /** @class */ (function () {
         this.Vote = newData.vote;
         this.Date = newData.date;
         this.Completed = newData.completed;
-        this.ThisSession = newData.currentSession;
+        this.ThisSession = newData.current_session;
     };
     return Story;
 }());
@@ -51972,89 +51997,6 @@ exports["default"] = connectToStore(OneReviewTask);
 
 /***/ }),
 
-/***/ "./src/components/Body/CodeReviewApp/Paggination/Paggination.tsx":
-/*!***********************************************************************!*\
-  !*** ./src/components/Body/CodeReviewApp/Paggination/Paggination.tsx ***!
-  \***********************************************************************/
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-__webpack_require__(/*! ./Paggination.css */ "./src/components/Body/CodeReviewApp/Paggination/Paggination.css");
-var Paggination = function (props) {
-    // return <div></div>
-    //todo сделать подругому
-    //делаю кнопки:
-    // 1 < текущая страница > последняя страница .. тут кнопки перехода предыдущая следующая
-    var renderOneBut = function (num) {
-        return react_1.default.createElement("div", { className: 'one-paggination-button', onClick: function () { return props.SetPageNumber(num); } }, num);
-    };
-    var allPageCount = Math.floor(props.ElementsCount / props.ElementsOnPage);
-    // if (allPageCount < 1) {
-    //     allPageCount = 1;
-    // }
-    if (props.ElementsCount % props.ElementsOnPage != 0) {
-        allPageCount++;
-    }
-    var needPrevBut = true;
-    var needNextBut = true;
-    var needFirstBut = true;
-    var needLastBut = true;
-    if (props.PageNumber == 1) {
-        needPrevBut = false;
-        needFirstBut = false;
-    }
-    if (props.PageNumber >= allPageCount) {
-        needNextBut = false;
-        needLastBut = false;
-    }
-    // if (allPageCount == 1) {
-    //     needLastBut = false;
-    // }
-    return react_1.default.createElement("div", null,
-        needFirstBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(1); }, className: 'btn-b btn-border' }, "1") : react_1.default.createElement(react_1.default.Fragment, null),
-        needPrevBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber - 1); }, className: 'btn-b btn-border' }, "prev") : react_1.default.createElement(react_1.default.Fragment, null),
-        react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber); }, className: 'btn-b btn-border paggination-current' }, props.PageNumber),
-        needNextBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber + 1); }, className: 'btn-b btn-border' }, "next") : react_1.default.createElement(react_1.default.Fragment, null),
-        needLastBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(allPageCount); }, className: 'btn-b btn-border' }, allPageCount) : react_1.default.createElement(react_1.default.Fragment, null));
-    // let allBut = [];
-    // allBut.push(1);
-    // let startBut = 1;
-    // if (props.PageNumber === 1) {
-    //     startBut = 2;
-    // }
-    // else if (props.PageNumber === allPageCount) {
-    //     startBut = props.PageNumber - 4;
-    // }
-    // else {
-    //     startBut = props.PageNumber - 1;
-    // }
-    // if (startBut < 2) {
-    //     startBut = 2;
-    // }
-    // for (let i = 0; i < 3; ++i) {
-    //     if (startBut < allPageCount) {
-    //         allBut.push(startBut++);
-    //     }
-    // }
-    // if (startBut <= allPageCount) {
-    //     allBut.push(allPageCount);
-    // }
-    // else {
-    //     allBut.push(startBut++);
-    // }
-    return react_1.default.createElement("div", null);
-};
-exports["default"] = Paggination;
-
-
-/***/ }),
-
 /***/ "./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.tsx":
 /*!***************************************************************************!*\
   !*** ./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.tsx ***!
@@ -52092,7 +52034,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var OneReviewTask_1 = __importDefault(__webpack_require__(/*! ../OneReviewTask/OneReviewTask */ "./src/components/Body/CodeReviewApp/OneReviewTask/OneReviewTask.tsx"));
-var Paggination_1 = __importDefault(__webpack_require__(/*! ../Paggination/Paggination */ "./src/components/Body/CodeReviewApp/Paggination/Paggination.tsx"));
+var Paggination_1 = __importDefault(__webpack_require__(/*! ../../Paggination/Paggination */ "./src/components/Body/Paggination/Paggination.tsx"));
 var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
 var ProjectUsers_1 = __importDefault(__webpack_require__(/*! ../ProjectUsers/ProjectUsers */ "./src/components/Body/CodeReviewApp/ProjectUsers/ProjectUsers.tsx"));
 var AddTask_1 = __importDefault(__webpack_require__(/*! ../AddTask/AddTask */ "./src/components/Body/CodeReviewApp/AddTask/AddTask.tsx"));
@@ -54177,6 +54119,89 @@ exports.MenuMain = MenuMain;
 
 /***/ }),
 
+/***/ "./src/components/Body/Paggination/Paggination.tsx":
+/*!*********************************************************!*\
+  !*** ./src/components/Body/Paggination/Paggination.tsx ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+__webpack_require__(/*! ./Paggination.css */ "./src/components/Body/Paggination/Paggination.css");
+var Paggination = function (props) {
+    // return <div></div>
+    //todo сделать подругому
+    //делаю кнопки:
+    // 1 < текущая страница > последняя страница .. тут кнопки перехода предыдущая следующая
+    var renderOneBut = function (num) {
+        return react_1.default.createElement("div", { className: 'one-paggination-button', onClick: function () { return props.SetPageNumber(num); } }, num);
+    };
+    var allPageCount = Math.floor(props.ElementsCount / props.ElementsOnPage);
+    // if (allPageCount < 1) {
+    //     allPageCount = 1;
+    // }
+    if (props.ElementsCount % props.ElementsOnPage != 0) {
+        allPageCount++;
+    }
+    var needPrevBut = true;
+    var needNextBut = true;
+    var needFirstBut = true;
+    var needLastBut = true;
+    if (props.PageNumber == 1) {
+        needPrevBut = false;
+        needFirstBut = false;
+    }
+    if (props.PageNumber >= allPageCount) {
+        needNextBut = false;
+        needLastBut = false;
+    }
+    // if (allPageCount == 1) {
+    //     needLastBut = false;
+    // }
+    return react_1.default.createElement("div", null,
+        needFirstBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(1); }, className: 'btn-b btn-border' }, "1") : react_1.default.createElement(react_1.default.Fragment, null),
+        needPrevBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber - 1); }, className: 'btn-b btn-border' }, "prev") : react_1.default.createElement(react_1.default.Fragment, null),
+        react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber); }, className: 'btn-b btn-border paggination-current' }, props.PageNumber),
+        needNextBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber + 1); }, className: 'btn-b btn-border' }, "next") : react_1.default.createElement(react_1.default.Fragment, null),
+        needLastBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(allPageCount); }, className: 'btn-b btn-border' }, allPageCount) : react_1.default.createElement(react_1.default.Fragment, null));
+    // let allBut = [];
+    // allBut.push(1);
+    // let startBut = 1;
+    // if (props.PageNumber === 1) {
+    //     startBut = 2;
+    // }
+    // else if (props.PageNumber === allPageCount) {
+    //     startBut = props.PageNumber - 4;
+    // }
+    // else {
+    //     startBut = props.PageNumber - 1;
+    // }
+    // if (startBut < 2) {
+    //     startBut = 2;
+    // }
+    // for (let i = 0; i < 3; ++i) {
+    //     if (startBut < allPageCount) {
+    //         allBut.push(startBut++);
+    //     }
+    // }
+    // if (startBut <= allPageCount) {
+    //     allBut.push(allPageCount);
+    // }
+    // else {
+    //     allBut.push(startBut++);
+    // }
+    return react_1.default.createElement("div", null);
+};
+exports["default"] = Paggination;
+
+
+/***/ }),
+
 /***/ "./src/components/Body/PlaningPoker/Index/index.tsx":
 /*!**********************************************************!*\
   !*** ./src/components/Body/PlaningPoker/Index/index.tsx ***!
@@ -54764,6 +54789,7 @@ var RoomState = /** @class */ (function () {
         this.UsersList = [];
         this.VoteInfo = new RoomInfo_1.VoteInfo();
         this.DieRoomTime = null;
+        this.TotalNotActualStoriesCount = 0;
     }
     return RoomState;
 }());
@@ -54872,6 +54898,7 @@ var Room = function (props) {
                     newState.UsersList.splice(0, newState.UsersList.length);
                     (_a = newState.UsersList).push.apply(_a, newUsersData_1);
                     newState.DieRoomTime = new Date(data.room.die_date);
+                    newState.TotalNotActualStoriesCount = data.room.total_stories_count;
                     fillVoteInfo(newState, data.end_vote_info);
                     newState.UsersList.forEach(function (us) {
                         if (us.Id === props.UserInfo.UserId) {
@@ -55131,6 +55158,7 @@ var Room = function (props) {
             if (!newData) {
                 return;
             }
+            // let needIncrementTotalCount = false;
             setStoriesState(function (prevState) {
                 // let newState = { ...prevState };
                 var newState = (0, cloneDeep_1.default)(prevState);
@@ -55140,13 +55168,37 @@ var Room = function (props) {
                     story.Completed = newData.completed;
                     story.Date = newData.date;
                     story.Vote = newData.vote;
-                    story.ThisSession = newData.currentSession;
-                    if (newState.CurrentStoryId === newData.id) {
+                    story.ThisSession = newData.current_session;
+                    if (newState.CurrentStoryId === oldId) {
                         newState.CurrentStoryId = "";
                     }
                     newState.CurrentStoryDescriptionChange = "";
                     newState.CurrentStoryNameChange = "";
                 }
+                return newState;
+            });
+            // if (needIncrementTotalCount) {
+            //     setLocalState(prevState => {
+            //         // let newState = { ...prevState };
+            //         let newState = cloneDeep(prevState);
+            //         newState.TotalNotActualStoriesCount++;
+            //         return newState;
+            //     });
+            // }
+        });
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.RoomWasSaved, function (newData) {
+            if (!(newData === null || newData === void 0 ? void 0 : newData.success)) {
+                return;
+            }
+            setStoriesState(function (prevState) {
+                // let newState = { ...prevState };
+                var newState = (0, cloneDeep_1.default)(prevState);
+                newState.Stories.forEach(function (st) {
+                    var fromBack = newData.stories_mapping.find(function (x) { return x.old_id.toUpperCase() === st.Id.toUpperCase(); });
+                    if (fromBack) {
+                        st.Id = fromBack.new_id + '';
+                    }
+                });
                 return newState;
             });
         });
@@ -55175,6 +55227,7 @@ var Room = function (props) {
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.UserNameChanged);
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NewUserInRoom);
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NewRoomAlive);
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.RoomWasSaved);
         };
     }, []);
     var fillVoteInfo = function (state, data) {
@@ -55286,7 +55339,17 @@ var Room = function (props) {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.DeleteStory, props.RoomInfo.Name, id);
     };
     var saveRoom = function () {
-        props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.SaveRoom, props.RoomInfo.Name).then(function () { return alert("Сохранено"); });
+        props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.SaveRoom, props.RoomInfo.Name).then(function () {
+            // setStoriesState(prevState => {
+            //     // let newState = { ...prevState };
+            //     let newState = cloneDeep(prevState);
+            //     newState.CurrentStoryId = "";
+            //     newState.CurrentStoryDescriptionChange = "";
+            //     newState.CurrentStoryNameChange = "";
+            //     return newState;
+            // });
+            alert("Сохранено");
+        });
     };
     var deleteRoom = function () {
         if (!confirm('Удалить комнату?')) {
@@ -55334,7 +55397,7 @@ var Room = function (props) {
         if (props.UserInfo.LoginnedInMainApp) {
             // saveBut = <button className="btn btn-danger" onClick={() => saveRoom()}>Сохранить комнату</button>
             saveBut = react_1.default.createElement("div", { className: 'room-action-btn', onClick: function () { return saveRoom(); }, title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443' },
-                react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" }));
+                react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/save-icon.png" }));
         }
         if (currentUserIsAdmin) {
             return react_1.default.createElement("div", { className: 'planit-room-buttons' },
@@ -55424,7 +55487,7 @@ var Room = function (props) {
                     roomMainActionButton(),
                     renderVotePlaceIfNeed(),
                     renderVoteResultIfNeed()),
-                react_1.default.createElement(StoriesSection_1.default, { CurrentStoryId: storiesState.CurrentStoryId, MyHubConnection: props.MyHubConnection, RoomName: props.RoomInfo.Name, Stories: storiesState.Stories, DeleteStory: deleteStory, MakeCurrentStory: makeCurrentStory, IsAdmin: currentUserIsAdmin, CurrentStoryDescriptionChange: storiesState.CurrentStoryDescriptionChange, CurrentStoryNameChange: storiesState.CurrentStoryNameChange, CurrentStoryDescriptionOnChange: currentStoryDescriptionOnChange, CurrentStoryNameOnChange: currentStoryNameOnChange, RoomStatus: roomStatusState, StoriesLoaded: storiesLoaded })),
+                react_1.default.createElement(StoriesSection_1.default, { CurrentStoryId: storiesState.CurrentStoryId, MyHubConnection: props.MyHubConnection, RoomName: props.RoomInfo.Name, Stories: storiesState.Stories, TotalNotActualStoriesCount: localState.TotalNotActualStoriesCount, DeleteStory: deleteStory, MakeCurrentStory: makeCurrentStory, IsAdmin: currentUserIsAdmin, CurrentStoryDescriptionChange: storiesState.CurrentStoryDescriptionChange, CurrentStoryNameChange: storiesState.CurrentStoryNameChange, CurrentStoryDescriptionOnChange: currentStoryDescriptionOnChange, CurrentStoryNameOnChange: currentStoryNameOnChange, RoomStatus: roomStatusState, UserInfo: props.UserInfo })),
             react_1.default.createElement("div", { className: "planit-room-right-part col-12 col-md-3" },
                 react_1.default.createElement("div", null, settingsUpUserListRender()),
                 react_1.default.createElement("div", { className: "padding-10-top" }),
@@ -55482,6 +55545,7 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
 var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
+var Paggination_1 = __importDefault(__webpack_require__(/*! ../../Paggination/Paggination */ "./src/components/Body/Paggination/Paggination.tsx"));
 __webpack_require__(/*! ./StoriesSection.css */ "./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css");
 var StoriesSectionProp = /** @class */ (function () {
     function StoriesSectionProp() {
@@ -55493,8 +55557,9 @@ var StoriesSectionState = /** @class */ (function () {
         this.NameForAdd = "";
         this.DescriptionForAdd = "";
         // this.ShowOnlyCompleted = false;
-        this.NotActualStoriesLoaded = false;
+        // this.NotActualStoriesLoaded = false;
         this.SortByDateAsc = false;
+        this.NotActualStories = [];
     }
     return StoriesSectionState;
 }());
@@ -55503,12 +55568,17 @@ var StoriesSection = function (props) {
     var _a = (0, react_1.useState)(initStories), storiesState = _a[0], setStoriesState = _a[1];
     var _b = (0, react_1.useState)(1), listStoryTypeState = _b[0], setListStoryTypeState = _b[1];
     var _c = (0, react_1.useState)(false), showNewStoryForm = _c[0], setShowNewStoryForm = _c[1];
+    var _d = (0, react_1.useState)(1), storiesPageNumber = _d[0], setstoriesPageNumber = _d[1];
+    var countStoriesOnPage = 3;
     var storiesHelper = new RoomInfo_1.StoriesHelper();
     (0, react_1.useEffect)(function () {
         ResetCurrentStoryById();
     }, [props.CurrentStoryId]);
     (0, react_1.useEffect)(function () {
     }, []);
+    (0, react_1.useEffect)(function () {
+        loadOldStories();
+    }, [storiesPageNumber]);
     var cancelChangeCurrentStory = function () {
         var story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
         props.CurrentStoryDescriptionOnChange(story.Description);
@@ -55518,16 +55588,26 @@ var StoriesSection = function (props) {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.ChangeCurrentStory, props.RoomName, props.CurrentStoryId, props.CurrentStoryNameChange, props.CurrentStoryDescriptionChange);
     };
     var loadOldStories = function () {
-        props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.LoadNotActualStories, props.RoomName).then(function (data) {
-            var dataTyped = data;
-            setStoriesState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                newState.NotActualStoriesLoaded = true;
-                return newState;
-            });
-            props.StoriesLoaded(dataTyped);
-        });
+        var loadedStories = function (error, data) {
+            if (error) {
+                alert("todo что то пошло не так лучше обновить страницу");
+                return;
+            }
+            if (data) {
+                setStoriesState(function (prevState) {
+                    // let newState = { ...prevState };
+                    var newState = (0, cloneDeep_1.default)(prevState);
+                    newState.NotActualStories = data.stories.map(function (x) {
+                        var st = new RoomInfo_1.Story();
+                        st.FillByBackModel(x);
+                        return st;
+                    });
+                    return newState;
+                });
+            }
+        };
+        // console.log(JSON.stringify(props));
+        window.G_PlaningPokerController.GetNotActualStories(props.RoomName, props.UserInfo.UserConnectionId, storiesPageNumber, countStoriesOnPage, loadedStories);
     };
     var ResetCurrentStoryById = function () {
         if (!props.CurrentStoryId) {
@@ -55548,19 +55628,6 @@ var StoriesSection = function (props) {
         if (save) {
             props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.MakeStoryComplete, props.RoomName, props.CurrentStoryId);
         }
-    };
-    var completedStoryInfo = function (story) {
-        if (!story.Completed) {
-            return react_1.default.createElement("div", null);
-        }
-        react_1.default.createElement("br", null);
-        return react_1.default.createElement("div", null,
-            react_1.default.createElement("span", null,
-                "\u041E\u0446\u0435\u043D\u043A\u0430: ",
-                story.Vote + "   "),
-            react_1.default.createElement("span", null,
-                "\u0414\u0430\u0442\u0430 \u043E\u0446\u0435\u043D\u043A\u0438: ",
-                story.Date));
     };
     var currentStoryDescriptionRender = function () {
         if (!props.CurrentStoryId) {
@@ -55623,15 +55690,52 @@ var StoriesSection = function (props) {
             addNewForm = listStoryTypeState !== 1 ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement("div", null,
                 react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return setShowNewStoryForm(!showNewStoryForm); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u044E"));
         }
+        var completedStoryInfo = function (story) {
+            if (!story.Completed) {
+                return react_1.default.createElement("div", null);
+            }
+            react_1.default.createElement("br", null);
+            return react_1.default.createElement("div", null,
+                react_1.default.createElement("span", null,
+                    "\u041E\u0446\u0435\u043D\u043A\u0430: ",
+                    story.Vote + "   "),
+                react_1.default.createElement("span", null,
+                    "\u0414\u0430\u0442\u0430 \u043E\u0446\u0435\u043D\u043A\u0438: ",
+                    story.Date));
+        };
         var sortByDateButton = react_1.default.createElement(react_1.default.Fragment, null);
-        if (listStoryTypeState === 2 || listStoryTypeState === 3) {
-            sortByDateButton = react_1.default.createElement("button", { className: "btn btn-primary", onClick: function (e) {
-                    setStoriesState(function (prevState) {
-                        var newState = (0, cloneDeep_1.default)(prevState);
-                        newState.SortByDateAsc = !newState.SortByDateAsc;
-                        return newState;
-                    });
-                } }, "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430 \u043F\u043E \u0434\u0430\u0442\u0435");
+        // if (listStoryTypeState === 2 || listStoryTypeState === 3) {
+        //     sortByDateButton = <button className="btn btn-primary"
+        //         onClick={(e) => {
+        //             setStoriesState(prevState => {
+        //                 let newState = cloneDeep(prevState);
+        //                 newState.SortByDateAsc = !newState.SortByDateAsc;
+        //                 return newState;
+        //             });
+        //         }}>Сортировка по дате</button>
+        // }
+        var storiesForRender = [];
+        var paggination = react_1.default.createElement(react_1.default.Fragment, null);
+        if (listStoryTypeState === 3) {
+            paggination = react_1.default.createElement(Paggination_1.default, { ElementsCount: props.TotalNotActualStoriesCount, PageNumber: storiesPageNumber, ElementsOnPage: countStoriesOnPage, SetPageNumber: setstoriesPageNumber });
+            storiesForRender = storiesState.NotActualStories;
+        }
+        else {
+            storiesForRender = props.Stories
+                .filter(function (x) { return (!x.Completed && listStoryTypeState === 1)
+                || (x.Completed && listStoryTypeState === 2 && x.ThisSession); }
+            // || (x.Completed && listStoryTypeState === 3 && !x.ThisSession)
+            )
+                .sort(function (x1, x2) {
+                var x1Date = new Date(x1.Date || 0);
+                var x2Date = new Date(x2.Date || 0);
+                if (storiesState.SortByDateAsc) {
+                    return (x1Date.valueOf() - x2Date.valueOf());
+                }
+                else {
+                    return (x2Date.valueOf() - x1Date.valueOf());
+                }
+            });
         }
         return react_1.default.createElement("div", { className: "planing-stories-list-main planing-poker-left-one-section" },
             !showNewStoryForm ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowNewStoryForm(false); }, IsHeightWindow: false, Title: '\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438', InnerContent: function () { return react_1.default.createElement("div", null,
@@ -55661,21 +55765,9 @@ var StoriesSection = function (props) {
                 react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === 3 ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(3); } }, "\u0412\u0441\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438")),
             react_1.default.createElement("div", null, addNewForm),
             sortByDateButton,
+            paggination,
             react_1.default.createElement("div", null,
-                react_1.default.createElement("div", { className: "stories-data-list" }, props.Stories
-                    .filter(function (x) { return (!x.Completed && listStoryTypeState === 1)
-                    || (x.Completed && listStoryTypeState === 2 && x.ThisSession)
-                    || (x.Completed && listStoryTypeState === 3 && !x.ThisSession); })
-                    .sort(function (x1, x2) {
-                    var x1Date = new Date(x1.Date || 0);
-                    var x2Date = new Date(x2.Date || 0);
-                    if (storiesState.SortByDateAsc) {
-                        return (x1Date.valueOf() - x2Date.valueOf());
-                    }
-                    else {
-                        return (x2Date.valueOf() - x1Date.valueOf());
-                    }
-                })
+                react_1.default.createElement("div", { className: "stories-data-list" }, storiesForRender
                     .map(function (x) {
                     return react_1.default.createElement("div", { className: "planing-story-in-list " + (x.Completed ? "completed-story" : "not-completed-story"), key: x.Id },
                         react_1.default.createElement("span", null,

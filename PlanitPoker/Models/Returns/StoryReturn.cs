@@ -18,7 +18,7 @@ namespace PlanitPoker.Models.Returns
         public DateTime Date { get; set; }
         [JsonPropertyName("completed")]
         public bool Completed { get; set; }
-        [JsonPropertyName("currentSession")]
+        [JsonPropertyName("current_session")]
         public bool CurrentSession { get; set; }
 
 

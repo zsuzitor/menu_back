@@ -7,6 +7,8 @@ using Microsoft.Extensions.Logging;
 using PlanitPoker.Models.Services;
 using System.Threading.Tasks;
 using Menu.Models.Returns.Types.PlanitPoker;
+using System.Linq;
+using PlanitPoker.Models.Returns;
 
 namespace Menu.Controllers.PlanitPoker
 {
@@ -56,7 +58,7 @@ namespace Menu.Controllers.PlanitPoker
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    var users = await _planitPokerService.GetAllUsersWithRight(roomname, userConnectionId);
+                    var users = await _planitPokerService.GetAllUsersWithRightAsync(roomname, userConnectionId);
                     //TODO ошибку если null? сейчас там возвращается пустая строка везде. и вообще посмотреть что будет на фронте
                     await _apiHealper.WriteResponseAsync(Response, _planitUserReturnFactory.GetObjectReturn(users));
 
@@ -76,7 +78,7 @@ namespace Menu.Controllers.PlanitPoker
                 async () =>
                 {
                     var roomInfo =
-                        await _planitPokerService.GetRoomInfoWithRight(roomname,
+                        await _planitPokerService.GetRoomInfoWithRightAsync(roomname,
                             userConnectionId); //todo см declare метода в interface
                     //TODO ошибку если null? сейчас там возвращается пустая строка везде. и вообще посмотреть что будет на фронте
                     if (roomInfo == null)
@@ -90,6 +92,26 @@ namespace Menu.Controllers.PlanitPoker
         }
 
 
+        [Route("get-not-actual-stories")]
+        [HttpGet]
+        public async Task GetNotActualStories(string roomname, string userConnectionId
+            , int pageNumber, int pageSize)
+        {
+            //todo подумать и мб перетащить это в хаб (в том числе из за потребности в userConnectionId)
+            roomname = NormalizeRoomName(roomname);
+            userConnectionId = _stringValidator.Validate(userConnectionId);
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var stories = await _planitPokerService
+                    .GetNotActualStoriesAsync(roomname, pageNumber, pageSize);
+                    var res = new { stories = stories.Select(x => new StoryReturn(x)) };
+
+                    await _apiHealper.WriteResponseAsync(Response, res);
+
+                }, Response, _logger);
+        }
+
 
 
         [Route("start-clearing")]
@@ -99,7 +121,7 @@ namespace Menu.Controllers.PlanitPoker
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    await _planitPokerService.ClearOldRooms();
+                    await _planitPokerService.ClearOldRoomsAsync();
                 }, Response, _logger);
         }
 

@@ -76,12 +76,13 @@ namespace PlanitPoker.Models.Entity
             {
                 return null;
             }
+
             var forDb = new PlaningRoomUserDal();
             forDb.MainAppUserId = (long)MainAppUserId;
             forDb.Name = Name;
             //forDb.Roles = string.Join(",", Role);
             forDb.Roles = JsonSerializer.Serialize(Role);
-            forDb.RoomId= roomId;
+            forDb.RoomId = roomId;
 
             return forDb;
         }

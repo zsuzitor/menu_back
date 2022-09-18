@@ -18,8 +18,11 @@ namespace PlanitPoker.Models.Entity
 
         public List<Story> Stories { get; set; }
         public string CurrentStoryId { get; set; }
+        [Obsolete]
         public bool OldStoriesAreLoaded { get; set; }
         //public long StoryForAddMaxTmpId { get; set; }
+        public long TotalNotActualStoriesCount { get; set; }
+
 
         public StoredRoom()
         {
@@ -27,7 +30,7 @@ namespace PlanitPoker.Models.Entity
             Users = new List<PlanitUser>();
             Stories = new List<Story>();
             DieDate = DateTime.Now.AddHours(Consts.DefaultHourRoomAlive);
-            CurrentStoryId = "";
+            CurrentStoryId = string.Empty;
         }
 
         public StoredRoom(string name, string password) : this()
