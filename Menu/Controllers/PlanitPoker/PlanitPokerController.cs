@@ -104,7 +104,7 @@ namespace Menu.Controllers.PlanitPoker
                 async () =>
                 {
                     var stories = await _planitPokerService
-                    .GetNotActualStoriesAsync(roomname, pageNumber, pageSize);
+                        .GetNotActualStoriesAsync(roomname, pageNumber, pageSize);
                     var res = new { stories = stories.Select(x => new StoryReturn(x)) };
 
                     await _apiHealper.WriteResponseAsync(Response, res);

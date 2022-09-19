@@ -25,10 +25,10 @@ namespace PlanitPoker.Models.Repositories
                 .Where(x => x.RoomId == roomId && !x.Completed).ToListAsync();
         }
 
-        public async Task<long> GetCountNotActualForRoomAsync(long roomId)
+        public async Task<long> GetCountNotActualForRoomAsync(long roomId, List<long> exclude)
         {
             return await _db.PlaningStories.AsNoTracking()
-                .Where(x => x.RoomId == roomId && x.Completed).CountAsync();
+                .Where(x => x.RoomId == roomId && x.Completed && !exclude.Contains(x.Id)).CountAsync();
         }
 
         public async Task<List<PlaningStoryDal>> GetNotActualForRoomAsync(long roomId)
@@ -38,8 +38,13 @@ namespace PlanitPoker.Models.Repositories
         }
 
         public async Task<List<PlaningStoryDal>> GetNotActualStoriesAsync
-            (long roomId, int pageNumber, int pageSize)
+            (long roomId, int pageNumber, int pageSize, List<long> exclude)
         {
+            if (exclude == null)
+            {
+                exclude = new List<long>();
+            }
+
             if (pageNumber > 0)
             {
                 pageNumber--;
@@ -47,7 +52,7 @@ namespace PlanitPoker.Models.Repositories
 
             var skipCount = pageNumber * pageSize;
             return await _db.PlaningStories.AsNoTracking()
-                .Where(x => x.RoomId == roomId && x.Completed)
+                .Where(x => x.RoomId == roomId && x.Completed && !exclude.Contains(x.Id))
                 .OrderBy(x => x.Id)//Date?
                 .Skip(skipCount).Take(pageSize).ToListAsync();
 

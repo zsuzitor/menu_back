@@ -622,9 +622,13 @@ namespace PlanitPoker.Models.Services
                     return null;
                 }
 
+                var sessionStoriesIds = dbRoom.StoredRoom.Stories
+                    .Where(x => x.IdDb != null).Select(x => x.IdDb.Value).ToList();
+
                 //todo конечно не прям хорошо, тк грузим лишние данные а нам даже пароль может не подойти
                 dbRoom.StoredRoom.TotalNotActualStoriesCount
-                    = await _storyRepository.GetCountNotActualForRoomAsync(dbRoom.StoredRoom.Id.Value);
+                    = await _storyRepository.GetCountNotActualForRoomAsync
+                        (dbRoom.StoredRoom.Id.Value, sessionStoriesIds);
                 var addedToCache = Rooms.TryAdd(roomName, dbRoom);
                 if (!addedToCache)
                 {
@@ -934,6 +938,14 @@ namespace PlanitPoker.Models.Services
             return res;
         }
 
+        /// <summary>
+        /// исключает истории из текущей сессии
+        /// </summary>
+        /// <param name="roomName"></param>
+        /// <param name="pageNumber"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        /// <exception cref="SomeCustomException"></exception>
         public async Task<List<Story>> GetNotActualStoriesAsync(string roomName, int pageNumber, int pageSize)
         {
             var room = await TryGetRoomAsync(roomName);
@@ -942,7 +954,14 @@ namespace PlanitPoker.Models.Services
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
             }
 
-            var roomId = room.GetConcurentValue(_multiThreadHelper, rm => rm.StoredRoom.Id);
+            var sessionStoriesIds = new List<long>();
+            var roomId = room.GetConcurentValue(_multiThreadHelper, rm =>
+            {
+                sessionStoriesIds = rm.StoredRoom.Stories
+                    .Where(x => x.IdDb != null).Select(x => x.IdDb.Value).ToList();
+
+                return rm.StoredRoom.Id;
+            });
             if (!roomId.sc)
             {
                 throw new SomeCustomException(ErrorConsts.SomeError);
@@ -957,7 +976,7 @@ namespace PlanitPoker.Models.Services
             }
 
             var notActualList = await _storyRepository
-                .GetNotActualStoriesAsync(roomId.res.Value, pageNumber, pageSize);
+                .GetNotActualStoriesAsync(roomId.res.Value, pageNumber, pageSize, sessionStoriesIds);
             return notActualList.Select(x => {
                 var typedNewStory = new Story();
                 typedNewStory.FromDbObject(x);
