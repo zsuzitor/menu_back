@@ -15,6 +15,7 @@ namespace PlanitPoker.Models.Repositories.Interfaces
             , int pageNumber, int pageSize, List<long>  exclude);
         Task<long> GetCountNotActualForRoomAsync(long roomId, List<long> exclude);
         Task<PlaningStoryDal> UpdateAsync(long id, string name, string description);
+        Task<PlaningStoryDal> ChangeCompleteAsync(long id, bool complete);
 
     }
 }

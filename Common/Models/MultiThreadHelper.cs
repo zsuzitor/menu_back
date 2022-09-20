@@ -93,7 +93,7 @@ namespace Common.Models
 
 
 
-        public (T1 res, bool success) GetValue<T1, T2>
+        public async Task<(T1 res, bool success)> GetValue<T1, T2>
             (T2 obj, Func<T2, T1> get, SemaphoreSlim smSl)
         //where T1 : class
         {
@@ -101,7 +101,7 @@ namespace Common.Models
             {
                 try
                 {
-                    smSl.Wait();
+                    await smSl.WaitAsync();
                     return (get(obj), true);
                 }
                 finally
@@ -120,6 +120,32 @@ namespace Common.Models
             }
         }
 
+        public async Task<T1> GetValueAsync<T1, T2>
+            (T2 obj, Func<T2, Task<T1>> get, SemaphoreSlim smSl)
+        //where T1 : class
+        {
+            try
+            {
+                try
+                {
+                    await smSl.WaitAsync();
+                    return await get(obj);
+                }
+                finally
+                {
+                    smSl.Release();
+                }
+            }
+            catch (Exception)
+            {
+                //if (e is IBaseCusomException)
+                {
+                    throw;
+                }
+
+                //return (default, false);
+            }
+        }
 
         public async Task<bool> SetValue<T1>
             (T1 obj, Func<T1, Task> set, SemaphoreSlim smSl)
@@ -149,7 +175,7 @@ namespace Common.Models
         }
 
 
-        public bool SetValue<T1>
+        public async Task<bool> SetValue<T1>
             (T1 obj, Action<T1> set, SemaphoreSlim smSl)
         //where T1 : class
         {
@@ -157,7 +183,7 @@ namespace Common.Models
             {
                 try
                 {
-                    smSl.Wait();
+                    await smSl.WaitAsync();
                     set(obj);
                     return true;
                 }

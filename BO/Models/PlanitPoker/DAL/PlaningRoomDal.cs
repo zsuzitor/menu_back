@@ -9,7 +9,7 @@ namespace BO.Models.PlaningPoker.DAL
     {
         public long Id { get; set; }
         public string Name { get; set; }//может тоже хешить?
-        public string Password { get; set; }//TODO потом зашифровать
+        public string Password { get; set; }
 
         public List<PlaningStoryDal> Stories { get; set; }
         public List<PlaningRoomUserDal> Users { get; set; }

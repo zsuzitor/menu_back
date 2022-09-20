@@ -70,5 +70,17 @@ namespace PlanitPoker.Models.Repositories
             rec.Name = name;
             return await UpdateAsync(rec);
         }
+
+        public async Task<PlaningStoryDal> ChangeCompleteAsync(long id, bool complete)
+        {
+            var rec = await _db.PlaningStories.FirstOrDefaultAsync(x => x.Id == id);
+            if (rec == null)
+            {
+                return null;
+            }
+
+            rec.Completed = complete;
+            return await UpdateAsync(rec);
+        }
     }
 }

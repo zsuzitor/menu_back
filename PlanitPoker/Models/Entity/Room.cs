@@ -21,7 +21,7 @@ namespace PlanitPoker.Models.Entity
             SemaphoreSlimLock = new SemaphoreSlim(1);
         }
 
-        public (T res, bool sc) GetConcurentValue<T>(MultiThreadHelper multiThreadHelper, Func<Room, T> get)
+        public async Task<(T res, bool sc)> GetConcurentValue<T>(MultiThreadHelper multiThreadHelper, Func<Room, T> get)
         {
             //return multiThreadHelper.GetValue(this, get, this.RWL);
             //lock (LockObject)
@@ -30,7 +30,7 @@ namespace PlanitPoker.Models.Entity
             //}
             //var s = new SemaphoreSlim(1);
 
-            return multiThreadHelper.GetValue(this, get, this.SemaphoreSlimLock);
+            return await multiThreadHelper.GetValue(this, get, this.SemaphoreSlimLock);
             //SemaphoreSlimLock.Wait();
             //var res = get(this);
             //SemaphoreSlimLock.Release();
@@ -39,7 +39,12 @@ namespace PlanitPoker.Models.Entity
 
         }
 
-        public bool SetConcurentValue(MultiThreadHelper multiThreadHelper, Action<Room> set)
+        public async Task<T> GetConcurentValueAsync<T>(MultiThreadHelper multiThreadHelper, Func<Room, Task<T>> get)
+        {
+            return await multiThreadHelper.GetValueAsync(this, get, this.SemaphoreSlimLock);
+        }
+
+        public async Task<bool> SetConcurentValue(MultiThreadHelper multiThreadHelper, Action<Room> set)
         {
             // return multiThreadHelper.SetValue(this, rm =>
             //{
@@ -52,7 +57,7 @@ namespace PlanitPoker.Models.Entity
             //    return true;
             //}
 
-            return multiThreadHelper.SetValue(this, rm =>
+            return await multiThreadHelper.SetValue(this, rm =>
                 {
                     set(this);
                 }, this.SemaphoreSlimLock);

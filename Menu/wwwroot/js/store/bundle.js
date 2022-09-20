@@ -2846,7 +2846,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but{\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 120px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    background-color: #dc3545;\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Room/Room.css"],"names":[],"mappings":"AAAA;IACI,aAAa;;AAEjB;;AAEA;IACI,6BAA6B;IAC7B;;kEAE8D;IAC9D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B;;8DAE0D;IAC1D,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,cAAc;IACd,eAAe;AACnB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,gCAAgC;IAChC,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,yBAAyB;AAC7B;;;AAGA;IACI,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,6BAA6B;IAC7B,2BAA2B;IAC3B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf","sourcesContent":[".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but{\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 120px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    background-color: #dc3545;\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but{\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 120px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    background-color: #dc3545;\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Room/Room.css"],"names":[],"mappings":"AAAA;IACI,aAAa;;AAEjB;;AAEA;IACI,6BAA6B;IAC7B;;kEAE8D;IAC9D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B;;8DAE0D;IAC1D,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,cAAc;IACd,eAAe;AACnB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,gCAAgC;IAChC,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,yBAAyB;AAC7B;;;AAGA;IACI,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,6BAA6B;IAC7B,2BAA2B;IAC3B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf","sourcesContent":[".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but{\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 120px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    background-color: #dc3545;\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2873,7 +2873,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".room-stories-type-selector {\r\n    display: flex;\r\n    border-radius: 4px 4px 0 0;\r\n    border: 2px solid grey;\r\n    justify-content: space-around;\r\n}\r\n\r\n.room-stories-type-selector .type-section {\r\n    padding: 5px;\r\n    /* border-bottom: 2px solid grey; */\r\n    cursor: pointer;\r\n}\r\n\r\n.room-stories-type-selector .type-section-select {\r\n    border-bottom: 2px solid blue;\r\n}\r\n\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,0BAA0B;IAC1B,sBAAsB;IACtB,6BAA6B;AACjC;;AAEA;IACI,YAAY;IACZ,mCAAmC;IACnC,eAAe;AACnB;;AAEA;IACI,6BAA6B;AACjC;;;AAGA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".room-stories-type-selector {\r\n    display: flex;\r\n    border-radius: 4px 4px 0 0;\r\n    border: 2px solid grey;\r\n    justify-content: space-around;\r\n}\r\n\r\n.room-stories-type-selector .type-section {\r\n    padding: 5px;\r\n    /* border-bottom: 2px solid grey; */\r\n    cursor: pointer;\r\n}\r\n\r\n.room-stories-type-selector .type-section-select {\r\n    border-bottom: 2px solid blue;\r\n}\r\n\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.not-completed-story {\r\n    background-color: #e9f3a8;\r\n}\r\n\r\n.completed-story {\r\n    background-color: #b2f593;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".room-stories-type-selector {\r\n    display: flex;\r\n    border-radius: 4px 4px 0 0;\r\n    border: 2px solid grey;\r\n    justify-content: space-around;\r\n}\r\n\r\n.room-stories-type-selector .type-section {\r\n    padding: 5px;\r\n    /* border-bottom: 2px solid grey; */\r\n    cursor: pointer;\r\n}\r\n\r\n.room-stories-type-selector .type-section-select {\r\n    border-bottom: 2px solid blue;\r\n}\r\n\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.not-completed-story {\r\n    /* background-color: #e9f3a8; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.completed-story {\r\n    /* background-color: #b2f593; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.stories-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-del-but {\r\n    background-color: #dc3545;\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-but-block{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 110px;\r\n}\r\n\r\n.planing-current-story{\r\n    padding-top: 15px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,0BAA0B;IAC1B,sBAAsB;IACtB,6BAA6B;AACjC;;AAEA;IACI,YAAY;IACZ,mCAAmC;IACnC,eAAe;AACnB;;AAEA;IACI,6BAA6B;AACjC;;;AAGA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,kBAAkB;IAClB,iBAAiB;AACrB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,kBAAkB;IAClB,iBAAiB;AACrB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,yBAAyB;IACzB,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,iBAAiB;AACrB","sourcesContent":[".room-stories-type-selector {\r\n    display: flex;\r\n    border-radius: 4px 4px 0 0;\r\n    border: 2px solid grey;\r\n    justify-content: space-around;\r\n}\r\n\r\n.room-stories-type-selector .type-section {\r\n    padding: 5px;\r\n    /* border-bottom: 2px solid grey; */\r\n    cursor: pointer;\r\n}\r\n\r\n.room-stories-type-selector .type-section-select {\r\n    border-bottom: 2px solid blue;\r\n}\r\n\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.not-completed-story {\r\n    /* background-color: #e9f3a8; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.completed-story {\r\n    /* background-color: #b2f593; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.stories-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-del-but {\r\n    background-color: #dc3545;\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-but-block{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 110px;\r\n}\r\n\r\n.planing-current-story{\r\n    padding-top: 15px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2927,7 +2927,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "div.main-footer {\r\n    /* height: 400px; */\r\n    /* border: 2px solid black;\r\n    background-color: #343943; */\r\n    background-color: RGBA(2,0,39,0.714);\r\n    padding-top: 30px;\r\n}\r\n\r\ndiv.footer-social-link {\r\n    height: 40px;\r\n    width: 40px;\r\n    border: 2px solid black;\r\n}\r\n\r\n\r\n\r\np.social-link-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\np.contacts-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\ndiv.footer-contacts {\r\n    color: white;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Footer/FooterMain/FooterMain.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB;gCAC4B;IAC5B,oCAAoC;IACpC,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,uBAAuB;AAC3B;;;;AAIA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;AAChB","sourcesContent":["div.main-footer {\r\n    /* height: 400px; */\r\n    /* border: 2px solid black;\r\n    background-color: #343943; */\r\n    background-color: RGBA(2,0,39,0.714);\r\n    padding-top: 30px;\r\n}\r\n\r\ndiv.footer-social-link {\r\n    height: 40px;\r\n    width: 40px;\r\n    border: 2px solid black;\r\n}\r\n\r\n\r\n\r\np.social-link-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\np.contacts-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\ndiv.footer-contacts {\r\n    color: white;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "div.main-footer {\r\n    /* height: 400px; */\r\n    /* border: 2px solid black;\r\n    background-color: #343943; */\r\n    background-color: RGBA(2, 0, 39, 0.714);\r\n    padding-top: 30px;\r\n    position: relative;\r\n}\r\n\r\ndiv.footer-social-link {\r\n    height: 40px;\r\n    width: 40px;\r\n    border: 2px solid black;\r\n}\r\n\r\n\r\n\r\np.social-link-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\np.contacts-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\ndiv.footer-contacts {\r\n    color: white;\r\n}\r\n\r\n.footer-eye {\r\n    height: 300px;\r\n    overflow: hidden;\r\n}\r\n\r\n.footer-eye-img {\r\n    margin-top: -50px;\r\n    height: 135% !important;\r\n}\r\n\r\n.footer-cloud {\r\n    position: absolute;\r\n    right: 0px;\r\n    top: 0px;\r\n    width: 50px;\r\n    height: 50px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Footer/FooterMain/FooterMain.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB;gCAC4B;IAC5B,uCAAuC;IACvC,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,uBAAuB;AAC3B;;;;AAIA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,gBAAgB;AACpB;;AAEA;IACI,iBAAiB;IACjB,uBAAuB;AAC3B;;AAEA;IACI,kBAAkB;IAClB,UAAU;IACV,QAAQ;IACR,WAAW;IACX,YAAY;AAChB","sourcesContent":["div.main-footer {\r\n    /* height: 400px; */\r\n    /* border: 2px solid black;\r\n    background-color: #343943; */\r\n    background-color: RGBA(2, 0, 39, 0.714);\r\n    padding-top: 30px;\r\n    position: relative;\r\n}\r\n\r\ndiv.footer-social-link {\r\n    height: 40px;\r\n    width: 40px;\r\n    border: 2px solid black;\r\n}\r\n\r\n\r\n\r\np.social-link-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\np.contacts-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\ndiv.footer-contacts {\r\n    color: white;\r\n}\r\n\r\n.footer-eye {\r\n    height: 300px;\r\n    overflow: hidden;\r\n}\r\n\r\n.footer-eye-img {\r\n    margin-top: -50px;\r\n    height: 135% !important;\r\n}\r\n\r\n.footer-cloud {\r\n    position: absolute;\r\n    right: 0px;\r\n    top: 0px;\r\n    width: 50px;\r\n    height: 50px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3116,7 +3116,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".nopadding {\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.display_none {\r\n    display: none;\r\n}\r\n\r\n.persent-100-width {\r\n    width: 100%;\r\n}\r\n\r\n.persent-100-width-height {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.padding-10-top {\r\n    padding-top: 10px;\r\n}\r\n\r\n.height-0 {\r\n    height: 0px;\r\n}\r\n\r\n.form-control-b {\r\n    /* просто копия класса с бутстрапа */\r\n    /* display: block; */\r\n    /* width: 100%; */\r\n    height: calc(1.5em + 0.75rem + 2px);\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    font-weight: 400;\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: 0.25rem;\r\n    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-b {\r\n    display: inline-block;\r\n    font-weight: 400;\r\n    color: #212529;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    background-color: transparent;\r\n    border: 1px solid transparent;\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    line-height: 1.5;\r\n    border-radius: 0.25rem;\r\n    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-border {\r\n    border: 1px solid #686002;\r\n}\r\n\r\n.btn-b-light {\r\n    color: #212529;\r\n    background-color: #f8f9fa;\r\n    border-color: #f8f9fa;\r\n}\r\n\r\n/* \r\n color: red;\r\n    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, \r\n    from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */\r\n\r\n/* background: linear-gradient(transparent, gray); */", "",{"version":3,"sources":["webpack://./style/main.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;IACrB,oBAAoB;AACxB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,oCAAoC;IACpC,oBAAoB;IACpB,iBAAiB;IACjB,mCAAmC;IACnC,yBAAyB;IACzB,eAAe;IACf,gBAAgB;IAChB,gBAAgB;IAChB,cAAc;IACd,sBAAsB;IACtB,4BAA4B;IAC5B,yBAAyB;IACzB,sBAAsB;IACtB,sEAAsE;AAC1E;;AAEA;IACI,qBAAqB;IACrB,gBAAgB;IAChB,cAAc;IACd,kBAAkB;IAClB,sBAAsB;IACtB,yBAAyB;IACzB,sBAAsB;IACtB,qBAAqB;IACrB,iBAAiB;IACjB,6BAA6B;IAC7B,6BAA6B;IAC7B,yBAAyB;IACzB,eAAe;IACf,gBAAgB;IAChB,sBAAsB;IACtB,iIAAiI;AACrI;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,cAAc;IACd,yBAAyB;IACzB,qBAAqB;AACzB;;AAEA;;;8CAG8C;;AAE9C,oDAAoD","sourcesContent":[".nopadding {\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.display_none {\r\n    display: none;\r\n}\r\n\r\n.persent-100-width {\r\n    width: 100%;\r\n}\r\n\r\n.persent-100-width-height {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.padding-10-top {\r\n    padding-top: 10px;\r\n}\r\n\r\n.height-0 {\r\n    height: 0px;\r\n}\r\n\r\n.form-control-b {\r\n    /* просто копия класса с бутстрапа */\r\n    /* display: block; */\r\n    /* width: 100%; */\r\n    height: calc(1.5em + 0.75rem + 2px);\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    font-weight: 400;\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: 0.25rem;\r\n    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-b {\r\n    display: inline-block;\r\n    font-weight: 400;\r\n    color: #212529;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    background-color: transparent;\r\n    border: 1px solid transparent;\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    line-height: 1.5;\r\n    border-radius: 0.25rem;\r\n    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-border {\r\n    border: 1px solid #686002;\r\n}\r\n\r\n.btn-b-light {\r\n    color: #212529;\r\n    background-color: #f8f9fa;\r\n    border-color: #f8f9fa;\r\n}\r\n\r\n/* \r\n color: red;\r\n    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, \r\n    from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */\r\n\r\n/* background: linear-gradient(transparent, gray); */"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".nopadding {\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.display_none {\r\n    display: none;\r\n}\r\n\r\n.visibility-hidden {\r\n    visibility: hidden;\r\n}\r\n\r\n.persent-100-width {\r\n    width: 100%;\r\n}\r\n\r\n.persent-100-width-height {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.padding-10-top {\r\n    padding-top: 10px;\r\n}\r\n\r\n.height-0 {\r\n    height: 0px;\r\n}\r\n\r\n.size-0 {\r\n    height: 0px;\r\n    width: 0px;\r\n}\r\n\r\n.form-control-b {\r\n    /* просто копия класса с бутстрапа */\r\n    /* display: block; */\r\n    /* width: 100%; */\r\n    height: calc(1.5em + 0.75rem + 2px);\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    font-weight: 400;\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: 0.25rem;\r\n    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-b {\r\n    display: inline-block;\r\n    font-weight: 400;\r\n    color: #212529;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    background-color: transparent;\r\n    border: 1px solid transparent;\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    line-height: 1.5;\r\n    border-radius: 0.25rem;\r\n    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-border {\r\n    border: 1px solid #686002;\r\n}\r\n\r\n.btn-b-light {\r\n    color: #212529;\r\n    background-color: #f8f9fa;\r\n    border-color: #f8f9fa;\r\n}\r\n\r\n/* \r\n color: red;\r\n    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, \r\n    from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */\r\n\r\n/* background: linear-gradient(transparent, gray); */", "",{"version":3,"sources":["webpack://./style/main.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;IACrB,oBAAoB;AACxB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,WAAW;IACX,UAAU;AACd;;AAEA;IACI,oCAAoC;IACpC,oBAAoB;IACpB,iBAAiB;IACjB,mCAAmC;IACnC,yBAAyB;IACzB,eAAe;IACf,gBAAgB;IAChB,gBAAgB;IAChB,cAAc;IACd,sBAAsB;IACtB,4BAA4B;IAC5B,yBAAyB;IACzB,sBAAsB;IACtB,sEAAsE;AAC1E;;AAEA;IACI,qBAAqB;IACrB,gBAAgB;IAChB,cAAc;IACd,kBAAkB;IAClB,sBAAsB;IACtB,yBAAyB;IACzB,sBAAsB;IACtB,qBAAqB;IACrB,iBAAiB;IACjB,6BAA6B;IAC7B,6BAA6B;IAC7B,yBAAyB;IACzB,eAAe;IACf,gBAAgB;IAChB,sBAAsB;IACtB,iIAAiI;AACrI;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,cAAc;IACd,yBAAyB;IACzB,qBAAqB;AACzB;;AAEA;;;8CAG8C;;AAE9C,oDAAoD","sourcesContent":[".nopadding {\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.display_none {\r\n    display: none;\r\n}\r\n\r\n.visibility-hidden {\r\n    visibility: hidden;\r\n}\r\n\r\n.persent-100-width {\r\n    width: 100%;\r\n}\r\n\r\n.persent-100-width-height {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.padding-10-top {\r\n    padding-top: 10px;\r\n}\r\n\r\n.height-0 {\r\n    height: 0px;\r\n}\r\n\r\n.size-0 {\r\n    height: 0px;\r\n    width: 0px;\r\n}\r\n\r\n.form-control-b {\r\n    /* просто копия класса с бутстрапа */\r\n    /* display: block; */\r\n    /* width: 100%; */\r\n    height: calc(1.5em + 0.75rem + 2px);\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    font-weight: 400;\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: 0.25rem;\r\n    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-b {\r\n    display: inline-block;\r\n    font-weight: 400;\r\n    color: #212529;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    background-color: transparent;\r\n    border: 1px solid transparent;\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    line-height: 1.5;\r\n    border-radius: 0.25rem;\r\n    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-border {\r\n    border: 1px solid #686002;\r\n}\r\n\r\n.btn-b-light {\r\n    color: #212529;\r\n    background-color: #f8f9fa;\r\n    border-color: #f8f9fa;\r\n}\r\n\r\n/* \r\n color: red;\r\n    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, \r\n    from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */\r\n\r\n/* background: linear-gradient(transparent, gray); */"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -54165,9 +54165,9 @@ var Paggination = function (props) {
     // }
     return react_1.default.createElement("div", null,
         needFirstBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(1); }, className: 'btn-b btn-border' }, "1") : react_1.default.createElement(react_1.default.Fragment, null),
-        needPrevBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber - 1); }, className: 'btn-b btn-border' }, "prev") : react_1.default.createElement(react_1.default.Fragment, null),
+        needPrevBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber - 1); }, className: 'btn-b btn-border' }, '<') : react_1.default.createElement(react_1.default.Fragment, null),
         react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber); }, className: 'btn-b btn-border paggination-current' }, props.PageNumber),
-        needNextBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber + 1); }, className: 'btn-b btn-border' }, "next") : react_1.default.createElement(react_1.default.Fragment, null),
+        needNextBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(props.PageNumber + 1); }, className: 'btn-b btn-border' }, '>') : react_1.default.createElement(react_1.default.Fragment, null),
         needLastBut ? react_1.default.createElement("button", { onClick: function () { return props.SetPageNumber(allPageCount); }, className: 'btn-b btn-border' }, allPageCount) : react_1.default.createElement(react_1.default.Fragment, null));
     // let allBut = [];
     // allBut.push(1);
@@ -54288,7 +54288,7 @@ var Index = function (props) {
     };
     //React.Fragment
     var actionsButton = react_1.default.createElement("div", null);
-    if (props.Username) {
+    if (props.Username && props.HubConnected) {
         actionsButton = react_1.default.createElement("div", null,
             react_1.default.createElement("button", { className: "btn btn-b-light", onClick: createRoom }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C"),
             react_1.default.createElement("button", { className: "btn btn-b-light", onClick: enterInRoom }, "\u041F\u043E\u0434\u043A\u043B\u044E\u0447\u0438\u0442\u044C\u0441\u044F"));
@@ -54612,7 +54612,7 @@ var PlaningPokerMain = function (props) {
                 , { 
                     //  InRoom={localState.InRoom}
                     UserInfo: localState.User, RoomInfo: localState.RoomInfo, MyHubConnection: myHubConnection, RoomNameChanged: roomNameChanged, ChangeUserName: userNameChange, HubConnected: hubConnected, ClearUserId: clearUserId }) }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "/*", element: react_1.default.createElement(Index_1.default, { Username: localState.User.UserName, ChangeUserName: userNameChange, MyHubConnection: myHubConnection, RoomNameChanged: roomNameChanged, RoomPasswordChanged: roomPasswordChanged, RoomInfo: localState.RoomInfo }) })));
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/*", element: react_1.default.createElement(Index_1.default, { Username: localState.User.UserName, ChangeUserName: userNameChange, MyHubConnection: myHubConnection, RoomNameChanged: roomNameChanged, RoomPasswordChanged: roomPasswordChanged, RoomInfo: localState.RoomInfo, HubConnected: hubConnected }) })));
 };
 exports["default"] = PlaningPokerMain;
 
@@ -54662,7 +54662,9 @@ var RoomTimer = function (props) {
     (0, react_1.useEffect)(function () {
         var interv = setInterval(function () {
             if (__planing_room_timer_props_ref__.DieDate) {
-                setLifeTime(__planing_room_timer_props_ref__.DieDate.getTime() - new Date().getTime());
+                var timerVal = __planing_room_timer_props_ref__.DieDate.getTime() - new Date().getTime();
+                timerVal = timerVal > 0 ? timerVal : 0;
+                setLifeTime(timerVal);
             }
         }, 1000);
         // setStateInterval(interv);
@@ -55177,14 +55179,6 @@ var Room = function (props) {
                 }
                 return newState;
             });
-            // if (needIncrementTotalCount) {
-            //     setLocalState(prevState => {
-            //         // let newState = { ...prevState };
-            //         let newState = cloneDeep(prevState);
-            //         newState.TotalNotActualStoriesCount++;
-            //         return newState;
-            //     });
-            // }
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.RoomWasSaved, function (newData) {
             if (!(newData === null || newData === void 0 ? void 0 : newData.success)) {
@@ -55199,6 +55193,11 @@ var Room = function (props) {
                         st.Id = fromBack.new_id + '';
                     }
                 });
+                var fromBack = newData.stories_mapping
+                    .find(function (x) { return x.old_id.toUpperCase() === newState.CurrentStoryId.toUpperCase(); });
+                if (fromBack) {
+                    newState.CurrentStoryId = fromBack.new_id + '';
+                }
                 return newState;
             });
         });
@@ -55231,8 +55230,6 @@ var Room = function (props) {
         };
     }, []);
     var fillVoteInfo = function (state, data) {
-        // let newState = state || { ...localState };
-        // setSelectedVoteCard(-1);
         setSelectedVoteCard(function (prevState) {
             return "-1";
         });
@@ -55240,21 +55237,12 @@ var Room = function (props) {
             state.VoteInfo = new RoomInfo_1.VoteInfo();
             return;
         }
-        // let newVoteCurrentUserSetted = false;
         state.UsersList.forEach(function (x) {
             var userFromRes = data.users_info.find(function (x1) { return x1.id === x.Id; });
             if (userFromRes) {
                 x.Vote = userFromRes.vote;
             }
-            // if (x.Id === props.UserInfo.UserId) {
-            //     if (x.Vote) {
-            //         setSelectedVoteCard(x.Vote);
-            //         newVoteCurrentUserSetted = true;
-            //     }
-            // }
         });
-        // if (!newVoteCurrentUserSetted) {
-        // }
         state.VoteInfo.FillByBackModel(data);
     };
     if (!props.RoomInfo.InRoom) {
@@ -55308,23 +55296,39 @@ var Room = function (props) {
         return react_1.default.createElement("div", { onClick: function (e) { return doVote(e); }, className: "planing-cards-container" }, voteArr.map(function (x, i) { return react_1.default.createElement(OneVoteCard_1.default, { key: i, Val: x + '', NeedSelect: selectedVoteCard == x }); }));
     };
     var renderVoteResultIfNeed = function () {
-        //UNCOMMENT
         if (roomStatusState !== RoomInfo_1.RoomStatus.CloseVote) {
             return react_1.default.createElement(react_1.default.Fragment, null);
         }
+        var maximumNames = localState.UsersList.filter(function (x) { return x.HasVote
+            && x.Vote === (localState.VoteInfo.MaxVote + ''); })
+            .map(function (x) { return x.Name; }).join(', ');
+        var minimumNames = localState.UsersList.filter(function (x) { return x.HasVote
+            && x.Vote === (localState.VoteInfo.MinVote + ''); })
+            .map(function (x) { return x.Name; }).join(', ');
+        var withoutMarkNames = localState.UsersList.filter(function (x) { return x.Vote === 'tea' || !x.HasVote; })
+            .map(function (x) { return x.Name; }).join(', ');
+        //
+        // .forEach(x=>{        });
         return react_1.default.createElement("div", null,
             react_1.default.createElement("div", { className: "padding-10-top" }),
             react_1.default.createElement("div", { className: "planing-poker-left-one-section" },
-                react_1.default.createElement("p", null, "vote result"),
+                react_1.default.createElement("p", null, "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442 \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u044F"),
                 react_1.default.createElement("p", null,
-                    "Max: ",
-                    localState.VoteInfo.MaxVote),
+                    "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F \u043E\u0446\u0435\u043D\u043A\u0430: ",
+                    localState.VoteInfo.MaxVote,
+                    " - ",
+                    maximumNames),
                 react_1.default.createElement("p", null,
-                    "Min: ",
-                    localState.VoteInfo.MinVote),
+                    "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F \u043E\u0446\u0435\u043D\u043A\u0430: ",
+                    localState.VoteInfo.MinVote,
+                    " - ",
+                    minimumNames),
                 react_1.default.createElement("p", null,
-                    "Average: ",
-                    localState.VoteInfo.AverageVote)));
+                    "\u0421\u0440\u0435\u0434\u043D\u043D\u044F\u044F \u043E\u0446\u0435\u043D\u043A\u0430: ",
+                    localState.VoteInfo.AverageVote),
+                react_1.default.createElement("p", null,
+                    "\u041D\u0435 \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043B\u0438: ",
+                    withoutMarkNames)));
     };
     var tryStartVote = function () {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.StartVote, props.RoomInfo.Name);
@@ -55336,18 +55340,13 @@ var Room = function (props) {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.MakeCurrentStory, props.RoomInfo.Name, id);
     };
     var deleteStory = function (id) {
+        if (!confirm('Удалить историю?')) {
+            return;
+        }
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.DeleteStory, props.RoomInfo.Name, id);
     };
     var saveRoom = function () {
         props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.SaveRoom, props.RoomInfo.Name).then(function () {
-            // setStoriesState(prevState => {
-            //     // let newState = { ...prevState };
-            //     let newState = cloneDeep(prevState);
-            //     newState.CurrentStoryId = "";
-            //     newState.CurrentStoryDescriptionChange = "";
-            //     newState.CurrentStoryNameChange = "";
-            //     return newState;
-            // });
             alert("Сохранено");
         });
     };
@@ -55359,21 +55358,6 @@ var Room = function (props) {
     };
     var aliveRoom = function () {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.AliveRoom, props.RoomInfo.Name);
-    };
-    var storiesLoaded = function (stories) {
-        setStoriesState(function (prevState) {
-            // let newState = { ...prevState };
-            var newState = (0, cloneDeep_1.default)(prevState);
-            stories.forEach(function (newStory) {
-                var story = storiesHelper.GetStoryById(newState.Stories, newStory.id);
-                if (!story) {
-                    var storyForAdd = new RoomInfo_1.Story();
-                    storyForAdd.FillByBackModel(newStory);
-                    newState.Stories.push(storyForAdd);
-                }
-            });
-            return newState;
-        });
     };
     var currentStoryDescriptionOnChange = function (str) {
         setStoriesState(function (prevState) {
@@ -55395,7 +55379,6 @@ var Room = function (props) {
         // let isAdmin = CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId);
         var saveBut = react_1.default.createElement(react_1.default.Fragment, null);
         if (props.UserInfo.LoginnedInMainApp) {
-            // saveBut = <button className="btn btn-danger" onClick={() => saveRoom()}>Сохранить комнату</button>
             saveBut = react_1.default.createElement("div", { className: 'room-action-btn', onClick: function () { return saveRoom(); }, title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443' },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/save-icon.png" }));
         }
@@ -55409,15 +55392,14 @@ var Room = function (props) {
                 react_1.default.createElement("div", { className: 'room-action-btn room-action-btn-del', onClick: function () { return deleteRoom(); }, title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443' },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })));
         }
-        return react_1.default.createElement("div", null);
+        return react_1.default.createElement(react_1.default.Fragment, null);
     };
     var settingsUpUserListRender = function () {
         var showVoteImage = 'eye5.png';
         if (hideVoteState) {
             showVoteImage = 'eye1.png';
         }
-        var hideVotesSetting = react_1.default.createElement("div", null);
-        // if (CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId)) {
+        var hideVotesSetting = react_1.default.createElement(react_1.default.Fragment, null);
         if (currentUserIsAdmin) {
             hideVotesSetting = react_1.default.createElement("div", null,
                 react_1.default.createElement("div", { className: "padding-10-top" }),
@@ -55431,7 +55413,6 @@ var Room = function (props) {
         return react_1.default.createElement("div", null,
             react_1.default.createElement("p", null, "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C"),
             react_1.default.createElement("input", { type: "text", className: "persent-100-width form-control", onChange: function (e) {
-                    // setUserNameLocalState(e.target.value)
                     setUserNameLocalState(function (prevState) {
                         return e.target.value;
                     });
@@ -55468,12 +55449,14 @@ var Room = function (props) {
     };
     var renderNotAuthMessage = function () {
         if (props.UserInfo.LoginnedInMainApp) {
-            return react_1.default.createElement("div", null);
+            return react_1.default.createElement(react_1.default.Fragment, null);
         }
         return react_1.default.createElement("div", { className: "planing-room-not-auth", title: "при обновлении страницы, вы подключаетесь как новый пользователь(исключение-вы авторизованы в основном приложении)." +
                 "если в комнате все пользвоатели - неавторизованы, комната не будет сохраняться" }, "!");
     };
     return react_1.default.createElement("div", { className: "container" },
+        react_1.default.createElement("img", { className: 'visibility-hidden size-0', src: "/images/eye5.png" }),
+        react_1.default.createElement("img", { className: 'visibility-hidden size-0', src: "/images/eye1.png" }),
         react_1.default.createElement("div", { className: "padding-10-top planing-room-header" },
             react_1.default.createElement("h1", null,
                 "\u041A\u043E\u043C\u043D\u0430\u0442\u0430: ",
@@ -55556,8 +55539,6 @@ var StoriesSectionState = /** @class */ (function () {
     function StoriesSectionState() {
         this.NameForAdd = "";
         this.DescriptionForAdd = "";
-        // this.ShowOnlyCompleted = false;
-        // this.NotActualStoriesLoaded = false;
         this.SortByDateAsc = false;
         this.NotActualStories = [];
     }
@@ -55631,13 +55612,13 @@ var StoriesSection = function (props) {
     };
     var currentStoryDescriptionRender = function () {
         if (!props.CurrentStoryId) {
-            return react_1.default.createElement("div", null);
+            return react_1.default.createElement(react_1.default.Fragment, null);
         }
         var story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
         if (!story) {
-            return react_1.default.createElement("div", null);
+            return react_1.default.createElement(react_1.default.Fragment, null);
         }
-        var adminButton = react_1.default.createElement("div", null);
+        var adminButton = react_1.default.createElement(react_1.default.Fragment, null);
         if (props.IsAdmin) {
             adminButton = react_1.default.createElement("div", null,
                 react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return changeCurrentStory(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C"),
@@ -55666,33 +55647,38 @@ var StoriesSection = function (props) {
         };
         return react_1.default.createElement("div", { className: "planing-current-story-main planing-poker-left-one-section" },
             react_1.default.createElement("p", null, "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0442\u0435\u043A\u0443\u0449\u0435\u0439 \u0437\u0430\u0434\u0430\u0447\u0438"),
-            react_1.default.createElement("div", null,
-                react_1.default.createElement("p", null,
-                    "Id: ",
-                    story.Id),
-                storyBodyRender()),
+            react_1.default.createElement("div", null, storyBodyRender()),
             adminButton);
     };
     var AddNewStory = function () {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.AddNewStory, props.RoomName, storiesState.NameForAdd, storiesState.DescriptionForAdd);
+        setStoriesState(function (prevState) {
+            // let newState = { ...prevState };
+            var newState = (0, cloneDeep_1.default)(prevState);
+            newState.DescriptionForAdd = '';
+            newState.NameForAdd = '';
+            return newState;
+        });
     };
     var storiesListRender = function () {
         var adminButtonInList = function (id) {
             return react_1.default.createElement(react_1.default.Fragment, null);
         };
-        var addNewForm = react_1.default.createElement("div", null);
+        var addNewForm = react_1.default.createElement(react_1.default.Fragment, null);
         if (props.IsAdmin && listStoryTypeState === 1) {
             adminButtonInList = function (id) {
-                return react_1.default.createElement("div", null,
-                    react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return props.MakeCurrentStory(id); } }, "\u0421\u0434\u0435\u043B\u0430\u0442\u044C \u0442\u0435\u043A\u0443\u0449\u0435\u0439"),
-                    react_1.default.createElement("button", { className: "btn btn-danger", onClick: function () { return props.DeleteStory(id); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"));
+                return react_1.default.createElement("div", { className: 'stories-but-block' },
+                    react_1.default.createElement("div", { className: 'stories-action-btn', onClick: function () { return props.MakeCurrentStory(id); }, title: '\u0421\u0434\u0435\u043B\u0430\u0442\u044C \u0442\u0435\u043A\u0443\u0449\u0435\u0439' },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/vote2.png" })),
+                    react_1.default.createElement("div", { className: 'stories-del-but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () { return props.DeleteStory(id); } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })));
             };
             addNewForm = listStoryTypeState !== 1 ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement("div", null,
                 react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return setShowNewStoryForm(!showNewStoryForm); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u044E"));
         }
         var completedStoryInfo = function (story) {
             if (!story.Completed) {
-                return react_1.default.createElement("div", null);
+                return react_1.default.createElement(react_1.default.Fragment, null);
             }
             react_1.default.createElement("br", null);
             return react_1.default.createElement("div", null,
@@ -55703,29 +55689,18 @@ var StoriesSection = function (props) {
                     "\u0414\u0430\u0442\u0430 \u043E\u0446\u0435\u043D\u043A\u0438: ",
                     story.Date));
         };
-        var sortByDateButton = react_1.default.createElement(react_1.default.Fragment, null);
-        // if (listStoryTypeState === 2 || listStoryTypeState === 3) {
-        //     sortByDateButton = <button className="btn btn-primary"
-        //         onClick={(e) => {
-        //             setStoriesState(prevState => {
-        //                 let newState = cloneDeep(prevState);
-        //                 newState.SortByDateAsc = !newState.SortByDateAsc;
-        //                 return newState;
-        //             });
-        //         }}>Сортировка по дате</button>
-        // }
         var storiesForRender = [];
         var paggination = react_1.default.createElement(react_1.default.Fragment, null);
         if (listStoryTypeState === 3) {
-            paggination = react_1.default.createElement(Paggination_1.default, { ElementsCount: props.TotalNotActualStoriesCount, PageNumber: storiesPageNumber, ElementsOnPage: countStoriesOnPage, SetPageNumber: setstoriesPageNumber });
+            if (props.TotalNotActualStoriesCount > countStoriesOnPage) {
+                paggination = react_1.default.createElement(Paggination_1.default, { ElementsCount: props.TotalNotActualStoriesCount, PageNumber: storiesPageNumber, ElementsOnPage: countStoriesOnPage, SetPageNumber: setstoriesPageNumber });
+            }
             storiesForRender = storiesState.NotActualStories;
         }
         else {
             storiesForRender = props.Stories
                 .filter(function (x) { return (!x.Completed && listStoryTypeState === 1)
-                || (x.Completed && listStoryTypeState === 2 && x.ThisSession); }
-            // || (x.Completed && listStoryTypeState === 3 && !x.ThisSession)
-            )
+                || (x.Completed && listStoryTypeState === 2 && x.ThisSession); })
                 .sort(function (x1, x2) {
                 var x1Date = new Date(x1.Date || 0);
                 var x2Date = new Date(x2.Date || 0);
@@ -55764,7 +55739,6 @@ var StoriesSection = function (props) {
                 react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === 2 ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(2); } }, "\u041E\u0446\u0435\u043D\u0435\u043D\u043D\u044B\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
                 react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === 3 ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(3); } }, "\u0412\u0441\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438")),
             react_1.default.createElement("div", null, addNewForm),
-            sortByDateButton,
             paggination,
             react_1.default.createElement("div", null,
                 react_1.default.createElement("div", { className: "stories-data-list" }, storiesForRender
@@ -55783,7 +55757,7 @@ var StoriesSection = function (props) {
                 }))));
     };
     return react_1.default.createElement("div", null,
-        react_1.default.createElement("div", null, currentStoryDescriptionRender()),
+        react_1.default.createElement("div", { className: 'planing-current-story' }, currentStoryDescriptionRender()),
         react_1.default.createElement("div", { className: "padding-10-top" }),
         react_1.default.createElement("div", null, storiesListRender()));
 };
@@ -55861,8 +55835,8 @@ var UserInList = function (props) {
                 react_1.default.createElement("option", { value: RoomInfo_1.UserRoles.Admin }, RoomInfo_1.UserRoles.Admin),
                 react_1.default.createElement("option", { value: RoomInfo_1.UserRoles.Observer }, RoomInfo_1.UserRoles.Observer)),
             react_1.default.createElement("div", { className: 'user-list-role-but' },
-                react_1.default.createElement("div", { className: 'user-role-but user-role-but-add', onClick: function () { return addNewRoleToUser(); } }, "+"),
-                react_1.default.createElement("div", { className: 'user-role-but user-role-but-del', onClick: function () { return removeRoleUser(); } }, "-")));
+                react_1.default.createElement("div", { className: 'user-role-but user-role-but-add', title: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0440\u043E\u043B\u044C', onClick: function () { return addNewRoleToUser(); } }, "+"),
+                react_1.default.createElement("div", { className: 'user-role-but user-role-but-del', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0440\u043E\u043B\u044C', onClick: function () { return removeRoleUser(); } }, "-")));
     }
     var vote = "отсутствует";
     if (props.User.Vote && !props.HideVote) {
@@ -55905,7 +55879,7 @@ var UserInList = function (props) {
             delButton,
             react_1.default.createElement("p", null,
                 "\u0420\u043E\u043B\u0438: ",
-                props.User.Roles.join(',')),
+                props.User.Roles.join(', ')),
             statusChange),
         react_1.default.createElement("div", { className: "padding-10-top" }));
 };
@@ -57852,21 +57826,6 @@ exports.WordsCardsListWork = WordsCardsListWork;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -57891,43 +57850,42 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.FooterMain = void 0;
-var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var PostFooter_1 = __webpack_require__(/*! ../PostFooter/PostFooter */ "./src/components/Footer/PostFooter/PostFooter.tsx");
 var SocialLinkGroup_1 = __webpack_require__(/*! ../SocialLinkGroup */ "./src/components/Footer/SocialLinkGroup.tsx");
 // export interface IHeaderLogoProps {
 // }
 __webpack_require__(/*! ./FooterMain.css */ "./src/components/Footer/FooterMain/FooterMain.css");
-var FooterMain = /** @class */ (function (_super) {
-    __extends(FooterMain, _super);
-    function FooterMain(props) {
-        return _super.call(this, props) || this;
-    }
-    FooterMain.prototype.render = function () {
-        // return <input placeholder="Поиск" onChange={this.onTextChanged} />;
-        return React.createElement("div", { className: 'main-footer' },
-            React.createElement("div", { className: 'main-footer-inner container' },
-                React.createElement("div", { className: 'row' },
-                    React.createElement("div", { className: 'col-md-4' },
-                        React.createElement("ul", null,
-                            React.createElement("li", null,
-                                React.createElement("a", { href: '#' }, "\u041E \u043F\u0440\u043E\u0435\u043A\u0442\u0435")),
-                            React.createElement("li", null,
-                                " ",
-                                React.createElement("a", { href: '#' }, "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u0441\u043A\u043E\u0435 \u0441\u043E\u0433\u043B\u0430\u0448\u0435\u043D\u0438\u0435")),
-                            React.createElement("li", null,
-                                React.createElement("a", { href: '#' }, "\u041F\u043E\u043B\u0438\u0442\u0438\u043A\u0430 \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0438 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0434\u0430\u043D\u043D\u044B\u0445")))),
-                    React.createElement(SocialLinkGroup_1.SocialLinkGroup, null),
-                    React.createElement("div", { className: 'col-md-4 footer-contacts' },
-                        React.createElement("p", { className: 'contacts-head' }, "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B"),
-                        React.createElement("ul", null,
-                            React.createElement("li", null, "\u041F\u043E\u0447\u0442\u0430"),
-                            React.createElement("li", null, "\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430"))))),
-            React.createElement(PostFooter_1.PostFooter, null));
-    };
-    return FooterMain;
-}(React.Component));
-exports.FooterMain = FooterMain;
+var FooterMain = function (props) {
+    var _a = (0, react_1.useState)(true), showDefaultFooter = _a[0], setShowDefaultFooter = _a[1];
+    return react_1.default.createElement("div", { className: 'main-footer' },
+        react_1.default.createElement("div", { className: "footer-cloud", 
+            // onClick={() => setShowDefaultFooter(!showDefaultFooter)}>
+            onClick: function () { return setShowDefaultFooter(true); } },
+            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/red_cloud.png" })),
+        !showDefaultFooter ? react_1.default.createElement("div", { className: "footer-eye" },
+            react_1.default.createElement("img", { className: 'persent-100-width-height footer-eye-img', src: "/images/eye3.png" }))
+            :
+                react_1.default.createElement("div", { className: 'main-footer-inner container' },
+                    react_1.default.createElement("div", { className: 'row' },
+                        react_1.default.createElement("div", { className: 'col-md-4' },
+                            react_1.default.createElement("ul", null,
+                                react_1.default.createElement("li", null,
+                                    react_1.default.createElement("a", { href: '#' }, "\u041E \u043F\u0440\u043E\u0435\u043A\u0442\u0435")),
+                                react_1.default.createElement("li", null,
+                                    " ",
+                                    react_1.default.createElement("a", { href: '#' }, "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u0441\u043A\u043E\u0435 \u0441\u043E\u0433\u043B\u0430\u0448\u0435\u043D\u0438\u0435")),
+                                react_1.default.createElement("li", null,
+                                    react_1.default.createElement("a", { href: '#' }, "\u041F\u043E\u043B\u0438\u0442\u0438\u043A\u0430 \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0438 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0434\u0430\u043D\u043D\u044B\u0445")))),
+                        react_1.default.createElement(SocialLinkGroup_1.SocialLinkGroup, null),
+                        react_1.default.createElement("div", { className: 'col-md-4 footer-contacts' },
+                            react_1.default.createElement("p", { className: 'contacts-head' }, "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B"),
+                            react_1.default.createElement("ul", null,
+                                react_1.default.createElement("li", null, "\u041F\u043E\u0447\u0442\u0430"),
+                                react_1.default.createElement("li", null, "\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430"))))),
+        react_1.default.createElement(PostFooter_1.PostFooter, null));
+};
+exports["default"] = FooterMain;
 
 
 /***/ }),
@@ -58355,11 +58313,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var HeaderMain_1 = __webpack_require__(/*! ./Header/HeaderMain */ "./src/components/Header/HeaderMain.tsx");
 // import { BodyMain } from './Body/BodyMain';
-var FooterMain_1 = __webpack_require__(/*! ./Footer/FooterMain/FooterMain */ "./src/components/Footer/FooterMain/FooterMain.tsx");
+var FooterMain_1 = __importDefault(__webpack_require__(/*! ./Footer/FooterMain/FooterMain */ "./src/components/Footer/FooterMain/FooterMain.tsx"));
 var MainAlertAbsolute_1 = __webpack_require__(/*! ./Alerts/MainAlertAbsolute */ "./src/components/Alerts/MainAlertAbsolute.tsx");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 var AlertData_1 = __webpack_require__(/*! ../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
@@ -58478,7 +58439,7 @@ var MainComponent = function (props) {
         react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
             react_1.default.createElement(HeaderMain_1.HeaderMain, { AuthInfo: localState.Auth }),
             react_1.default.createElement(AppRouter_1.AppRouter, { AuthInfo: localState.Auth }),
-            react_1.default.createElement(FooterMain_1.FooterMain, null),
+            react_1.default.createElement(FooterMain_1.default, null),
             react_1.default.createElement(MainAlertAbsolute_1.MainAlertAbsolute, { Data: localState.AbsoluteAlerts, RemoveALert: RemoveMainALert })));
 };
 exports["default"] = MainComponent;

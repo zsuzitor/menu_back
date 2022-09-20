@@ -126,22 +126,27 @@ namespace Auth.Models.Auth.Services
                 new Claim(type: _userIdClaimName, value: userId.Value.ToString()),
             };
 
+            if (!int.TryParse(_configuration["RestorePasswordTokenLifeTimeMinutes"], out var tokenLifeTime))
+            {
+                tokenLifeTime = 5;
+            }
+
             ClaimsIdentity claimsIdentity =
                 new ClaimsIdentity(claims, "password_restore");
-            var token = _tokenHandler.GenerateToken(claimsIdentity, 10, key);//todo config
+            var token = _tokenHandler.GenerateToken(claimsIdentity, tokenLifeTime, key);
             await _authEmailService.SendEmailAsync(email, "Восстановление пароля", token);
             return true;
         }
 
         public async Task<bool> CheckRecoverPasswordCodeAsync(string code)
         {
-            var userId = GetUserIdFromRecoverPasswordCode(code);//todo проверить что он не просрочен
+            var userId = GetUserIdFromRecoverPasswordCode(code);
             return !string.IsNullOrWhiteSpace(userId);
         }
 
         public async Task<bool> RecoverPasswordAsync(string code, string newPassword)
         {
-            var userId = GetUserIdFromRecoverPasswordCode(code);//todo проверить что он не просрочен
+            var userId = GetUserIdFromRecoverPasswordCode(code);
             if (string.IsNullOrWhiteSpace(userId) || !long.TryParse(userId, out var userIdLong))
             {
                 throw new SomeCustomException(AuthConst.AuthErrors.ProblemWithRecoverPasswordToken);
@@ -159,7 +164,6 @@ namespace Auth.Models.Auth.Services
         private string GetUserIdFromRecoverPasswordCode(string code)
         {
             var key = _configuration["RestorePasswordTokenKey"];
-            //var token = _tokenHandler.DecodeToken(code, key);//todo А ЧТО ЗА ДЕКОД БЕЗ КЛЮЧА, КАК ТАК
             string userId = null;
             try
             {

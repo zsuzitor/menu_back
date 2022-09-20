@@ -9,16 +9,16 @@ namespace PlanitPoker.Models.Services
 {
     public interface IPlanitPokerService
     {
-        List<PlanitUser> GetAllUsersWithRight(Room room, string userId);
+        Task<List<PlanitUser>> GetAllUsersWithRight(Room room, string userId);
         Task<List<PlanitUser>> GetAllUsersWithRightAsync(string roomName, string userId);
 
         //todo наверное стоит создать аналогичную сущность без return и тут заюзать
         Task<RoomInfoReturn> GetRoomInfoWithRightAsync(string roomName, string currentUserId);
 
-        RoomInfoReturn GetRoomInfoWithRight(Room room, string currentUserId);
+        Task<RoomInfoReturn> GetRoomInfoWithRight(Room room, string currentUserId);
         Task<EndVoteInfo> GetEndVoteInfoAsync(string roomName);
 
-        EndVoteInfo GetEndVoteInfo(Room room);
+        Task<EndVoteInfo> GetEndVoteInfo(Room room);
 
         //Task<List<string>> DeleteRoom(string roomName);
         Task<Room> DeleteRoomAsync(string roomName, string userConnectionIdRequest);
@@ -30,11 +30,11 @@ namespace PlanitPoker.Models.Services
 
         Task<Room> CreateRoomWithUserAsync(string roomName, string password, PlanitUser user);
         Task<DateTime> AddTimeAliveRoomAsync(string roomName);
-        DateTime AddTimeAliveRoom(Room room);
+        Task<DateTime> AddTimeAliveRoom(Room room);
 
         Task<(bool sc, string oldConnectionId)> AddUserIntoRoomAsync(string roomName, PlanitUser user);
         Task<(bool sc, string oldConnectionId)> AddUserIntoRoomAsync(Room room, PlanitUser user);
-        List<PlanitUser> GetAllUsers(Room room);
+        Task<List<PlanitUser>> GetAllUsers(Room room);
 
         /// <summary>
         /// просто получить пользователей
@@ -45,15 +45,15 @@ namespace PlanitPoker.Models.Services
 
         Task<(bool sc, string userId)> ChangeUserNameAsync(string roomName, string connectionUserId, string newUserName);
 
-        bool ClearVotes(Room room);
-        (bool sc, string userId) ChangeVote(Room room, string connectionUserId, string vote);
+        Task<bool> ClearVotes(Room room);
+        Task<(bool sc, string userId)> ChangeVote(Room room, string connectionUserId, string vote);
         Task<bool> AllVotedAsync(Room room);
 
 
         Task<(PlanitUser user, bool sc)> KickFromRoomAsync(string roomName, string userConnectionIdRequest, string userId);
         Task<(PlanitUser user, bool sc)> KickFromRoomAsync(Room room, string userConnectionIdRequest, string userId);
         Task<(bool sc, string userId)> LeaveFromRoomAsync(string roomName, string userConnectionIdRequest);
-        (bool sc, string userId) LeaveFromRoom(Room room, string userConnectionIdRequest);
+        Task<(bool sc, string userId)> LeaveFromRoom(Room room, string userConnectionIdRequest);
 
 
         Task<bool> ChangeStatusIfCanAsync(string roomName, string userConnectionIdRequest, RoomSatus newStatus);
@@ -72,7 +72,7 @@ namespace PlanitPoker.Models.Services
         Task<Room> TryGetRoomAsync(string roomName, bool cacheOnly = true);
         Task<bool> UserIsAdminAsync(string roomName, string userConnectionIdRequest);
 
-        bool UserIsAdmin(Room room, string userConnectionIdRequest);
+        Task<bool> UserIsAdmin(Room room, string userConnectionIdRequest);
 
         //Task<bool> AddAdmin(string roomName, string userId);
         //Task<bool> AddAdmin(Room room, string userId);
@@ -93,7 +93,7 @@ namespace PlanitPoker.Models.Services
 
         [Obsolete]
         Task<List<Story>> LoadNotActualStoriesAsync(string roomName);
-        Task<List<Story>> GetNotActualStoriesAsync(string roomName, int pageNumber, int pageSize);
+        Task<List<Story>> GetNotActualStoriesAsync(string roomName, string userConnectionId, int pageNumber, int pageSize);
 
 
         /// <summary>
