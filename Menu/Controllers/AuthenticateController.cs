@@ -179,6 +179,7 @@ namespace Menu.Controllers
             await _apiHealper.DoStandartSomething(
                async () =>
                {
+                   code = code?.Trim();
                    var res = await _authSrvice.CheckRecoverPasswordCodeAsync(code);
                    if (!res)
                    {

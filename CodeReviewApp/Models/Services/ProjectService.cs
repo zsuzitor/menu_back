@@ -12,14 +12,14 @@ namespace CodeReviewApp.Models.Services
     public sealed class ProjectService : IProjectService
     {
         private readonly IProjectRepository _projectRepository;
-        private readonly IProjectUserService _userService;
+        private readonly IProjectUserService _projectUserService;
         private readonly ITaskReviewService _taskReviewService;
         private readonly IUserService _mainAppUserService;
         public ProjectService(IProjectRepository projectRepository, IProjectUserService userService,
             ITaskReviewService taskReviewService, IUserService mainAppUserService)
         {
             _projectRepository = projectRepository;
-            _userService = userService;
+            _projectUserService = userService;
             _taskReviewService = taskReviewService;
             _mainAppUserService = mainAppUserService;
         }
@@ -95,7 +95,7 @@ namespace CodeReviewApp.Models.Services
                 MainAppUserId = mainAppUserId,
                 NotifyEmail = email
             };
-            return await _userService.CreateAsync(user);
+            return await _projectUserService.CreateAsync(user);
 
         }
 
@@ -113,7 +113,7 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
-            var creatorExist = await _userService.ExistAsync(projectId, creatorId);
+            var creatorExist = await _projectUserService.ExistAsync(projectId, creatorId);
             if (!creatorExist)
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
@@ -121,7 +121,7 @@ namespace CodeReviewApp.Models.Services
 
             if (reviewerId != null)
             {
-                var reviewerExist = await _userService.ExistAsync(projectId, reviewerId.Value);
+                var reviewerExist = await _projectUserService.ExistAsync(projectId, reviewerId.Value);
                 if (!reviewerExist)
                 {
                     throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);

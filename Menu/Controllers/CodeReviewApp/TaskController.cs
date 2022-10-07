@@ -146,6 +146,11 @@ namespace Menu.Controllers.CodeReviewApp
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
+                    if (reviewerId < 1)
+                    {
+                        reviewerId = null;
+                    }
+
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     if (!Enum.GetValues(typeof(CodeReviewTaskStatus)).Cast<int>().Contains(status))
                     {

@@ -90,14 +90,21 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectHaveNoAccess);
             }
 
-            if(upTask.CreatorEntityId != userInfo.UserId)
+            if (upTask.CreatorEntityId != userInfo.UserId)
             {
                 if (!canAddToProject.isAdmin)
                 {
                     throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskHaveNoAccess);
                 }
+            }
 
-
+            if (task.ReviewerId != null)
+            {
+                var reviewerExist = await _projectUserService.ExistAsync(upTask.ProjectId, task.ReviewerId.Value);
+                if (!reviewerExist)
+                {
+                    throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
+                }
             }
 
             bool needNotifyReviewer = false;
