@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using Menu.Models.Returns.Types.PlanitPoker;
 using System.Linq;
 using PlanitPoker.Models.Returns;
+using Common.Models.Poco;
+using Common.Models.Return;
 
 namespace Menu.Controllers.PlanitPoker
 {
@@ -125,6 +127,26 @@ namespace Menu.Controllers.PlanitPoker
                 }, Response, _logger);
         }
 
+
+        [Route("room-password-change")]
+        [HttpPatch]
+        public async Task RoomPasswordChange([FromForm] string roomname
+            , [FromForm] string userConnectionId, [FromForm] string oldPassword
+            , [FromForm] string newPassword)
+        {
+            roomname = NormalizeRoomName(roomname);
+            userConnectionId = _stringValidator.Validate(userConnectionId);
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var res = await _planitPokerService.ChangeRoomPasswordAsync(roomname, userConnectionId, oldPassword, newPassword);
+                    await _apiHealper.WriteResponseAsync(Response, new BoolResultFactory().GetObjectReturn(new BoolResult(res)));
+                    //await _planitPokerService.ClearOldRoomsAsync();
+                }, Response, _logger);
+        }
+
+
+       
 
 
 

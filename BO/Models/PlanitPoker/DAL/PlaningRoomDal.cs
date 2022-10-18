@@ -8,11 +8,13 @@ namespace BO.Models.PlaningPoker.DAL
     public sealed class PlaningRoomDal: IDomainRecord<long>
     {
         public long Id { get; set; }
-        public string Name { get; set; }//может тоже хешить?
+        public string Name { get; set; }
         public string Password { get; set; }
 
         public List<PlaningStoryDal> Stories { get; set; }
         public List<PlaningRoomUserDal> Users { get; set; }
+        public string Cards { get; set; }
+
 
         public PlaningRoomDal()
         {

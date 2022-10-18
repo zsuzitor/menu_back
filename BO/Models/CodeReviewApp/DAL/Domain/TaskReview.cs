@@ -16,6 +16,8 @@ namespace BO.Models.CodeReviewApp.DAL.Domain
     {
         public long Id { get; set; }
         public string Name { get; set; }
+        public string Link { get; set; }
+
 
         /// <summary>
         /// id main app пользака который именно завел задачу в приложение

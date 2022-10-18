@@ -2711,7 +2711,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".review-project-new-block {\r\n    padding-bottom: 10px;\r\n}\r\n\r\n.code-review-projects-menu {\r\n    /* flex-grow: 1; */\r\n    overflow: hidden;\r\n    /* border-right: 1px solid black; */\r\n    position: sticky;\r\n    top: 0;\r\n}\r\n\r\n.code-review-projects-menu-hide {\r\n    width: 0px;\r\n    /* min-width: 20px; */\r\n}\r\n\r\n.code-review-projects-menu-visible {\r\n    width: 215px;\r\n    min-width: 215px;\r\n}\r\n\r\n.hide-review-projects-list-button {\r\n    width: 20px;\r\n    height: 20px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n    position: absolute;\r\n    background-color: darkkhaki;\r\n    line-height: 16px;\r\n    right: -12px\r\n    /* margin-right: -14px; */\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/ProjectsList/ProjectsList.css"],"names":[],"mappings":"AAAA;IACI,oBAAoB;AACxB;;AAEA;IACI,kBAAkB;IAClB,gBAAgB;IAChB,mCAAmC;IACnC,gBAAgB;IAChB,MAAM;AACV;;AAEA;IACI,UAAU;IACV,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,kBAAkB;IAClB,kBAAkB;IAClB,kBAAkB;IAClB,kBAAkB;IAClB,2BAA2B;IAC3B,iBAAiB;IACjB,WAAW;IACX,yBAAyB;AAC7B","sourcesContent":[".review-project-new-block {\r\n    padding-bottom: 10px;\r\n}\r\n\r\n.code-review-projects-menu {\r\n    /* flex-grow: 1; */\r\n    overflow: hidden;\r\n    /* border-right: 1px solid black; */\r\n    position: sticky;\r\n    top: 0;\r\n}\r\n\r\n.code-review-projects-menu-hide {\r\n    width: 0px;\r\n    /* min-width: 20px; */\r\n}\r\n\r\n.code-review-projects-menu-visible {\r\n    width: 215px;\r\n    min-width: 215px;\r\n}\r\n\r\n.hide-review-projects-list-button {\r\n    width: 20px;\r\n    height: 20px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n    position: absolute;\r\n    background-color: darkkhaki;\r\n    line-height: 16px;\r\n    right: -12px\r\n    /* margin-right: -14px; */\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".review-project-new-block {\r\n    padding-bottom: 10px;\r\n}\r\n\r\n.code-review-projects-menu {\r\n    /* flex-grow: 1; */\r\n    overflow: hidden;\r\n    /* border-right: 1px solid black; */\r\n    position: sticky;\r\n    top: 0;\r\n}\r\n\r\n.code-review-projects-menu-hide {\r\n    width: 0px;\r\n    /* min-width: 20px; */\r\n}\r\n\r\n.code-review-projects-menu-visible {\r\n    width: 215px;\r\n    min-width: 215px;\r\n}\r\n\r\n.hide-review-projects-list-button {\r\n    width: 20px;\r\n    height: 20px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n    position: absolute;\r\n    background-color: darkkhaki;\r\n    line-height: 16px;\r\n    right: -12px;\r\n    /* margin-right: -14px; */\r\n    z-index: 2;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/ProjectsList/ProjectsList.css"],"names":[],"mappings":"AAAA;IACI,oBAAoB;AACxB;;AAEA;IACI,kBAAkB;IAClB,gBAAgB;IAChB,mCAAmC;IACnC,gBAAgB;IAChB,MAAM;AACV;;AAEA;IACI,UAAU;IACV,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,kBAAkB;IAClB,kBAAkB;IAClB,kBAAkB;IAClB,kBAAkB;IAClB,2BAA2B;IAC3B,iBAAiB;IACjB,YAAY;IACZ,yBAAyB;IACzB,UAAU;AACd","sourcesContent":[".review-project-new-block {\r\n    padding-bottom: 10px;\r\n}\r\n\r\n.code-review-projects-menu {\r\n    /* flex-grow: 1; */\r\n    overflow: hidden;\r\n    /* border-right: 1px solid black; */\r\n    position: sticky;\r\n    top: 0;\r\n}\r\n\r\n.code-review-projects-menu-hide {\r\n    width: 0px;\r\n    /* min-width: 20px; */\r\n}\r\n\r\n.code-review-projects-menu-visible {\r\n    width: 215px;\r\n    min-width: 215px;\r\n}\r\n\r\n.hide-review-projects-list-button {\r\n    width: 20px;\r\n    height: 20px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    text-align: center;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n    position: absolute;\r\n    background-color: darkkhaki;\r\n    line-height: 16px;\r\n    right: -12px;\r\n    /* margin-right: -14px; */\r\n    z-index: 2;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2739,6 +2739,33 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".one-paggination-button {\r\n    width: 15px;\r\n    height: 15px;\r\n    border: 1px solid black;\r\n}\r\n\r\n.paggination-current{\r\n    background-color: #b5e29c;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/Paggination/Paggination.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;AAC3B;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".one-paggination-button {\r\n    width: 15px;\r\n    height: 15px;\r\n    border: 1px solid black;\r\n}\r\n\r\n.paggination-current{\r\n    background-color: #b5e29c;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/EditRoom/EditRoom.css":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/EditRoom/EditRoom.css ***!
+  \******************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2927,7 +2954,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "div.main-footer {\r\n    /* height: 400px; */\r\n    /* border: 2px solid black;\r\n    background-color: #343943; */\r\n    background-color: RGBA(2, 0, 39, 0.714);\r\n    padding-top: 30px;\r\n    position: relative;\r\n}\r\n\r\ndiv.footer-social-link {\r\n    height: 40px;\r\n    width: 40px;\r\n    border: 2px solid black;\r\n}\r\n\r\n\r\n\r\np.social-link-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\np.contacts-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\ndiv.footer-contacts {\r\n    color: white;\r\n}\r\n\r\n.footer-eye {\r\n    height: 300px;\r\n    overflow: hidden;\r\n}\r\n\r\n.footer-eye-img {\r\n    margin-top: -50px;\r\n    height: 135% !important;\r\n}\r\n\r\n.footer-cloud {\r\n    position: absolute;\r\n    right: 0px;\r\n    top: 0px;\r\n    width: 50px;\r\n    height: 50px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Footer/FooterMain/FooterMain.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB;gCAC4B;IAC5B,uCAAuC;IACvC,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,uBAAuB;AAC3B;;;;AAIA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,gBAAgB;AACpB;;AAEA;IACI,iBAAiB;IACjB,uBAAuB;AAC3B;;AAEA;IACI,kBAAkB;IAClB,UAAU;IACV,QAAQ;IACR,WAAW;IACX,YAAY;AAChB","sourcesContent":["div.main-footer {\r\n    /* height: 400px; */\r\n    /* border: 2px solid black;\r\n    background-color: #343943; */\r\n    background-color: RGBA(2, 0, 39, 0.714);\r\n    padding-top: 30px;\r\n    position: relative;\r\n}\r\n\r\ndiv.footer-social-link {\r\n    height: 40px;\r\n    width: 40px;\r\n    border: 2px solid black;\r\n}\r\n\r\n\r\n\r\np.social-link-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\np.contacts-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\ndiv.footer-contacts {\r\n    color: white;\r\n}\r\n\r\n.footer-eye {\r\n    height: 300px;\r\n    overflow: hidden;\r\n}\r\n\r\n.footer-eye-img {\r\n    margin-top: -50px;\r\n    height: 135% !important;\r\n}\r\n\r\n.footer-cloud {\r\n    position: absolute;\r\n    right: 0px;\r\n    top: 0px;\r\n    width: 50px;\r\n    height: 50px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "div.main-footer {\r\n    /* height: 400px; */\r\n    /* border: 2px solid black;\r\n    background-color: #343943; */\r\n    background-color: RGBA(2, 0, 39, 0.714);\r\n    padding-top: 50px;\r\n    position: relative;\r\n}\r\n\r\ndiv.footer-social-link {\r\n    height: 40px;\r\n    width: 40px;\r\n    border: 2px solid black;\r\n}\r\n\r\n\r\n\r\np.social-link-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\np.contacts-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\ndiv.footer-contacts {\r\n    color: white;\r\n}\r\n\r\n.footer-eye {\r\n    height: 300px;\r\n    overflow: hidden;\r\n}\r\n\r\n.footer-eye-img {\r\n    margin-top: -50px;\r\n    height: 135% !important;\r\n}\r\n\r\n.footer-cloud {\r\n    position: absolute;\r\n    right: 0px;\r\n    top: 0px;\r\n    width: 50px;\r\n    height: 50px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Footer/FooterMain/FooterMain.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB;gCAC4B;IAC5B,uCAAuC;IACvC,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,uBAAuB;AAC3B;;;;AAIA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,gBAAgB;AACpB;;AAEA;IACI,iBAAiB;IACjB,uBAAuB;AAC3B;;AAEA;IACI,kBAAkB;IAClB,UAAU;IACV,QAAQ;IACR,WAAW;IACX,YAAY;AAChB","sourcesContent":["div.main-footer {\r\n    /* height: 400px; */\r\n    /* border: 2px solid black;\r\n    background-color: #343943; */\r\n    background-color: RGBA(2, 0, 39, 0.714);\r\n    padding-top: 50px;\r\n    position: relative;\r\n}\r\n\r\ndiv.footer-social-link {\r\n    height: 40px;\r\n    width: 40px;\r\n    border: 2px solid black;\r\n}\r\n\r\n\r\n\r\np.social-link-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\np.contacts-head {\r\n    color: white;\r\n    font-weight: 500;\r\n}\r\n\r\ndiv.footer-contacts {\r\n    color: white;\r\n}\r\n\r\n.footer-eye {\r\n    height: 300px;\r\n    overflow: hidden;\r\n}\r\n\r\n.footer-eye-img {\r\n    margin-top: -50px;\r\n    height: 135% !important;\r\n}\r\n\r\n.footer-cloud {\r\n    position: absolute;\r\n    right: 0px;\r\n    top: 0px;\r\n    width: 50px;\r\n    height: 50px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2981,7 +3008,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "img.main-header-logo-img {\r\n    height: 100%;\r\n    width: 70px;\r\n}\r\n\r\n\r\n.main-header-logo-a {\r\n    text-decoration: none;\r\n}\r\n\r\n.main-header-logo-a:hover {\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n\r\n.main-header-logo-text {\r\n    width: 50px;\r\n    height: 50px;\r\n    font-size: 40px;\r\n    text-align: center;\r\n    color: red;\r\n    font-family: cursive;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.main-header-logo {\r\n    height: 100%;\r\n    width: 90px;\r\n    position: relative;\r\n    padding-left: 30px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Header/HeaderLogo/HeaderLogo.css"],"names":[],"mappings":"AAAA;IACI,YAAY;IACZ,WAAW;AACf;;;AAGA;IACI,qBAAqB;AACzB;;AAEA;IACI,qBAAqB;AACzB;;;;AAIA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,UAAU;IACV,oBAAoB;IACpB,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,kBAAkB;IAClB,kBAAkB;AACtB","sourcesContent":["img.main-header-logo-img {\r\n    height: 100%;\r\n    width: 70px;\r\n}\r\n\r\n\r\n.main-header-logo-a {\r\n    text-decoration: none;\r\n}\r\n\r\n.main-header-logo-a:hover {\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n\r\n.main-header-logo-text {\r\n    width: 50px;\r\n    height: 50px;\r\n    font-size: 40px;\r\n    text-align: center;\r\n    color: red;\r\n    font-family: cursive;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.main-header-logo {\r\n    height: 100%;\r\n    width: 90px;\r\n    position: relative;\r\n    padding-left: 30px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "img.main-header-logo-img {\r\n    height: 100%;\r\n    width: 70px;\r\n}\r\n\r\n\r\n.main-header-logo-a {\r\n    text-decoration: none;\r\n}\r\n\r\n.main-header-logo-a:hover {\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n\r\n.main-header-logo-text {\r\n    width: 50px;\r\n    height: 50px;\r\n    font-size: 40px;\r\n    text-align: center;\r\n    color: red;\r\n    font-family: cursive;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.main-header-logo {\r\n    height: 100%;\r\n    width: 90px;\r\n    position: relative;\r\n    padding-left: 30px;\r\n    padding-top: 10px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n.main-header-logo-burger {\r\n    width: 50px;\r\n    height: 50px;\r\n    cursor: pointer;\r\n    position: relative;\r\n    transition: 1s;\r\n}\r\n\r\n.main-header-logo-burger-opened {\r\n    padding-top: 15px;\r\n\r\n}\r\n\r\n\r\ndiv.header-burger-line {\r\n    height: 5px;\r\n    background-color: red;\r\n    border-radius: 2px;\r\n    position: absolute;\r\n    width: 100%;\r\n    transition: 1s;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-closed:nth-child(2) {\r\n    /* top: calc(50%-5px) */\r\n    top: 15px;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-closed:nth-child(3) {\r\n    /* top: calc(50%+5px) */\r\n    top: 30px;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(1) {\r\n    rotate: 45deg;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(2) {\r\n    rotate: -45deg;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(3) {\r\n    display: none;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Header/HeaderLogo/HeaderLogo.css"],"names":[],"mappings":"AAAA;IACI,YAAY;IACZ,WAAW;AACf;;;AAGA;IACI,qBAAqB;AACzB;;AAEA;IACI,qBAAqB;AACzB;;;;AAIA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,UAAU;IACV,oBAAoB;IACpB,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,kBAAkB;IAClB,kBAAkB;IAClB,iBAAiB;AACrB;;;;;;AAMA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,cAAc;AAClB;;AAEA;IACI,iBAAiB;;AAErB;;;AAGA;IACI,WAAW;IACX,qBAAqB;IACrB,kBAAkB;IAClB,kBAAkB;IAClB,WAAW;IACX,cAAc;AAClB;;AAEA;IACI,uBAAuB;IACvB,SAAS;AACb;;AAEA;IACI,uBAAuB;IACvB,SAAS;AACb;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,cAAc;AAClB;;AAEA;IACI,aAAa;AACjB","sourcesContent":["img.main-header-logo-img {\r\n    height: 100%;\r\n    width: 70px;\r\n}\r\n\r\n\r\n.main-header-logo-a {\r\n    text-decoration: none;\r\n}\r\n\r\n.main-header-logo-a:hover {\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n\r\n.main-header-logo-text {\r\n    width: 50px;\r\n    height: 50px;\r\n    font-size: 40px;\r\n    text-align: center;\r\n    color: red;\r\n    font-family: cursive;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.main-header-logo {\r\n    height: 100%;\r\n    width: 90px;\r\n    position: relative;\r\n    padding-left: 30px;\r\n    padding-top: 10px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n.main-header-logo-burger {\r\n    width: 50px;\r\n    height: 50px;\r\n    cursor: pointer;\r\n    position: relative;\r\n    transition: 1s;\r\n}\r\n\r\n.main-header-logo-burger-opened {\r\n    padding-top: 15px;\r\n\r\n}\r\n\r\n\r\ndiv.header-burger-line {\r\n    height: 5px;\r\n    background-color: red;\r\n    border-radius: 2px;\r\n    position: absolute;\r\n    width: 100%;\r\n    transition: 1s;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-closed:nth-child(2) {\r\n    /* top: calc(50%-5px) */\r\n    top: 15px;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-closed:nth-child(3) {\r\n    /* top: calc(50%+5px) */\r\n    top: 30px;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(1) {\r\n    rotate: 45deg;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(2) {\r\n    rotate: -45deg;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(3) {\r\n    display: none;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3035,7 +3062,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".header-user-menu {\r\n    background-color: white;\r\n}\r\n\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    text-align: right;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n}\r\n\r\n\r\n\r\nimg.header-user-img {\r\n    height: 100%;\r\n    border-radius: 50%;\r\n}\r\n\r\nspan.header-user-name-text {\r\n    display: block;\r\n    max-width: 50%;\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n}\r\n\r\nspan.header-user-img {\r\n    height: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}", "",{"version":3,"sources":["webpack://./src/components/Header/HeaderUserMenu/HeaderUserMenu.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;AAC3B;;;AAGA;IACI,YAAY;IACZ,oBAAoB;IACpB,kCAAkC;IAClC,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,qBAAqB;IACrB,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,qBAAqB;IACrB,eAAe;IACf,kBAAkB;AACtB;;;;AAIA;IACI,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,cAAc;IACd,cAAc;IACd,gBAAgB;IAChB,yBAAyB;IACzB,kBAAkB;AACtB;;AAEA;IACI,YAAY;AAChB;;;;AAIA;IACI,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,mCAAmC;IACnC,oBAAoB;AACxB","sourcesContent":[".header-user-menu {\r\n    background-color: white;\r\n}\r\n\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    text-align: right;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n}\r\n\r\n\r\n\r\nimg.header-user-img {\r\n    height: 100%;\r\n    border-radius: 50%;\r\n}\r\n\r\nspan.header-user-name-text {\r\n    display: block;\r\n    max-width: 50%;\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n}\r\n\r\nspan.header-user-img {\r\n    height: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".header-user-menu {\r\n    background-color: white;\r\n}\r\n\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    text-align: right;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n    color: oldlace;\r\n}\r\n\r\n\r\n\r\n\r\nimg.header-user-img {\r\n    height: 100%;\r\n    border-radius: 50%;\r\n}\r\n\r\nspan.header-user-name-text {\r\n    display: block;\r\n    max-width: 50%;\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n}\r\n\r\nspan.header-user-img {\r\n    height: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}", "",{"version":3,"sources":["webpack://./src/components/Header/HeaderUserMenu/HeaderUserMenu.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;AAC3B;;;AAGA;IACI,YAAY;IACZ,oBAAoB;IACpB,kCAAkC;IAClC,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,qBAAqB;IACrB,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,qBAAqB;IACrB,eAAe;IACf,kBAAkB;IAClB,cAAc;AAClB;;;;;AAKA;IACI,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,cAAc;IACd,cAAc;IACd,gBAAgB;IAChB,yBAAyB;IACzB,kBAAkB;AACtB;;AAEA;IACI,YAAY;AAChB;;;;AAIA;IACI,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,mCAAmC;IACnC,oBAAoB;AACxB","sourcesContent":[".header-user-menu {\r\n    background-color: white;\r\n}\r\n\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    text-align: right;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n    color: oldlace;\r\n}\r\n\r\n\r\n\r\n\r\nimg.header-user-img {\r\n    height: 100%;\r\n    border-radius: 50%;\r\n}\r\n\r\nspan.header-user-name-text {\r\n    display: block;\r\n    max-width: 50%;\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n}\r\n\r\nspan.header-user-img {\r\n    height: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46191,6 +46218,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/components/Body/PlaningPoker/EditRoom/EditRoom.css":
+/*!****************************************************************!*\
+  !*** ./src/components/Body/PlaningPoker/EditRoom/EditRoom.css ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_EditRoom_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./EditRoom.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/EditRoom/EditRoom.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_EditRoom_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_EditRoom_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_EditRoom_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_EditRoom_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/components/Body/PlaningPoker/Index/Index.css":
 /*!**********************************************************!*\
   !*** ./src/components/Body/PlaningPoker/Index/Index.css ***!
@@ -47746,6 +47828,189 @@ exports.ChangeProjectUserActionCreator = ChangeProjectUserActionCreator;
 
 /***/ }),
 
+/***/ "./src/Models/Actions/PlaningPokerApp/Actions.ts":
+/*!*******************************************************!*\
+  !*** ./src/Models/Actions/PlaningPokerApp/Actions.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UpdateStoriesIdActionCreator = exports.UpdateStoriesIdActionName = exports.MoveStoryToCompleteActionCreator = exports.MoveStoryToCompleteActionName = exports.DeleteStoryActionCreator = exports.DeleteStoryActionName = exports.StoryChangeActionCreator = exports.StoryChangeActionName = exports.AddNewStoryActionCreator = exports.AddNewStoryActionName = exports.ClearVoteActionCreator = exports.ClearVoteActionName = exports.SetSelectedCardActionCreator = exports.SetSelectedCardActionName = exports.UserRoleChangedActionCreator = exports.UserRoleChangedActionName = exports.VoteChangedActionCreator = exports.VoteChangedActionName = exports.RemoveUserActionCreator = exports.RemoveUserActionName = exports.AddUserToRoomActionCreator = exports.AddUserToRoomActionName = exports.ChangeUserNameInRoomActionCreator = exports.ChangeUserNameInRoomActionName = exports.SetRoomStatusActionCreator = exports.SetRoomStatusActionName = exports.SetStoriesActionCreator = exports.SetStoriesActionName = exports.SetCurrentStoryIdActionCreator = exports.SetCurrentStoryIdActionName = exports.SetVoteInfoActionCreator = exports.SetVoteInfoActionName = exports.SetTotalNotActualStoriesCountActionCreator = exports.SetTotalNotActualStoriesCountActionName = exports.SetRoomUsersActionCreator = exports.SetRoomUsersActionName = exports.SetRoomUserIdActionCreator = exports.SetRoomUserIdActionName = exports.SetRoomPasswordActionCreator = exports.SetRoomPasswordActionName = exports.SetRoomNameActionCreator = exports.SetRoomNameActionName = exports.SetUserNameActionCreator = exports.SetUserNameActionName = exports.SetUserConnectionIdActionCreator = exports.SetUserConnectionIdActionName = exports.EnteredInRoomActionCreator = exports.EnteredInRoomActionName = exports.SetNotActualStoriesActionCreator = exports.SetNotActualStoriesActionName = void 0;
+exports.SetRoomCardsActionCreator = exports.SetRoomCardsActionName = exports.SetEditRoomActionCreator = exports.SetEditRoomActionName = exports.SetInitialRoomDieTimeActionCreator = exports.SetInitialRoomDieTimeActionName = void 0;
+exports.SetNotActualStoriesActionName = 'SetNotActualStoriesAction';
+function SetNotActualStoriesActionCreator(data) {
+    return { type: exports.SetNotActualStoriesActionName, payload: data };
+}
+exports.SetNotActualStoriesActionCreator = SetNotActualStoriesActionCreator;
+;
+exports.EnteredInRoomActionName = 'EnteredInRoomAction';
+function EnteredInRoomActionCreator(data) {
+    return { type: exports.EnteredInRoomActionName, payload: data };
+}
+exports.EnteredInRoomActionCreator = EnteredInRoomActionCreator;
+;
+exports.SetUserConnectionIdActionName = 'SetUserConnectionIdAction';
+function SetUserConnectionIdActionCreator(data) {
+    return { type: exports.SetUserConnectionIdActionName, payload: data };
+}
+exports.SetUserConnectionIdActionCreator = SetUserConnectionIdActionCreator;
+;
+exports.SetUserNameActionName = 'SetUserNameAction';
+function SetUserNameActionCreator(data) {
+    return { type: exports.SetUserNameActionName, payload: data };
+}
+exports.SetUserNameActionCreator = SetUserNameActionCreator;
+;
+exports.SetRoomNameActionName = 'SetRoomNameAction';
+function SetRoomNameActionCreator(data) {
+    return { type: exports.SetRoomNameActionName, payload: data };
+}
+exports.SetRoomNameActionCreator = SetRoomNameActionCreator;
+;
+exports.SetRoomPasswordActionName = 'SetRoomPasswordAction';
+function SetRoomPasswordActionCreator(data) {
+    return { type: exports.SetRoomPasswordActionName, payload: data };
+}
+exports.SetRoomPasswordActionCreator = SetRoomPasswordActionCreator;
+;
+exports.SetRoomUserIdActionName = 'SetRoomUserIdAction';
+function SetRoomUserIdActionCreator(data) {
+    return { type: exports.SetRoomUserIdActionName, payload: data };
+}
+exports.SetRoomUserIdActionCreator = SetRoomUserIdActionCreator;
+;
+exports.SetRoomUsersActionName = 'SetRoomUsersAction';
+function SetRoomUsersActionCreator(data) {
+    return { type: exports.SetRoomUsersActionName, payload: data };
+}
+exports.SetRoomUsersActionCreator = SetRoomUsersActionCreator;
+;
+exports.SetTotalNotActualStoriesCountActionName = 'SetTotalNotActualStoriesCountAction';
+function SetTotalNotActualStoriesCountActionCreator(data) {
+    return { type: exports.SetTotalNotActualStoriesCountActionName, payload: data };
+}
+exports.SetTotalNotActualStoriesCountActionCreator = SetTotalNotActualStoriesCountActionCreator;
+;
+exports.SetVoteInfoActionName = 'SetVoteInfoAction';
+function SetVoteInfoActionCreator(data) {
+    return { type: exports.SetVoteInfoActionName, payload: data };
+}
+exports.SetVoteInfoActionCreator = SetVoteInfoActionCreator;
+;
+exports.SetCurrentStoryIdActionName = 'SetCurrentStoryIdAction';
+function SetCurrentStoryIdActionCreator(data) {
+    return { type: exports.SetCurrentStoryIdActionName, payload: data };
+}
+exports.SetCurrentStoryIdActionCreator = SetCurrentStoryIdActionCreator;
+;
+exports.SetStoriesActionName = 'SetStoriesAction';
+function SetStoriesActionCreator(data) {
+    return { type: exports.SetStoriesActionName, payload: data };
+}
+exports.SetStoriesActionCreator = SetStoriesActionCreator;
+;
+exports.SetRoomStatusActionName = 'SetRoomStatusAction';
+function SetRoomStatusActionCreator(data) {
+    return { type: exports.SetRoomStatusActionName, payload: data };
+}
+exports.SetRoomStatusActionCreator = SetRoomStatusActionCreator;
+;
+exports.ChangeUserNameInRoomActionName = 'ChangeUserNameInRoomAction';
+function ChangeUserNameInRoomActionCreator(data) {
+    return { type: exports.ChangeUserNameInRoomActionName, payload: data };
+}
+exports.ChangeUserNameInRoomActionCreator = ChangeUserNameInRoomActionCreator;
+;
+exports.AddUserToRoomActionName = 'AddUserToRoomAction';
+function AddUserToRoomActionCreator(data) {
+    return { type: exports.AddUserToRoomActionName, payload: data };
+}
+exports.AddUserToRoomActionCreator = AddUserToRoomActionCreator;
+;
+exports.RemoveUserActionName = 'RemoveUserAction';
+function RemoveUserActionCreator(data) {
+    return { type: exports.RemoveUserActionName, payload: data };
+}
+exports.RemoveUserActionCreator = RemoveUserActionCreator;
+;
+exports.VoteChangedActionName = 'VoteChangedAction';
+function VoteChangedActionCreator(data) {
+    return { type: exports.VoteChangedActionName, payload: data };
+}
+exports.VoteChangedActionCreator = VoteChangedActionCreator;
+;
+exports.UserRoleChangedActionName = 'UserRoleChangedAction';
+function UserRoleChangedActionCreator(data) {
+    return { type: exports.UserRoleChangedActionName, payload: data };
+}
+exports.UserRoleChangedActionCreator = UserRoleChangedActionCreator;
+;
+exports.SetSelectedCardActionName = 'SetSelectedCardAction';
+function SetSelectedCardActionCreator(data) {
+    return { type: exports.SetSelectedCardActionName, payload: data };
+}
+exports.SetSelectedCardActionCreator = SetSelectedCardActionCreator;
+;
+exports.ClearVoteActionName = 'ClearVoteAction';
+function ClearVoteActionCreator() {
+    return { type: exports.ClearVoteActionName, payload: null };
+}
+exports.ClearVoteActionCreator = ClearVoteActionCreator;
+;
+exports.AddNewStoryActionName = 'AddNewStoryAction';
+function AddNewStoryActionCreator(data) {
+    return { type: exports.AddNewStoryActionName, payload: data };
+}
+exports.AddNewStoryActionCreator = AddNewStoryActionCreator;
+;
+exports.StoryChangeActionName = 'StoryChangeAction';
+function StoryChangeActionCreator(data) {
+    return { type: exports.StoryChangeActionName, payload: data };
+}
+exports.StoryChangeActionCreator = StoryChangeActionCreator;
+;
+exports.DeleteStoryActionName = 'DeleteStoryAction';
+function DeleteStoryActionCreator(data) {
+    return { type: exports.DeleteStoryActionName, payload: data };
+}
+exports.DeleteStoryActionCreator = DeleteStoryActionCreator;
+;
+exports.MoveStoryToCompleteActionName = 'MoveStoryToCompleteAction';
+function MoveStoryToCompleteActionCreator(data) {
+    return { type: exports.MoveStoryToCompleteActionName, payload: data };
+}
+exports.MoveStoryToCompleteActionCreator = MoveStoryToCompleteActionCreator;
+;
+exports.UpdateStoriesIdActionName = 'UpdateStoriesIdAction';
+function UpdateStoriesIdActionCreator(data) {
+    return { type: exports.UpdateStoriesIdActionName, payload: data };
+}
+exports.UpdateStoriesIdActionCreator = UpdateStoriesIdActionCreator;
+;
+exports.SetInitialRoomDieTimeActionName = 'SetInitialRoomDieTimeAction';
+function SetInitialRoomDieTimeActionCreator(data) {
+    return { type: exports.SetInitialRoomDieTimeActionName, payload: data };
+}
+exports.SetInitialRoomDieTimeActionCreator = SetInitialRoomDieTimeActionCreator;
+;
+exports.SetEditRoomActionName = 'SetEditRoomAction';
+function SetEditRoomActionCreator(data) {
+    return { type: exports.SetEditRoomActionName, payload: data };
+}
+exports.SetEditRoomActionCreator = SetEditRoomActionCreator;
+;
+exports.SetRoomCardsActionName = 'SetRoomCardsAction';
+function SetRoomCardsActionCreator(data) {
+    return { type: exports.SetRoomCardsActionName, payload: data };
+}
+exports.SetRoomCardsActionCreator = SetRoomCardsActionCreator;
+;
+
+
+/***/ }),
+
 /***/ "./src/Models/AjaxLogic.ts":
 /*!*********************************!*\
   !*** ./src/Models/AjaxLogic.ts ***!
@@ -47955,6 +48220,115 @@ var AjaxHelper = /** @class */ (function () {
     return AjaxHelper;
 }());
 exports.AjaxHelper = AjaxHelper;
+
+
+/***/ }),
+
+/***/ "./src/Models/BL/PlaningPokerApp/PlaningPokerHelper.ts":
+/*!*************************************************************!*\
+  !*** ./src/Models/BL/PlaningPokerApp/PlaningPokerHelper.ts ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+//TODO временно, хелперы под выпил
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CodeReviewLocalStorageHelper = exports.StoriesHelper = exports.PlaningPokerHelper = void 0;
+var PlaningPokerHelper = /** @class */ (function () {
+    function PlaningPokerHelper() {
+    }
+    PlaningPokerHelper.prototype.GetUserIndexById = function (users, userId) {
+        if (!users || !userId) {
+            return -1;
+        }
+        return users.findIndex(function (x) { return x.Id === userId; });
+    };
+    PlaningPokerHelper.prototype.GetUserById = function (users, userId) {
+        var index = this.GetUserIndexById(users, userId);
+        if (index < 0 || index >= users.length) {
+            return null;
+        }
+        return users[index];
+    };
+    PlaningPokerHelper.prototype.CurrentUserIsAdmin = function (users, userId) {
+        var user = this.GetUserById(users, userId);
+        if (user && user.IsAdmin()) {
+            return true;
+        }
+        return false;
+    };
+    PlaningPokerHelper.prototype.CurrentUserCanVote = function (users, userId) {
+        var user = this.GetUserById(users, userId);
+        if (user && user.CanVote()) {
+            return true;
+        }
+        return false;
+    };
+    return PlaningPokerHelper;
+}());
+exports.PlaningPokerHelper = PlaningPokerHelper;
+var StoriesHelper = /** @class */ (function () {
+    function StoriesHelper() {
+        var _this = this;
+        this.GetStoryIndexById = function (stories, storyId) {
+            if (!storyId) {
+                return -1;
+            }
+            var index = stories.findIndex(function (x) { return x.Id === storyId; });
+            if (index < 0 || index >= stories.length) {
+                return -1;
+            }
+            return index;
+        };
+        this.GetStoryById = function (stories, storyId) {
+            var index = _this.GetStoryIndexById(stories, storyId);
+            if (index < 0) {
+                return;
+            }
+            return stories[index];
+        };
+    }
+    return StoriesHelper;
+}());
+exports.StoriesHelper = StoriesHelper;
+var CodeReviewLocalStorageHelper = /** @class */ (function () {
+    function CodeReviewLocalStorageHelper() {
+        this.GetFilterCreatorId = function (projectId) {
+            return localStorage.getItem(CodeReviewLocalStorageHelper.CodeReviewFilterPrefix + projectId + '_creator_id');
+        };
+        this.SetFilterCreatorId = function (projectId, value) {
+            localStorage.setItem(CodeReviewLocalStorageHelper.CodeReviewFilterPrefix + projectId + '_creator_id', value);
+        };
+        this.GetFilterReviewerId = function (projectId) {
+            return localStorage.getItem(CodeReviewLocalStorageHelper.CodeReviewFilterPrefix + projectId + '_reviewer_id');
+        };
+        this.SetFilterReviewerId = function (projectId, value) {
+            localStorage.setItem(CodeReviewLocalStorageHelper.CodeReviewFilterPrefix + projectId + '_reviewer_id', value);
+        };
+        this.GetFilterStatus = function (projectId) {
+            return localStorage.getItem(CodeReviewLocalStorageHelper.CodeReviewFilterPrefix + projectId + '_status');
+        };
+        this.SetFilterStatus = function (projectId, value) {
+            localStorage.setItem(CodeReviewLocalStorageHelper.CodeReviewFilterPrefix + projectId + '_status', value);
+        };
+        this.GetFilterTaskname = function (projectId) {
+            return localStorage.getItem(CodeReviewLocalStorageHelper.CodeReviewFilterPrefix + projectId + '_taskname');
+        };
+        this.SetFilterTaskname = function (projectId, value) {
+            localStorage.setItem(CodeReviewLocalStorageHelper.CodeReviewFilterPrefix + projectId + '_taskname', value);
+        };
+        this.GetFilterPage = function (projectId) {
+            return localStorage.getItem(CodeReviewLocalStorageHelper.CodeReviewFilterPrefix + projectId + '_page');
+        };
+        this.SetFilterPage = function (projectId, value) {
+            localStorage.setItem(CodeReviewLocalStorageHelper.CodeReviewFilterPrefix + projectId + '_page', value);
+        };
+    }
+    CodeReviewLocalStorageHelper.CodeReviewFilterPrefix = 'code_review_filter_';
+    return CodeReviewLocalStorageHelper;
+}());
+exports.CodeReviewLocalStorageHelper = CodeReviewLocalStorageHelper;
 
 
 /***/ }),
@@ -48998,16 +49372,18 @@ exports.ArticleController = ArticleController;
 
 /***/ }),
 
-/***/ "./src/Models/Controllers/PlaningPoker/PlaningPokerController.ts":
-/*!***********************************************************************!*\
-  !*** ./src/Models/Controllers/PlaningPoker/PlaningPokerController.ts ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ "./src/Models/Controllers/PlaningPokerApp/PlaningPokerController.ts":
+/*!**************************************************************************!*\
+  !*** ./src/Models/Controllers/PlaningPokerApp/PlaningPokerController.ts ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PlaningPokerController = exports.HubEndpoints = exports.HubEndpointsBack = exports.HubEndpointsFront = void 0;
+var Actions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/Actions */ "./src/Models/Actions/PlaningPokerApp/Actions.ts");
+var RoomInfo_1 = __webpack_require__(/*! ../../Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
 var HubEndpointsFront = /** @class */ (function () {
     function HubEndpointsFront() {
         this.MovedStoryToComplete = "MovedStoryToComplete";
@@ -49029,6 +49405,7 @@ var HubEndpointsFront = /** @class */ (function () {
         this.NeedRefreshTokens = "NeedRefreshTokens";
         this.NewRoomAlive = "NewRoomAlive";
         this.RoomWasSaved = "RoomWasSaved";
+        this.RoomCardsChanged = "RoomCardsChanged";
     }
     return HubEndpointsFront;
 }());
@@ -49055,6 +49432,7 @@ var HubEndpointsBack = /** @class */ (function () {
         this.Vote = "Vote";
         this.OnWindowClosedAsync = "OnWindowClosedAsync";
         this.AliveRoom = "AliveRoom";
+        this.SetRoomCards = "SetRoomCards";
     }
     return HubEndpointsBack;
 }());
@@ -49071,7 +49449,26 @@ var PlaningPokerController = /** @class */ (function () {
     function PlaningPokerController() {
         this.EndPoints = new HubEndpoints();
     }
+    PlaningPokerController.prototype.GetNotActualStoriesRedux = function (roomname, userId, page, countOnPage) {
+        var _this = this;
+        return function (dispatch, getState) {
+            _this.GetNotActualStories(roomname, userId, page, countOnPage, function (error, data) {
+                if (error) {
+                    return;
+                }
+                if (data) {
+                    var stories = data.stories.map(function (x) {
+                        var st = new RoomInfo_1.Story();
+                        st.FillByBackModel(x);
+                        return st;
+                    });
+                    dispatch((0, Actions_1.SetNotActualStoriesActionCreator)(stories));
+                }
+            });
+        };
+    };
     PlaningPokerController.prototype.GetNotActualStories = function (roomname, userId, page, countOnPage, onSuccess) {
+        var _this = this;
         G_AjaxHelper.GoAjaxRequest({
             Data: {
                 'roomname': roomname,
@@ -49081,21 +49478,64 @@ var PlaningPokerController = /** @class */ (function () {
             },
             Type: "GET",
             FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var dataBack = xhr;
-                    onSuccess(null, dataBack);
-                }
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: function (xhr, status, error) { },
             Url: G_PathToServer + 'api/PlanitPoker/get-not-actual-stories',
         });
     };
+    // ChangeRoomPasswordRedux(roomname: string, userConnectionId: string, oldPassword: string, newPassword: string) {
+    //     return (dispatch: any, getState: any) => {
+    //         this.ChangeRoomPassword(roomname, userConnectionId, oldPassword, newPassword,
+    //             (error: MainErrorObjectBack, data: BoolResultBack) => {
+    //                 if (error) {
+    //                     return;
+    //                 }
+    //                 if (data) {
+    //                     var stories = data.stories.map(x => {
+    //                         let st = new Story();
+    //                         st.FillByBackModel(x);
+    //                         return st;
+    //                     });
+    //                     dispatch(SetNotActualStoriesActionCreator(stories));
+    //                 }
+    //             });
+    //     };
+    // }
+    PlaningPokerController.prototype.ChangeRoomPassword = function (roomname, userConnectionId, oldPassword, newPassword, onSuccess) {
+        var _this = this;
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'roomname': roomname,
+                'userConnectionId': userConnectionId,
+                'oldPassword': oldPassword,
+                'newPassword': newPassword,
+            },
+            Type: "PATCH",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/PlanitPoker/room-password-change',
+        });
+    };
+    PlaningPokerController.prototype.GetUsersIsRoomRedux = function (roomname, userId) {
+        var _this = this;
+        return function (dispatch, getState) {
+            _this.GetUsersIsRoom(roomname, userId, function (error, data) {
+                if (data) {
+                    var newUsersData = data.map(function (x) {
+                        var us = new RoomInfo_1.UserInRoom();
+                        us.FillByBackModel(x);
+                        return us;
+                    });
+                    dispatch((0, Actions_1.SetRoomUsersActionCreator)(newUsersData));
+                }
+            });
+        };
+    };
     PlaningPokerController.prototype.GetUsersIsRoom = function (roomname, userId, onSuccess) {
+        var _this = this;
         G_AjaxHelper.GoAjaxRequest({
             Data: {
                 'roomname': roomname,
@@ -49103,21 +49543,44 @@ var PlaningPokerController = /** @class */ (function () {
             },
             Type: "GET",
             FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var dataBack = xhr;
-                    onSuccess(null, dataBack);
-                }
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: function (xhr, status, error) { },
             Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
         });
     };
+    PlaningPokerController.prototype.GetRoomInfoRedux = function (roomname, userId) {
+        return this.GetRoomInfoReduxCB(roomname, userId, null);
+    };
+    PlaningPokerController.prototype.GetRoomInfoReduxCB = function (roomname, userId, onSuccess) {
+        var _this = this;
+        return function (dispatch, getState) {
+            _this.GetRoomInfo(roomname, userId, function (error, data) {
+                var newUsersData = data.room.users.map(function (x) {
+                    var us = new RoomInfo_1.UserInRoom();
+                    us.FillByBackModel(x);
+                    return us;
+                });
+                dispatch((0, Actions_1.SetRoomCardsActionCreator)(data.room.cards));
+                dispatch((0, Actions_1.SetInitialRoomDieTimeActionCreator)(new Date(data.room.die_date)));
+                dispatch((0, Actions_1.SetRoomUsersActionCreator)(newUsersData));
+                dispatch((0, Actions_1.SetTotalNotActualStoriesCountActionCreator)(data.room.total_stories_count));
+                dispatch((0, Actions_1.SetVoteInfoActionCreator)(data.end_vote_info));
+                dispatch((0, Actions_1.SetCurrentStoryIdActionCreator)(data.room.current_story_id));
+                dispatch((0, Actions_1.SetRoomStatusActionCreator)(data.room.status));
+                dispatch((0, Actions_1.SetStoriesActionCreator)(data.room.actual_stories.map(function (x) {
+                    var st = new RoomInfo_1.Story();
+                    st.FillByBackModel(x);
+                    return st;
+                })));
+                if (onSuccess) {
+                    onSuccess(error, data);
+                }
+            });
+        };
+    };
     PlaningPokerController.prototype.GetRoomInfo = function (roomname, userId, onSuccess) {
+        var _this = this;
         G_AjaxHelper.GoAjaxRequest({
             Data: {
                 'roomname': roomname,
@@ -49125,19 +49588,28 @@ var PlaningPokerController = /** @class */ (function () {
             },
             Type: "GET",
             FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var dataBack = xhr;
-                    onSuccess(null, dataBack);
-                }
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: function (xhr, status, error) { },
             Url: G_PathToServer + 'api/PlanitPoker/get-room-info',
         });
+    };
+    PlaningPokerController.prototype.mapWithResult = function (onSuccess) {
+        return function (xhr, status, jqXHR) {
+            var resp = xhr;
+            if (resp.errors) {
+                onSuccess(resp, null);
+            }
+            else {
+                var dataBack = xhr;
+                if (dataBack) {
+                    onSuccess(null, dataBack);
+                }
+                else {
+                    //todo что то не так planingController1
+                }
+            }
+        };
     };
     return PlaningPokerController;
 }());
@@ -49899,7 +50371,7 @@ exports.OneCardFullDataEdit = OneCardFullDataEdit;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.StoriesHelper = exports.Story = exports.VoteInfo = exports.PlaningPokerUserInfo = exports.UserInRoom = exports.UserRoles = exports.RoomStatus = exports.RoomInfo = void 0;
+exports.Story = exports.VoteInfo = exports.PlaningPokerUserInfo = exports.UserInRoom = exports.UserRoles = exports.RoomStatus = exports.RoomInfo = void 0;
 //todo хорошо бы по файликам раскидать
 var RoomInfo = /** @class */ (function () {
     function RoomInfo() {
@@ -49998,30 +50470,52 @@ var Story = /** @class */ (function () {
     return Story;
 }());
 exports.Story = Story;
-var StoriesHelper = /** @class */ (function () {
-    function StoriesHelper() {
-        var _this = this;
-        this.GetStoryIndexById = function (stories, storyId) {
-            if (!storyId) {
-                return -1;
-            }
-            var index = stories.findIndex(function (x) { return x.Id === storyId; });
-            if (index < 0 || index >= stories.length) {
-                return -1;
-            }
-            return index;
-        };
-        this.GetStoryById = function (stories, storyId) {
-            var index = _this.GetStoryIndexById(stories, storyId);
-            if (index < 0) {
-                return;
-            }
-            return stories[index];
-        };
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/PlaningPoker/State/PlaningPokerApp.ts":
+/*!*****************************************************************!*\
+  !*** ./src/Models/Models/PlaningPoker/State/PlaningPokerApp.ts ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.StoriesInfo = exports.PlaningPokerAppState = void 0;
+var RoomInfo_1 = __webpack_require__(/*! ../RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
+var PlaningPokerAppState = /** @class */ (function () {
+    function PlaningPokerAppState() {
+        this.NotActualStories = [];
+        this.UsersList = [];
+        this.VoteInfo = new RoomInfo_1.VoteInfo();
+        this.TotalNotActualStoriesCount = 0;
+        this.User = new RoomInfo_1.PlaningPokerUserInfo();
+        this.User.UserName = 'enter_your_name';
+        this.RoomInfo = new RoomInfo_1.RoomInfo();
+        this.StoriesInfo = new StoriesInfo();
+        this.SelectedVoteCard = '-1';
+        this.RoomStatus = RoomInfo_1.RoomStatus.None;
+        this.DieRoomTimeInitial = null;
+        this.EditRoom = false;
+        this.RoomCards = [];
     }
-    return StoriesHelper;
+    return PlaningPokerAppState;
 }());
-exports.StoriesHelper = StoriesHelper;
+exports.PlaningPokerAppState = PlaningPokerAppState;
+var StoriesInfo = /** @class */ (function () {
+    // CurrentStoryNameChange: string;
+    // CurrentStoryDescriptionChange: string;
+    function StoriesInfo() {
+        this.Stories = [];
+        this.CurrentStoryId = "";
+        // this.CurrentStoryNameChange = "";
+        // this.CurrentStoryDescriptionChange = "";
+    }
+    return StoriesInfo;
+}());
+exports.StoriesInfo = StoriesInfo;
 
 
 /***/ }),
@@ -50058,9 +50552,11 @@ exports.AppItem = AppItem;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AppState = void 0;
 var CodeReviewAppState_1 = __webpack_require__(/*! ../CodeReviewApp/State/CodeReviewAppState */ "./src/Models/Models/CodeReviewApp/State/CodeReviewAppState.ts");
+var PlaningPokerApp_1 = __webpack_require__(/*! ../PlaningPoker/State/PlaningPokerApp */ "./src/Models/Models/PlaningPoker/State/PlaningPokerApp.ts");
 var AppState = /** @class */ (function () {
     function AppState() {
         this.CodeReviewApp = new CodeReviewAppState_1.CodeReviewAppState();
+        this.PlaningPokerApp = new PlaningPokerApp_1.PlaningPokerAppState();
     }
     return AppState;
 }());
@@ -50495,6 +50991,358 @@ exports.CodeReviewUserReducer = CodeReviewUserReducer;
 
 /***/ }),
 
+/***/ "./src/Models/Reducers/PlaningPokerApp/Reducer.ts":
+/*!********************************************************!*\
+  !*** ./src/Models/Reducers/PlaningPokerApp/Reducer.ts ***!
+  \********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PlaningPokerReducer = void 0;
+var AppState_1 = __webpack_require__(/*! ../../Models/State/AppState */ "./src/Models/Models/State/AppState.ts");
+var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
+var Actions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/Actions */ "./src/Models/Actions/PlaningPokerApp/Actions.ts");
+var RoomInfo_1 = __webpack_require__(/*! ../../Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
+var PlaningPokerHelper_1 = __webpack_require__(/*! ../../BL/PlaningPokerApp/PlaningPokerHelper */ "./src/Models/BL/PlaningPokerApp/PlaningPokerHelper.ts");
+var AlertData_1 = __webpack_require__(/*! ../../Models/AlertData */ "./src/Models/Models/AlertData.ts");
+function PlaningPokerReducer(state, action) {
+    var _a;
+    if (state === void 0) { state = new AppState_1.AppState(); }
+    switch (action.type) {
+        case Actions_1.SetNotActualStoriesActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var stories = action.payload;
+                newState.PlaningPokerApp.NotActualStories = stories;
+                return newState;
+            }
+        case Actions_1.EnteredInRoomActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.RoomInfo.InRoom = true;
+                newState.PlaningPokerApp.RoomInfo.Password = "";
+                newState.PlaningPokerApp.User.UserId = data.RoomUserId;
+                newState.PlaningPokerApp.User.LoginnedInMainApp = data.LoginnedInMainApp;
+                return newState;
+            }
+        case Actions_1.SetUserConnectionIdActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.User.UserConnectionId = data;
+                return newState;
+            }
+        case Actions_1.SetUserNameActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.User.UserName = data;
+                return newState;
+            }
+        case Actions_1.SetRoomNameActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.RoomInfo.Name = data;
+                return newState;
+            }
+        case Actions_1.SetRoomPasswordActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.RoomInfo.Password = data;
+                return newState;
+            }
+        case Actions_1.SetRoomUserIdActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.User.UserId = data;
+                return newState;
+            }
+        case Actions_1.SetRoomUsersActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                //почему просто не присвоить пустой массив?
+                newState.PlaningPokerApp.UsersList.splice(0, newState.PlaningPokerApp.UsersList.length);
+                (_a = newState.PlaningPokerApp.UsersList).push.apply(_a, data);
+                return newState;
+            }
+        case Actions_1.SetTotalNotActualStoriesCountActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.TotalNotActualStoriesCount = data;
+                return newState;
+            }
+        case Actions_1.SetVoteInfoActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data_1 = action.payload;
+                newState.PlaningPokerApp.SelectedVoteCard = '-1';
+                if (!data_1) {
+                    newState.PlaningPokerApp.VoteInfo = new RoomInfo_1.VoteInfo();
+                    return newState;
+                }
+                newState.PlaningPokerApp.UsersList.forEach(function (x) {
+                    var userFromRes = data_1.users_info.find(function (x1) { return x1.id === x.Id; });
+                    if (userFromRes) {
+                        x.Vote = userFromRes.vote;
+                    }
+                });
+                newState.PlaningPokerApp.VoteInfo.FillByBackModel(data_1);
+                return newState;
+            }
+        case Actions_1.SetCurrentStoryIdActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.StoriesInfo.CurrentStoryId = data;
+                return newState;
+            }
+        case Actions_1.SetStoriesActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.StoriesInfo.Stories = data;
+                return newState;
+            }
+        case Actions_1.SetRoomStatusActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.RoomStatus = data;
+                return newState;
+            }
+        case Actions_1.ChangeUserNameInRoomActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                var user = (new PlaningPokerHelper_1.PlaningPokerHelper()).GetUserById(newState.PlaningPokerApp.UsersList, data.UserId);
+                if (!user) {
+                    return newState;
+                }
+                user.Name = data.UserName;
+                return newState;
+            }
+        case Actions_1.AddUserToRoomActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                var existUser = (new PlaningPokerHelper_1.PlaningPokerHelper()).GetUserById(newState.PlaningPokerApp.UsersList, data.Id);
+                if (!existUser) {
+                    newState.PlaningPokerApp.UsersList.push(data);
+                }
+                return newState;
+            }
+        case Actions_1.RemoveUserActionName:
+            {
+                var newState_1 = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                data.forEach(function (x) {
+                    var userIndex = (new PlaningPokerHelper_1.PlaningPokerHelper()).GetUserIndexById(newState_1.PlaningPokerApp.UsersList, x);
+                    if (userIndex < 0) {
+                        return newState_1;
+                    }
+                    newState_1.PlaningPokerApp.UsersList.splice(userIndex, 1);
+                });
+                return newState_1;
+            }
+        case Actions_1.VoteChangedActionName:
+            {
+                var allAreVotedChanged = false;
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                var user = (new PlaningPokerHelper_1.PlaningPokerHelper()).GetUserById(newState.PlaningPokerApp.UsersList, data.UserId);
+                if (!user) {
+                    return newState;
+                }
+                user.HasVote = true;
+                // if (!isNaN(vote)) {
+                if (data.Vote !== "?") {
+                    user.Vote = data.Vote;
+                }
+                if (newState.PlaningPokerApp.UsersList.every(function (x) { return x.HasVote || !x.CanVote(); })
+                    && !newState.PlaningPokerApp.VoteInfo.AllAreVoted) {
+                    newState.PlaningPokerApp.VoteInfo.AllAreVoted = true;
+                    allAreVotedChanged = true;
+                }
+                if (allAreVotedChanged) {
+                    var alertFactory = new AlertData_1.AlertData();
+                    var alert_1 = alertFactory.GetDefaultNotify("Все участники проголосовали");
+                    window.G_AddAbsoluteAlertToState(alert_1);
+                }
+                return newState;
+            }
+        case Actions_1.UserRoleChangedActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data_2 = action.payload;
+                var user = (new PlaningPokerHelper_1.PlaningPokerHelper()).GetUserById(newState.PlaningPokerApp.UsersList, data_2.UserId);
+                if (!user) {
+                    return newState;
+                }
+                if (data_2.ChangeType === 1) {
+                    //добавлен
+                    var index = user.Roles.findIndex(function (x) { return x === data_2.Role; });
+                    if (index == -1) {
+                        user.Roles.push(data_2.Role);
+                    }
+                }
+                else {
+                    //удален
+                    var index = user.Roles.findIndex(function (x) { return x === data_2.Role; });
+                    if (index >= 0) {
+                        user.Roles.splice(index, 1);
+                    }
+                }
+                if (!user.CanVote()) {
+                    //todo убрать все оценки
+                    // GetUserById(localState.UsersList,);
+                    // users
+                    user.Vote = null;
+                    user.HasVote = false;
+                    if (data_2.UserId === newState.PlaningPokerApp.User.UserId) {
+                        newState.PlaningPokerApp.SelectedVoteCard = '-1';
+                    }
+                }
+                return newState;
+            }
+        case Actions_1.SetSelectedCardActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.SelectedVoteCard = data;
+                return newState;
+            }
+        case Actions_1.ClearVoteActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                // let data = action.payload as string;
+                newState.PlaningPokerApp.UsersList.forEach(function (x) {
+                    x.Vote = null;
+                    x.HasVote = false;
+                });
+                newState.PlaningPokerApp.VoteInfo = new RoomInfo_1.VoteInfo();
+                return newState;
+            }
+        case Actions_1.AddNewStoryActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.StoriesInfo.Stories.push(data);
+                return newState;
+            }
+        case Actions_1.StoryChangeActionName:
+            {
+                //todo меняет не полностью, определенный поля только, как то это обозначит?
+                var storiesHelper = new PlaningPokerHelper_1.StoriesHelper();
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                var story = storiesHelper.GetStoryById(newState.PlaningPokerApp.StoriesInfo.Stories, data.Id);
+                if (!story) {
+                    return newState;
+                }
+                // if (newState.PlaningPokerApp.StoriesInfo.CurrentStoryId === data.Id) {
+                //     newState.PlaningPokerApp.StoriesInfo.CurrentStoryDescriptionChange = data.Description;
+                //     newState.PlaningPokerApp.StoriesInfo.CurrentStoryNameChange = data.Name;
+                // }
+                story.Name = data.Name;
+                story.Description = data.Description;
+                return newState;
+            }
+        case Actions_1.DeleteStoryActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                var storiesHelper = new PlaningPokerHelper_1.StoriesHelper();
+                var storyIndex = storiesHelper.GetStoryIndexById(newState.PlaningPokerApp.StoriesInfo.Stories, data);
+                if (storyIndex < 0) {
+                    return newState;
+                }
+                newState.PlaningPokerApp.StoriesInfo.Stories.splice(storyIndex, 1);
+                if (newState.PlaningPokerApp.StoriesInfo.CurrentStoryId == data) {
+                    newState.PlaningPokerApp.StoriesInfo.CurrentStoryId = "";
+                    // newState.PlaningPokerApp.StoriesInfo.CurrentStoryDescriptionChange = "";
+                    // newState.PlaningPokerApp.StoriesInfo.CurrentStoryNameChange = "";
+                }
+                return newState;
+            }
+        case Actions_1.MoveStoryToCompleteActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var storiesHelper = new PlaningPokerHelper_1.StoriesHelper();
+                var data = action.payload;
+                var story = storiesHelper.GetStoryById(newState.PlaningPokerApp.StoriesInfo.Stories, data.OldId);
+                if (story) {
+                    story.Id = data.Story.Id;
+                    story.Completed = data.Story.Completed;
+                    story.Date = data.Story.Date;
+                    story.Vote = data.Story.Vote;
+                    story.ThisSession = data.Story.ThisSession;
+                    if (newState.PlaningPokerApp.StoriesInfo.CurrentStoryId === data.OldId) {
+                        newState.PlaningPokerApp.StoriesInfo.CurrentStoryId = "";
+                        // newState.PlaningPokerApp.StoriesInfo.CurrentStoryDescriptionChange = "";
+                        // newState.PlaningPokerApp.StoriesInfo.CurrentStoryNameChange = "";
+                    }
+                }
+                return newState;
+            }
+        case Actions_1.UpdateStoriesIdActionName:
+            {
+                var newState_2 = (0, cloneDeep_1.default)(state);
+                var data_3 = action.payload;
+                newState_2.PlaningPokerApp.StoriesInfo.Stories.forEach(function (st) {
+                    var fromBack = data_3.find(function (x) { return x.old_id.toUpperCase() === st.Id.toUpperCase(); });
+                    if (fromBack) {
+                        st.Id = fromBack.new_id + '';
+                    }
+                });
+                var fromBack = data_3
+                    .find(function (x) { return x.old_id.toUpperCase()
+                    === newState_2.PlaningPokerApp.StoriesInfo.CurrentStoryId.toUpperCase(); });
+                if (fromBack) {
+                    newState_2.PlaningPokerApp.StoriesInfo.CurrentStoryId = fromBack.new_id + '';
+                }
+                return newState_2;
+            }
+        case Actions_1.SetInitialRoomDieTimeActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.DieRoomTimeInitial = data;
+                return newState;
+            }
+        case Actions_1.SetEditRoomActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.EditRoom = data;
+                return newState;
+            }
+        case Actions_1.SetRoomCardsActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.RoomCards = data;
+                return newState;
+            }
+        default:
+            return state;
+    }
+}
+exports.PlaningPokerReducer = PlaningPokerReducer;
+
+
+/***/ }),
+
 /***/ "./src/Models/Reducers/Reducer.ts":
 /*!****************************************!*\
   !*** ./src/Models/Reducers/Reducer.ts ***!
@@ -50510,12 +51358,14 @@ var ProjectReducer_1 = __webpack_require__(/*! ./CodeReviewApp/ProjectReducer */
 var UserReducer_1 = __webpack_require__(/*! ./CodeReviewApp/UserReducer */ "./src/Models/Reducers/CodeReviewApp/UserReducer.ts");
 var CommentReducer_1 = __webpack_require__(/*! ./CodeReviewApp/CommentReducer */ "./src/Models/Reducers/CodeReviewApp/CommentReducer.ts");
 var TaskReducer_1 = __webpack_require__(/*! ./CodeReviewApp/TaskReducer */ "./src/Models/Reducers/CodeReviewApp/TaskReducer.ts");
+var Reducer_1 = __webpack_require__(/*! ./PlaningPokerApp/Reducer */ "./src/Models/Reducers/PlaningPokerApp/Reducer.ts");
 function AppReducer(state, action) {
     if (state === void 0) { state = new AppState_1.AppState(); }
     var st = (0, ProjectReducer_1.CodeReviewProjectReducer)(state, action);
     st = (0, UserReducer_1.CodeReviewUserReducer)(st, action);
     st = (0, CommentReducer_1.CodeReviewCommentReducer)(st, action);
     st = (0, TaskReducer_1.CodeReviewTaskReducer)(st, action);
+    st = (0, Reducer_1.PlaningPokerReducer)(st, action);
     //...
     return st;
     switch (action.type) {
@@ -52098,20 +52948,28 @@ var ProjectUsers_1 = __importDefault(__webpack_require__(/*! ../ProjectUsers/Pro
 var AddTask_1 = __importDefault(__webpack_require__(/*! ../AddTask/AddTask */ "./src/components/Body/CodeReviewApp/AddTask/AddTask.tsx"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var TaskActions_1 = __webpack_require__(/*! ../../../../Models/Actions/CodeReviewApp/TaskActions */ "./src/Models/Actions/CodeReviewApp/TaskActions.ts");
+var PlaningPokerHelper_1 = __webpack_require__(/*! ../../../../Models/BL/PlaningPokerApp/PlaningPokerHelper */ "./src/Models/BL/PlaningPokerApp/PlaningPokerHelper.ts");
 __webpack_require__(/*! ./ProjectDetail.css */ "./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css");
 var ProjectDetail = function (props) {
-    var _a;
+    var _a, _b;
     var tasksOnPageCount = 5;
-    // const [currentProjectTasks, setCurrentProjectTasks] = useState([] as IProjectTaskDataBack[]);
-    // const [allTasksCount, setAllTasksCount] = useState(0);
-    // const [filterTaskCreator, setFilterTaskCreator] = useState(-1);
-    // const [filterTaskReviwer, setFilterTaskReviwer] = useState(-1);
-    // const [filterTaskStatus, setFilterTaskStatus] = useState(-1);
-    // const [filterTaskName, setFilterTaskName] = useState('');
-    // const [filterTaskPage, setFilterTaskPage] = useState(1);
-    var _b = (0, react_1.useState)(null), loadTasksTimerId = _b[0], setLoadTasksTimerId = _b[1];
-    var _c = (0, react_1.useState)(false), showUserList = _c[0], setShowUserList = _c[1];
-    var _d = (0, react_1.useState)(false), showAddNewTaskForm = _d[0], setShowAddNewTaskForm = _d[1];
+    var _c = (0, react_1.useState)(null), loadTasksTimerId = _c[0], setLoadTasksTimerId = _c[1];
+    var _d = (0, react_1.useState)(false), showUserList = _d[0], setShowUserList = _d[1];
+    var _e = (0, react_1.useState)(false), showAddNewTaskForm = _e[0], setShowAddNewTaskForm = _e[1];
+    (0, react_1.useEffect)(function () {
+        var _a;
+        if ((_a = props.Project) === null || _a === void 0 ? void 0 : _a.Id) {
+            var filterSaveHelper = new PlaningPokerHelper_1.CodeReviewLocalStorageHelper();
+            var statusFromLocalStorage = filterSaveHelper.GetFilterStatus(props.Project.Id);
+            if (!statusFromLocalStorage && statusFromLocalStorage !== '0') {
+                filterSaveHelper.SetFilterStatus(props.Project.Id, props.TasksFilters.Status + '');
+                statusFromLocalStorage = filterSaveHelper.GetFilterStatus(props.Project.Id);
+            }
+            if ((props.TasksFilters.Status + '') !== statusFromLocalStorage) {
+                props.SetFilterTaskStatus(+statusFromLocalStorage);
+            }
+        }
+    }, [(_a = props.Project) === null || _a === void 0 ? void 0 : _a.Id]);
     (0, react_1.useEffect)(function () {
         var filterCreatorExist = props.ProjectUsers.some(function (x) { return x.Id === props.TasksFilters.CreatorId; });
         if (!filterCreatorExist) {
@@ -52121,7 +52979,7 @@ var ProjectDetail = function (props) {
         if (!filterReviewerExist) {
             props.SetFilterTaskReviewer(-1);
         }
-    }, [props.ProjectUsers.length]); //[firstUser?.Id]);
+    }, [props.ProjectUsers.length]);
     (0, react_1.useEffect)(function () {
         var _a;
         if (!((_a = props.Project) === null || _a === void 0 ? void 0 : _a.Id)) {
@@ -52131,64 +52989,30 @@ var ProjectDetail = function (props) {
         if (loadTasksTimerId) {
             clearTimeout(loadTasksTimerId);
         }
+        var filterSaveHelper = new PlaningPokerHelper_1.CodeReviewLocalStorageHelper();
+        var statusFromLocalStorage = filterSaveHelper.GetFilterStatus(props.Project.Id);
+        if ((props.TasksFilters.Status + '') !== statusFromLocalStorage) {
+            filterSaveHelper.SetFilterStatus(props.Project.Id, props.TasksFilters.Status + '');
+            // return;
+        }
         var timerId = setTimeout(function () {
             reloadTasks();
         }, 1500);
         setLoadTasksTimerId(timerId);
-    }, [(_a = props.Project) === null || _a === void 0 ? void 0 : _a.Id, props.TasksFilters.CreatorId, props.TasksFilters.ReviewerId,
+    }, [(_b = props.Project) === null || _b === void 0 ? void 0 : _b.Id, props.TasksFilters.CreatorId, props.TasksFilters.ReviewerId,
         props.TasksFilters.Status, props.TasksFilters.TaskName, props.TasksFilters.Page, props.TasksFilters.Retrigger]);
     var reloadTasks = function () {
-        // let loadTasks = (error: MainErrorObjectBack, data: ILoadReviewTasksResultDataBask) => {
-        //     if (error) {
-        //         return;
-        //     }
-        //     if (data) {
-        //         setCurrentProjectTasks(data.Tasks);
-        //         setAllTasksCount(data.TasksCount);
-        //     }
-        // };
         var filter = {
             Name: props.TasksFilters.TaskName, CreatorId: props.TasksFilters.CreatorId,
             PageNumber: props.TasksFilters.Page, PageSize: tasksOnPageCount,
             ProjectId: props.Project.Id, ReviewerId: props.TasksFilters.ReviewerId,
             Status: props.TasksFilters.Status
         };
-        // window.G_CodeReviewTaskController.LoadTasksRedux(filter, loadTasks);
         props.ReloadTasks(filter);
     };
     var deleteProject = function () {
-        // let deleteProject = (error: MainErrorObjectBack, data: BoolResultBack) => {
-        //     if (error) {
-        //         return;
-        //     }
-        //     if (data?.result) {
-        //         props.DeleteProject();
-        //     }
-        // };
-        // window.G_CodeReviewProjectController.DeleteProject(props.Project.Id, deleteProject);
         props.DeleteProject(props.Project.Id);
     };
-    // const addTaskToProject = (task: IProjectTaskDataBack) => {
-    //     setCurrentProjectTasks(oldState => {
-    //         return [...oldState, task];
-    //     });
-    // };
-    // const updateTaskProject = (task: IProjectTaskDataBack) => {
-    //     setCurrentProjectTasks(oldState => {
-    //         let newState = cloneDeep(oldState);
-    //         var tsk = newState.find(x => x.Id == task.Id);
-    //         tsk.Name = task.Name;
-    //         tsk.Status = task.Status;
-    //         tsk.ReviewerId = task.ReviewerId;
-    //         tsk.CreatorId = task.CreatorId;
-    //         return newState;
-    //     });
-    // };
-    // const deleteTask = (id: number) => {
-    //     setCurrentProjectTasks(oldState => {
-    //         return oldState.filter(x => x.Id != id);
-    //     });
-    // };
     if (!props.Project) {
         return react_1.default.createElement("div", { style: { paddingTop: '20px' } },
             react_1.default.createElement("p", null, "\u0432\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u0440\u043E\u0435\u043A\u0442"));
@@ -52269,19 +53093,9 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     res.ReloadTasks = function (filter) {
         dispatch(window.G_CodeReviewTaskController.LoadTasksRedux(filter));
     };
-    // res.AddUserToProject = (user:IProjectUserDataBack) => { };
-    // AddTaskToProject: (task: IProjectTaskDataBack) => void;
     res.DeleteProject = function (id) {
         dispatch(window.G_CodeReviewProjectController.DeleteProjectRedux(id));
     };
-    // res.ChangeUser = () => { };
-    // res.DeleteUser = () => { };
-    // res.UpdateTask = (forAdd: IProjectTaskDataBack) => {
-    //     dispatch(window.G_CodeReviewTaskController.UpdateTaskRedux(forAdd));
-    // };
-    // res.SetEmptyTaskComments = (taskId: number) => {
-    //     dispatch(SetEmptyTaskCommentsActionCreator(taskId))
-    // }
     return res;
 };
 var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -54201,6 +55015,109 @@ exports["default"] = Paggination;
 
 /***/ }),
 
+/***/ "./src/components/Body/PlaningPoker/EditRoom/EditRoom.tsx":
+/*!****************************************************************!*\
+  !*** ./src/components/Body/PlaningPoker/EditRoom/EditRoom.tsx ***!
+  \****************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
+__webpack_require__(/*! ./EditRoom.css */ "./src/components/Body/PlaningPoker/EditRoom/EditRoom.css");
+var EditRoom = function (props) {
+    var _a = (0, react_1.useState)(''), oldPassword = _a[0], setOldPassword = _a[1];
+    var _b = (0, react_1.useState)(''), newPassword = _b[0], setNewPassword = _b[1];
+    var _c = (0, react_1.useState)(''), newPasswordConfirm = _c[0], setNewPasswordConfirm = _c[1];
+    var stringCards = props.Cards.join(';');
+    var _d = (0, react_1.useState)(stringCards), cards = _d[0], setCards = _d[1];
+    (0, react_1.useEffect)(function () {
+        setCards(stringCards);
+    }, [stringCards]);
+    var changePassword = function () {
+        if (newPassword !== newPasswordConfirm) {
+            alert('Пароли не совпадают');
+            return;
+        }
+        // props.ChangeRoomPassword(props.RoomName, props.UserInfo.UserConnectionId, oldPassword, newPasswordConfirm);
+        window.G_PlaningPokerController.ChangeRoomPassword(props.RoomName, props.UserInfo.UserConnectionId, oldPassword, newPassword, function (error, data) {
+            if (data === null || data === void 0 ? void 0 : data.result) {
+                alert('Пароль изменен');
+            }
+            else {
+                alert('Что то пошло не так, попробуйте позже');
+            }
+        });
+    };
+    var changeCards = function () {
+        if (props.RoomStatus != RoomInfo_1.RoomStatus.CloseVote) {
+            alert('Необходимо закрыть текущее голосование');
+            return;
+        }
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.SetRoomCards, props.RoomName, cards);
+    };
+    return react_1.default.createElement("div", null,
+        react_1.default.createElement("label", null, "\u0421\u0442\u0430\u0440\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"),
+        react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setOldPassword(e.target.value); }, placeholder: '\u0421\u0442\u0430\u0440\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: oldPassword }),
+        react_1.default.createElement("label", null, "\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"),
+        react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setNewPassword(e.target.value); }, placeholder: '\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: newPassword }),
+        react_1.default.createElement("label", null, "\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"),
+        react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setNewPasswordConfirm(e.target.value); }, placeholder: '\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: newPasswordConfirm }),
+        react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return changePassword(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C"),
+        react_1.default.createElement("hr", null),
+        react_1.default.createElement("label", null, "\u041E\u0446\u0435\u043D\u043A\u0438 \u0447\u0435\u0440\u0435\u0437 ;"),
+        react_1.default.createElement("input", { type: 'text', className: 'persent-100-width form-control', onChange: function (e) { return setCards(e.target.value); }, placeholder: '\u041E\u0446\u0435\u043D\u043A\u0438', value: cards }),
+        react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return changeCards(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0438"));
+};
+var mapStateToProps = function (state, ownProps) {
+    var _a;
+    var res = {};
+    res.RoomName = (_a = state.PlaningPokerApp.RoomInfo) === null || _a === void 0 ? void 0 : _a.Name;
+    res.UserInfo = state.PlaningPokerApp.User;
+    res.RoomStatus = state.PlaningPokerApp.RoomStatus;
+    res.Cards = state.PlaningPokerApp.RoomCards;
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    // res.ChangeRoomPassword = (roomname: string, userConnectionId: string, oldPassword: string, newPassword: string) => {
+    //     dispatch(window.G_PlaningPokerController.ChangeRoomPasswordRedux(roomname, userConnectionId, oldPassword, newPassword));
+    // }
+    return res;
+};
+var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+// and that function returns the connected, wrapper component:
+exports["default"] = connectToStore(EditRoom);
+
+
+/***/ }),
+
 /***/ "./src/components/Body/PlaningPoker/Index/index.tsx":
 /*!**********************************************************!*\
   !*** ./src/components/Body/PlaningPoker/Index/index.tsx ***!
@@ -54236,26 +55153,16 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var Actions_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/Actions */ "./src/Models/Actions/PlaningPokerApp/Actions.ts");
 __webpack_require__(/*! ./Index.css */ "./src/components/Body/PlaningPoker/Index/Index.css");
-var IndexState = /** @class */ (function () {
-    // RoomName: string;
-    // RoomPassword: string;
-    function IndexState() {
-        // this.RoomName = "";
-        // this.RoomPassword = "";
-    }
-    return IndexState;
-}());
-var IndexProps = /** @class */ (function () {
-    function IndexProps() {
-    }
-    return IndexProps;
-}());
 var Index = function (props) {
+    var _a = (0, react_1.useState)(props.RoomInfo.Name || ''), roomName = _a[0], setRoomName = _a[1];
+    var _b = (0, react_1.useState)(props.RoomInfo.Password || ''), roomPassword = _b[0], setRoomPassword = _b[1];
     (0, react_1.useEffect)(function () {
         var pathNameUrlSplit = document.location.pathname.split('/');
         if (pathNameUrlSplit && pathNameUrlSplit.length > 2) {
-            props.RoomNameChanged(pathNameUrlSplit[2]);
+            props.SetRoomName(pathNameUrlSplit[2]);
         }
         // console.log("Index");
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.RoomNotCreated, function () {
@@ -54268,22 +55175,30 @@ var Index = function (props) {
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.RoomNotCreated);
         };
     }, []);
+    (0, react_1.useEffect)(function () {
+        setRoomName(props.RoomInfo.Name || '');
+    }, [props.RoomInfo.Name]);
+    (0, react_1.useEffect)(function () {
+        setRoomPassword(props.RoomInfo.Password || '');
+    }, [props.RoomInfo.Password]);
     var createRoom = function () {
         //этот метод вроде как  может подождать результат выполнения и как то получить ответ
         // props.MyHubConnection.invoke("CreateRoom", localState.RoomName, localState.RoomPassword, props.Username);
         //а вот этот не ждет
-        if (!props.RoomInfo.Name) {
+        if (!roomName) {
             alert('Введите название комнаты');
             return;
         }
-        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.CreateRoom, props.RoomInfo.Name, props.RoomInfo.Password, props.Username);
+        props.SetRoomName(roomName);
+        props.SetRoomPassword(roomPassword);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.CreateRoom, roomName, roomPassword, props.Username);
     };
     var enterInRoom = function () {
-        if (!props.RoomInfo.Name) {
+        if (!roomName) {
             alert('Введите название комнаты');
             return;
         }
-        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.EnterInRoom, props.RoomInfo.Name, props.RoomInfo.Password, props.Username);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.EnterInRoom, roomName, roomPassword, props.Username);
     };
     //React.Fragment
     var actionsButton = react_1.default.createElement("div", null);
@@ -54298,19 +55213,40 @@ var Index = function (props) {
                 react_1.default.createElement("p", null,
                     "\u0438\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u043C\u044F: ",
                     props.Username),
-                react_1.default.createElement("input", { className: "form-control persent-100-width", onChange: function (e) { return props.ChangeUserName(e.target.value); }, type: "text", value: props.Username })),
+                react_1.default.createElement("input", { className: "form-control persent-100-width", onChange: function (e) { return props.SetUserName(e.target.value); }, type: "text", value: props.Username })),
             react_1.default.createElement("div", null,
                 react_1.default.createElement("p", null, "\u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"),
-                react_1.default.createElement("input", { className: "form-control persent-100-width", type: "text", value: props.RoomInfo.Name, onChange: function (e) { props.RoomNameChanged(e.target.value); } }),
+                react_1.default.createElement("input", { className: "form-control persent-100-width", type: "text", value: roomName, onChange: function (e) { setRoomName(e.target.value); } }),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("p", null, "\u043F\u0430\u0440\u043E\u043B\u044C(\u043D\u0435\u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E)"),
-                    react_1.default.createElement("input", { className: "form-control persent-100-width", type: "text", value: props.RoomInfo.Password, onChange: function (e) { props.RoomPasswordChanged(e.target.value); } })),
+                    react_1.default.createElement("input", { className: "form-control persent-100-width", type: "password", value: roomPassword, onChange: function (e) { setRoomPassword(e.target.value); } })),
                 react_1.default.createElement("p", null, "\u0435\u0441\u043B\u0438 \u0441\u043E\u0437\u0434\u0430\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443 \u0431\u0435\u0437 \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u0438 \u0432 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u043C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438, \u0441\u043E\u0437\u0434\u0430\u0435\u0442\u0441\u044F \u043E\u0434\u043D\u043E\u0440\u0430\u0437\u043E\u0432\u0430\u044F \u043A\u043E\u043C\u043D\u0430\u0442\u0430(\u0431\u0443\u0434\u0435\u0442 \u0443\u0434\u0430\u043B\u0435\u043D\u0430 \u0447\u0435\u0440\u0435\u0437 \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u043E\u0435 \u0432\u0440\u0435\u043C\u044F)")),
             actionsButton,
             react_1.default.createElement("div", { className: "display_none" },
-                react_1.default.createElement(react_router_dom_1.Link, { id: "move_to_room_link_react", to: "/planing-poker/room/" + props.RoomInfo.Name }, "hidden"))));
+                react_1.default.createElement(react_router_dom_1.Link, { id: "move_to_room_link_react", to: "/planing-poker/room/" + roomName }, "hidden"))));
 };
-exports["default"] = Index;
+var mapStateToProps = function (state, ownProps) {
+    var res = {};
+    res.RoomInfo = state.PlaningPokerApp.RoomInfo;
+    res.Username = state.PlaningPokerApp.User.UserName;
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    res.SetUserName = function (username) {
+        dispatch((0, Actions_1.SetUserNameActionCreator)(username));
+    };
+    res.SetRoomName = function (roomname) {
+        dispatch((0, Actions_1.SetRoomNameActionCreator)(roomname));
+    };
+    res.SetRoomPassword = function (roompass) {
+        dispatch((0, Actions_1.SetRoomPasswordActionCreator)(roompass));
+    };
+    return res;
+};
+var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+// and that function returns the connected, wrapper component:
+exports["default"] = connectToStore(Index);
 
 
 /***/ }),
@@ -54391,34 +55327,18 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var Index_1 = __importDefault(__webpack_require__(/*! ./Index */ "./src/components/Body/PlaningPoker/Index/index.tsx"));
 var Room_1 = __importDefault(__webpack_require__(/*! ./Room/Room */ "./src/components/Body/PlaningPoker/Room/Room.tsx"));
 var AlertData_1 = __webpack_require__(/*! ../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
-var RoomInfo_1 = __webpack_require__(/*! ../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
 // import { HubConnection } from '@microsoft/signalr';
 // import signalR, { HubConnection } from "@aspnet/signalr";
 var signalR = __importStar(__webpack_require__(/*! @aspnet/signalr */ "./node_modules/@aspnet/signalr/dist/esm/index.js"));
-var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
-// import * as signalR from '@aspnet/signalr'
-// "@microsoft/signalr": "^5.0.6",
-//
-var PlaningPokerMainState = /** @class */ (function () {
-    // InRoom: boolean;//по сути надо дернуть обновление стейта для перерендера
-    function PlaningPokerMainState() {
-        // this.MyHubConnection = null;
-        this.User = new RoomInfo_1.PlaningPokerUserInfo();
-        this.RoomInfo = new RoomInfo_1.RoomInfo();
-    }
-    return PlaningPokerMainState;
-}());
-var PlaningPokerMainProps = /** @class */ (function () {
-    function PlaningPokerMainProps() {
-    }
-    return PlaningPokerMainProps;
-}());
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var Actions_1 = __webpack_require__(/*! ../../../Models/Actions/PlaningPokerApp/Actions */ "./src/Models/Actions/PlaningPokerApp/Actions.ts");
 //см коммент для __planing_room_props_ref__
-var __planing_poker_main_state_ref__ = null;
 var __planing_poker_hubConnected_ref__ = false;
+var __planing_poker_roomname_ref__ = ''; //todo надо проверить можно ли убрать это
 var PlaningPokerMain = function (props) {
-    var initState = new PlaningPokerMainState();
-    initState.User.UserName = "enter_your_name";
+    var _a;
+    __planing_poker_roomname_ref__ = (_a = props.RoomInfo) === null || _a === void 0 ? void 0 : _a.Name;
+    // initState.User.UserName = "enter_your_name";
     // console.log(initState.User.UserName);
     var hubConnection = new signalR.HubConnectionBuilder()
         .withUrl("/planing-poker-hub"
@@ -54432,16 +55352,14 @@ var PlaningPokerMain = function (props) {
     //https://github.com/aspnet/SignalR/issues/2608
     //https://docs.microsoft.com/en-us/aspnet/core/tutorials/signalr-typescript-webpack?view=aspnetcore-2.1&tabs=visual-studio
     // initState.MyHubConnection = hubConnection;
-    var _a = (0, react_1.useState)(hubConnection), myHubConnection = _a[0], setHubConnection = _a[1];
-    var _b = (0, react_1.useState)(initState), localState = _b[0], setLocalState = _b[1];
-    __planing_poker_main_state_ref__ = localState;
+    var _b = (0, react_1.useState)(hubConnection), myHubConnection = _b[0], setHubConnection = _b[1];
+    // const [localState, setLocalState] = useState(initState);
+    // __planing_poker_main_state_ref__ = localState;
     var _c = (0, react_1.useState)(false), hubConnected = _c[0], sethubConnectedState = _c[1];
     __planing_poker_hubConnected_ref__ = hubConnected;
     //componentdidmount, должен вызваться уже когда childs отрендерятся
     (0, react_1.useEffect)(function () {
         hubConnection.onclose(function () {
-            // console.log(JSON.stringify(__planing_poker_main_state_ref__));
-            // alert("asd");
             //todo тут сообщение об ошибке или что то еще мб перезагрузить страницу\редирект?
         });
         // window.onbeforeunload = function(e) {
@@ -54450,9 +55368,8 @@ var PlaningPokerMain = function (props) {
         //     return dialogText;
         //   };
         window.addEventListener('beforeunload', function (event) {
-            var _a;
             if (__planing_poker_hubConnected_ref__) {
-                hubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.OnWindowClosedAsync, (_a = __planing_poker_main_state_ref__ === null || __planing_poker_main_state_ref__ === void 0 ? void 0 : __planing_poker_main_state_ref__.RoomInfo) === null || _a === void 0 ? void 0 : _a.Name);
+                hubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.OnWindowClosedAsync, __planing_poker_roomname_ref__);
             }
             // console.log(JSON.stringify(__planing_poker_main_state_ref__));
             // var dialogText = 'Dialog text here';
@@ -54475,19 +55392,9 @@ var PlaningPokerMain = function (props) {
                     window.G_AddAbsoluteAlertToState(alert);
                 });
             });
-            // alert.Text = data.text;
-            // alert.Type = data.status;
         });
         hubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.EnteredInRoom, function (roomUserId, loginnedInMainApp) {
-            setLocalState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                newState.RoomInfo.InRoom = true;
-                newState.User.UserId = roomUserId;
-                newState.User.LoginnedInMainApp = loginnedInMainApp;
-                newState.RoomInfo.Password = "";
-                return newState;
-            });
+            props.EnteredInRoom(roomUserId, loginnedInMainApp);
             // document.cookie = "planing_poker_roomname=" + __planing_poker_main_state_ref__.RoomInfo.Name + "; path=/;";
             // let lk = document.getElementById('move_to_room_link_react');
             // //todo типо костыль
@@ -54505,7 +55412,7 @@ var PlaningPokerMain = function (props) {
             var alert = alertFactory.GetDefaultError("подключение не удалось");
             window.G_AddAbsoluteAlertToState(alert);
             if (!location.href.includes("/planing-poker") || location.href.includes("/planing-poker/room")) { // && !location.href.endsWith("/planing-poker/")) {
-                var roomName = __planing_poker_main_state_ref__.RoomInfo.Name || "";
+                var roomName = __planing_poker_roomname_ref__ || "";
                 window.location.href = "/planing-poker/" + roomName;
             }
             return;
@@ -54522,12 +55429,7 @@ var PlaningPokerMain = function (props) {
                 // let newState = { ...localState };
                 // newState.User.UserId = connectionId;
                 // setLocalState(newState);
-                setLocalState(function (prevState) {
-                    // let newState = { ...prevState };
-                    var newState = (0, cloneDeep_1.default)(prevState);
-                    newState.User.UserConnectionId = connectionId;
-                    return newState;
-                });
+                props.SetUserConnectionId(connectionId);
                 //sethubConnectedState(true);
                 sethubConnectedState(function (prevState) {
                     return true;
@@ -54549,71 +55451,48 @@ var PlaningPokerMain = function (props) {
     }, []);
     (0, react_1.useEffect)(function () {
         if (props.AuthInfo.AuthSuccess) {
-            setLocalState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                newState.User.UserName = props.AuthInfo.User.Email;
-                return newState;
-            });
+            props.SetUserName(props.AuthInfo.User.Email);
         }
     }, [props.AuthInfo.AuthSuccess]);
     (0, react_1.useEffect)(function () {
-        if (localState.RoomInfo.InRoom && !window.location.href.includes('planing-poker/room/')) {
+        if (props.RoomInfo.InRoom && !window.location.href.includes('planing-poker/room/')) {
             var lk = document.getElementById('move_to_room_link_react');
             if (lk) {
                 // history.pushState(null, '/planing-poker/room/' + localState.RoomInfo.Name);
                 lk.click();
             }
         }
-    }, [localState.RoomInfo.InRoom]);
-    var userNameChange = function (newName) {
-        setLocalState(function (prevState) {
-            // let newState = { ...prevState };
-            var newState = (0, cloneDeep_1.default)(prevState);
-            newState.User.UserName = newName;
-            return newState;
-        });
-    };
-    var roomNameChanged = function (name) {
-        // let newState = { ...localState };
-        // newState.RoomInfo.Name = name;
-        // setLocalState(newState);
-        setLocalState(function (prevState) {
-            // let newState = { ...prevState };
-            var newState = (0, cloneDeep_1.default)(prevState);
-            newState.RoomInfo.Name = name;
-            return newState;
-        });
-    };
-    var roomPasswordChanged = function (password) {
-        // let newState = { ...localState };
-        // newState.RoomInfo.Password = password;
-        // setLocalState(newState);
-        setLocalState(function (prevState) {
-            // let newState = { ...prevState };
-            var newState = (0, cloneDeep_1.default)(prevState);
-            newState.RoomInfo.Password = password;
-            return newState;
-        });
-    };
-    var clearUserId = function () {
-        setLocalState(function (prevState) {
-            // let newState = { ...prevState };
-            var newState = (0, cloneDeep_1.default)(prevState);
-            newState.User.UserId = "";
-            return newState;
-        });
-    };
+    }, [props.RoomInfo.InRoom]);
     return react_1.default.createElement("div", null,
         react_1.default.createElement(react_router_dom_1.Routes, null,
             react_1.default.createElement(react_router_dom_1.Route, { path: "/room/*", element: react_1.default.createElement(Room_1.default
                 //  InRoom={localState.InRoom}
                 , { 
                     //  InRoom={localState.InRoom}
-                    UserInfo: localState.User, RoomInfo: localState.RoomInfo, MyHubConnection: myHubConnection, RoomNameChanged: roomNameChanged, ChangeUserName: userNameChange, HubConnected: hubConnected, ClearUserId: clearUserId }) }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "/*", element: react_1.default.createElement(Index_1.default, { Username: localState.User.UserName, ChangeUserName: userNameChange, MyHubConnection: myHubConnection, RoomNameChanged: roomNameChanged, RoomPasswordChanged: roomPasswordChanged, RoomInfo: localState.RoomInfo, HubConnected: hubConnected }) })));
+                    MyHubConnection: myHubConnection, HubConnected: hubConnected }) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/*", element: react_1.default.createElement(Index_1.default, { MyHubConnection: myHubConnection, HubConnected: hubConnected }) })));
 };
-exports["default"] = PlaningPokerMain;
+var mapStateToProps = function (state, ownProps) {
+    var res = {};
+    res.RoomInfo = state.PlaningPokerApp.RoomInfo;
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    res.EnteredInRoom = function (roomUserId, loginnedInMainApp) {
+        dispatch((0, Actions_1.EnteredInRoomActionCreator)({ RoomUserId: roomUserId, LoginnedInMainApp: loginnedInMainApp }));
+    };
+    res.SetUserConnectionId = function (userConnectionId) {
+        dispatch((0, Actions_1.SetUserConnectionIdActionCreator)(userConnectionId));
+    };
+    res.SetUserName = function (username) {
+        dispatch((0, Actions_1.SetUserNameActionCreator)(username));
+    };
+    return res;
+};
+var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+// and that function returns the connected, wrapper component:
+exports["default"] = connectToStore(PlaningPokerMain);
 
 
 /***/ }),
@@ -54655,9 +55534,7 @@ __webpack_require__(/*! ./RoomTimer.css */ "./src/components/Body/PlaningPoker/R
 var __planing_room_timer_props_ref__ = null;
 var RoomTimer = function (props) {
     var _a = (0, react_1.useState)(0), lifeTime = _a[0], setLifeTime = _a[1];
-    // const [interval, setStateInterval] = useState(null);
     __planing_room_timer_props_ref__ = props;
-    // const secRender = new Date().getSeconds();
     (0, react_1.useEffect)(function () {
         var interv = setInterval(function () {
             if (__planing_room_timer_props_ref__.DieDate) {
@@ -54777,60 +55654,13 @@ var OneVoteCard_1 = __importDefault(__webpack_require__(/*! ../OneVoteCard/OneVo
 // import { IOneRoomReturn } from '../../_ComponentsLink/BackModel/PlaningPoker/OneRoomReturn';
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var StoriesSection_1 = __importDefault(__webpack_require__(/*! ../StoriesSection/StoriesSection */ "./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.tsx"));
-var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
 var RoomTimer_1 = __importDefault(__webpack_require__(/*! ../RoomTimer/RoomTimer */ "./src/components/Body/PlaningPoker/RoomTimer/RoomTimer.tsx"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var Actions_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/Actions */ "./src/Models/Actions/PlaningPokerApp/Actions.ts");
+var PlaningPokerHelper_1 = __webpack_require__(/*! ../../../../Models/BL/PlaningPokerApp/PlaningPokerHelper */ "./src/Models/BL/PlaningPokerApp/PlaningPokerHelper.ts");
+var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
+var EditRoom_1 = __importDefault(__webpack_require__(/*! ../EditRoom/EditRoom */ "./src/components/Body/PlaningPoker/EditRoom/EditRoom.tsx"));
 __webpack_require__(/*! ./Room.css */ "./src/components/Body/PlaningPoker/Room/Room.css");
-var RoomProps = /** @class */ (function () {
-    function RoomProps() {
-    }
-    return RoomProps;
-}());
-var RoomState = /** @class */ (function () {
-    function RoomState() {
-        this.UsersList = [];
-        this.VoteInfo = new RoomInfo_1.VoteInfo();
-        this.DieRoomTime = null;
-        this.TotalNotActualStoriesCount = 0;
-    }
-    return RoomState;
-}());
-var StoriesInfo = /** @class */ (function () {
-    function StoriesInfo() {
-        this.Stories = [];
-        this.CurrentStoryId = "";
-        this.CurrentStoryNameChange = "";
-        this.CurrentStoryDescriptionChange = "";
-    }
-    return StoriesInfo;
-}());
-//TODO а так можно? не будут ли они затирать в теории методы с других компонентов с такими же названиями, может их переименовать более сложно?
-var CurrentUserIsAdmin = function (users, userId) {
-    var user = GetUserById(users, userId);
-    if (user && user.IsAdmin()) {
-        return true;
-    }
-    return false;
-};
-var CurrentUserCanVote = function (users, userId) {
-    var user = GetUserById(users, userId);
-    if (user && user.CanVote()) {
-        return true;
-    }
-    return false;
-};
-var GetUserIndexById = function (users, userId) {
-    if (!users || !userId) {
-        return -1;
-    }
-    return users.findIndex(function (x) { return x.Id === userId; });
-};
-var GetUserById = function (users, userId) {
-    var index = GetUserIndexById(users, userId);
-    if (index < 0 || index >= users.length) {
-        return null;
-    }
-    return users[index];
-};
 //подписки сигналр захватывают пропсы непонятно как, раньше это работало, но предположительно после введения deepClone
 //все вообще отвалилось. 6.30.2021, вот так получилось пофиксить, замена обработчика подписки на => не помогала
 var __planing_room_props_ref__ = null;
@@ -54838,11 +55668,16 @@ var Room = function (props) {
     __planing_room_props_ref__ = props;
     //эффект для доступа по прямой ссылке
     //
+    //#state
+    var _a = (0, react_1.useState)(null), dieRoomTime = _a[0], setDieRoomTime = _a[1];
+    var _b = (0, react_1.useState)(false), hideVoteState = _b[0], setHideVoteState = _b[1];
+    var _c = (0, react_1.useState)(props.UserInfo.UserName), userNameLocalState = _c[0], setUserNameLocalState = _c[1]; //для редактирования
+    var currentUserIsAdmin = (new PlaningPokerHelper_1.PlaningPokerHelper()).CurrentUserIsAdmin(props.UsersList, props.UserInfo.UserId);
     (0, react_1.useEffect)(function () {
         if (!props.RoomInfo.Name) {
             var pathNameUrlSplit = document.location.pathname.split('/');
             if (pathNameUrlSplit && pathNameUrlSplit.length > 3 && pathNameUrlSplit[3]) {
-                props.RoomNameChanged(pathNameUrlSplit[3]);
+                props.SetRoomName(pathNameUrlSplit[3]);
             }
             else {
                 //todo тут можно ошибку какую нибудь бахнуть, типо вход не удался
@@ -54858,72 +55693,15 @@ var Room = function (props) {
             setUserNameLocalState(props.UserInfo.UserName);
         }
     }, [props.HubConnected]);
-    //#state
-    var initState = new RoomState();
-    var _a = (0, react_1.useState)(initState), localState = _a[0], setLocalState = _a[1];
-    var _b = (0, react_1.useState)(RoomInfo_1.RoomStatus.None), roomStatusState = _b[0], setRoomStatusState = _b[1];
-    var _c = (0, react_1.useState)("-1"), selectedVoteCard = _c[0], setSelectedVoteCard = _c[1];
-    var _d = (0, react_1.useState)(false), hideVoteState = _d[0], setHideVoteState = _d[1];
-    var _e = (0, react_1.useState)(props.UserInfo.UserName), userNameLocalState = _e[0], setUserNameLocalState = _e[1]; //для редактирования
-    var initStories = new StoriesInfo();
-    var _f = (0, react_1.useState)(initStories), storiesState = _f[0], setStoriesState = _f[1];
-    var storiesHelper = new RoomInfo_1.StoriesHelper();
-    var currentUserIsAdmin = CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId);
+    (0, react_1.useEffect)(function () {
+        setDieRoomTime(props.DieRoomTimeInitial);
+    }, [props.DieRoomTimeInitial]);
     (0, react_1.useEffect)(function () {
         if (!props.RoomInfo.InRoom) {
             return;
         }
         //мы проставили все необходимые данные, подключились к хабу и готовы работать
-        var getRoomInfo = function (error, data) {
-            if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
-                return;
-            }
-            if (data) {
-                // console.log(data);
-                var newUsersData_1 = data.room.users.map(function (x) {
-                    var us = new RoomInfo_1.UserInRoom();
-                    us.FillByBackModel(x);
-                    return us;
-                });
-                setRoomStatusState(function (prevState) {
-                    // let newState = { ...prevState };
-                    return data.room.status;
-                    // return newState;
-                });
-                setLocalState(function (prevState) {
-                    var _a;
-                    // let newState = { ...prevState };
-                    var newState = (0, cloneDeep_1.default)(prevState);
-                    newState.UsersList.splice(0, newState.UsersList.length);
-                    (_a = newState.UsersList).push.apply(_a, newUsersData_1);
-                    newState.DieRoomTime = new Date(data.room.die_date);
-                    newState.TotalNotActualStoriesCount = data.room.total_stories_count;
-                    fillVoteInfo(newState, data.end_vote_info);
-                    newState.UsersList.forEach(function (us) {
-                        if (us.Id === props.UserInfo.UserId) {
-                            if (us.Vote) {
-                                setSelectedVoteCard(us.Vote);
-                            }
-                        }
-                    });
-                    return newState;
-                });
-                setStoriesState(function (prevState) {
-                    // let newState = { ...prevState };
-                    var newStoriesState = (0, cloneDeep_1.default)(prevState);
-                    newStoriesState.CurrentStoryId = data.room.current_story_id;
-                    newStoriesState.Stories = data.room.actual_stories.map(function (x) {
-                        var st = new RoomInfo_1.Story();
-                        st.FillByBackModel(x);
-                        return st;
-                    });
-                    return newStoriesState;
-                });
-            }
-        };
-        window.G_PlaningPokerController.GetRoomInfo(props.RoomInfo.Name, props.UserInfo.UserConnectionId, getRoomInfo);
+        props.GetRoomInfo(props.RoomInfo.Name, props.UserInfo.UserConnectionId);
     }, [props.RoomInfo.InRoom]);
     (0, react_1.useEffect)(function () {
         if (props.UserInfo.UserName === "enter_your_name") {
@@ -54949,30 +55727,13 @@ var Room = function (props) {
             var dataTyped = data;
             var us = new RoomInfo_1.UserInRoom();
             us.FillByBackModel(dataTyped);
-            setLocalState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                var existUser = GetUserById(newState.UsersList, dataTyped.id);
-                if (!existUser) {
-                    newState.UsersList.push(us);
-                }
-                return newState;
-            });
+            props.AddUserToRoom(us);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.UserNameChanged, function (userId, newUserName) {
             if (!userId) {
                 return;
             }
-            setLocalState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                var user = GetUserById(newState.UsersList, userId);
-                if (!user) {
-                    return newState;
-                }
-                user.Name = newUserName;
-                return newState;
-            });
+            props.ChangeAnotherUserName(userId, newUserName);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.UserLeaved, function (usersId) {
             if (!usersId) {
@@ -54983,233 +55744,76 @@ var Room = function (props) {
                     // document.cookie = "planing_poker_roomname=; path=/;";
                     alert("you kicked or leave"); //TODO может как то получше сделать, и хорошо бы без перезагрузки\редиректа
                     window.location.href = "/planing-poker";
-                    __planing_room_props_ref__.ClearUserId(); //todo тут наверное стоит еще что то чистить
+                    __planing_room_props_ref__.SetUserId(''); //todo тут наверное стоит еще что то чистить
                     return;
                 }
             });
-            setLocalState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                usersId.forEach(function (x) {
-                    var userIndex = GetUserIndexById(newState.UsersList, x);
-                    if (userIndex < 0) {
-                        return newState;
-                    }
-                    newState.UsersList.splice(userIndex, 1);
-                });
-                return newState;
-            });
+            props.RemoveUsers(usersId);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.VoteChanged, function (userId, vote) {
             if (!userId) {
                 return;
             }
-            var allAreVotedChanged = false;
-            setLocalState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                var user = GetUserById(newState.UsersList, userId);
-                if (!user) {
-                    return newState;
-                }
-                user.HasVote = true;
-                // if (!isNaN(vote)) {
-                if (vote !== "?") {
-                    user.Vote = vote;
-                }
-                if (newState.UsersList.every(function (x) { return x.HasVote || !x.CanVote(); }) && !newState.VoteInfo.AllAreVoted) {
-                    newState.VoteInfo.AllAreVoted = true;
-                    allAreVotedChanged = true;
-                    // return;
-                }
-                return newState;
-            });
-            if (allAreVotedChanged) {
-                var alertFactory = new AlertData_1.AlertData();
-                var alert_2 = alertFactory.GetDefaultNotify("Все участники проголосовали");
-                window.G_AddAbsoluteAlertToState(alert_2);
-            }
+            props.VoteChanged(userId, vote);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.UserRoleChanged, function (userId, changeType, role) {
             if (!userId) {
                 return;
             }
-            setLocalState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                var user = GetUserById(newState.UsersList, userId);
-                if (!user) {
-                    return newState;
-                }
-                if (changeType === 1) {
-                    //добавлен
-                    var index = user.Roles.findIndex(function (x) { return x === role; });
-                    if (index == -1) {
-                        user.Roles.push(role);
-                    }
-                }
-                else {
-                    //удален
-                    var index = user.Roles.findIndex(function (x) { return x === role; });
-                    if (index >= 0) {
-                        user.Roles.splice(index, 1);
-                    }
-                }
-                if (!user.CanVote()) {
-                    //todo убрать все оценки
-                    // GetUserById(localState.UsersList,);
-                    // users
-                    user.Vote = null;
-                    user.HasVote = false;
-                    if (userId === __planing_room_props_ref__.UserInfo.UserId) {
-                        setSelectedVoteCard("-1");
-                    }
-                }
-                return newState;
-            });
+            props.UserRoleChanged(userId, changeType, role);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.VoteStart, function () {
-            setSelectedVoteCard(function (prevState) {
-                return "-1";
-            });
-            setLocalState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                newState.UsersList.forEach(function (x) {
-                    x.Vote = null;
-                    x.HasVote = false;
-                });
-                newState.VoteInfo = new RoomInfo_1.VoteInfo();
-                return newState;
-            });
-            // setRoomStatusState(RoomSatus.AllCanVote);
-            setRoomStatusState(function (prevState) {
-                // let newState = { ...prevState };
-                return RoomInfo_1.RoomStatus.AllCanVote;
-                // return newState;
-            });
+            props.SetSelectedCard('-1');
+            props.ClearVote();
+            props.SetRoomStatus(RoomInfo_1.RoomStatus.AllCanVote);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.VoteEnd, function (data) {
-            // fillVoteInfo(null, data);
-            setLocalState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                fillVoteInfo(newState, data);
-                return newState;
-            });
-            // setRoomStatusState(RoomSatus.CloseVote);
-            setRoomStatusState(function (prevState) {
-                // let newState = { ...prevState };
-                return RoomInfo_1.RoomStatus.CloseVote;
-                // return newState;
-            });
+            props.SetVoteInfo(data);
+            props.SetRoomStatus(RoomInfo_1.RoomStatus.CloseVote);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.AddedNewStory, function (data) {
-            setStoriesState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                var newStory = new RoomInfo_1.Story();
-                newStory.FillByBackModel(data);
-                newState.Stories.push(newStory);
-                return newState;
-            });
+            var newStory = new RoomInfo_1.Story();
+            newStory.FillByBackModel(data);
+            props.AddNewStory(newStory);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.NewCurrentStory, function (id) {
             //изменении в целом объекта текущей истории
-            setStoriesState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                newState.CurrentStoryId = id;
-                return newState;
-            });
+            props.SetCurrentStoryId(id);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.CurrentStoryChanged, function (id, newName, newDescription) {
             //изменение данных текущей истории
-            setStoriesState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                var story = storiesHelper.GetStoryById(newState.Stories, id);
-                newState.CurrentStoryNameChange = newName;
-                newState.CurrentStoryDescriptionChange = newDescription;
-                if (story) {
-                    newState.CurrentStoryId = id;
-                    story.Name = newName;
-                    story.Description = newDescription;
-                }
-                return newState;
-            });
+            var story = new RoomInfo_1.Story();
+            story.Id = id;
+            story.Name = newName;
+            story.Description = newDescription;
+            props.StoryChange(story);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.DeletedStory, function (id) {
             //изменение данных текущей истории
-            setStoriesState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                var storyIndex = storiesHelper.GetStoryIndexById(newState.Stories, id);
-                if (storyIndex < 0) {
-                    return newState;
-                }
-                newState.Stories.splice(storyIndex, 1);
-                if (newState.CurrentStoryId == id) {
-                    newState.CurrentStoryId = "";
-                }
-                return newState;
-            });
+            props.DeleteStory(id);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.MovedStoryToComplete, function (oldId, newData) {
             if (!newData) {
                 return;
             }
-            // let needIncrementTotalCount = false;
-            setStoriesState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                var story = storiesHelper.GetStoryById(newState.Stories, oldId);
-                if (story) {
-                    story.Id = newData.id;
-                    story.Completed = newData.completed;
-                    story.Date = newData.date;
-                    story.Vote = newData.vote;
-                    story.ThisSession = newData.current_session;
-                    if (newState.CurrentStoryId === oldId) {
-                        newState.CurrentStoryId = "";
-                    }
-                    newState.CurrentStoryDescriptionChange = "";
-                    newState.CurrentStoryNameChange = "";
-                }
-                return newState;
-            });
+            var st = new RoomInfo_1.Story();
+            st.FillByBackModel(newData);
+            props.MoveStoryToComplete(oldId, st);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.RoomWasSaved, function (newData) {
             if (!(newData === null || newData === void 0 ? void 0 : newData.success)) {
                 return;
             }
-            setStoriesState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                newState.Stories.forEach(function (st) {
-                    var fromBack = newData.stories_mapping.find(function (x) { return x.old_id.toUpperCase() === st.Id.toUpperCase(); });
-                    if (fromBack) {
-                        st.Id = fromBack.new_id + '';
-                    }
-                });
-                var fromBack = newData.stories_mapping
-                    .find(function (x) { return x.old_id.toUpperCase() === newState.CurrentStoryId.toUpperCase(); });
-                if (fromBack) {
-                    newState.CurrentStoryId = fromBack.new_id + '';
-                }
-                return newState;
-            });
+            props.UpdateStoriesId(newData.stories_mapping);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.NewRoomAlive, function (newDieTime) {
             if (!newDieTime) {
                 return;
             }
-            setLocalState(function (prevState) {
-                // let newState = { ...prevState };
-                var newState = (0, cloneDeep_1.default)(prevState);
-                newState.DieRoomTime = new Date(newDieTime);
-                return newState;
-            });
+            setDieRoomTime(new Date(newDieTime));
+        });
+        props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.RoomCardsChanged, function (newData) {
+            props.SetRoomCards(newData);
         });
         return function cleanUp() {
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.MovedStoryToComplete);
@@ -55226,52 +55830,34 @@ var Room = function (props) {
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NewUserInRoom);
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NewRoomAlive);
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.RoomWasSaved);
+            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.RoomCardsChanged);
         };
     }, []);
-    var fillVoteInfo = function (state, data) {
-        setSelectedVoteCard(function (prevState) {
-            return "-1";
-        });
-        if (!data) {
-            state.VoteInfo = new RoomInfo_1.VoteInfo();
-            return;
-        }
-        state.UsersList.forEach(function (x) {
-            var userFromRes = data.users_info.find(function (x1) { return x1.id === x.Id; });
-            if (userFromRes) {
-                x.Vote = userFromRes.vote;
-            }
-        });
-        state.VoteInfo.FillByBackModel(data);
-    };
     if (!props.RoomInfo.InRoom) {
         return react_1.default.createElement("h1", null, "\u043F\u044B\u0442\u0430\u0435\u043C\u0441\u044F \u0432\u043E\u0439\u0442\u0438");
     }
     var tryToRemoveUserFromRoom = function (userId) {
-        // let isAdmin = CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId);
         if (!currentUserIsAdmin) {
             return;
         }
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.KickUser, props.RoomInfo.Name, userId);
     };
     var doVote = function (voteCardBlock) { return __awaiter(void 0, void 0, void 0, function () {
-        var alertFactory, alert_3, voted;
+        var alertFactory, alert_2, voted;
         var _a, _b;
         return __generator(this, function (_c) {
             switch (_c.label) {
                 case 0:
-                    // console.log(vote);
-                    // console.dir(vote);
                     if (!((_b = (_a = voteCardBlock === null || voteCardBlock === void 0 ? void 0 : voteCardBlock.target) === null || _a === void 0 ? void 0 : _a.dataset) === null || _b === void 0 ? void 0 : _b.vote)) {
                         return [2 /*return*/];
                     }
-                    if (!CurrentUserCanVote(localState.UsersList, props.UserInfo.UserId)) {
+                    if (!(new PlaningPokerHelper_1.PlaningPokerHelper()).CurrentUserCanVote(props.UsersList, props.UserInfo.UserId)) {
                         alertFactory = new AlertData_1.AlertData();
-                        alert_3 = alertFactory.GetDefaultError("Вы не можете голосовать");
-                        window.G_AddAbsoluteAlertToState(alert_3);
+                        alert_2 = alertFactory.GetDefaultError("Вы не можете голосовать");
+                        window.G_AddAbsoluteAlertToState(alert_2);
                         return [2 /*return*/];
                     }
-                    if (selectedVoteCard === voteCardBlock.target.dataset.vote) {
+                    if (props.SelectedVoteCard === voteCardBlock.target.dataset.vote) {
                         return [2 /*return*/];
                     }
                     return [4 /*yield*/, props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.Vote, props.RoomInfo.Name, voteCardBlock.target.dataset.vote)];
@@ -55280,51 +55866,47 @@ var Room = function (props) {
                     if (!voted) {
                         return [2 /*return*/];
                     }
-                    setSelectedVoteCard(function (prevState) {
-                        return voteCardBlock.target.dataset.vote;
-                    });
+                    props.SetSelectedCard(voteCardBlock.target.dataset.vote);
                     return [2 /*return*/];
             }
         });
     }); };
     var renderVotePlaceIfNeed = function () {
-        if (roomStatusState !== RoomInfo_1.RoomStatus.AllCanVote) {
+        if (props.RoomStatus !== RoomInfo_1.RoomStatus.AllCanVote) {
             return react_1.default.createElement(react_1.default.Fragment, null);
         }
-        var voteArr = [0.5, 1, 2, 3, 5, 7, 10, 13, 15, 18, 20, 25, 30, 35, 40, 50, "tea"];
-        return react_1.default.createElement("div", { onClick: function (e) { return doVote(e); }, className: "planing-cards-container" }, voteArr.map(function (x, i) { return react_1.default.createElement(OneVoteCard_1.default, { key: i, Val: x + '', NeedSelect: selectedVoteCard == x }); }));
+        var voteArr = props.RoomCards;
+        return react_1.default.createElement("div", { onClick: function (e) { return doVote(e); }, className: "planing-cards-container" }, voteArr.map(function (x, i) { return react_1.default.createElement(OneVoteCard_1.default, { key: i, Val: x + '', NeedSelect: props.SelectedVoteCard == x }); }));
     };
     var renderVoteResultIfNeed = function () {
-        if (roomStatusState !== RoomInfo_1.RoomStatus.CloseVote) {
+        if (props.RoomStatus !== RoomInfo_1.RoomStatus.CloseVote) {
             return react_1.default.createElement(react_1.default.Fragment, null);
         }
-        var maximumNames = localState.UsersList.filter(function (x) { return x.HasVote
-            && x.Vote === (localState.VoteInfo.MaxVote + ''); })
+        var maximumNames = props.UsersList.filter(function (x) { return x.HasVote
+            && x.Vote === (props.VoteInfo.MaxVote + ''); })
             .map(function (x) { return x.Name; }).join(', ');
-        var minimumNames = localState.UsersList.filter(function (x) { return x.HasVote
-            && x.Vote === (localState.VoteInfo.MinVote + ''); })
+        var minimumNames = props.UsersList.filter(function (x) { return x.HasVote
+            && x.Vote === (props.VoteInfo.MinVote + ''); })
             .map(function (x) { return x.Name; }).join(', ');
-        var withoutMarkNames = localState.UsersList.filter(function (x) { return x.Vote === 'tea' || !x.HasVote; })
+        var withoutMarkNames = props.UsersList.filter(function (x) { return x.Vote === 'tea' || !x.HasVote; })
             .map(function (x) { return x.Name; }).join(', ');
-        //
-        // .forEach(x=>{        });
         return react_1.default.createElement("div", null,
             react_1.default.createElement("div", { className: "padding-10-top" }),
             react_1.default.createElement("div", { className: "planing-poker-left-one-section" },
                 react_1.default.createElement("p", null, "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442 \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u044F"),
                 react_1.default.createElement("p", null,
                     "\u041C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F \u043E\u0446\u0435\u043D\u043A\u0430: ",
-                    localState.VoteInfo.MaxVote,
+                    props.VoteInfo.MaxVote,
                     " - ",
                     maximumNames),
                 react_1.default.createElement("p", null,
                     "\u041C\u0438\u043D\u0438\u043C\u0430\u043B\u044C\u043D\u0430\u044F \u043E\u0446\u0435\u043D\u043A\u0430: ",
-                    localState.VoteInfo.MinVote,
+                    props.VoteInfo.MinVote,
                     " - ",
                     minimumNames),
                 react_1.default.createElement("p", null,
                     "\u0421\u0440\u0435\u0434\u043D\u043D\u044F\u044F \u043E\u0446\u0435\u043D\u043A\u0430: ",
-                    localState.VoteInfo.AverageVote),
+                    props.VoteInfo.AverageVote),
                 react_1.default.createElement("p", null,
                     "\u041D\u0435 \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043B\u0438: ",
                     withoutMarkNames)));
@@ -55334,15 +55916,6 @@ var Room = function (props) {
     };
     var tryEndVote = function () {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.EndVote, props.RoomInfo.Name);
-    };
-    var makeCurrentStory = function (id) {
-        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.MakeCurrentStory, props.RoomInfo.Name, id);
-    };
-    var deleteStory = function (id) {
-        if (!confirm('Удалить историю?')) {
-            return;
-        }
-        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.DeleteStory, props.RoomInfo.Name, id);
     };
     var saveRoom = function () {
         props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.SaveRoom, props.RoomInfo.Name).then(function () {
@@ -55358,24 +55931,7 @@ var Room = function (props) {
     var aliveRoom = function () {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.AliveRoom, props.RoomInfo.Name);
     };
-    var currentStoryDescriptionOnChange = function (str) {
-        setStoriesState(function (prevState) {
-            // let newState = { ...prevState };
-            var newState = (0, cloneDeep_1.default)(prevState);
-            newState.CurrentStoryDescriptionChange = str;
-            return newState;
-        });
-    };
-    var currentStoryNameOnChange = function (str) {
-        setStoriesState(function (prevState) {
-            // let newState = { ...prevState };
-            var newState = (0, cloneDeep_1.default)(prevState);
-            newState.CurrentStoryNameChange = str;
-            return newState;
-        });
-    };
     var roomMainActionButton = function () {
-        // let isAdmin = CurrentUserIsAdmin(localState.UsersList, props.UserInfo.UserId);
         var saveBut = react_1.default.createElement(react_1.default.Fragment, null);
         if (props.UserInfo.LoginnedInMainApp) {
             saveBut = react_1.default.createElement("div", { className: 'room-action-btn', onClick: function () { return saveRoom(); }, title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443' },
@@ -55389,7 +55945,9 @@ var Room = function (props) {
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/vote3.png" })),
                 saveBut,
                 react_1.default.createElement("div", { className: 'room-action-btn room-action-btn-del', onClick: function () { return deleteRoom(); }, title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443' },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })));
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })),
+                react_1.default.createElement("div", { className: 'room-action-btn', onClick: function () { return props.StartEditRoom(); }, title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443' },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/pencil-edit.png" })));
         }
         return react_1.default.createElement(react_1.default.Fragment, null);
     };
@@ -55416,35 +55974,9 @@ var Room = function (props) {
                         return e.target.value;
                     });
                 }, value: userNameLocalState }),
-            react_1.default.createElement("div", { className: 'planing-name-change-but', title: '\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u043C\u044F', onClick: function () { return props.ChangeUserName(userNameLocalState); } },
+            react_1.default.createElement("div", { className: 'planing-name-change-but', title: '\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u043C\u044F', onClick: function () { return props.SetUserName(userNameLocalState); } },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/pencil-edit.png" })),
             hideVotesSetting);
-    };
-    var updateAllUsers = function () {
-        var loadedUsers = function (error, data) {
-            if (error) {
-                //TODO выбить из комнаты?
-                alert("todo что то пошло не так лучше обновить страницу");
-                return;
-            }
-            if (data) {
-                var newUsersData_2 = data.map(function (x) {
-                    var us = new RoomInfo_1.UserInRoom();
-                    us.FillByBackModel(x);
-                    return us;
-                });
-                setLocalState(function (prevState) {
-                    var _a;
-                    // let newState = { ...prevState };
-                    var newState = (0, cloneDeep_1.default)(prevState);
-                    newState.UsersList.splice(0, newState.UsersList.length);
-                    (_a = newState.UsersList).push.apply(_a, newUsersData_2);
-                    return newState;
-                });
-            }
-        };
-        // console.log(JSON.stringify(props));
-        window.G_PlaningPokerController.GetUsersIsRoom(props.RoomInfo.Name, props.UserInfo.UserConnectionId, loadedUsers);
     };
     var renderNotAuthMessage = function () {
         if (props.UserInfo.LoginnedInMainApp) {
@@ -55456,34 +55988,130 @@ var Room = function (props) {
     return react_1.default.createElement("div", { className: "container" },
         react_1.default.createElement("img", { className: 'visibility-hidden size-0', src: "/images/eye5.png" }),
         react_1.default.createElement("img", { className: 'visibility-hidden size-0', src: "/images/eye1.png" }),
+        props.EditRoom ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return props.EndEditRoom(); }, IsHeightWindow: true, Title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043A\u043E\u043C\u043D\u0430\u0442\u044B', InnerContent: function () { return react_1.default.createElement(EditRoom_1.default, { MyHubConnection: props.MyHubConnection }); } }) : react_1.default.createElement(react_1.default.Fragment, null),
         react_1.default.createElement("div", { className: "padding-10-top planing-room-header" },
             react_1.default.createElement("h1", null,
                 "\u041A\u043E\u043C\u043D\u0430\u0442\u0430: ",
                 props.RoomInfo.Name),
             renderNotAuthMessage()),
         react_1.default.createElement("div", null,
-            react_1.default.createElement(RoomTimer_1.default, { DieDate: localState.DieRoomTime, AliveRoom: aliveRoom })),
+            react_1.default.createElement(RoomTimer_1.default, { DieDate: dieRoomTime, AliveRoom: aliveRoom })),
         react_1.default.createElement("div", { className: "row" },
             react_1.default.createElement("div", { className: "planit-room-left-part col-12 col-md-9" },
                 react_1.default.createElement("div", null,
                     roomMainActionButton(),
                     renderVotePlaceIfNeed(),
                     renderVoteResultIfNeed()),
-                react_1.default.createElement(StoriesSection_1.default, { CurrentStoryId: storiesState.CurrentStoryId, MyHubConnection: props.MyHubConnection, RoomName: props.RoomInfo.Name, Stories: storiesState.Stories, TotalNotActualStoriesCount: localState.TotalNotActualStoriesCount, DeleteStory: deleteStory, MakeCurrentStory: makeCurrentStory, IsAdmin: currentUserIsAdmin, CurrentStoryDescriptionChange: storiesState.CurrentStoryDescriptionChange, CurrentStoryNameChange: storiesState.CurrentStoryNameChange, CurrentStoryDescriptionOnChange: currentStoryDescriptionOnChange, CurrentStoryNameOnChange: currentStoryNameOnChange, RoomStatus: roomStatusState, UserInfo: props.UserInfo })),
+                react_1.default.createElement(StoriesSection_1.default, { MyHubConnection: props.MyHubConnection, IsAdmin: currentUserIsAdmin })),
             react_1.default.createElement("div", { className: "planit-room-right-part col-12 col-md-3" },
                 react_1.default.createElement("div", null, settingsUpUserListRender()),
                 react_1.default.createElement("div", { className: "padding-10-top" }),
                 react_1.default.createElement("div", { className: 'people-room-header' },
                     react_1.default.createElement("span", null, "\u0423\u0447\u0430\u0441\u0442\u043D\u0438\u043A\u0438"),
-                    react_1.default.createElement("div", { className: 'planing-people-refresh', onClick: function () { return updateAllUsers(); } },
+                    react_1.default.createElement("div", { className: 'planing-people-refresh', onClick: function () { return props.UpdateAllUsers(props.RoomInfo.Name, props.UserInfo.UserConnectionId); } },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/refresh.png" }))),
-                localState.UsersList.map(function (x) {
-                    return react_1.default.createElement(UserInList_1.default, { key: x.Id, User: x, TryToRemoveUserFromRoom: tryToRemoveUserFromRoom, RenderForAdmin: currentUserIsAdmin, HideVote: hideVoteState, HasVote: x.HasVote, RoomStatus: roomStatusState, MaxVote: localState.VoteInfo.MaxVote, MinVote: localState.VoteInfo.MinVote, MyHubConnection: props.MyHubConnection, RoomName: props.RoomInfo.Name });
+                props.UsersList.map(function (x) {
+                    return react_1.default.createElement(UserInList_1.default, { key: x.Id, User: x, RenderForAdmin: currentUserIsAdmin, HideVote: hideVoteState, HasVote: x.HasVote, MyHubConnection: props.MyHubConnection, CurrentUserIsAdmin: currentUserIsAdmin });
                 })),
             react_1.default.createElement("div", { className: "display_none" },
                 react_1.default.createElement(react_router_dom_1.Link, { id: "move_to_index_link_react", to: "/planing-poker/" }, "hidden"))));
 };
-exports["default"] = Room;
+var mapStateToProps = function (state, ownProps) {
+    var res = {};
+    res.UserInfo = state.PlaningPokerApp.User;
+    res.RoomInfo = state.PlaningPokerApp.RoomInfo;
+    res.VoteInfo = state.PlaningPokerApp.VoteInfo;
+    res.UsersList = state.PlaningPokerApp.UsersList;
+    res.TotalNotActualStoriesCount = state.PlaningPokerApp.TotalNotActualStoriesCount;
+    res.RoomStatus = state.PlaningPokerApp.RoomStatus;
+    res.SelectedVoteCard = state.PlaningPokerApp.SelectedVoteCard;
+    res.DieRoomTimeInitial = state.PlaningPokerApp.DieRoomTimeInitial;
+    res.EditRoom = state.PlaningPokerApp.EditRoom;
+    res.RoomCards = state.PlaningPokerApp.RoomCards;
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    res.SetUserId = function (userId) {
+        dispatch((0, Actions_1.SetRoomUserIdActionCreator)(userId));
+    };
+    res.SetUserName = function (username) {
+        dispatch((0, Actions_1.SetUserNameActionCreator)(username));
+    };
+    res.SetRoomName = function (roomname) {
+        dispatch((0, Actions_1.SetRoomNameActionCreator)(roomname));
+    };
+    res.SetRoomUsers = function (users) {
+        dispatch((0, Actions_1.SetRoomUsersActionCreator)(users));
+    };
+    res.SetVoteInfo = function (voteInfo) {
+        dispatch((0, Actions_1.SetVoteInfoActionCreator)(voteInfo));
+    };
+    res.SetCurrentStoryId = function (id) {
+        dispatch((0, Actions_1.SetCurrentStoryIdActionCreator)(id));
+    };
+    res.SetStories = function (data) {
+        dispatch((0, Actions_1.SetStoriesActionCreator)(data));
+    };
+    res.SetRoomStatus = function (status) {
+        dispatch((0, Actions_1.SetRoomStatusActionCreator)(status));
+    };
+    res.AddUserToRoom = function (data) {
+        dispatch((0, Actions_1.AddUserToRoomActionCreator)(data));
+    };
+    res.ChangeAnotherUserName = function (userId, newUserName) {
+        dispatch((0, Actions_1.ChangeUserNameInRoomActionCreator)({ UserId: userId, UserName: newUserName }));
+    };
+    res.RemoveUsers = function (usersId) {
+        dispatch((0, Actions_1.RemoveUserActionCreator)(usersId));
+    };
+    res.VoteChanged = function (userId, vote) {
+        dispatch((0, Actions_1.VoteChangedActionCreator)({ UserId: userId, Vote: vote }));
+    };
+    res.UserRoleChanged = function (userId, changeType, role) {
+        dispatch((0, Actions_1.UserRoleChangedActionCreator)({ UserId: userId, ChangeType: changeType, Role: role }));
+    };
+    res.SetSelectedCard = function (val) {
+        dispatch((0, Actions_1.SetSelectedCardActionCreator)(val));
+    };
+    res.ClearVote = function () {
+        dispatch((0, Actions_1.ClearVoteActionCreator)());
+    };
+    res.AddNewStory = function (story) {
+        dispatch((0, Actions_1.AddNewStoryActionCreator)(story));
+    };
+    res.StoryChange = function (story) {
+        dispatch((0, Actions_1.StoryChangeActionCreator)(story));
+    };
+    res.DeleteStory = function (id) {
+        dispatch((0, Actions_1.DeleteStoryActionCreator)(id));
+    };
+    res.MoveStoryToComplete = function (oldId, data) {
+        dispatch((0, Actions_1.MoveStoryToCompleteActionCreator)({ OldId: oldId, Story: data }));
+    };
+    res.UpdateStoriesId = function (data) {
+        dispatch((0, Actions_1.UpdateStoriesIdActionCreator)(data));
+    };
+    res.UpdateAllUsers = function (roomname, userConnectionId) {
+        dispatch(window.G_PlaningPokerController.GetUsersIsRoomRedux(roomname, userConnectionId));
+    };
+    res.GetRoomInfo = function (roomname, userConnectionId) {
+        dispatch(window.G_PlaningPokerController.GetRoomInfoRedux(roomname, userConnectionId));
+    };
+    res.StartEditRoom = function () {
+        dispatch((0, Actions_1.SetEditRoomActionCreator)(true));
+    };
+    res.EndEditRoom = function () {
+        dispatch((0, Actions_1.SetEditRoomActionCreator)(false));
+    };
+    res.SetRoomCards = function (cards) {
+        dispatch((0, Actions_1.SetRoomCardsActionCreator)(cards));
+    };
+    return res;
+};
+var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+// and that function returns the connected, wrapper component:
+exports["default"] = connectToStore(Room);
 
 
 /***/ }),
@@ -55528,18 +56156,14 @@ var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
 var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
 var Paggination_1 = __importDefault(__webpack_require__(/*! ../../Paggination/Paggination */ "./src/components/Body/Paggination/Paggination.tsx"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var PlaningPokerHelper_1 = __webpack_require__(/*! ../../../../Models/BL/PlaningPokerApp/PlaningPokerHelper */ "./src/Models/BL/PlaningPokerApp/PlaningPokerHelper.ts");
 __webpack_require__(/*! ./StoriesSection.css */ "./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css");
-var StoriesSectionProp = /** @class */ (function () {
-    function StoriesSectionProp() {
-    }
-    return StoriesSectionProp;
-}());
 var StoriesSectionState = /** @class */ (function () {
     function StoriesSectionState() {
         this.NameForAdd = "";
         this.DescriptionForAdd = "";
         this.SortByDateAsc = false;
-        this.NotActualStories = [];
     }
     return StoriesSectionState;
 }());
@@ -55549,55 +56173,36 @@ var StoriesSection = function (props) {
     var _b = (0, react_1.useState)(1), listStoryTypeState = _b[0], setListStoryTypeState = _b[1];
     var _c = (0, react_1.useState)(false), showNewStoryForm = _c[0], setShowNewStoryForm = _c[1];
     var _d = (0, react_1.useState)(1), storiesPageNumber = _d[0], setstoriesPageNumber = _d[1];
+    var storyHelper = new PlaningPokerHelper_1.StoriesHelper();
+    var currentStory = storyHelper.GetStoryById(props.Stories, props.CurrentStoryId);
+    var _e = (0, react_1.useState)((currentStory === null || currentStory === void 0 ? void 0 : currentStory.Name) || ''), currentStoryNameChange = _e[0], setCurrentStoryNameChange = _e[1];
+    var _f = (0, react_1.useState)((currentStory === null || currentStory === void 0 ? void 0 : currentStory.Description) || ''), currentStoryDescriptionChange = _f[0], setCurrentStoryDescriptionChange = _f[1];
     var countStoriesOnPage = 3;
-    var storiesHelper = new RoomInfo_1.StoriesHelper();
+    var storiesHelper = new PlaningPokerHelper_1.StoriesHelper();
     (0, react_1.useEffect)(function () {
-        ResetCurrentStoryById();
+        // ResetCurrentStoryById();
+        setCurrentStoryNameChange((currentStory === null || currentStory === void 0 ? void 0 : currentStory.Name) || '');
+        setCurrentStoryDescriptionChange((currentStory === null || currentStory === void 0 ? void 0 : currentStory.Description) || '');
+        if (currentStory) {
+        }
     }, [props.CurrentStoryId]);
+    (0, react_1.useEffect)(function () {
+        setCurrentStoryNameChange((currentStory === null || currentStory === void 0 ? void 0 : currentStory.Name) || '');
+    }, [currentStory === null || currentStory === void 0 ? void 0 : currentStory.Name]);
+    (0, react_1.useEffect)(function () {
+        setCurrentStoryDescriptionChange((currentStory === null || currentStory === void 0 ? void 0 : currentStory.Description) || '');
+    }, [currentStory === null || currentStory === void 0 ? void 0 : currentStory.Description]);
     (0, react_1.useEffect)(function () {
     }, []);
     (0, react_1.useEffect)(function () {
-        loadOldStories();
-    }, [storiesPageNumber]);
+        props.LoadOldStories(props.RoomName, props.UserInfo.UserConnectionId, storiesPageNumber, countStoriesOnPage);
+    }, [props.RoomName, props.UserInfo.UserConnectionId, storiesPageNumber, countStoriesOnPage]);
     var cancelChangeCurrentStory = function () {
-        var story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
-        props.CurrentStoryDescriptionOnChange(story.Description);
-        props.CurrentStoryNameOnChange(story.Name);
+        setCurrentStoryNameChange((currentStory === null || currentStory === void 0 ? void 0 : currentStory.Name) || '');
+        setCurrentStoryDescriptionChange((currentStory === null || currentStory === void 0 ? void 0 : currentStory.Description) || '');
     };
     var changeCurrentStory = function () {
-        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.ChangeCurrentStory, props.RoomName, props.CurrentStoryId, props.CurrentStoryNameChange, props.CurrentStoryDescriptionChange);
-    };
-    var loadOldStories = function () {
-        var loadedStories = function (error, data) {
-            if (error) {
-                alert("todo что то пошло не так лучше обновить страницу");
-                return;
-            }
-            if (data) {
-                setStoriesState(function (prevState) {
-                    // let newState = { ...prevState };
-                    var newState = (0, cloneDeep_1.default)(prevState);
-                    newState.NotActualStories = data.stories.map(function (x) {
-                        var st = new RoomInfo_1.Story();
-                        st.FillByBackModel(x);
-                        return st;
-                    });
-                    return newState;
-                });
-            }
-        };
-        // console.log(JSON.stringify(props));
-        window.G_PlaningPokerController.GetNotActualStories(props.RoomName, props.UserInfo.UserConnectionId, storiesPageNumber, countStoriesOnPage, loadedStories);
-    };
-    var ResetCurrentStoryById = function () {
-        if (!props.CurrentStoryId) {
-            props.CurrentStoryDescriptionOnChange("");
-            props.CurrentStoryNameOnChange("");
-            return;
-        }
-        var story = storiesHelper.GetStoryById(props.Stories, props.CurrentStoryId);
-        props.CurrentStoryDescriptionOnChange(story.Description);
-        props.CurrentStoryNameOnChange(story.Name);
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.ChangeCurrentStory, props.RoomName, props.CurrentStoryId, currentStoryNameChange, currentStoryDescriptionChange);
     };
     var tryMakeStoryComplete = function () {
         //если не задан voteInfo как то уведомить что оценки не запишутся
@@ -55608,6 +56213,15 @@ var StoriesSection = function (props) {
         if (save) {
             props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.MakeStoryComplete, props.RoomName, props.CurrentStoryId);
         }
+    };
+    var deleteStory = function (id) {
+        if (!confirm('Удалить историю?')) {
+            return;
+        }
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.DeleteStory, props.RoomName, id);
+    };
+    var makeCurrentStory = function (id) {
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.MakeCurrentStory, props.RoomName, id);
     };
     var currentStoryDescriptionRender = function () {
         if (!props.CurrentStoryId) {
@@ -55627,11 +56241,11 @@ var StoriesSection = function (props) {
         var storyBodyRender = function () {
             if (props.IsAdmin) {
                 return react_1.default.createElement("div", null,
-                    react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435", value: props.CurrentStoryNameChange, type: "text", onChange: function (e) {
-                            props.CurrentStoryNameOnChange(e.target.value);
+                    react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435", value: currentStoryNameChange, type: "text", onChange: function (e) {
+                            setCurrentStoryNameChange(e.target.value);
                         } }),
-                    react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435", value: props.CurrentStoryDescriptionChange, type: "text", onChange: function (e) {
-                            props.CurrentStoryDescriptionOnChange(e.target.value);
+                    react_1.default.createElement("input", { className: "persent-100-width form-control", placeholder: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435", value: currentStoryDescriptionChange, type: "text", onChange: function (e) {
+                            setCurrentStoryDescriptionChange(e.target.value);
                         } }));
             }
             else {
@@ -55667,9 +56281,9 @@ var StoriesSection = function (props) {
         if (props.IsAdmin && listStoryTypeState === 1) {
             adminButtonInList = function (id) {
                 return react_1.default.createElement("div", { className: 'stories-but-block' },
-                    react_1.default.createElement("div", { className: 'stories-action-btn', onClick: function () { return props.MakeCurrentStory(id); }, title: '\u0421\u0434\u0435\u043B\u0430\u0442\u044C \u0442\u0435\u043A\u0443\u0449\u0435\u0439' },
+                    react_1.default.createElement("div", { className: 'stories-action-btn', onClick: function () { return makeCurrentStory(id); }, title: '\u0421\u0434\u0435\u043B\u0430\u0442\u044C \u0442\u0435\u043A\u0443\u0449\u0435\u0439' },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/vote2.png" })),
-                    react_1.default.createElement("div", { className: 'stories-del-but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () { return props.DeleteStory(id); } },
+                    react_1.default.createElement("div", { className: 'stories-del-but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () { return deleteStory(id); } },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })));
             };
             addNewForm = listStoryTypeState !== 1 ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement("div", null,
@@ -55694,7 +56308,7 @@ var StoriesSection = function (props) {
             if (props.TotalNotActualStoriesCount > countStoriesOnPage) {
                 paggination = react_1.default.createElement(Paggination_1.default, { ElementsCount: props.TotalNotActualStoriesCount, PageNumber: storiesPageNumber, ElementsOnPage: countStoriesOnPage, SetPageNumber: setstoriesPageNumber });
             }
-            storiesForRender = storiesState.NotActualStories;
+            storiesForRender = props.NotActualStories;
         }
         else {
             storiesForRender = props.Stories
@@ -55760,7 +56374,28 @@ var StoriesSection = function (props) {
         react_1.default.createElement("div", { className: "padding-10-top" }),
         react_1.default.createElement("div", null, storiesListRender()));
 };
-exports["default"] = StoriesSection;
+var mapStateToProps = function (state, ownProps) {
+    var res = {};
+    res.RoomName = state.PlaningPokerApp.RoomInfo.Name;
+    res.RoomStatus = state.PlaningPokerApp.RoomStatus;
+    res.UserInfo = state.PlaningPokerApp.User;
+    res.NotActualStories = state.PlaningPokerApp.NotActualStories;
+    res.Stories = state.PlaningPokerApp.StoriesInfo.Stories;
+    res.CurrentStoryId = state.PlaningPokerApp.StoriesInfo.CurrentStoryId;
+    res.TotalNotActualStoriesCount = state.PlaningPokerApp.TotalNotActualStoriesCount;
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    res.LoadOldStories = function (roomname, userConnectionId, storiesPageNumber, countStoriesOnPage) {
+        // console.log(JSON.stringify(props));
+        dispatch(window.G_PlaningPokerController.GetNotActualStoriesRedux(roomname, userConnectionId, storiesPageNumber, countStoriesOnPage));
+    };
+    return res;
+};
+var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+// and that function returns the connected, wrapper component:
+exports["default"] = connectToStore(StoriesSection);
 
 
 /***/ }),
@@ -55799,28 +56434,26 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 __webpack_require__(/*! ./UserInList.css */ "./src/components/Body/PlaningPoker/UserInList/UserInList.css");
-var UserInListProp = /** @class */ (function () {
-    function UserInListProp() {
-    }
-    return UserInListProp;
-}());
 var UserInList = function (props) {
     var _a = (0, react_1.useState)("-"), selectedEditRole = _a[0], changeSelectedEditRoleState = _a[1];
-    // useEffect(() => {
-    //     if (props.HubConnected) {
-    //     }
-    // }, [props.HubConnected]);
     var addNewRoleToUser = function () {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.AddNewRoleToUser, props.RoomName, props.User.Id, selectedEditRole);
     };
     var removeRoleUser = function () {
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.RemoveRoleUser, props.RoomName, props.User.Id, selectedEditRole);
     };
+    var tryToRemoveUserFromRoom = function () {
+        if (!props.CurrentUserIsAdmin) {
+            return;
+        }
+        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.KickUser, props.RoomName, props.User.Id);
+    };
     var delButton = react_1.default.createElement("div", null);
     var statusChange = react_1.default.createElement("div", null);
     if (props.RenderForAdmin) {
-        delButton = react_1.default.createElement("div", { className: 'user-list-del-but', title: '\u0412\u044B\u0433\u043D\u0430\u0442\u044C \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F', onClick: function () { return props.TryToRemoveUserFromRoom(props.User.Id); } },
+        delButton = react_1.default.createElement("div", { className: 'user-list-del-but', title: '\u0412\u044B\u0433\u043D\u0430\u0442\u044C \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F', onClick: function () { return tryToRemoveUserFromRoom(); } },
             react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" }));
         statusChange = react_1.default.createElement("div", null,
             react_1.default.createElement("select", { className: "form-control", value: selectedEditRole, onChange: function (e) {
@@ -55882,7 +56515,22 @@ var UserInList = function (props) {
             statusChange),
         react_1.default.createElement("div", { className: "padding-10-top" }));
 };
-exports["default"] = UserInList;
+var mapStateToProps = function (state, ownProps) {
+    var _a, _b, _c;
+    var res = {};
+    res.RoomName = (_a = state.PlaningPokerApp.RoomInfo) === null || _a === void 0 ? void 0 : _a.Name;
+    res.RoomStatus = state.PlaningPokerApp.RoomStatus;
+    res.MaxVote = (_b = state.PlaningPokerApp.VoteInfo) === null || _b === void 0 ? void 0 : _b.MaxVote;
+    res.MinVote = (_c = state.PlaningPokerApp.VoteInfo) === null || _c === void 0 ? void 0 : _c.MinVote;
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    return res;
+};
+var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+// and that function returns the connected, wrapper component:
+exports["default"] = connectToStore(UserInList);
 
 
 /***/ }),
@@ -57857,31 +58505,40 @@ var SocialLinkGroup_1 = __webpack_require__(/*! ../SocialLinkGroup */ "./src/com
 __webpack_require__(/*! ./FooterMain.css */ "./src/components/Footer/FooterMain/FooterMain.css");
 var FooterMain = function (props) {
     var _a = (0, react_1.useState)(true), showDefaultFooter = _a[0], setShowDefaultFooter = _a[1];
+    var emptyFooter = true;
+    var renderFooterContent = function () {
+        if (emptyFooter) {
+            return react_1.default.createElement(react_1.default.Fragment, null);
+        }
+        return react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement("div", { className: "footer-cloud", 
+                //не удалять
+                // onClick={() => setShowDefaultFooter(!showDefaultFooter)}>
+                onClick: function () { return setShowDefaultFooter(true); } },
+                react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/red_cloud.png" })),
+            !showDefaultFooter ? react_1.default.createElement("div", { className: "footer-eye" },
+                react_1.default.createElement("img", { className: 'persent-100-width-height footer-eye-img', src: "/images/eye3.png" }))
+                :
+                    react_1.default.createElement("div", { className: 'main-footer-inner container' },
+                        react_1.default.createElement("div", { className: 'row' },
+                            react_1.default.createElement("div", { className: 'col-md-4' },
+                                react_1.default.createElement("ul", null,
+                                    react_1.default.createElement("li", null,
+                                        react_1.default.createElement("a", { href: '#' }, "\u041E \u043F\u0440\u043E\u0435\u043A\u0442\u0435")),
+                                    react_1.default.createElement("li", null,
+                                        " ",
+                                        react_1.default.createElement("a", { href: '#' }, "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u0441\u043A\u043E\u0435 \u0441\u043E\u0433\u043B\u0430\u0448\u0435\u043D\u0438\u0435")),
+                                    react_1.default.createElement("li", null,
+                                        react_1.default.createElement("a", { href: '#' }, "\u041F\u043E\u043B\u0438\u0442\u0438\u043A\u0430 \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0438 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0434\u0430\u043D\u043D\u044B\u0445")))),
+                            react_1.default.createElement(SocialLinkGroup_1.SocialLinkGroup, null),
+                            react_1.default.createElement("div", { className: 'col-md-4 footer-contacts' },
+                                react_1.default.createElement("p", { className: 'contacts-head' }, "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B"),
+                                react_1.default.createElement("ul", null,
+                                    react_1.default.createElement("li", null, "\u041F\u043E\u0447\u0442\u0430"),
+                                    react_1.default.createElement("li", null, "\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430"))))));
+    };
     return react_1.default.createElement("div", { className: 'main-footer' },
-        react_1.default.createElement("div", { className: "footer-cloud", 
-            // onClick={() => setShowDefaultFooter(!showDefaultFooter)}>
-            onClick: function () { return setShowDefaultFooter(true); } },
-            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/red_cloud.png" })),
-        !showDefaultFooter ? react_1.default.createElement("div", { className: "footer-eye" },
-            react_1.default.createElement("img", { className: 'persent-100-width-height footer-eye-img', src: "/images/eye3.png" }))
-            :
-                react_1.default.createElement("div", { className: 'main-footer-inner container' },
-                    react_1.default.createElement("div", { className: 'row' },
-                        react_1.default.createElement("div", { className: 'col-md-4' },
-                            react_1.default.createElement("ul", null,
-                                react_1.default.createElement("li", null,
-                                    react_1.default.createElement("a", { href: '#' }, "\u041E \u043F\u0440\u043E\u0435\u043A\u0442\u0435")),
-                                react_1.default.createElement("li", null,
-                                    " ",
-                                    react_1.default.createElement("a", { href: '#' }, "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C\u0441\u043A\u043E\u0435 \u0441\u043E\u0433\u043B\u0430\u0448\u0435\u043D\u0438\u0435")),
-                                react_1.default.createElement("li", null,
-                                    react_1.default.createElement("a", { href: '#' }, "\u041F\u043E\u043B\u0438\u0442\u0438\u043A\u0430 \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0438 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B\u044C\u043D\u044B\u0445 \u0434\u0430\u043D\u043D\u044B\u0445")))),
-                        react_1.default.createElement(SocialLinkGroup_1.SocialLinkGroup, null),
-                        react_1.default.createElement("div", { className: 'col-md-4 footer-contacts' },
-                            react_1.default.createElement("p", { className: 'contacts-head' }, "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B"),
-                            react_1.default.createElement("ul", null,
-                                react_1.default.createElement("li", null, "\u041F\u043E\u0447\u0442\u0430"),
-                                react_1.default.createElement("li", null, "\u041D\u043E\u043C\u0435\u0440 \u0442\u0435\u043B\u0435\u0444\u043E\u043D\u0430"))))),
+        renderFooterContent(),
         react_1.default.createElement(PostFooter_1.PostFooter, null));
 };
 exports["default"] = FooterMain;
@@ -58040,21 +58697,6 @@ exports.SocialLinkGroup = SocialLinkGroup;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -58079,22 +58721,25 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.HeaderLogo = void 0;
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 __webpack_require__(/*! ./HeaderLogo.css */ "./src/components/Header/HeaderLogo/HeaderLogo.css");
-var HeaderLogo = /** @class */ (function (_super) {
-    __extends(HeaderLogo, _super);
-    function HeaderLogo(props) {
-        return _super.call(this, props) || this;
+var HeaderLogo = function (props) {
+    var logoBurgerClass = 'main-header-logo-burger';
+    var burgerLineClass = 'header-burger-line';
+    if (props.MenuShowed) {
+        logoBurgerClass += ' main-header-logo-burger-opened';
+        burgerLineClass += ' header-burger-line-opened';
     }
-    HeaderLogo.prototype.render = function () {
-        var _this = this;
-        return React.createElement("div", { className: 'main-header-logo' },
-            React.createElement("div", { className: "main-header-logo-text", onClick: function () { return _this.props.ShowMenu(); } }, "M"));
-    };
-    return HeaderLogo;
-}(React.Component));
-exports.HeaderLogo = HeaderLogo;
+    else {
+        burgerLineClass += ' header-burger-line-closed';
+    }
+    return React.createElement("div", { className: 'main-header-logo' },
+        React.createElement("div", { className: logoBurgerClass, onClick: function () { return props.ShowMenu(); } },
+            React.createElement("div", { className: burgerLineClass }),
+            React.createElement("div", { className: burgerLineClass }),
+            React.createElement("div", { className: burgerLineClass })));
+};
+exports["default"] = HeaderLogo;
 
 
 /***/ }),
@@ -58130,9 +58775,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var HeaderLogo_1 = __webpack_require__(/*! ../HeaderLogo/HeaderLogo */ "./src/components/Header/HeaderLogo/HeaderLogo.tsx");
+var HeaderLogo_1 = __importDefault(__webpack_require__(/*! ../HeaderLogo/HeaderLogo */ "./src/components/Header/HeaderLogo/HeaderLogo.tsx"));
 var HeaderUserMenu_1 = __webpack_require__(/*! ../HeaderUserMenu/HeaderUserMenu */ "./src/components/Header/HeaderUserMenu/HeaderUserMenu.tsx");
 __webpack_require__(/*! ./HeaderMain.css */ "./src/components/Header/HeaderMain/HeaderMain.css");
 var HeaderMain = function (props) {
@@ -58149,7 +58797,7 @@ var HeaderMain = function (props) {
                 react_1.default.createElement("a", { href: x.Path }, x.Name)); })),
         react_1.default.createElement("div", { className: 'main-header-inner' },
             react_1.default.createElement("div", { className: 'main-header-row' },
-                react_1.default.createElement(HeaderLogo_1.HeaderLogo, { ShowMenu: function () { return setShowMenu(!showMenu); } }),
+                react_1.default.createElement(HeaderLogo_1.default, { ShowMenu: function () { return setShowMenu(!showMenu); }, MenuShowed: showMenu }),
                 react_1.default.createElement(HeaderUserMenu_1.HeaderUserMenu, { AuthInfo: props.AuthInfo }))));
 };
 exports["default"] = HeaderMain;
@@ -58489,7 +59137,7 @@ var CodeReviewProjectController_1 = __webpack_require__(/*! ./Models/Controllers
 var CodeReviewTaskController_1 = __webpack_require__(/*! ./Models/Controllers/CodeReviewApp/CodeReviewTaskController */ "./src/Models/Controllers/CodeReviewApp/CodeReviewTaskController.ts");
 var CodeReviewUserController_1 = __webpack_require__(/*! ./Models/Controllers/CodeReviewApp/CodeReviewUserController */ "./src/Models/Controllers/CodeReviewApp/CodeReviewUserController.ts");
 var ArticleController_1 = __webpack_require__(/*! ./Models/Controllers/MenuApp/ArticleController */ "./src/Models/Controllers/MenuApp/ArticleController.ts");
-var PlaningPokerController_1 = __webpack_require__(/*! ./Models/Controllers/PlaningPoker/PlaningPokerController */ "./src/Models/Controllers/PlaningPoker/PlaningPokerController.ts");
+var PlaningPokerController_1 = __webpack_require__(/*! ./Models/Controllers/PlaningPokerApp/PlaningPokerController */ "./src/Models/Controllers/PlaningPokerApp/PlaningPokerController.ts");
 var UsersController_1 = __webpack_require__(/*! ./Models/Controllers/UsersController */ "./src/Models/Controllers/UsersController.ts");
 var WordsCardsController_1 = __webpack_require__(/*! ./Models/Controllers/WordsCardsApp/WordsCardsController */ "./src/Models/Controllers/WordsCardsApp/WordsCardsController.ts");
 var WordsListController_1 = __webpack_require__(/*! ./Models/Controllers/WordsCardsApp/WordsListController */ "./src/Models/Controllers/WordsCardsApp/WordsListController.ts");

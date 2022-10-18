@@ -30,12 +30,15 @@ namespace PlanitPoker.Models.Returns
         [JsonPropertyName("current_story_id")]
         public string CurrentStoryId { get; set; }
 
+        [JsonPropertyName("cards")]
+        public List<string> Cards { get; set; }
 
         public StoredRoomReturn()
         {
             Users = new List<PlanitUserReturn>();
             Stories = new List<StoryReturn>();
             CurrentStoryId = "";
+            Cards = new List<string>();
         }
 
         public StoredRoomReturn(StoredRoom obj) : this()
@@ -61,6 +64,8 @@ namespace PlanitPoker.Models.Returns
             {
                 Stories = obj.Stories.Select(x => new StoryReturn(x)).ToList();
             }
+
+            Cards = obj.Cards.ToList();
         }
     }
 }

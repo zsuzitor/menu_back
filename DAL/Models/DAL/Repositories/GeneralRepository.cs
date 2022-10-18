@@ -34,7 +34,7 @@ namespace DAL.Models.DAL.Repositories
 
         public virtual async Task<List<T1>> DeleteAsync(List<T1> records)
         {
-            _db.Set<T1>().AttachRange(records);
+            _db.Set<T1>().AttachRange(records);//?
             _db.Set<T1>().RemoveRange(records);
             await _db.SaveChangesAsync();
             return records;
@@ -42,7 +42,7 @@ namespace DAL.Models.DAL.Repositories
 
         public virtual async Task<T1> DeleteAsync(T1 record)
         {
-            _db.Set<T1>().Attach(record);
+            _db.Set<T1>().Attach(record);//?
             _db.Set<T1>().Remove(record);
             await _db.SaveChangesAsync();
             return record;
@@ -87,14 +87,14 @@ namespace DAL.Models.DAL.Repositories
 
         public virtual async Task<T1> UpdateAsync(T1 record)
         {
-            _db.Set<T1>().Attach(record);
+            //_db.Set<T1>().Attach(record);
             await _db.SaveChangesAsync();
             return record;
         }
 
         public virtual async Task<IEnumerable<T1>> UpdateAsync(IEnumerable<T1> records)
         {
-            _db.Set<T1>().AttachRange(records);
+            //_db.Set<T1>().AttachRange(records);
             await _db.SaveChangesAsync();
             return records;
         }

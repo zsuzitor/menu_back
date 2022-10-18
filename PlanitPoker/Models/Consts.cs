@@ -32,6 +32,10 @@ namespace PlanitPoker.Models
             public const string CantVote = "planing_poker_cant_vote";
             public const string StoryNotFound = "planing_poker_story_not_found";
             public const string StoryBadStatus = "planing_poker_story_bad_status";
+            public const string RoomBadPassword = "planing_poker_room_bad_password";
+            public const string RoomBadVoteMark = "planing_poker_room_bad_vote_mark";
+            public const string RoomBadVoteMarks = "planing_poker_room_bad_vote_marks";
+
         }
 
         //public class PlanitPokerNotifyConsts
@@ -67,6 +71,8 @@ namespace PlanitPoker.Models
             public const string MovedStoryToComplete = "MovedStoryToComplete";
             public const string NeedRefreshTokens = "NeedRefreshTokens";
             public const string RoomWasSaved = "RoomWasSaved";
+            public const string RoomCardsChanged = "RoomCardsChanged";
+
         }
     }
 }

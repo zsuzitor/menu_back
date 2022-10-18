@@ -22,6 +22,7 @@ namespace PlanitPoker.Models.Entity
         public bool OldStoriesAreLoaded { get; set; }
         //public long StoryForAddMaxTmpId { get; set; }
         public long TotalNotActualStoriesCount { get; set; }
+        public List<string> Cards { get; set; }
 
 
         public StoredRoom()
@@ -31,6 +32,7 @@ namespace PlanitPoker.Models.Entity
             Stories = new List<Story>();
             DieDate = DateTime.Now.AddHours(Consts.DefaultHourRoomAlive);
             CurrentStoryId = string.Empty;
+            Cards = new List<string>();
         }
 
         public StoredRoom(string name, string password) : this()

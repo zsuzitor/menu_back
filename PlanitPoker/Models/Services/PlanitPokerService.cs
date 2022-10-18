@@ -15,6 +15,7 @@ using Common.Models.Exceptions;
 using Common.Models.Error;
 using System.Globalization;
 using DAL.Models.DAL;
+using jwtLib.JWTAuth.Interfaces;
 
 namespace PlanitPoker.Models.Services
 {
@@ -31,6 +32,8 @@ namespace PlanitPoker.Models.Services
         private readonly IStoryRepository _storyRepository;
         private readonly IErrorService _errorService;
         private readonly IErrorContainer _errorContainer;
+        private readonly IJWTHasher _hasher;
+
 
 
         private readonly DBHelper _dbHelper;
@@ -41,6 +44,7 @@ namespace PlanitPoker.Models.Services
             MultiThreadHelper multiThreadHelper,
             IRoomRepository roomRepository, IStoryRepository storyRepository
             , IErrorService errorService, IErrorContainer errorContainer,
+             IJWTHasher hasher,
             DBHelper dbHelper, MenuDbContext db
         )
         {
@@ -50,6 +54,7 @@ namespace PlanitPoker.Models.Services
 
             _errorService = errorService;
             _errorContainer = errorContainer;
+            _hasher = hasher;
             _dbHelper = dbHelper;
             _db = db;
         }
@@ -357,6 +362,11 @@ namespace PlanitPoker.Models.Services
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.CantVote);
                 }
 
+                if(rm.StoredRoom.Cards.FirstOrDefault(x => x?.Equals(vote) ?? false) == null)
+                {
+                    throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomBadVoteMark);
+                }
+
                 var user = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == connectionUserId);
                 if (user == null || !user.CanVote)
                 {
@@ -408,13 +418,18 @@ namespace PlanitPoker.Models.Services
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomAlreadyExist);
             }
 
-            var roomData = new StoredRoom(roomName, password);
-            var room = new Room(roomData);
             var roomFromDb = await _roomRepository.ExistAsync(roomName);
             if (roomFromDb) // != null
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomAlreadyExist);
             }
+
+            var roomData = new StoredRoom(roomName, password);
+            var room = new Room(roomData);
+            roomData.Cards = new List<string>()
+            {
+                "0.5", "1", "2", "3", "5", "7", "10", "13", "15", "18", "20", "25", "30", "35", "40", "50", "tea"
+            };
 
             var added = Rooms.TryAdd(roomName, room);
             if (added)
@@ -549,7 +564,7 @@ namespace PlanitPoker.Models.Services
                 return null;
             }
 
-            if (storedPs.res == password)
+            if (storedPs.res == password)// todo eql?
             {
                 return room;
             }
@@ -1069,6 +1084,54 @@ namespace PlanitPoker.Models.Services
         }
 
 
+        public async Task<bool> ChangeRoomPasswordAsync(string roomName, string userConnectionId, string oldPassword, string newPassword)
+        {
+            var room = await TryGetRoomAsync(roomName);
+            if (room == null)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+            }
+
+            var sc = await UpdateIfCan(room, userConnectionId, true, async rm =>
+            {
+                var oldPasswordHash = _hasher.GetHash(oldPassword);
+                if (rm.Password != oldPasswordHash// todo eql?
+                    && (!string.IsNullOrEmpty(rm.Password) || !string.IsNullOrEmpty(oldPassword)))
+                {
+                    throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomBadPassword);
+                }
+
+                rm.Password = _hasher.GetHash(newPassword);
+                return true;
+            });
+
+            return sc;
+        }
+
+
+        public async Task<bool> SetRoomCards(Room room, string userConnectionId, List<string> cards)
+        {
+            if (room == null)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+            }
+
+            var sc = await UpdateIfCan(room, userConnectionId, true, async rm =>
+            {
+                if (rm.Status != RoomSatus.AllCanVote)
+                {
+                    throw new SomeCustomException(Consts.PlanitPokerErrorConsts.CantVote);
+                }
+
+                rm.Cards = cards.ToList();
+
+                return true;
+            });
+
+            return sc;
+        }
+
+
 
 
         #region private
@@ -1256,7 +1319,8 @@ namespace PlanitPoker.Models.Services
             {
                 Name = roomDb.StoredRoom.Name,
                 Password = roomDb.StoredRoom.Password,
-                Id = roomDb.StoredRoom.Id ?? 0
+                Id = roomDb.StoredRoom.Id ?? 0,
+                Cards = string.Join(';', roomDb.StoredRoom.Cards),
             };
 
             return res;
@@ -1296,14 +1360,15 @@ namespace PlanitPoker.Models.Services
                 Name = roomDb.Name,
                 Password = roomDb.Password,
                 Id = roomDb.Id,
-
+                //todo наверное прям тут грузить - не очень наглядну
                 Stories = (await _storyRepository.GetActualForRoomAsync(roomDb.Id)).Select(x =>
                 {
                     var st = new Story() { CurrentSession = true };
                     st.FromDbObject(x);
                     return st;
 
-                }).ToList()
+                }).ToList(),
+                Cards = roomDb.Cards?.Split(";", StringSplitOptions.RemoveEmptyEntries).ToList() ?? new List<string>()
             };
 
             await _roomRepository.LoadUsersAsync(roomDb);
@@ -1405,7 +1470,7 @@ namespace PlanitPoker.Models.Services
             var roomFromDbByName = await _roomRepository.GetByNameAsync(rm.StoredRoom.Name);
             if (roomFromDbByName?.Id != roomFromDb?.Id)
             {
-                throw new SomeCustomException("имя каким то образом задублилось"); //todo
+                throw new SomeCustomException("Имя каким то образом задублилось"); //todo
             }
 
             if (roomFromDb == null)
@@ -1454,6 +1519,8 @@ namespace PlanitPoker.Models.Services
 
             return res;
         }
+
+       
 
 
 

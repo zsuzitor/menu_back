@@ -35,7 +35,7 @@ namespace Menu.Controllers
         //private readonly ErrorObjectReturnFactory _errRetrunFactory;
         private readonly ArticleShortReturnFactory _articleShortReturnFactory;
         private readonly ArticleReturnFactory _articleReturnFactory;
-        private readonly BoolResultFactory _boolResultFactory;
+        //private readonly BoolResultFactory _boolResultFactory;
 
 
         public ArticleController(
@@ -54,7 +54,7 @@ namespace Menu.Controllers
             //_errRetrunFactory = new ErrorObjectReturnFactory();
             _articleShortReturnFactory = new ArticleShortReturnFactory();
             _articleReturnFactory = new ArticleReturnFactory();
-            _boolResultFactory = new BoolResultFactory();
+            //_boolResultFactory = new BoolResultFactory();
         }
 
         [Route("get-all-short-for-user")]
@@ -117,10 +117,8 @@ namespace Menu.Controllers
 
                    bool res = await _articleService.ChangeFollowStatus(id, userInfo);
 
-                   await _apiHealper.WriteResponseAsync(Response, _boolResultFactory.GetObjectReturn(new BoolResult(res)));
+                   await _apiHealper.WriteResponseAsync(Response, new BoolResultFactory().GetObjectReturn(new BoolResult(res)));
                }, Response, _logger);
-
-
         }
 
         [Route("create")]

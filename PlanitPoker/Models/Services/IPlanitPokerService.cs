@@ -31,6 +31,7 @@ namespace PlanitPoker.Models.Services
         Task<Room> CreateRoomWithUserAsync(string roomName, string password, PlanitUser user);
         Task<DateTime> AddTimeAliveRoomAsync(string roomName);
         Task<DateTime> AddTimeAliveRoom(Room room);
+        Task<bool> SetRoomCards(Room room, string userConnectionId, List<string> cards);
 
         Task<(bool sc, string oldConnectionId)> AddUserIntoRoomAsync(string roomName, PlanitUser user);
         Task<(bool sc, string oldConnectionId)> AddUserIntoRoomAsync(Room room, PlanitUser user);
@@ -117,5 +118,6 @@ namespace PlanitPoker.Models.Services
 
 
         Task HandleInRoomsMemoryAsync();
+        Task<bool> ChangeRoomPasswordAsync(string roomName, string userConnectionId, string oldPassword, string newPassword);
     }
 }

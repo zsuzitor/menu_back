@@ -24,7 +24,11 @@ namespace PlanitPoker.Models
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.CantVote, "Нельзя проголосовать");
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.StoryNotFound, "История не найдена");
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.StoryBadStatus, "Неверный статус истории");
+            errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadPassword, "Пароль не подходит");
+            errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadVoteMark, "Оценка не входит в допустимый диапазон");
+            errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadVoteMarks, "Переданы неверный список оценок");
 
+            
 
         }
 
