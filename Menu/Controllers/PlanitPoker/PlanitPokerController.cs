@@ -152,7 +152,7 @@ namespace Menu.Controllers.PlanitPoker
 
         private string NormalizeRoomName(string roomName)
         {
-            return _stringValidator.Validate(roomName).ToUpper();
+            return _stringValidator.Validate(roomName)?.ToUpper();
         }
     }
 }

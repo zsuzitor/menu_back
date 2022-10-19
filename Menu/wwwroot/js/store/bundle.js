@@ -2819,7 +2819,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".one-planing-vote-card {\r\n    width: 124px;\r\n    height: 144px;\r\n    border: 2px solid rgb(65 152 174);\r\n    /* display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center; */\r\n    align-items: center;\r\n    border-radius: 5px;\r\n    position: relative;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n.one-planing-vote-card .vote-card-inner {\r\n    border: 1px solid rgb(65 152 174);\r\n    width: 84px;\r\n    height: 90px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    font-size: 60px;\r\n    border-radius: 5px;\r\n    left: 20px;\r\n    top: 27px;\r\n    position: absolute;\r\n}\r\n\r\n.vote-card-mark-left {\r\n    font-size: 15px;\r\n    position: absolute;\r\n    left: 2px;\r\n    top: 0px;\r\n    font-weight: bold;\r\n}\r\n\r\n.vote-card-mark-right {\r\n    font-size: 15px;\r\n    position: absolute;\r\n    right: 2px;\r\n    bottom: 0px;\r\n    font-weight: bold;\r\n    rotate: 180deg;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/OneVoteCard/OneVoteCard.css"],"names":[],"mappings":"AAAA;IACI,YAAY;IACZ,aAAa;IACb,iCAAiC;IACjC;;;;;;;6BAOyB;IACzB,mBAAmB;IACnB,kBAAkB;IAClB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;;AAGA;IACI,iCAAiC;IACjC,WAAW;IACX,YAAY;IACZ,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,wBAAwB;IACxB,qBAAqB;IACrB,uBAAuB;IACvB,eAAe;IACf,kBAAkB;IAClB,UAAU;IACV,SAAS;IACT,kBAAkB;AACtB;;AAEA;IACI,eAAe;IACf,kBAAkB;IAClB,SAAS;IACT,QAAQ;IACR,iBAAiB;AACrB;;AAEA;IACI,eAAe;IACf,kBAAkB;IAClB,UAAU;IACV,WAAW;IACX,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,sBAAsB;AAC1B","sourcesContent":[".one-planing-vote-card {\r\n    width: 124px;\r\n    height: 144px;\r\n    border: 2px solid rgb(65 152 174);\r\n    /* display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center; */\r\n    align-items: center;\r\n    border-radius: 5px;\r\n    position: relative;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n.one-planing-vote-card .vote-card-inner {\r\n    border: 1px solid rgb(65 152 174);\r\n    width: 84px;\r\n    height: 90px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    font-size: 60px;\r\n    border-radius: 5px;\r\n    left: 20px;\r\n    top: 27px;\r\n    position: absolute;\r\n}\r\n\r\n.vote-card-mark-left {\r\n    font-size: 15px;\r\n    position: absolute;\r\n    left: 2px;\r\n    top: 0px;\r\n    font-weight: bold;\r\n}\r\n\r\n.vote-card-mark-right {\r\n    font-size: 15px;\r\n    position: absolute;\r\n    right: 2px;\r\n    bottom: 0px;\r\n    font-weight: bold;\r\n    rotate: 180deg;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".one-planing-vote-card {\r\n    /* width: 124px; */\r\n    width: 128px;\r\n\r\n    height: 144px;\r\n    border: 2px solid rgb(65 152 174);\r\n    /* display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center; */\r\n    align-items: center;\r\n    border-radius: 5px;\r\n    position: relative;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n.one-planing-vote-card .vote-card-inner {\r\n    border: 1px solid rgb(65 152 174);\r\n    width: 84px;\r\n    height: 90px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    font-size: 60px;\r\n    border-radius: 5px;\r\n    left: 20px;\r\n    top: 27px;\r\n    position: absolute;\r\n}\r\n\r\n.vote-card-mark-left {\r\n    font-size: 15px;\r\n    position: absolute;\r\n    left: 2px;\r\n    top: 0px;\r\n    font-weight: bold;\r\n}\r\n\r\n.vote-card-mark-right {\r\n    font-size: 15px;\r\n    position: absolute;\r\n    right: 2px;\r\n    bottom: 0px;\r\n    font-weight: bold;\r\n    rotate: 180deg;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/OneVoteCard/OneVoteCard.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,YAAY;;IAEZ,aAAa;IACb,iCAAiC;IACjC;;;;;;;6BAOyB;IACzB,mBAAmB;IACnB,kBAAkB;IAClB,kBAAkB;AACtB;;AAEA;IACI,eAAe;AACnB;;;AAGA;IACI,iCAAiC;IACjC,WAAW;IACX,YAAY;IACZ,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,wBAAwB;IACxB,qBAAqB;IACrB,uBAAuB;IACvB,eAAe;IACf,kBAAkB;IAClB,UAAU;IACV,SAAS;IACT,kBAAkB;AACtB;;AAEA;IACI,eAAe;IACf,kBAAkB;IAClB,SAAS;IACT,QAAQ;IACR,iBAAiB;AACrB;;AAEA;IACI,eAAe;IACf,kBAAkB;IAClB,UAAU;IACV,WAAW;IACX,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,sBAAsB;AAC1B","sourcesContent":[".one-planing-vote-card {\r\n    /* width: 124px; */\r\n    width: 128px;\r\n\r\n    height: 144px;\r\n    border: 2px solid rgb(65 152 174);\r\n    /* display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    -webkit-box-align: center;\r\n    -ms-flex-align: center; */\r\n    align-items: center;\r\n    border-radius: 5px;\r\n    position: relative;\r\n}\r\n\r\n.one-planing-vote-card:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n\r\n.one-planing-vote-card .vote-card-inner {\r\n    border: 1px solid rgb(65 152 174);\r\n    width: 84px;\r\n    height: 90px;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: center;\r\n    -ms-flex-pack: center;\r\n    justify-content: center;\r\n    font-size: 60px;\r\n    border-radius: 5px;\r\n    left: 20px;\r\n    top: 27px;\r\n    position: absolute;\r\n}\r\n\r\n.vote-card-mark-left {\r\n    font-size: 15px;\r\n    position: absolute;\r\n    left: 2px;\r\n    top: 0px;\r\n    font-weight: bold;\r\n}\r\n\r\n.vote-card-mark-right {\r\n    font-size: 15px;\r\n    position: absolute;\r\n    right: 2px;\r\n    bottom: 0px;\r\n    font-weight: bold;\r\n    rotate: 180deg;\r\n}\r\n\r\n.one-planing-selected-vote-card {\r\n    background-color: pink;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2873,7 +2873,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but{\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 120px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Room/Room.css"],"names":[],"mappings":"AAAA;IACI,aAAa;;AAEjB;;AAEA;IACI,6BAA6B;IAC7B;;kEAE8D;IAC9D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B;;8DAE0D;IAC1D,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,cAAc;IACd,eAAe;AACnB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,gCAAgC;IAChC,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,+BAA+B;AACnC;;;AAGA;IACI,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,6BAA6B;IAC7B,2BAA2B;IAC3B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf","sourcesContent":[".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but{\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 120px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but{\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Room/Room.css"],"names":[],"mappings":"AAAA;IACI,aAAa;;AAEjB;;AAEA;IACI,6BAA6B;IAC7B;;kEAE8D;IAC9D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B;;8DAE0D;IAC1D,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,cAAc;IACd,eAAe;AACnB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,gCAAgC;IAChC,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,+BAA+B;AACnC;;;AAGA;IACI,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,6BAA6B;IAC7B,2BAA2B;IAC3B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf","sourcesContent":[".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but{\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3008,7 +3008,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "img.main-header-logo-img {\r\n    height: 100%;\r\n    width: 70px;\r\n}\r\n\r\n\r\n.main-header-logo-a {\r\n    text-decoration: none;\r\n}\r\n\r\n.main-header-logo-a:hover {\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n\r\n.main-header-logo-text {\r\n    width: 50px;\r\n    height: 50px;\r\n    font-size: 40px;\r\n    text-align: center;\r\n    color: red;\r\n    font-family: cursive;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.main-header-logo {\r\n    height: 100%;\r\n    width: 90px;\r\n    position: relative;\r\n    padding-left: 30px;\r\n    padding-top: 10px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n.main-header-logo-burger {\r\n    width: 50px;\r\n    height: 50px;\r\n    cursor: pointer;\r\n    position: relative;\r\n    transition: 1s;\r\n}\r\n\r\n.main-header-logo-burger-opened {\r\n    padding-top: 15px;\r\n\r\n}\r\n\r\n\r\ndiv.header-burger-line {\r\n    height: 5px;\r\n    background-color: red;\r\n    border-radius: 2px;\r\n    position: absolute;\r\n    width: 100%;\r\n    transition: 1s;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-closed:nth-child(2) {\r\n    /* top: calc(50%-5px) */\r\n    top: 15px;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-closed:nth-child(3) {\r\n    /* top: calc(50%+5px) */\r\n    top: 30px;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(1) {\r\n    rotate: 45deg;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(2) {\r\n    rotate: -45deg;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(3) {\r\n    display: none;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Header/HeaderLogo/HeaderLogo.css"],"names":[],"mappings":"AAAA;IACI,YAAY;IACZ,WAAW;AACf;;;AAGA;IACI,qBAAqB;AACzB;;AAEA;IACI,qBAAqB;AACzB;;;;AAIA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,UAAU;IACV,oBAAoB;IACpB,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,kBAAkB;IAClB,kBAAkB;IAClB,iBAAiB;AACrB;;;;;;AAMA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,cAAc;AAClB;;AAEA;IACI,iBAAiB;;AAErB;;;AAGA;IACI,WAAW;IACX,qBAAqB;IACrB,kBAAkB;IAClB,kBAAkB;IAClB,WAAW;IACX,cAAc;AAClB;;AAEA;IACI,uBAAuB;IACvB,SAAS;AACb;;AAEA;IACI,uBAAuB;IACvB,SAAS;AACb;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,cAAc;AAClB;;AAEA;IACI,aAAa;AACjB","sourcesContent":["img.main-header-logo-img {\r\n    height: 100%;\r\n    width: 70px;\r\n}\r\n\r\n\r\n.main-header-logo-a {\r\n    text-decoration: none;\r\n}\r\n\r\n.main-header-logo-a:hover {\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n\r\n.main-header-logo-text {\r\n    width: 50px;\r\n    height: 50px;\r\n    font-size: 40px;\r\n    text-align: center;\r\n    color: red;\r\n    font-family: cursive;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.main-header-logo {\r\n    height: 100%;\r\n    width: 90px;\r\n    position: relative;\r\n    padding-left: 30px;\r\n    padding-top: 10px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n.main-header-logo-burger {\r\n    width: 50px;\r\n    height: 50px;\r\n    cursor: pointer;\r\n    position: relative;\r\n    transition: 1s;\r\n}\r\n\r\n.main-header-logo-burger-opened {\r\n    padding-top: 15px;\r\n\r\n}\r\n\r\n\r\ndiv.header-burger-line {\r\n    height: 5px;\r\n    background-color: red;\r\n    border-radius: 2px;\r\n    position: absolute;\r\n    width: 100%;\r\n    transition: 1s;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-closed:nth-child(2) {\r\n    /* top: calc(50%-5px) */\r\n    top: 15px;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-closed:nth-child(3) {\r\n    /* top: calc(50%+5px) */\r\n    top: 30px;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(1) {\r\n    rotate: 45deg;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(2) {\r\n    rotate: -45deg;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(3) {\r\n    display: none;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "img.main-header-logo-img {\r\n    height: 100%;\r\n    width: 70px;\r\n}\r\n\r\n\r\n.main-header-logo-a {\r\n    text-decoration: none;\r\n}\r\n\r\n.main-header-logo-a:hover {\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n\r\n.main-header-logo-text {\r\n    width: 50px;\r\n    height: 50px;\r\n    font-size: 40px;\r\n    text-align: center;\r\n    color: red;\r\n    font-family: cursive;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.main-header-logo {\r\n    height: 100%;\r\n    width: 90px;\r\n    position: relative;\r\n    padding-left: 30px;\r\n    padding-top: 10px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n.main-header-logo-burger {\r\n    width: 50px;\r\n    height: 50px;\r\n    cursor: pointer;\r\n    position: relative;\r\n    transition: 1s;\r\n}\r\n\r\n.main-header-logo-burger-opened {\r\n    padding-top: 15px;\r\n\r\n}\r\n\r\n\r\ndiv.header-burger-line {\r\n    height: 5px;\r\n    /* background-color: red; */\r\n    background-color: oldlace;\r\n    border-radius: 2px;\r\n    position: absolute;\r\n    width: 100%;\r\n    transition: 1s;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-closed:nth-child(2) {\r\n    /* top: calc(50%-5px) */\r\n    top: 15px;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-closed:nth-child(3) {\r\n    /* top: calc(50%+5px) */\r\n    top: 30px;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(1) {\r\n    rotate: 45deg;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(2) {\r\n    rotate: -45deg;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(3) {\r\n    display: none;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Header/HeaderLogo/HeaderLogo.css"],"names":[],"mappings":"AAAA;IACI,YAAY;IACZ,WAAW;AACf;;;AAGA;IACI,qBAAqB;AACzB;;AAEA;IACI,qBAAqB;AACzB;;;;AAIA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,UAAU;IACV,oBAAoB;IACpB,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,kBAAkB;IAClB,kBAAkB;IAClB,iBAAiB;AACrB;;;;;;AAMA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,cAAc;AAClB;;AAEA;IACI,iBAAiB;;AAErB;;;AAGA;IACI,WAAW;IACX,2BAA2B;IAC3B,yBAAyB;IACzB,kBAAkB;IAClB,kBAAkB;IAClB,WAAW;IACX,cAAc;AAClB;;AAEA;IACI,uBAAuB;IACvB,SAAS;AACb;;AAEA;IACI,uBAAuB;IACvB,SAAS;AACb;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,cAAc;AAClB;;AAEA;IACI,aAAa;AACjB","sourcesContent":["img.main-header-logo-img {\r\n    height: 100%;\r\n    width: 70px;\r\n}\r\n\r\n\r\n.main-header-logo-a {\r\n    text-decoration: none;\r\n}\r\n\r\n.main-header-logo-a:hover {\r\n    text-decoration: none;\r\n}\r\n\r\n\r\n\r\n.main-header-logo-text {\r\n    width: 50px;\r\n    height: 50px;\r\n    font-size: 40px;\r\n    text-align: center;\r\n    color: red;\r\n    font-family: cursive;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.main-header-logo {\r\n    height: 100%;\r\n    width: 90px;\r\n    position: relative;\r\n    padding-left: 30px;\r\n    padding-top: 10px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n.main-header-logo-burger {\r\n    width: 50px;\r\n    height: 50px;\r\n    cursor: pointer;\r\n    position: relative;\r\n    transition: 1s;\r\n}\r\n\r\n.main-header-logo-burger-opened {\r\n    padding-top: 15px;\r\n\r\n}\r\n\r\n\r\ndiv.header-burger-line {\r\n    height: 5px;\r\n    /* background-color: red; */\r\n    background-color: oldlace;\r\n    border-radius: 2px;\r\n    position: absolute;\r\n    width: 100%;\r\n    transition: 1s;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-closed:nth-child(2) {\r\n    /* top: calc(50%-5px) */\r\n    top: 15px;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-closed:nth-child(3) {\r\n    /* top: calc(50%+5px) */\r\n    top: 30px;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(1) {\r\n    rotate: 45deg;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(2) {\r\n    rotate: -45deg;\r\n}\r\n\r\n.main-header-logo-burger div.header-burger-line-opened:nth-child(3) {\r\n    display: none;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -55049,6 +55049,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
 __webpack_require__(/*! ./EditRoom.css */ "./src/components/Body/PlaningPoker/EditRoom/EditRoom.css");
 var EditRoom = function (props) {
@@ -55062,22 +55063,30 @@ var EditRoom = function (props) {
     }, [stringCards]);
     var changePassword = function () {
         if (newPassword !== newPasswordConfirm) {
-            alert('Пароли не совпадают');
+            var alertFactory = new AlertData_1.AlertData();
+            var alert_1 = alertFactory.GetDefaultError("Пароли не совпадают");
+            window.G_AddAbsoluteAlertToState(alert_1);
             return;
         }
         // props.ChangeRoomPassword(props.RoomName, props.UserInfo.UserConnectionId, oldPassword, newPasswordConfirm);
         window.G_PlaningPokerController.ChangeRoomPassword(props.RoomName, props.UserInfo.UserConnectionId, oldPassword, newPassword, function (error, data) {
             if (data === null || data === void 0 ? void 0 : data.result) {
-                alert('Пароль изменен');
+                var alertFactory = new AlertData_1.AlertData();
+                var alert_2 = alertFactory.GetDefaultNotify("Пароль изменен");
+                window.G_AddAbsoluteAlertToState(alert_2);
             }
             else {
-                alert('Что то пошло не так, попробуйте позже');
+                var alertFactory = new AlertData_1.AlertData();
+                var alert_3 = alertFactory.GetDefaultError("Что то пошло не так, попробуйте позже");
+                window.G_AddAbsoluteAlertToState(alert_3);
             }
         });
     };
     var changeCards = function () {
         if (props.RoomStatus != RoomInfo_1.RoomStatus.CloseVote) {
-            alert('Необходимо закрыть текущее голосование');
+            var alertFactory = new AlertData_1.AlertData();
+            var alert_4 = alertFactory.GetDefaultError("Необходимо закрыть текущее голосование");
+            window.G_AddAbsoluteAlertToState(alert_4);
             return;
         }
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.SetRoomCards, props.RoomName, cards);
@@ -55186,7 +55195,9 @@ var Index = function (props) {
         // props.MyHubConnection.invoke("CreateRoom", localState.RoomName, localState.RoomPassword, props.Username);
         //а вот этот не ждет
         if (!roomName) {
-            alert('Введите название комнаты');
+            var alertFactory = new AlertData_1.AlertData();
+            var alert_1 = alertFactory.GetDefaultError("Введите название комнаты");
+            window.G_AddAbsoluteAlertToState(alert_1);
             return;
         }
         props.SetRoomName(roomName);
@@ -55195,9 +55206,13 @@ var Index = function (props) {
     };
     var enterInRoom = function () {
         if (!roomName) {
-            alert('Введите название комнаты');
+            var alertFactory = new AlertData_1.AlertData();
+            var alert_2 = alertFactory.GetDefaultError("Введите название комнаты");
+            window.G_AddAbsoluteAlertToState(alert_2);
             return;
         }
+        props.SetRoomName(roomName);
+        props.SetRoomPassword(roomPassword);
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.EnterInRoom, roomName, roomPassword, props.Username);
     };
     //React.Fragment
@@ -55409,7 +55424,7 @@ var PlaningPokerMain = function (props) {
         });
         hubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.ConnectedToRoomError, function () {
             var alertFactory = new AlertData_1.AlertData();
-            var alert = alertFactory.GetDefaultError("подключение не удалось");
+            var alert = alertFactory.GetDefaultError("Подключение не удалось");
             window.G_AddAbsoluteAlertToState(alert);
             if (!location.href.includes("/planing-poker") || location.href.includes("/planing-poker/room")) { // && !location.href.endsWith("/planing-poker/")) {
                 var roomName = __planing_poker_roomname_ref__ || "";
@@ -55704,20 +55719,7 @@ var Room = function (props) {
         props.GetRoomInfo(props.RoomInfo.Name, props.UserInfo.UserConnectionId);
     }, [props.RoomInfo.InRoom]);
     (0, react_1.useEffect)(function () {
-        if (props.UserInfo.UserName === "enter_your_name") {
-            return;
-        }
-        if (!props.HubConnected) {
-            return;
-        }
-        props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.UserNameChange, props.RoomInfo.Name, userNameLocalState).then(function (dt) {
-            if (!dt) {
-                var alertFactory = new AlertData_1.AlertData();
-                var alert_1 = alertFactory.GetDefaultError("изменить имя не удалось");
-                window.G_AddAbsoluteAlertToState(alert_1);
-                return;
-            }
-        });
+        setUserNameLocalState(props.UserInfo.UserName);
     }, [props.UserInfo.UserName]);
     (0, react_1.useEffect)(function () {
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.NewUserInRoom, function (data) {
@@ -55814,6 +55816,9 @@ var Room = function (props) {
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.RoomCardsChanged, function (newData) {
             props.SetRoomCards(newData);
+            var alertFactory = new AlertData_1.AlertData();
+            var alert = alertFactory.GetDefaultNotify("Оценки были изменены");
+            window.G_AddAbsoluteAlertToState(alert);
         });
         return function cleanUp() {
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.MovedStoryToComplete);
@@ -55836,11 +55841,22 @@ var Room = function (props) {
     if (!props.RoomInfo.InRoom) {
         return react_1.default.createElement("h1", null, "\u043F\u044B\u0442\u0430\u0435\u043C\u0441\u044F \u0432\u043E\u0439\u0442\u0438");
     }
-    var tryToRemoveUserFromRoom = function (userId) {
-        if (!currentUserIsAdmin) {
+    var changeCurrentUserName = function () {
+        if (userNameLocalState === "enter_your_name") {
             return;
         }
-        props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.KickUser, props.RoomInfo.Name, userId);
+        if (!props.HubConnected || !props.RoomInfo.Name) {
+            return;
+        }
+        props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.UserNameChange, props.RoomInfo.Name, userNameLocalState).then(function (dt) {
+            if (!dt) {
+                var alertFactory = new AlertData_1.AlertData();
+                var alert_1 = alertFactory.GetDefaultError("изменить имя не удалось");
+                window.G_AddAbsoluteAlertToState(alert_1);
+                return;
+            }
+            props.SetUserName(userNameLocalState);
+        });
     };
     var doVote = function (voteCardBlock) { return __awaiter(void 0, void 0, void 0, function () {
         var alertFactory, alert_2, voted;
@@ -55888,8 +55904,21 @@ var Room = function (props) {
         var minimumNames = props.UsersList.filter(function (x) { return x.HasVote
             && x.Vote === (props.VoteInfo.MinVote + ''); })
             .map(function (x) { return x.Name; }).join(', ');
-        var withoutMarkNames = props.UsersList.filter(function (x) { return x.Vote === 'tea' || !x.HasVote; })
+        var notNumberMarks = props.UsersList.filter(function (x) { return x.HasVote
+            && isNaN(x.Vote); }).map(function (x) { return x.Vote; })
+            .filter(function (v, i, a) { return a.indexOf(v) === i; });
+        var withoutMarkNames = props.UsersList.filter(function (x) { return !x.HasVote; })
             .map(function (x) { return x.Name; }).join(', ');
+        var renderOneNonNumberMark = function (vote) {
+            return react_1.default.createElement(react_1.default.Fragment, null,
+                react_1.default.createElement("p", { key: 'vote_res' + vote },
+                    "\u041E\u0446\u0435\u043D\u043A\u0430 ",
+                    vote,
+                    ": ",
+                    props.UsersList.filter(function (x) { return x.HasVote
+                        && x.Vote === vote; })
+                        .map(function (x) { return x.Name; }).join(', ')));
+        };
         return react_1.default.createElement("div", null,
             react_1.default.createElement("div", { className: "padding-10-top" }),
             react_1.default.createElement("div", { className: "planing-poker-left-one-section" },
@@ -55907,6 +55936,7 @@ var Room = function (props) {
                 react_1.default.createElement("p", null,
                     "\u0421\u0440\u0435\u0434\u043D\u043D\u044F\u044F \u043E\u0446\u0435\u043D\u043A\u0430: ",
                     props.VoteInfo.AverageVote),
+                notNumberMarks.map(function (x) { return renderOneNonNumberMark(x); }),
                 react_1.default.createElement("p", null,
                     "\u041D\u0435 \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043B\u0438: ",
                     withoutMarkNames)));
@@ -55919,7 +55949,9 @@ var Room = function (props) {
     };
     var saveRoom = function () {
         props.MyHubConnection.invoke(G_PlaningPokerController.EndPoints.EndpointsBack.SaveRoom, props.RoomInfo.Name).then(function () {
-            alert("Сохранено");
+            var alertFactory = new AlertData_1.AlertData();
+            var alert = alertFactory.GetDefaultNotify("Сохранено");
+            window.G_AddAbsoluteAlertToState(alert);
         });
     };
     var deleteRoom = function () {
@@ -55943,11 +55975,11 @@ var Room = function (props) {
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/vote2.png" })),
                 react_1.default.createElement("div", { className: 'room-action-btn', onClick: function () { return tryEndVote(); }, title: '\u0417\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u0435' },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/vote3.png" })),
+                react_1.default.createElement("div", { className: 'room-action-btn', onClick: function () { return props.StartEditRoom(); }, title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443' },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/pencil-edit.png" })),
                 saveBut,
                 react_1.default.createElement("div", { className: 'room-action-btn room-action-btn-del', onClick: function () { return deleteRoom(); }, title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443' },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })),
-                react_1.default.createElement("div", { className: 'room-action-btn', onClick: function () { return props.StartEditRoom(); }, title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443' },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/pencil-edit.png" })));
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })));
         }
         return react_1.default.createElement(react_1.default.Fragment, null);
     };
@@ -55974,7 +56006,7 @@ var Room = function (props) {
                         return e.target.value;
                     });
                 }, value: userNameLocalState }),
-            react_1.default.createElement("div", { className: 'planing-name-change-but', title: '\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u043C\u044F', onClick: function () { return props.SetUserName(userNameLocalState); } },
+            react_1.default.createElement("div", { className: 'planing-name-change-but', title: '\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u043C\u044F', onClick: function () { return changeCurrentUserName(); } },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/pencil-edit.png" })),
             hideVotesSetting);
     };
@@ -58973,9 +59005,9 @@ var MainComponent = function (props) {
     var _a = (0, react_1.useState)(initState), localState = _a[0], setLocalState = _a[1];
     //todo есть способ это закешить реакт хуком
     var ApplacationsList = [
-        new AppItem_1.AppItem({ Logo: G_EmptyImagePath, Name: "MenuApp", Path: "/menu-app" }),
-        new AppItem_1.AppItem({ Logo: G_EmptyImagePath, Name: "Dict", Path: "/words-cards-app" }),
-        new AppItem_1.AppItem({ Logo: G_EmptyImagePath, Name: "TimeBooking", Path: "/menu-app" }),
+        // new AppItem({ Logo: G_EmptyImagePath, Name: "MenuApp", Path: "/menu-app" }),
+        // new AppItem({ Logo: G_EmptyImagePath, Name: "Dict", Path: "/words-cards-app" }),
+        // new AppItem({ Logo: G_EmptyImagePath, Name: "TimeBooking", Path: "/menu-app" }),
         new AppItem_1.AppItem({ Logo: "/images/poker_logo.jpg", Name: "PlaningPoker", Path: "/planing-poker" }),
         new AppItem_1.AppItem({ Logo: "/images/code_review_logo.png", Name: "Code review", Path: "/code-review/" }),
     ];

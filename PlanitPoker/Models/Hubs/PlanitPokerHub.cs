@@ -84,7 +84,7 @@ namespace PlanitPoker.Models.Hubs
             roomName = NormalizeRoomName(roomName);
             var httpContext = Context.GetHttpContext();
             string connectionId = GetConnectionId();
-            Log(LogLevel.Debug, nameof(EnterInRoom), "InvokeLog", roomName, connectionId, string.Empty);
+            Log(LogLevel.Debug, nameof(CreateRoom), "InvokeLog", roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
                 ValidateRoomName(roomName);
@@ -144,7 +144,7 @@ namespace PlanitPoker.Models.Hubs
         {
             roomName = NormalizeRoomName(roomName);
             string connectionId = GetConnectionId();
-            Log(LogLevel.Debug, nameof(EnterInRoom), "InvokeLog", roomName, connectionId, string.Empty);
+            Log(LogLevel.Debug, nameof(AliveRoom), "InvokeLog", roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
                 var room = await _planitPokerService.TryGetRoomAsync(roomName);
@@ -180,13 +180,15 @@ namespace PlanitPoker.Models.Hubs
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomBadVoteMarks);
                 }
 
-                var room = await _planitPokerService.TryGetRoomAsync(roomName);
-
-                var cardsList = cards.Split(";", StringSplitOptions.RemoveEmptyEntries).ToList();
-                if(cardsList.Count == 0)
+                var rg = new Regex(@"^[a-zA-Z0-9;\.]*$");
+                if (!rg.IsMatch(cards))
                 {
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomBadVoteMarks);
                 }
+
+                var room = await _planitPokerService.TryGetRoomAsync(roomName);
+
+                var cardsList = cards.Split(";", StringSplitOptions.RemoveEmptyEntries).ToList();
 
                 var rs = await _planitPokerService.SetRoomCards(room, connectionId, cardsList);
                 if (!rs)
@@ -195,6 +197,13 @@ namespace PlanitPoker.Models.Hubs
                 }
 
                 await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.RoomCardsChanged, cardsList);
+                var result = await _planitPokerService.GetEndVoteInfo(room);
+                if (result == null)
+                {
+                    throw new SomeCustomException(ErrorConsts.SomeError);
+                }
+
+                await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.VoteEnd, result);
 
             }, _logger);
 
@@ -811,7 +820,7 @@ namespace PlanitPoker.Models.Hubs
 
         private string NormalizeRoomName(string roomName)
         {
-            return ValidateString(roomName).ToUpper();
+            return ValidateString(roomName)?.ToUpper();
         }
 
         private void ValidateRoomName(string roomName)

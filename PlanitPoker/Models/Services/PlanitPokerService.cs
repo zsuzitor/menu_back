@@ -1094,14 +1094,33 @@ namespace PlanitPoker.Models.Services
 
             var sc = await UpdateIfCan(room, userConnectionId, true, async rm =>
             {
-                var oldPasswordHash = _hasher.GetHash(oldPassword);
+                var oldPasswordHash = string.Empty;
+                if (!string.IsNullOrWhiteSpace(oldPassword))
+                {
+                    oldPasswordHash = _hasher.GetHash(oldPassword);
+                }
+                else
+                {
+                    oldPasswordHash = null;
+                }
+
                 if (rm.Password != oldPasswordHash// todo eql?
-                    && (!string.IsNullOrEmpty(rm.Password) || !string.IsNullOrEmpty(oldPassword)))
+                    && (!string.IsNullOrEmpty(rm.Password) || !string.IsNullOrEmpty(oldPasswordHash)))
                 {
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomBadPassword);
                 }
 
-                rm.Password = _hasher.GetHash(newPassword);
+                var newPasswordHash = string.Empty;
+                if (!string.IsNullOrWhiteSpace(newPassword))
+                {
+                    newPasswordHash = _hasher.GetHash(newPassword);
+                }
+                else
+                {
+                    newPasswordHash = null;
+                }
+
+                rm.Password = newPasswordHash;
                 return true;
             });
 
@@ -1116,17 +1135,34 @@ namespace PlanitPoker.Models.Services
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
             }
 
+            if (cards.Count < 2 || cards.Count > 50)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomBadCountCards);
+            }
+
+            if (cards.FirstOrDefault(x => x.Length > 5) != null)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomBadLengthCard);
+            }
+
             var sc = await UpdateIfCan(room, userConnectionId, true, async rm =>
             {
-                if (rm.Status != RoomSatus.AllCanVote)
+                if (rm.Status == RoomSatus.AllCanVote)
                 {
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.CantVote);
                 }
 
                 rm.Cards = cards.ToList();
+                
 
                 return true;
             });
+
+            var success = await ClearVotes(room);
+            if (!success)
+            {
+                throw new SomeCustomException(ErrorConsts.SomeError);
+            }
 
             return sc;
         }
