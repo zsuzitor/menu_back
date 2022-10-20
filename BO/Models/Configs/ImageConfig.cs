@@ -5,5 +5,6 @@ namespace BO.Models.Configs
     {
         public string TypeOfStorage { get; set; }
         public string ConnectionString { get; set; }
+        public string PhysicalPath { get; set; }
     }
 }

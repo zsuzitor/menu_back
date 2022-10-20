@@ -17,6 +17,9 @@ namespace DAL.Models.DAL.Repositories.Interfaces
         Task<bool> UserIsExist(string email, string login = null);
         Task<long?> GetIdByEmailAsync(string email);
         Task<User> UpdateUserPasswordAsync(long userId, string passwordHash);
+        Task<User> UpdateUserPasswordAsync(long userId, string oldPasswordHash, string passwordHash);
+        Task<User> UpdateUserNameAsync(long userId, string newName);
+        Task<User> UpdateImageAsync(long userId, string imagePath);
 
         Task<User> GetShortInfo(long userId);
     }

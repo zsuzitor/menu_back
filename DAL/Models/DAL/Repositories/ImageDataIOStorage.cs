@@ -1,4 +1,5 @@
-﻿using DAL.Models.DAL.Repositories.Interfaces;
+﻿using BO.Models.Configs;
+using DAL.Models.DAL.Repositories.Interfaces;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -11,10 +12,10 @@ namespace DAL.Models.DAL.Repositories
         //private readonly IWebHostEnvironment _webHostEnvironment;//не хочу тут на это ссылаться, поэтому просто static строкой. _webHostEnvironment.WebRootPath
         private static string WebRootPath;
 
-        public ImageDataIOStorage(IFileService fileService)
+        public ImageDataIOStorage(IFileService fileService, ImageConfig settings)
         {
             _fileService = fileService;
-            WebRootPath = "./";
+            WebRootPath = settings.PhysicalPath;
         }
 
         public static void Init(string webRootPath)

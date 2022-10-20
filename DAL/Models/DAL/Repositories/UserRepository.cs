@@ -130,9 +130,47 @@ namespace DAL.Models.DAL.Repositories
         public async Task<User> UpdateUserPasswordAsync(long userId, string passwordHash)
         {
             var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            
             if(user != null)
             {
                 user.PasswordHash = passwordHash;
+                await _db.SaveChangesAsync();
+            }
+
+            return user;
+        }
+
+        public async Task<User> UpdateUserPasswordAsync(long userId, string oldPasswordHash, string passwordHash)
+        {
+            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId
+                && x.PasswordHash == oldPasswordHash);
+            if (user != null)
+            {
+                user.PasswordHash = passwordHash;
+                await _db.SaveChangesAsync();
+            }
+
+            return user;
+        }
+
+        public async Task<User> UpdateUserNameAsync(long userId, string newName)
+        {
+            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            if (user != null)
+            {
+                user.Name = newName;
+                await _db.SaveChangesAsync();
+            }
+
+            return user;
+        }
+
+        public async Task<User> UpdateImageAsync(long userId, string imagePath)
+        {
+            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
+            if (user != null)
+            {
+                user.ImagePath = imagePath;
                 await _db.SaveChangesAsync();
             }
 

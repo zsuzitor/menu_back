@@ -1,6 +1,7 @@
 ﻿
 
 using BO.Models.DAL.Domain;
+using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 
 namespace Menu.Models.Services.Interfaces
@@ -18,5 +19,9 @@ namespace Menu.Models.Services.Interfaces
 
         Task<User> CreateNewAsync(User newUser);
         Task<User> GetShortInfoAsync(long userId);
+        Task<bool> ChangePasswordAsync(long userId, string oldPassword, string newPassword);
+        Task<bool> ChangeNameAsync(long userId, string newName);
+        Task<string> ChangeImageAsync(long userId, IFormFile image);
+
     }
 }

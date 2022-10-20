@@ -6,6 +6,7 @@ using Menu.Models.Services.Interfaces;
 using System;
 using System.Threading.Tasks;
 using Common.Models.Error;
+using Microsoft.AspNetCore.Http;
 
 namespace Menu.Models.Services
 {
@@ -13,12 +14,15 @@ namespace Menu.Models.Services
     {
         private readonly IJWTHasher _hasher;
         private readonly IUserRepository _userRepository;
+        private readonly IImageService _imageService;
 
 
-        public UserService(IUserRepository userRepository, IJWTHasher hasher)
+        public UserService(IUserRepository userRepository, IJWTHasher hasher
+            , IImageService imageService)
         {
             _userRepository = userRepository;
             _hasher = hasher;
+            _imageService = imageService;
         }
 
 
@@ -88,20 +92,21 @@ namespace Menu.Models.Services
             {
                 if (await _userRepository.UserIsExist(newUser.Email, newUser.Login))
                 {
-                    throw new SomeCustomException("user_already_exist");
+                    throw new SomeCustomException(ErrorConsts.UserAlreadyExist);
                 }
+
                 return await _userRepository.CreateNewAsync(newUser);
             }
             catch (SomeCustomException)
             {
                 throw;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                var newE =new SomeCustomException("can_not_register","Ошибка при регистрации пользователя", e);
+                var newE = new SomeCustomException(ErrorConsts.CanNotRegister, "Ошибка при регистрации пользователя", e);
                 throw newE;
             }
-            
+
         }
 
 
@@ -122,5 +127,68 @@ namespace Menu.Models.Services
             var passwordHash = _hasher.GetHash(password);
             return await _userRepository.UpdateUserPasswordAsync(userId, passwordHash);
         }
+
+        public async Task<bool> ChangePasswordAsync(long userId, string oldPassword, string newPassword)
+        {
+            if (string.IsNullOrEmpty(oldPassword) || string.IsNullOrEmpty(newPassword))
+            {
+                throw new SomeCustomException(ErrorConsts.BadPasswords);
+            }
+
+            var oldPasswordHash = _hasher.GetHash(oldPassword);
+            var passwordHash = _hasher.GetHash(newPassword);
+            var user = await _userRepository.UpdateUserPasswordAsync(userId, oldPasswordHash, passwordHash);
+            if (user == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
+
+            return true;
+        }
+
+        public async Task<bool> ChangeNameAsync(long userId, string newName)
+        {
+            if (string.IsNullOrEmpty(newName))
+            {
+                throw new SomeCustomException(ErrorConsts.BadName);
+            }
+
+            var user = await _userRepository.UpdateUserNameAsync(userId, newName);
+            if (user == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
+
+            return true;
+        }
+
+        public async Task<string> ChangeImageAsync(long userId, IFormFile image)
+        {
+            //var user = await _userRepository.GetUserByIdAsync(userId);
+            //if (user == null)
+            //{
+            //    throw new SomeCustomException(ErrorConsts.NotFound);
+            //}
+            if (image == null)
+            {
+                throw new SomeCustomException(ErrorConsts.FileError);
+            }
+
+            var pathImage = await _imageService.CreateUploadFileWithOutDbRecord(image);
+            if (string.IsNullOrEmpty(pathImage))
+            {
+                throw new SomeCustomException(ErrorConsts.FileError);
+            }
+
+            var user = await _userRepository.UpdateImageAsync(userId, pathImage);
+            if (user == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
+
+            return pathImage;
+
+        }
+
     }
 }

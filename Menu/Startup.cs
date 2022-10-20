@@ -198,7 +198,8 @@ namespace Menu
             }
             else
             {
-                services.AddSingleton<IImageDataStorage, ImageDataIOStorage>();
+                services.AddSingleton<IImageDataStorage, ImageDataIOStorage>(x =>
+                    new ImageDataIOStorage(x.GetService<IFileService>(), imageConfig));
             }
 
             

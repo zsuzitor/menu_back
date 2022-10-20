@@ -2745,6 +2745,33 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".one-paggination-button {\r\n    width
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/Person/PersonSettings/PersonSettings.css":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/Person/PersonSettings/PersonSettings.css ***!
+  \************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "div.person-settings-outer {\r\n    padding: 30px;\r\n    position: relative;\r\n    min-height: 400px;\r\n}\r\n\r\ndiv.person-settings-passwords {\r\n    width: 300px;\r\n}\r\n\r\ndiv.person-settings-image {\r\n    width: 300px;\r\n    height: 300px;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n\r\n    overflow: hidden;\r\n}\r\n\r\n.person-settings-image-block {\r\n    position: absolute;\r\n    top: 30px;\r\n    right: 30px;\r\n    width: 300px;\r\n    height: 350px;\r\n}\r\n\r\n.person-settings-username {\r\n    width: 200px;\r\n}\r\n\r\n.person-settings-inner {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.person-settings-inner-right {\r\n    min-width: 300px;\r\n    position: relative;\r\n    min-height: 400px;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/Person/PersonSettings/PersonSettings.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,kBAAkB;IAClB,iBAAiB;AACrB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,kBAAkB;IAClB,kBAAkB;;IAElB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,SAAS;IACT,WAAW;IACX,YAAY;IACZ,aAAa;AACjB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;IAClB,iBAAiB;;AAErB","sourcesContent":["div.person-settings-outer {\r\n    padding: 30px;\r\n    position: relative;\r\n    min-height: 400px;\r\n}\r\n\r\ndiv.person-settings-passwords {\r\n    width: 300px;\r\n}\r\n\r\ndiv.person-settings-image {\r\n    width: 300px;\r\n    height: 300px;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n\r\n    overflow: hidden;\r\n}\r\n\r\n.person-settings-image-block {\r\n    position: absolute;\r\n    top: 30px;\r\n    right: 30px;\r\n    width: 300px;\r\n    height: 350px;\r\n}\r\n\r\n.person-settings-username {\r\n    width: 200px;\r\n}\r\n\r\n.person-settings-inner {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.person-settings-inner-right {\r\n    min-width: 300px;\r\n    position: relative;\r\n    min-height: 400px;\r\n\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/EditRoom/EditRoom.css":
 /*!******************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/PlaningPoker/EditRoom/EditRoom.css ***!
@@ -2927,7 +2954,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".user-list-role-but {\r\n    display: flex;\r\n}\r\n\r\n.user-role-but {\r\n    width: 25px;\r\n    height: 25px;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n    font-size: 30px;\r\n    line-height: 19px;\r\n    cursor: pointer;\r\n}\r\n\r\n.user-role-but-add {\r\n    background-color: #28a745;\r\n\r\n}\r\n\r\n\r\n.user-role-but-del {\r\n    background-color: #dc3545;\r\n\r\n}\r\n\r\n.user-list-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/UserInList/UserInList.css"],"names":[],"mappings":"AAAA;IACI,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,kBAAkB;IAClB,eAAe;IACf,iBAAiB;IACjB,eAAe;AACnB;;AAEA;IACI,yBAAyB;;AAE7B;;;AAGA;IACI,yBAAyB;;AAE7B;;AAEA;IACI,+BAA+B;IAC/B,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,eAAe;AACnB;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,6CAA6C;IAC7C,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,6BAA6B;AACjC","sourcesContent":[".user-list-role-but {\r\n    display: flex;\r\n}\r\n\r\n.user-role-but {\r\n    width: 25px;\r\n    height: 25px;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n    font-size: 30px;\r\n    line-height: 19px;\r\n    cursor: pointer;\r\n}\r\n\r\n.user-role-but-add {\r\n    background-color: #28a745;\r\n\r\n}\r\n\r\n\r\n.user-role-but-del {\r\n    background-color: #dc3545;\r\n\r\n}\r\n\r\n.user-list-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".user-list-role-but {\r\n    display: flex;\r\n}\r\n\r\n.user-role-but {\r\n    width: 25px;\r\n    height: 25px;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n    font-size: 30px;\r\n    line-height: 19px;\r\n    cursor: pointer;\r\n}\r\n\r\n.user-role-but-add {\r\n    background-color: #28a745;\r\n\r\n}\r\n\r\n\r\n.user-role-but-del {\r\n    background-color: #dc3545;\r\n\r\n}\r\n\r\n.user-list-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planing-user-img {\r\n    border-radius: 50%;\r\n    width: 30px;\r\n    height: 30px;\r\n    overflow: hidden;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/UserInList/UserInList.css"],"names":[],"mappings":"AAAA;IACI,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,kBAAkB;IAClB,eAAe;IACf,iBAAiB;IACjB,eAAe;AACnB;;AAEA;IACI,yBAAyB;;AAE7B;;;AAGA;IACI,yBAAyB;;AAE7B;;AAEA;IACI,+BAA+B;IAC/B,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,eAAe;AACnB;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,6CAA6C;IAC7C,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,gBAAgB;AACpB","sourcesContent":[".user-list-role-but {\r\n    display: flex;\r\n}\r\n\r\n.user-role-but {\r\n    width: 25px;\r\n    height: 25px;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n    font-size: 30px;\r\n    line-height: 19px;\r\n    cursor: pointer;\r\n}\r\n\r\n.user-role-but-add {\r\n    background-color: #28a745;\r\n\r\n}\r\n\r\n\r\n.user-role-but-del {\r\n    background-color: #dc3545;\r\n\r\n}\r\n\r\n.user-list-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planing-user-img {\r\n    border-radius: 50%;\r\n    width: 30px;\r\n    height: 30px;\r\n    overflow: hidden;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3062,7 +3089,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".header-user-menu {\r\n    background-color: white;\r\n}\r\n\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    text-align: right;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n    color: oldlace;\r\n}\r\n\r\n\r\n\r\n\r\nimg.header-user-img {\r\n    height: 100%;\r\n    border-radius: 50%;\r\n}\r\n\r\nspan.header-user-name-text {\r\n    display: block;\r\n    max-width: 50%;\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n}\r\n\r\nspan.header-user-img {\r\n    height: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}", "",{"version":3,"sources":["webpack://./src/components/Header/HeaderUserMenu/HeaderUserMenu.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;AAC3B;;;AAGA;IACI,YAAY;IACZ,oBAAoB;IACpB,kCAAkC;IAClC,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,qBAAqB;IACrB,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,qBAAqB;IACrB,eAAe;IACf,kBAAkB;IAClB,cAAc;AAClB;;;;;AAKA;IACI,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,cAAc;IACd,cAAc;IACd,gBAAgB;IAChB,yBAAyB;IACzB,kBAAkB;AACtB;;AAEA;IACI,YAAY;AAChB;;;;AAIA;IACI,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,mCAAmC;IACnC,oBAAoB;AACxB","sourcesContent":[".header-user-menu {\r\n    background-color: white;\r\n}\r\n\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    text-align: right;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n    color: oldlace;\r\n}\r\n\r\n\r\n\r\n\r\nimg.header-user-img {\r\n    height: 100%;\r\n    border-radius: 50%;\r\n}\r\n\r\nspan.header-user-name-text {\r\n    display: block;\r\n    max-width: 50%;\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n}\r\n\r\nspan.header-user-img {\r\n    height: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".header-user-menu {\r\n    background-color: white;\r\n}\r\n\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    text-align: right;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n    color: oldlace;\r\n}\r\n\r\n\r\n\r\n\r\nimg.header-user-img {\r\n    height: 100%;\r\n    border-radius: 50%;\r\n}\r\n\r\nspan.header-user-name-text {\r\n    display: block;\r\n    max-width: 50%;\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n    color: oldlace;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n\r\nspan.header-user-img {\r\n    height: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}", "",{"version":3,"sources":["webpack://./src/components/Header/HeaderUserMenu/HeaderUserMenu.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;AAC3B;;;AAGA;IACI,YAAY;IACZ,oBAAoB;IACpB,kCAAkC;IAClC,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,qBAAqB;IACrB,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,qBAAqB;IACrB,eAAe;IACf,kBAAkB;IAClB,cAAc;AAClB;;;;;AAKA;IACI,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,cAAc;IACd,cAAc;IACd,gBAAgB;IAChB,yBAAyB;IACzB,kBAAkB;IAClB,cAAc;IACd,gBAAgB;IAChB,eAAe;AACnB;;AAEA;IACI,YAAY;AAChB;;;;AAIA;IACI,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,mCAAmC;IACnC,oBAAoB;AACxB","sourcesContent":[".header-user-menu {\r\n    background-color: white;\r\n}\r\n\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    text-align: right;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n    color: oldlace;\r\n}\r\n\r\n\r\n\r\n\r\nimg.header-user-img {\r\n    height: 100%;\r\n    border-radius: 50%;\r\n}\r\n\r\nspan.header-user-name-text {\r\n    display: block;\r\n    max-width: 50%;\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n    color: oldlace;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n\r\nspan.header-user-img {\r\n    height: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    cursor: pointer;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46218,6 +46245,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/components/Body/Person/PersonSettings/PersonSettings.css":
+/*!**********************************************************************!*\
+  !*** ./src/components/Body/Person/PersonSettings/PersonSettings.css ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_PersonSettings_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./PersonSettings.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/Person/PersonSettings/PersonSettings.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_PersonSettings_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_PersonSettings_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_PersonSettings_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_PersonSettings_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/components/Body/PlaningPoker/EditRoom/EditRoom.css":
 /*!****************************************************************!*\
   !*** ./src/components/Body/PlaningPoker/EditRoom/EditRoom.css ***!
@@ -47630,6 +47712,30 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/Models/Actions/App/Actions.ts":
+/*!*******************************************!*\
+  !*** ./src/Models/Actions/App/Actions.ts ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SetAuthActionCreator = exports.SetAuthActionName = void 0;
+// export interface IEnteredInRoomActionPayload {
+//     RoomUserId: string;
+//     LoginnedInMainApp: boolean;
+// }
+exports.SetAuthActionName = 'SetAuthAction';
+function SetAuthActionCreator(data) {
+    return { type: exports.SetAuthActionName, payload: data };
+}
+exports.SetAuthActionCreator = SetAuthActionCreator;
+;
+
+
+/***/ }),
+
 /***/ "./src/Models/Actions/CodeReviewApp/CommentActions.ts":
 /*!************************************************************!*\
   !*** ./src/Models/Actions/CodeReviewApp/CommentActions.ts ***!
@@ -48364,12 +48470,13 @@ exports.OneCardInListDataBack = OneCardInListDataBack;
 /*!**********************************************************!*\
   !*** ./src/Models/Controllers/AuthenticateController.ts ***!
   \**********************************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AuthenticateController = exports.RegisterModel = exports.LoginModel = void 0;
+var ControllerHelper_1 = __webpack_require__(/*! ./ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var LoginModel = /** @class */ (function () {
     function LoginModel() {
     }
@@ -48386,6 +48493,7 @@ var AuthenticateController = /** @class */ (function () {
     function AuthenticateController() {
     }
     AuthenticateController.prototype.Login = function (model, onSuccess) {
+        var _this = this;
         var data = {
             'email': model.Email,
             'password': model.Password,
@@ -48395,21 +48503,14 @@ var AuthenticateController = /** @class */ (function () {
             Data: data,
             Type: "POST",
             FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    onSuccess(resp);
-                }
-                else {
-                    onSuccess(null);
-                    //TODO записываем полученные токены
-                    // document.location.href = "/menu";
-                }
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: function (xhr, status, error) { },
             Url: G_PathToServer + 'api/authenticate/login',
         });
     };
     AuthenticateController.prototype.Register = function (model, onSuccess) {
+        var _this = this;
         var data = {
             'email': model.Email,
             'password': model.Password,
@@ -48419,20 +48520,13 @@ var AuthenticateController = /** @class */ (function () {
             Data: data,
             Type: "PUT",
             FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    onSuccess(resp);
-                }
-                else {
-                    onSuccess(null);
-                    //TODO записываем полученные токены
-                    // document.location.href = "/menu";
-                }
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             Url: G_PathToServer + 'api/authenticate/register',
         });
     };
     AuthenticateController.prototype.SendMessageForgotPassword = function (login, onSuccess) {
+        var _this = this;
         var data = {
             'email': login,
         };
@@ -48440,19 +48534,14 @@ var AuthenticateController = /** @class */ (function () {
             Data: data,
             Type: "POST",
             FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    onSuccess(resp);
-                }
-                else {
-                    onSuccess(null);
-                }
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: function (xhr, status, error) { },
             Url: G_PathToServer + 'api/authenticate/SendMessageForgotPassword',
         });
     };
     AuthenticateController.prototype.CheckRecoverPasswordCode = function (code, onSuccess) {
+        var _this = this;
         var data = {
             'code': code,
         };
@@ -48460,19 +48549,14 @@ var AuthenticateController = /** @class */ (function () {
             Data: data,
             Type: "POST",
             FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    onSuccess(resp);
-                }
-                else {
-                    onSuccess(null);
-                }
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: function (xhr, status, error) { },
             Url: G_PathToServer + 'api/authenticate/CheckRecoverPasswordCode',
         });
     };
     AuthenticateController.prototype.RecoverPassword = function (code, password, onSuccess) {
+        var _this = this;
         var data = {
             'code': code,
             'password': password,
@@ -48481,13 +48565,7 @@ var AuthenticateController = /** @class */ (function () {
             Data: data,
             Type: "POST",
             FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    onSuccess(resp);
-                }
-                else {
-                    onSuccess(null);
-                }
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: function (xhr, status, error) { },
             Url: G_PathToServer + 'api/authenticate/RecoverPassword',
@@ -48516,6 +48594,9 @@ var AuthenticateController = /** @class */ (function () {
     AuthenticateController.prototype.RefreshAccessToken = function (notRedirectWhenNotAuth, callBack) {
         G_AjaxHelper.TryRefreshToken(notRedirectWhenNotAuth, callBack);
     };
+    AuthenticateController.prototype.mapWithResult = function (onSuccess) {
+        return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
+    };
     return AuthenticateController;
 }());
 exports.AuthenticateController = AuthenticateController;
@@ -48536,6 +48617,7 @@ exports.CodeReviewCommentController = void 0;
 var CommentActions_1 = __webpack_require__(/*! ../../Actions/CodeReviewApp/CommentActions */ "./src/Models/Actions/CodeReviewApp/CommentActions.ts");
 var CommentAdd_1 = __webpack_require__(/*! ../../Models/CodeReviewApp/CommentAdd */ "./src/Models/Models/CodeReviewApp/CommentAdd.ts");
 var CommentSet_1 = __webpack_require__(/*! ../../Models/CodeReviewApp/CommentSet */ "./src/Models/Models/CodeReviewApp/CommentSet.ts");
+var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var CodeReviewCommentController = /** @class */ (function () {
     function CodeReviewCommentController() {
         var _this = this;
@@ -48659,17 +48741,7 @@ var CodeReviewCommentController = /** @class */ (function () {
         };
     }
     CodeReviewCommentController.prototype.mapWithResult = function (onSuccess) {
-        return function (xhr, status, jqXHR) {
-            var resp = xhr;
-            if (resp.errors) {
-                //TODO ошибка
-                onSuccess(resp, null);
-            }
-            else {
-                var dataBack = xhr;
-                onSuccess(null, dataBack);
-            }
-        };
+        return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
     };
     CodeReviewCommentController.prototype.preloader = function (show) {
         if (!window.CodeReviewCounter) {
@@ -48709,6 +48781,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CodeReviewProjectController = void 0;
 var ProjectActions_1 = __webpack_require__(/*! ../../Actions/CodeReviewApp/ProjectActions */ "./src/Models/Actions/CodeReviewApp/ProjectActions.ts");
 var UserActions_1 = __webpack_require__(/*! ../../Actions/CodeReviewApp/UserActions */ "./src/Models/Actions/CodeReviewApp/UserActions.ts");
+var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var CodeReviewProjectController = /** @class */ (function () {
     function CodeReviewProjectController() {
         var _this = this;
@@ -48834,17 +48907,7 @@ var CodeReviewProjectController = /** @class */ (function () {
     }
     //todo вынести в какой то общий кусок
     CodeReviewProjectController.prototype.mapWithResult = function (onSuccess) {
-        return function (xhr, status, jqXHR) {
-            var resp = xhr;
-            if (resp.errors) {
-                //TODO ошибка
-                onSuccess(resp, null);
-            }
-            else {
-                var dataBack = xhr;
-                onSuccess(null, dataBack);
-            }
-        };
+        return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
     };
     CodeReviewProjectController.prototype.preloader = function (show) {
         if (!window.CodeReviewCounter) {
@@ -48883,6 +48946,7 @@ exports.CodeReviewProjectController = CodeReviewProjectController;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CodeReviewTaskController = void 0;
 var TaskActions_1 = __webpack_require__(/*! ../../Actions/CodeReviewApp/TaskActions */ "./src/Models/Actions/CodeReviewApp/TaskActions.ts");
+var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var CodeReviewTaskController = /** @class */ (function () {
     function CodeReviewTaskController() {
         var _this = this;
@@ -49023,17 +49087,7 @@ var CodeReviewTaskController = /** @class */ (function () {
         };
     }
     CodeReviewTaskController.prototype.mapWithResult = function (onSuccess) {
-        return function (xhr, status, jqXHR) {
-            var resp = xhr;
-            if (resp.errors) {
-                //TODO ошибка
-                onSuccess(resp, null);
-            }
-            else {
-                var dataBack = xhr;
-                onSuccess(null, dataBack);
-            }
-        };
+        return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
     };
     CodeReviewTaskController.prototype.preloader = function (show) {
         if (!window.CodeReviewCounter) {
@@ -49072,6 +49126,7 @@ exports.CodeReviewTaskController = CodeReviewTaskController;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CodeReviewUserController = void 0;
 var UserActions_1 = __webpack_require__(/*! ../../Actions/CodeReviewApp/UserActions */ "./src/Models/Actions/CodeReviewApp/UserActions.ts");
+var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var CodeReviewUserController = /** @class */ (function () {
     function CodeReviewUserController() {
         var _this = this;
@@ -49167,17 +49222,7 @@ var CodeReviewUserController = /** @class */ (function () {
         };
     }
     CodeReviewUserController.prototype.mapWithResult = function (onSuccess) {
-        return function (xhr, status, jqXHR) {
-            var resp = xhr;
-            if (resp.errors) {
-                //TODO ошибка
-                onSuccess(resp, null);
-            }
-            else {
-                var dataBack = xhr;
-                onSuccess(null, dataBack);
-            }
-        };
+        return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
     };
     CodeReviewUserController.prototype.preloader = function (show) {
         if (!window.CodeReviewCounter) {
@@ -49201,6 +49246,39 @@ var CodeReviewUserController = /** @class */ (function () {
     return CodeReviewUserController;
 }());
 exports.CodeReviewUserController = CodeReviewUserController;
+
+
+/***/ }),
+
+/***/ "./src/Models/Controllers/ControllerHelper.ts":
+/*!****************************************************!*\
+  !*** ./src/Models/Controllers/ControllerHelper.ts ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ControllerHelper = void 0;
+var ControllerHelper = /** @class */ (function () {
+    function ControllerHelper() {
+    }
+    ControllerHelper.prototype.MapWithResult = function (onSuccess) {
+        return function (xhr, status, jqXHR) {
+            var resp = xhr;
+            if (resp.errors) {
+                //TODO ошибка
+                onSuccess(resp, null);
+            }
+            else {
+                var dataBack = xhr;
+                onSuccess(null, dataBack);
+            }
+        };
+    };
+    return ControllerHelper;
+}());
+exports.ControllerHelper = ControllerHelper;
 
 
 /***/ }),
@@ -49384,6 +49462,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PlaningPokerController = exports.HubEndpoints = exports.HubEndpointsBack = exports.HubEndpointsFront = void 0;
 var Actions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/Actions */ "./src/Models/Actions/PlaningPokerApp/Actions.ts");
 var RoomInfo_1 = __webpack_require__(/*! ../../Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
+var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var HubEndpointsFront = /** @class */ (function () {
     function HubEndpointsFront() {
         this.MovedStoryToComplete = "MovedStoryToComplete";
@@ -49595,21 +49674,7 @@ var PlaningPokerController = /** @class */ (function () {
         });
     };
     PlaningPokerController.prototype.mapWithResult = function (onSuccess) {
-        return function (xhr, status, jqXHR) {
-            var resp = xhr;
-            if (resp.errors) {
-                onSuccess(resp, null);
-            }
-            else {
-                var dataBack = xhr;
-                if (dataBack) {
-                    onSuccess(null, dataBack);
-                }
-                else {
-                    //todo что то не так planingController1
-                }
-            }
-        };
+        return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
     };
     return PlaningPokerController;
 }());
@@ -49622,39 +49687,89 @@ exports.PlaningPokerController = PlaningPokerController;
 /*!***************************************************!*\
   !*** ./src/Models/Controllers/UsersController.ts ***!
   \***************************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.UsersController = void 0;
+var ControllerHelper_1 = __webpack_require__(/*! ./ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var UsersController = /** @class */ (function () {
     function UsersController() {
+        var _this = this;
+        this.ChangePassword = function (oldPassword, newPassword, onSuccess) {
+            var data = {
+                "oldPassword": oldPassword,
+                "newPassword": newPassword,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PATCH",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/users/change-user-password'
+            });
+        };
+        this.ChangeName = function (newName, onSuccess) {
+            var data = {
+                "newName": newName,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PATCH",
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/users/change-user-name'
+            });
+        };
     }
     UsersController.prototype.GetShortestUserInfo = function (onSuccess) {
+        var _this = this;
         G_AjaxHelper.GoAjaxRequest({
             Data: {},
             Type: "GET",
             NotRedirectWhenNotAuth: true,
             FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                if (resp.errors) {
-                    //TODO ошибка
-                    onSuccess(resp, null);
-                }
-                else {
-                    var dataBack = xhr;
-                    if (!dataBack.id) {
-                        //TODO какая то ошибка
-                        alert('что то сломалось-1');
-                        return;
-                    }
-                    onSuccess(null, dataBack);
-                }
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                // let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
+                // if (resp.errors) {
+                //     //TODO ошибка
+                //     onSuccess(resp, null);
+                // }
+                // else {
+                //     let dataBack = xhr as UserShortBack;
+                //     if (!dataBack.id) {
+                //         //TODO какая то ошибка
+                //         alert('что то сломалось-1');
+                //         return;
+                //     }
+                //     onSuccess(null, dataBack);
+                // }
             },
             FuncError: function (xhr, status, error) { },
             Url: G_PathToServer + 'api/users/get-shortest-user-info',
         });
+    };
+    UsersController.prototype.UpdateImage = function (mainImageSave, onSuccess) {
+        var _this = this;
+        var data = new FormData();
+        data.append('image', mainImageSave);
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "PATCH",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/users/change-user-image',
+        }, true);
+    };
+    UsersController.prototype.mapWithResult = function (onSuccess) {
+        return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
     };
     return UsersController;
 }());
@@ -50555,6 +50670,10 @@ var CodeReviewAppState_1 = __webpack_require__(/*! ../CodeReviewApp/State/CodeRe
 var PlaningPokerApp_1 = __webpack_require__(/*! ../PlaningPoker/State/PlaningPokerApp */ "./src/Models/Models/PlaningPoker/State/PlaningPokerApp.ts");
 var AppState = /** @class */ (function () {
     function AppState() {
+        this.Auth = {
+            AuthSuccess: false,
+            User: null,
+        };
         this.CodeReviewApp = new CodeReviewAppState_1.CodeReviewAppState();
         this.PlaningPokerApp = new PlaningPokerApp_1.PlaningPokerAppState();
     }
@@ -50746,7 +50865,7 @@ var AppState_1 = __webpack_require__(/*! ../../Models/State/AppState */ "./src/M
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
 var ProjectActions_1 = __webpack_require__(/*! ../../Actions/CodeReviewApp/ProjectActions */ "./src/Models/Actions/CodeReviewApp/ProjectActions.ts");
 var UserActions_1 = __webpack_require__(/*! ../../Actions/CodeReviewApp/UserActions */ "./src/Models/Actions/CodeReviewApp/UserActions.ts");
-var Reducer_1 = __webpack_require__(/*! ../Reducer */ "./src/Models/Reducers/Reducer.ts");
+var ReducerCombiner_1 = __webpack_require__(/*! ../ReducerCombiner */ "./src/Models/Reducers/ReducerCombiner.ts");
 var TaskActions_1 = __webpack_require__(/*! ../../Actions/CodeReviewApp/TaskActions */ "./src/Models/Actions/CodeReviewApp/TaskActions.ts");
 var TasksFilter_1 = __webpack_require__(/*! ../../Models/CodeReviewApp/State/TasksFilter */ "./src/Models/Models/CodeReviewApp/State/TasksFilter.ts");
 // return Object.assign({}, state, { TestMessage: str });
@@ -50764,12 +50883,12 @@ function CodeReviewProjectReducer(state, action) {
                 }
                 if (newState.CodeReviewApp.CurrentProjectId === projectId_1) {
                     //todo тут куча копирований стейта
-                    newState = (0, Reducer_1.AppReducer)(newState, (0, UserActions_1.SetCurrentProjectUsersActionCreator)([]));
+                    newState = (0, ReducerCombiner_1.ReducerCombiner)(newState, (0, UserActions_1.SetCurrentProjectUsersActionCreator)([]));
                     var tasks = {};
                     tasks.Tasks = [];
                     tasks.TasksCount = 0;
-                    newState = (0, Reducer_1.AppReducer)(newState, (0, TaskActions_1.SetFilterTaskActionCreator)(new TasksFilter_1.TasksFilter()));
-                    newState = (0, Reducer_1.AppReducer)(newState, (0, TaskActions_1.LoadTasksActionCreator)(tasks));
+                    newState = (0, ReducerCombiner_1.ReducerCombiner)(newState, (0, TaskActions_1.SetFilterTaskActionCreator)(new TasksFilter_1.TasksFilter()));
+                    newState = (0, ReducerCombiner_1.ReducerCombiner)(newState, (0, TaskActions_1.LoadTasksActionCreator)(tasks));
                 }
                 return newState;
             }
@@ -50786,12 +50905,12 @@ function CodeReviewProjectReducer(state, action) {
                 var projectId = action.payload;
                 newState.CodeReviewApp.CurrentProjectId = projectId;
                 //todo тут куча копирований стейта
-                newState = (0, Reducer_1.AppReducer)(newState, (0, UserActions_1.SetCurrentProjectUsersActionCreator)([]));
+                newState = (0, ReducerCombiner_1.ReducerCombiner)(newState, (0, UserActions_1.SetCurrentProjectUsersActionCreator)([]));
                 var tasks = {};
                 tasks.Tasks = [];
                 tasks.TasksCount = 0;
-                newState = (0, Reducer_1.AppReducer)(newState, (0, TaskActions_1.SetFilterTaskActionCreator)(new TasksFilter_1.TasksFilter()));
-                newState = (0, Reducer_1.AppReducer)(newState, (0, TaskActions_1.LoadTasksActionCreator)(tasks));
+                newState = (0, ReducerCombiner_1.ReducerCombiner)(newState, (0, TaskActions_1.SetFilterTaskActionCreator)(new TasksFilter_1.TasksFilter()));
+                newState = (0, ReducerCombiner_1.ReducerCombiner)(newState, (0, TaskActions_1.LoadTasksActionCreator)(tasks));
                 return newState;
             }
         case ProjectActions_1.SetProjectsActionName:
@@ -51347,21 +51466,59 @@ exports.PlaningPokerReducer = PlaningPokerReducer;
 /*!****************************************!*\
   !*** ./src/Models/Reducers/Reducer.ts ***!
   \****************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AppReducer = void 0;
+var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
+var Actions_1 = __webpack_require__(/*! ../Actions/App/Actions */ "./src/Models/Actions/App/Actions.ts");
+var AppState_1 = __webpack_require__(/*! ../Models/State/AppState */ "./src/Models/Models/State/AppState.ts");
+function AppReducer(state, action) {
+    if (state === void 0) { state = new AppState_1.AppState(); }
+    switch (action.type) {
+        case Actions_1.SetAuthActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.Auth = data;
+                localStorage.removeItem("header_auth");
+                return newState;
+            }
+        default:
+            return state;
+    }
+}
+exports.AppReducer = AppReducer;
+
+
+/***/ }),
+
+/***/ "./src/Models/Reducers/ReducerCombiner.ts":
+/*!************************************************!*\
+  !*** ./src/Models/Reducers/ReducerCombiner.ts ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.AppReducer = void 0;
+exports.ReducerCombiner = void 0;
 var AppState_1 = __webpack_require__(/*! ../Models/State/AppState */ "./src/Models/Models/State/AppState.ts");
 var ProjectReducer_1 = __webpack_require__(/*! ./CodeReviewApp/ProjectReducer */ "./src/Models/Reducers/CodeReviewApp/ProjectReducer.ts");
 var UserReducer_1 = __webpack_require__(/*! ./CodeReviewApp/UserReducer */ "./src/Models/Reducers/CodeReviewApp/UserReducer.ts");
 var CommentReducer_1 = __webpack_require__(/*! ./CodeReviewApp/CommentReducer */ "./src/Models/Reducers/CodeReviewApp/CommentReducer.ts");
 var TaskReducer_1 = __webpack_require__(/*! ./CodeReviewApp/TaskReducer */ "./src/Models/Reducers/CodeReviewApp/TaskReducer.ts");
 var Reducer_1 = __webpack_require__(/*! ./PlaningPokerApp/Reducer */ "./src/Models/Reducers/PlaningPokerApp/Reducer.ts");
-function AppReducer(state, action) {
+var Reducer_2 = __webpack_require__(/*! ./Reducer */ "./src/Models/Reducers/Reducer.ts");
+function ReducerCombiner(state, action) {
     if (state === void 0) { state = new AppState_1.AppState(); }
-    var st = (0, ProjectReducer_1.CodeReviewProjectReducer)(state, action);
+    var st = (0, Reducer_2.AppReducer)(state, action);
+    st = (0, ProjectReducer_1.CodeReviewProjectReducer)(st, action);
     st = (0, UserReducer_1.CodeReviewUserReducer)(st, action);
     st = (0, CommentReducer_1.CodeReviewCommentReducer)(st, action);
     st = (0, TaskReducer_1.CodeReviewTaskReducer)(st, action);
@@ -51376,7 +51533,7 @@ function AppReducer(state, action) {
             return state;
     }
 }
-exports.AppReducer = AppReducer;
+exports.ReducerCombiner = ReducerCombiner;
 
 
 /***/ }),
@@ -51581,6 +51738,7 @@ var WordsCardsAppMain_1 = __webpack_require__(/*! ./Body/WordsCardsApp/WordsCard
 var PlaningPokerMain_1 = __importDefault(__webpack_require__(/*! ./Body/PlaningPoker/PlaningPokerMain */ "./src/components/Body/PlaningPoker/PlaningPokerMain.tsx"));
 var CodeReviewMain_1 = __importDefault(__webpack_require__(/*! ./Body/CodeReviewApp/CodeReviewMain/CodeReviewMain */ "./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.tsx"));
 var Recovery_1 = __importDefault(__webpack_require__(/*! ./Body/Auth/Recovery/Recovery */ "./src/components/Body/Auth/Recovery/Recovery.tsx"));
+var PersonSettings_1 = __importDefault(__webpack_require__(/*! ./Body/Person/PersonSettings/PersonSettings */ "./src/components/Body/Person/PersonSettings/PersonSettings.tsx"));
 // 
 var AppRouterProps = /** @class */ (function () {
     function AppRouterProps() {
@@ -51593,11 +51751,12 @@ var AppRouter = function (props) {
             React.createElement(react_router_dom_1.Route, { path: "/menu", element: React.createElement(MenuMain_1.default, { Apps: props.Apps }) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu-app/*", element: React.createElement(MenuAppMain_1.MenuAppMain, null) }),
             React.createElement(react_router_dom_1.Route, { path: "/words-cards-app/*", element: React.createElement(WordsCardsAppMain_1.WordsCardsAppMain, null) }),
-            React.createElement(react_router_dom_1.Route, { path: "/planing-poker/*", element: React.createElement(PlaningPokerMain_1.default, { AuthInfo: props.AuthInfo }) }),
-            React.createElement(react_router_dom_1.Route, { path: "/code-review/*", element: React.createElement(CodeReviewMain_1.default, { AuthInfo: props.AuthInfo }) }),
+            React.createElement(react_router_dom_1.Route, { path: "/planing-poker/*", element: React.createElement(PlaningPokerMain_1.default, null) }),
+            React.createElement(react_router_dom_1.Route, { path: "/code-review/*", element: React.createElement(CodeReviewMain_1.default, null) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/login/*", element: React.createElement(MainAuth_1.MainAuth, { LoginPage: true }) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/register/*", element: React.createElement(MainAuth_1.MainAuth, { LoginPage: false }) }),
-            React.createElement(react_router_dom_1.Route, { path: "/menu/auth/password-recovery/*", element: React.createElement(Recovery_1.default, null) })));
+            React.createElement(react_router_dom_1.Route, { path: "/menu/auth/password-recovery/*", element: React.createElement(Recovery_1.default, null) }),
+            React.createElement(react_router_dom_1.Route, { path: "/menu/person-settings/*", element: React.createElement(PersonSettings_1.default, null) })));
 };
 exports["default"] = AppRouter;
 
@@ -52258,87 +52417,20 @@ var ProjectsList_1 = __importDefault(__webpack_require__(/*! ../ProjectsList/Pro
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 __webpack_require__(/*! ./CodeReviewMain.css */ "./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.css");
 var CodeReviewMain = function (props) {
-    // const [currentProjectId, setCurrentProjectId] = useState(-1);
-    // const [projectsList, setProjectsList] = useState([] as IOneProjectInListDataBack[]);
-    // const [currentProjectUsers, setCurrentProjectUsers] = useState([] as IProjectUserDataBack[]);
     (0, react_1.useEffect)(function () {
-        // let getProjects = (error: MainErrorObjectBack, data: IOneProjectInListDataBack[]) => {
-        //     if (error) {
-        //         return;
-        //     }
-        //     if (data) {
-        //         props.SetCurrentProjectId(-1);
-        //         props.SetProjectsList(data);
-        //     }
-        // };
-        // window.G_CodeReviewProjectController.GetUserProjectsRedux();
         props.GetUserProjects();
     }, []);
     (0, react_1.useEffect)(function () {
         if (props.CurrentProjectId > 0) {
-            // let getProjectInfo = (error: MainErrorObjectBack, data: IOneProjectInfoDataBack) => {
-            //     if (error) {
-            //         return;
-            //     }
-            //     if (data) {
-            //         props.SetCurrentProjectUsers(data.Users);
-            //         // setCurrentProjectTasks(data.Tasks);
-            //     }
-            // };
-            // window.G_CodeReviewProjectController.GetProjectInfoRedux(props.CurrentProjectId);
             props.GetProjectInfo(props.CurrentProjectId);
         }
     }, [props.CurrentProjectId]);
-    // const addNewProject = (newProjectName: string) => {
-    //     if (!newProjectName) {
-    //         alert('Введите название');
-    //     }
-    //     // let addProject = (error: MainErrorObjectBack, data: IOneProjectInListDataBack) => {
-    //     //     if (error) {
-    //     //         return;
-    //     //     }
-    //     //     if (data) {
-    //     //         // setCurrentProjectId(-1);
-    //     //         props.AddProjectList(data);
-    //     //     }
-    //     // };
-    //     window.G_CodeReviewProjectController.CreateNewProjectRedux(newProjectName);
-    // };
-    // const addNewUserToProject = (user: IProjectUserDataBack) => {
-    //     props.AddCurrentProjectUser(user);
-    // };
-    // const deleteProject = () => {
-    //     props.SetCurrentProjectId(-1);
-    //     props.RemoveProjectList(oldState => {
-    //         let newState = [...oldState];
-    //         return newState.filter(x => x.Id != currentProjectId);
-    //     });
-    // };
-    // const changeUser = (user: IProjectUserDataBack) => {
-    //     props.ChangeCurrentProjectUser(oldState => {
-    //         let newState = cloneDeep(oldState);
-    //         let userState = newState.find(x => x.Id === user.Id);
-    //         if (userState) {
-    //             userState.Email = user.Email;
-    //             userState.Name = user.Name;
-    //             userState.IsAdmin = user.IsAdmin;
-    //             userState.Deactivated = user.Deactivated;
-    //         }
-    //         return newState;
-    //     });
-    // };
-    // const deleteUser = (id: number) => {
-    //     props.RemoveCurrentProjectUser(oldState => {
-    //         let newState = [...oldState];
-    //         return newState.filter(x => x.Id != id);
-    //     });
-    // }
     return react_1.default.createElement("div", { className: 'code-review-main-container' },
         react_1.default.createElement("div", { className: 'preloader', id: 'code_review_preloader' }),
         react_1.default.createElement("div", { className: 'code-review-projects-menu-main' },
             react_1.default.createElement(ProjectsList_1.default, { Projects: props.ProjectsList, CurrentProjectId: props.CurrentProjectId })),
         react_1.default.createElement("div", { className: 'code-review-project-info' },
-            react_1.default.createElement(ProjectDetail_1.default, { Project: props.ProjectsList.find(function (x) { return x.Id == props.CurrentProjectId; }), AuthInfo: props.AuthInfo, Tasks: props.Tasks })));
+            react_1.default.createElement(ProjectDetail_1.default, { Project: props.ProjectsList.find(function (x) { return x.Id == props.CurrentProjectId; }), Tasks: props.Tasks })));
 };
 var mapStateToProps = function (state, ownProps) {
     var res = {};
@@ -52622,6 +52714,7 @@ var OneReviewTaskComment = function (props) {
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.ProjectUsers = state.CodeReviewApp.CurrentProjectUsers;
+    res.AuthInfo = state.Auth;
     return res;
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
@@ -52726,19 +52819,9 @@ var OneReviewTask = function (props) {
             props.SetEmptyTaskComments(props.Task.Id);
             return;
         }
-        // let loadComments = (error: MainErrorObjectBack, data: IOneTaskReviewCommentDataBack[]) => {
-        //     if (error) {
-        //         return;
-        //     }
-        //     if (data) {
-        //         setComments(data);
-        //     }
-        // };
         // window.G_CodeReviewCommentController.LoadCommentsRedux(props.Task.Id, loadComments);
         props.LoadTaskComments(props.Task.Id);
     }, [showComments]);
-    // let creator = props.ProjectUsers.find(x => x.Id == props.Task.CreatorId);
-    // let reviewer = props.ProjectUsers.find(x => x.Id == props.Task.ReviewerId);
     var cancelTask = function () {
         if (!confirm('Отменить изменения?')) {
             return;
@@ -52757,14 +52840,6 @@ var OneReviewTask = function (props) {
         forAdd.Status = taskStatus;
         forAdd.ReviewerId = taskReviewer;
         forAdd.CreatorId = taskCreator;
-        // let updateTask = (error: MainErrorObjectBack, data: BoolResultBack) => {
-        //     if (error) {
-        //         return;
-        //     }
-        //     if (data?.result) {
-        //         props.UpdateTask(forAdd);
-        //     }
-        // };
         // window.G_CodeReviewTaskController.UpdateTask(forAdd, updateTask);
         props.UpdateTask(forAdd);
     };
@@ -52772,48 +52847,13 @@ var OneReviewTask = function (props) {
         if (!confirm('Удалить задачу?')) {
             return;
         }
-        // let deleteTask = (error: MainErrorObjectBack, data: BoolResultBack) => {
-        //     if (error) {
-        //         return;
-        //     }
-        //     if (data?.result) {
-        //         props.DeleteTask(props.Task.Id);
-        //     }
-        // };
         // window.G_CodeReviewTaskController.DeleteTask(props.Task.Id, deleteTask);
         props.DeleteTask(props.Task.Id);
     };
     var addComment = function () {
-        // let addComment = (error: MainErrorObjectBack, data: IOneTaskReviewCommentDataBack) => {
-        //     if (error) {
-        //         return;
-        //     }
-        //     if (data) {
-        //         setComments(oldState => {
-        //             let newState = [...oldState];
-        //             newState.push(data);
-        //             return newState;
-        //         });
-        //     }
-        // };
         // window.G_CodeReviewCommentController.AddComment(props.Task.Id, newCommentName, addComment);
         props.AddComment(props.Task.Id, newCommentName);
     };
-    // const deleteComment = (id: number) => {
-    //     setComments(oldState => {
-    //         return oldState.filter(x => x.Id != id);
-    //     });
-    // }
-    // const updateComment = (id: number, text: string) => {
-    //     setComments(oldState => {
-    //         let newState = cloneDeep(oldState);
-    //         let comment = newState.find(x => x.Id == id);
-    //         if (comment) {
-    //             comment.Text = text;
-    //         }
-    //         return newState;
-    //     });
-    // }
     var renderComments = function () {
         if (!showComments) {
             return react_1.default.createElement(react_1.default.Fragment, null);
@@ -52821,7 +52861,7 @@ var OneReviewTask = function (props) {
         return react_1.default.createElement("div", { className: 'one-review-task-comments-block' },
             "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438:",
             props.Comments.map(function (x) {
-                return react_1.default.createElement(OneReviewTaskComment_1.default, { AuthInfo: props.AuthInfo, Comment: x, TaskId: props.Task.Id, key: x.Id });
+                return react_1.default.createElement(OneReviewTaskComment_1.default, { Comment: x, TaskId: props.Task.Id, key: x.Id });
             }),
             react_1.default.createElement("div", null,
                 react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', value: newCommentName, onChange: function (e) { return setNewCommentName(e.target.value); } }),
@@ -53064,7 +53104,7 @@ var ProjectDetail = function (props) {
                 react_1.default.createElement(Paggination_1.default, { ElementsCount: props.CurrentProjectTasksAllCount, PageNumber: props.TasksFilters.Page, ElementsOnPage: tasksOnPageCount, SetPageNumber: props.SetFilterTaskPage }))),
         react_1.default.createElement("div", null,
             react_1.default.createElement("h2", null, "\u0441\u043F\u0438\u0441\u043E\u043A \u0437\u0430\u0434\u0430\u0447"),
-            props.Tasks.map(function (x) { return react_1.default.createElement(OneReviewTask_1.default, { key: x.Id, AuthInfo: props.AuthInfo, Task: x, Comments: x.Comments }); })));
+            props.Tasks.map(function (x) { return react_1.default.createElement(OneReviewTask_1.default, { key: x.Id, Task: x, Comments: x.Comments }); })));
 };
 var mapStateToProps = function (state, ownProps) {
     var res = {};
@@ -55015,6 +55055,160 @@ exports["default"] = Paggination;
 
 /***/ }),
 
+/***/ "./src/components/Body/Person/PersonSettings/PersonSettings.tsx":
+/*!**********************************************************************!*\
+  !*** ./src/components/Body/Person/PersonSettings/PersonSettings.tsx ***!
+  \**********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var Actions_1 = __webpack_require__(/*! ../../../../Models/Actions/App/Actions */ "./src/Models/Actions/App/Actions.ts");
+var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
+var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
+__webpack_require__(/*! ./PersonSettings.css */ "./src/components/Body/Person/PersonSettings/PersonSettings.css");
+var PersonSettings = function (props) {
+    var _a, _b, _c, _d;
+    var _e = (0, react_1.useState)(''), oldPassword = _e[0], setOldPassword = _e[1];
+    var _f = (0, react_1.useState)(''), newPassword = _f[0], setNewPassword = _f[1];
+    var _g = (0, react_1.useState)(''), newPasswordConfirm = _g[0], setNewPasswordConfirm = _g[1];
+    var _h = (0, react_1.useState)(''), name = _h[0], setName = _h[1];
+    var _j = (0, react_1.useState)(false), passwordsBlockShow = _j[0], setPasswordsBlockShow = _j[1];
+    var alertFactory = new AlertData_1.AlertData();
+    (0, react_1.useEffect)(function () {
+    }, []);
+    (0, react_1.useEffect)(function () {
+        var _a, _b;
+        setName(((_b = (_a = props.AuthInfo) === null || _a === void 0 ? void 0 : _a.User) === null || _b === void 0 ? void 0 : _b.Name) || '');
+        // console.log(props.AuthInfo?.User?.Name || '-');
+    }, [(_b = (_a = props.AuthInfo) === null || _a === void 0 ? void 0 : _a.User) === null || _b === void 0 ? void 0 : _b.Name]);
+    var changePassword = function () {
+        if (newPassword !== newPasswordConfirm) {
+            var alert_1 = alertFactory.GetDefaultError("Пароли не совпадают");
+            window.G_AddAbsoluteAlertToState(alert_1);
+            return;
+        }
+        // props.ChangeRoomPassword(props.RoomName, props.UserInfo.UserConnectionId, oldPassword, newPasswordConfirm);
+        window.G_UsersController.ChangePassword(oldPassword, newPassword, function (error, data) {
+            if (data === null || data === void 0 ? void 0 : data.result) {
+                var alert_2 = alertFactory.GetDefaultNotify("Пароль изменен");
+                window.G_AddAbsoluteAlertToState(alert_2);
+                setOldPassword('');
+                setNewPassword('');
+                setNewPasswordConfirm('');
+            }
+            else {
+                var alert_3 = alertFactory.GetDefaultError("Что то пошло не так, попробуйте позже");
+                window.G_AddAbsoluteAlertToState(alert_3);
+            }
+        });
+    };
+    var changeName = function () {
+        if (!name) {
+            var alert_4 = alertFactory.GetDefaultError("Имя не заполнено");
+            window.G_AddAbsoluteAlertToState(alert_4);
+            return;
+        }
+        window.G_UsersController.ChangeName(name, function (error, data) {
+            if (data === null || data === void 0 ? void 0 : data.result) {
+                var auth = (0, cloneDeep_1.default)(props.AuthInfo);
+                auth.User.Name = name;
+                props.SetAuth(auth);
+                var alert_5 = alertFactory.GetDefaultNotify("Имя изменено");
+                window.G_AddAbsoluteAlertToState(alert_5);
+            }
+            else {
+                var alert_6 = alertFactory.GetDefaultError("Что то пошло не так, попробуйте позже");
+                window.G_AddAbsoluteAlertToState(alert_6);
+            }
+        });
+    };
+    var loadImage = function () {
+        var img = $('#main_image_input')[0].files[0]; //пример по этому же id есть
+        window.G_UsersController.UpdateImage(img, function (error, data) {
+            if (data === null || data === void 0 ? void 0 : data.result) {
+                var auth = (0, cloneDeep_1.default)(props.AuthInfo);
+                auth.User.Image = data.result;
+                props.SetAuth(auth);
+                var alert_7 = alertFactory.GetDefaultNotify("Изображение изменено");
+                window.G_AddAbsoluteAlertToState(alert_7);
+            }
+            else {
+                var alert_8 = alertFactory.GetDefaultError("Что то пошло не так, попробуйте позже");
+                window.G_AddAbsoluteAlertToState(alert_8);
+            }
+        });
+    };
+    return react_1.default.createElement("div", { className: 'person-settings-outer' },
+        react_1.default.createElement("div", { className: 'person-settings-inner' },
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("input", { type: 'text', className: 'person-settings-username form-control', autoComplete: "us-name", onChange: function (e) { return setName(e.target.value); }, placeholder: '\u0418\u043C\u044F \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F', value: name }),
+                    react_1.default.createElement("button", { className: 'btn btn-b-light', type: "button", onClick: function () { return changeName(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u043C\u044F")),
+                react_1.default.createElement("button", { type: "button", className: 'btn btn-b-light', onClick: function () { return setPasswordsBlockShow(!passwordsBlockShow); } }, "\u041F\u0430\u0440\u043E\u043B\u0438"),
+                passwordsBlockShow ? react_1.default.createElement("div", { className: 'person-settings-passwords' },
+                    react_1.default.createElement("label", null, "\u0421\u0442\u0430\u0440\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"),
+                    react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', autoComplete: "old-password", onChange: function (e) { return setOldPassword(e.target.value); }, placeholder: '\u0421\u0442\u0430\u0440\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: oldPassword }),
+                    react_1.default.createElement("label", null, "\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"),
+                    react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setNewPassword(e.target.value); }, placeholder: '\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: newPassword }),
+                    react_1.default.createElement("label", null, "\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435 \u043D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"),
+                    react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setNewPasswordConfirm(e.target.value); }, placeholder: '\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: newPasswordConfirm }),
+                    react_1.default.createElement("button", { className: 'btn btn-b-light', type: "button", onClick: function () { return changePassword(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C")) : react_1.default.createElement(react_1.default.Fragment, null)),
+            react_1.default.createElement("div", { className: 'person-settings-inner-right' },
+                react_1.default.createElement("div", { className: 'person-settings-image-block' },
+                    react_1.default.createElement("div", { className: 'person-settings-image' },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: ((_d = (_c = props.AuthInfo) === null || _c === void 0 ? void 0 : _c.User) === null || _d === void 0 ? void 0 : _d.Image) || G_EmptyImagePath, alt: "\u0410\u0432\u0430\u0442\u0430\u0440", title: '\u0410\u0432\u0430\u0442\u0430\u0440' })),
+                    react_1.default.createElement("input", { className: 'form-control', type: 'file', id: 'main_image_input' }),
+                    react_1.default.createElement("button", { type: "button", className: 'btn btn-b-light', onClick: function () { return loadImage(); } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C")))));
+};
+var mapStateToProps = function (state, ownProps) {
+    var res = {};
+    res.AuthInfo = state.Auth;
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    res.SetAuth = function (data) {
+        dispatch((0, Actions_1.SetAuthActionCreator)(data));
+    };
+    return res;
+};
+var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+// and that function returns the connected, wrapper component:
+exports["default"] = connectToStore(PersonSettings);
+
+
+/***/ }),
+
 /***/ "./src/components/Body/PlaningPoker/EditRoom/EditRoom.tsx":
 /*!****************************************************************!*\
   !*** ./src/components/Body/PlaningPoker/EditRoom/EditRoom.tsx ***!
@@ -55058,6 +55252,7 @@ var EditRoom = function (props) {
     var _c = (0, react_1.useState)(''), newPasswordConfirm = _c[0], setNewPasswordConfirm = _c[1];
     var stringCards = props.Cards.join(';');
     var _d = (0, react_1.useState)(stringCards), cards = _d[0], setCards = _d[1];
+    var _e = (0, react_1.useState)(0), showSection = _e[0], setShowSection = _e[1];
     (0, react_1.useEffect)(function () {
         setCards(stringCards);
     }, [stringCards]);
@@ -55091,18 +55286,29 @@ var EditRoom = function (props) {
         }
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.SetRoomCards, props.RoomName, cards);
     };
+    var sectionContent = react_1.default.createElement(react_1.default.Fragment, null);
+    if (showSection === 1) {
+        sectionContent = react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement("label", null, "\u0421\u0442\u0430\u0440\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"),
+            react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setOldPassword(e.target.value); }, placeholder: '\u0421\u0442\u0430\u0440\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: oldPassword }),
+            react_1.default.createElement("label", null, "\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"),
+            react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setNewPassword(e.target.value); }, placeholder: '\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: newPassword }),
+            react_1.default.createElement("label", null, "\u041F\u043E\u0434\u0442\u0432\u0435\u0440\u0434\u0438\u0442\u0435 \u043D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"),
+            react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setNewPasswordConfirm(e.target.value); }, placeholder: '\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: newPasswordConfirm }),
+            react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return changePassword(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C"));
+    }
+    else if (showSection === 2) {
+        sectionContent = react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement("label", null, "\u041E\u0446\u0435\u043D\u043A\u0438 \u0447\u0435\u0440\u0435\u0437 ;"),
+            react_1.default.createElement("input", { type: 'text', className: 'persent-100-width form-control', onChange: function (e) { return setCards(e.target.value); }, placeholder: '\u041E\u0446\u0435\u043D\u043A\u0438', value: cards }),
+            react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return changeCards(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0438"));
+    }
     return react_1.default.createElement("div", null,
-        react_1.default.createElement("label", null, "\u0421\u0442\u0430\u0440\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"),
-        react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setOldPassword(e.target.value); }, placeholder: '\u0421\u0442\u0430\u0440\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: oldPassword }),
-        react_1.default.createElement("label", null, "\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"),
-        react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setNewPassword(e.target.value); }, placeholder: '\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: newPassword }),
-        react_1.default.createElement("label", null, "\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"),
-        react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setNewPasswordConfirm(e.target.value); }, placeholder: '\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: newPasswordConfirm }),
-        react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return changePassword(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C"),
+        react_1.default.createElement("label", null, "\u0421\u0435\u043A\u0446\u0438\u044F"),
+        react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return setShowSection(1); } }, "\u041F\u0430\u0440\u043E\u043B\u044C"),
+        react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return setShowSection(2); } }, "\u041E\u0446\u0435\u043D\u043A\u0438"),
         react_1.default.createElement("hr", null),
-        react_1.default.createElement("label", null, "\u041E\u0446\u0435\u043D\u043A\u0438 \u0447\u0435\u0440\u0435\u0437 ;"),
-        react_1.default.createElement("input", { type: 'text', className: 'persent-100-width form-control', onChange: function (e) { return setCards(e.target.value); }, placeholder: '\u041E\u0446\u0435\u043D\u043A\u0438', value: cards }),
-        react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return changeCards(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0438"));
+        sectionContent);
 };
 var mapStateToProps = function (state, ownProps) {
     var _a;
@@ -55226,16 +55432,16 @@ var Index = function (props) {
         react_1.default.createElement("div", { className: "planing-enter-inner col-sm-6 col-md-5 col-lg-4 offset-sm-3 offset-lg-4" },
             react_1.default.createElement("div", null,
                 react_1.default.createElement("p", null,
-                    "\u0438\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u043C\u044F: ",
+                    "\u0418\u043C\u044F \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F: ",
                     props.Username),
-                react_1.default.createElement("input", { className: "form-control persent-100-width", onChange: function (e) { return props.SetUserName(e.target.value); }, type: "text", value: props.Username })),
+                react_1.default.createElement("input", { className: "form-control persent-100-width", onChange: function (e) { return props.SetUserName(e.target.value); }, type: "text", value: props.Username, placeholder: '\u0418\u043C\u044F \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F' })),
             react_1.default.createElement("div", null,
-                react_1.default.createElement("p", null, "\u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"),
-                react_1.default.createElement("input", { className: "form-control persent-100-width", type: "text", value: roomName, onChange: function (e) { setRoomName(e.target.value); } }),
+                react_1.default.createElement("p", null, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043A\u043E\u043C\u043D\u0430\u0442\u044B"),
+                react_1.default.createElement("input", { className: "form-control persent-100-width", type: "text", value: roomName, onChange: function (e) { setRoomName(e.target.value); }, placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043A\u043E\u043C\u043D\u0430\u0442\u044B' }),
                 react_1.default.createElement("div", null,
-                    react_1.default.createElement("p", null, "\u043F\u0430\u0440\u043E\u043B\u044C(\u043D\u0435\u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E)"),
-                    react_1.default.createElement("input", { className: "form-control persent-100-width", type: "password", value: roomPassword, onChange: function (e) { setRoomPassword(e.target.value); } })),
-                react_1.default.createElement("p", null, "\u0435\u0441\u043B\u0438 \u0441\u043E\u0437\u0434\u0430\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443 \u0431\u0435\u0437 \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u0438 \u0432 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u043C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438, \u0441\u043E\u0437\u0434\u0430\u0435\u0442\u0441\u044F \u043E\u0434\u043D\u043E\u0440\u0430\u0437\u043E\u0432\u0430\u044F \u043A\u043E\u043C\u043D\u0430\u0442\u0430(\u0431\u0443\u0434\u0435\u0442 \u0443\u0434\u0430\u043B\u0435\u043D\u0430 \u0447\u0435\u0440\u0435\u0437 \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u043E\u0435 \u0432\u0440\u0435\u043C\u044F)")),
+                    react_1.default.createElement("p", null, "\u041F\u0430\u0440\u043E\u043B\u044C(\u043D\u0435\u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E)"),
+                    react_1.default.createElement("input", { className: "form-control persent-100-width", type: "password", value: roomPassword, onChange: function (e) { setRoomPassword(e.target.value); }, placeholder: '\u041F\u0430\u0440\u043E\u043B\u044C(\u043D\u0435\u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E)' })),
+                react_1.default.createElement("p", null, "\u0415\u0441\u043B\u0438 \u0441\u043E\u0437\u0434\u0430\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443 \u0431\u0435\u0437 \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u0438 \u0432 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u043C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438, \u0441\u043E\u0437\u0434\u0430\u0435\u0442\u0441\u044F \u043E\u0434\u043D\u043E\u0440\u0430\u0437\u043E\u0432\u0430\u044F \u043A\u043E\u043C\u043D\u0430\u0442\u0430(\u0431\u0443\u0434\u0435\u0442 \u0443\u0434\u0430\u043B\u0435\u043D\u0430 \u0447\u0435\u0440\u0435\u0437 \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u043E\u0435 \u0432\u0440\u0435\u043C\u044F)")),
             actionsButton,
             react_1.default.createElement("div", { className: "display_none" },
                 react_1.default.createElement(react_router_dom_1.Link, { id: "move_to_room_link_react", to: "/planing-poker/room/" + roomName }, "hidden"))));
@@ -55466,7 +55672,7 @@ var PlaningPokerMain = function (props) {
     }, []);
     (0, react_1.useEffect)(function () {
         if (props.AuthInfo.AuthSuccess) {
-            props.SetUserName(props.AuthInfo.User.Email);
+            props.SetUserName(props.AuthInfo.User.Name || props.AuthInfo.User.Email);
         }
     }, [props.AuthInfo.AuthSuccess]);
     (0, react_1.useEffect)(function () {
@@ -55490,6 +55696,7 @@ var PlaningPokerMain = function (props) {
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.RoomInfo = state.PlaningPokerApp.RoomInfo;
+    res.AuthInfo = state.Auth;
     return res;
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
@@ -55556,6 +55763,10 @@ var RoomTimer = function (props) {
                 var timerVal = __planing_room_timer_props_ref__.DieDate.getTime() - new Date().getTime();
                 timerVal = timerVal > 0 ? timerVal : 0;
                 setLifeTime(timerVal);
+                if (timerVal === 0) {
+                    clearInterval(interv);
+                    props.ForceLeaveFromRoom();
+                }
             }
         }, 1000);
         // setStateInterval(interv);
@@ -55743,10 +55954,7 @@ var Room = function (props) {
             }
             usersId.forEach(function (x) {
                 if (x == __planing_room_props_ref__.UserInfo.UserId) {
-                    // document.cookie = "planing_poker_roomname=; path=/;";
-                    alert("you kicked or leave"); //TODO может как то получше сделать, и хорошо бы без перезагрузки\редиректа
-                    window.location.href = "/planing-poker";
-                    __planing_room_props_ref__.SetUserId(''); //todo тут наверное стоит еще что то чистить
+                    forceLeaveFromRoom();
                     return;
                 }
             });
@@ -55841,6 +56049,12 @@ var Room = function (props) {
     if (!props.RoomInfo.InRoom) {
         return react_1.default.createElement("h1", null, "\u043F\u044B\u0442\u0430\u0435\u043C\u0441\u044F \u0432\u043E\u0439\u0442\u0438");
     }
+    var forceLeaveFromRoom = function () {
+        // document.cookie = "planing_poker_roomname=; path=/;";
+        alert("you kicked or leave"); //TODO может как то получше сделать, и хорошо бы без перезагрузки\редиректа
+        window.location.href = "/planing-poker";
+        // __planing_room_props_ref__.SetUserId('');//todo тут наверное стоит еще что то чистить
+    };
     var changeCurrentUserName = function () {
         if (userNameLocalState === "enter_your_name") {
             return;
@@ -56027,7 +56241,7 @@ var Room = function (props) {
                 props.RoomInfo.Name),
             renderNotAuthMessage()),
         react_1.default.createElement("div", null,
-            react_1.default.createElement(RoomTimer_1.default, { DieDate: dieRoomTime, AliveRoom: aliveRoom })),
+            react_1.default.createElement(RoomTimer_1.default, { DieDate: dieRoomTime, AliveRoom: aliveRoom, ForceLeaveFromRoom: forceLeaveFromRoom })),
         react_1.default.createElement("div", { className: "row" },
             react_1.default.createElement("div", { className: "planit-room-left-part col-12 col-md-9" },
                 react_1.default.createElement("div", null,
@@ -56554,6 +56768,7 @@ var mapStateToProps = function (state, ownProps) {
     res.RoomStatus = state.PlaningPokerApp.RoomStatus;
     res.MaxVote = (_b = state.PlaningPokerApp.VoteInfo) === null || _b === void 0 ? void 0 : _b.MaxVote;
     res.MinVote = (_c = state.PlaningPokerApp.VoteInfo) === null || _c === void 0 ? void 0 : _c.MinVote;
+    res.AuthInfo = state.Auth;
     return res;
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
@@ -57760,11 +57975,6 @@ var WordsCardsListMain = /** @class */ (function (_super) {
                     newState.EditCurrentCard = null;
                     refThis.setState(newState);
                 }
-                // newState.CurrentCard.FillByBackModel(fromBack);
-                // newState.Card.Title=newState.NewCardData.Title;
-                // newState.Card.Title=newState.NewCardData.body;
-                // newState.EditCurrentCard = null;
-                // refThis.setState(newState);
             });
         }
     };
@@ -57941,36 +58151,6 @@ var WordsCardsListMain = /** @class */ (function (_super) {
             callBack(data);
         };
         G_WordsCardsController.Update(newElement, success);
-        // let data = new FormData();
-        // data.append('id', newElement.Id + '');
-        // data.append('word', newElement.Word);
-        // data.append('word_answer', newElement.WordAnswer);
-        // data.append('description', newElement.Description);
-        // data.append('delete_main_image', JSON.stringify(newElement.NeedDeleteMainImage));
-        // if (newElement.MainImageSave) {
-        //     data.append('main_image_new', newElement.MainImageSave);
-        // }
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: data,
-        //     Type: "PATCH",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             let res = xhr as IOneWordCardBack;
-        //             if (res.id && res.id > 0) {
-        //                 callBack(res);
-        //             }
-        //             else {
-        //                 //что то не то вернулось
-        //             }
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/wordscards/update',
-        // }, true);
     };
     WordsCardsListMain.prototype.AddNewCardInListRequest = function (newElement, callBack) {
         var success = function (error, data) {
@@ -57980,34 +58160,6 @@ var WordsCardsListMain = /** @class */ (function (_super) {
             callBack(data);
         };
         G_WordsCardsController.Create(newElement, success);
-        // let data = new FormData();
-        // data.append('word', newElement.Word);
-        // data.append('word_answer', newElement.WordAnswer);
-        // data.append('description', newElement.Description);
-        // if (newElement.MainImageSave) {
-        //     data.append('main_image_new', newElement.MainImageSave);
-        // }
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: data,
-        //     Type: "PUT",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             let res = xhr as IOneWordCardBack;
-        //             if (res.id && res.id > 0) {
-        //                 callBack(res);
-        //             }
-        //             else {
-        //                 //что то не то вернулось
-        //             }
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/wordscards/create',
-        // }, true);
     };
     WordsCardsListMain.prototype.ChangeCurrentCard = function (stateCopy) {
         stateCopy.CurrentCard = null;
@@ -58812,8 +58964,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var HeaderLogo_1 = __importDefault(__webpack_require__(/*! ../HeaderLogo/HeaderLogo */ "./src/components/Header/HeaderLogo/HeaderLogo.tsx"));
-var HeaderUserMenu_1 = __webpack_require__(/*! ../HeaderUserMenu/HeaderUserMenu */ "./src/components/Header/HeaderUserMenu/HeaderUserMenu.tsx");
+var HeaderUserMenu_1 = __importDefault(__webpack_require__(/*! ../HeaderUserMenu/HeaderUserMenu */ "./src/components/Header/HeaderUserMenu/HeaderUserMenu.tsx"));
 __webpack_require__(/*! ./HeaderMain.css */ "./src/components/Header/HeaderMain/HeaderMain.css");
 var HeaderMain = function (props) {
     var _a = (0, react_1.useState)(false), showMenu = _a[0], setShowMenu = _a[1];
@@ -58830,9 +58983,19 @@ var HeaderMain = function (props) {
         react_1.default.createElement("div", { className: 'main-header-inner' },
             react_1.default.createElement("div", { className: 'main-header-row' },
                 react_1.default.createElement(HeaderLogo_1.default, { ShowMenu: function () { return setShowMenu(!showMenu); }, MenuShowed: showMenu }),
-                react_1.default.createElement(HeaderUserMenu_1.HeaderUserMenu, { AuthInfo: props.AuthInfo }))));
+                react_1.default.createElement(HeaderUserMenu_1.default, null))));
 };
-exports["default"] = HeaderMain;
+var mapStateToProps = function (state, ownProps) {
+    var res = {};
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    return res;
+};
+var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+// and that function returns the connected, wrapper component:
+exports["default"] = connectToStore(HeaderMain);
 
 
 /***/ }),
@@ -58845,21 +59008,6 @@ exports["default"] = HeaderMain;
 
 "use strict";
 
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -58884,55 +59032,55 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.HeaderUserMenu = void 0;
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 __webpack_require__(/*! ./HeaderUserMenu.css */ "./src/components/Header/HeaderUserMenu/HeaderUserMenu.css");
-var HeaderUserMenu = /** @class */ (function (_super) {
-    __extends(HeaderUserMenu, _super);
-    function HeaderUserMenu(props) {
-        var _this = _super.call(this, props) || this;
-        _this.LogginedUserRender = _this.LogginedUserRender.bind(_this);
-        return _this;
-    }
-    HeaderUserMenu.prototype.componentDidMount = function () {
-        //TODO стучимся в апи, устанавливаем стейт
-    };
-    HeaderUserMenu.prototype.UserImageRender = function (imgPath) {
+var HeaderUserMenu = function (props) {
+    var UserImageRender = function (imgPath) {
         var path = imgPath;
         if (!path) {
-            path = G_PathToBaseImages + 'user_empty_image.png';
+            path = G_EmptyImagePath;
         }
         return React.createElement("img", { className: 'header-user-img', src: path });
     };
-    HeaderUserMenu.prototype.LogginedOrNotRender = function (loggined) {
+    var LogginedOrNotRender = function (loggined) {
         if (loggined) {
-            return this.LogginedUserRender();
+            return LogginedUserRender();
         }
-        return this.NotLogginedUserRender();
+        return NotLogginedUserRender();
     };
-    HeaderUserMenu.prototype.LogginedUserRender = function () {
+    var LogginedUserRender = function () {
         return React.createElement("div", { className: 'header-user-block-inner' },
             React.createElement("div", { className: 'dropdown-toggle header-user-dropdown', "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" },
-                React.createElement("span", { className: 'header-user-name-text d-inline-block' }, this.props.AuthInfo.User.Name),
-                React.createElement("span", { className: 'd-inline-block header-user-img' }, this.UserImageRender(this.props.AuthInfo.User.Image))),
+                React.createElement("span", { className: 'header-user-name-text d-inline-block' }, props.Auth.User.Name),
+                React.createElement("span", { className: 'd-inline-block header-user-img' }, UserImageRender(props.Auth.User.Image))),
             React.createElement("div", { className: "dropdown-menu header-user-menu" },
                 React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/menu/auth/login/" }, "\u0412\u043E\u0439\u0442\u0438"),
-                React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/menu/auth/register/" }, "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F")));
+                React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/menu/auth/register/" }, "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F"),
+                React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/menu/person-settings/" }, "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438")));
     };
-    HeaderUserMenu.prototype.NotLogginedUserRender = function () {
+    var NotLogginedUserRender = function () {
         return React.createElement("div", { className: 'header-user-block-inner' },
             React.createElement("div", { className: 'dropdown-toggle header-auth-dropdown', "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" }, "\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F"),
             React.createElement("div", { className: "dropdown-menu header-user-menu" },
                 React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/menu/auth/login/" }, "\u0412\u043E\u0439\u0442\u0438"),
                 React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/menu/auth/register/" }, "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F")));
     };
-    HeaderUserMenu.prototype.render = function () {
-        return React.createElement("div", { className: 'header-user-block col-5 col-md-3 nopadding ' }, this.LogginedOrNotRender(this.props.AuthInfo.AuthSuccess));
-    };
-    return HeaderUserMenu;
-}(React.Component));
-exports.HeaderUserMenu = HeaderUserMenu;
+    return React.createElement("div", { className: 'header-user-block col-5 col-md-3 nopadding ' }, LogginedOrNotRender(props.Auth.AuthSuccess));
+};
+var mapStateToProps = function (state, ownProps) {
+    var res = {};
+    res.Auth = state.Auth;
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    return res;
+};
+var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+// and that function returns the connected, wrapper component:
+exports["default"] = connectToStore(HeaderUserMenu);
 
 
 /***/ }),
@@ -58985,6 +59133,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var HeaderMain_1 = __importDefault(__webpack_require__(/*! ./Header/HeaderMain/HeaderMain */ "./src/components/Header/HeaderMain/HeaderMain.tsx"));
 // import { BodyMain } from './Body/BodyMain';
 var FooterMain_1 = __importDefault(__webpack_require__(/*! ./Footer/FooterMain/FooterMain */ "./src/components/Footer/FooterMain/FooterMain.tsx"));
@@ -58993,12 +59142,9 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var AlertData_1 = __webpack_require__(/*! ../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var AppRouter_1 = __importDefault(__webpack_require__(/*! ./AppRouter */ "./src/components/AppRouter.tsx"));
 var AppItem_1 = __webpack_require__(/*! ../Models/Models/Poco/AppItem */ "./src/Models/Models/Poco/AppItem.ts");
+var Actions_1 = __webpack_require__(/*! ../Models/Actions/App/Actions */ "./src/Models/Actions/App/Actions.ts");
 var MainComponent = function (props) {
     var initState = {
-        Auth: {
-            AuthSuccess: false,
-            User: null,
-        },
         AbsoluteAlerts: [],
         MaxIdMainAlert: 0,
     };
@@ -59015,11 +59161,12 @@ var MainComponent = function (props) {
         window.G_AddAbsoluteAlertToState = AddMainALert;
         // let thisRef = this;
         // window.addEventListener("logout", function (e) { thisRef.LogOutHandler() });
-        window.addEventListener("tokens_was_refreshed", function (e) { ReloadUserState(); });
+        // window.addEventListener("tokens_was_refreshed", function (e) { ReloadUserState() });
+        window.addEventListener("tokens_was_refreshed", ReloadUserState);
         var authStoredJson = localStorage.getItem('header_auth');
         var authStored = JSON.parse(authStoredJson);
         if (authStoredJson && authStored) {
-            var auth_1 = {
+            var auth = {
                 AuthSuccess: true,
                 User: {
                     Name: authStored.Name,
@@ -59028,18 +59175,16 @@ var MainComponent = function (props) {
                     Email: authStored.Email,
                 }
             };
-            setLocalState(function (prevState) {
-                var newState = __assign({}, prevState);
-                newState.Auth = auth_1;
-                newState.AbsoluteAlerts = [];
-                return newState;
-            });
+            props.SetAuth(auth);
             return;
         }
         if (window.location.pathname.startsWith('/menu/auth/')) {
             return;
         }
         ReloadUserState();
+        return function cleanUp() {
+            window.removeEventListener("tokens_was_refreshed", ReloadUserState);
+        };
     }, []);
     var LogOutHandler = function () {
         var auth = {
@@ -59048,12 +59193,7 @@ var MainComponent = function (props) {
         };
         // localStorage.setItem('header_auth', JSON.stringify(auth));
         localStorage.removeItem("header_auth");
-        setLocalState(function (prevState) {
-            var newState = __assign({}, prevState);
-            newState.Auth = auth;
-            newState.AbsoluteAlerts = [];
-            return newState;
-        });
+        props.SetAuth(auth);
     };
     var ReloadUserState = function () {
         var success = function (error, data) {
@@ -59070,12 +59210,7 @@ var MainComponent = function (props) {
                 }
             };
             localStorage.setItem('header_auth', JSON.stringify(auth.User));
-            setLocalState(function (prevState) {
-                var newState = __assign({}, prevState);
-                newState.Auth = auth;
-                newState.AbsoluteAlerts = [];
-                return newState;
-            });
+            props.SetAuth(auth);
         };
         window.G_UsersController.GetShortestUserInfo(success);
     };
@@ -59113,12 +59248,26 @@ var MainComponent = function (props) {
     };
     return react_1.default.createElement("div", null,
         react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
-            react_1.default.createElement(HeaderMain_1.default, { AuthInfo: localState.Auth, Apps: ApplacationsList }),
-            react_1.default.createElement(AppRouter_1.default, { AuthInfo: localState.Auth, Apps: ApplacationsList }),
+            react_1.default.createElement(HeaderMain_1.default, { Apps: ApplacationsList }),
+            react_1.default.createElement(AppRouter_1.default, { AuthInfo: props.Auth, Apps: ApplacationsList }),
             react_1.default.createElement(FooterMain_1.default, null),
             react_1.default.createElement(MainAlertAbsolute_1.MainAlertAbsolute, { Data: localState.AbsoluteAlerts, RemoveALert: RemoveMainALert })));
 };
-exports["default"] = MainComponent;
+var mapStateToProps = function (state, ownProps) {
+    var res = {};
+    res.Auth = state.Auth;
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    res.SetAuth = function (data) {
+        dispatch((0, Actions_1.SetAuthActionCreator)(data));
+    };
+    return res;
+};
+var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+// and that function returns the connected, wrapper component:
+exports["default"] = connectToStore(MainComponent);
 
 
 /***/ }),
@@ -59178,7 +59327,7 @@ var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react
 var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 var redux_thunk_1 = __importDefault(__webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js"));
 // import { AppAction } from './Models/Actions/Actions';
-var Reducer_1 = __webpack_require__(/*! ./Models/Reducers/Reducer */ "./src/Models/Reducers/Reducer.ts");
+var ReducerCombiner_1 = __webpack_require__(/*! ./Models/Reducers/ReducerCombiner */ "./src/Models/Reducers/ReducerCombiner.ts");
 var AppState_1 = __webpack_require__(/*! ./Models/Models/State/AppState */ "./src/Models/Models/State/AppState.ts");
 __webpack_require__(/*! ../style/main.css */ "./style/main.css");
 __webpack_require__(/*! ../style/auth.css */ "./style/auth.css");
@@ -59211,7 +59360,7 @@ window.G_CodeReviewTaskController = new CodeReviewTaskController_1.CodeReviewTas
 window.G_CodeReviewUserController = new CodeReviewUserController_1.CodeReviewUserController();
 window.G_CodeReviewCommentController = new CodeReviewCommentController_1.CodeReviewCommentController();
 var configureStore = function (initialState) {
-    var store = (0, redux_1.createStore)(Reducer_1.AppReducer, initialState, (0, redux_1.applyMiddleware)(redux_thunk_1.default)); //подключаем thunk
+    var store = (0, redux_1.createStore)(ReducerCombiner_1.ReducerCombiner, initialState, (0, redux_1.applyMiddleware)(redux_thunk_1.default)); //подключаем thunk
     return store;
 };
 var store = configureStore(new AppState_1.AppState());
