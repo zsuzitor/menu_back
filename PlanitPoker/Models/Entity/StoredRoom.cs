@@ -47,6 +47,7 @@ namespace PlanitPoker.Models.Entity
             var res = (StoredRoom)this.MemberwiseClone();
             res.Users = Users.Select(x => x.Clone()).ToList();
             res.Stories = Stories.Select(x=>x.Clone()).ToList();
+            res.Cards = Cards.Select(x => x).ToList();
             return res;
         }
 

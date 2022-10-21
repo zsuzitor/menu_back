@@ -100,28 +100,27 @@ namespace CodeReviewApp.Models.Services
         }
 
 
-        public async Task<TaskReview> CreateTaskAsync(long projectId, string name
-            , long creatorId, long? reviewerId, UserInfo userInfo)
+        public async Task<TaskReview> CreateTaskAsync(TaskReview task, UserInfo userInfo)
         {
-            if (string.IsNullOrWhiteSpace(name))
+            if (string.IsNullOrWhiteSpace(task.Name))
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyTaskName);
             }
 
-            if (!(await ExistIfAccessAsync(projectId, userInfo)).access)
+            if (!(await ExistIfAccessAsync(task.ProjectId, userInfo)).access)
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
-            var creatorExist = await _projectUserService.ExistAsync(projectId, creatorId);
+            var creatorExist = await _projectUserService.ExistAsync(task.ProjectId, task.CreatorId);
             if (!creatorExist)
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
             }
 
-            if (reviewerId != null)
+            if (task.ReviewerId != null)
             {
-                var reviewerExist = await _projectUserService.ExistAsync(projectId, reviewerId.Value);
+                var reviewerExist = await _projectUserService.ExistAsync(task.ProjectId, task.ReviewerId.Value);
                 if (!reviewerExist)
                 {
                     throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
@@ -130,11 +129,12 @@ namespace CodeReviewApp.Models.Services
 
             var newTask = new TaskReview()
             {
-                CreatorId = creatorId,
-                Name = name,
-                ProjectId = projectId,
-                ReviewerId = reviewerId,
+                CreatorId = task.CreatorId,
+                Name = task.Name,
+                ProjectId = task.ProjectId,
+                ReviewerId = task.ReviewerId,
                 CreatorEntityId = userInfo.UserId,
+                Link = task.Link,
             };
 
             //todo проверяем что creator+reviwer входит в проект. по идеи если что упадет с исключением

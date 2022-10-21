@@ -169,16 +169,17 @@ namespace Menu.Models.Services
             //{
             //    throw new SomeCustomException(ErrorConsts.NotFound);
             //}
-            if (image == null)
+            string pathImage = null;
+            if (image != null)
             {
-                throw new SomeCustomException(ErrorConsts.FileError);
+                //throw new SomeCustomException(ErrorConsts.FileError);
+                pathImage = await _imageService.CreateUploadFileWithOutDbRecord(image);
+                if (string.IsNullOrEmpty(pathImage))
+                {
+                    throw new SomeCustomException(ErrorConsts.FileError);
+                }
             }
-
-            var pathImage = await _imageService.CreateUploadFileWithOutDbRecord(image);
-            if (string.IsNullOrEmpty(pathImage))
-            {
-                throw new SomeCustomException(ErrorConsts.FileError);
-            }
+            
 
             var user = await _userRepository.UpdateImageAsync(userId, pathImage);
             if (user == null)

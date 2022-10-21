@@ -20,8 +20,11 @@ namespace PlanitPoker.Models.Returns
 
         public string Vote { get; set; }
         [JsonPropertyName("has_vote")]
-
         public bool HasVote { get; set; }
+
+        [JsonPropertyName("image_link")]
+        public string ImageLink { get; set; }
+
 
 
         public PlanitUserReturn(PlanitUser obj)
@@ -36,6 +39,7 @@ namespace PlanitPoker.Models.Returns
             Name = obj.Name;
             Vote = obj.Vote;
             HasVote = obj.HasVote;
+            ImageLink = obj.ImageLink;
         }
     }
 }

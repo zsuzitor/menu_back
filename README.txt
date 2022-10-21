@@ -17,6 +17,9 @@ Program
 nlog config
 appsettings config
 
+обратить внимание на параметр PhysicalPath
+при разработке он один, при деплое по идеи будет другой, можно проверить загрузив картинку и проверив что она там где надо
+
 
 #db
 при накатке первой миграции надо выключать исключения nloga потому что он пытается логировать в несозданную бд
@@ -37,6 +40,7 @@ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=SqlServerSuperPassword2017" 
 docker run --name menu-pg-13.3 -p 5432:5432 -e POSTGRES_USER=pgusermenu -e POSTGRES_PASSWORD=pgpwd4menu -e POSTGRES_DB=menu -d postgres:13.3
 "Host=localhost;Port=5432;Database=menu;Username=pgusermenu;Password=pgpwd4menu"
 при миграции с mssql на postgres надо грохнуть все миграции и снапшоты и перестроить заного
+
 
 
 

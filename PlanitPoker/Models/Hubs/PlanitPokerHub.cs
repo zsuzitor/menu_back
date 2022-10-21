@@ -17,6 +17,8 @@ using PlanitPoker.Models.Services;
 using Microsoft.Extensions.Logging;
 using PlanitPoker.Models.Entity;
 using System.Text.RegularExpressions;
+using Menu.Models.Services.Interfaces;
+using BO.Models.DAL.Domain;
 
 namespace PlanitPoker.Models.Hubs
 {
@@ -38,6 +40,8 @@ namespace PlanitPoker.Models.Hubs
         private readonly IErrorContainer _errorContainer;
         private readonly ILogger _logger;
         private readonly ILogger _hublogger;
+        private readonly IUserService _userService;
+
 
         //private static IServiceProvider _serviceProvider;
 
@@ -52,12 +56,14 @@ namespace PlanitPoker.Models.Hubs
 
         public PlanitPokerHub(MultiThreadHelper multiThreadHelper,
             IStringValidator stringValidator, IPlanitPokerService planitPokerService,
+            IUserService userService,
             IPlanitApiHelper apiHealper, IJWTService jwtService, IJWTHasher hasher, IErrorService errorService
             , IErrorContainer errorContainer, ILogger<PlanitPokerHub> logger, ILoggerFactory loggerFactory)
         {
             _multiThreadHelper = multiThreadHelper;
             _stringValidator = stringValidator;
             _planitPokerService = planitPokerService;
+            _userService = userService;
 
             _jwtService = jwtService;
             _hasher = hasher;
@@ -100,10 +106,13 @@ namespace PlanitPoker.Models.Hubs
 
                 UserInfo userInfo = null;
                 var expired = false;
+                User userMainAppInfo = null;
                 try
                 {
                     (expired, userInfo) =
                         _apiHealper.GetUserInfoWithExpired(httpContext.Request, _jwtService, false);
+                    userMainAppInfo = await _userService.GetShortInfoAsync(userInfo.UserId);
+
                 }
                 catch
                 {
@@ -122,6 +131,7 @@ namespace PlanitPoker.Models.Hubs
                     UserConnectionId = connectionId,
                     Name = username,
                     Role = GetCreatorRoles(),
+                    ImageLink = userMainAppInfo?.ImagePath,
                 };
 
                 var room = await _planitPokerService.CreateRoomWithUserAsync(roomName, password, user);
@@ -243,10 +253,12 @@ namespace PlanitPoker.Models.Hubs
 
                 UserInfo userInfo = null;
                 var expired = false;
+                User userMainAppInfo = null;
                 try
                 {
                     (expired, userInfo) =
                         _apiHealper.GetUserInfoWithExpired(Context.GetHttpContext().Request, _jwtService, false);
+                    userMainAppInfo = await _userService.GetShortInfoAsync(userInfo.UserId);
                 }
                 catch
                 {
@@ -265,6 +277,7 @@ namespace PlanitPoker.Models.Hubs
                     UserConnectionId = connectionId,
                     Name = username,
                     Role = GetDefaultRoles(),
+                    ImageLink = userMainAppInfo?.ImagePath,
                 };
 
                 _ = await EnterInRoom(room, user);

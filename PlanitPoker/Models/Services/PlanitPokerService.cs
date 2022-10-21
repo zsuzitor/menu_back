@@ -16,6 +16,7 @@ using Common.Models.Error;
 using System.Globalization;
 using DAL.Models.DAL;
 using jwtLib.JWTAuth.Interfaces;
+using System.Text.Json;
 
 namespace PlanitPoker.Models.Services
 {
@@ -306,6 +307,7 @@ namespace PlanitPoker.Models.Services
                     oldConnectionId = us.UserConnectionId;
                     us.UserConnectionId = user.UserConnectionId;
                     us.MainAppUserId ??= user.MainAppUserId;
+                    us.ImageLink = user.ImageLink;
                 }
 
                 return Task.CompletedTask;
@@ -1356,7 +1358,7 @@ namespace PlanitPoker.Models.Services
                 Name = roomDb.StoredRoom.Name,
                 Password = roomDb.StoredRoom.Password,
                 Id = roomDb.StoredRoom.Id ?? 0,
-                Cards = string.Join(';', roomDb.StoredRoom.Cards),
+                Cards = JsonSerializer.Serialize(roomDb.StoredRoom.Cards), //string.Join(';', roomDb.StoredRoom.Cards),
             };
 
             return res;
@@ -1396,7 +1398,7 @@ namespace PlanitPoker.Models.Services
                 Name = roomDb.Name,
                 Password = roomDb.Password,
                 Id = roomDb.Id,
-                //todo наверное прям тут грузить - не очень наглядну
+                //todo наверное прям тут грузить - не очень наглядно
                 Stories = (await _storyRepository.GetActualForRoomAsync(roomDb.Id)).Select(x =>
                 {
                     var st = new Story() { CurrentSession = true };
@@ -1404,7 +1406,8 @@ namespace PlanitPoker.Models.Services
                     return st;
 
                 }).ToList(),
-                Cards = roomDb.Cards?.Split(";", StringSplitOptions.RemoveEmptyEntries).ToList() ?? new List<string>()
+                Cards = JsonSerializer.Deserialize<List<string>>(roomDb.Cards),
+                //roomDb.Cards?.Split(";", StringSplitOptions.RemoveEmptyEntries).ToList() ?? new List<string>()
             };
 
             await _roomRepository.LoadUsersAsync(roomDb);

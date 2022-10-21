@@ -107,9 +107,10 @@ namespace Menu.Controllers.CodeReviewApp
         [Route("add-new-task")]
         [HttpPut]
         public async Task AddNewTask([FromForm] string taskName, [FromForm] long taskCreatorId
-            , [FromForm] long? taskReviwerId, [FromForm] long projectId)
+            , [FromForm] long? taskReviwerId, [FromForm] string taskLink, [FromForm] long projectId)
         {
             taskName = _apiHealper.StringValidator(taskName);
+            taskLink = _apiHealper.StringValidator(taskLink);
 
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -121,7 +122,14 @@ namespace Menu.Controllers.CodeReviewApp
 
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _projectService.CreateTaskAsync(projectId, taskName, taskCreatorId, taskReviwerId, userInfo);
+                    var res = await _projectService.CreateTaskAsync(new TaskReview()
+                    {
+                        Name = taskName,
+                        CreatorId = taskCreatorId,
+                        ReviewerId = taskReviwerId,
+                        Link = taskLink,
+                        ProjectId = projectId,
+                    }, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
                         {
@@ -130,6 +138,7 @@ namespace Menu.Controllers.CodeReviewApp
                             CreatorId = res.CreatorId,
                             ReviewerId = res.ReviewerId,
                             Status = res.Status,
+                            Link = res.Link,
                         });
 
                 }, Response, _logger);
@@ -139,9 +148,11 @@ namespace Menu.Controllers.CodeReviewApp
         [Route("update-task")]
         [HttpPatch]
         public async Task UpdateTask([FromForm] long taskId, [FromForm] string name
-            , [FromForm] int status, [FromForm] long creatorId, [FromForm] long? reviewerId)
+            , [FromForm] int status, [FromForm] long creatorId, [FromForm] long? reviewerId
+            , [FromForm] string taskLink)
         {
             name = _apiHealper.StringValidator(name);
+            taskLink = _apiHealper.StringValidator(taskLink);
 
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -163,7 +174,8 @@ namespace Menu.Controllers.CodeReviewApp
                         Name = name,
                         Status = (CodeReviewTaskStatus)status,
                         CreatorId = creatorId,
-                        ReviewerId = reviewerId
+                        ReviewerId = reviewerId,
+                        Link = taskLink,
                     }, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new

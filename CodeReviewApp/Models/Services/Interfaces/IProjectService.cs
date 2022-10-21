@@ -17,7 +17,7 @@ namespace CodeReviewApp.Models.Services.Interfaces
 
         Task<Project> CreateAsync(string name, UserInfo userInfo);
         Task<ProjectUser> CreateUserAsync(long projectId, string userName, string email, long? mainAppUserId, UserInfo userInfo);
-        Task<TaskReview> CreateTaskAsync(long projectId, string name, long creatorId, long? reviewerId, UserInfo userInfo);
+        Task<TaskReview> CreateTaskAsync(TaskReview task, UserInfo userInfo);
         Task<bool> DeleteAsync(long projectId, UserInfo userInfo);
         Task AlertAsync();
 

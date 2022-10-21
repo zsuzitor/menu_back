@@ -6,6 +6,7 @@ namespace CodeReviewApp.Models.Returns
     {
         public long Id { get; set; }
         public string Name { get; set; }
+        public string Link { get; set; }
         public long? CreatorId { get; set; }
         public long? ReviewerId { get; set; }
         public int Status { get; set; }
@@ -14,6 +15,7 @@ namespace CodeReviewApp.Models.Returns
         {
             Id = task.Id;
             Name = task.Name;
+            Link = task.Link;
             CreatorId = task.CreatorId;
             ReviewerId = task.ReviewerId;
             Status = (int)task.Status;

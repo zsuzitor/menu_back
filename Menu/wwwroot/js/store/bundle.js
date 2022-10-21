@@ -2549,7 +2549,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".selected-review-project {\r\n    background-color: grey;\r\n}\r\n\r\n.review-project {\r\n    border-radius: 20px;\r\n    border: 1px solid black;\r\n    padding: 3px;\r\n    cursor: pointer;\r\n    overflow: hidden;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/OneProjectInList/OneProjectInList.css"],"names":[],"mappings":"AAAA;IACI,sBAAsB;AAC1B;;AAEA;IACI,mBAAmB;IACnB,uBAAuB;IACvB,YAAY;IACZ,eAAe;IACf,gBAAgB;AACpB","sourcesContent":[".selected-review-project {\r\n    background-color: grey;\r\n}\r\n\r\n.review-project {\r\n    border-radius: 20px;\r\n    border: 1px solid black;\r\n    padding: 3px;\r\n    cursor: pointer;\r\n    overflow: hidden;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".selected-review-project {\r\n    background-color: grey;\r\n}\r\n\r\n.review-project {\r\n    border-radius: 10px;\r\n    border: 1px solid black;\r\n    padding: 3px;\r\n    cursor: pointer;\r\n    overflow: hidden;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/OneProjectInList/OneProjectInList.css"],"names":[],"mappings":"AAAA;IACI,sBAAsB;AAC1B;;AAEA;IACI,mBAAmB;IACnB,uBAAuB;IACvB,YAAY;IACZ,eAAe;IACf,gBAAgB;AACpB","sourcesContent":[".selected-review-project {\r\n    background-color: grey;\r\n}\r\n\r\n.review-project {\r\n    border-radius: 10px;\r\n    border: 1px solid black;\r\n    padding: 3px;\r\n    cursor: pointer;\r\n    overflow: hidden;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2630,7 +2630,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".one-review-task-block {\r\n    border: 1px solid black;\r\n    position: relative;\r\n    border-radius: 10px;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    /* position: absolute; */\r\n    /* right: 0px; */\r\n    width: 35px;\r\n}\r\n\r\n.one-review-task-content {\r\n    flex-grow: 2;\r\n}\r\n\r\n.review-task-name-input {\r\n    width: 100%;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 10px;\r\n    /* border-radius: 10px; */\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 15px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/OneReviewTask/OneReviewTask.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,mBAAmB;AACvB;;AAEA;IACI,wBAAwB;IACxB,gBAAgB;IAChB,WAAW;AACf;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,aAAa;IACb,aAAa;IACb,yBAAyB;AAC7B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;;AAEnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,SAAS;IACT,kBAAkB;IAClB,mBAAmB;AACvB","sourcesContent":[".one-review-task-block {\r\n    border: 1px solid black;\r\n    position: relative;\r\n    border-radius: 10px;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    /* position: absolute; */\r\n    /* right: 0px; */\r\n    width: 35px;\r\n}\r\n\r\n.one-review-task-content {\r\n    flex-grow: 2;\r\n}\r\n\r\n.review-task-name-input {\r\n    width: 100%;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 10px;\r\n    /* border-radius: 10px; */\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 15px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".one-review-task-block {\r\n    border: 1px solid black;\r\n    position: relative;\r\n    border-radius: 10px;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    /* position: absolute; */\r\n    /* right: 0px; */\r\n    width: 35px;\r\n}\r\n\r\n.one-review-task-content {\r\n    flex-grow: 2;\r\n}\r\n\r\n.review-task-name-input {\r\n    width: 100%;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 10px;\r\n    /* border-radius: 10px; */\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-link-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 15px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/OneReviewTask/OneReviewTask.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,mBAAmB;AACvB;;AAEA;IACI,wBAAwB;IACxB,gBAAgB;IAChB,WAAW;AACf;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,aAAa;IACb,aAAa;IACb,yBAAyB;AAC7B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;;AAEnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,SAAS;IACT,kBAAkB;IAClB,mBAAmB;AACvB","sourcesContent":[".one-review-task-block {\r\n    border: 1px solid black;\r\n    position: relative;\r\n    border-radius: 10px;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    /* position: absolute; */\r\n    /* right: 0px; */\r\n    width: 35px;\r\n}\r\n\r\n.one-review-task-content {\r\n    flex-grow: 2;\r\n}\r\n\r\n.review-task-name-input {\r\n    width: 100%;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 10px;\r\n    /* border-radius: 10px; */\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-link-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 15px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2765,7 +2765,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "div.person-settings-outer {\r\n    padding: 30px;\r\n    position: relative;\r\n    min-height: 400px;\r\n}\r\n\r\ndiv.person-settings-passwords {\r\n    width: 300px;\r\n}\r\n\r\ndiv.person-settings-image {\r\n    width: 300px;\r\n    height: 300px;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n\r\n    overflow: hidden;\r\n}\r\n\r\n.person-settings-image-block {\r\n    position: absolute;\r\n    top: 30px;\r\n    right: 30px;\r\n    width: 300px;\r\n    height: 350px;\r\n}\r\n\r\n.person-settings-username {\r\n    width: 200px;\r\n}\r\n\r\n.person-settings-inner {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.person-settings-inner-right {\r\n    min-width: 300px;\r\n    position: relative;\r\n    min-height: 400px;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/Person/PersonSettings/PersonSettings.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,kBAAkB;IAClB,iBAAiB;AACrB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,kBAAkB;IAClB,kBAAkB;;IAElB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,SAAS;IACT,WAAW;IACX,YAAY;IACZ,aAAa;AACjB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;IAClB,iBAAiB;;AAErB","sourcesContent":["div.person-settings-outer {\r\n    padding: 30px;\r\n    position: relative;\r\n    min-height: 400px;\r\n}\r\n\r\ndiv.person-settings-passwords {\r\n    width: 300px;\r\n}\r\n\r\ndiv.person-settings-image {\r\n    width: 300px;\r\n    height: 300px;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n\r\n    overflow: hidden;\r\n}\r\n\r\n.person-settings-image-block {\r\n    position: absolute;\r\n    top: 30px;\r\n    right: 30px;\r\n    width: 300px;\r\n    height: 350px;\r\n}\r\n\r\n.person-settings-username {\r\n    width: 200px;\r\n}\r\n\r\n.person-settings-inner {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.person-settings-inner-right {\r\n    min-width: 300px;\r\n    position: relative;\r\n    min-height: 400px;\r\n\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "div.person-settings-outer {\r\n    padding: 30px;\r\n    position: relative;\r\n    min-height: 400px;\r\n}\r\n\r\ndiv.person-settings-passwords {\r\n    width: 300px;\r\n}\r\n\r\ndiv.person-settings-image {\r\n    width: 300px;\r\n    height: 300px;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n\r\n    overflow: hidden;\r\n    position: relative;\r\n}\r\n\r\n/* div.person-settings-image> */\r\n/* div.person-settings-image-hv {\r\n    height: 200px;\r\n    background-color: black;\r\n    visibility: hidden;\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 100%;\r\n} */\r\n\r\n/* div.person-settings-image-hv:hover {\r\n    visibility: visible;\r\n\r\n} */\r\n\r\n/* div.person-settings-image:hover+div.person-settings-image>div.person-settings-image-hv {\r\n    height: 100px;\r\n} */\r\n\r\n.person-settings-image-block {\r\n    position: absolute;\r\n    top: 30px;\r\n    right: 30px;\r\n    width: 300px;\r\n    height: 350px;\r\n}\r\n\r\n.person-settings-username {\r\n    width: 200px;\r\n}\r\n\r\n.person-settings-inner {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.person-settings-inner-right {\r\n    min-width: 300px;\r\n    position: relative;\r\n    min-height: 400px;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/Person/PersonSettings/PersonSettings.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,kBAAkB;IAClB,iBAAiB;AACrB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,kBAAkB;IAClB,kBAAkB;;IAElB,gBAAgB;IAChB,kBAAkB;AACtB;;AAEA,+BAA+B;AAC/B;;;;;;;GAOG;;AAEH;;;GAGG;;AAEH;;GAEG;;AAEH;IACI,kBAAkB;IAClB,SAAS;IACT,WAAW;IACX,YAAY;IACZ,aAAa;AACjB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,eAAe;AACnB;;AAEA;IACI,gBAAgB;IAChB,kBAAkB;IAClB,iBAAiB;;AAErB","sourcesContent":["div.person-settings-outer {\r\n    padding: 30px;\r\n    position: relative;\r\n    min-height: 400px;\r\n}\r\n\r\ndiv.person-settings-passwords {\r\n    width: 300px;\r\n}\r\n\r\ndiv.person-settings-image {\r\n    width: 300px;\r\n    height: 300px;\r\n    border-radius: 50%;\r\n    /* float: right; */\r\n\r\n    overflow: hidden;\r\n    position: relative;\r\n}\r\n\r\n/* div.person-settings-image> */\r\n/* div.person-settings-image-hv {\r\n    height: 200px;\r\n    background-color: black;\r\n    visibility: hidden;\r\n    position: absolute;\r\n    bottom: 0;\r\n    width: 100%;\r\n} */\r\n\r\n/* div.person-settings-image-hv:hover {\r\n    visibility: visible;\r\n\r\n} */\r\n\r\n/* div.person-settings-image:hover+div.person-settings-image>div.person-settings-image-hv {\r\n    height: 100px;\r\n} */\r\n\r\n.person-settings-image-block {\r\n    position: absolute;\r\n    top: 30px;\r\n    right: 30px;\r\n    width: 300px;\r\n    height: 350px;\r\n}\r\n\r\n.person-settings-username {\r\n    width: 200px;\r\n}\r\n\r\n.person-settings-inner {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.person-settings-inner-right {\r\n    min-width: 300px;\r\n    position: relative;\r\n    min-height: 400px;\r\n\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2792,7 +2792,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "div.edit-room-sections-block {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n}\r\n\r\ndiv.edit-room-sections-block>div {\r\n    border: 1px solid white;\r\n    cursor: pointer;\r\n    flex-grow: 1;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/EditRoom/EditRoom.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,eAAe;IACf,6BAA6B;AACjC;;AAEA;IACI,uBAAuB;IACvB,eAAe;IACf,YAAY;IACZ,kBAAkB;IAClB,kBAAkB;AACtB","sourcesContent":["div.edit-room-sections-block {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    justify-content: space-around;\r\n}\r\n\r\ndiv.edit-room-sections-block>div {\r\n    border: 1px solid white;\r\n    cursor: pointer;\r\n    flex-grow: 1;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2900,7 +2900,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but{\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Room/Room.css"],"names":[],"mappings":"AAAA;IACI,aAAa;;AAEjB;;AAEA;IACI,6BAA6B;IAC7B;;kEAE8D;IAC9D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B;;8DAE0D;IAC1D,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,cAAc;IACd,eAAe;AACnB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,gCAAgC;IAChC,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,+BAA+B;AACnC;;;AAGA;IACI,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,6BAA6B;IAC7B,2BAA2B;IAC3B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf","sourcesContent":[".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but{\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 25px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-name-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-name-block-input-block {\r\n    flex-grow: 2;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Room/Room.css"],"names":[],"mappings":"AAAA;IACI,aAAa;;AAEjB;;AAEA;IACI,6BAA6B;IAC7B;;kEAE8D;IAC9D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B;;8DAE0D;IAC1D,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,cAAc;IACd,eAAe;AACnB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;IACI,gCAAgC;IAChC,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,+BAA+B;AACnC;;;AAGA;IACI,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,6BAA6B;IAC7B,2BAA2B;IAC3B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;AAChB","sourcesContent":[".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 25px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-name-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-name-block-input-block {\r\n    flex-grow: 2;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2927,7 +2927,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".room-stories-type-selector {\r\n    display: flex;\r\n    border-radius: 4px 4px 0 0;\r\n    border: 2px solid grey;\r\n    justify-content: space-around;\r\n}\r\n\r\n.room-stories-type-selector .type-section {\r\n    padding: 5px;\r\n    /* border-bottom: 2px solid grey; */\r\n    cursor: pointer;\r\n}\r\n\r\n.room-stories-type-selector .type-section-select {\r\n    border-bottom: 2px solid blue;\r\n}\r\n\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.not-completed-story {\r\n    /* background-color: #e9f3a8; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.completed-story {\r\n    /* background-color: #b2f593; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.stories-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-but-block{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 110px;\r\n}\r\n\r\n.planing-current-story{\r\n    padding-top: 15px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,0BAA0B;IAC1B,sBAAsB;IACtB,6BAA6B;AACjC;;AAEA;IACI,YAAY;IACZ,mCAAmC;IACnC,eAAe;AACnB;;AAEA;IACI,6BAA6B;AACjC;;;AAGA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,kBAAkB;IAClB,iBAAiB;AACrB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,kBAAkB;IAClB,iBAAiB;AACrB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,+BAA+B;IAC/B,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,iBAAiB;AACrB","sourcesContent":[".room-stories-type-selector {\r\n    display: flex;\r\n    border-radius: 4px 4px 0 0;\r\n    border: 2px solid grey;\r\n    justify-content: space-around;\r\n}\r\n\r\n.room-stories-type-selector .type-section {\r\n    padding: 5px;\r\n    /* border-bottom: 2px solid grey; */\r\n    cursor: pointer;\r\n}\r\n\r\n.room-stories-type-selector .type-section-select {\r\n    border-bottom: 2px solid blue;\r\n}\r\n\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.not-completed-story {\r\n    /* background-color: #e9f3a8; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.completed-story {\r\n    /* background-color: #b2f593; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.stories-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-but-block{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 110px;\r\n}\r\n\r\n.planing-current-story{\r\n    padding-top: 15px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".room-stories-type-selector {\r\n    display: flex;\r\n    border-radius: 6px 6px 0 0;\r\n    border: 2px solid grey;\r\n    justify-content: space-around;\r\n}\r\n\r\n.room-stories-type-selector .type-section {\r\n    padding: 5px;\r\n    /* border-bottom: 2px solid grey; */\r\n    cursor: pointer;\r\n}\r\n\r\n.room-stories-type-selector .type-section-select {\r\n    border-bottom: 2px solid blue;\r\n}\r\n\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.not-completed-story {\r\n    /* background-color: #e9f3a8; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.completed-story {\r\n    /* background-color: #b2f593; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.stories-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-but-block{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 110px;\r\n}\r\n\r\n.planing-current-story{\r\n    padding-top: 15px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,0BAA0B;IAC1B,sBAAsB;IACtB,6BAA6B;AACjC;;AAEA;IACI,YAAY;IACZ,mCAAmC;IACnC,eAAe;AACnB;;AAEA;IACI,6BAA6B;AACjC;;;AAGA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,kBAAkB;IAClB,iBAAiB;AACrB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,kBAAkB;IAClB,iBAAiB;AACrB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,+BAA+B;IAC/B,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,iBAAiB;AACrB","sourcesContent":[".room-stories-type-selector {\r\n    display: flex;\r\n    border-radius: 6px 6px 0 0;\r\n    border: 2px solid grey;\r\n    justify-content: space-around;\r\n}\r\n\r\n.room-stories-type-selector .type-section {\r\n    padding: 5px;\r\n    /* border-bottom: 2px solid grey; */\r\n    cursor: pointer;\r\n}\r\n\r\n.room-stories-type-selector .type-section-select {\r\n    border-bottom: 2px solid blue;\r\n}\r\n\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.not-completed-story {\r\n    /* background-color: #e9f3a8; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.completed-story {\r\n    /* background-color: #b2f593; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.stories-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-but-block{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 110px;\r\n}\r\n\r\n.planing-current-story{\r\n    padding-top: 15px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2954,7 +2954,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".user-list-role-but {\r\n    display: flex;\r\n}\r\n\r\n.user-role-but {\r\n    width: 25px;\r\n    height: 25px;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n    font-size: 30px;\r\n    line-height: 19px;\r\n    cursor: pointer;\r\n}\r\n\r\n.user-role-but-add {\r\n    background-color: #28a745;\r\n\r\n}\r\n\r\n\r\n.user-role-but-del {\r\n    background-color: #dc3545;\r\n\r\n}\r\n\r\n.user-list-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planing-user-img {\r\n    border-radius: 50%;\r\n    width: 30px;\r\n    height: 30px;\r\n    overflow: hidden;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/UserInList/UserInList.css"],"names":[],"mappings":"AAAA;IACI,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,kBAAkB;IAClB,eAAe;IACf,iBAAiB;IACjB,eAAe;AACnB;;AAEA;IACI,yBAAyB;;AAE7B;;;AAGA;IACI,yBAAyB;;AAE7B;;AAEA;IACI,+BAA+B;IAC/B,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,eAAe;AACnB;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,6CAA6C;IAC7C,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,6BAA6B;AACjC;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,gBAAgB;AACpB","sourcesContent":[".user-list-role-but {\r\n    display: flex;\r\n}\r\n\r\n.user-role-but {\r\n    width: 25px;\r\n    height: 25px;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n    font-size: 30px;\r\n    line-height: 19px;\r\n    cursor: pointer;\r\n}\r\n\r\n.user-role-but-add {\r\n    background-color: #28a745;\r\n\r\n}\r\n\r\n\r\n.user-role-but-del {\r\n    background-color: #dc3545;\r\n\r\n}\r\n\r\n.user-list-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n}\r\n\r\n.planing-user-img {\r\n    border-radius: 50%;\r\n    width: 30px;\r\n    height: 30px;\r\n    overflow: hidden;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".user-list-role-but {\r\n    display: flex;\r\n}\r\n\r\n.user-role-but {\r\n    width: 25px;\r\n    height: 25px;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n    font-size: 30px;\r\n    line-height: 19px;\r\n    cursor: pointer;\r\n}\r\n\r\n.user-role-but-add {\r\n    background-color: #66cb7d;\r\n}\r\n\r\n\r\n.user-role-but-del {\r\n    background-color: #d95a66;\r\n\r\n}\r\n\r\n.user-list-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n    position: relative;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-user-img {\r\n    border-radius: 50%;\r\n    width: 30px;\r\n    height: 30px;\r\n    overflow: hidden;\r\n    display: inline-block;\r\n}\r\n\r\n.user-list-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding-top: 10px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/UserInList/UserInList.css"],"names":[],"mappings":"AAAA;IACI,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,kBAAkB;IAClB,eAAe;IACf,iBAAiB;IACjB,eAAe;AACnB;;AAEA;IACI,yBAAyB;AAC7B;;;AAGA;IACI,yBAAyB;;AAE7B;;AAEA;IACI,+BAA+B;IAC/B,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,eAAe;AACnB;;AAEA;IACI,2BAA2B;AAC/B;;AAEA;IACI,+BAA+B;AACnC;;AAEA;IACI,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,6CAA6C;IAC7C,qCAAqC;IACrC,kBAAkB;IAClB,aAAa;IACb,6BAA6B;IAC7B,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,gBAAgB;IAChB,qBAAqB;AACzB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,iBAAiB;AACrB","sourcesContent":[".user-list-role-but {\r\n    display: flex;\r\n}\r\n\r\n.user-role-but {\r\n    width: 25px;\r\n    height: 25px;\r\n    text-align: center;\r\n    border-radius: 3px;\r\n    font-size: 30px;\r\n    line-height: 19px;\r\n    cursor: pointer;\r\n}\r\n\r\n.user-role-but-add {\r\n    background-color: #66cb7d;\r\n}\r\n\r\n\r\n.user-role-but-del {\r\n    background-color: #d95a66;\r\n\r\n}\r\n\r\n.user-list-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-user-voted {\r\n    background-color: lawngreen;\r\n}\r\n\r\n.planing-user-not-voted {\r\n    background-color: lavenderblush;\r\n}\r\n\r\n.planing-user-voted-min {\r\n    background-color: darksalmon;\r\n}\r\n\r\n.planing-user-voted-max {\r\n    background-color: peru;\r\n}\r\n\r\n.planing-user {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n    /* background-color: white; */\r\n    position: relative;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-user-img {\r\n    border-radius: 50%;\r\n    width: 30px;\r\n    height: 30px;\r\n    overflow: hidden;\r\n    display: inline-block;\r\n}\r\n\r\n.user-list-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding-top: 10px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48950,35 +48950,26 @@ var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/M
 var CodeReviewTaskController = /** @class */ (function () {
     function CodeReviewTaskController() {
         var _this = this;
-        this.AddTaskToProjectRedux = function (taskName, taskCreatorId, taskReviwerId, projectId) {
+        this.AddTaskToProjectRedux = function (task, projectId) {
             return function (dispatch, getState) {
                 _this.preloader(true);
-                _this.AddTaskToProject(taskName, taskCreatorId, taskReviwerId, projectId, function (error, data) {
+                _this.AddTaskToProject(task, projectId, function (error, data) {
                     _this.preloader(false);
                     if (error) {
                         return;
                     }
                     if (data) {
-                        // dispatch(AddTaskToProjectActionCreator(data));
                         dispatch((0, TaskActions_1.AddLoadTriggerActionCreator)());
-                        // let st = getState() as AppState;
-                        // let filter = {
-                        //     Name: st.CodeReviewApp.CurrentProjectTasksFilters.TaskName
-                        //     , CreatorId: st.CodeReviewApp.CurrentProjectTasksFilters.CreatorId
-                        //     , PageNumber: st.CodeReviewApp.CurrentProjectTasksFilters.Page, PageSize: tasksOnPageCount
-                        //     , ProjectId: st.CodeReviewApp.CurrentProjectId, ReviewerId: st.CodeReviewApp.CurrentProjectTasksFilters.ReviewerId
-                        //     , Status: st.CodeReviewApp.CurrentProjectTasksFilters.Status
-                        // } as ITaskFilter;
-                        // dispatch(this.LoadTasksRedux());
                     }
                 });
             };
         };
-        this.AddTaskToProject = function (taskName, taskCreatorId, taskReviwerId, projectId, onSuccess) {
+        this.AddTaskToProject = function (task, projectId, onSuccess) {
             var data = {
-                "taskName": taskName,
-                "taskCreatorId": taskCreatorId,
-                "taskReviwerId": taskReviwerId,
+                "taskName": task.Name,
+                "taskCreatorId": task.CreatorId,
+                "taskReviwerId": task.ReviewerId,
+                "taskLink": task.Link,
                 "projectId": projectId,
             };
             G_AjaxHelper.GoAjaxRequest({
@@ -49012,6 +49003,7 @@ var CodeReviewTaskController = /** @class */ (function () {
                 "status": task.Status,
                 "creatorId": task.CreatorId,
                 "reviewerId": task.ReviewerId,
+                "taskLink": task.Link,
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
@@ -49757,7 +49749,9 @@ var UsersController = /** @class */ (function () {
     UsersController.prototype.UpdateImage = function (mainImageSave, onSuccess) {
         var _this = this;
         var data = new FormData();
-        data.append('image', mainImageSave);
+        if (mainImageSave) {
+            data.append('image', mainImageSave);
+        }
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
             Type: "PATCH",
@@ -50335,6 +50329,7 @@ var OneTask = /** @class */ (function () {
         this.CreatorId = data.CreatorId;
         this.ReviewerId = data.ReviewerId;
         this.Status = data.Status;
+        this.Link = data.Link;
     };
     return OneTask;
 }());
@@ -50523,6 +50518,7 @@ var UserInRoom = /** @class */ (function () {
         this.Vote = newData.vote;
         this.Roles = newData.roles;
         this.HasVote = newData.has_vote;
+        this.ImageLink = newData.image_link;
     };
     UserInRoom.prototype.IsAdmin = function () {
         return this.Roles.includes(UserRoles.Creator) || this.Roles.includes(UserRoles.Admin);
@@ -50973,6 +50969,7 @@ function CodeReviewTaskReducer(state, action) {
                 tsk.Status = payload_1.Status;
                 tsk.ReviewerId = payload_1.ReviewerId;
                 tsk.CreatorId = payload_1.CreatorId;
+                tsk.Link = payload_1.Link;
                 return newState;
             }
         case TaskActions_1.LoadTasksActionName:
@@ -52311,11 +52308,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var OneTask_1 = __webpack_require__(/*! ../../../../Models/Models/CodeReviewApp/State/OneTask */ "./src/Models/Models/CodeReviewApp/State/OneTask.ts");
 __webpack_require__(/*! ./AddTask.css */ "./src/components/Body/CodeReviewApp/AddTask/AddTask.css");
 var AddTask = function (props) {
     var _a = (0, react_1.useState)(''), newTaskName = _a[0], setNewTaskName = _a[1];
-    var _b = (0, react_1.useState)(-1), newTaskCreator = _b[0], setNewTaskCreator = _b[1]; //firstUser?.Id || 
-    var _c = (0, react_1.useState)(-1), newTaskReviwer = _c[0], setNewTaskReviwer = _c[1];
+    var _b = (0, react_1.useState)(''), newTaskLink = _b[0], setNewTaskLink = _b[1];
+    var _c = (0, react_1.useState)(-1), newTaskCreator = _c[0], setNewTaskCreator = _c[1]; //firstUser?.Id || 
+    var _d = (0, react_1.useState)(-1), newTaskReviwer = _d[0], setNewTaskReviwer = _d[1];
     (0, react_1.useEffect)(function () {
         if (newTaskCreator === -1) {
             var firstUser = props.ProjectUsers.find(function () { return true; });
@@ -52331,22 +52330,18 @@ var AddTask = function (props) {
             alert('Введите название');
             return;
         }
-        // let addTask = (error: MainErrorObjectBack, data: IProjectTaskDataBack) => {
-        //     if (error) {
-        //         return;
-        //     }
-        //     if (data) {
-        //         // props.AddUserToProject(data);
-        //         // addTaskToProject(data);
-        //         props.ReloadTasks();
-        //     }
-        // };
-        // window.G_CodeReviewTaskController.AddTaskToProjectRedux(newTaskName, newTaskCreator, newTaskReviwer, props.ProjectId);
-        props.AddTaskToProject(newTaskName, newTaskCreator, newTaskReviwer, props.ProjectId);
+        var tsk = new OneTask_1.OneTask();
+        tsk.Name = newTaskName;
+        tsk.CreatorId = newTaskCreator;
+        tsk.ReviewerId = newTaskReviwer;
+        tsk.Link = newTaskLink;
+        props.AddTaskToProject(tsk, props.ProjectId);
         setNewTaskName('');
+        setNewTaskLink('');
     };
     return react_1.default.createElement("div", null,
-        react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', onChange: function (e) { return setNewTaskName(e.target.value); }, value: newTaskName, placeholder: '\u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435' }),
+        react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', onChange: function (e) { return setNewTaskName(e.target.value); }, value: newTaskName, placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435' }),
+        react_1.default.createElement("input", { type: 'text', className: 'form-control-b persent-100-width', onChange: function (e) { return setNewTaskLink(e.target.value); }, value: newTaskLink, placeholder: '\u0421\u0441\u044B\u043B\u043A\u0430' }),
         react_1.default.createElement("label", null, "creator:"),
         react_1.default.createElement("select", { className: 'form-control-b', value: newTaskCreator, onChange: function (e) { return setNewTaskCreator(+e.target.value); } }, props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
         react_1.default.createElement("br", null),
@@ -52363,8 +52358,8 @@ var mapStateToProps = function (state, ownProps) {
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
     var res = {};
-    res.AddTaskToProject = function (newTaskName, newTaskCreator, newTaskReviwer, projectId) {
-        dispatch(window.G_CodeReviewTaskController.AddTaskToProjectRedux(newTaskName, newTaskCreator, newTaskReviwer, projectId));
+    res.AddTaskToProject = function (task, projectId) {
+        dispatch(window.G_CodeReviewTaskController.AddTaskToProjectRedux(task, projectId));
     };
     return res;
 };
@@ -52480,12 +52475,11 @@ var OneProjectInList = function (props) {
     if (props.CurrentProject) {
         projectClassName += ' selected-review-project';
     }
-    return react_1.default.createElement("div", { key: props.Project.Id.toString(), className: projectClassName },
-        react_1.default.createElement("div", { onClick: function () {
-                if (!props.CurrentProject) {
-                    props.SetCurrentProject(props.Project.Id);
-                }
-            }, title: props.Project.Name }, props.Project.Name));
+    return react_1.default.createElement("div", { key: props.Project.Id.toString(), className: projectClassName, onClick: function () {
+            if (!props.CurrentProject) {
+                props.SetCurrentProject(props.Project.Id);
+            }
+        } }, props.Project.Name);
 };
 var mapStateToProps = function (state, ownProps) {
     var res = {};
@@ -52795,15 +52789,19 @@ var OneReviewTaskComment_1 = __importDefault(__webpack_require__(/*! ../OneRevie
 __webpack_require__(/*! ./OneReviewTask.css */ "./src/components/Body/CodeReviewApp/OneReviewTask/OneReviewTask.css");
 var OneReviewTask = function (props) {
     var _a = (0, react_1.useState)(props.Task.Name), taskName = _a[0], setTaskName = _a[1];
-    var _b = (0, react_1.useState)(props.Task.Status), taskStatus = _b[0], setTaskStatus = _b[1];
-    var _c = (0, react_1.useState)(props.Task.ReviewerId || -1), taskReviewer = _c[0], setTaskreviewer = _c[1];
-    var _d = (0, react_1.useState)(props.Task.CreatorId), taskCreator = _d[0], setTaskCreator = _d[1];
-    var _e = (0, react_1.useState)(''), newCommentName = _e[0], setNewCommentName = _e[1];
+    var _b = (0, react_1.useState)(''), taskLink = _b[0], setTaskLink = _b[1];
+    var _c = (0, react_1.useState)(props.Task.Status), taskStatus = _c[0], setTaskStatus = _c[1];
+    var _d = (0, react_1.useState)(props.Task.ReviewerId || -1), taskReviewer = _d[0], setTaskreviewer = _d[1];
+    var _e = (0, react_1.useState)(props.Task.CreatorId), taskCreator = _e[0], setTaskCreator = _e[1];
+    var _f = (0, react_1.useState)(''), newCommentName = _f[0], setNewCommentName = _f[1];
     // const [comments, setComments] = useState([] as IOneTaskReviewCommentDataBack[]);
-    var _f = (0, react_1.useState)(false), showComments = _f[0], setShowComments = _f[1];
+    var _g = (0, react_1.useState)(false), showComments = _g[0], setShowComments = _g[1];
     (0, react_1.useEffect)(function () {
         setTaskName(props.Task.Name);
     }, [props.Task.Name]);
+    (0, react_1.useEffect)(function () {
+        setTaskLink(props.Task.Link);
+    }, [props.Task.Link]);
     (0, react_1.useEffect)(function () {
         setTaskStatus(props.Task.Status);
     }, [props.Task.Status]);
@@ -52819,7 +52817,6 @@ var OneReviewTask = function (props) {
             props.SetEmptyTaskComments(props.Task.Id);
             return;
         }
-        // window.G_CodeReviewCommentController.LoadCommentsRedux(props.Task.Id, loadComments);
         props.LoadTaskComments(props.Task.Id);
     }, [showComments]);
     var cancelTask = function () {
@@ -52827,6 +52824,7 @@ var OneReviewTask = function (props) {
             return;
         }
         setTaskName(props.Task.Name);
+        setTaskLink(props.Task.Link);
         setTaskStatus(props.Task.Status);
         setTaskreviewer(props.Task.ReviewerId || -1);
         setTaskCreator(props.Task.CreatorId);
@@ -52837,17 +52835,16 @@ var OneReviewTask = function (props) {
         }
         var forAdd = __assign({}, props.Task);
         forAdd.Name = taskName;
+        forAdd.Link = taskLink;
         forAdd.Status = taskStatus;
         forAdd.ReviewerId = taskReviewer;
         forAdd.CreatorId = taskCreator;
-        // window.G_CodeReviewTaskController.UpdateTask(forAdd, updateTask);
         props.UpdateTask(forAdd);
     };
     var deleteTask = function () {
         if (!confirm('Удалить задачу?')) {
             return;
         }
-        // window.G_CodeReviewTaskController.DeleteTask(props.Task.Id, deleteTask);
         props.DeleteTask(props.Task.Id);
     };
     var addComment = function () {
@@ -52868,6 +52865,7 @@ var OneReviewTask = function (props) {
                 react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return addComment(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C")));
     };
     var taskHasChanges = taskName !== props.Task.Name ||
+        taskLink !== props.Task.Link ||
         taskStatus !== props.Task.Status ||
         ((props.Task.ReviewerId || taskReviewer != -1) && taskReviewer !== props.Task.ReviewerId) ||
         taskCreator !== props.Task.CreatorId;
@@ -52885,6 +52883,7 @@ var OneReviewTask = function (props) {
         react_1.default.createElement("div", { className: 'one-review-task-block-flex' },
             react_1.default.createElement("div", { className: 'one-review-task-content' },
                 react_1.default.createElement("textarea", { className: 'form-control-b review-task-name-input', value: taskName, onChange: function (e) { return setTaskName(e.target.value); } }),
+                react_1.default.createElement("input", { type: 'text', className: 'form-control-b persent-100-width', onChange: function (e) { return setTaskLink(e.target.value); }, value: taskLink, placeholder: '\u0421\u0441\u044B\u043B\u043A\u0430' }),
                 react_1.default.createElement("br", null),
                 react_1.default.createElement("span", null, "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u0442\u044C"),
                 react_1.default.createElement("select", { className: 'form-control-b', value: taskCreator, onChange: function (e) { return setTaskCreator(+e.target.value); } }, creatorsList.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
@@ -52902,13 +52901,15 @@ var OneReviewTask = function (props) {
                 taskHasChanges ?
                     react_1.default.createElement(react_1.default.Fragment, null,
                         react_1.default.createElement("div", { className: 'review-task-save-button', onClick: function () { return updateTask(); } },
-                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'save-icon.png', alt: "Save", title: '\u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C' })),
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'save-icon.png', alt: "Save", title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C' })),
                         react_1.default.createElement("div", { className: 'review-task-cancel-button', onClick: function () { return cancelTask(); } },
-                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u043E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' }))) : react_1.default.createElement(react_1.default.Fragment, null),
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' }))) : react_1.default.createElement(react_1.default.Fragment, null),
                 react_1.default.createElement("div", { className: 'review-task-delete-button', onClick: function () { return deleteTask(); } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0443\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
                 react_1.default.createElement("div", { className: 'review-task-comments-button', onClick: function () { return setShowComments(function (oldState) { return !oldState; }); } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'comments.png', alt: "Comments", title: '\u043A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438' })))),
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'comments.png', alt: "Comments", title: '\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438' })),
+                react_1.default.createElement("div", { className: 'review-task-link-button', onClick: function () { return window.open(taskLink); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'external-link.png', alt: "Comments", title: '\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443' })))),
         renderComments());
 };
 var mapStateToProps = function (state, ownProps) {
@@ -55154,8 +55155,18 @@ var PersonSettings = function (props) {
     };
     var loadImage = function () {
         var img = $('#main_image_input')[0].files[0]; //пример по этому же id есть
+        if (!img) {
+            alert('Выберите изображение');
+            return;
+        }
+        updateImage(img);
+    };
+    var removeImage = function () {
+        updateImage(null);
+    };
+    var updateImage = function (img) {
         window.G_UsersController.UpdateImage(img, function (error, data) {
-            if (data === null || data === void 0 ? void 0 : data.result) {
+            if (data) {
                 var auth = (0, cloneDeep_1.default)(props.AuthInfo);
                 auth.User.Image = data.result;
                 props.SetAuth(auth);
@@ -55188,7 +55199,8 @@ var PersonSettings = function (props) {
                     react_1.default.createElement("div", { className: 'person-settings-image' },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: ((_d = (_c = props.AuthInfo) === null || _c === void 0 ? void 0 : _c.User) === null || _d === void 0 ? void 0 : _d.Image) || G_EmptyImagePath, alt: "\u0410\u0432\u0430\u0442\u0430\u0440", title: '\u0410\u0432\u0430\u0442\u0430\u0440' })),
                     react_1.default.createElement("input", { className: 'form-control', type: 'file', id: 'main_image_input' }),
-                    react_1.default.createElement("button", { type: "button", className: 'btn btn-b-light', onClick: function () { return loadImage(); } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C")))));
+                    react_1.default.createElement("button", { type: "button", className: 'btn btn-b-light', onClick: function () { return loadImage(); } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C"),
+                    react_1.default.createElement("button", { type: "button", className: 'btn btn-b-light', onClick: function () { return removeImage(); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")))));
 };
 var mapStateToProps = function (state, ownProps) {
     var res = {};
@@ -55304,9 +55316,9 @@ var EditRoom = function (props) {
             react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return changeCards(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0438"));
     }
     return react_1.default.createElement("div", null,
-        react_1.default.createElement("label", null, "\u0421\u0435\u043A\u0446\u0438\u044F"),
-        react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return setShowSection(1); } }, "\u041F\u0430\u0440\u043E\u043B\u044C"),
-        react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return setShowSection(2); } }, "\u041E\u0446\u0435\u043D\u043A\u0438"),
+        react_1.default.createElement("div", { className: 'edit-room-sections-block' },
+            react_1.default.createElement("div", { onClick: function () { return setShowSection(1); } }, "\u041F\u0430\u0440\u043E\u043B\u044C"),
+            react_1.default.createElement("div", { onClick: function () { return setShowSection(2); } }, "\u041E\u0446\u0435\u043D\u043A\u0438")),
         react_1.default.createElement("hr", null),
         sectionContent);
 };
@@ -55321,9 +55333,6 @@ var mapStateToProps = function (state, ownProps) {
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
     var res = {};
-    // res.ChangeRoomPassword = (roomname: string, userConnectionId: string, oldPassword: string, newPassword: string) => {
-    //     dispatch(window.G_PlaningPokerController.ChangeRoomPasswordRedux(roomname, userConnectionId, oldPassword, newPassword));
-    // }
     return res;
 };
 var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -56215,13 +56224,15 @@ var Room = function (props) {
         }
         return react_1.default.createElement("div", null,
             react_1.default.createElement("p", null, "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C"),
-            react_1.default.createElement("input", { type: "text", className: "persent-100-width form-control", onChange: function (e) {
-                    setUserNameLocalState(function (prevState) {
-                        return e.target.value;
-                    });
-                }, value: userNameLocalState }),
-            react_1.default.createElement("div", { className: 'planing-name-change-but', title: '\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u043C\u044F', onClick: function () { return changeCurrentUserName(); } },
-                react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/pencil-edit.png" })),
+            react_1.default.createElement("div", { className: 'planing-name-block' },
+                react_1.default.createElement("div", { className: 'planing-name-block-input-block' },
+                    react_1.default.createElement("input", { type: "text", className: "persent-100-width form-control", onChange: function (e) {
+                            setUserNameLocalState(function (prevState) {
+                                return e.target.value;
+                            });
+                        }, value: userNameLocalState })),
+                react_1.default.createElement("div", { className: 'planing-name-change-but', title: '\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u043C\u044F', onClick: function () { return changeCurrentUserName(); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/pencil-edit.png" }))),
             hideVotesSetting);
     };
     var renderNotAuthMessage = function () {
@@ -56694,16 +56705,24 @@ var UserInList = function (props) {
         if (!props.CurrentUserIsAdmin) {
             return;
         }
+        if (props.PlaningUserInfo.UserId === props.User.Id) {
+            if (!confirm('Вы уверены что хотите выгнать себя?')) {
+                return;
+            }
+        }
         props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.KickUser, props.RoomName, props.User.Id);
     };
-    var delButton = react_1.default.createElement("div", null);
-    var statusChange = react_1.default.createElement("div", null);
+    var userButton = react_1.default.createElement(react_1.default.Fragment, null);
+    var statusChange = react_1.default.createElement(react_1.default.Fragment, null);
     if (props.RenderForAdmin) {
-        delButton = react_1.default.createElement("div", { className: 'user-list-del-but', title: '\u0412\u044B\u0433\u043D\u0430\u0442\u044C \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F', onClick: function () { return tryToRemoveUserFromRoom(); } },
-            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" }));
+        userButton = react_1.default.createElement("div", { className: 'user-list-buttons' },
+            react_1.default.createElement("div", { className: 'user-list-role-but' },
+                react_1.default.createElement("div", { className: 'user-role-but user-role-but-add', title: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0440\u043E\u043B\u044C', onClick: function () { return addNewRoleToUser(); } }, "+"),
+                react_1.default.createElement("div", { className: 'user-role-but user-role-but-del', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0440\u043E\u043B\u044C', onClick: function () { return removeRoleUser(); } }, "-")),
+            react_1.default.createElement("div", { className: 'user-list-del-but', title: '\u0412\u044B\u0433\u043D\u0430\u0442\u044C \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044F', onClick: function () { return tryToRemoveUserFromRoom(); } },
+                react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })));
         statusChange = react_1.default.createElement("div", null,
             react_1.default.createElement("select", { className: "form-control", value: selectedEditRole, onChange: function (e) {
-                    // changeSelectedEditRoleState(e.target.value)
                     changeSelectedEditRoleState(function (prevState) {
                         return e.target.value;
                     });
@@ -56711,10 +56730,7 @@ var UserInList = function (props) {
                 react_1.default.createElement("option", { value: "-" }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
                 react_1.default.createElement("option", { value: RoomInfo_1.UserRoles.User }, RoomInfo_1.UserRoles.User),
                 react_1.default.createElement("option", { value: RoomInfo_1.UserRoles.Admin }, RoomInfo_1.UserRoles.Admin),
-                react_1.default.createElement("option", { value: RoomInfo_1.UserRoles.Observer }, RoomInfo_1.UserRoles.Observer)),
-            react_1.default.createElement("div", { className: 'user-list-role-but' },
-                react_1.default.createElement("div", { className: 'user-role-but user-role-but-add', title: '\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0440\u043E\u043B\u044C', onClick: function () { return addNewRoleToUser(); } }, "+"),
-                react_1.default.createElement("div", { className: 'user-role-but user-role-but-del', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0440\u043E\u043B\u044C', onClick: function () { return removeRoleUser(); } }, "-")));
+                react_1.default.createElement("option", { value: RoomInfo_1.UserRoles.Observer }, RoomInfo_1.UserRoles.Observer)));
     }
     var vote = "отсутствует";
     if (props.User.Vote && !props.HideVote) {
@@ -56750,15 +56766,17 @@ var UserInList = function (props) {
     props.HasVote;
     return react_1.default.createElement("div", null,
         react_1.default.createElement("div", { className: "planing-user" + classColorize },
-            react_1.default.createElement("p", null, props.User.Name),
+            react_1.default.createElement("div", { className: 'planing-user-img' },
+                react_1.default.createElement("img", { className: 'persent-100-width-height', src: props.User.ImageLink || G_EmptyImagePath, alt: "\u0410\u0432\u0430\u0442\u0430\u0440", title: '\u0410\u0432\u0430\u0442\u0430\u0440' })),
+            react_1.default.createElement("span", null, props.User.Name),
             react_1.default.createElement("p", null,
                 "\u043E\u0446\u0435\u043D\u043A\u0430: ",
                 vote),
-            delButton,
-            react_1.default.createElement("p", null,
+            react_1.default.createElement("span", null,
                 "\u0420\u043E\u043B\u0438: ",
                 props.User.Roles.join(', ')),
-            statusChange),
+            statusChange,
+            userButton),
         react_1.default.createElement("div", { className: "padding-10-top" }));
 };
 var mapStateToProps = function (state, ownProps) {
@@ -56769,6 +56787,7 @@ var mapStateToProps = function (state, ownProps) {
     res.MaxVote = (_b = state.PlaningPokerApp.VoteInfo) === null || _b === void 0 ? void 0 : _b.MaxVote;
     res.MinVote = (_c = state.PlaningPokerApp.VoteInfo) === null || _c === void 0 ? void 0 : _c.MinVote;
     res.AuthInfo = state.Auth;
+    res.PlaningUserInfo = state.PlaningPokerApp.User;
     return res;
 };
 var mapDispatchToProps = function (dispatch, ownProps) {

@@ -11,6 +11,7 @@ using Common.Models.Poco;
 using Microsoft.AspNetCore.Http;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
+using Common.Models.Error;
 
 namespace Menu.Controllers
 {
@@ -103,6 +104,11 @@ namespace Menu.Controllers
 
                   var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                   var res = await _userService.ChangeImageAsync(userInfo.UserId, image);
+                  if(image != null && string.IsNullOrEmpty(res))
+                  {
+                      throw new SomeCustomException(ErrorConsts.SomeError);
+                  }
+
                   await _apiHealper.WriteResponseAsync(Response, new StringResultReturn(res));
 
               }, Response, _logger);

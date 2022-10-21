@@ -115,6 +115,7 @@ namespace CodeReviewApp.Models.Services
 
             upTask.Status = task.Status;
             upTask.Name = task.Name;
+            upTask.Link = task.Link;
             upTask.CreatorId = task.CreatorId;
             upTask.ReviewerId = task.ReviewerId;
             await _taskReviewRepository.UpdateAsync(upTask);
