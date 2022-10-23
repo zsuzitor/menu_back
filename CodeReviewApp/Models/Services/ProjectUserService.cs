@@ -58,7 +58,14 @@ namespace CodeReviewApp.Models.Services
 
             if(user.MainAppUserId == userInfo.UserId)
             {
-                await ThrowIfNotAccessToProject(userInfo.UserId, user.ProjectId, false);
+                if (isAdmin)
+                {
+                    await ThrowIfNotAccessToProject(userInfo.UserId, user.ProjectId, true);
+                }
+                else
+                {
+                    await ThrowIfNotAccessToProject(userInfo.UserId, user.ProjectId, false);
+                }
             }
             else
             {
@@ -70,8 +77,6 @@ namespace CodeReviewApp.Models.Services
             //{
             //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject);
             //}
-
-
 
             user.UserName = name;
             user.NotifyEmail = email;

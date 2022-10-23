@@ -47887,8 +47887,8 @@ function SetFilterTaskStatusActionCreator(num) {
 exports.SetFilterTaskStatusActionCreator = SetFilterTaskStatusActionCreator;
 ;
 exports.SetFilterTaskActionName = 'SetFilterTaskAction';
-function SetFilterTaskActionCreator(num) {
-    return { type: exports.SetFilterTaskActionName, payload: num };
+function SetFilterTaskActionCreator(data) {
+    return { type: exports.SetFilterTaskActionName, payload: data };
 }
 exports.SetFilterTaskActionCreator = SetFilterTaskActionCreator;
 ;
@@ -48163,11 +48163,13 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AjaxHelper = void 0;
+var ControllerHelper_1 = __webpack_require__(/*! ./Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var AlertData_1 = __webpack_require__(/*! ./Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var AjaxHelper = /** @class */ (function () {
     function AjaxHelper() {
     }
     AjaxHelper.prototype.TryRefreshToken = function (notRedirectWhenNotAuth, callBack) {
+        var _this = this;
         this.GoAjaxRequest({
             Data: {},
             Type: "POST",
@@ -48176,18 +48178,33 @@ var AjaxHelper = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
-                    localStorage.removeItem("header_auth");
-                    var eventLogOut = new CustomEvent("logout", {});
-                    window.dispatchEvent(eventLogOut);
-                    if (!notRedirectWhenNotAuth) {
-                        location.href = '/menu/auth/login/';
-                    }
+                    //есть кейс когда сразу уходит 2 запроса, оба падают с просроченным токеном
+                    //и 1 из просов его уже обновил, второй пытается но падает тк прошлый токены уже все
+                    //в таком случае надо сходить и посмотреть а может уже все в порядке?
+                    //есть еще 2 вариант фикса, если с этим будут траблы, то надо рефрешить строго по очереди
+                    //тоесть если хотя бы 1 рефреш ушел, второй ждет и потом уже думать, можно его просто отпускать всегда
+                    //а можно проверять ответ первого(сложнее)
+                    _this.CheckAuth(function (error, data) {
+                        if (data === null || data === void 0 ? void 0 : data.result) {
+                            var eventTokensRefresh = new CustomEvent("tokens_was_refreshed", {});
+                            window.dispatchEvent(eventTokensRefresh);
+                            if (callBack) {
+                                callBack();
+                            }
+                        }
+                        else {
+                            localStorage.removeItem("header_auth");
+                            var eventLogOut = new CustomEvent("logout", {});
+                            window.dispatchEvent(eventLogOut);
+                            if (!notRedirectWhenNotAuth) {
+                                location.href = '/menu/auth/login/';
+                            }
+                        }
+                    });
                 }
                 else {
                     var eventTokensRefresh = new CustomEvent("tokens_was_refreshed", {});
                     window.dispatchEvent(eventTokensRefresh);
-                    //TODO записываем полученные токены
                     if (callBack) {
                         callBack();
                     }
@@ -48198,10 +48215,25 @@ var AjaxHelper = /** @class */ (function () {
             NotGlobalError: true,
         });
     };
+    AjaxHelper.prototype.CheckAuth = function (onSuccess) {
+        var _this = this;
+        this.GoAjaxRequest({
+            Data: {},
+            Type: "GET",
+            NeedTryRefreshToken: false,
+            NotRedirectWhenNotAuth: true,
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/authenticate/check-auth',
+            NotGlobalError: true,
+        });
+    };
     AjaxHelper.prototype.GoAjaxRequest = function (obj, fileLoad) {
         if (fileLoad === void 0) { fileLoad = false; }
         return __awaiter(this, void 0, void 0, function () {
-            var thisRef, ajaxObj, haders, _a;
+            var thisRef, ajaxObj, _a;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
@@ -48290,11 +48322,6 @@ var AjaxHelper = /** @class */ (function () {
                             ajaxObj.processData = false;
                             ajaxObj.contentType = false;
                         }
-                        haders = { 'Authorization_Access_Token': localStorage.getItem('access_token') };
-                        if (obj.NeedTryRefreshToken) {
-                            haders['Authorization_Refresh_Token'] = localStorage.getItem('refresh_token');
-                        }
-                        ajaxObj.headers = haders;
                         _b.label = 1;
                     case 1:
                         _b.trys.push([1, 3, , 4]);
@@ -48322,6 +48349,9 @@ var AjaxHelper = /** @class */ (function () {
                 }
             });
         });
+    };
+    AjaxHelper.prototype.mapWithResult = function (onSuccess) {
+        return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
     };
     return AjaxHelper;
 }());
@@ -48571,24 +48601,31 @@ var AuthenticateController = /** @class */ (function () {
             Url: G_PathToServer + 'api/authenticate/RecoverPassword',
         });
     };
-    AuthenticateController.prototype.Logout = function () {
-        alert('not inplemented');
-        return;
+    AuthenticateController.prototype.Logout = function (onSuccess) {
+        var _this = this;
         var data = {};
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "POST",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/authenticate/logout',
+        });
+    };
+    AuthenticateController.prototype.CheckAuth = function (onSuccess) {
+        var _this = this;
+        var data = {};
+        // let ajx: AjaxHelper.IAjaxHelper = new AjaxHelper.AjaxHelper();
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
             Type: "GET",
             FuncSuccess: function (xhr, status, jqXHR) {
-                var resp = xhr;
-                // if (resp.errors) {
-                //     onSuccess(resp);
-                // }
-                // else {
-                //     onSuccess(null);
-                // }
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/authenticate/logout',
+            Url: G_PathToServer + 'api/authenticate/check-auth',
         });
     };
     AuthenticateController.prototype.RefreshAccessToken = function (notRedirectWhenNotAuth, callBack) {
@@ -52987,6 +53024,7 @@ var Paggination_1 = __importDefault(__webpack_require__(/*! ../../Paggination/Pa
 var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
 var ProjectUsers_1 = __importDefault(__webpack_require__(/*! ../ProjectUsers/ProjectUsers */ "./src/components/Body/CodeReviewApp/ProjectUsers/ProjectUsers.tsx"));
 var AddTask_1 = __importDefault(__webpack_require__(/*! ../AddTask/AddTask */ "./src/components/Body/CodeReviewApp/AddTask/AddTask.tsx"));
+var TasksFilter_1 = __webpack_require__(/*! ../../../../Models/Models/CodeReviewApp/State/TasksFilter */ "./src/Models/Models/CodeReviewApp/State/TasksFilter.ts");
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var TaskActions_1 = __webpack_require__(/*! ../../../../Models/Actions/CodeReviewApp/TaskActions */ "./src/Models/Actions/CodeReviewApp/TaskActions.ts");
 var PlaningPokerHelper_1 = __webpack_require__(/*! ../../../../Models/BL/PlaningPokerApp/PlaningPokerHelper */ "./src/Models/BL/PlaningPokerApp/PlaningPokerHelper.ts");
@@ -53054,22 +53092,16 @@ var ProjectDetail = function (props) {
     var deleteProject = function () {
         props.DeleteProject(props.Project.Id);
     };
+    var clearFilters = function () {
+        props.ClearFilterTask();
+    };
     if (!props.Project) {
         return react_1.default.createElement("div", { style: { paddingTop: '20px' } },
             react_1.default.createElement("p", null, "\u0432\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u0440\u043E\u0435\u043A\u0442"));
     }
-    var userListClass = ' display_none';
-    if (showUserList) {
-        userListClass = ''; //' project-review-user-list-show'
-    }
     return react_1.default.createElement("div", { className: 'review-project-detail-main' },
         react_1.default.createElement("div", null,
-            react_1.default.createElement("h1", null,
-                "\u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435: ",
-                props.Project.Name),
-            react_1.default.createElement("span", null,
-                "id: ",
-                props.Project.Id),
+            react_1.default.createElement("h1", null, props.Project.Name),
             react_1.default.createElement("div", { className: 'review-project-delete-button', onClick: function () {
                     if (confirm('удалить проект?')) {
                         deleteProject();
@@ -53084,7 +53116,7 @@ var ProjectDetail = function (props) {
                 react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return setShowAddNewTaskForm(true); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443"),
                 showAddNewTaskForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowAddNewTaskForm(false); }, IsHeightWindow: false, Title: '\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438', InnerContent: function () { return react_1.default.createElement(AddTask_1.default, { ProjectId: props.Project.Id, ProjectUsers: props.ProjectUsers.filter(function (us) { return !us.Deactivated; }) }); } }) : react_1.default.createElement(react_1.default.Fragment, null))),
         react_1.default.createElement("div", { className: 'review-project-tasks-filters-block' },
-            react_1.default.createElement("div", null, "\u0444\u0438\u043B\u044C\u0442\u0440\u044B"),
+            react_1.default.createElement("div", null, "\u0424\u0438\u043B\u044C\u0442\u0440\u044B"),
             react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: props.TasksFilters.TaskName, onChange: function (e) { return props.SetFilterTaskName(e.target.value); }, placeholder: '\u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435' }),
             react_1.default.createElement("span", null, "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C"),
             react_1.default.createElement("select", { className: 'form-control-b', value: props.TasksFilters.CreatorId, onChange: function (e) { return props.SetFilterTaskCreator(+e.target.value); } },
@@ -53101,10 +53133,11 @@ var ProjectDetail = function (props) {
                 react_1.default.createElement("option", { value: 1 }, "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B \u043F\u0440\u0430\u0432\u043A\u0438"),
                 react_1.default.createElement("option", { value: 3 }, "\u0412 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435"),
                 react_1.default.createElement("option", { value: 2 }, "\u0413\u043E\u0442\u043E\u0432\u043E")),
+            react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return clearFilters(); } }, "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C"),
             react_1.default.createElement("div", null,
                 react_1.default.createElement(Paggination_1.default, { ElementsCount: props.CurrentProjectTasksAllCount, PageNumber: props.TasksFilters.Page, ElementsOnPage: tasksOnPageCount, SetPageNumber: props.SetFilterTaskPage }))),
         react_1.default.createElement("div", null,
-            react_1.default.createElement("h2", null, "\u0441\u043F\u0438\u0441\u043E\u043A \u0437\u0430\u0434\u0430\u0447"),
+            react_1.default.createElement("h2", null, "\u0417\u0430\u0434\u0430\u0447\u0438"),
             props.Tasks.map(function (x) { return react_1.default.createElement(OneReviewTask_1.default, { key: x.Id, Task: x, Comments: x.Comments }); })));
 };
 var mapStateToProps = function (state, ownProps) {
@@ -53136,6 +53169,9 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     res.DeleteProject = function (id) {
         dispatch(window.G_CodeReviewProjectController.DeleteProjectRedux(id));
+    };
+    res.ClearFilterTask = function () {
+        dispatch((0, TaskActions_1.SetFilterTaskActionCreator)(new TasksFilter_1.TasksFilter()));
     };
     return res;
 };
@@ -53188,6 +53224,7 @@ __webpack_require__(/*! ./ProjectUsers.css */ "./src/components/Body/CodeReviewA
 var ProjectUsers = function (props) {
     var _a = (0, react_1.useState)(''), newUserName = _a[0], setNewUserName = _a[1];
     var _b = (0, react_1.useState)(''), userMainAppEmail = _b[0], setUserMainAppEmail = _b[1];
+    var _c = (0, react_1.useState)(true), hideDeactivated = _c[0], setHideDeactivated = _c[1];
     var addNewUser = function () {
         if (!newUserName) {
             return;
@@ -53205,7 +53242,10 @@ var ProjectUsers = function (props) {
         react_1.default.createElement("br", null),
         react_1.default.createElement("button", { className: 'btn-b btn-border add-new-review-person-btn', onClick: function () { return addNewUser(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430"),
         react_1.default.createElement("br", null),
-        props.ProjectUsers.map(function (x) {
+        react_1.default.createElement("label", null, "\u0421\u043A\u0440\u044B\u0432\u0430\u0442\u044C \u043D\u0435\u0430\u043A\u0442\u0438\u0432\u043D\u044B\u0445 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439"),
+        react_1.default.createElement("input", { type: "checkbox", checked: hideDeactivated, onChange: function (e) { return setHideDeactivated(e.target.checked); } }),
+        props.ProjectUsers.filter(function (x) { return !hideDeactivated || !x.Deactivated; })
+            .map(function (x) {
             return react_1.default.createElement(OneProjectUser_1.default, { User: x, key: x.Id });
         }));
 };
@@ -58995,7 +59035,8 @@ var HeaderMain = function (props) {
     }
     return react_1.default.createElement("div", { className: 'main-header' },
         react_1.default.createElement("div", { className: 'main-header-menu ' + menuClass },
-            react_1.default.createElement("a", { href: "/menu" }, "Home"),
+            react_1.default.createElement("div", { key: 'menu-home', className: 'main-header-menu-line' },
+                react_1.default.createElement("a", { href: "/menu" }, "Home")),
             react_1.default.createElement("hr", null),
             props.Apps.map(function (x) { return react_1.default.createElement("div", { key: x.Name, className: 'main-header-menu-line' },
                 react_1.default.createElement("a", { href: x.Path }, x.Name)); })),
@@ -59054,6 +59095,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+var AlertData_1 = __webpack_require__(/*! ../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 __webpack_require__(/*! ./HeaderUserMenu.css */ "./src/components/Header/HeaderUserMenu/HeaderUserMenu.css");
 var HeaderUserMenu = function (props) {
     var UserImageRender = function (imgPath) {
@@ -59069,6 +59111,18 @@ var HeaderUserMenu = function (props) {
         }
         return NotLogginedUserRender();
     };
+    var exitApp = function () {
+        window.G_AuthenticateController.Logout(function (error, data) {
+            if (data === null || data === void 0 ? void 0 : data.result) {
+                location.href = '/menu/auth/login/';
+            }
+            else {
+                var alertFactory = new AlertData_1.AlertData();
+                var alert_1 = alertFactory.GetDefaultNotify("Не удалось");
+                window.G_AddAbsoluteAlertToState(alert_1);
+            }
+        });
+    };
     var LogginedUserRender = function () {
         return React.createElement("div", { className: 'header-user-block-inner' },
             React.createElement("div", { className: 'dropdown-toggle header-user-dropdown', "data-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" },
@@ -59077,7 +59131,8 @@ var HeaderUserMenu = function (props) {
             React.createElement("div", { className: "dropdown-menu header-user-menu" },
                 React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/menu/auth/login/" }, "\u0412\u043E\u0439\u0442\u0438"),
                 React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/menu/auth/register/" }, "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F"),
-                React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/menu/person-settings/" }, "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438")));
+                React.createElement(react_router_dom_1.Link, { className: "dropdown-item", to: "/menu/person-settings/" }, "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"),
+                React.createElement("p", { className: "dropdown-item", onClick: function () { return exitApp(); } }, "\u0412\u044B\u0445\u043E\u0434")));
     };
     var NotLogginedUserRender = function () {
         return React.createElement("div", { className: 'header-user-block-inner' },

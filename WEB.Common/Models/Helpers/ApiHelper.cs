@@ -193,11 +193,11 @@ namespace WEB.Common.Models.Helpers
             ClearUsersTokens(response);
             if (!string.IsNullOrWhiteSpace(accessToken))
             {
-                response.Cookies.Append(_headerAccessToken, accessToken);
+                response.Cookies.Append(_headerAccessToken, accessToken, new CookieOptions() { HttpOnly = true });
             }
             if (!string.IsNullOrWhiteSpace(refreshToken))
             {
-                response.Cookies.Append(_headerRefreshToken, refreshToken);
+                response.Cookies.Append(_headerRefreshToken, refreshToken, new CookieOptions() { HttpOnly = true });
             }
 
         }
@@ -211,7 +211,8 @@ namespace WEB.Common.Models.Helpers
         /// <returns></returns>
         protected string GetFromRequest(HttpRequest request, string key)
         {
-            if (request.Cookies.TryGetValue(key, out var authorizationToken) && !string.IsNullOrWhiteSpace(authorizationToken))
+            if (request.Cookies.TryGetValue(key, out var authorizationToken)
+                && !string.IsNullOrWhiteSpace(authorizationToken))
             {
                 return authorizationToken;
             }
@@ -220,6 +221,7 @@ namespace WEB.Common.Models.Helpers
             {
                 return authorizationTokenValue;
             }
+
             return null;
 
         }

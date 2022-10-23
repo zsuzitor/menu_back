@@ -13,6 +13,8 @@ using Common.Models.Return;
 using Menu.Models.Returns.Types;
 using Common.Models.Poco;
 using System.ComponentModel.DataAnnotations;
+using jwtLib.JWTAuth.Interfaces;
+using BO.Models.Auth;
 
 //using NLog;
 
@@ -28,16 +30,20 @@ namespace Menu.Controllers
         private readonly IApiHelper _apiHealper;
         private readonly IErrorService _errorService;
         private readonly ILogger _logger;
+        private readonly IJWTService _jwtService;
+
 
         private readonly ErrorObjectReturnFactory _errRetrunFactory;
         private readonly TokensReturnFactory _tokensReturnFactory;
         private readonly BoolResultFactory _boolResultFactory;
 
-        public AuthenticateController(IErrorService errorService, IApiHelper apiHealper, IAuthService authSrvice, ILogger<AuthenticateController> logger)
+        public AuthenticateController(IErrorService errorService, IApiHelper apiHealper
+            , IAuthService authSrvice, IJWTService jwtService, ILogger<AuthenticateController> logger)
         {
             _authSrvice = authSrvice;
             _apiHealper = apiHealper;
             _errorService = errorService;
+            _jwtService = jwtService;
             _logger = logger;
 
             _errRetrunFactory = new ErrorObjectReturnFactory();
@@ -104,7 +110,7 @@ namespace Menu.Controllers
         }
 
         [Route("logout")]
-        [HttpGet]
+        [HttpPost]
         public async Task LogOut()
         {
             await _apiHealper.DoStandartSomething(
@@ -118,7 +124,7 @@ namespace Menu.Controllers
                   }
 
 
-                  await _apiHealper.WriteResponseAsync(Response, _boolResultFactory.GetObjectReturn(logout));
+                  await _apiHealper.WriteResponseAsync(Response, _boolResultFactory.GetObjectReturn(new BoolResult(logout)));
               }, Response, _logger);
 
         }
@@ -143,6 +149,35 @@ namespace Menu.Controllers
               }, Response, _logger);
 
         }
+
+        [Route("check-auth")]
+        [HttpGet]
+        public async Task CheckAuth()
+        {
+            await _apiHealper.DoStandartSomething(
+               async () =>
+               {
+                   UserInfo userInfo = null;
+                   try
+                   {
+                       userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, false);
+                   }
+                   catch
+                   {
+                       userInfo = null;
+                   }
+
+                   var boolFactory = new BoolResultFactory();
+                   if (userInfo == null)
+                   {
+                       await _apiHealper.WriteResponseAsync(Response, boolFactory.GetObjectReturn(new BoolResult(false)));
+                       return;
+                   }
+
+                   await _apiHealper.WriteResponseAsync(Response, boolFactory.GetObjectReturn(new BoolResult(true)));
+               }, Response, _logger);
+        }
+
 
 
         [Route("SendMessageForgotPassword")]

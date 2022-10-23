@@ -47,7 +47,7 @@ namespace CodeReviewApp.Models.DAL.Repositories
             //todo загрузит скорее всего с пользаками
             return await _db.ReviewProject.AsNoTracking().Include(x => x.Users)
                             .Where(x => x.Id == id && !x.IsDeleted
-                                && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId) != null).FirstOrDefaultAsync();
+                                && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId && !u.Deactivated) != null).FirstOrDefaultAsync();
         }
 
         public async Task<bool> ExistIfAccessAdminAsync(long id, long mainAppUserId)
@@ -101,13 +101,10 @@ namespace CodeReviewApp.Models.DAL.Repositories
         }
 
 
-        
-
-       
-
         public async Task<List<Project>> GetProjectsByMainAppUserIdAsync(long userId)
         {
-            return await _db.ReviewProjectUsers.AsNoTracking().Where(x => x.MainAppUserId == userId)
+            return await _db.ReviewProjectUsers.AsNoTracking()
+                .Where(x => x.MainAppUserId == userId && !x.Deactivated)
                 .Include(x => x.Project).Select(x => x.Project).Where(x => !x.IsDeleted).ToListAsync();
 
             //.Join(_db.ReviewProject,u=>u.ProjectId)
