@@ -47934,41 +47934,16 @@ exports.ChangeProjectUserActionCreator = ChangeProjectUserActionCreator;
 
 /***/ }),
 
-/***/ "./src/Models/Actions/PlaningPokerApp/Actions.ts":
-/*!*******************************************************!*\
-  !*** ./src/Models/Actions/PlaningPokerApp/Actions.ts ***!
-  \*******************************************************/
+/***/ "./src/Models/Actions/PlaningPokerApp/RoomAction.ts":
+/*!**********************************************************!*\
+  !*** ./src/Models/Actions/PlaningPokerApp/RoomAction.ts ***!
+  \**********************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.UpdateStoriesIdActionCreator = exports.UpdateStoriesIdActionName = exports.MoveStoryToCompleteActionCreator = exports.MoveStoryToCompleteActionName = exports.DeleteStoryActionCreator = exports.DeleteStoryActionName = exports.StoryChangeActionCreator = exports.StoryChangeActionName = exports.AddNewStoryActionCreator = exports.AddNewStoryActionName = exports.ClearVoteActionCreator = exports.ClearVoteActionName = exports.SetSelectedCardActionCreator = exports.SetSelectedCardActionName = exports.UserRoleChangedActionCreator = exports.UserRoleChangedActionName = exports.VoteChangedActionCreator = exports.VoteChangedActionName = exports.RemoveUserActionCreator = exports.RemoveUserActionName = exports.AddUserToRoomActionCreator = exports.AddUserToRoomActionName = exports.ChangeUserNameInRoomActionCreator = exports.ChangeUserNameInRoomActionName = exports.SetRoomStatusActionCreator = exports.SetRoomStatusActionName = exports.SetStoriesActionCreator = exports.SetStoriesActionName = exports.SetCurrentStoryIdActionCreator = exports.SetCurrentStoryIdActionName = exports.SetVoteInfoActionCreator = exports.SetVoteInfoActionName = exports.SetTotalNotActualStoriesCountActionCreator = exports.SetTotalNotActualStoriesCountActionName = exports.SetRoomUsersActionCreator = exports.SetRoomUsersActionName = exports.SetRoomUserIdActionCreator = exports.SetRoomUserIdActionName = exports.SetRoomPasswordActionCreator = exports.SetRoomPasswordActionName = exports.SetRoomNameActionCreator = exports.SetRoomNameActionName = exports.SetUserNameActionCreator = exports.SetUserNameActionName = exports.SetUserConnectionIdActionCreator = exports.SetUserConnectionIdActionName = exports.EnteredInRoomActionCreator = exports.EnteredInRoomActionName = exports.SetNotActualStoriesActionCreator = exports.SetNotActualStoriesActionName = void 0;
-exports.SetRoomCardsActionCreator = exports.SetRoomCardsActionName = exports.SetEditRoomActionCreator = exports.SetEditRoomActionName = exports.SetInitialRoomDieTimeActionCreator = exports.SetInitialRoomDieTimeActionName = void 0;
-exports.SetNotActualStoriesActionName = 'SetNotActualStoriesAction';
-function SetNotActualStoriesActionCreator(data) {
-    return { type: exports.SetNotActualStoriesActionName, payload: data };
-}
-exports.SetNotActualStoriesActionCreator = SetNotActualStoriesActionCreator;
-;
-exports.EnteredInRoomActionName = 'EnteredInRoomAction';
-function EnteredInRoomActionCreator(data) {
-    return { type: exports.EnteredInRoomActionName, payload: data };
-}
-exports.EnteredInRoomActionCreator = EnteredInRoomActionCreator;
-;
-exports.SetUserConnectionIdActionName = 'SetUserConnectionIdAction';
-function SetUserConnectionIdActionCreator(data) {
-    return { type: exports.SetUserConnectionIdActionName, payload: data };
-}
-exports.SetUserConnectionIdActionCreator = SetUserConnectionIdActionCreator;
-;
-exports.SetUserNameActionName = 'SetUserNameAction';
-function SetUserNameActionCreator(data) {
-    return { type: exports.SetUserNameActionName, payload: data };
-}
-exports.SetUserNameActionCreator = SetUserNameActionCreator;
-;
+exports.SetRoomCardsActionCreator = exports.SetRoomCardsActionName = exports.SetEditRoomActionCreator = exports.SetEditRoomActionName = exports.SetInitialRoomDieTimeActionCreator = exports.SetInitialRoomDieTimeActionName = exports.ClearVoteActionCreator = exports.ClearVoteActionName = exports.SetSelectedCardActionCreator = exports.SetSelectedCardActionName = exports.VoteChangedActionCreator = exports.VoteChangedActionName = exports.SetRoomStatusActionCreator = exports.SetRoomStatusActionName = exports.SetVoteInfoActionCreator = exports.SetVoteInfoActionName = exports.SetRoomPasswordActionCreator = exports.SetRoomPasswordActionName = exports.SetRoomNameActionCreator = exports.SetRoomNameActionName = void 0;
 exports.SetRoomNameActionName = 'SetRoomNameAction';
 function SetRoomNameActionCreator(data) {
     return { type: exports.SetRoomNameActionName, payload: data };
@@ -47981,41 +47956,11 @@ function SetRoomPasswordActionCreator(data) {
 }
 exports.SetRoomPasswordActionCreator = SetRoomPasswordActionCreator;
 ;
-exports.SetRoomUserIdActionName = 'SetRoomUserIdAction';
-function SetRoomUserIdActionCreator(data) {
-    return { type: exports.SetRoomUserIdActionName, payload: data };
-}
-exports.SetRoomUserIdActionCreator = SetRoomUserIdActionCreator;
-;
-exports.SetRoomUsersActionName = 'SetRoomUsersAction';
-function SetRoomUsersActionCreator(data) {
-    return { type: exports.SetRoomUsersActionName, payload: data };
-}
-exports.SetRoomUsersActionCreator = SetRoomUsersActionCreator;
-;
-exports.SetTotalNotActualStoriesCountActionName = 'SetTotalNotActualStoriesCountAction';
-function SetTotalNotActualStoriesCountActionCreator(data) {
-    return { type: exports.SetTotalNotActualStoriesCountActionName, payload: data };
-}
-exports.SetTotalNotActualStoriesCountActionCreator = SetTotalNotActualStoriesCountActionCreator;
-;
 exports.SetVoteInfoActionName = 'SetVoteInfoAction';
 function SetVoteInfoActionCreator(data) {
     return { type: exports.SetVoteInfoActionName, payload: data };
 }
 exports.SetVoteInfoActionCreator = SetVoteInfoActionCreator;
-;
-exports.SetCurrentStoryIdActionName = 'SetCurrentStoryIdAction';
-function SetCurrentStoryIdActionCreator(data) {
-    return { type: exports.SetCurrentStoryIdActionName, payload: data };
-}
-exports.SetCurrentStoryIdActionCreator = SetCurrentStoryIdActionCreator;
-;
-exports.SetStoriesActionName = 'SetStoriesAction';
-function SetStoriesActionCreator(data) {
-    return { type: exports.SetStoriesActionName, payload: data };
-}
-exports.SetStoriesActionCreator = SetStoriesActionCreator;
 ;
 exports.SetRoomStatusActionName = 'SetRoomStatusAction';
 function SetRoomStatusActionCreator(data) {
@@ -48023,35 +47968,11 @@ function SetRoomStatusActionCreator(data) {
 }
 exports.SetRoomStatusActionCreator = SetRoomStatusActionCreator;
 ;
-exports.ChangeUserNameInRoomActionName = 'ChangeUserNameInRoomAction';
-function ChangeUserNameInRoomActionCreator(data) {
-    return { type: exports.ChangeUserNameInRoomActionName, payload: data };
-}
-exports.ChangeUserNameInRoomActionCreator = ChangeUserNameInRoomActionCreator;
-;
-exports.AddUserToRoomActionName = 'AddUserToRoomAction';
-function AddUserToRoomActionCreator(data) {
-    return { type: exports.AddUserToRoomActionName, payload: data };
-}
-exports.AddUserToRoomActionCreator = AddUserToRoomActionCreator;
-;
-exports.RemoveUserActionName = 'RemoveUserAction';
-function RemoveUserActionCreator(data) {
-    return { type: exports.RemoveUserActionName, payload: data };
-}
-exports.RemoveUserActionCreator = RemoveUserActionCreator;
-;
 exports.VoteChangedActionName = 'VoteChangedAction';
 function VoteChangedActionCreator(data) {
     return { type: exports.VoteChangedActionName, payload: data };
 }
 exports.VoteChangedActionCreator = VoteChangedActionCreator;
-;
-exports.UserRoleChangedActionName = 'UserRoleChangedAction';
-function UserRoleChangedActionCreator(data) {
-    return { type: exports.UserRoleChangedActionName, payload: data };
-}
-exports.UserRoleChangedActionCreator = UserRoleChangedActionCreator;
 ;
 exports.SetSelectedCardActionName = 'SetSelectedCardAction';
 function SetSelectedCardActionCreator(data) {
@@ -48064,6 +47985,62 @@ function ClearVoteActionCreator() {
     return { type: exports.ClearVoteActionName, payload: null };
 }
 exports.ClearVoteActionCreator = ClearVoteActionCreator;
+;
+exports.SetInitialRoomDieTimeActionName = 'SetInitialRoomDieTimeAction';
+function SetInitialRoomDieTimeActionCreator(data) {
+    return { type: exports.SetInitialRoomDieTimeActionName, payload: data };
+}
+exports.SetInitialRoomDieTimeActionCreator = SetInitialRoomDieTimeActionCreator;
+;
+exports.SetEditRoomActionName = 'SetEditRoomAction';
+function SetEditRoomActionCreator(data) {
+    return { type: exports.SetEditRoomActionName, payload: data };
+}
+exports.SetEditRoomActionCreator = SetEditRoomActionCreator;
+;
+exports.SetRoomCardsActionName = 'SetRoomCardsAction';
+function SetRoomCardsActionCreator(data) {
+    return { type: exports.SetRoomCardsActionName, payload: data };
+}
+exports.SetRoomCardsActionCreator = SetRoomCardsActionCreator;
+;
+
+
+/***/ }),
+
+/***/ "./src/Models/Actions/PlaningPokerApp/StoryActions.ts":
+/*!************************************************************!*\
+  !*** ./src/Models/Actions/PlaningPokerApp/StoryActions.ts ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UpdateStoriesIdActionCreator = exports.UpdateStoriesIdActionName = exports.MoveStoryToCompleteActionCreator = exports.MoveStoryToCompleteActionName = exports.DeleteStoryActionCreator = exports.DeleteStoryActionName = exports.StoryChangeActionCreator = exports.StoryChangeActionName = exports.AddNewStoryActionCreator = exports.AddNewStoryActionName = exports.SetStoriesActionCreator = exports.SetStoriesActionName = exports.SetCurrentStoryIdActionCreator = exports.SetCurrentStoryIdActionName = exports.SetTotalNotActualStoriesCountActionCreator = exports.SetTotalNotActualStoriesCountActionName = exports.SetNotActualStoriesActionCreator = exports.SetNotActualStoriesActionName = void 0;
+exports.SetNotActualStoriesActionName = 'SetNotActualStoriesAction';
+function SetNotActualStoriesActionCreator(data) {
+    return { type: exports.SetNotActualStoriesActionName, payload: data };
+}
+exports.SetNotActualStoriesActionCreator = SetNotActualStoriesActionCreator;
+;
+exports.SetTotalNotActualStoriesCountActionName = 'SetTotalNotActualStoriesCountAction';
+function SetTotalNotActualStoriesCountActionCreator(data) {
+    return { type: exports.SetTotalNotActualStoriesCountActionName, payload: data };
+}
+exports.SetTotalNotActualStoriesCountActionCreator = SetTotalNotActualStoriesCountActionCreator;
+;
+exports.SetCurrentStoryIdActionName = 'SetCurrentStoryIdAction';
+function SetCurrentStoryIdActionCreator(data) {
+    return { type: exports.SetCurrentStoryIdActionName, payload: data };
+}
+exports.SetCurrentStoryIdActionCreator = SetCurrentStoryIdActionCreator;
+;
+exports.SetStoriesActionName = 'SetStoriesAction';
+function SetStoriesActionCreator(data) {
+    return { type: exports.SetStoriesActionName, payload: data };
+}
+exports.SetStoriesActionCreator = SetStoriesActionCreator;
 ;
 exports.AddNewStoryActionName = 'AddNewStoryAction';
 function AddNewStoryActionCreator(data) {
@@ -48095,23 +48072,73 @@ function UpdateStoriesIdActionCreator(data) {
 }
 exports.UpdateStoriesIdActionCreator = UpdateStoriesIdActionCreator;
 ;
-exports.SetInitialRoomDieTimeActionName = 'SetInitialRoomDieTimeAction';
-function SetInitialRoomDieTimeActionCreator(data) {
-    return { type: exports.SetInitialRoomDieTimeActionName, payload: data };
+
+
+/***/ }),
+
+/***/ "./src/Models/Actions/PlaningPokerApp/UserActions.ts":
+/*!***********************************************************!*\
+  !*** ./src/Models/Actions/PlaningPokerApp/UserActions.ts ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UserRoleChangedActionCreator = exports.UserRoleChangedActionName = exports.RemoveUserActionCreator = exports.RemoveUserActionName = exports.AddUserToRoomActionCreator = exports.AddUserToRoomActionName = exports.ChangeUserNameInRoomActionCreator = exports.ChangeUserNameInRoomActionName = exports.SetRoomUsersActionCreator = exports.SetRoomUsersActionName = exports.SetRoomUserIdActionCreator = exports.SetRoomUserIdActionName = exports.SetUserNameActionCreator = exports.SetUserNameActionName = exports.SetUserConnectionIdActionCreator = exports.SetUserConnectionIdActionName = exports.EnteredInRoomActionCreator = exports.EnteredInRoomActionName = void 0;
+exports.EnteredInRoomActionName = 'EnteredInRoomAction';
+function EnteredInRoomActionCreator(data) {
+    return { type: exports.EnteredInRoomActionName, payload: data };
 }
-exports.SetInitialRoomDieTimeActionCreator = SetInitialRoomDieTimeActionCreator;
+exports.EnteredInRoomActionCreator = EnteredInRoomActionCreator;
 ;
-exports.SetEditRoomActionName = 'SetEditRoomAction';
-function SetEditRoomActionCreator(data) {
-    return { type: exports.SetEditRoomActionName, payload: data };
+exports.SetUserConnectionIdActionName = 'SetUserConnectionIdAction';
+function SetUserConnectionIdActionCreator(data) {
+    return { type: exports.SetUserConnectionIdActionName, payload: data };
 }
-exports.SetEditRoomActionCreator = SetEditRoomActionCreator;
+exports.SetUserConnectionIdActionCreator = SetUserConnectionIdActionCreator;
 ;
-exports.SetRoomCardsActionName = 'SetRoomCardsAction';
-function SetRoomCardsActionCreator(data) {
-    return { type: exports.SetRoomCardsActionName, payload: data };
+exports.SetUserNameActionName = 'SetUserNameAction';
+function SetUserNameActionCreator(data) {
+    return { type: exports.SetUserNameActionName, payload: data };
 }
-exports.SetRoomCardsActionCreator = SetRoomCardsActionCreator;
+exports.SetUserNameActionCreator = SetUserNameActionCreator;
+;
+exports.SetRoomUserIdActionName = 'SetRoomUserIdAction';
+function SetRoomUserIdActionCreator(data) {
+    return { type: exports.SetRoomUserIdActionName, payload: data };
+}
+exports.SetRoomUserIdActionCreator = SetRoomUserIdActionCreator;
+;
+exports.SetRoomUsersActionName = 'SetRoomUsersAction';
+function SetRoomUsersActionCreator(data) {
+    return { type: exports.SetRoomUsersActionName, payload: data };
+}
+exports.SetRoomUsersActionCreator = SetRoomUsersActionCreator;
+;
+exports.ChangeUserNameInRoomActionName = 'ChangeUserNameInRoomAction';
+function ChangeUserNameInRoomActionCreator(data) {
+    return { type: exports.ChangeUserNameInRoomActionName, payload: data };
+}
+exports.ChangeUserNameInRoomActionCreator = ChangeUserNameInRoomActionCreator;
+;
+exports.AddUserToRoomActionName = 'AddUserToRoomAction';
+function AddUserToRoomActionCreator(data) {
+    return { type: exports.AddUserToRoomActionName, payload: data };
+}
+exports.AddUserToRoomActionCreator = AddUserToRoomActionCreator;
+;
+exports.RemoveUserActionName = 'RemoveUserAction';
+function RemoveUserActionCreator(data) {
+    return { type: exports.RemoveUserActionName, payload: data };
+}
+exports.RemoveUserActionCreator = RemoveUserActionCreator;
+;
+exports.UserRoleChangedActionName = 'UserRoleChangedAction';
+function UserRoleChangedActionCreator(data) {
+    return { type: exports.UserRoleChangedActionName, payload: data };
+}
+exports.UserRoleChangedActionCreator = UserRoleChangedActionCreator;
 ;
 
 
@@ -49489,7 +49516,9 @@ exports.ArticleController = ArticleController;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PlaningPokerController = exports.HubEndpoints = exports.HubEndpointsBack = exports.HubEndpointsFront = void 0;
-var Actions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/Actions */ "./src/Models/Actions/PlaningPokerApp/Actions.ts");
+var RoomAction_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/RoomAction */ "./src/Models/Actions/PlaningPokerApp/RoomAction.ts");
+var StoryActions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/StoryActions */ "./src/Models/Actions/PlaningPokerApp/StoryActions.ts");
+var UserActions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/UserActions */ "./src/Models/Actions/PlaningPokerApp/UserActions.ts");
 var RoomInfo_1 = __webpack_require__(/*! ../../Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
 var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var HubEndpointsFront = /** @class */ (function () {
@@ -49570,7 +49599,7 @@ var PlaningPokerController = /** @class */ (function () {
                         st.FillByBackModel(x);
                         return st;
                     });
-                    dispatch((0, Actions_1.SetNotActualStoriesActionCreator)(stories));
+                    dispatch((0, StoryActions_1.SetNotActualStoriesActionCreator)(stories));
                 }
             });
         };
@@ -49637,7 +49666,7 @@ var PlaningPokerController = /** @class */ (function () {
                         us.FillByBackModel(x);
                         return us;
                     });
-                    dispatch((0, Actions_1.SetRoomUsersActionCreator)(newUsersData));
+                    dispatch((0, UserActions_1.SetRoomUsersActionCreator)(newUsersData));
                 }
             });
         };
@@ -49669,14 +49698,14 @@ var PlaningPokerController = /** @class */ (function () {
                     us.FillByBackModel(x);
                     return us;
                 });
-                dispatch((0, Actions_1.SetRoomCardsActionCreator)(data.room.cards));
-                dispatch((0, Actions_1.SetInitialRoomDieTimeActionCreator)(new Date(data.room.die_date)));
-                dispatch((0, Actions_1.SetRoomUsersActionCreator)(newUsersData));
-                dispatch((0, Actions_1.SetTotalNotActualStoriesCountActionCreator)(data.room.total_stories_count));
-                dispatch((0, Actions_1.SetVoteInfoActionCreator)(data.end_vote_info));
-                dispatch((0, Actions_1.SetCurrentStoryIdActionCreator)(data.room.current_story_id));
-                dispatch((0, Actions_1.SetRoomStatusActionCreator)(data.room.status));
-                dispatch((0, Actions_1.SetStoriesActionCreator)(data.room.actual_stories.map(function (x) {
+                dispatch((0, RoomAction_1.SetRoomCardsActionCreator)(data.room.cards));
+                dispatch((0, RoomAction_1.SetInitialRoomDieTimeActionCreator)(new Date(data.room.die_date)));
+                dispatch((0, UserActions_1.SetRoomUsersActionCreator)(newUsersData));
+                dispatch((0, StoryActions_1.SetTotalNotActualStoriesCountActionCreator)(data.room.total_stories_count));
+                dispatch((0, RoomAction_1.SetVoteInfoActionCreator)(data.end_vote_info));
+                dispatch((0, StoryActions_1.SetCurrentStoryIdActionCreator)(data.room.current_story_id));
+                dispatch((0, RoomAction_1.SetRoomStatusActionCreator)(data.room.status));
+                dispatch((0, StoryActions_1.SetStoriesActionCreator)(data.room.actual_stories.map(function (x) {
                     var st = new RoomInfo_1.Story();
                     st.FillByBackModel(x);
                     return st;
@@ -50962,6 +50991,42 @@ exports.CodeReviewProjectReducer = CodeReviewProjectReducer;
 
 /***/ }),
 
+/***/ "./src/Models/Reducers/CodeReviewApp/Reducer.ts":
+/*!******************************************************!*\
+  !*** ./src/Models/Reducers/CodeReviewApp/Reducer.ts ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CodeReviewAppReducer = void 0;
+var AppState_1 = __webpack_require__(/*! ../../Models/State/AppState */ "./src/Models/Models/State/AppState.ts");
+var CommentReducer_1 = __webpack_require__(/*! ./CommentReducer */ "./src/Models/Reducers/CodeReviewApp/CommentReducer.ts");
+var ProjectReducer_1 = __webpack_require__(/*! ./ProjectReducer */ "./src/Models/Reducers/CodeReviewApp/ProjectReducer.ts");
+var TaskReducer_1 = __webpack_require__(/*! ./TaskReducer */ "./src/Models/Reducers/CodeReviewApp/TaskReducer.ts");
+var UserReducer_1 = __webpack_require__(/*! ./UserReducer */ "./src/Models/Reducers/CodeReviewApp/UserReducer.ts");
+function CodeReviewAppReducer(state, action) {
+    if (state === void 0) { state = new AppState_1.AppState(); }
+    var st = (0, ProjectReducer_1.CodeReviewProjectReducer)(state, action);
+    st = (0, UserReducer_1.CodeReviewUserReducer)(st, action);
+    st = (0, CommentReducer_1.CodeReviewCommentReducer)(st, action);
+    st = (0, TaskReducer_1.CodeReviewTaskReducer)(st, action);
+    //...
+    return st;
+    switch (action.type) {
+        case "test":
+            var str = action.payload;
+            return Object.assign({}, state, { TestMessage: str });
+        default:
+            return state;
+    }
+}
+exports.CodeReviewAppReducer = CodeReviewAppReducer;
+
+
+/***/ }),
+
 /***/ "./src/Models/Reducers/CodeReviewApp/TaskReducer.ts":
 /*!**********************************************************!*\
   !*** ./src/Models/Reducers/CodeReviewApp/TaskReducer.ts ***!
@@ -51148,6 +51213,40 @@ exports.CodeReviewUserReducer = CodeReviewUserReducer;
 /*!********************************************************!*\
   !*** ./src/Models/Reducers/PlaningPokerApp/Reducer.ts ***!
   \********************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PlaningPokerReducer = void 0;
+var AppState_1 = __webpack_require__(/*! ../../Models/State/AppState */ "./src/Models/Models/State/AppState.ts");
+var RoomReducer_1 = __webpack_require__(/*! ./RoomReducer */ "./src/Models/Reducers/PlaningPokerApp/RoomReducer.ts");
+var StoryReducer_1 = __webpack_require__(/*! ./StoryReducer */ "./src/Models/Reducers/PlaningPokerApp/StoryReducer.ts");
+var UserReducer_1 = __webpack_require__(/*! ./UserReducer */ "./src/Models/Reducers/PlaningPokerApp/UserReducer.ts");
+function PlaningPokerReducer(state, action) {
+    if (state === void 0) { state = new AppState_1.AppState(); }
+    var st = (0, RoomReducer_1.RoomReducer)(state, action);
+    st = (0, StoryReducer_1.StoryReducer)(st, action);
+    st = (0, UserReducer_1.UserReducer)(st, action);
+    //...
+    return st;
+    switch (action.type) {
+        case "test":
+            var str = action.payload;
+            return Object.assign({}, state, { TestMessage: str });
+        default:
+            return state;
+    }
+}
+exports.PlaningPokerReducer = PlaningPokerReducer;
+
+
+/***/ }),
+
+/***/ "./src/Models/Reducers/PlaningPokerApp/RoomReducer.ts":
+/*!************************************************************!*\
+  !*** ./src/Models/Reducers/PlaningPokerApp/RoomReducer.ts ***!
+  \************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -51156,86 +51255,31 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.PlaningPokerReducer = void 0;
+exports.RoomReducer = void 0;
 var AppState_1 = __webpack_require__(/*! ../../Models/State/AppState */ "./src/Models/Models/State/AppState.ts");
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
-var Actions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/Actions */ "./src/Models/Actions/PlaningPokerApp/Actions.ts");
 var RoomInfo_1 = __webpack_require__(/*! ../../Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
 var PlaningPokerHelper_1 = __webpack_require__(/*! ../../BL/PlaningPokerApp/PlaningPokerHelper */ "./src/Models/BL/PlaningPokerApp/PlaningPokerHelper.ts");
 var AlertData_1 = __webpack_require__(/*! ../../Models/AlertData */ "./src/Models/Models/AlertData.ts");
-function PlaningPokerReducer(state, action) {
-    var _a;
+var RoomAction_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/RoomAction */ "./src/Models/Actions/PlaningPokerApp/RoomAction.ts");
+function RoomReducer(state, action) {
     if (state === void 0) { state = new AppState_1.AppState(); }
     switch (action.type) {
-        case Actions_1.SetNotActualStoriesActionName:
-            {
-                var newState = (0, cloneDeep_1.default)(state);
-                var stories = action.payload;
-                newState.PlaningPokerApp.NotActualStories = stories;
-                return newState;
-            }
-        case Actions_1.EnteredInRoomActionName:
-            {
-                var newState = (0, cloneDeep_1.default)(state);
-                var data = action.payload;
-                newState.PlaningPokerApp.RoomInfo.InRoom = true;
-                newState.PlaningPokerApp.RoomInfo.Password = "";
-                newState.PlaningPokerApp.User.UserId = data.RoomUserId;
-                newState.PlaningPokerApp.User.LoginnedInMainApp = data.LoginnedInMainApp;
-                return newState;
-            }
-        case Actions_1.SetUserConnectionIdActionName:
-            {
-                var newState = (0, cloneDeep_1.default)(state);
-                var data = action.payload;
-                newState.PlaningPokerApp.User.UserConnectionId = data;
-                return newState;
-            }
-        case Actions_1.SetUserNameActionName:
-            {
-                var newState = (0, cloneDeep_1.default)(state);
-                var data = action.payload;
-                newState.PlaningPokerApp.User.UserName = data;
-                return newState;
-            }
-        case Actions_1.SetRoomNameActionName:
+        case RoomAction_1.SetRoomNameActionName:
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 var data = action.payload;
                 newState.PlaningPokerApp.RoomInfo.Name = data;
                 return newState;
             }
-        case Actions_1.SetRoomPasswordActionName:
+        case RoomAction_1.SetRoomPasswordActionName:
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 var data = action.payload;
                 newState.PlaningPokerApp.RoomInfo.Password = data;
                 return newState;
             }
-        case Actions_1.SetRoomUserIdActionName:
-            {
-                var newState = (0, cloneDeep_1.default)(state);
-                var data = action.payload;
-                newState.PlaningPokerApp.User.UserId = data;
-                return newState;
-            }
-        case Actions_1.SetRoomUsersActionName:
-            {
-                var newState = (0, cloneDeep_1.default)(state);
-                var data = action.payload;
-                //почему просто не присвоить пустой массив?
-                newState.PlaningPokerApp.UsersList.splice(0, newState.PlaningPokerApp.UsersList.length);
-                (_a = newState.PlaningPokerApp.UsersList).push.apply(_a, data);
-                return newState;
-            }
-        case Actions_1.SetTotalNotActualStoriesCountActionName:
-            {
-                var newState = (0, cloneDeep_1.default)(state);
-                var data = action.payload;
-                newState.PlaningPokerApp.TotalNotActualStoriesCount = data;
-                return newState;
-            }
-        case Actions_1.SetVoteInfoActionName:
+        case RoomAction_1.SetVoteInfoActionName:
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 var data_1 = action.payload;
@@ -51253,62 +51297,14 @@ function PlaningPokerReducer(state, action) {
                 newState.PlaningPokerApp.VoteInfo.FillByBackModel(data_1);
                 return newState;
             }
-        case Actions_1.SetCurrentStoryIdActionName:
-            {
-                var newState = (0, cloneDeep_1.default)(state);
-                var data = action.payload;
-                newState.PlaningPokerApp.StoriesInfo.CurrentStoryId = data;
-                return newState;
-            }
-        case Actions_1.SetStoriesActionName:
-            {
-                var newState = (0, cloneDeep_1.default)(state);
-                var data = action.payload;
-                newState.PlaningPokerApp.StoriesInfo.Stories = data;
-                return newState;
-            }
-        case Actions_1.SetRoomStatusActionName:
+        case RoomAction_1.SetRoomStatusActionName:
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 var data = action.payload;
                 newState.PlaningPokerApp.RoomStatus = data;
                 return newState;
             }
-        case Actions_1.ChangeUserNameInRoomActionName:
-            {
-                var newState = (0, cloneDeep_1.default)(state);
-                var data = action.payload;
-                var user = (new PlaningPokerHelper_1.PlaningPokerHelper()).GetUserById(newState.PlaningPokerApp.UsersList, data.UserId);
-                if (!user) {
-                    return newState;
-                }
-                user.Name = data.UserName;
-                return newState;
-            }
-        case Actions_1.AddUserToRoomActionName:
-            {
-                var newState = (0, cloneDeep_1.default)(state);
-                var data = action.payload;
-                var existUser = (new PlaningPokerHelper_1.PlaningPokerHelper()).GetUserById(newState.PlaningPokerApp.UsersList, data.Id);
-                if (!existUser) {
-                    newState.PlaningPokerApp.UsersList.push(data);
-                }
-                return newState;
-            }
-        case Actions_1.RemoveUserActionName:
-            {
-                var newState_1 = (0, cloneDeep_1.default)(state);
-                var data = action.payload;
-                data.forEach(function (x) {
-                    var userIndex = (new PlaningPokerHelper_1.PlaningPokerHelper()).GetUserIndexById(newState_1.PlaningPokerApp.UsersList, x);
-                    if (userIndex < 0) {
-                        return newState_1;
-                    }
-                    newState_1.PlaningPokerApp.UsersList.splice(userIndex, 1);
-                });
-                return newState_1;
-            }
-        case Actions_1.VoteChangedActionName:
+        case RoomAction_1.VoteChangedActionName:
             {
                 var allAreVotedChanged = false;
                 var newState = (0, cloneDeep_1.default)(state);
@@ -51334,48 +51330,14 @@ function PlaningPokerReducer(state, action) {
                 }
                 return newState;
             }
-        case Actions_1.UserRoleChangedActionName:
-            {
-                var newState = (0, cloneDeep_1.default)(state);
-                var data_2 = action.payload;
-                var user = (new PlaningPokerHelper_1.PlaningPokerHelper()).GetUserById(newState.PlaningPokerApp.UsersList, data_2.UserId);
-                if (!user) {
-                    return newState;
-                }
-                if (data_2.ChangeType === 1) {
-                    //добавлен
-                    var index = user.Roles.findIndex(function (x) { return x === data_2.Role; });
-                    if (index == -1) {
-                        user.Roles.push(data_2.Role);
-                    }
-                }
-                else {
-                    //удален
-                    var index = user.Roles.findIndex(function (x) { return x === data_2.Role; });
-                    if (index >= 0) {
-                        user.Roles.splice(index, 1);
-                    }
-                }
-                if (!user.CanVote()) {
-                    //todo убрать все оценки
-                    // GetUserById(localState.UsersList,);
-                    // users
-                    user.Vote = null;
-                    user.HasVote = false;
-                    if (data_2.UserId === newState.PlaningPokerApp.User.UserId) {
-                        newState.PlaningPokerApp.SelectedVoteCard = '-1';
-                    }
-                }
-                return newState;
-            }
-        case Actions_1.SetSelectedCardActionName:
+        case RoomAction_1.SetSelectedCardActionName:
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 var data = action.payload;
                 newState.PlaningPokerApp.SelectedVoteCard = data;
                 return newState;
             }
-        case Actions_1.ClearVoteActionName:
+        case RoomAction_1.ClearVoteActionName:
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 // let data = action.payload as string;
@@ -51386,14 +51348,92 @@ function PlaningPokerReducer(state, action) {
                 newState.PlaningPokerApp.VoteInfo = new RoomInfo_1.VoteInfo();
                 return newState;
             }
-        case Actions_1.AddNewStoryActionName:
+        case RoomAction_1.SetInitialRoomDieTimeActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.DieRoomTimeInitial = data;
+                return newState;
+            }
+        case RoomAction_1.SetEditRoomActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.EditRoom = data;
+                return newState;
+            }
+        case RoomAction_1.SetRoomCardsActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.RoomCards = data;
+                return newState;
+            }
+        default:
+            return state;
+    }
+}
+exports.RoomReducer = RoomReducer;
+
+
+/***/ }),
+
+/***/ "./src/Models/Reducers/PlaningPokerApp/StoryReducer.ts":
+/*!*************************************************************!*\
+  !*** ./src/Models/Reducers/PlaningPokerApp/StoryReducer.ts ***!
+  \*************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.StoryReducer = void 0;
+var AppState_1 = __webpack_require__(/*! ../../Models/State/AppState */ "./src/Models/Models/State/AppState.ts");
+var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
+var PlaningPokerHelper_1 = __webpack_require__(/*! ../../BL/PlaningPokerApp/PlaningPokerHelper */ "./src/Models/BL/PlaningPokerApp/PlaningPokerHelper.ts");
+var StoryActions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/StoryActions */ "./src/Models/Actions/PlaningPokerApp/StoryActions.ts");
+function StoryReducer(state, action) {
+    if (state === void 0) { state = new AppState_1.AppState(); }
+    switch (action.type) {
+        case StoryActions_1.SetNotActualStoriesActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var stories = action.payload;
+                newState.PlaningPokerApp.NotActualStories = stories;
+                return newState;
+            }
+        case StoryActions_1.SetTotalNotActualStoriesCountActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.TotalNotActualStoriesCount = data;
+                return newState;
+            }
+        case StoryActions_1.SetCurrentStoryIdActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.StoriesInfo.CurrentStoryId = data;
+                return newState;
+            }
+        case StoryActions_1.SetStoriesActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.StoriesInfo.Stories = data;
+                return newState;
+            }
+        case StoryActions_1.AddNewStoryActionName:
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 var data = action.payload;
                 newState.PlaningPokerApp.StoriesInfo.Stories.push(data);
                 return newState;
             }
-        case Actions_1.StoryChangeActionName:
+        case StoryActions_1.StoryChangeActionName:
             {
                 //todo меняет не полностью, определенный поля только, как то это обозначит?
                 var storiesHelper = new PlaningPokerHelper_1.StoriesHelper();
@@ -51411,7 +51451,7 @@ function PlaningPokerReducer(state, action) {
                 story.Description = data.Description;
                 return newState;
             }
-        case Actions_1.DeleteStoryActionName:
+        case StoryActions_1.DeleteStoryActionName:
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 var data = action.payload;
@@ -51428,7 +51468,7 @@ function PlaningPokerReducer(state, action) {
                 }
                 return newState;
             }
-        case Actions_1.MoveStoryToCompleteActionName:
+        case StoryActions_1.MoveStoryToCompleteActionName:
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 var storiesHelper = new PlaningPokerHelper_1.StoriesHelper();
@@ -51448,50 +51488,167 @@ function PlaningPokerReducer(state, action) {
                 }
                 return newState;
             }
-        case Actions_1.UpdateStoriesIdActionName:
+        case StoryActions_1.UpdateStoriesIdActionName:
             {
-                var newState_2 = (0, cloneDeep_1.default)(state);
-                var data_3 = action.payload;
-                newState_2.PlaningPokerApp.StoriesInfo.Stories.forEach(function (st) {
-                    var fromBack = data_3.find(function (x) { return x.old_id.toUpperCase() === st.Id.toUpperCase(); });
+                var newState_1 = (0, cloneDeep_1.default)(state);
+                var data_1 = action.payload;
+                newState_1.PlaningPokerApp.StoriesInfo.Stories.forEach(function (st) {
+                    var fromBack = data_1.find(function (x) { return x.old_id.toUpperCase() === st.Id.toUpperCase(); });
                     if (fromBack) {
                         st.Id = fromBack.new_id + '';
                     }
                 });
-                var fromBack = data_3
+                var fromBack = data_1
                     .find(function (x) { return x.old_id.toUpperCase()
-                    === newState_2.PlaningPokerApp.StoriesInfo.CurrentStoryId.toUpperCase(); });
+                    === newState_1.PlaningPokerApp.StoriesInfo.CurrentStoryId.toUpperCase(); });
                 if (fromBack) {
-                    newState_2.PlaningPokerApp.StoriesInfo.CurrentStoryId = fromBack.new_id + '';
+                    newState_1.PlaningPokerApp.StoriesInfo.CurrentStoryId = fromBack.new_id + '';
                 }
-                return newState_2;
+                return newState_1;
             }
-        case Actions_1.SetInitialRoomDieTimeActionName:
+        default:
+            return state;
+    }
+}
+exports.StoryReducer = StoryReducer;
+
+
+/***/ }),
+
+/***/ "./src/Models/Reducers/PlaningPokerApp/UserReducer.ts":
+/*!************************************************************!*\
+  !*** ./src/Models/Reducers/PlaningPokerApp/UserReducer.ts ***!
+  \************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UserReducer = void 0;
+var AppState_1 = __webpack_require__(/*! ../../Models/State/AppState */ "./src/Models/Models/State/AppState.ts");
+var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
+var PlaningPokerHelper_1 = __webpack_require__(/*! ../../BL/PlaningPokerApp/PlaningPokerHelper */ "./src/Models/BL/PlaningPokerApp/PlaningPokerHelper.ts");
+var UserActions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/UserActions */ "./src/Models/Actions/PlaningPokerApp/UserActions.ts");
+function UserReducer(state, action) {
+    var _a;
+    if (state === void 0) { state = new AppState_1.AppState(); }
+    switch (action.type) {
+        case UserActions_1.EnteredInRoomActionName:
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 var data = action.payload;
-                newState.PlaningPokerApp.DieRoomTimeInitial = data;
+                newState.PlaningPokerApp.RoomInfo.InRoom = true;
+                newState.PlaningPokerApp.RoomInfo.Password = "";
+                newState.PlaningPokerApp.User.UserId = data.RoomUserId;
+                newState.PlaningPokerApp.User.LoginnedInMainApp = data.LoginnedInMainApp;
                 return newState;
             }
-        case Actions_1.SetEditRoomActionName:
+        case UserActions_1.SetUserConnectionIdActionName:
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 var data = action.payload;
-                newState.PlaningPokerApp.EditRoom = data;
+                newState.PlaningPokerApp.User.UserConnectionId = data;
                 return newState;
             }
-        case Actions_1.SetRoomCardsActionName:
+        case UserActions_1.SetUserNameActionName:
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 var data = action.payload;
-                newState.PlaningPokerApp.RoomCards = data;
+                newState.PlaningPokerApp.User.UserName = data;
+                return newState;
+            }
+        case UserActions_1.SetRoomUserIdActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.User.UserId = data;
+                return newState;
+            }
+        case UserActions_1.SetRoomUsersActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                //почему просто не присвоить пустой массив?
+                newState.PlaningPokerApp.UsersList.splice(0, newState.PlaningPokerApp.UsersList.length);
+                (_a = newState.PlaningPokerApp.UsersList).push.apply(_a, data);
+                return newState;
+            }
+        case UserActions_1.ChangeUserNameInRoomActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                var user = (new PlaningPokerHelper_1.PlaningPokerHelper()).GetUserById(newState.PlaningPokerApp.UsersList, data.UserId);
+                if (!user) {
+                    return newState;
+                }
+                user.Name = data.UserName;
+                return newState;
+            }
+        case UserActions_1.AddUserToRoomActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                var existUser = (new PlaningPokerHelper_1.PlaningPokerHelper()).GetUserById(newState.PlaningPokerApp.UsersList, data.Id);
+                if (!existUser) {
+                    newState.PlaningPokerApp.UsersList.push(data);
+                }
+                return newState;
+            }
+        case UserActions_1.RemoveUserActionName:
+            {
+                var newState_1 = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                data.forEach(function (x) {
+                    var userIndex = (new PlaningPokerHelper_1.PlaningPokerHelper()).GetUserIndexById(newState_1.PlaningPokerApp.UsersList, x);
+                    if (userIndex < 0) {
+                        return newState_1;
+                    }
+                    newState_1.PlaningPokerApp.UsersList.splice(userIndex, 1);
+                });
+                return newState_1;
+            }
+        case UserActions_1.UserRoleChangedActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data_1 = action.payload;
+                var user = (new PlaningPokerHelper_1.PlaningPokerHelper()).GetUserById(newState.PlaningPokerApp.UsersList, data_1.UserId);
+                if (!user) {
+                    return newState;
+                }
+                if (data_1.ChangeType === 1) {
+                    //добавлен
+                    var index = user.Roles.findIndex(function (x) { return x === data_1.Role; });
+                    if (index == -1) {
+                        user.Roles.push(data_1.Role);
+                    }
+                }
+                else {
+                    //удален
+                    var index = user.Roles.findIndex(function (x) { return x === data_1.Role; });
+                    if (index >= 0) {
+                        user.Roles.splice(index, 1);
+                    }
+                }
+                if (!user.CanVote()) {
+                    //todo убрать все оценки
+                    // GetUserById(localState.UsersList,);
+                    // users
+                    user.Vote = null;
+                    user.HasVote = false;
+                    if (data_1.UserId === newState.PlaningPokerApp.User.UserId) {
+                        newState.PlaningPokerApp.SelectedVoteCard = '-1';
+                    }
+                }
                 return newState;
             }
         default:
             return state;
     }
 }
-exports.PlaningPokerReducer = PlaningPokerReducer;
+exports.UserReducer = UserReducer;
 
 
 /***/ }),
@@ -51543,19 +51700,13 @@ exports.AppReducer = AppReducer;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ReducerCombiner = void 0;
 var AppState_1 = __webpack_require__(/*! ../Models/State/AppState */ "./src/Models/Models/State/AppState.ts");
-var ProjectReducer_1 = __webpack_require__(/*! ./CodeReviewApp/ProjectReducer */ "./src/Models/Reducers/CodeReviewApp/ProjectReducer.ts");
-var UserReducer_1 = __webpack_require__(/*! ./CodeReviewApp/UserReducer */ "./src/Models/Reducers/CodeReviewApp/UserReducer.ts");
-var CommentReducer_1 = __webpack_require__(/*! ./CodeReviewApp/CommentReducer */ "./src/Models/Reducers/CodeReviewApp/CommentReducer.ts");
-var TaskReducer_1 = __webpack_require__(/*! ./CodeReviewApp/TaskReducer */ "./src/Models/Reducers/CodeReviewApp/TaskReducer.ts");
 var Reducer_1 = __webpack_require__(/*! ./PlaningPokerApp/Reducer */ "./src/Models/Reducers/PlaningPokerApp/Reducer.ts");
 var Reducer_2 = __webpack_require__(/*! ./Reducer */ "./src/Models/Reducers/Reducer.ts");
+var Reducer_3 = __webpack_require__(/*! ./CodeReviewApp/Reducer */ "./src/Models/Reducers/CodeReviewApp/Reducer.ts");
 function ReducerCombiner(state, action) {
     if (state === void 0) { state = new AppState_1.AppState(); }
     var st = (0, Reducer_2.AppReducer)(state, action);
-    st = (0, ProjectReducer_1.CodeReviewProjectReducer)(st, action);
-    st = (0, UserReducer_1.CodeReviewUserReducer)(st, action);
-    st = (0, CommentReducer_1.CodeReviewCommentReducer)(st, action);
-    st = (0, TaskReducer_1.CodeReviewTaskReducer)(st, action);
+    st = (0, Reducer_3.CodeReviewAppReducer)(st, action);
     st = (0, Reducer_1.PlaningPokerReducer)(st, action);
     //...
     return st;
@@ -55418,7 +55569,8 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var Actions_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/Actions */ "./src/Models/Actions/PlaningPokerApp/Actions.ts");
+var RoomAction_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/RoomAction */ "./src/Models/Actions/PlaningPokerApp/RoomAction.ts");
+var UserActions_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/UserActions */ "./src/Models/Actions/PlaningPokerApp/UserActions.ts");
 __webpack_require__(/*! ./Index.css */ "./src/components/Body/PlaningPoker/Index/Index.css");
 var Index = function (props) {
     var _a = (0, react_1.useState)(props.RoomInfo.Name || ''), roomName = _a[0], setRoomName = _a[1];
@@ -55504,13 +55656,13 @@ var mapStateToProps = function (state, ownProps) {
 var mapDispatchToProps = function (dispatch, ownProps) {
     var res = {};
     res.SetUserName = function (username) {
-        dispatch((0, Actions_1.SetUserNameActionCreator)(username));
+        dispatch((0, UserActions_1.SetUserNameActionCreator)(username));
     };
     res.SetRoomName = function (roomname) {
-        dispatch((0, Actions_1.SetRoomNameActionCreator)(roomname));
+        dispatch((0, RoomAction_1.SetRoomNameActionCreator)(roomname));
     };
     res.SetRoomPassword = function (roompass) {
-        dispatch((0, Actions_1.SetRoomPasswordActionCreator)(roompass));
+        dispatch((0, RoomAction_1.SetRoomPasswordActionCreator)(roompass));
     };
     return res;
 };
@@ -55601,7 +55753,7 @@ var AlertData_1 = __webpack_require__(/*! ../../../Models/Models/AlertData */ ".
 // import signalR, { HubConnection } from "@aspnet/signalr";
 var signalR = __importStar(__webpack_require__(/*! @aspnet/signalr */ "./node_modules/@aspnet/signalr/dist/esm/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var Actions_1 = __webpack_require__(/*! ../../../Models/Actions/PlaningPokerApp/Actions */ "./src/Models/Actions/PlaningPokerApp/Actions.ts");
+var UserActions_1 = __webpack_require__(/*! ../../../Models/Actions/PlaningPokerApp/UserActions */ "./src/Models/Actions/PlaningPokerApp/UserActions.ts");
 //см коммент для __planing_room_props_ref__
 var __planing_poker_hubConnected_ref__ = false;
 var __planing_poker_roomname_ref__ = ''; //todo надо проверить можно ли убрать это
@@ -55751,13 +55903,13 @@ var mapStateToProps = function (state, ownProps) {
 var mapDispatchToProps = function (dispatch, ownProps) {
     var res = {};
     res.EnteredInRoom = function (roomUserId, loginnedInMainApp) {
-        dispatch((0, Actions_1.EnteredInRoomActionCreator)({ RoomUserId: roomUserId, LoginnedInMainApp: loginnedInMainApp }));
+        dispatch((0, UserActions_1.EnteredInRoomActionCreator)({ RoomUserId: roomUserId, LoginnedInMainApp: loginnedInMainApp }));
     };
     res.SetUserConnectionId = function (userConnectionId) {
-        dispatch((0, Actions_1.SetUserConnectionIdActionCreator)(userConnectionId));
+        dispatch((0, UserActions_1.SetUserConnectionIdActionCreator)(userConnectionId));
     };
     res.SetUserName = function (username) {
-        dispatch((0, Actions_1.SetUserNameActionCreator)(username));
+        dispatch((0, UserActions_1.SetUserNameActionCreator)(username));
     };
     return res;
 };
@@ -55931,10 +56083,12 @@ var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */
 var StoriesSection_1 = __importDefault(__webpack_require__(/*! ../StoriesSection/StoriesSection */ "./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.tsx"));
 var RoomTimer_1 = __importDefault(__webpack_require__(/*! ../RoomTimer/RoomTimer */ "./src/components/Body/PlaningPoker/RoomTimer/RoomTimer.tsx"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var Actions_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/Actions */ "./src/Models/Actions/PlaningPokerApp/Actions.ts");
 var PlaningPokerHelper_1 = __webpack_require__(/*! ../../../../Models/BL/PlaningPokerApp/PlaningPokerHelper */ "./src/Models/BL/PlaningPokerApp/PlaningPokerHelper.ts");
 var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
 var EditRoom_1 = __importDefault(__webpack_require__(/*! ../EditRoom/EditRoom */ "./src/components/Body/PlaningPoker/EditRoom/EditRoom.tsx"));
+var RoomAction_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/RoomAction */ "./src/Models/Actions/PlaningPokerApp/RoomAction.ts");
+var StoryActions_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/StoryActions */ "./src/Models/Actions/PlaningPokerApp/StoryActions.ts");
+var UserActions_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/UserActions */ "./src/Models/Actions/PlaningPokerApp/UserActions.ts");
 __webpack_require__(/*! ./Room.css */ "./src/components/Body/PlaningPoker/Room/Room.css");
 //подписки сигналр захватывают пропсы непонятно как, раньше это работало, но предположительно после введения deepClone
 //все вообще отвалилось. 6.30.2021, вот так получилось пофиксить, замена обработчика подписки на => не помогала
@@ -56330,64 +56484,64 @@ var mapStateToProps = function (state, ownProps) {
 var mapDispatchToProps = function (dispatch, ownProps) {
     var res = {};
     res.SetUserId = function (userId) {
-        dispatch((0, Actions_1.SetRoomUserIdActionCreator)(userId));
+        dispatch((0, UserActions_1.SetRoomUserIdActionCreator)(userId));
     };
     res.SetUserName = function (username) {
-        dispatch((0, Actions_1.SetUserNameActionCreator)(username));
+        dispatch((0, UserActions_1.SetUserNameActionCreator)(username));
     };
     res.SetRoomName = function (roomname) {
-        dispatch((0, Actions_1.SetRoomNameActionCreator)(roomname));
+        dispatch((0, RoomAction_1.SetRoomNameActionCreator)(roomname));
     };
     res.SetRoomUsers = function (users) {
-        dispatch((0, Actions_1.SetRoomUsersActionCreator)(users));
+        dispatch((0, UserActions_1.SetRoomUsersActionCreator)(users));
     };
     res.SetVoteInfo = function (voteInfo) {
-        dispatch((0, Actions_1.SetVoteInfoActionCreator)(voteInfo));
+        dispatch((0, RoomAction_1.SetVoteInfoActionCreator)(voteInfo));
     };
     res.SetCurrentStoryId = function (id) {
-        dispatch((0, Actions_1.SetCurrentStoryIdActionCreator)(id));
+        dispatch((0, StoryActions_1.SetCurrentStoryIdActionCreator)(id));
     };
     res.SetStories = function (data) {
-        dispatch((0, Actions_1.SetStoriesActionCreator)(data));
+        dispatch((0, StoryActions_1.SetStoriesActionCreator)(data));
     };
     res.SetRoomStatus = function (status) {
-        dispatch((0, Actions_1.SetRoomStatusActionCreator)(status));
+        dispatch((0, RoomAction_1.SetRoomStatusActionCreator)(status));
     };
     res.AddUserToRoom = function (data) {
-        dispatch((0, Actions_1.AddUserToRoomActionCreator)(data));
+        dispatch((0, UserActions_1.AddUserToRoomActionCreator)(data));
     };
     res.ChangeAnotherUserName = function (userId, newUserName) {
-        dispatch((0, Actions_1.ChangeUserNameInRoomActionCreator)({ UserId: userId, UserName: newUserName }));
+        dispatch((0, UserActions_1.ChangeUserNameInRoomActionCreator)({ UserId: userId, UserName: newUserName }));
     };
     res.RemoveUsers = function (usersId) {
-        dispatch((0, Actions_1.RemoveUserActionCreator)(usersId));
+        dispatch((0, UserActions_1.RemoveUserActionCreator)(usersId));
     };
     res.VoteChanged = function (userId, vote) {
-        dispatch((0, Actions_1.VoteChangedActionCreator)({ UserId: userId, Vote: vote }));
+        dispatch((0, RoomAction_1.VoteChangedActionCreator)({ UserId: userId, Vote: vote }));
     };
     res.UserRoleChanged = function (userId, changeType, role) {
-        dispatch((0, Actions_1.UserRoleChangedActionCreator)({ UserId: userId, ChangeType: changeType, Role: role }));
+        dispatch((0, UserActions_1.UserRoleChangedActionCreator)({ UserId: userId, ChangeType: changeType, Role: role }));
     };
     res.SetSelectedCard = function (val) {
-        dispatch((0, Actions_1.SetSelectedCardActionCreator)(val));
+        dispatch((0, RoomAction_1.SetSelectedCardActionCreator)(val));
     };
     res.ClearVote = function () {
-        dispatch((0, Actions_1.ClearVoteActionCreator)());
+        dispatch((0, RoomAction_1.ClearVoteActionCreator)());
     };
     res.AddNewStory = function (story) {
-        dispatch((0, Actions_1.AddNewStoryActionCreator)(story));
+        dispatch((0, StoryActions_1.AddNewStoryActionCreator)(story));
     };
     res.StoryChange = function (story) {
-        dispatch((0, Actions_1.StoryChangeActionCreator)(story));
+        dispatch((0, StoryActions_1.StoryChangeActionCreator)(story));
     };
     res.DeleteStory = function (id) {
-        dispatch((0, Actions_1.DeleteStoryActionCreator)(id));
+        dispatch((0, StoryActions_1.DeleteStoryActionCreator)(id));
     };
     res.MoveStoryToComplete = function (oldId, data) {
-        dispatch((0, Actions_1.MoveStoryToCompleteActionCreator)({ OldId: oldId, Story: data }));
+        dispatch((0, StoryActions_1.MoveStoryToCompleteActionCreator)({ OldId: oldId, Story: data }));
     };
     res.UpdateStoriesId = function (data) {
-        dispatch((0, Actions_1.UpdateStoriesIdActionCreator)(data));
+        dispatch((0, StoryActions_1.UpdateStoriesIdActionCreator)(data));
     };
     res.UpdateAllUsers = function (roomname, userConnectionId) {
         dispatch(window.G_PlaningPokerController.GetUsersIsRoomRedux(roomname, userConnectionId));
@@ -56396,13 +56550,13 @@ var mapDispatchToProps = function (dispatch, ownProps) {
         dispatch(window.G_PlaningPokerController.GetRoomInfoRedux(roomname, userConnectionId));
     };
     res.StartEditRoom = function () {
-        dispatch((0, Actions_1.SetEditRoomActionCreator)(true));
+        dispatch((0, RoomAction_1.SetEditRoomActionCreator)(true));
     };
     res.EndEditRoom = function () {
-        dispatch((0, Actions_1.SetEditRoomActionCreator)(false));
+        dispatch((0, RoomAction_1.SetEditRoomActionCreator)(false));
     };
     res.SetRoomCards = function (cards) {
-        dispatch((0, Actions_1.SetRoomCardsActionCreator)(cards));
+        dispatch((0, RoomAction_1.SetRoomCardsActionCreator)(cards));
     };
     return res;
 };

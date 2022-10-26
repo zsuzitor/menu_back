@@ -123,10 +123,20 @@ namespace Menu.Controllers.PlanitPoker
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    await _planitPokerService.ClearOldRoomsAsync();
+                    await _planitPokerService.HandleInRoomsMemoryAsync();
                 }, Response, _logger);
         }
 
+        [Route("start-saving")]
+        [HttpGet]
+        public async Task StartSaving()
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    await _planitPokerService.HandleInRoomsMemoryAsync(false, true);
+                }, Response, _logger);
+        }
 
         [Route("room-password-change")]
         [HttpPatch]

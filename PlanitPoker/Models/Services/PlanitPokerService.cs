@@ -40,14 +40,19 @@ namespace PlanitPoker.Models.Services
         private readonly DBHelper _dbHelper;
 
 
+        private static readonly List<string> DefaultCards = new List<string>()
+            {
+                "0.5", "1", "2", "3", "5", "7", "10", "13", "15", "18", "20", "25", "30", "35", "40", "50", "tea"
+            };
+
 
         public PlanitPokerService(
-            MultiThreadHelper multiThreadHelper,
-            IRoomRepository roomRepository, IStoryRepository storyRepository
-            , IErrorService errorService, IErrorContainer errorContainer,
-             IJWTHasher hasher,
-            DBHelper dbHelper, MenuDbContext db
-        )
+                MultiThreadHelper multiThreadHelper,
+                IRoomRepository roomRepository, IStoryRepository storyRepository
+                , IErrorService errorService, IErrorContainer errorContainer,
+                 IJWTHasher hasher,
+                DBHelper dbHelper, MenuDbContext db
+            )
         {
             _multiThreadHelper = multiThreadHelper;
             _roomRepository = roomRepository;
@@ -242,34 +247,7 @@ namespace PlanitPoker.Models.Services
             return res;
         }
 
-        /// <summary>
-        /// то надо сохраняет, что надо чистит
-        /// </summary>
-        /// <returns></returns>
-        public async Task ClearOldRoomsAsync()
-        {
-            var roomKeys = Rooms.Keys.ToList();
-            foreach (var roomName in roomKeys)
-            {
-                var curRoom = Rooms[roomName];
-                var dieDateCurRoom = await curRoom.GetConcurentValue(_multiThreadHelper,
-                    rm => rm.StoredRoom.DieDate);
-                if (dieDateCurRoom.res < DateTime.Now)//(DateTime.Now.AddHours(Consts.DefaultHourRoomAlive)))
-                {
-                    await curRoom.SetConcurentValueAsync(_multiThreadHelper, async rm =>
-                    {
-                        if (NeedSaveRoomNoLock(rm.StoredRoom))
-                        {
-                            await SaveRoomWithoutRightsNoLock(rm);
 
-                        }
-
-                        Rooms.Remove(roomName, out var room);
-                    });
-
-                }
-            }
-        }
 
         public async Task<(bool sc, string oldConnectionId)> AddUserIntoRoomAsync(string roomName, PlanitUser user)
         {
@@ -364,7 +342,7 @@ namespace PlanitPoker.Models.Services
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.CantVote);
                 }
 
-                if(rm.StoredRoom.Cards.FirstOrDefault(x => x?.Equals(vote) ?? false) == null)
+                if (rm.StoredRoom.Cards.FirstOrDefault(x => x?.Equals(vote) ?? false) == null)
                 {
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomBadVoteMark);
                 }
@@ -428,10 +406,7 @@ namespace PlanitPoker.Models.Services
 
             var roomData = new StoredRoom(roomName, password);
             var room = new Room(roomData);
-            roomData.Cards = new List<string>()
-            {
-                "0.5", "1", "2", "3", "5", "7", "10", "13", "15", "18", "20", "25", "30", "35", "40", "50", "tea"
-            };
+            roomData.Cards = DefaultCards.Select(x => x).ToList();
 
             var added = Rooms.TryAdd(roomName, room);
             if (added)
@@ -1073,16 +1048,37 @@ namespace PlanitPoker.Models.Services
             return res;
         }
 
-
         public async Task HandleInRoomsMemoryAsync()
         {
-            //var now = DateTime.Now;
-            //var rooms = Rooms.Select(x => x.Value.GetConcurentValue(_multiThreadHelper, r => r.StoredRoom.DieDate).res < now);
-            //foreach (var room in rooms)
-            //{
+            await HandleInRoomsMemoryAsync(true, false);
+        }
 
-            //}
-            await ClearOldRoomsAsync();
+        public async Task HandleInRoomsMemoryAsync(bool clearRooms = true, bool force = false)
+        {
+            var roomKeys = Rooms.Keys.ToList();
+            foreach (var roomName in roomKeys)
+            {
+                var curRoom = Rooms[roomName];
+                var dieDateCurRoom = await curRoom.GetConcurentValue(_multiThreadHelper,
+                    rm => rm.StoredRoom.DieDate);
+                if (dieDateCurRoom.res < DateTime.Now || force)//(DateTime.Now.AddHours(Consts.DefaultHourRoomAlive)))
+                {
+                    await curRoom.SetConcurentValueAsync(_multiThreadHelper, async rm =>
+                    {
+                        if (NeedSaveRoomNoLock(rm.StoredRoom))
+                        {
+                            await SaveRoomWithoutRightsNoLock(rm);
+                        }
+
+                        if (clearRooms)
+                        {
+                            Rooms.Remove(roomName, out var room);
+                        }
+                    });
+
+                }
+            }
+
         }
 
 
@@ -1155,7 +1151,6 @@ namespace PlanitPoker.Models.Services
                 }
 
                 rm.Cards = cards.ToList();
-                
 
                 return true;
             });
@@ -1406,7 +1401,8 @@ namespace PlanitPoker.Models.Services
                     return st;
 
                 }).ToList(),
-                Cards = JsonSerializer.Deserialize<List<string>>(roomDb.Cards),
+                Cards = string.IsNullOrWhiteSpace(roomDb.Cards) ? DefaultCards.Select(x => x).ToList()
+                    : JsonSerializer.Deserialize<List<string>>(roomDb.Cards),
                 //roomDb.Cards?.Split(";", StringSplitOptions.RemoveEmptyEntries).ToList() ?? new List<string>()
             };
 
@@ -1558,10 +1554,6 @@ namespace PlanitPoker.Models.Services
 
             return res;
         }
-
-       
-
-
 
         #endregion private
 

@@ -79,7 +79,6 @@ namespace PlanitPoker.Models.Services
         //Task<bool> AddAdmin(Room room, string userId);
         Task<List<string>> GetAdminsIdAsync(Room room);
         Task<List<string>> GetAdminsIdAsync(string roomName);
-        Task ClearOldRoomsAsync();
 
         Task<bool> AddNewRoleToUserAsync(string roomName, string userId, string newRole, string userConnectionIdRequest);
         Task<bool> RemoveRoleUserAsync(string roomName, string userId, string oldRole, string userConnectionIdRequest);
@@ -117,6 +116,7 @@ namespace PlanitPoker.Models.Services
         Task<(string oldId, Story story)> MakeStoryCompleteAsync(Room room, string storyId, string userConnectionIdRequest);
 
 
+        Task HandleInRoomsMemoryAsync(bool clearRooms = true, bool force = false);
         Task HandleInRoomsMemoryAsync();
         Task<bool> ChangeRoomPasswordAsync(string roomName, string userConnectionId, string oldPassword, string newPassword);
     }
