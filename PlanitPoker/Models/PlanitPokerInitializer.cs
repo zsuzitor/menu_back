@@ -28,7 +28,7 @@ namespace PlanitPoker.Models
 
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadVoteMark, "Оценка не входит в допустимый диапазон");
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadVoteMarks, "Передан неверный список оценок");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadCountCards, "Переданневерное количество карточек, доспустимо от 2 до 50");
+            errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadCountCards, "Передано неверное количество карточек, доспустимо от 2 до 100");
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadLengthCard, "Допустимая длина карточки 5 символов");
 
 

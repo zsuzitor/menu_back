@@ -1133,7 +1133,7 @@ namespace PlanitPoker.Models.Services
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
             }
 
-            if (cards.Count < 2 || cards.Count > 50)
+            if (cards.Count < 2 || cards.Count > 100)
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomBadCountCards);
             }
@@ -1142,6 +1142,8 @@ namespace PlanitPoker.Models.Services
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomBadLengthCard);
             }
+
+            cards = cards.Distinct().ToList();
 
             var sc = await UpdateIfCan(room, userConnectionId, true, async rm =>
             {
