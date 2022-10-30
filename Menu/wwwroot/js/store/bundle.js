@@ -52496,6 +52496,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var OneTask_1 = __webpack_require__(/*! ../../../../Models/Models/CodeReviewApp/State/OneTask */ "./src/Models/Models/CodeReviewApp/State/OneTask.ts");
 __webpack_require__(/*! ./AddTask.css */ "./src/components/Body/CodeReviewApp/AddTask/AddTask.css");
 var AddTask = function (props) {
@@ -52515,7 +52516,9 @@ var AddTask = function (props) {
     }, [props.ProjectUsers.length]);
     var createNewTask = function () {
         if (!newTaskName) {
-            alert('Введите название');
+            var alertFactory = new AlertData_1.AlertData();
+            var alert_1 = alertFactory.GetDefaultError("Введите название");
+            window.G_AddAbsoluteAlertToState(alert_1);
             return;
         }
         var tsk = new OneTask_1.OneTask();
@@ -52722,6 +52725,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 __webpack_require__(/*! ./OneProjectUser.css */ "./src/components/Body/CodeReviewApp/OneProjectUser/OneProjectUser.css");
 var OneProjectUser = function (props) {
     var _a = (0, react_1.useState)(props.User.Name), userName = _a[0], setUserName = _a[1];
@@ -52742,7 +52746,9 @@ var OneProjectUser = function (props) {
     }, [props.User.Deactivated]);
     var changeUser = function () {
         if (!userName) {
-            alert('Введите имя пользователя');
+            var alertFactory = new AlertData_1.AlertData();
+            var alert_1 = alertFactory.GetDefaultError("Введите имя пользователя");
+            window.G_AddAbsoluteAlertToState(alert_1);
             return;
         }
         var newUserData = {
@@ -52972,6 +52978,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var CommentActions_1 = __webpack_require__(/*! ../../../../Models/Actions/CodeReviewApp/CommentActions */ "./src/Models/Actions/CodeReviewApp/CommentActions.ts");
+var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var CommentSet_1 = __webpack_require__(/*! ../../../../Models/Models/CodeReviewApp/CommentSet */ "./src/Models/Models/CodeReviewApp/CommentSet.ts");
 var OneReviewTaskComment_1 = __importDefault(__webpack_require__(/*! ../OneReviewTaskComment/OneReviewTaskComment */ "./src/components/Body/CodeReviewApp/OneReviewTaskComment/OneReviewTaskComment.tsx"));
 __webpack_require__(/*! ./OneReviewTask.css */ "./src/components/Body/CodeReviewApp/OneReviewTask/OneReviewTask.css");
@@ -53019,7 +53026,10 @@ var OneReviewTask = function (props) {
     };
     var updateTask = function () {
         if (!taskName) {
-            alert('необходимо заполнить название задачи');
+            var alertFactory = new AlertData_1.AlertData();
+            var alert_1 = alertFactory.GetDefaultError("Необходимо заполнить название задачи");
+            window.G_AddAbsoluteAlertToState(alert_1);
+            return;
         }
         var forAdd = __assign({}, props.Task);
         forAdd.Name = taskName;
@@ -53458,6 +53468,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var OneProjectInList_1 = __importDefault(__webpack_require__(/*! ../OneProjectInList/OneProjectInList */ "./src/components/Body/CodeReviewApp/OneProjectInList/OneProjectInList.tsx"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 __webpack_require__(/*! ./ProjectsList.css */ "./src/components/Body/CodeReviewApp/ProjectsList/ProjectsList.css");
 var ProjectsList = function (props) {
     var _a = (0, react_1.useState)(''), newProjectName = _a[0], setNewProjectName = _a[1];
@@ -53484,7 +53495,9 @@ var ProjectsList = function (props) {
                 react_1.default.createElement("input", { className: 'form-control-b', type: 'text', placeholder: '\u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043D\u043E\u0432\u043E\u0433\u043E \u043F\u0440\u043E\u0435\u043A\u0442\u0430', onChange: (function (e) { return setNewProjectName(e.target.value); }), value: newProjectName }),
                 react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () {
                         if (!newProjectName) {
-                            alert('Введите название проекта');
+                            var alertFactory = new AlertData_1.AlertData();
+                            var alert_1 = alertFactory.GetDefaultError("Введите название проекта");
+                            window.G_AddAbsoluteAlertToState(alert_1);
                             return;
                         }
                         props.AddNewProject(newProjectName);
