@@ -52977,7 +52977,7 @@ var OneReviewTaskComment_1 = __importDefault(__webpack_require__(/*! ../OneRevie
 __webpack_require__(/*! ./OneReviewTask.css */ "./src/components/Body/CodeReviewApp/OneReviewTask/OneReviewTask.css");
 var OneReviewTask = function (props) {
     var _a = (0, react_1.useState)(props.Task.Name), taskName = _a[0], setTaskName = _a[1];
-    var _b = (0, react_1.useState)(''), taskLink = _b[0], setTaskLink = _b[1];
+    var _b = (0, react_1.useState)(props.Task.Link || ''), taskLink = _b[0], setTaskLink = _b[1];
     var _c = (0, react_1.useState)(props.Task.Status), taskStatus = _c[0], setTaskStatus = _c[1];
     var _d = (0, react_1.useState)(props.Task.ReviewerId || -1), taskReviewer = _d[0], setTaskreviewer = _d[1];
     var _e = (0, react_1.useState)(props.Task.CreatorId), taskCreator = _e[0], setTaskCreator = _e[1];
@@ -52988,7 +52988,7 @@ var OneReviewTask = function (props) {
         setTaskName(props.Task.Name);
     }, [props.Task.Name]);
     (0, react_1.useEffect)(function () {
-        setTaskLink(props.Task.Link);
+        setTaskLink(props.Task.Link || '');
     }, [props.Task.Link]);
     (0, react_1.useEffect)(function () {
         setTaskStatus(props.Task.Status);
@@ -53053,7 +53053,7 @@ var OneReviewTask = function (props) {
                 react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return addComment(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C")));
     };
     var taskHasChanges = taskName !== props.Task.Name ||
-        taskLink !== props.Task.Link ||
+        (taskLink !== props.Task.Link && (taskLink || props.Task.Link)) ||
         taskStatus !== props.Task.Status ||
         ((props.Task.ReviewerId || taskReviewer != -1) && taskReviewer !== props.Task.ReviewerId) ||
         taskCreator !== props.Task.CreatorId;
@@ -56133,6 +56133,7 @@ __webpack_require__(/*! ./Room.css */ "./src/components/Body/PlaningPoker/Room/R
 //подписки сигналр захватывают пропсы непонятно как, раньше это работало, но предположительно после введения deepClone
 //все вообще отвалилось. 6.30.2021, вот так получилось пофиксить, замена обработчика подписки на => не помогала
 var __planing_room_props_ref__ = null;
+var __planing_room_forceLeaveFromRoom;
 var Room = function (props) {
     __planing_room_props_ref__ = props;
     //эффект для доступа по прямой ссылке
@@ -56289,15 +56290,16 @@ var Room = function (props) {
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.RoomCardsChanged);
         };
     }, []);
-    if (!props.RoomInfo.InRoom) {
-        return react_1.default.createElement("h1", null, "\u043F\u044B\u0442\u0430\u0435\u043C\u0441\u044F \u0432\u043E\u0439\u0442\u0438");
-    }
     var forceLeaveFromRoom = function () {
         // document.cookie = "planing_poker_roomname=; path=/;";
         alert("you kicked or leave"); //TODO может как то получше сделать, и хорошо бы без перезагрузки\редиректа
         window.location.href = "/planing-poker";
         // __planing_room_props_ref__.SetUserId('');//todo тут наверное стоит еще что то чистить
     };
+    __planing_room_forceLeaveFromRoom = forceLeaveFromRoom;
+    if (!props.RoomInfo.InRoom) {
+        return react_1.default.createElement("h1", null, "\u043F\u044B\u0442\u0430\u0435\u043C\u0441\u044F \u0432\u043E\u0439\u0442\u0438");
+    }
     var changeCurrentUserName = function () {
         if (userNameLocalState === "enter_your_name") {
             return;
