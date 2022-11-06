@@ -2522,7 +2522,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".code-review-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    /* background-color: #666262; */\r\n}\r\n\r\n\r\n\r\n.code-review-project-info {\r\n    flex-grow: 2;\r\n    padding-left: 15px;\r\n}\r\n\r\n.code-review-projects-menu-main {\r\n    position: relative;\r\n    border-right: 1px solid black;\r\n}\r\n\r\n.code-review-main-container .preloader{\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: black;\r\n    z-index: 40;\r\n    /* filter: blur(300px); */\r\n    opacity: 0.8;\r\n    /* transition: 1s; */\r\n    margin-top: -60px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,+BAA+B;AACnC;;;;AAIA;IACI,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,6BAA6B;AACjC;;AAEA;IACI,eAAe;IACf,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,WAAW;IACX,yBAAyB;IACzB,YAAY;IACZ,oBAAoB;IACpB,iBAAiB;AACrB","sourcesContent":[".code-review-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    /* background-color: #666262; */\r\n}\r\n\r\n\r\n\r\n.code-review-project-info {\r\n    flex-grow: 2;\r\n    padding-left: 15px;\r\n}\r\n\r\n.code-review-projects-menu-main {\r\n    position: relative;\r\n    border-right: 1px solid black;\r\n}\r\n\r\n.code-review-main-container .preloader{\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: black;\r\n    z-index: 40;\r\n    /* filter: blur(300px); */\r\n    opacity: 0.8;\r\n    /* transition: 1s; */\r\n    margin-top: -60px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".code-review-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    /* background-color: #666262; */\r\n}\r\n\r\n\r\n\r\n.code-review-project-info {\r\n    flex-grow: 2;\r\n    padding-left: 15px;\r\n    padding-right: 15px;\r\n}\r\n\r\n.code-review-projects-menu-main {\r\n    position: relative;\r\n    border-right: 1px solid black;\r\n}\r\n\r\n.code-review-main-container .preloader{\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: black;\r\n    z-index: 40;\r\n    /* filter: blur(300px); */\r\n    opacity: 0.8;\r\n    /* transition: 1s; */\r\n    margin-top: -60px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/CodeReviewMain/CodeReviewMain.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,+BAA+B;AACnC;;;;AAIA;IACI,YAAY;IACZ,kBAAkB;IAClB,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;IAClB,6BAA6B;AACjC;;AAEA;IACI,eAAe;IACf,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,WAAW;IACX,yBAAyB;IACzB,YAAY;IACZ,oBAAoB;IACpB,iBAAiB;AACrB","sourcesContent":[".code-review-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    /* background-color: #666262; */\r\n}\r\n\r\n\r\n\r\n.code-review-project-info {\r\n    flex-grow: 2;\r\n    padding-left: 15px;\r\n    padding-right: 15px;\r\n}\r\n\r\n.code-review-projects-menu-main {\r\n    position: relative;\r\n    border-right: 1px solid black;\r\n}\r\n\r\n.code-review-main-container .preloader{\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: black;\r\n    z-index: 40;\r\n    /* filter: blur(300px); */\r\n    opacity: 0.8;\r\n    /* transition: 1s; */\r\n    margin-top: -60px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2603,7 +2603,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".one-review-comment-block {\r\n    border-radius: 30px;\r\n    background-color: rgba(139, 139, 98, .5);\r\n    padding: 10px 22px 10px 22px;\r\n    box-shadow: 0px 0px 3px 1px black;\r\n}\r\n\r\n.review-task-comment-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comment-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comment-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comment-edit-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/OneReviewTaskComment/OneReviewTaskComment.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB,wCAAwC;IACxC,4BAA4B;IAC5B,iCAAiC;AACrC;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB","sourcesContent":[".one-review-comment-block {\r\n    border-radius: 30px;\r\n    background-color: rgba(139, 139, 98, .5);\r\n    padding: 10px 22px 10px 22px;\r\n    box-shadow: 0px 0px 3px 1px black;\r\n}\r\n\r\n.review-task-comment-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comment-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comment-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comment-edit-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".one-review-comment-block {\r\n    border-radius: 15px;\r\n    /* background-color: rgba(139, 139, 98, .5); */\r\n    background-color: rgb(175 175 175 / 50%);\r\n    padding: 5px 10px 10px 5px;\r\n    box-shadow: 0px 0px 3px 1px black;\r\n    display: flex;\r\n}\r\n\r\n.review-task-comment-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comment-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comment-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comment-edit-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-comment-block-data {\r\n    flex-grow: 4;\r\n}\r\n\r\n.one-review-comment-block-buttons {\r\n    width: 35px;\r\n    padding-left: 5px;\r\n    flex-shrink: 0;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/OneReviewTaskComment/OneReviewTaskComment.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB,8CAA8C;IAC9C,wCAAwC;IACxC,0BAA0B;IAC1B,iCAAiC;IACjC,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,iBAAiB;IACjB,cAAc;AAClB","sourcesContent":[".one-review-comment-block {\r\n    border-radius: 15px;\r\n    /* background-color: rgba(139, 139, 98, .5); */\r\n    background-color: rgb(175 175 175 / 50%);\r\n    padding: 5px 10px 10px 5px;\r\n    box-shadow: 0px 0px 3px 1px black;\r\n    display: flex;\r\n}\r\n\r\n.review-task-comment-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comment-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comment-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comment-edit-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-comment-block-data {\r\n    flex-grow: 4;\r\n}\r\n\r\n.one-review-comment-block-buttons {\r\n    width: 35px;\r\n    padding-left: 5px;\r\n    flex-shrink: 0;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2630,7 +2630,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".one-review-task-block {\r\n    border: 1px solid black;\r\n    position: relative;\r\n    border-radius: 10px;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    /* position: absolute; */\r\n    /* right: 0px; */\r\n    width: 35px;\r\n}\r\n\r\n.one-review-task-content {\r\n    flex-grow: 2;\r\n}\r\n\r\n.review-task-name-input {\r\n    width: 100%;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 10px;\r\n    /* border-radius: 10px; */\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-link-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 15px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/OneReviewTask/OneReviewTask.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,mBAAmB;AACvB;;AAEA;IACI,wBAAwB;IACxB,gBAAgB;IAChB,WAAW;AACf;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,aAAa;IACb,aAAa;IACb,yBAAyB;AAC7B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;;AAEnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,SAAS;IACT,kBAAkB;IAClB,mBAAmB;AACvB","sourcesContent":[".one-review-task-block {\r\n    border: 1px solid black;\r\n    position: relative;\r\n    border-radius: 10px;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    /* position: absolute; */\r\n    /* right: 0px; */\r\n    width: 35px;\r\n}\r\n\r\n.one-review-task-content {\r\n    flex-grow: 2;\r\n}\r\n\r\n.review-task-name-input {\r\n    width: 100%;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 10px;\r\n    /* border-radius: 10px; */\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-link-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 15px;\r\n    padding-left: 30px;\r\n    padding-right: 30px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".one-review-task-block {\r\n    position: relative;\r\n    padding-bottom: 10px;\r\n\r\n}\r\n\r\n.one-review-task-buttons {\r\n    /* position: absolute; */\r\n    /* right: 0px; */\r\n    width: 35px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.one-review-task-content {\r\n    flex-grow: 2;\r\n}\r\n\r\n.review-task-name-input {\r\n    width: 100%;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 10px;\r\n    /* border-radius: 10px; */\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    /* padding-left: 10px; */\r\n    overflow: hidden;\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-link-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    /* padding-left: 30px;\r\n    padding-right: 30px;\r\n     */\r\n    padding: 15px;\r\n}\r\n\r\n.one-review-task-comments-block-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 15px;\r\n    background-color: white;\r\n    border-radius: 7px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/OneReviewTask/OneReviewTask.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,oBAAoB;;AAExB;;AAEA;IACI,wBAAwB;IACxB,gBAAgB;IAChB,WAAW;IACX,iBAAiB;AACrB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,aAAa;IACb,aAAa;IACb,yBAAyB;IACzB,uBAAuB;IACvB,kBAAkB;IAClB,wBAAwB;IACxB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;;AAEnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI;;MAEE;IACF,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,SAAS;IACT,uBAAuB;IACvB,kBAAkB;AACtB","sourcesContent":[".one-review-task-block {\r\n    position: relative;\r\n    padding-bottom: 10px;\r\n\r\n}\r\n\r\n.one-review-task-buttons {\r\n    /* position: absolute; */\r\n    /* right: 0px; */\r\n    width: 35px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.one-review-task-content {\r\n    flex-grow: 2;\r\n}\r\n\r\n.review-task-name-input {\r\n    width: 100%;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 10px;\r\n    /* border-radius: 10px; */\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    /* padding-left: 10px; */\r\n    overflow: hidden;\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-link-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    /* padding-left: 30px;\r\n    padding-right: 30px;\r\n     */\r\n    padding: 15px;\r\n}\r\n\r\n.one-review-task-comments-block-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 15px;\r\n    background-color: white;\r\n    border-radius: 7px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2657,7 +2657,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n\r\n.review-project-detail-main {\r\n    padding-top: 20px;\r\n}\r\n\r\n.review-project-new-task-block {\r\n    /* border: 1px solid black; */\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-tasks-filters-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-delete-button{\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css"],"names":[],"mappings":";;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,oBAAoB;AACxB;;AAEA;IACI,uBAAuB;IACvB,oBAAoB;AACxB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB","sourcesContent":["\r\n\r\n.review-project-detail-main {\r\n    padding-top: 20px;\r\n}\r\n\r\n.review-project-new-task-block {\r\n    /* border: 1px solid black; */\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-tasks-filters-block {\r\n    border: 1px solid black;\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-delete-button{\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".review-project-detail-main {\r\n    padding-top: 20px;\r\n}\r\n\r\n.review-project-new-task-block {\r\n    /* border: 1px solid black; */\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-tasks-filters-block {\r\n    position: relative;\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n    padding-bottom: 15px;\r\n\r\n}\r\n\r\n.review-project-tasks-filters-block-flex {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.review-project-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/CodeReviewApp/ProjectDetail/ProjectDetail.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B,oBAAoB;AACxB;;AAEA;IACI,kBAAkB;IAClB,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;IAClB,gBAAgB;IAChB,oBAAoB;;AAExB;;AAEA;IACI,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB","sourcesContent":[".review-project-detail-main {\r\n    padding-top: 20px;\r\n}\r\n\r\n.review-project-new-task-block {\r\n    /* border: 1px solid black; */\r\n    padding-bottom: 15px;\r\n}\r\n\r\n.review-project-tasks-filters-block {\r\n    position: relative;\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n    padding-bottom: 15px;\r\n\r\n}\r\n\r\n.review-project-tasks-filters-block-flex {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.review-project-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2927,7 +2927,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".room-stories-type-selector {\r\n    display: flex;\r\n    border-radius: 6px 6px 0 0;\r\n    border: 2px solid grey;\r\n    justify-content: space-around;\r\n}\r\n\r\n.room-stories-type-selector .type-section {\r\n    padding: 5px;\r\n    /* border-bottom: 2px solid grey; */\r\n    cursor: pointer;\r\n}\r\n\r\n.room-stories-type-selector .type-section-select {\r\n    border-bottom: 2px solid blue;\r\n}\r\n\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.not-completed-story {\r\n    /* background-color: #e9f3a8; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.completed-story {\r\n    /* background-color: #b2f593; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.stories-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-but-block{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 110px;\r\n}\r\n\r\n.planing-current-story{\r\n    padding-top: 15px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,0BAA0B;IAC1B,sBAAsB;IACtB,6BAA6B;AACjC;;AAEA;IACI,YAAY;IACZ,mCAAmC;IACnC,eAAe;AACnB;;AAEA;IACI,6BAA6B;AACjC;;;AAGA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,kBAAkB;IAClB,iBAAiB;AACrB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,kBAAkB;IAClB,iBAAiB;AACrB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,+BAA+B;IAC/B,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,iBAAiB;AACrB","sourcesContent":[".room-stories-type-selector {\r\n    display: flex;\r\n    border-radius: 6px 6px 0 0;\r\n    border: 2px solid grey;\r\n    justify-content: space-around;\r\n}\r\n\r\n.room-stories-type-selector .type-section {\r\n    padding: 5px;\r\n    /* border-bottom: 2px solid grey; */\r\n    cursor: pointer;\r\n}\r\n\r\n.room-stories-type-selector .type-section-select {\r\n    border-bottom: 2px solid blue;\r\n}\r\n\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.not-completed-story {\r\n    /* background-color: #e9f3a8; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.completed-story {\r\n    /* background-color: #b2f593; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.stories-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-but-block{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 110px;\r\n}\r\n\r\n.planing-current-story{\r\n    padding-top: 15px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".room-stories-type-selector {\r\n    display: flex;\r\n    border-radius: 6px 6px 0 0;\r\n    border: 2px solid grey;\r\n    justify-content: space-around;\r\n}\r\n\r\n.room-stories-type-selector .type-section {\r\n    padding: 5px;\r\n    /* border-bottom: 2px solid grey; */\r\n    cursor: pointer;\r\n}\r\n\r\n.room-stories-type-selector .type-section-select {\r\n    border-bottom: 2px solid blue;\r\n}\r\n\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.not-completed-story {\r\n    /* background-color: #e9f3a8; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.completed-story {\r\n    /* background-color: #b2f593; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.stories-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-but-block{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 90px;\r\n}\r\n\r\n.planing-current-story{\r\n    padding-top: 15px;\r\n}\r\n\r\n.stories-current-buttons{\r\n    display: flex;\r\n    padding-bottom: 10px;\r\n    padding-top: 10px;\r\n    justify-content: space-between;\r\n    width: 120px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,0BAA0B;IAC1B,sBAAsB;IACtB,6BAA6B;AACjC;;AAEA;IACI,YAAY;IACZ,mCAAmC;IACnC,eAAe;AACnB;;AAEA;IACI,6BAA6B;AACjC;;;AAGA;IACI,iBAAiB;IACjB,cAAc;AAClB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,kBAAkB;IAClB,iBAAiB;AACrB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,kBAAkB;IAClB,iBAAiB;AACrB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,+BAA+B;IAC/B,WAAW;IACX,YAAY;IACZ,kBAAkB;IAClB,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,WAAW;AACf;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,aAAa;IACb,oBAAoB;IACpB,iBAAiB;IACjB,8BAA8B;IAC9B,YAAY;AAChB","sourcesContent":[".room-stories-type-selector {\r\n    display: flex;\r\n    border-radius: 6px 6px 0 0;\r\n    border: 2px solid grey;\r\n    justify-content: space-around;\r\n}\r\n\r\n.room-stories-type-selector .type-section {\r\n    padding: 5px;\r\n    /* border-bottom: 2px solid grey; */\r\n    cursor: pointer;\r\n}\r\n\r\n.room-stories-type-selector .type-section-select {\r\n    border-bottom: 2px solid blue;\r\n}\r\n\r\n\r\n.stories-data-list {\r\n    max-height: 500px;\r\n    overflow: auto;\r\n}\r\n\r\n.not-completed-story {\r\n    /* background-color: #e9f3a8; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.completed-story {\r\n    /* background-color: #b2f593; */\r\n    background-color: #e2e1ef;\r\n    border-radius: 5px;\r\n    padding-left: 5px;\r\n}\r\n\r\n.stories-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-del-but {\r\n    /* background-color: #dc3545; */\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n}\r\n\r\n.stories-but-block{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 90px;\r\n}\r\n\r\n.planing-current-story{\r\n    padding-top: 15px;\r\n}\r\n\r\n.stories-current-buttons{\r\n    display: flex;\r\n    padding-bottom: 10px;\r\n    padding-top: 10px;\r\n    justify-content: space-between;\r\n    width: 120px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -47770,10 +47770,6 @@ function SetCommentsActionCreator(data) {
 }
 exports.SetCommentsActionCreator = SetCommentsActionCreator;
 ;
-// export const SetEmptyTaskCommentsActionName: string = 'SetEmptyTaskCommentsAction';
-// export function SetEmptyTaskCommentsActionCreator(taskId: number): AppAction<number> {
-//     return { type: SetEmptyTaskCommentsActionName, payload: taskId };
-// };
 
 
 /***/ }),
@@ -48681,6 +48677,7 @@ exports.CodeReviewCommentController = void 0;
 var CommentActions_1 = __webpack_require__(/*! ../../Actions/CodeReviewApp/CommentActions */ "./src/Models/Actions/CodeReviewApp/CommentActions.ts");
 var CommentAdd_1 = __webpack_require__(/*! ../../Models/CodeReviewApp/CommentAdd */ "./src/Models/Models/CodeReviewApp/CommentAdd.ts");
 var CommentSet_1 = __webpack_require__(/*! ../../Models/CodeReviewApp/CommentSet */ "./src/Models/Models/CodeReviewApp/CommentSet.ts");
+var OneTaskReviewComment_1 = __webpack_require__(/*! ../../Models/CodeReviewApp/OneTaskReviewComment */ "./src/Models/Models/CodeReviewApp/OneTaskReviewComment.ts");
 var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var CodeReviewCommentController = /** @class */ (function () {
     function CodeReviewCommentController() {
@@ -48782,7 +48779,11 @@ var CodeReviewCommentController = /** @class */ (function () {
                     }
                     if (data) {
                         var forSet = new CommentSet_1.CommentSet();
-                        forSet.Comments = data;
+                        forSet.Comments = data.map(function (x) {
+                            var cm = new OneTaskReviewComment_1.OneTaskReviewComment();
+                            cm.FillByBackModel(x);
+                            return cm;
+                        });
                         forSet.TaskId = id;
                         dispatch((0, CommentActions_1.SetCommentsActionCreator)(forSet));
                     }
@@ -48845,6 +48846,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CodeReviewProjectController = void 0;
 var ProjectActions_1 = __webpack_require__(/*! ../../Actions/CodeReviewApp/ProjectActions */ "./src/Models/Actions/CodeReviewApp/ProjectActions.ts");
 var UserActions_1 = __webpack_require__(/*! ../../Actions/CodeReviewApp/UserActions */ "./src/Models/Actions/CodeReviewApp/UserActions.ts");
+var OneProjectInList_1 = __webpack_require__(/*! ../../Models/CodeReviewApp/State/OneProjectInList */ "./src/Models/Models/CodeReviewApp/State/OneProjectInList.ts");
+var ProjectUser_1 = __webpack_require__(/*! ../../Models/CodeReviewApp/State/ProjectUser */ "./src/Models/Models/CodeReviewApp/State/ProjectUser.ts");
 var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var CodeReviewProjectController = /** @class */ (function () {
     function CodeReviewProjectController() {
@@ -48895,7 +48898,12 @@ var CodeReviewProjectController = /** @class */ (function () {
                         return;
                     }
                     if (data) {
-                        dispatch((0, UserActions_1.SetCurrentProjectUsersActionCreator)(data.Users));
+                        var dtUsers = data.Users.map(function (x) {
+                            var u = new ProjectUser_1.ProjectUser();
+                            u.FillByBackModel(x);
+                            return u;
+                        });
+                        dispatch((0, UserActions_1.SetCurrentProjectUsersActionCreator)(dtUsers));
                     }
                 });
             };
@@ -48923,7 +48931,9 @@ var CodeReviewProjectController = /** @class */ (function () {
                         return;
                     }
                     if (data) {
-                        dispatch((0, ProjectActions_1.AddNewProjectActionCreator)(data));
+                        var dt = new OneProjectInList_1.OneProjectInList();
+                        dt.FillByBackModel(data);
+                        dispatch((0, ProjectActions_1.AddNewProjectActionCreator)(dt));
                     }
                 });
             };
@@ -48952,7 +48962,12 @@ var CodeReviewProjectController = /** @class */ (function () {
                     }
                     if (data) {
                         dispatch((0, ProjectActions_1.SetCurrentProjectIdActionCreator)(-1));
-                        dispatch((0, ProjectActions_1.SetProjectsActionCreator)(data));
+                        var dt = data.map(function (x) {
+                            var pr = new OneProjectInList_1.OneProjectInList();
+                            pr.FillByBackModel(x);
+                            return pr;
+                        });
+                        dispatch((0, ProjectActions_1.SetProjectsActionCreator)(dt));
                     }
                 });
             };
@@ -49010,6 +49025,7 @@ exports.CodeReviewProjectController = CodeReviewProjectController;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CodeReviewTaskController = void 0;
 var TaskActions_1 = __webpack_require__(/*! ../../Actions/CodeReviewApp/TaskActions */ "./src/Models/Actions/CodeReviewApp/TaskActions.ts");
+var LoadReviewTasksResult_1 = __webpack_require__(/*! ../../Models/CodeReviewApp/LoadReviewTasksResult */ "./src/Models/Models/CodeReviewApp/LoadReviewTasksResult.ts");
 var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var CodeReviewTaskController = /** @class */ (function () {
     function CodeReviewTaskController() {
@@ -49088,7 +49104,9 @@ var CodeReviewTaskController = /** @class */ (function () {
                         return;
                     }
                     if (data) {
-                        dispatch((0, TaskActions_1.LoadTasksActionCreator)(data));
+                        var dt = new LoadReviewTasksResult_1.LoadReviewTasksResult();
+                        dt.FillByBackModel(data);
+                        dispatch((0, TaskActions_1.LoadTasksActionCreator)(dt));
                     }
                 });
             };
@@ -49182,6 +49200,7 @@ exports.CodeReviewTaskController = CodeReviewTaskController;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CodeReviewUserController = void 0;
 var UserActions_1 = __webpack_require__(/*! ../../Actions/CodeReviewApp/UserActions */ "./src/Models/Actions/CodeReviewApp/UserActions.ts");
+var ProjectUser_1 = __webpack_require__(/*! ../../Models/CodeReviewApp/State/ProjectUser */ "./src/Models/Models/CodeReviewApp/State/ProjectUser.ts");
 var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var CodeReviewUserController = /** @class */ (function () {
     function CodeReviewUserController() {
@@ -49223,7 +49242,9 @@ var CodeReviewUserController = /** @class */ (function () {
                         return;
                     }
                     if (data) {
-                        dispatch((0, UserActions_1.AddProjectUserActionCreator)(data));
+                        var dt = new ProjectUser_1.ProjectUser();
+                        dt.FillByBackModel(data);
+                        dispatch((0, UserActions_1.AddProjectUserActionCreator)(dt));
                     }
                 });
             };
@@ -49365,7 +49386,6 @@ var ArticleController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     onSuccess(resp, null);
                 }
                 else {
@@ -49390,7 +49410,6 @@ var ArticleController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     onSuccess(resp, null);
                 }
                 else {
@@ -49417,7 +49436,6 @@ var ArticleController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     onSuccess(resp, null);
                 }
                 else {
@@ -49443,7 +49461,6 @@ var ArticleController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     success(resp, null);
                 }
                 else {
@@ -49481,7 +49498,6 @@ var ArticleController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     success(resp, null);
                 }
                 else {
@@ -49519,6 +49535,7 @@ exports.PlaningPokerController = exports.HubEndpoints = exports.HubEndpointsBack
 var RoomAction_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/RoomAction */ "./src/Models/Actions/PlaningPokerApp/RoomAction.ts");
 var StoryActions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/StoryActions */ "./src/Models/Actions/PlaningPokerApp/StoryActions.ts");
 var UserActions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/UserActions */ "./src/Models/Actions/PlaningPokerApp/UserActions.ts");
+var EndVoteInfo_1 = __webpack_require__(/*! ../../Models/PlaningPoker/EndVoteInfo */ "./src/Models/Models/PlaningPoker/EndVoteInfo.ts");
 var RoomInfo_1 = __webpack_require__(/*! ../../Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
 var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var HubEndpointsFront = /** @class */ (function () {
@@ -49702,7 +49719,9 @@ var PlaningPokerController = /** @class */ (function () {
                 dispatch((0, RoomAction_1.SetInitialRoomDieTimeActionCreator)(new Date(data.room.die_date)));
                 dispatch((0, UserActions_1.SetRoomUsersActionCreator)(newUsersData));
                 dispatch((0, StoryActions_1.SetTotalNotActualStoriesCountActionCreator)(data.room.total_stories_count));
-                dispatch((0, RoomAction_1.SetVoteInfoActionCreator)(data.end_vote_info));
+                var endVoteInfo = new EndVoteInfo_1.EndVoteInfo();
+                endVoteInfo.FillByBackModel(data.end_vote_info);
+                dispatch((0, RoomAction_1.SetVoteInfoActionCreator)(endVoteInfo));
                 dispatch((0, StoryActions_1.SetCurrentStoryIdActionCreator)(data.room.current_story_id));
                 dispatch((0, RoomAction_1.SetRoomStatusActionCreator)(data.room.status));
                 dispatch((0, StoryActions_1.SetStoriesActionCreator)(data.room.actual_stories.map(function (x) {
@@ -49858,7 +49877,6 @@ var WordsCardsController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     onSuccess(resp, null);
                 }
                 else {
@@ -49885,7 +49903,6 @@ var WordsCardsController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     onSuccess(resp, null);
                 }
                 else {
@@ -49918,7 +49935,6 @@ var WordsCardsController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     success(resp, null);
                 }
                 else {
@@ -49941,7 +49957,6 @@ var WordsCardsController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     success(resp, null);
                 }
                 else {
@@ -49972,7 +49987,6 @@ var WordsCardsController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     onSuccess(resp, null);
                 }
                 else {
@@ -49999,7 +50013,6 @@ var WordsCardsController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     onSuccess(resp, null);
                 }
                 else {
@@ -50048,7 +50061,6 @@ var WordsListController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     onSuccess(resp, null);
                 }
                 else {
@@ -50071,7 +50083,6 @@ var WordsListController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     onSuccess(resp, null);
                 }
                 else {
@@ -50097,7 +50108,6 @@ var WordsListController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     onSuccess(resp, null);
                 }
                 else {
@@ -50122,7 +50132,6 @@ var WordsListController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     onSuccess(resp, null);
                 }
                 else {
@@ -50147,7 +50156,6 @@ var WordsListController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     onSuccess(resp, null);
                 }
                 else {
@@ -50172,7 +50180,6 @@ var WordsListController = /** @class */ (function () {
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
-                    //TODO ошибка
                     onSuccess(resp, null);
                 }
                 else {
@@ -50346,6 +50353,74 @@ exports.CommentUpdate = CommentUpdate;
 
 /***/ }),
 
+/***/ "./src/Models/Models/CodeReviewApp/LoadReviewTasksResult.ts":
+/*!******************************************************************!*\
+  !*** ./src/Models/Models/CodeReviewApp/LoadReviewTasksResult.ts ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LoadReviewTasksResult = exports.ProjectTaskData = void 0;
+var ProjectTaskData = /** @class */ (function () {
+    function ProjectTaskData() {
+    }
+    ProjectTaskData.prototype.FillByBackModel = function (newData) {
+        this.Id = newData.Id;
+        this.Name = newData.Name;
+        this.CreatorId = newData.CreatorId;
+        this.ReviewerId = newData.ReviewerId;
+        this.Status = newData.Status;
+        this.Link = newData.Link;
+    };
+    return ProjectTaskData;
+}());
+exports.ProjectTaskData = ProjectTaskData;
+var LoadReviewTasksResult = /** @class */ (function () {
+    function LoadReviewTasksResult() {
+    }
+    LoadReviewTasksResult.prototype.FillByBackModel = function (newData) {
+        this.TasksCount = newData.TasksCount;
+        this.Tasks = newData.Tasks.map(function (x) {
+            var y = new ProjectTaskData();
+            y.FillByBackModel(x);
+            return y;
+        });
+    };
+    return LoadReviewTasksResult;
+}());
+exports.LoadReviewTasksResult = LoadReviewTasksResult;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/CodeReviewApp/OneTaskReviewComment.ts":
+/*!*****************************************************************!*\
+  !*** ./src/Models/Models/CodeReviewApp/OneTaskReviewComment.ts ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.OneTaskReviewComment = void 0;
+var OneTaskReviewComment = /** @class */ (function () {
+    function OneTaskReviewComment() {
+    }
+    OneTaskReviewComment.prototype.FillByBackModel = function (newData) {
+        this.Id = newData.Id;
+        this.CreatorId = newData.CreatorId;
+        this.Text = newData.Text;
+        this.CreateDate = newData.CreateDate;
+    };
+    return OneTaskReviewComment;
+}());
+exports.OneTaskReviewComment = OneTaskReviewComment;
+
+
+/***/ }),
+
 /***/ "./src/Models/Models/CodeReviewApp/State/CodeReviewAppState.ts":
 /*!*********************************************************************!*\
   !*** ./src/Models/Models/CodeReviewApp/State/CodeReviewAppState.ts ***!
@@ -50373,6 +50448,30 @@ exports.CodeReviewAppState = CodeReviewAppState;
 
 /***/ }),
 
+/***/ "./src/Models/Models/CodeReviewApp/State/OneProjectInList.ts":
+/*!*******************************************************************!*\
+  !*** ./src/Models/Models/CodeReviewApp/State/OneProjectInList.ts ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.OneProjectInList = void 0;
+var OneProjectInList = /** @class */ (function () {
+    function OneProjectInList() {
+    }
+    OneProjectInList.prototype.FillByBackModel = function (newData) {
+        this.Id = newData.Id;
+        this.Name = newData.Name;
+    };
+    return OneProjectInList;
+}());
+exports.OneProjectInList = OneProjectInList;
+
+
+/***/ }),
+
 /***/ "./src/Models/Models/CodeReviewApp/State/OneTask.ts":
 /*!**********************************************************!*\
   !*** ./src/Models/Models/CodeReviewApp/State/OneTask.ts ***!
@@ -50381,14 +50480,20 @@ exports.CodeReviewAppState = CodeReviewAppState;
 
 "use strict";
 
-// import { IProjectTaskDataBack } from "../../../BackModel/CodeReviewApp/IProjectTaskDataBack";
-// import { MappedWithBack } from "../../../BL/Interfaces/MappedWithBack";
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OneTask = void 0;
 var OneTask = /** @class */ (function () {
     function OneTask() {
         this.Comments = [];
     }
+    OneTask.prototype.FillByProjectTaskData = function (data) {
+        this.Id = data.Id;
+        this.Name = data.Name;
+        this.CreatorId = data.CreatorId;
+        this.ReviewerId = data.ReviewerId;
+        this.Status = data.Status;
+        this.Link = data.Link;
+    };
     OneTask.prototype.FillByIProjectTaskDataBack = function (data) {
         this.Id = data.Id;
         this.Name = data.Name;
@@ -50400,6 +50505,34 @@ var OneTask = /** @class */ (function () {
     return OneTask;
 }());
 exports.OneTask = OneTask;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/CodeReviewApp/State/ProjectUser.ts":
+/*!**************************************************************!*\
+  !*** ./src/Models/Models/CodeReviewApp/State/ProjectUser.ts ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.ProjectUser = void 0;
+var ProjectUser = /** @class */ (function () {
+    function ProjectUser() {
+    }
+    ProjectUser.prototype.FillByBackModel = function (newData) {
+        this.Id = newData.Id;
+        this.Name = newData.Name;
+        this.Email = newData.Email;
+        this.IsAdmin = newData.IsAdmin;
+        this.MainAppUserId = newData.MainAppUserId;
+        this.Deactivated = newData.Deactivated;
+    };
+    return ProjectUser;
+}());
+exports.ProjectUser = ProjectUser;
 
 
 /***/ }),
@@ -50538,6 +50671,46 @@ exports.OneCardFullDataEdit = OneCardFullDataEdit;
 
 /***/ }),
 
+/***/ "./src/Models/Models/PlaningPoker/EndVoteInfo.ts":
+/*!*******************************************************!*\
+  !*** ./src/Models/Models/PlaningPoker/EndVoteInfo.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.EndVoteInfo = exports.EndVoteUserInfo = void 0;
+var EndVoteUserInfo = /** @class */ (function () {
+    function EndVoteUserInfo() {
+    }
+    EndVoteUserInfo.prototype.FillByBackModel = function (newData) {
+        this.Id = newData.id;
+        this.Vote = newData.vote;
+    };
+    return EndVoteUserInfo;
+}());
+exports.EndVoteUserInfo = EndVoteUserInfo;
+var EndVoteInfo = /** @class */ (function () {
+    function EndVoteInfo() {
+    }
+    EndVoteInfo.prototype.FillByBackModel = function (newData) {
+        this.AverageVote = newData.average_vote;
+        this.MinVote = newData.max_vote;
+        this.MaxVote = newData.min_vote;
+        this.UsersInfo = newData.users_info.map(function (x) {
+            var y = new EndVoteUserInfo();
+            y.FillByBackModel(x);
+            return y;
+        });
+    };
+    return EndVoteInfo;
+}());
+exports.EndVoteInfo = EndVoteInfo;
+
+
+/***/ }),
+
 /***/ "./src/Models/Models/PlaningPoker/RoomInfo.ts":
 /*!****************************************************!*\
   !*** ./src/Models/Models/PlaningPoker/RoomInfo.ts ***!
@@ -50619,6 +50792,12 @@ var VoteInfo = /** @class */ (function () {
         this.MaxVote = newData.max_vote;
         this.MinVote = newData.min_vote;
         this.AverageVote = newData.average_vote;
+        this.AllAreVoted = false;
+    };
+    VoteInfo.prototype.FillByEndVoteInfo = function (newData) {
+        this.MaxVote = newData.MaxVote;
+        this.MinVote = newData.MinVote;
+        this.AverageVote = newData.AverageVote;
         this.AllAreVoted = false;
     };
     return VoteInfo;
@@ -50845,6 +51024,7 @@ exports.CodeReviewCommentReducer = void 0;
 var AppState_1 = __webpack_require__(/*! ../../Models/State/AppState */ "./src/Models/Models/State/AppState.ts");
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
 var CommentActions_1 = __webpack_require__(/*! ../../Actions/CodeReviewApp/CommentActions */ "./src/Models/Actions/CodeReviewApp/CommentActions.ts");
+var OneTaskReviewComment_1 = __webpack_require__(/*! ../../Models/CodeReviewApp/OneTaskReviewComment */ "./src/Models/Models/CodeReviewApp/OneTaskReviewComment.ts");
 function CodeReviewCommentReducer(state, action) {
     if (state === void 0) { state = new AppState_1.AppState(); }
     switch (action.type) {
@@ -50882,7 +51062,12 @@ function CodeReviewCommentReducer(state, action) {
                 if (!task) {
                     return newState;
                 }
-                task.Comments.push(payload_3);
+                var comment = new OneTaskReviewComment_1.OneTaskReviewComment();
+                comment.Id = payload_3.Id;
+                comment.Text = payload_3.Text;
+                comment.CreateDate = payload_3.CreateDate;
+                comment.CreatorId = payload_3.CreatorId;
+                task.Comments.push(comment);
                 return newState;
             }
         case CommentActions_1.SetCommentsActionName:
@@ -51289,12 +51474,12 @@ function RoomReducer(state, action) {
                     return newState;
                 }
                 newState.PlaningPokerApp.UsersList.forEach(function (x) {
-                    var userFromRes = data_1.users_info.find(function (x1) { return x1.id === x.Id; });
+                    var userFromRes = data_1.UsersInfo.find(function (x1) { return x1.Id === x.Id; });
                     if (userFromRes) {
-                        x.Vote = userFromRes.vote;
+                        x.Vote = userFromRes.Vote;
                     }
                 });
-                newState.PlaningPokerApp.VoteInfo.FillByBackModel(data_1);
+                newState.PlaningPokerApp.VoteInfo.FillByEndVoteInfo(data_1);
                 return newState;
             }
         case RoomAction_1.SetRoomStatusActionName:
@@ -51634,8 +51819,6 @@ function UserReducer(state, action) {
                 }
                 if (!user.CanVote()) {
                     //todo убрать все оценки
-                    // GetUserById(localState.UsersList,);
-                    // users
                     user.Vote = null;
                     user.HasVote = false;
                     if (data_1.UserId === newState.PlaningPokerApp.User.UserId) {
@@ -52430,7 +52613,6 @@ var Register = /** @class */ (function (_super) {
         this.setState(newState);
     };
     Register.prototype.TryRegister = function () {
-        //TODO отправляем запрос и чистим state?
         var data = {
             Email: this.state.Login,
             Password: this.state.Password,
@@ -52726,6 +52908,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
+var ProjectUser_1 = __webpack_require__(/*! ../../../../Models/Models/CodeReviewApp/State/ProjectUser */ "./src/Models/Models/CodeReviewApp/State/ProjectUser.ts");
 __webpack_require__(/*! ./OneProjectUser.css */ "./src/components/Body/CodeReviewApp/OneProjectUser/OneProjectUser.css");
 var OneProjectUser = function (props) {
     var _a = (0, react_1.useState)(props.User.Name), userName = _a[0], setUserName = _a[1];
@@ -52751,10 +52934,12 @@ var OneProjectUser = function (props) {
             window.G_AddAbsoluteAlertToState(alert_1);
             return;
         }
-        var newUserData = {
-            Id: props.User.Id, Name: userName,
-            Email: userEmail, IsAdmin: userIsAdmin, Deactivated: userIsDeactivated
-        };
+        var newUserData = new ProjectUser_1.ProjectUser();
+        newUserData.Id = props.User.Id;
+        newUserData.Name = userName;
+        newUserData.Email = userEmail;
+        newUserData.IsAdmin = userIsAdmin;
+        newUserData.Deactivated = userIsDeactivated;
         props.ChangeUser(newUserData);
     };
     var userHasChanges = userName !== props.User.Name ||
@@ -52847,28 +53032,9 @@ var OneReviewTaskComment = function (props) {
         if (!confirm('Удалить комментарий?')) {
             return;
         }
-        // let deleteComment = (error: MainErrorObjectBack, data: BoolResultBack) => {
-        //     if (error) {
-        //         return;
-        //     }
-        //     if (data?.result) {
-        //         props.DeleteComment(props.Comment.Id);
-        //     }
-        // };
-        // window.G_CodeReviewCommentController.DeleteCommentRedux(props.Comment.Id);
         props.DeleteComment(props.Comment.Id);
     };
     var updateComment = function () {
-        // let updateComment = (error: MainErrorObjectBack, data: BoolResultBack) => {
-        //     if (error) {
-        //         return;
-        //     }
-        //     if (data?.result) {
-        //         props.UpdateComment(props.Comment.Id, changedText);
-        //         setEditMode(false);
-        //     }
-        // };
-        // window.G_CodeReviewCommentController.UpdateCommentRedux(props.Comment.Id, changedText);
         props.UpdateComment(props.Comment.Id, changedText);
     };
     var cancelEditMode = function () {
@@ -52881,23 +53047,26 @@ var OneReviewTaskComment = function (props) {
     var haveChenges = changedText !== props.Comment.Text;
     if (editMode) {
         return react_1.default.createElement("div", { className: 'one-review-comment-block' },
-            react_1.default.createElement("span", null, (user === null || user === void 0 ? void 0 : user.Name) || "id:" + props.Comment.CreatorId),
-            react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', value: changedText, onChange: function (e) { return setChangedText(e.target.value); } }),
-            react_1.default.createElement("div", { className: 'review-task-comment-cancel-button', onClick: function () { return cancelEditMode(); } },
-                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u043E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' })),
-            haveChenges ? react_1.default.createElement(react_1.default.Fragment, null,
-                react_1.default.createElement("div", { className: 'review-task-comment-save-button', onClick: function () { return updateComment(); } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'save-icon.png', alt: "Save", title: '\u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C' }))) : react_1.default.createElement(react_1.default.Fragment, null));
+            react_1.default.createElement("div", { className: 'one-review-comment-block-data' },
+                react_1.default.createElement("span", null, (user === null || user === void 0 ? void 0 : user.Name) || "id:" + props.Comment.CreatorId),
+                react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', value: changedText, onChange: function (e) { return setChangedText(e.target.value); } })),
+            react_1.default.createElement("div", { className: 'one-review-comment-block-buttons' },
+                react_1.default.createElement("div", { className: 'review-task-comment-cancel-button', onClick: function () { return cancelEditMode(); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u043E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' })),
+                haveChenges ? react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement("div", { className: 'review-task-comment-save-button', onClick: function () { return updateComment(); } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'save-icon.png', alt: "Save", title: '\u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C' }))) : react_1.default.createElement(react_1.default.Fragment, null)));
     }
     return react_1.default.createElement("div", { className: 'one-review-comment-block' },
-        react_1.default.createElement("span", null, (user === null || user === void 0 ? void 0 : user.Name) || "id:" + props.Comment.CreatorId),
-        react_1.default.createElement("br", null),
-        react_1.default.createElement("span", null, props.Comment.Text),
-        commentOwner ? react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement("div", { className: 'one-review-comment-block-data' },
+            react_1.default.createElement("span", null, (user === null || user === void 0 ? void 0 : user.Name) || "id:" + props.Comment.CreatorId),
+            react_1.default.createElement("br", null),
+            react_1.default.createElement("span", null, props.Comment.Text)),
+        react_1.default.createElement("div", { className: 'one-review-comment-block-buttons' }, commentOwner ? react_1.default.createElement(react_1.default.Fragment, null,
             react_1.default.createElement("div", { className: 'review-task-comment-delete-button', onClick: function () { return deleteComment(); } },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0443\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
             react_1.default.createElement("div", { className: 'review-task-comment-edit-button', onClick: function () { return setEditMode(function (st) { return true; }); } },
-                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'edit-1.svg', alt: "Edit", title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C' }))) : react_1.default.createElement(react_1.default.Fragment, null));
+                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'edit-1.svg', alt: "Edit", title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C' }))) : react_1.default.createElement(react_1.default.Fragment, null)));
 };
 var mapStateToProps = function (state, ownProps) {
     var res = {};
@@ -53054,13 +53223,14 @@ var OneReviewTask = function (props) {
             return react_1.default.createElement(react_1.default.Fragment, null);
         }
         return react_1.default.createElement("div", { className: 'one-review-task-comments-block' },
-            "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438:",
-            props.Comments.map(function (x) {
-                return react_1.default.createElement(OneReviewTaskComment_1.default, { Comment: x, TaskId: props.Task.Id, key: x.Id });
-            }),
-            react_1.default.createElement("div", null,
-                react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', value: newCommentName, onChange: function (e) { return setNewCommentName(e.target.value); } }),
-                react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return addComment(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C")));
+            react_1.default.createElement("div", { className: 'one-review-task-comments-block-inner' },
+                "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438:",
+                props.Comments.map(function (x) {
+                    return react_1.default.createElement(OneReviewTaskComment_1.default, { Comment: x, TaskId: props.Task.Id, key: x.Id });
+                }),
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', value: newCommentName, onChange: function (e) { return setNewCommentName(e.target.value); } }),
+                    react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return addComment(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"))));
     };
     var taskHasChanges = taskName !== props.Task.Name ||
         (taskLink !== props.Task.Link && (taskLink || props.Task.Link)) ||
@@ -53106,7 +53276,7 @@ var OneReviewTask = function (props) {
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
                 react_1.default.createElement("div", { className: 'review-task-comments-button', onClick: function () { return setShowComments(function (oldState) { return !oldState; }); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'comments.png', alt: "Comments", title: '\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438' })),
-                react_1.default.createElement("div", { className: 'review-task-link-button', onClick: function () { return window.open(taskLink); } },
+                react_1.default.createElement("div", { className: 'review-task-link-button', onClick: function () { return taskLink && window.open(taskLink); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'external-link.png', alt: "Comments", title: '\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443' })))),
         renderComments());
 };
@@ -53278,25 +53448,29 @@ var ProjectDetail = function (props) {
                 showAddNewTaskForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowAddNewTaskForm(false); }, IsHeightWindow: false, Title: '\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438', InnerContent: function () { return react_1.default.createElement(AddTask_1.default, { ProjectId: props.Project.Id, ProjectUsers: props.ProjectUsers.filter(function (us) { return !us.Deactivated; }) }); } }) : react_1.default.createElement(react_1.default.Fragment, null))),
         react_1.default.createElement("div", { className: 'review-project-tasks-filters-block' },
             react_1.default.createElement("div", null, "\u0424\u0438\u043B\u044C\u0442\u0440\u044B"),
-            react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: props.TasksFilters.TaskName, onChange: function (e) { return props.SetFilterTaskName(e.target.value); }, placeholder: '\u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435' }),
-            react_1.default.createElement("span", null, "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C"),
-            react_1.default.createElement("select", { className: 'form-control-b', value: props.TasksFilters.CreatorId, onChange: function (e) { return props.SetFilterTaskCreator(+e.target.value); } },
-                react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
-            react_1.default.createElement("span", null, "\u0420\u0435\u0432\u044C\u044E\u0432\u0435\u0440"),
-            react_1.default.createElement("select", { className: 'form-control-b', value: props.TasksFilters.ReviewerId, onChange: function (e) { return props.SetFilterTaskReviewer(+e.target.value); } },
-                react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
-            react_1.default.createElement("span", null, "\u0421\u0442\u0430\u0442\u0443\u0441"),
-            react_1.default.createElement("select", { className: 'form-control-b', onChange: function (e) { return props.SetFilterTaskStatus(+e.target.value); }, value: props.TasksFilters.Status },
-                react_1.default.createElement("option", { value: -1 }, "\u041B\u044E\u0431\u043E\u0439"),
-                react_1.default.createElement("option", { value: 0 }, "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E \u043A\u043E\u0434 \u0440\u0435\u0432\u044C\u044E"),
-                react_1.default.createElement("option", { value: 1 }, "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B \u043F\u0440\u0430\u0432\u043A\u0438"),
-                react_1.default.createElement("option", { value: 3 }, "\u0412 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435"),
-                react_1.default.createElement("option", { value: 2 }, "\u0413\u043E\u0442\u043E\u0432\u043E")),
-            react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return clearFilters(); } }, "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C"),
+            react_1.default.createElement("div", { className: 'review-project-tasks-filters-block-flex' },
+                react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: props.TasksFilters.TaskName, onChange: function (e) { return props.SetFilterTaskName(e.target.value); }, placeholder: '\u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435' }),
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("span", null, "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C"),
+                    react_1.default.createElement("select", { className: 'form-control-b', value: props.TasksFilters.CreatorId, onChange: function (e) { return props.SetFilterTaskCreator(+e.target.value); } },
+                        react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
+                        props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); }))),
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("span", null, "\u0420\u0435\u0432\u044C\u044E\u0432\u0435\u0440"),
+                    react_1.default.createElement("select", { className: 'form-control-b', value: props.TasksFilters.ReviewerId, onChange: function (e) { return props.SetFilterTaskReviewer(+e.target.value); } },
+                        react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
+                        props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); }))),
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("span", null, "\u0421\u0442\u0430\u0442\u0443\u0441"),
+                    react_1.default.createElement("select", { className: 'form-control-b', onChange: function (e) { return props.SetFilterTaskStatus(+e.target.value); }, value: props.TasksFilters.Status },
+                        react_1.default.createElement("option", { value: -1 }, "\u041B\u044E\u0431\u043E\u0439"),
+                        react_1.default.createElement("option", { value: 0 }, "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E \u043A\u043E\u0434 \u0440\u0435\u0432\u044C\u044E"),
+                        react_1.default.createElement("option", { value: 1 }, "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B \u043F\u0440\u0430\u0432\u043A\u0438"),
+                        react_1.default.createElement("option", { value: 3 }, "\u0412 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435"),
+                        react_1.default.createElement("option", { value: 2 }, "\u0413\u043E\u0442\u043E\u0432\u043E")))),
             react_1.default.createElement("div", null,
-                react_1.default.createElement(Paggination_1.default, { ElementsCount: props.CurrentProjectTasksAllCount, PageNumber: props.TasksFilters.Page, ElementsOnPage: tasksOnPageCount, SetPageNumber: props.SetFilterTaskPage }))),
+                react_1.default.createElement(Paggination_1.default, { ElementsCount: props.CurrentProjectTasksAllCount, PageNumber: props.TasksFilters.Page, ElementsOnPage: tasksOnPageCount, SetPageNumber: props.SetFilterTaskPage })),
+            react_1.default.createElement("button", { className: 'btn-b btn-border', onClick: function () { return clearFilters(); } }, "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C")),
         react_1.default.createElement("div", null,
             react_1.default.createElement("h2", null, "\u0417\u0430\u0434\u0430\u0447\u0438"),
             props.Tasks.map(function (x) { return react_1.default.createElement(OneReviewTask_1.default, { key: x.Id, Task: x, Comments: x.Comments }); })));
@@ -53509,8 +53683,6 @@ var ProjectsList = function (props) {
 };
 var mapStateToProps = function (state, ownProps) {
     var res = {};
-    // res.Test = state.TestMessage;
-    // res.FilmData = state.Films.find(x => x.Id === ownProps.FilmId);
     return res;
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
@@ -54001,21 +54173,19 @@ var OneMenuCard = /** @class */ (function (_super) {
         _this.RenderFollowButton = _this.RenderFollowButton.bind(_this);
         _this.RenderFollowIcon = _this.RenderFollowIcon.bind(_this);
         return _this;
-        // this.bodyRender = this.bodyRender.bind(this);
-        // this.bodyRender = this.bodyRender.bind(this);
     }
     OneMenuCard.prototype.componentDidMount = function () {
         // console.log(JSON.stringify(this.props));
         if (this.props.IsNewTemplate && !this.state.NewState) {
             var newState = __assign({}, this.state);
             newState.EditNow = true;
-            newState.NewState = {
-                Id: -1,
-                Title: 'Новая',
-                Body: 'Новая',
-                Image: G_EmptyImagePath,
-                Followed: false,
-            }; //TODO надо проверить сломается что то или нет,
+            var ns = new OneCardInListData_1.OneCardInListData();
+            ns.Id = -1;
+            ns.Title = 'Новая';
+            ns.Body = 'Новая';
+            ns.Image = G_EmptyImagePath;
+            ns.Followed = false;
+            newState.NewState = ns;
             this.setState(newState);
         }
     };
@@ -54072,7 +54242,6 @@ var OneMenuCard = /** @class */ (function (_super) {
         if (!this.props.FollowRequstSuccess) {
             return;
         }
-        //TODO запрос
         var thisRef = this;
         var success = function (error, data) {
             if (error || !data) {
@@ -54086,33 +54255,6 @@ var OneMenuCard = /** @class */ (function (_super) {
             }
         };
         window.G_ArticleController.Follow({ Id: this.props.CardData.Id }, success);
-        // let data = {
-        //     "id": this.props.CardData.Id,
-        // };
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: data,
-        //     Type: "PATCH",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             let boolRes = xhr as BoolResultBack;
-        //             if (boolRes.result === true) {
-        //                 this.props.FollowRequstSuccess(this.props.CardData.Id, true);
-        //             }
-        //             else if (boolRes.result === false) {
-        //                 this.props.FollowRequstSuccess(this.props.CardData.Id, false);
-        //             }
-        //             else {
-        //                 //что то не то вернулось
-        //             }
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/article/follow',
-        // });
     };
     OneMenuCard.prototype.SaveOnClick = function () {
         var _this = this;
@@ -54144,7 +54286,6 @@ var OneMenuCard = /** @class */ (function (_super) {
                 _this.props.UpdateElement(cardForUpdate, false);
             });
         }
-        //дальше работаем и в компоненты выше передаем то что вернулось в бэка
     };
     OneMenuCard.prototype.TitleRender = function () {
         var _a, _b;
@@ -54227,33 +54368,6 @@ var OneMenuCard = /** @class */ (function (_super) {
         };
         var forSend = __assign(__assign({}, newElement), { NeedDeleteMainImage: false });
         window.G_ArticleController.Edit(forSend, success);
-        // let data = {
-        //     "id": newElement.Id,
-        //     "title": newElement.Title,
-        //     "body": newElement.Body,
-        //     // "main_image_new":newElement.Image,
-        // };
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: data,
-        //     Type: "PATCH",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             let res = xhr as IOneCardInListDataBack;
-        //             if (res.id && res.id > 0) {
-        //                 callBack(res);
-        //             }
-        //             else {
-        //                 //какая то ошибка
-        //             }
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/article/edit',
-        // });
     };
     ///создание именно из списка карт
     OneMenuCard.prototype.CreateCardInListRequest = function (newElement, callBack) {
@@ -54267,32 +54381,6 @@ var OneMenuCard = /** @class */ (function (_super) {
             callBack(forApply);
         };
         window.G_ArticleController.Create(newElement, success);
-        // let data = {
-        //     "title": newElement.Title,
-        //     "body": newElement.Body,
-        //     // "main_image_new":newElement.Image,
-        // };
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: data,
-        //     Type: "PUT",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             let resBack = xhr as IOneCardInListDataBack;
-        //             if (Number.isInteger(resBack.id) && resBack.id > 0) {
-        //                 callBack(resBack);
-        //             }
-        //             else {
-        //                 //что то не то вернулось
-        //             }
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/article/create',
-        // });
     };
     return OneMenuCard;
 }(React.Component));
@@ -54568,7 +54656,6 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OneCardDetailMain = exports.OneCardFullDataView = void 0;
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var AdditionalImages_1 = __webpack_require__(/*! ./AdditionalImages */ "./src/components/Body/MenuApp/OneCardDetail/AdditionalImages.tsx");
-// import { IOneCardFullData, OneCardFullData } from '../../../_ComponentsLink/Models/MenuApp/OneCardFullData';
 var OneCardInListData_1 = __webpack_require__(/*! ../../../../Models/Models/MenuApp/OneCardInListData */ "./src/Models/Models/MenuApp/OneCardInListData.ts");
 var IOneCardFullDataEdit_1 = __webpack_require__(/*! ../../../../Models/Models/MenuApp/Poco/IOneCardFullDataEdit */ "./src/Models/Models/MenuApp/Poco/IOneCardFullDataEdit.ts");
 var OneCardFullDataView = /** @class */ (function () {
@@ -54653,34 +54740,6 @@ var OneCardDetailMain = /** @class */ (function (_super) {
             thisRef.setState(newState);
         };
         window.G_ArticleController.Detail({ Id: cardId }, success);
-        // let data = {
-        //     "id": cardId,
-        // };
-        // let thisRef = this;
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: data,
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             let dataBack = xhr as IOneCardFullDataBack;
-        //             if (dataBack.id && dataBack.id > 0) {
-        //                 let newState = { ...thisRef.state };
-        //                 newState.Card = new OneCardFullDataView();
-        //                 newState.Card.FillByBackModel(dataBack);
-        //                 thisRef.setState(newState);
-        //             }
-        //             else {
-        //                 //ошибка
-        //             }
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/article/detail',
-        // });
     };
     OneCardDetailMain.prototype.componentWillUnmount = function () {
         this.state = null;
@@ -54797,36 +54856,6 @@ var OneCardDetailMain = /** @class */ (function (_super) {
             }
         };
         window.G_ArticleController.Follow({ Id: this.state.Card.Id }, success);
-        // let data = {
-        //     "id": this.state.Card.Id,
-        // };
-        // let newState = { ...this.state };
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: data,
-        //     Type: "PATCH",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             let boolRes = xhr as BoolResultBack;
-        //             if (boolRes.result === true) {
-        //                 newState.Card.Followed = true;
-        //                 this.setState(newState);
-        //             }
-        //             else if (boolRes.result === false) {
-        //                 newState.Card.Followed = false;
-        //                 this.setState(newState);
-        //             }
-        //             else {
-        //                 //что то не то вернулось
-        //             }
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/article/follow',
-        // });
     };
     OneCardDetailMain.prototype.DeleteMainImageClick = function () {
         if (!this.state.EditNow) {
@@ -54918,7 +54947,7 @@ var OneCardDetailMain = /** @class */ (function (_super) {
             this.RenderCancelBlock());
     };
     OneCardDetailMain.prototype.RenderCardOrPreloader = function () {
-        if (!this.state.Card) { //TODO нужен кастомный
+        if (!this.state.Card) {
             return React.createElement("div", { className: 'card-list-preloader' },
                 React.createElement("div", { className: "spinner-border persent-100-width-height", role: "status" },
                     React.createElement("span", { className: "sr-only" }, "Loading...")));
@@ -54941,13 +54970,6 @@ var OneCardDetailMain = /** @class */ (function (_super) {
         return this.RenderCardOrPreloader();
     };
     OneCardDetailMain.prototype.EditCardInListRequest = function (newElement, callBack) {
-        // let data = {
-        //     "id": newElement.Id,
-        //     "title": newElement.Title,
-        //     "body": newElement.Body,
-        //     // "main_image_new": $('#main_image_input').val(),
-        //     // "main_image_new":newElement.Image,
-        // };
         var success = function (error, data) {
             if (error || !data) {
                 return;
@@ -54955,38 +54977,6 @@ var OneCardDetailMain = /** @class */ (function (_super) {
             callBack(data);
         };
         window.G_ArticleController.Edit(newElement, success);
-        // let data = new FormData();
-        // data.append('id', newElement.Id + '');
-        // data.append('title', newElement.Title);
-        // data.append('body', newElement.Body);
-        // data.append('delete_main_image', JSON.stringify(newElement.NeedDeleteMainImage));
-        // if (newElement.MainImageSave) {
-        //     data.append('main_image_new', newElement.MainImageSave);
-        // }
-        // newElement.AdditionalImagesSave.forEach((addImage, index) => {
-        //     data.append('additional_images', addImage);//' + index + '
-        // });
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: data,
-        //     Type: "PATCH",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             let res = xhr as IOneCardFullDataBack;
-        //             if (res.id && res.id > 0) {
-        //                 callBack(res);
-        //             }
-        //             else {
-        //                 //что то не то вернулось
-        //             }
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/article/edit',
-        // }, true);
     };
     OneCardDetailMain.prototype.ChangeRemoveStatusAdditionalImage = function (id, newStatus) {
         var _this = this;
@@ -55163,14 +55153,7 @@ var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/
 // import { Switch, Route } from "react-router-dom";
 var AppList_1 = __importDefault(__webpack_require__(/*! ./AppList */ "./src/components/Body/Menu/AppList.tsx"));
 var MenuMain = function (props) {
-    // return <MainAuth login={true}/>
-    // return <BodyCardsListMain />
-    //TODO попробовать достучаться незалогиненным по ссылкам и поправить то что вылезет
-    // return <BodyCardsListMain/> 
     return React.createElement(AppList_1.default, { Apps: props.Apps });
-    // <Switch>
-    //     <Route exact path="/menu" component={AppList} />
-    // </Switch>
 };
 exports["default"] = MenuMain;
 
@@ -56142,6 +56125,7 @@ var EditRoom_1 = __importDefault(__webpack_require__(/*! ../EditRoom/EditRoom */
 var RoomAction_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/RoomAction */ "./src/Models/Actions/PlaningPokerApp/RoomAction.ts");
 var StoryActions_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/StoryActions */ "./src/Models/Actions/PlaningPokerApp/StoryActions.ts");
 var UserActions_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/UserActions */ "./src/Models/Actions/PlaningPokerApp/UserActions.ts");
+var EndVoteInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/EndVoteInfo */ "./src/Models/Models/PlaningPoker/EndVoteInfo.ts");
 __webpack_require__(/*! ./Room.css */ "./src/components/Body/PlaningPoker/Room/Room.css");
 //подписки сигналр захватывают пропсы непонятно как, раньше это работало, но предположительно после введения deepClone
 //все вообще отвалилось. 6.30.2021, вот так получилось пофиксить, замена обработчика подписки на => не помогала
@@ -56235,7 +56219,9 @@ var Room = function (props) {
             props.SetRoomStatus(RoomInfo_1.RoomStatus.AllCanVote);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.VoteEnd, function (data) {
-            props.SetVoteInfo(data);
+            var vtInfo = new EndVoteInfo_1.EndVoteInfo();
+            vtInfo.FillByBackModel(data);
+            props.SetVoteInfo(vtInfo);
             props.SetRoomStatus(RoomInfo_1.RoomStatus.CloseVote);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.AddedNewStory, function (data) {
@@ -56457,8 +56443,10 @@ var Room = function (props) {
     };
     var settingsUpUserListRender = function () {
         var showVoteImage = 'eye5.png';
+        var showVoteTitle = 'Скрыть оценки';
         if (hideVoteState) {
             showVoteImage = 'eye1.png';
+            showVoteTitle = 'Показать оценки';
         }
         var hideVotesSetting = react_1.default.createElement(react_1.default.Fragment, null);
         if (currentUserIsAdmin) {
@@ -56466,7 +56454,7 @@ var Room = function (props) {
                 react_1.default.createElement("div", { className: "padding-10-top" }),
                 react_1.default.createElement("div", { className: "planning-vote-settings" },
                     react_1.default.createElement("label", null, "\u041E\u0446\u0435\u043D\u043A\u0438"),
-                    react_1.default.createElement("div", { className: 'planing-vote-show-but', title: '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C\\\u0441\u043A\u0440\u044B\u0442\u044C \u043E\u0446\u0435\u043D\u043A\u0438', onClick: function () { return setHideVoteState(function (prevState) {
+                    react_1.default.createElement("div", { className: 'planing-vote-show-but', title: showVoteTitle, onClick: function () { return setHideVoteState(function (prevState) {
                             return !hideVoteState;
                         }); } },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + showVoteImage }))));
@@ -56514,7 +56502,7 @@ var Room = function (props) {
                 react_1.default.createElement("div", { className: "padding-10-top" }),
                 react_1.default.createElement("div", { className: 'people-room-header' },
                     react_1.default.createElement("span", null, "\u0423\u0447\u0430\u0441\u0442\u043D\u0438\u043A\u0438"),
-                    react_1.default.createElement("div", { className: 'planing-people-refresh', onClick: function () { return props.UpdateAllUsers(props.RoomInfo.Name, props.UserInfo.UserConnectionId); } },
+                    react_1.default.createElement("div", { className: 'planing-people-refresh', title: '\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u044C \u0441\u043F\u0438\u0441\u043E\u043A \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439', onClick: function () { return props.UpdateAllUsers(props.RoomInfo.Name, props.UserInfo.UserConnectionId); } },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/refresh.png" }))),
                 props.UsersList.map(function (x) {
                     return react_1.default.createElement(UserInList_1.default, { key: x.Id, User: x, RenderForAdmin: currentUserIsAdmin, HideVote: hideVoteState, HasVote: x.HasVote, MyHubConnection: props.MyHubConnection, CurrentUserIsAdmin: currentUserIsAdmin });
@@ -56739,10 +56727,13 @@ var StoriesSection = function (props) {
         }
         var adminButton = react_1.default.createElement(react_1.default.Fragment, null);
         if (props.IsAdmin) {
-            adminButton = react_1.default.createElement("div", null,
-                react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return changeCurrentStory(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C"),
-                react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return cancelChangeCurrentStory(); } }, "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C"),
-                react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return tryMakeStoryComplete(); } }, "\u041E\u0442\u043C\u0435\u0442\u0438\u0442\u044C \u043A\u0430\u043A \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u043D\u0443\u044E"));
+            adminButton = react_1.default.createElement("div", { className: 'stories-current-buttons' },
+                react_1.default.createElement("div", { className: 'stories-action-btn', onClick: function () { return changeCurrentStory(); }, title: '\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C' },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/save-icon.png" })),
+                react_1.default.createElement("div", { className: 'stories-action-btn', onClick: function () { return cancelChangeCurrentStory(); }, title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/cancel.png" })),
+                react_1.default.createElement("div", { className: 'stories-action-btn', onClick: function () { return tryMakeStoryComplete(); }, title: '\u041E\u0442\u043C\u0435\u0442\u0438\u0442\u044C \u043A\u0430\u043A \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u043D\u0443\u044E' },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/vote4.png" })));
         }
         var storyBodyRender = function () {
             if (props.IsAdmin) {
@@ -58483,34 +58474,6 @@ var WordsCardsListMain = /** @class */ (function (_super) {
             refThis.setState(newState);
         };
         G_WordsListController.GetAllForUser(success);
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: {},
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
-        //         if (resp.errors) {
-        //             //TODO ошибка
-        //         }
-        //         else {
-        //             let dataBack = xhr as IWordListBack[];
-        //             if (dataBack.length == 0) {
-        //                 return;//todo
-        //             }
-        //             let newState = { ...refThis.state };
-        //             let dataFront: OneWordList[] = [];
-        //             dataBack.forEach(bk => {
-        //                 let nd = new OneWordList();
-        //                 nd.FillByBackModel(bk);
-        //                 dataFront.push(nd);
-        //             });
-        //             // newState.WordListsLoaded = true;
-        //             newState.WordLists = dataFront;
-        //             this.setState(newState);
-        //         }
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/wordslist/get-all-for-user',
-        // }, true);
     };
     return WordsCardsListMain;
 }(React.Component));
