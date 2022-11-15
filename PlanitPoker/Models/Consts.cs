@@ -37,6 +37,7 @@ namespace PlanitPoker.Models
             public const string RoomBadVoteMarks = "planing_poker_room_bad_vote_marks";
             public const string RoomBadCountCards = "planing_poker_room_bad_count_cards";
             public const string RoomBadLengthCard = "planing_poker_room_bad_length_card";
+            public const string UsernameBad = "planing_poker_room_bad_username";
 
         }
 

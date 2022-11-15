@@ -27,22 +27,18 @@ namespace Menu.Controllers.PlanitPoker
         //private readonly IHubContext<PlanitPokerHub> _hubContext;
 
 
-        private readonly IStringValidator _stringValidator;
-
 
         private readonly PlanitUserReturnFactory _planitUserReturnFactory;
 
         public PlanitPokerController(IApiHelper apiHealper,
             ILogger<PlanitPokerController> logger,
-            IPlanitPokerService planitPokerService,
-            IStringValidator stringValidator
+            IPlanitPokerService planitPokerService
         //IErrorService errorService
         )
         {
             _apiHealper = apiHealper;
             _logger = logger;
             _planitPokerService = planitPokerService;
-            _stringValidator = stringValidator;
             //_errorService = errorService;
             //hubContext.
 
@@ -56,7 +52,7 @@ namespace Menu.Controllers.PlanitPoker
         {
             //todo подумать и мб перетащить это в хаб (в том числе из за потребности в userConnectionId)
             roomname = NormalizeRoomName(roomname);
-            userConnectionId = _stringValidator.Validate(userConnectionId);
+            userConnectionId = _apiHealper.StringValidator(userConnectionId);
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
@@ -75,7 +71,7 @@ namespace Menu.Controllers.PlanitPoker
         {
             //todo подумать и мб перетащить это в хаб (в том числе из за потребности в userConnectionId)
             roomname = NormalizeRoomName(roomname);
-            userConnectionId = _stringValidator.Validate(userConnectionId);
+            userConnectionId = _apiHealper.StringValidator(userConnectionId);
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
@@ -101,7 +97,7 @@ namespace Menu.Controllers.PlanitPoker
         {
             //todo подумать и мб перетащить это в хаб (в том числе из за потребности в userConnectionId)
             roomname = NormalizeRoomName(roomname);
-            userConnectionId = _stringValidator.Validate(userConnectionId);
+            userConnectionId = _apiHealper.StringValidator(userConnectionId);
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
@@ -145,7 +141,7 @@ namespace Menu.Controllers.PlanitPoker
             , [FromForm] string newPassword)
         {
             roomname = NormalizeRoomName(roomname);
-            userConnectionId = _stringValidator.Validate(userConnectionId);
+            userConnectionId = _apiHealper.StringValidator(userConnectionId);
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
@@ -162,7 +158,7 @@ namespace Menu.Controllers.PlanitPoker
 
         private string NormalizeRoomName(string roomName)
         {
-            return _stringValidator.Validate(roomName)?.ToUpper();
+            return _apiHealper.StringValidator(roomName)?.ToUpper();
         }
     }
 }

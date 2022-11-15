@@ -1,5 +1,6 @@
 ﻿using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using System.Web;
 
 namespace Common.Models.Validators
 {
@@ -39,7 +40,8 @@ namespace Common.Models.Validators
             //var jsEncoder = JavaScriptEncoder.Create(jsParam);
             //res = jsEncoder.Encode(res);
             //res = _javaScriptEncoder.Encode(res);
-            res = _htmlEncoder.Encode(res);
+            //res = _htmlEncoder.Encode(res);
+            res = HttpUtility.HtmlEncode(res);
             //res = _urlEncoder.Encode(res);//todo зачем это?
             return res;
         }

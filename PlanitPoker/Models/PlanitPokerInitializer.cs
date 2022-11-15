@@ -30,9 +30,11 @@ namespace PlanitPoker.Models
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadVoteMarks, "Передан неверный список оценок");
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadCountCards, "Передано неверное количество карточек, доспустимо от 2 до 100");
             errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadLengthCard, "Допустимая длина карточки 5 символов");
-
-
+            errorContainer.InitError(Consts.PlanitPokerErrorConsts.UsernameBad, "Имя пользователя - кириллица/латиница/цифры до 50 символов");
             
+
+
+
 
 
         }

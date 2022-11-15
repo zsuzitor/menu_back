@@ -95,6 +95,7 @@ namespace PlanitPoker.Models.Hubs
             {
                 ValidateRoomName(roomName);
                 username = ValidateString(username);
+                ValidateUserName(username);
                 if (string.IsNullOrWhiteSpace(password))
                 {
                     password = null;
@@ -228,6 +229,8 @@ namespace PlanitPoker.Models.Hubs
             Log(LogLevel.Debug, nameof(EnterInRoom), "InvokeLog", roomName, connectionId, string.Empty);
             await _apiHealper.DoStandartSomething(async () =>
             {
+                ValidateUserName(username);
+
                 if (string.IsNullOrWhiteSpace(password))
                 {
                     password = null;
@@ -410,6 +413,8 @@ namespace PlanitPoker.Models.Hubs
             Log(LogLevel.Debug, nameof(UserNameChange), "InvokeLog", roomName, connectionId, string.Empty);
             return await _apiHealper.DoStandartSomething(async () =>
             {
+                ValidateUserName(newUserName);
+
                 (bool sc, string userId) =
                     await _planitPokerService.ChangeUserNameAsync(roomName, connectionId, newUserName);
 
@@ -842,6 +847,15 @@ namespace PlanitPoker.Models.Hubs
             if (!rg.Match(roomName).Success)
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.BadRoomNameWithRoomCreating);
+            }
+        }
+
+        private void ValidateUserName(string userName)
+        {
+            var rg = new Regex("^[а-яА-Яa-zA-Z0-9_@.]{1,50}$");
+            if (!rg.Match(userName).Success)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.UsernameBad);
             }
         }
 
