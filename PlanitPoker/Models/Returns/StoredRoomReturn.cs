@@ -13,6 +13,9 @@ namespace PlanitPoker.Models.Returns
     {
         [JsonPropertyName("name")]
         public string Name { get; set; }
+        [JsonPropertyName("image_path")]
+        public string ImagePath { get; set; }
+
 
         [JsonPropertyName("die_date")]
         public DateTime DieDate { get; set; }
@@ -49,6 +52,7 @@ namespace PlanitPoker.Models.Returns
             }
 
             Name = obj.Name;
+            ImagePath = obj.ImagePath;
             DieDate = obj.DieDate;
             Status = obj.Status;
             CurrentStoryId = obj.CurrentStoryId;

@@ -2954,7 +2954,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n    /* https://cssgradient.io/ */\r\n    /* background: rgb(2, 0, 39);\r\n    background: linear-gradient(360deg, rgba(2, 0, 39, 0.7150210425967262) 0%, rgba(255, 255, 255, 1) 100%); */\r\n    \r\n}\r\n\r\n\r\n\r\n.planing-enter-inner {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Index/Index.css"],"names":[],"mappings":";AACA;IACI,iBAAiB;IACjB,oBAAoB;IACpB,4BAA4B;IAC5B;8GAC0G;;AAE9G;;;;AAIA;IACI,6CAA6C;IAC7C,qCAAqC;AACzC","sourcesContent":["\r\n.planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n    /* https://cssgradient.io/ */\r\n    /* background: rgb(2, 0, 39);\r\n    background: linear-gradient(360deg, rgba(2, 0, 39, 0.7150210425967262) 0%, rgba(255, 255, 255, 1) 100%); */\r\n    \r\n}\r\n\r\n\r\n\r\n.planing-enter-inner {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n    /* https://cssgradient.io/ */\r\n    /* background: rgb(2, 0, 39);\r\n    background: linear-gradient(360deg, rgba(2, 0, 39, 0.7150210425967262) 0%, rgba(255, 255, 255, 1) 100%); */\r\n\r\n}\r\n\r\n\r\n\r\n.planing-enter-inner {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-poker-rooms-list {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    flex-wrap: wrap;\r\n    padding-top: 30px;\r\n}\r\n\r\n.planing-poker-rooms-list .one-room {\r\n    height: 90px;\r\n    width: 60px;\r\n    cursor: pointer;\r\n    overflow: hidden;\r\n    /* padding-left: 10px; */\r\n    text-align: center;\r\n}\r\n\r\n.planing-poker-rooms-list .one-room-img {\r\n    height: 60px;\r\n    width: 60px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    /* margin-left: 10px; */\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Index/Index.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,oBAAoB;IACpB,4BAA4B;IAC5B;8GAC0G;;AAE9G;;;;AAIA;IACI,6CAA6C;IAC7C,qCAAqC;AACzC;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,eAAe;IACf,iBAAiB;AACrB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,eAAe;IACf,gBAAgB;IAChB,wBAAwB;IACxB,kBAAkB;AACtB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,kBAAkB;IAClB,gBAAgB;IAChB,uBAAuB;AAC3B","sourcesContent":[".planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n    /* https://cssgradient.io/ */\r\n    /* background: rgb(2, 0, 39);\r\n    background: linear-gradient(360deg, rgba(2, 0, 39, 0.7150210425967262) 0%, rgba(255, 255, 255, 1) 100%); */\r\n\r\n}\r\n\r\n\r\n\r\n.planing-enter-inner {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-poker-rooms-list {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    flex-wrap: wrap;\r\n    padding-top: 30px;\r\n}\r\n\r\n.planing-poker-rooms-list .one-room {\r\n    height: 90px;\r\n    width: 60px;\r\n    cursor: pointer;\r\n    overflow: hidden;\r\n    /* padding-left: 10px; */\r\n    text-align: center;\r\n}\r\n\r\n.planing-poker-rooms-list .one-room-img {\r\n    height: 60px;\r\n    width: 60px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    /* margin-left: 10px; */\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3035,7 +3035,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 25px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-name-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-name-block-input-block {\r\n    flex-grow: 2;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Room/Room.css"],"names":[],"mappings":"AAAA;IACI,aAAa;;AAEjB;;AAEA;IACI,6BAA6B;IAC7B;;kEAE8D;IAC9D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B;;8DAE0D;IAC1D,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,cAAc;IACd,eAAe;AACnB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;IACI,gCAAgC;IAChC,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,+BAA+B;AACnC;;;AAGA;IACI,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,6BAA6B;IAC7B,2BAA2B;IAC3B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;AAChB","sourcesContent":[".planing-room-header {\r\n    display: flex;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 25px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-name-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-name-block-input-block {\r\n    flex-grow: 2;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-header {\r\n    display: flex;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n    padding-right: 10px;\r\n    justify-content: space-between;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 25px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-name-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-name-block-input-block {\r\n    flex-grow: 2;\r\n}\r\n\r\n.room-image {\r\n    width: 150px;\r\n    height: 150px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n}\r\n\r\n.room-top-info {\r\n    padding-left: 20px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Room/Room.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,oBAAoB;IACpB,mBAAmB;IACnB,8BAA8B;;AAElC;;AAEA;IACI,6BAA6B;IAC7B;;kEAE8D;IAC9D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B;;8DAE0D;IAC1D,iBAAiB;IACjB,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,cAAc;IACd,eAAe;AACnB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;IACI,gCAAgC;IAChC,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,+BAA+B;AACnC;;;AAGA;IACI,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,6BAA6B;IAC7B,2BAA2B;IAC3B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".planing-room-header {\r\n    display: flex;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n    padding-right: 10px;\r\n    justify-content: space-between;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 25px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-name-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-name-block-input-block {\r\n    flex-grow: 2;\r\n}\r\n\r\n.room-image {\r\n    width: 150px;\r\n    height: 150px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n}\r\n\r\n.room-top-info {\r\n    padding-left: 20px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48225,7 +48225,7 @@ exports.ClearPokerStateActionCreator = ClearPokerStateActionCreator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SetRoomCardsActionCreator = exports.SetRoomCardsActionName = exports.SetEditRoomActionCreator = exports.SetEditRoomActionName = exports.SetInitialRoomDieTimeActionCreator = exports.SetInitialRoomDieTimeActionName = exports.ClearVoteActionCreator = exports.ClearVoteActionName = exports.SetSelectedCardActionCreator = exports.SetSelectedCardActionName = exports.VoteChangedActionCreator = exports.VoteChangedActionName = exports.SetRoomStatusActionCreator = exports.SetRoomStatusActionName = exports.SetVoteInfoActionCreator = exports.SetVoteInfoActionName = exports.SetRoomPasswordActionCreator = exports.SetRoomPasswordActionName = exports.SetRoomNameActionCreator = exports.SetRoomNameActionName = void 0;
+exports.SetRoomImageActionCreator = exports.SetRoomImageActionName = exports.SetRoomsListActionCreator = exports.SetRoomsListActionName = exports.SetRoomCardsActionCreator = exports.SetRoomCardsActionName = exports.SetEditRoomActionCreator = exports.SetEditRoomActionName = exports.SetInitialRoomDieTimeActionCreator = exports.SetInitialRoomDieTimeActionName = exports.ClearVoteActionCreator = exports.ClearVoteActionName = exports.SetSelectedCardActionCreator = exports.SetSelectedCardActionName = exports.VoteChangedActionCreator = exports.VoteChangedActionName = exports.SetRoomStatusActionCreator = exports.SetRoomStatusActionName = exports.SetVoteInfoActionCreator = exports.SetVoteInfoActionName = exports.SetRoomPasswordActionCreator = exports.SetRoomPasswordActionName = exports.SetRoomNameActionCreator = exports.SetRoomNameActionName = void 0;
 exports.SetRoomNameActionName = 'SetRoomNameAction';
 function SetRoomNameActionCreator(data) {
     return { type: exports.SetRoomNameActionName, payload: data };
@@ -48285,6 +48285,18 @@ function SetRoomCardsActionCreator(data) {
     return { type: exports.SetRoomCardsActionName, payload: data };
 }
 exports.SetRoomCardsActionCreator = SetRoomCardsActionCreator;
+;
+exports.SetRoomsListActionName = 'SetRoomsListAction';
+function SetRoomsListActionCreator(data) {
+    return { type: exports.SetRoomsListActionName, payload: data };
+}
+exports.SetRoomsListActionCreator = SetRoomsListActionCreator;
+;
+exports.SetRoomImageActionName = 'SetRoomImageAction';
+function SetRoomImageActionCreator(data) {
+    return { type: exports.SetRoomImageActionName, payload: data };
+}
+exports.SetRoomImageActionCreator = SetRoomImageActionCreator;
 ;
 
 
@@ -48534,7 +48546,7 @@ var FetchHelper = /** @class */ (function () {
     };
     FetchHelper.prototype.GoAjaxRequest = function (obj, fileLoad) {
         return __awaiter(this, void 0, void 0, function () {
-            var response, getUrl, urlParams_1, dataKeys, formData_1, dataKeys, responseResult, successedRefresh, newObj, resp, alertLogic_1;
+            var response, getUrl, urlParams_1, dataKeys, formData_1, dataKeys, responseResult, successFromInner, successedRefresh, newObj, resp, alertLogic_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -48583,6 +48595,7 @@ var FetchHelper = /** @class */ (function () {
                     case 4: return [4 /*yield*/, response.json()];
                     case 5:
                         responseResult = _a.sent();
+                        successFromInner = false;
                         if (!(response.status === 401)) return [3 /*break*/, 9];
                         if (!obj.NeedTryRefreshToken) return [3 /*break*/, 8];
                         return [4 /*yield*/, this.TryRefreshToken(obj.NotRedirectWhenNotAuth, null)];
@@ -48594,6 +48607,7 @@ var FetchHelper = /** @class */ (function () {
                         return [4 /*yield*/, this.GoAjaxRequest(newObj)];
                     case 7:
                         _a.sent();
+                        successFromInner = true;
                         _a.label = 8;
                     case 8: return [3 /*break*/, 10];
                     case 9:
@@ -48611,7 +48625,7 @@ var FetchHelper = /** @class */ (function () {
                         }
                         _a.label = 10;
                     case 10:
-                        if (response.ok) {
+                        if (response.ok && !successFromInner) {
                             obj.FuncSuccess(responseResult, null, null);
                         }
                         return [2 /*return*/];
@@ -50029,7 +50043,9 @@ var RoomAction_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/RoomAct
 var StoryActions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/StoryActions */ "./src/Models/Actions/PlaningPokerApp/StoryActions.ts");
 var UserActions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/UserActions */ "./src/Models/Actions/PlaningPokerApp/UserActions.ts");
 var EndVoteInfo_1 = __webpack_require__(/*! ../../Models/PlaningPoker/EndVoteInfo */ "./src/Models/Models/PlaningPoker/EndVoteInfo.ts");
-var RoomInfo_1 = __webpack_require__(/*! ../../Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
+var RoomShortInfo_1 = __webpack_require__(/*! ../../Models/PlaningPoker/State/RoomShortInfo */ "./src/Models/Models/PlaningPoker/State/RoomShortInfo.ts");
+var Story_1 = __webpack_require__(/*! ../../Models/PlaningPoker/State/Story */ "./src/Models/Models/PlaningPoker/State/Story.ts");
+var UserInRoom_1 = __webpack_require__(/*! ../../Models/PlaningPoker/State/UserInRoom */ "./src/Models/Models/PlaningPoker/State/UserInRoom.ts");
 var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var HubEndpointsFront = /** @class */ (function () {
     function HubEndpointsFront() {
@@ -50096,6 +50112,36 @@ var PlaningPokerController = /** @class */ (function () {
     function PlaningPokerController() {
         this.EndPoints = new HubEndpoints();
     }
+    PlaningPokerController.prototype.GetRoomsListRedux = function () {
+        var _this = this;
+        return function (dispatch, getState) {
+            _this.GetRoomsList(function (error, data) {
+                if (error) {
+                    return;
+                }
+                if (data) {
+                    var rooms = data.rooms.map(function (x) {
+                        var st = new RoomShortInfo_1.RoomShortInfo();
+                        st.FillByBackModel(x);
+                        return st;
+                    });
+                    dispatch((0, RoomAction_1.SetRoomsListActionCreator)(rooms));
+                }
+            });
+        };
+    };
+    PlaningPokerController.prototype.GetRoomsList = function (onSuccess) {
+        var _this = this;
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {},
+            Type: "GET",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/PlanitPoker/get-my-rooms',
+        });
+    };
     PlaningPokerController.prototype.GetNotActualStoriesRedux = function (roomname, userId, page, countOnPage) {
         var _this = this;
         return function (dispatch, getState) {
@@ -50105,7 +50151,7 @@ var PlaningPokerController = /** @class */ (function () {
                 }
                 if (data) {
                     var stories = data.stories.map(function (x) {
-                        var st = new RoomInfo_1.Story();
+                        var st = new Story_1.Story();
                         st.FillByBackModel(x);
                         return st;
                     });
@@ -50130,6 +50176,36 @@ var PlaningPokerController = /** @class */ (function () {
             FuncError: function (xhr, status, error) { },
             Url: G_PathToServer + 'api/PlanitPoker/get-not-actual-stories',
         });
+    };
+    PlaningPokerController.prototype.UpdateRoomImageRedux = function (roomname, mainImageSave) {
+        var _this = this;
+        return function (dispatch, getState) {
+            _this.UpdateRoomImage(roomname, mainImageSave, function (error, data) {
+                if (error) {
+                    return;
+                }
+                if (data) {
+                    dispatch((0, RoomAction_1.SetRoomImageActionCreator)(data.result || ''));
+                }
+            });
+        };
+    };
+    PlaningPokerController.prototype.UpdateRoomImage = function (roomname, mainImageSave, onSuccess) {
+        var _this = this;
+        var data = new FormData();
+        if (mainImageSave) {
+            data.append('image', mainImageSave);
+        }
+        data.append('roomname', roomname);
+        G_AjaxHelper.GoAjaxRequest({
+            Data: data,
+            Type: "PATCH",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/PlanitPoker/change-room-image',
+        }, true);
     };
     // ChangeRoomPasswordRedux(roomname: string, userConnectionId: string, oldPassword: string, newPassword: string) {
     //     return (dispatch: any, getState: any) => {
@@ -50172,7 +50248,7 @@ var PlaningPokerController = /** @class */ (function () {
             _this.GetUsersIsRoom(roomname, userId, function (error, data) {
                 if (data) {
                     var newUsersData = data.map(function (x) {
-                        var us = new RoomInfo_1.UserInRoom();
+                        var us = new UserInRoom_1.UserInRoom();
                         us.FillByBackModel(x);
                         return us;
                     });
@@ -50204,7 +50280,7 @@ var PlaningPokerController = /** @class */ (function () {
         return function (dispatch, getState) {
             _this.GetRoomInfo(roomname, userId, function (error, data) {
                 var newUsersData = data.room.users.map(function (x) {
-                    var us = new RoomInfo_1.UserInRoom();
+                    var us = new UserInRoom_1.UserInRoom();
                     us.FillByBackModel(x);
                     return us;
                 });
@@ -50217,8 +50293,9 @@ var PlaningPokerController = /** @class */ (function () {
                 dispatch((0, RoomAction_1.SetVoteInfoActionCreator)(endVoteInfo));
                 dispatch((0, StoryActions_1.SetCurrentStoryIdActionCreator)(data.room.current_story_id));
                 dispatch((0, RoomAction_1.SetRoomStatusActionCreator)(data.room.status));
+                dispatch((0, RoomAction_1.SetRoomImageActionCreator)(data.room.image_path));
                 dispatch((0, StoryActions_1.SetStoriesActionCreator)(data.room.actual_stories.map(function (x) {
-                    var st = new RoomInfo_1.Story();
+                    var st = new Story_1.Story();
                     st.FillByBackModel(x);
                     return st;
                 })));
@@ -51186,8 +51263,15 @@ var EndVoteUserInfo = /** @class */ (function () {
 exports.EndVoteUserInfo = EndVoteUserInfo;
 var EndVoteInfo = /** @class */ (function () {
     function EndVoteInfo() {
+        this.UsersInfo = [];
+        this.AverageVote = 0;
+        this.MinVote = 0;
+        this.MaxVote = 0;
     }
     EndVoteInfo.prototype.FillByBackModel = function (newData) {
+        if (newData == null) {
+            return;
+        }
         this.AverageVote = newData.average_vote;
         this.MinVote = newData.max_vote;
         this.MaxVote = newData.min_vote;
@@ -51204,21 +51288,93 @@ exports.EndVoteInfo = EndVoteInfo;
 
 /***/ }),
 
-/***/ "./src/Models/Models/PlaningPoker/RoomInfo.ts":
-/*!****************************************************!*\
-  !*** ./src/Models/Models/PlaningPoker/RoomInfo.ts ***!
-  \****************************************************/
+/***/ "./src/Models/Models/PlaningPoker/State/PlaningPokerApp.ts":
+/*!*****************************************************************!*\
+  !*** ./src/Models/Models/PlaningPoker/State/PlaningPokerApp.ts ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.StoriesInfo = exports.PlaningPokerAppState = void 0;
+var RoomInfo_1 = __webpack_require__(/*! ./RoomInfo */ "./src/Models/Models/PlaningPoker/State/RoomInfo.ts");
+var PlaningPokerUserInfo_1 = __webpack_require__(/*! ./PlaningPokerUserInfo */ "./src/Models/Models/PlaningPoker/State/PlaningPokerUserInfo.ts");
+var VoteInfo_1 = __webpack_require__(/*! ./VoteInfo */ "./src/Models/Models/PlaningPoker/State/VoteInfo.ts");
+var PlaningPokerAppState = /** @class */ (function () {
+    function PlaningPokerAppState() {
+        this.NotActualStories = [];
+        this.UsersList = [];
+        this.VoteInfo = new VoteInfo_1.VoteInfo();
+        this.TotalNotActualStoriesCount = 0;
+        this.User = new PlaningPokerUserInfo_1.PlaningPokerUserInfo();
+        this.User.UserName = 'enter_your_name';
+        this.RoomInfo = new RoomInfo_1.RoomInfo();
+        this.StoriesInfo = new StoriesInfo();
+        this.SelectedVoteCard = '-1';
+        this.RoomStatus = RoomInfo_1.RoomStatus.None;
+        this.DieRoomTimeInitial = null;
+        this.EditRoom = false;
+        this.RoomCards = [];
+    }
+    return PlaningPokerAppState;
+}());
+exports.PlaningPokerAppState = PlaningPokerAppState;
+var StoriesInfo = /** @class */ (function () {
+    // CurrentStoryNameChange: string;
+    // CurrentStoryDescriptionChange: string;
+    function StoriesInfo() {
+        this.Stories = [];
+        this.CurrentStoryId = "";
+        // this.CurrentStoryNameChange = "";
+        // this.CurrentStoryDescriptionChange = "";
+    }
+    return StoriesInfo;
+}());
+exports.StoriesInfo = StoriesInfo;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/PlaningPoker/State/PlaningPokerUserInfo.ts":
+/*!**********************************************************************!*\
+  !*** ./src/Models/Models/PlaningPoker/State/PlaningPokerUserInfo.ts ***!
+  \**********************************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Story = exports.VoteInfo = exports.PlaningPokerUserInfo = exports.UserInRoom = exports.UserRoles = exports.RoomStatus = exports.RoomInfo = void 0;
-//todo хорошо бы по файликам раскидать
+exports.PlaningPokerUserInfo = void 0;
+var PlaningPokerUserInfo = /** @class */ (function () {
+    function PlaningPokerUserInfo() {
+        this.UserName = "";
+        this.UserId = "";
+        this.UserConnectionId = "";
+        this.LoginnedInMainApp = false;
+    }
+    return PlaningPokerUserInfo;
+}());
+exports.PlaningPokerUserInfo = PlaningPokerUserInfo;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/PlaningPoker/State/RoomInfo.ts":
+/*!**********************************************************!*\
+  !*** ./src/Models/Models/PlaningPoker/State/RoomInfo.ts ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.UserRoles = exports.RoomStatus = exports.RoomInfo = void 0;
 var RoomInfo = /** @class */ (function () {
     function RoomInfo() {
-        this.Name = "";
-        this.Password = "";
+        this.Name = '';
+        this.ImagePath = '';
+        this.Password = '';
         this.InRoom = false;
     }
     return RoomInfo;
@@ -51241,61 +51397,46 @@ var UserRoles = /** @class */ (function () {
     return UserRoles;
 }());
 exports.UserRoles = UserRoles;
-var UserInRoom = /** @class */ (function () {
-    function UserInRoom() {
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/PlaningPoker/State/RoomShortInfo.ts":
+/*!***************************************************************!*\
+  !*** ./src/Models/Models/PlaningPoker/State/RoomShortInfo.ts ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.RoomShortInfo = void 0;
+var RoomShortInfo = /** @class */ (function () {
+    function RoomShortInfo() {
+        this.Name = "";
+        this.ImagePath = "";
     }
-    UserInRoom.prototype.FillByBackModel = function (newData) {
-        this.Id = newData.id;
-        this.Name = newData.name;
-        this.Vote = newData.vote;
-        this.Roles = newData.roles;
-        this.HasVote = newData.has_vote;
-        this.ImageLink = newData.image_link;
+    RoomShortInfo.prototype.FillByBackModel = function (newData) {
+        this.Name = newData.roomname;
+        this.ImagePath = newData.image_path;
     };
-    UserInRoom.prototype.IsAdmin = function () {
-        return this.Roles.includes(UserRoles.Creator) || this.Roles.includes(UserRoles.Admin);
-    };
-    ;
-    UserInRoom.prototype.CanVote = function () {
-        //должно быть синхронно с бэком
-        return !this.Roles.includes(UserRoles.Observer);
-    };
-    ;
-    return UserInRoom;
+    return RoomShortInfo;
 }());
-exports.UserInRoom = UserInRoom;
-var PlaningPokerUserInfo = /** @class */ (function () {
-    function PlaningPokerUserInfo() {
-        this.UserName = "";
-        this.UserId = "";
-        this.UserConnectionId = "";
-        this.LoginnedInMainApp = false;
-    }
-    return PlaningPokerUserInfo;
-}());
-exports.PlaningPokerUserInfo = PlaningPokerUserInfo;
-var VoteInfo = /** @class */ (function () {
-    function VoteInfo() {
-        this.MaxVote = 0;
-        this.MinVote = 0;
-        this.AverageVote = 0;
-        this.AllAreVoted = false;
-    }
-    VoteInfo.prototype.FillByBackModel = function (newData) {
-        this.MaxVote = newData.max_vote;
-        this.MinVote = newData.min_vote;
-        this.AverageVote = newData.average_vote;
-        this.AllAreVoted = false;
-    };
-    VoteInfo.prototype.FillByEndVoteInfo = function (newData) {
-        this.MaxVote = newData.MaxVote;
-        this.MinVote = newData.MinVote;
-        this.AverageVote = newData.AverageVote;
-        this.AllAreVoted = false;
-    };
-    return VoteInfo;
-}());
-exports.VoteInfo = VoteInfo;
+exports.RoomShortInfo = RoomShortInfo;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/PlaningPoker/State/Story.ts":
+/*!*******************************************************!*\
+  !*** ./src/Models/Models/PlaningPoker/State/Story.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Story = void 0;
 var Story = /** @class */ (function () {
     function Story() {
         this.Id = "";
@@ -51323,48 +51464,76 @@ exports.Story = Story;
 
 /***/ }),
 
-/***/ "./src/Models/Models/PlaningPoker/State/PlaningPokerApp.ts":
-/*!*****************************************************************!*\
-  !*** ./src/Models/Models/PlaningPoker/State/PlaningPokerApp.ts ***!
-  \*****************************************************************/
+/***/ "./src/Models/Models/PlaningPoker/State/UserInRoom.ts":
+/*!************************************************************!*\
+  !*** ./src/Models/Models/PlaningPoker/State/UserInRoom.ts ***!
+  \************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.StoriesInfo = exports.PlaningPokerAppState = void 0;
-var RoomInfo_1 = __webpack_require__(/*! ../RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
-var PlaningPokerAppState = /** @class */ (function () {
-    function PlaningPokerAppState() {
-        this.NotActualStories = [];
-        this.UsersList = [];
-        this.VoteInfo = new RoomInfo_1.VoteInfo();
-        this.TotalNotActualStoriesCount = 0;
-        this.User = new RoomInfo_1.PlaningPokerUserInfo();
-        this.User.UserName = 'enter_your_name';
-        this.RoomInfo = new RoomInfo_1.RoomInfo();
-        this.StoriesInfo = new StoriesInfo();
-        this.SelectedVoteCard = '-1';
-        this.RoomStatus = RoomInfo_1.RoomStatus.None;
-        this.DieRoomTimeInitial = null;
-        this.EditRoom = false;
-        this.RoomCards = [];
+exports.UserInRoom = void 0;
+var RoomInfo_1 = __webpack_require__(/*! ./RoomInfo */ "./src/Models/Models/PlaningPoker/State/RoomInfo.ts");
+var UserInRoom = /** @class */ (function () {
+    function UserInRoom() {
     }
-    return PlaningPokerAppState;
+    UserInRoom.prototype.FillByBackModel = function (newData) {
+        this.Id = newData.id;
+        this.Name = newData.name;
+        this.Vote = newData.vote;
+        this.Roles = newData.roles;
+        this.HasVote = newData.has_vote;
+        this.ImageLink = newData.image_link;
+    };
+    UserInRoom.prototype.IsAdmin = function () {
+        return this.Roles.includes(RoomInfo_1.UserRoles.Creator) || this.Roles.includes(RoomInfo_1.UserRoles.Admin);
+    };
+    ;
+    UserInRoom.prototype.CanVote = function () {
+        //должно быть синхронно с бэком
+        return !this.Roles.includes(RoomInfo_1.UserRoles.Observer);
+    };
+    ;
+    return UserInRoom;
 }());
-exports.PlaningPokerAppState = PlaningPokerAppState;
-var StoriesInfo = /** @class */ (function () {
-    // CurrentStoryNameChange: string;
-    // CurrentStoryDescriptionChange: string;
-    function StoriesInfo() {
-        this.Stories = [];
-        this.CurrentStoryId = "";
-        // this.CurrentStoryNameChange = "";
-        // this.CurrentStoryDescriptionChange = "";
+exports.UserInRoom = UserInRoom;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/PlaningPoker/State/VoteInfo.ts":
+/*!**********************************************************!*\
+  !*** ./src/Models/Models/PlaningPoker/State/VoteInfo.ts ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.VoteInfo = void 0;
+var VoteInfo = /** @class */ (function () {
+    function VoteInfo() {
+        this.MaxVote = 0;
+        this.MinVote = 0;
+        this.AverageVote = 0;
+        this.AllAreVoted = false;
     }
-    return StoriesInfo;
+    VoteInfo.prototype.FillByBackModel = function (newData) {
+        this.MaxVote = newData.max_vote;
+        this.MinVote = newData.min_vote;
+        this.AverageVote = newData.average_vote;
+        this.AllAreVoted = false;
+    };
+    VoteInfo.prototype.FillByEndVoteInfo = function (newData) {
+        this.MaxVote = newData.MaxVote;
+        this.MinVote = newData.MinVote;
+        this.AverageVote = newData.AverageVote;
+        this.AllAreVoted = false;
+    };
+    return VoteInfo;
 }());
-exports.StoriesInfo = StoriesInfo;
+exports.VoteInfo = VoteInfo;
 
 
 /***/ }),
@@ -51964,10 +52133,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.RoomReducer = void 0;
 var AppState_1 = __webpack_require__(/*! ../../Models/State/AppState */ "./src/Models/Models/State/AppState.ts");
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
-var RoomInfo_1 = __webpack_require__(/*! ../../Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
 var PlaningPokerHelper_1 = __webpack_require__(/*! ../../BL/PlaningPokerApp/PlaningPokerHelper */ "./src/Models/BL/PlaningPokerApp/PlaningPokerHelper.ts");
 var AlertData_1 = __webpack_require__(/*! ../../Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var RoomAction_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/RoomAction */ "./src/Models/Actions/PlaningPokerApp/RoomAction.ts");
+var VoteInfo_1 = __webpack_require__(/*! ../../Models/PlaningPoker/State/VoteInfo */ "./src/Models/Models/PlaningPoker/State/VoteInfo.ts");
 function RoomReducer(state, action) {
     if (state === void 0) { state = new AppState_1.AppState(); }
     switch (action.type) {
@@ -51991,7 +52160,7 @@ function RoomReducer(state, action) {
                 var data_1 = action.payload;
                 newState.PlaningPokerApp.SelectedVoteCard = '-1';
                 if (!data_1) {
-                    newState.PlaningPokerApp.VoteInfo = new RoomInfo_1.VoteInfo();
+                    newState.PlaningPokerApp.VoteInfo = new VoteInfo_1.VoteInfo();
                     return newState;
                 }
                 newState.PlaningPokerApp.UsersList.forEach(function (x) {
@@ -52051,7 +52220,7 @@ function RoomReducer(state, action) {
                     x.Vote = null;
                     x.HasVote = false;
                 });
-                newState.PlaningPokerApp.VoteInfo = new RoomInfo_1.VoteInfo();
+                newState.PlaningPokerApp.VoteInfo = new VoteInfo_1.VoteInfo();
                 return newState;
             }
         case RoomAction_1.SetInitialRoomDieTimeActionName:
@@ -52073,6 +52242,20 @@ function RoomReducer(state, action) {
                 var newState = (0, cloneDeep_1.default)(state);
                 var data = action.payload;
                 newState.PlaningPokerApp.RoomCards = data;
+                return newState;
+            }
+        case RoomAction_1.SetRoomsListActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.RoomsList = data;
+                return newState;
+            }
+        case RoomAction_1.SetRoomImageActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var data = action.payload;
+                newState.PlaningPokerApp.RoomInfo.ImagePath = data;
                 return newState;
             }
         default:
@@ -55749,7 +55932,7 @@ var PersonSettings = function (props) {
         });
     };
     var loadImage = function () {
-        var img = $('#main_image_input')[0].files[0]; //пример по этому же id есть
+        var img = $('#main_image_input')[0].files[0];
         if (!img) {
             alert('Выберите изображение');
             return;
@@ -55860,18 +56043,26 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SettingsPage = void 0;
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
-var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
+var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/State/RoomInfo */ "./src/Models/Models/PlaningPoker/State/RoomInfo.ts");
 __webpack_require__(/*! ./EditRoom.css */ "./src/components/Body/PlaningPoker/EditRoom/EditRoom.css");
+var SettingsPage;
+(function (SettingsPage) {
+    SettingsPage[SettingsPage["Info"] = 0] = "Info";
+    SettingsPage[SettingsPage["Password"] = 1] = "Password";
+    SettingsPage[SettingsPage["Marks"] = 2] = "Marks";
+})(SettingsPage = exports.SettingsPage || (exports.SettingsPage = {}));
+;
 var EditRoom = function (props) {
     var _a = (0, react_1.useState)(''), oldPassword = _a[0], setOldPassword = _a[1];
     var _b = (0, react_1.useState)(''), newPassword = _b[0], setNewPassword = _b[1];
     var _c = (0, react_1.useState)(''), newPasswordConfirm = _c[0], setNewPasswordConfirm = _c[1];
     var stringCards = props.Cards.join(';');
     var _d = (0, react_1.useState)(stringCards), cards = _d[0], setCards = _d[1];
-    var _e = (0, react_1.useState)(0), showSection = _e[0], setShowSection = _e[1];
+    var _e = (0, react_1.useState)(SettingsPage.Info), showSection = _e[0], setShowSection = _e[1];
     (0, react_1.useEffect)(function () {
         setCards(stringCards);
     }, [stringCards]);
@@ -55930,8 +56121,29 @@ var EditRoom = function (props) {
         };
         setCards('tea;' + calc(0, 15).filter(function (v, i, a) { return a.indexOf(v) === i; }).join(';'));
     };
+    var loadImage = function () {
+        var img = $('#main_image_input')[0].files[0];
+        if (!img) {
+            alert('Выберите изображение');
+            return;
+        }
+        updateImage(img);
+    };
+    var removeImage = function () {
+        updateImage(null);
+    };
+    var updateImage = function (img) {
+        props.UpdateRoomImage(props.RoomName, img);
+    };
     var sectionContent = react_1.default.createElement(react_1.default.Fragment, null);
-    if (showSection === 1) {
+    if (showSection === SettingsPage.Info) {
+        sectionContent = react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement("label", null, "\u0418\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435 \u0433\u0440\u0443\u043F\u043F\u044B"),
+            react_1.default.createElement("input", { className: 'form-control', type: 'file', id: 'main_image_input' }),
+            react_1.default.createElement("button", { type: "button", className: 'btn btn-b-light', onClick: function () { return loadImage(); } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C"),
+            react_1.default.createElement("button", { type: "button", className: 'btn btn-b-light', onClick: function () { return removeImage(); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"));
+    }
+    if (showSection === SettingsPage.Password) {
         sectionContent = react_1.default.createElement(react_1.default.Fragment, null,
             react_1.default.createElement("label", null, "\u0421\u0442\u0430\u0440\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"),
             react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setOldPassword(e.target.value); }, placeholder: '\u0421\u0442\u0430\u0440\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: oldPassword }),
@@ -55941,7 +56153,7 @@ var EditRoom = function (props) {
             react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setNewPasswordConfirm(e.target.value); }, placeholder: '\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: newPasswordConfirm }),
             react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return changePassword(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C"));
     }
-    else if (showSection === 2) {
+    else if (showSection === SettingsPage.Marks) {
         sectionContent = react_1.default.createElement(react_1.default.Fragment, null,
             react_1.default.createElement("label", null, "\u041E\u0446\u0435\u043D\u043A\u0438 \u0447\u0435\u0440\u0435\u0437 ;"),
             react_1.default.createElement("input", { type: 'text', className: 'persent-100-width form-control', onChange: function (e) { return setCards(e.target.value); }, placeholder: '\u041E\u0446\u0435\u043D\u043A\u0438', value: cards }),
@@ -55951,8 +56163,9 @@ var EditRoom = function (props) {
     }
     return react_1.default.createElement("div", null,
         react_1.default.createElement("div", { className: 'edit-room-sections-block' },
-            react_1.default.createElement("div", { onClick: function () { return setShowSection(1); } }, "\u041F\u0430\u0440\u043E\u043B\u044C"),
-            react_1.default.createElement("div", { onClick: function () { return setShowSection(2); } }, "\u041E\u0446\u0435\u043D\u043A\u0438")),
+            react_1.default.createElement("div", { onClick: function () { return setShowSection(SettingsPage.Info); } }, "\u0418\u043D\u0444\u043E"),
+            react_1.default.createElement("div", { onClick: function () { return setShowSection(SettingsPage.Password); } }, "\u041F\u0430\u0440\u043E\u043B\u044C"),
+            react_1.default.createElement("div", { onClick: function () { return setShowSection(SettingsPage.Marks); } }, "\u041E\u0446\u0435\u043D\u043A\u0438")),
         react_1.default.createElement("hr", null),
         sectionContent);
 };
@@ -55967,6 +56180,9 @@ var mapStateToProps = function (state, ownProps) {
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
     var res = {};
+    res.UpdateRoomImage = function (roomname, img) {
+        dispatch(window.G_PlaningPokerController.UpdateRoomImageRedux(roomname, img));
+    };
     return res;
 };
 var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -56018,11 +56234,19 @@ __webpack_require__(/*! ./Index.css */ "./src/components/Body/PlaningPoker/Index
 var Index = function (props) {
     var _a = (0, react_1.useState)(props.RoomInfo.Name || ''), roomName = _a[0], setRoomName = _a[1];
     var _b = (0, react_1.useState)(props.RoomInfo.Password || ''), roomPassword = _b[0], setRoomPassword = _b[1];
+    // let roomList: { RoomName: string, RoomImg: string }[] = [];
+    // roomList.push({ RoomName: 'room1', RoomImg: '' });
+    // roomList.push({ RoomName: 'room2', RoomImg: '' });
+    // roomList.push({ RoomName: 'room3', RoomImg: '' });
+    // roomList.push({ RoomName: 'room4', RoomImg: '' });
     (0, react_1.useEffect)(function () {
         var pathNameUrlSplit = document.location.pathname.split('/');
         if (pathNameUrlSplit && pathNameUrlSplit.length > 2) {
             props.SetRoomName(pathNameUrlSplit[2]);
         }
+        // if (props.AuthSuccess) {
+        //     //грузим список комнат
+        // }
         // console.log("Index");
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.RoomNotCreated, function () {
             var alertFactory = new AlertData_1.AlertData();
@@ -56034,6 +56258,11 @@ var Index = function (props) {
             props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.RoomNotCreated);
         };
     }, []);
+    (0, react_1.useEffect)(function () {
+        if (props.AuthSuccess && !props.RoomInfo.InRoom && !props.Rooms) {
+            props.LoadRoomList();
+        }
+    }, [props.AuthSuccess, props.RoomInfo.InRoom]);
     (0, react_1.useEffect)(function () {
         setRoomName(props.RoomInfo.Name || '');
     }, [props.RoomInfo.Name]);
@@ -56085,15 +56314,22 @@ var Index = function (props) {
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("p", null, "\u041F\u0430\u0440\u043E\u043B\u044C(\u043D\u0435\u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E)"),
                     react_1.default.createElement("input", { className: "form-control persent-100-width", type: "password", value: roomPassword, onChange: function (e) { setRoomPassword(e.target.value); }, placeholder: '\u041F\u0430\u0440\u043E\u043B\u044C(\u043D\u0435\u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E)' })),
-                react_1.default.createElement("p", null, "\u0415\u0441\u043B\u0438 \u0441\u043E\u0437\u0434\u0430\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443 \u0431\u0435\u0437 \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u0438 \u0432 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u043C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438, \u0441\u043E\u0437\u0434\u0430\u0435\u0442\u0441\u044F \u043E\u0434\u043D\u043E\u0440\u0430\u0437\u043E\u0432\u0430\u044F \u043A\u043E\u043C\u043D\u0430\u0442\u0430(\u0431\u0443\u0434\u0435\u0442 \u0443\u0434\u0430\u043B\u0435\u043D\u0430 \u0447\u0435\u0440\u0435\u0437 \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u043E\u0435 \u0432\u0440\u0435\u043C\u044F)")),
+                props.AuthSuccess ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement("p", null, "\u0415\u0441\u043B\u0438 \u0441\u043E\u0437\u0434\u0430\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443 \u0431\u0435\u0437 \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u0438 \u0432 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u043C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438, \u0441\u043E\u0437\u0434\u0430\u0435\u0442\u0441\u044F \u043E\u0434\u043D\u043E\u0440\u0430\u0437\u043E\u0432\u0430\u044F \u043A\u043E\u043C\u043D\u0430\u0442\u0430(\u0431\u0443\u0434\u0435\u0442 \u0443\u0434\u0430\u043B\u0435\u043D\u0430 \u0447\u0435\u0440\u0435\u0437 \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u043E\u0435 \u0432\u0440\u0435\u043C\u044F)")),
             actionsButton,
             react_1.default.createElement("div", { className: "display_none" },
-                react_1.default.createElement(react_router_dom_1.Link, { id: "move_to_room_link_react", to: "/planing-poker/room/" + roomName }, "hidden"))));
+                react_1.default.createElement(react_router_dom_1.Link, { id: "move_to_room_link_react", to: "/planing-poker/room/" + roomName }, "hidden")),
+            props.Rooms ? react_1.default.createElement("div", { className: "planing-poker-rooms-list" }, props.Rooms.map(function (x) { return react_1.default.createElement("div", { key: x.Name, className: 'one-room', onClick: function () { return setRoomName(x.Name); } },
+                react_1.default.createElement("div", { className: "one-room-img" },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: x.ImagePath || G_EmptyImagePath, alt: "\u0410\u0432\u0430\u0442\u0430\u0440 \u0433\u0440\u0443\u043F\u043F\u044B", title: '\u0410\u0432\u0430\u0442\u0430\u0440 \u0433\u0440\u0443\u043F\u043F\u044B' })),
+                react_1.default.createElement("div", null, x.Name)); })) : react_1.default.createElement(react_1.default.Fragment, null)));
 };
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.RoomInfo = state.PlaningPokerApp.RoomInfo;
     res.Username = state.PlaningPokerApp.User.UserName;
+    // res.LogginnedInMainApp = state.PlaningPokerApp.User.LoginnedInMainApp;
+    res.AuthSuccess = state.Auth.AuthSuccess;
+    res.Rooms = state.PlaningPokerApp.RoomsList;
     return res;
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
@@ -56106,6 +56342,9 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     res.SetRoomPassword = function (roompass) {
         dispatch((0, RoomAction_1.SetRoomPasswordActionCreator)(roompass));
+    };
+    res.LoadRoomList = function () {
+        dispatch(window.G_PlaningPokerController.GetRoomsListRedux());
     };
     return res;
 };
@@ -56527,7 +56766,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 // import * as React from "react";
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
+var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/State/RoomInfo */ "./src/Models/Models/PlaningPoker/State/RoomInfo.ts");
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 var UserInList_1 = __importDefault(__webpack_require__(/*! ../UserInList/UserInList */ "./src/components/Body/PlaningPoker/UserInList/UserInList.tsx"));
 var OneVoteCard_1 = __importDefault(__webpack_require__(/*! ../OneVoteCard/OneVoteCard */ "./src/components/Body/PlaningPoker/OneVoteCard/OneVoteCard.tsx"));
@@ -56543,6 +56782,8 @@ var RoomAction_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPok
 var StoryActions_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/StoryActions */ "./src/Models/Actions/PlaningPokerApp/StoryActions.ts");
 var UserActions_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/UserActions */ "./src/Models/Actions/PlaningPokerApp/UserActions.ts");
 var EndVoteInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/EndVoteInfo */ "./src/Models/Models/PlaningPoker/EndVoteInfo.ts");
+var Story_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/State/Story */ "./src/Models/Models/PlaningPoker/State/Story.ts");
+var UserInRoom_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/State/UserInRoom */ "./src/Models/Models/PlaningPoker/State/UserInRoom.ts");
 __webpack_require__(/*! ./Room.css */ "./src/components/Body/PlaningPoker/Room/Room.css");
 //подписки сигналр захватывают пропсы непонятно как, раньше это работало, но предположительно после введения deepClone
 //все вообще отвалилось. 6.30.2021, вот так получилось пофиксить, замена обработчика подписки на => не помогала
@@ -56596,7 +56837,7 @@ var Room = function (props) {
                 return;
             }
             var dataTyped = data;
-            var us = new RoomInfo_1.UserInRoom();
+            var us = new UserInRoom_1.UserInRoom();
             us.FillByBackModel(dataTyped);
             props.AddUserToRoom(us);
         });
@@ -56642,7 +56883,7 @@ var Room = function (props) {
             props.SetRoomStatus(RoomInfo_1.RoomStatus.CloseVote);
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.AddedNewStory, function (data) {
-            var newStory = new RoomInfo_1.Story();
+            var newStory = new Story_1.Story();
             newStory.FillByBackModel(data);
             props.AddNewStory(newStory);
         });
@@ -56652,7 +56893,7 @@ var Room = function (props) {
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.CurrentStoryChanged, function (id, newName, newDescription) {
             //изменение данных текущей истории
-            var story = new RoomInfo_1.Story();
+            var story = new Story_1.Story();
             story.Id = id;
             story.Name = newName;
             story.Description = newDescription;
@@ -56666,7 +56907,7 @@ var Room = function (props) {
             if (!newData) {
                 return;
             }
-            var st = new RoomInfo_1.Story();
+            var st = new Story_1.Story();
             st.FillByBackModel(newData);
             props.MoveStoryToComplete(oldId, st);
         });
@@ -56877,7 +57118,6 @@ var Room = function (props) {
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + showVoteImage }))));
         }
         return react_1.default.createElement("div", null,
-            react_1.default.createElement("p", null, "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C"),
             react_1.default.createElement("div", { className: 'planing-name-block' },
                 react_1.default.createElement("div", { className: 'planing-name-block-input-block' },
                     react_1.default.createElement("input", { type: "text", className: "persent-100-width form-control", onChange: function (e) {
@@ -56896,21 +57136,21 @@ var Room = function (props) {
         return react_1.default.createElement("div", { className: "planing-room-not-auth", title: "при обновлении страницы, вы подключаетесь как новый пользователь(исключение-вы авторизованы в основном приложении)." +
                 "если в комнате все пользвоатели - неавторизованы, комната не будет сохраняться" }, "!");
     };
-    return react_1.default.createElement("div", { className: "container" },
-        react_1.default.createElement("img", { className: 'visibility-hidden size-0', src: "/images/eye5.png" }),
-        react_1.default.createElement("img", { className: 'visibility-hidden size-0', src: "/images/eye1.png" }),
+    return react_1.default.createElement("div", { className: 'container' },
+        react_1.default.createElement("img", { className: 'visibility-hidden size-0', src: '/images/eye5.png' }),
+        react_1.default.createElement("img", { className: 'visibility-hidden size-0', src: '/images/eye1.png' }),
         props.EditRoom ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return props.EndEditRoom(); }, IsHeightWindow: true, Title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043A\u043E\u043C\u043D\u0430\u0442\u044B', InnerContent: function () { return react_1.default.createElement(EditRoom_1.default, { MyHubConnection: props.MyHubConnection }); } }) : react_1.default.createElement(react_1.default.Fragment, null),
-        react_1.default.createElement("div", { className: "padding-10-top planing-room-header" },
-            react_1.default.createElement("h1", null,
-                "\u041A\u043E\u043C\u043D\u0430\u0442\u0430: ",
-                props.RoomInfo.Name),
-            renderNotAuthMessage()),
-        react_1.default.createElement("div", null,
-            react_1.default.createElement(RoomTimer_1.default, { DieDate: dieRoomTime, AliveRoom: aliveRoom, ForceLeaveFromRoom: forceLeaveFromRoom })),
+        react_1.default.createElement("div", { className: 'planing-room-header planing-poker-left-one-section' },
+            react_1.default.createElement("div", { className: 'room-top-info' },
+                react_1.default.createElement("h1", null, props.RoomInfo.Name),
+                react_1.default.createElement(RoomTimer_1.default, { DieDate: dieRoomTime, AliveRoom: aliveRoom, ForceLeaveFromRoom: forceLeaveFromRoom }),
+                roomMainActionButton(),
+                renderNotAuthMessage()),
+            react_1.default.createElement("div", { className: 'room-image' },
+                react_1.default.createElement("img", { className: 'persent-100-width-height', src: props.RoomInfo.ImagePath || G_EmptyImagePath, alt: '\u0410\u0432\u0430\u0442\u0430\u0440 \u0433\u0440\u0443\u043F\u043F\u044B', title: '\u0410\u0432\u0430\u0442\u0430\u0440 \u0433\u0440\u0443\u043F\u043F\u044B' }))),
         react_1.default.createElement("div", { className: "row" },
             react_1.default.createElement("div", { className: "planit-room-left-part col-12 col-md-9" },
                 react_1.default.createElement("div", null,
-                    roomMainActionButton(),
                     renderVotePlaceIfNeed(),
                     renderVoteResultIfNeed()),
                 react_1.default.createElement(StoriesSection_1.default, { MyHubConnection: props.MyHubConnection, IsAdmin: currentUserIsAdmin })),
@@ -57063,7 +57303,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
+var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/State/RoomInfo */ "./src/Models/Models/PlaningPoker/State/RoomInfo.ts");
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
 var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
 var Paggination_1 = __importDefault(__webpack_require__(/*! ../../Paggination/Paggination */ "./src/components/Body/Paggination/Paggination.tsx"));
@@ -57347,7 +57587,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/RoomInfo */ "./src/Models/Models/PlaningPoker/RoomInfo.ts");
+var RoomInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/State/RoomInfo */ "./src/Models/Models/PlaningPoker/State/RoomInfo.ts");
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 __webpack_require__(/*! ./UserInList.css */ "./src/components/Body/PlaningPoker/UserInList/UserInList.css");
 var UserInList = function (props) {

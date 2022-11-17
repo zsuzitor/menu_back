@@ -90,7 +90,7 @@ namespace Menu.Controllers
 
         [Route("change-user-image")]
         [HttpPatch]
-        public async Task ChangeUserPassword([FromForm] IFormFile image)
+        public async Task ChangeUserImage([FromForm] IFormFile image)
         {
             await _apiHealper.DoStandartSomething(
               async () =>

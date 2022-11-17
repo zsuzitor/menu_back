@@ -4,6 +4,7 @@ using PlanitPoker.Models.Returns;
 using PlanitPoker.Models.Entity;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace PlanitPoker.Models.Services
 {
@@ -32,6 +33,8 @@ namespace PlanitPoker.Models.Services
         Task<DateTime> AddTimeAliveRoomAsync(string roomName);
         Task<DateTime> AddTimeAliveRoom(Room room);
         Task<bool> SetRoomCards(Room room, string userConnectionId, List<string> cards);
+        Task<List<RoomShortInfo>> GetRoomsAsync(long userId);
+        Task<string> ChangeRoomImageAsync(string roomName, long userId, IFormFile image);
 
         Task<(bool sc, string oldConnectionId)> AddUserIntoRoomAsync(string roomName, PlanitUser user);
         Task<(bool sc, string oldConnectionId)> AddUserIntoRoomAsync(Room room, PlanitUser user);

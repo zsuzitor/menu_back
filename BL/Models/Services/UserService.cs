@@ -179,7 +179,6 @@ namespace Menu.Models.Services
                     throw new SomeCustomException(ErrorConsts.FileError);
                 }
             }
-            
 
             var user = await _userRepository.UpdateImageAsync(userId, pathImage);
             if (user == null)

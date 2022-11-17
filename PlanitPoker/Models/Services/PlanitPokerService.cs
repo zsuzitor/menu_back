@@ -17,6 +17,8 @@ using System.Globalization;
 using DAL.Models.DAL;
 using jwtLib.JWTAuth.Interfaces;
 using System.Text.Json;
+using Microsoft.AspNetCore.Http;
+using Menu.Models.Services.Interfaces;
 
 namespace PlanitPoker.Models.Services
 {
@@ -30,10 +32,13 @@ namespace PlanitPoker.Models.Services
         private readonly MultiThreadHelper _multiThreadHelper;
 
         private readonly IRoomRepository _roomRepository;
+        private readonly IPlaningUserRepository _planingUserRepository;
         private readonly IStoryRepository _storyRepository;
         private readonly IErrorService _errorService;
         private readonly IErrorContainer _errorContainer;
         private readonly IJWTHasher _hasher;
+        private readonly IImageService _imageService;
+
 
 
 
@@ -51,12 +56,16 @@ namespace PlanitPoker.Models.Services
                 IRoomRepository roomRepository, IStoryRepository storyRepository
                 , IErrorService errorService, IErrorContainer errorContainer,
                  IJWTHasher hasher,
-                DBHelper dbHelper, MenuDbContext db
+                DBHelper dbHelper, MenuDbContext db,
+                IPlaningUserRepository planingUserRepository,
+                IImageService imageService
             )
         {
             _multiThreadHelper = multiThreadHelper;
             _roomRepository = roomRepository;
             _storyRepository = storyRepository;
+            _planingUserRepository = planingUserRepository;
+            _imageService = imageService;
 
             _errorService = errorService;
             _errorContainer = errorContainer;
@@ -1166,7 +1175,45 @@ namespace PlanitPoker.Models.Services
             return sc;
         }
 
+        public async Task<List<RoomShortInfo>> GetRoomsAsync(long userId)
+        {
+            return await _planingUserRepository.GetRoomsAsync(userId);
+        }
 
+
+
+        public async Task<string> ChangeRoomImageAsync(string roomName, long userId, IFormFile image)
+        {
+            var room = await TryGetRoomAsync(roomName);
+            if (room == null)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+            }
+
+            string pathImage = null;
+            if (image != null)
+            {
+                pathImage = await _imageService.CreateUploadFileWithOutDbRecord(image);
+                if (string.IsNullOrEmpty(pathImage))
+                {
+                    throw new SomeCustomException(ErrorConsts.FileError);
+                }
+            }
+
+            var success = await UpdateIfCan(room, userId, true, async rm =>
+            {
+                rm.ImagePath = pathImage;
+                return true;
+            });
+
+            if (success)
+            {
+                return pathImage;
+            }
+
+            return null;
+
+        }
 
 
         #region private
@@ -1175,7 +1222,27 @@ namespace PlanitPoker.Models.Services
             , bool isAdmin,
             Func<StoredRoom, Task<bool>> workWithRoom)
         {
-            if (room == null || string.IsNullOrWhiteSpace(userConnectionIdRequest) || workWithRoom == null)
+            if (string.IsNullOrWhiteSpace(userConnectionIdRequest))
+            {
+                return false;
+            }
+
+            return await UpdateIfCan(room, (us) => us.UserConnectionId == userConnectionIdRequest, isAdmin, workWithRoom);
+        }
+
+        private async Task<bool> UpdateIfCan(Room room, long mainAppUserId
+            , bool isAdmin,
+            Func<StoredRoom, Task<bool>> workWithRoom)
+        {
+
+            return await UpdateIfCan(room, (us) => us.MainAppUserId == mainAppUserId, isAdmin, workWithRoom);
+        }
+
+        private async Task<bool> UpdateIfCan(Room room, Predicate<PlanitUser> userComparer
+            , bool isAdmin,
+        Func<StoredRoom, Task<bool>> workWithRoom)
+        {
+            if (room == null || workWithRoom == null)
             {
                 return false;
             }
@@ -1184,7 +1251,7 @@ namespace PlanitPoker.Models.Services
             await room.SetConcurentValueAsync(_multiThreadHelper, async rm =>
             {
                 if (!rm.StoredRoom.Users
-                    .Any(x => x.UserConnectionId == userConnectionIdRequest
+                    .Any(x => userComparer(x)
                         && ((isAdmin && x.IsAdmin) || !isAdmin)))
                 {
                     throw new SomeCustomException(Consts.PlanitPokerErrorConsts.DontHaveAccess);
@@ -1356,27 +1423,12 @@ namespace PlanitPoker.Models.Services
                 Password = roomDb.StoredRoom.Password,
                 Id = roomDb.StoredRoom.Id ?? 0,
                 Cards = JsonSerializer.Serialize(roomDb.StoredRoom.Cards), //string.Join(';', roomDb.StoredRoom.Cards),
+                ImagePath = roomDb.StoredRoom.ImagePath,
             };
 
             return res;
         }
 
-        private PlaningRoomDal GetRoomDbObject(StoredRoom roomDb)
-        {
-            if (roomDb == null)
-            {
-                return null;
-            }
-
-            var res = new PlaningRoomDal
-            {
-                Name = roomDb.Name,
-                Password = roomDb.Password,
-                Id = roomDb.Id ?? 0
-            };
-
-            return res;
-        }
 
         /// <summary>
         /// загрузит все чего не хватает, истории только актуальные
@@ -1405,6 +1457,7 @@ namespace PlanitPoker.Models.Services
                 }).ToList(),
                 Cards = string.IsNullOrWhiteSpace(roomDb.Cards) ? DefaultCards.Select(x => x).ToList()
                     : JsonSerializer.Deserialize<List<string>>(roomDb.Cards),
+                ImagePath = roomDb.ImagePath,
                 //roomDb.Cards?.Split(";", StringSplitOptions.RemoveEmptyEntries).ToList() ?? new List<string>()
             };
 
@@ -1556,6 +1609,8 @@ namespace PlanitPoker.Models.Services
 
             return res;
         }
+
+
 
         #endregion private
 

@@ -10,6 +10,7 @@ namespace PlanitPoker.Models.Entity
         public long? Id { get; set; }//только для уже существующих в бд записей
         public string Name { get; set; }
         public string Password { get; set; }
+        public string ImagePath { get; set; }
 
 
         public DateTime DieDate { get; set; }

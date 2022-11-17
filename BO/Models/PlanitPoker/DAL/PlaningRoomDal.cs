@@ -10,6 +10,8 @@ namespace BO.Models.PlaningPoker.DAL
         public long Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
+        public string ImagePath { get; set; }
+
 
         public List<PlaningStoryDal> Stories { get; set; }
         public List<PlaningRoomUserDal> Users { get; set; }

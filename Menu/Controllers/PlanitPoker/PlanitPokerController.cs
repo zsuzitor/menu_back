@@ -11,6 +11,9 @@ using System.Linq;
 using PlanitPoker.Models.Returns;
 using Common.Models.Poco;
 using Common.Models.Return;
+using jwtLib.JWTAuth.Interfaces;
+using Microsoft.AspNetCore.Http;
+using Common.Models.Error.services.Interfaces;
 
 namespace Menu.Controllers.PlanitPoker
 {
@@ -23,7 +26,10 @@ namespace Menu.Controllers.PlanitPoker
         private readonly ILogger _logger;
 
         private readonly IPlanitPokerService _planitPokerService;
-        //private readonly IErrorService _errorService;
+
+        private readonly IJWTService _jwtService;
+
+        private readonly IErrorService _errorService;
         //private readonly IHubContext<PlanitPokerHub> _hubContext;
 
 
@@ -32,16 +38,17 @@ namespace Menu.Controllers.PlanitPoker
 
         public PlanitPokerController(IApiHelper apiHealper,
             ILogger<PlanitPokerController> logger,
-            IPlanitPokerService planitPokerService
-        //IErrorService errorService
+            IPlanitPokerService planitPokerService, IJWTService jwtService,
+        IErrorService errorService
         )
         {
             _apiHealper = apiHealper;
             _logger = logger;
             _planitPokerService = planitPokerService;
-            //_errorService = errorService;
+            _errorService = errorService;
             //hubContext.
 
+            _jwtService = jwtService;
             _planitUserReturnFactory = new PlanitUserReturnFactory();
         }
 
@@ -152,8 +159,53 @@ namespace Menu.Controllers.PlanitPoker
         }
 
 
-       
+        [Route("get-my-rooms")]
+        [HttpGet]
+        public async Task GetRooms()
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
+                    var rooms = await _planitPokerService
+                        .GetRoomsAsync(userInfo.UserId);
+                    var res = new { rooms = rooms.Select(x => new RoomShort(x)) };
+
+                    await _apiHealper.WriteResponseAsync(Response, res);
+
+                }, Response, _logger);
+        }
+
+
+
+        [Route("change-room-image")]
+        [HttpPatch]
+        public async Task ChangeRoomImage([FromForm] string roomname, [FromForm] IFormFile image)
+        {
+            roomname = NormalizeRoomName(roomname);
+            await _apiHealper.DoStandartSomething(
+              async () =>
+              {
+                  _apiHealper.FileValidator(image, ModelState);
+                  _apiHealper.ErrorsFromModelState(ModelState);
+                  if (_errorService.HasError())
+                  {
+                      throw new StopException();
+                  }
+
+                  var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                  var res = await _planitPokerService.ChangeRoomImageAsync(roomname, userInfo.UserId, image);
+                  if (image != null && string.IsNullOrEmpty(res))
+                  {
+                      throw new SomeCustomException(ErrorConsts.SomeError);
+                  }
+
+                  await _apiHealper.WriteResponseAsync(Response, new StringResultReturn(res));
+
+              }, Response, _logger);
+
+        }
 
 
         private string NormalizeRoomName(string roomName)
