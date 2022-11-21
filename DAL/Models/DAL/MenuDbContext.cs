@@ -76,10 +76,10 @@ namespace DAL.Models.DAL
             //    .HasDefaultValueSql("getdate()");
             //    //.ValueGeneratedOnAdd
             modelBuilder.Entity<MainNLogEntity>().ToTable("MainLogTable");
-            
 
 
-                modelBuilder.Entity<User>().HasKey(x => x.Id);
+
+            modelBuilder.Entity<User>().HasKey(x => x.Id);
             modelBuilder.Entity<User>().Property(x => x.Email).IsRequired();
             modelBuilder.Entity<User>().HasIndex(x => x.Email).IsUnique();
             modelBuilder.Entity<User>().Property(x => x.Login).IsRequired();
