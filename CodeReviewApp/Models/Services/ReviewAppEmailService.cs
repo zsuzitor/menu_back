@@ -40,5 +40,10 @@ namespace CodeReviewApp.Models.Services
         {
             await QueueEmailAsync(email, DefaultSubject, $"Назначение ревьювером по задаче {taskName}");
         }
+
+        public async Task QueueChangeStatusTaskAsync(string email, string taskName, string newStatus)
+        {
+            await QueueEmailAsync(email, DefaultSubject, $"Изменен статус на {newStatus} в задаче {taskName}");
+        }
     }
 }

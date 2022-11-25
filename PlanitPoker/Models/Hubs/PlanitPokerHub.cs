@@ -852,7 +852,7 @@ namespace PlanitPoker.Models.Hubs
 
         private void ValidateUserName(string userName)
         {
-            var rg = new Regex("^[а-яА-Яa-zA-Z0-9_@.]{1,50}$");
+            var rg = new Regex("^[а-яА-Яa-zA-Z0-9_@. ]{1,50}$");
             if (!rg.Match(userName).Success)
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.UsernameBad);
