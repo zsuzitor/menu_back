@@ -40,8 +40,16 @@ namespace CodeReviewApp.Models.DAL.Repositories
 
         public async Task<string> GetNotificationEmailAsync(long userId)
         {
-            return (await _db.ReviewProjectUsers.Select(x => new { x.Id, x.NotifyEmail, x.ProjectId })
+            return (await _db.ReviewProjectUsers.Select(x => new { x.Id, x.NotifyEmail })
                 .FirstOrDefaultAsync(x => x.Id == userId))?.NotifyEmail;
+        }
+
+        public async Task<(string email, long? mainAppId)> GetNotificationEmailWithMainAppIdAsync(long userId)
+        {
+            var res =  (await _db.ReviewProjectUsers.Select(x => new { x.Id, x.NotifyEmail, x.MainAppUserId })
+                   .FirstOrDefaultAsync(x => x.Id == userId));
+
+            return (res?.NotifyEmail, res?.MainAppUserId);
         }
 
         public override async Task<ProjectUser> DeleteAsync(ProjectUser user)

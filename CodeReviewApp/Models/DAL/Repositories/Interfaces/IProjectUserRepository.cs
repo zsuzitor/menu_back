@@ -23,6 +23,7 @@ namespace CodeReviewApp.Models.DAL.Repositories.Interfaces
         /// <returns></returns>
         Task<long?> GetIdByMainAppIdAsync(long userId, long projectId);
         Task<string> GetNotificationEmailAsync(long userId);
+        Task<(string email, long? mainAppId)> GetNotificationEmailWithMainAppIdAsync(long userId);
 
     }
 }

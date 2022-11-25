@@ -27,17 +27,19 @@ namespace CodeReviewApp.Models.Services
             _reviewAppEmailService = reviewAppEmailService;
         }
 
-        public async Task<TaskReview> CreateAsync(TaskReview task)
+        public async Task<TaskReview> CreateAsync(TaskReview task, UserInfo userInfo)
         {
             var addedTask = await _taskReviewRepository.CreateAsync(task);
             if (addedTask.ReviewerId != null)
             {
-                var emailNotification = await _projectUserService.GetNotificationEmailAsync(task.ReviewerId.Value);
-                await _reviewAppEmailService.QueueReviewerInReviewTaskAsync(emailNotification, task.Name);
+                var us = await _projectUserService.GetNotificationEmailWithMainAppIdAsync(task.ReviewerId.Value);
+                if (!string.IsNullOrWhiteSpace(us.email) && us.mainAppId != userInfo.UserId)
+                {
+                    await _reviewAppEmailService.QueueReviewerInReviewTaskAsync(us.email, task.Name);
+                }
             }
 
             return addedTask;
-
         }
 
         public async Task<List<TaskReview>> GetTasksAsync(long projectId)
@@ -90,12 +92,9 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectHaveNoAccess);
             }
 
-            if (upTask.CreatorEntityId != userInfo.UserId)
+            if (upTask.CreatorEntityId != userInfo.UserId && !canAddToProject.isAdmin)
             {
-                if (!canAddToProject.isAdmin)
-                {
-                    throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskHaveNoAccess);
-                }
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskHaveNoAccess);
             }
 
             if (task.ReviewerId != null)
@@ -113,16 +112,52 @@ namespace CodeReviewApp.Models.Services
                 needNotifyReviewer = true;
             }
 
+            bool statusWasChanged = upTask.Status != task.Status;
+
             upTask.Status = task.Status;
             upTask.Name = task.Name;
             upTask.Link = task.Link;
             upTask.CreatorId = task.CreatorId;
             upTask.ReviewerId = task.ReviewerId;
             await _taskReviewRepository.UpdateAsync(upTask);
+
+            string reviewerEmailNotification = null;
+            long? reviewerMainAppUserId = null;
+            //if (needNotifyReviewer || statusWasChanged)
+            //{
+
+            //}
+
             if (needNotifyReviewer)
             {
-                var emailNotification = await _projectUserService.GetNotificationEmailAsync(upTask.ReviewerId.Value);
-                await _reviewAppEmailService.QueueReviewerInReviewTaskAsync(emailNotification, task.Name);
+                var us = await _projectUserService.GetNotificationEmailWithMainAppIdAsync(upTask.ReviewerId.Value);
+                reviewerEmailNotification = us.email;
+                reviewerMainAppUserId = us.mainAppId;
+                if (!string.IsNullOrWhiteSpace(reviewerEmailNotification) && reviewerMainAppUserId != userInfo.UserId)
+                {
+                    await _reviewAppEmailService.QueueReviewerInReviewTaskAsync(reviewerEmailNotification, task.Name);
+                }
+            }
+
+            if (statusWasChanged)
+            {
+                if (upTask.ReviewerId != null && string.IsNullOrWhiteSpace(reviewerEmailNotification))
+                {
+                    var us = await _projectUserService.GetNotificationEmailWithMainAppIdAsync(upTask.ReviewerId.Value);
+                    reviewerEmailNotification = us.email;
+                    reviewerMainAppUserId = us.mainAppId;
+                }
+
+                if (!string.IsNullOrWhiteSpace(reviewerEmailNotification) && reviewerMainAppUserId != userInfo.UserId)
+                {
+                    await _reviewAppEmailService.QueueChangeStatusTaskAsync(reviewerEmailNotification, task.Name, upTask.Status.ToString());
+                }
+
+                var usc = await _projectUserService.GetNotificationEmailWithMainAppIdAsync(upTask.CreatorId);
+                if (!string.IsNullOrWhiteSpace(usc.email) && usc.mainAppId != userInfo.UserId)
+                {
+                    await _reviewAppEmailService.QueueChangeStatusTaskAsync(usc.email, task.Name, upTask.Status.ToString());
+                }
             }
 
             return upTask;
@@ -142,12 +177,9 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectHaveNoAccess);
             }
 
-            if (task.CreatorEntityId != userInfo.UserId)
+            if (task.CreatorEntityId != userInfo.UserId && !canAddToProject.isAdmin)
             {
-                if (!canAddToProject.isAdmin)
-                {
-                    throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskHaveNoAccess);
-                }
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskHaveNoAccess);
             }
 
             return await _taskReviewRepository.DeleteAsync(task);

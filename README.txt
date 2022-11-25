@@ -45,6 +45,14 @@ docker run --name menu-pg-13.3 -p 5432:5432 -e POSTGRES_USER=pgusermenu -e POSTG
 
 
 
+поставка
+1 обновить конфиги:
+nlog
+appsettings
+2 накат миграций
+3 скопировать файлы с заменой(убедиться что картинки\uploads были сохранены)
+
+
 
 
 

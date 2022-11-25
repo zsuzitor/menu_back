@@ -24,6 +24,7 @@ namespace CodeReviewApp.Models.Services.Interfaces
         Task<ProjectUser> GetByMainAppIdAsync(UserInfo userInfo, long projectId);
         Task<long?> GetIdByMainAppIdAsync(UserInfo userInfo, long projectId);
         Task<string> GetNotificationEmailAsync(long userId);
+        Task<(string email, long? mainAppId)> GetNotificationEmailWithMainAppIdAsync(long userId);
 
     }
 }

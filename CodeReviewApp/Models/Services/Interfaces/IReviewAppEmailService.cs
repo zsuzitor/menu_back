@@ -10,6 +10,7 @@ namespace CodeReviewApp.Models.Services.Interfaces
         Task QueueNewCommentInReviewTaskAsync(string email, string taskName);
         Task QueueNewCommentInReviewTaskAsync(List<string> email, string taskName);
         Task QueueReviewerInReviewTaskAsync(string email, string taskName);
+        Task QueueChangeStatusTaskAsync(string email, string taskName, string newStatus);
 
     }
 }

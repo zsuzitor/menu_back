@@ -132,6 +132,12 @@ namespace CodeReviewApp.Models.Services
             return await _projectUserRepository.GetNotificationEmailAsync(userId);
         }
 
+        public async Task<(string email, long? mainAppId)> GetNotificationEmailWithMainAppIdAsync(long userId)
+        {
+            return await _projectUserRepository.GetNotificationEmailWithMainAppIdAsync(userId);
+        }
+
+
 
         private async Task ThrowIfNotAccessToProject(long mainAppUserId, long projectId, bool isAdmin)
         {

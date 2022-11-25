@@ -8,7 +8,7 @@ namespace CodeReviewApp.Models.Services.Interfaces
 {
     public interface ITaskReviewService
     {
-        Task<TaskReview> CreateAsync(TaskReview task);
+        Task<TaskReview> CreateAsync(TaskReview task, UserInfo userInfo);
         Task<List<TaskReview>> GetTasksAsync(long projectId);
         Task<List<TaskReview>> GetTasksAsync(long projectId, string name, long? creatorId
             , long? reviewerId, CodeReviewTaskStatus? status, int pageNumber, int pageSize);

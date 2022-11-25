@@ -138,7 +138,7 @@ namespace CodeReviewApp.Models.Services
             };
 
             //todo проверяем что creator+reviwer входит в проект. по идеи если что упадет с исключением
-            return await _taskReviewService.CreateAsync(newTask);
+            return await _taskReviewService.CreateAsync(newTask, userInfo);
         }
 
         public async Task<bool> DeleteAsync(long projectId, UserInfo userInfo)
