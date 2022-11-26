@@ -2954,7 +2954,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n    /* https://cssgradient.io/ */\r\n    /* background: rgb(2, 0, 39);\r\n    background: linear-gradient(360deg, rgba(2, 0, 39, 0.7150210425967262) 0%, rgba(255, 255, 255, 1) 100%); */\r\n\r\n}\r\n\r\n\r\n\r\n.planing-enter-inner {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-poker-rooms-list {\r\n    display: flex;\r\n    justify-content: start;\r\n    flex-wrap: wrap;\r\n    padding-top: 30px;\r\n    column-gap: 15px;\r\n}\r\n\r\n.planing-poker-rooms-list .one-room {\r\n    height: 90px;\r\n    width: 60px;\r\n    cursor: pointer;\r\n    overflow: hidden;\r\n    /* padding-left: 10px; */\r\n    text-align: center;\r\n}\r\n\r\n.planing-poker-rooms-list .one-room-img {\r\n    height: 60px;\r\n    width: 60px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    /* margin-left: 10px; */\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Index/Index.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,oBAAoB;IACpB,4BAA4B;IAC5B;8GAC0G;;AAE9G;;;;AAIA;IACI,6CAA6C;IAC7C,qCAAqC;AACzC;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,eAAe;IACf,iBAAiB;IACjB,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,eAAe;IACf,gBAAgB;IAChB,wBAAwB;IACxB,kBAAkB;AACtB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,kBAAkB;IAClB,gBAAgB;IAChB,uBAAuB;AAC3B","sourcesContent":[".planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n    /* https://cssgradient.io/ */\r\n    /* background: rgb(2, 0, 39);\r\n    background: linear-gradient(360deg, rgba(2, 0, 39, 0.7150210425967262) 0%, rgba(255, 255, 255, 1) 100%); */\r\n\r\n}\r\n\r\n\r\n\r\n.planing-enter-inner {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n}\r\n\r\n.planing-poker-rooms-list {\r\n    display: flex;\r\n    justify-content: start;\r\n    flex-wrap: wrap;\r\n    padding-top: 30px;\r\n    column-gap: 15px;\r\n}\r\n\r\n.planing-poker-rooms-list .one-room {\r\n    height: 90px;\r\n    width: 60px;\r\n    cursor: pointer;\r\n    overflow: hidden;\r\n    /* padding-left: 10px; */\r\n    text-align: center;\r\n}\r\n\r\n.planing-poker-rooms-list .one-room-img {\r\n    height: 60px;\r\n    width: 60px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    /* margin-left: 10px; */\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n    /* https://cssgradient.io/ */\r\n    /* background: rgb(2, 0, 39);\r\n    background: linear-gradient(360deg, rgba(2, 0, 39, 0.7150210425967262) 0%, rgba(255, 255, 255, 1) 100%); */\r\n\r\n}\r\n\r\n\r\n\r\n.planing-enter-inner {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n}\r\n\r\n.planing-poker-rooms-list {\r\n    display: flex;\r\n    justify-content: start;\r\n    flex-wrap: wrap;\r\n    padding-top: 30px;\r\n    column-gap: 15px;\r\n}\r\n\r\n.planing-poker-rooms-list .one-room {\r\n    height: 90px;\r\n    width: 60px;\r\n    cursor: pointer;\r\n    overflow: hidden;\r\n    /* padding-left: 10px; */\r\n    text-align: center;\r\n}\r\n\r\n.planing-poker-rooms-list .one-room-img {\r\n    height: 60px;\r\n    width: 60px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    /* margin-left: 10px; */\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Index/Index.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,oBAAoB;IACpB,4BAA4B;IAC5B;8GAC0G;;AAE9G;;;;AAIA;IACI,6CAA6C;IAC7C,qCAAqC;IACrC,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,eAAe;IACf,iBAAiB;IACjB,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,eAAe;IACf,gBAAgB;IAChB,wBAAwB;IACxB,kBAAkB;AACtB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,kBAAkB;IAClB,gBAAgB;IAChB,uBAAuB;AAC3B","sourcesContent":[".planing-enter-main {\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n    /* https://cssgradient.io/ */\r\n    /* background: rgb(2, 0, 39);\r\n    background: linear-gradient(360deg, rgba(2, 0, 39, 0.7150210425967262) 0%, rgba(255, 255, 255, 1) 100%); */\r\n\r\n}\r\n\r\n\r\n\r\n.planing-enter-inner {\r\n    -webkit-box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    box-shadow: 0 0 10px rgb(0 0 0 / 50%);\r\n    border-radius: 5px;\r\n}\r\n\r\n.planing-poker-rooms-list {\r\n    display: flex;\r\n    justify-content: start;\r\n    flex-wrap: wrap;\r\n    padding-top: 30px;\r\n    column-gap: 15px;\r\n}\r\n\r\n.planing-poker-rooms-list .one-room {\r\n    height: 90px;\r\n    width: 60px;\r\n    cursor: pointer;\r\n    overflow: hidden;\r\n    /* padding-left: 10px; */\r\n    text-align: center;\r\n}\r\n\r\n.planing-poker-rooms-list .one-room-img {\r\n    height: 60px;\r\n    width: 60px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    /* margin-left: 10px; */\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3008,7 +3008,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-timer-refresh {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-room-timer-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-room-time {\r\n    width: 100px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-timer-block-alert {\r\n    color: red;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/RoomTimer/RoomTimer.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,UAAU;AACd","sourcesContent":[".planing-room-timer-refresh {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-room-timer-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-room-time {\r\n    width: 100px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-timer-block-alert {\r\n    color: red;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-timer-refresh {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-room-timer-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-room-time {\r\n    width: 110px;\r\n    overflow: hidden;\r\n    white-space: pre;\r\n}\r\n\r\n.planing-room-timer-block-alert {\r\n    color: red;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/RoomTimer/RoomTimer.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,UAAU;AACd","sourcesContent":[".planing-room-timer-refresh {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-room-timer-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-room-time {\r\n    width: 110px;\r\n    overflow: hidden;\r\n    white-space: pre;\r\n}\r\n\r\n.planing-room-timer-block-alert {\r\n    color: red;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3035,7 +3035,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-header {\r\n    display: flex;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n    padding-right: 10px;\r\n    justify-content: space-between;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    padding-right: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 25px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-name-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-name-block-input-block {\r\n    flex-grow: 2;\r\n}\r\n\r\n.room-image {\r\n    width: 150px;\r\n    height: 150px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n}\r\n\r\n.room-top-info {\r\n    padding-left: 20px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Room/Room.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,oBAAoB;IACpB,mBAAmB;IACnB,8BAA8B;;AAElC;;AAEA;IACI,6BAA6B;IAC7B;;kEAE8D;IAC9D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B;;8DAE0D;IAC1D,iBAAiB;IACjB,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;IAClB,mBAAmB;IACnB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,cAAc;IACd,eAAe;AACnB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;IACI,gCAAgC;IAChC,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,+BAA+B;AACnC;;;AAGA;IACI,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,6BAA6B;IAC7B,2BAA2B;IAC3B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".planing-room-header {\r\n    display: flex;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n    padding-right: 10px;\r\n    justify-content: space-between;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    padding-right: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 25px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-name-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-name-block-input-block {\r\n    flex-grow: 2;\r\n}\r\n\r\n.room-image {\r\n    width: 150px;\r\n    height: 150px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n}\r\n\r\n.room-top-info {\r\n    padding-left: 20px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-header {\r\n    display: flex;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n    padding-right: 10px;\r\n    justify-content: space-between;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    padding-right: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 25px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-name-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-name-block-input-block {\r\n    flex-grow: 2;\r\n}\r\n\r\n.room-image {\r\n    width: 150px;\r\n    height: 150px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.room-top-info {\r\n    padding-left: 20px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/PlaningPoker/Room/Room.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,oBAAoB;IACpB,mBAAmB;IACnB,8BAA8B;;AAElC;;AAEA;IACI,6BAA6B;IAC7B;;kEAE8D;IAC9D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B;;8DAE0D;IAC1D,iBAAiB;IACjB,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;IAClB,mBAAmB;IACnB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,cAAc;IACd,eAAe;AACnB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;IACI,gCAAgC;IAChC,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,+BAA+B;AACnC;;;AAGA;IACI,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,6BAA6B;IAC7B,2BAA2B;IAC3B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,kBAAkB;IAClB,gBAAgB;IAChB,cAAc;AAClB;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".planing-room-header {\r\n    display: flex;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n    padding-right: 10px;\r\n    justify-content: space-between;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    padding-right: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 25px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-name-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-name-block-input-block {\r\n    flex-grow: 2;\r\n}\r\n\r\n.room-image {\r\n    width: 150px;\r\n    height: 150px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.room-top-info {\r\n    padding-left: 20px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3224,7 +3224,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".header-user-menu {\r\n    position: absolute;\r\n    background-color: white;\r\n    /* transition: 0.5s; */\r\n    border-radius: 3px;\r\n    z-index: 2;\r\n    border: 1px solid rgba(0, 0, 0, .15);\r\n    font-size: 18px;\r\n    top: 65px;\r\n    right: 10px;\r\n    width: 200px;\r\n    height: 100px;\r\n\r\n}\r\n\r\n.header-user-menu-show {\r\n    visibility: visible;\r\n}\r\n\r\n.header-user-menu-hide {\r\n    /* right: -230px; */\r\n    /* right: 0px;\r\n    width: 0px;\r\n    height: 0px; */\r\n    visibility: hidden;\r\n}\r\n\r\n.header-user-menu a {\r\n    text-decoration: none;\r\n}\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    cursor: pointer;\r\n    text-align: right;\r\n    display: flex;\r\n    padding-top: 5px;\r\n    /* padding-right: 5px; */\r\n    min-width: 100px;\r\n    justify-content: space-around;\r\n    max-width: 250px;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n    color: oldlace;\r\n    cursor: pointer;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    padding-top: 10px;\r\n}\r\n\r\n\r\n.header-user-name-text {\r\n    /* display: block;\r\n    max-width: 50%; */\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n    color: oldlace;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n\r\ndiv.header-user-img {\r\n    height: 50px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    width: 50px;\r\n    flex-shrink: 0;\r\n}\r\n\r\ndiv.header-user-img img {\r\n    height: 100%;\r\n    width: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    position: relative;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}\r\n\r\n.header-user-menu-line {\r\n    padding-left: 5px;\r\n    padding-top: 3px;\r\n    cursor: pointer;\r\n    border-radius: 3px;\r\n    color: #007bff;\r\n\r\n}\r\n\r\n.header-user-menu-line:hover {\r\n    background-color: #c4c1d6;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Header/HeaderUserMenu/HeaderUserMenu.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,uBAAuB;IACvB,sBAAsB;IACtB,kBAAkB;IAClB,UAAU;IACV,oCAAoC;IACpC,eAAe;IACf,SAAS;IACT,WAAW;IACX,YAAY;IACZ,aAAa;;AAEjB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,mBAAmB;IACnB;;kBAEc;IACd,kBAAkB;AACtB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,oBAAoB;IACpB,kCAAkC;IAClC,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,eAAe;IACf,iBAAiB;IACjB,aAAa;IACb,gBAAgB;IAChB,wBAAwB;IACxB,gBAAgB;IAChB,6BAA6B;IAC7B,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,qBAAqB;IACrB,eAAe;IACf,kBAAkB;IAClB,cAAc;IACd,eAAe;IACf,kBAAkB;IAClB,mBAAmB;IACnB,iBAAiB;AACrB;;;AAGA;IACI;qBACiB;IACjB,gBAAgB;IAChB,yBAAyB;IACzB,kBAAkB;IAClB,cAAc;IACd,gBAAgB;IAChB,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,kBAAkB;IAClB,gBAAgB;IAChB,WAAW;IACX,cAAc;AAClB;;AAEA;IACI,YAAY;IACZ,WAAW;AACf;;;;AAIA;IACI,YAAY;IACZ,qBAAqB;IACrB,kBAAkB;AACtB;;AAEA;IACI,mCAAmC;IACnC,oBAAoB;AACxB;;AAEA;IACI,iBAAiB;IACjB,gBAAgB;IAChB,eAAe;IACf,kBAAkB;IAClB,cAAc;;AAElB;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".header-user-menu {\r\n    position: absolute;\r\n    background-color: white;\r\n    /* transition: 0.5s; */\r\n    border-radius: 3px;\r\n    z-index: 2;\r\n    border: 1px solid rgba(0, 0, 0, .15);\r\n    font-size: 18px;\r\n    top: 65px;\r\n    right: 10px;\r\n    width: 200px;\r\n    height: 100px;\r\n\r\n}\r\n\r\n.header-user-menu-show {\r\n    visibility: visible;\r\n}\r\n\r\n.header-user-menu-hide {\r\n    /* right: -230px; */\r\n    /* right: 0px;\r\n    width: 0px;\r\n    height: 0px; */\r\n    visibility: hidden;\r\n}\r\n\r\n.header-user-menu a {\r\n    text-decoration: none;\r\n}\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    cursor: pointer;\r\n    text-align: right;\r\n    display: flex;\r\n    padding-top: 5px;\r\n    /* padding-right: 5px; */\r\n    min-width: 100px;\r\n    justify-content: space-around;\r\n    max-width: 250px;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n    color: oldlace;\r\n    cursor: pointer;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    padding-top: 10px;\r\n}\r\n\r\n\r\n.header-user-name-text {\r\n    /* display: block;\r\n    max-width: 50%; */\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n    color: oldlace;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n\r\ndiv.header-user-img {\r\n    height: 50px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    width: 50px;\r\n    flex-shrink: 0;\r\n}\r\n\r\ndiv.header-user-img img {\r\n    height: 100%;\r\n    width: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    position: relative;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}\r\n\r\n.header-user-menu-line {\r\n    padding-left: 5px;\r\n    padding-top: 3px;\r\n    cursor: pointer;\r\n    border-radius: 3px;\r\n    color: #007bff;\r\n\r\n}\r\n\r\n.header-user-menu-line:hover {\r\n    background-color: #c4c1d6;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".header-user-menu {\r\n    position: absolute;\r\n    background-color: white;\r\n    /* transition: 0.5s; */\r\n    border-radius: 3px;\r\n    z-index: 2;\r\n    border: 1px solid rgba(0, 0, 0, .15);\r\n    font-size: 18px;\r\n    top: 65px;\r\n    right: 10px;\r\n    width: 200px;\r\n    height: 100px;\r\n\r\n}\r\n\r\n.header-user-menu-show {\r\n    visibility: visible;\r\n}\r\n\r\n.header-user-menu-hide {\r\n    /* right: -230px; */\r\n    /* right: 0px;\r\n    width: 0px;\r\n    height: 0px; */\r\n    visibility: hidden;\r\n}\r\n\r\n.header-user-menu a {\r\n    text-decoration: none;\r\n}\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    cursor: pointer;\r\n    text-align: right;\r\n    display: flex;\r\n    padding-top: 5px;\r\n    /* padding-right: 5px; */\r\n    min-width: 100px;\r\n    justify-content: space-around;\r\n    max-width: 250px;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n    color: oldlace;\r\n    cursor: pointer;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    padding-top: 10px;\r\n}\r\n\r\n\r\n.header-user-name-text {\r\n    /* display: block;\r\n    max-width: 50%; */\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n    color: oldlace;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n\r\ndiv.header-user-img {\r\n    height: 50px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    width: 50px;\r\n    flex-shrink: 0;\r\n}\r\n\r\ndiv.header-user-img img {\r\n    height: 100%;\r\n    width: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    position: relative;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}\r\n\r\n.header-user-menu-line {\r\n    padding-left: 5px;\r\n    padding-top: 3px;\r\n    cursor: pointer;\r\n    border-radius: 3px;\r\n    color: #007bff;\r\n\r\n}\r\n\r\n.header-user-menu-line a {\r\n    display: block;\r\n    width: 100%;\r\n    text-decoration: none;\r\n}\r\n\r\n.header-user-menu-line:hover {\r\n    background-color: #c4c1d6;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Header/HeaderUserMenu/HeaderUserMenu.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,uBAAuB;IACvB,sBAAsB;IACtB,kBAAkB;IAClB,UAAU;IACV,oCAAoC;IACpC,eAAe;IACf,SAAS;IACT,WAAW;IACX,YAAY;IACZ,aAAa;;AAEjB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,mBAAmB;IACnB;;kBAEc;IACd,kBAAkB;AACtB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,oBAAoB;IACpB,kCAAkC;IAClC,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,eAAe;IACf,iBAAiB;IACjB,aAAa;IACb,gBAAgB;IAChB,wBAAwB;IACxB,gBAAgB;IAChB,6BAA6B;IAC7B,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,qBAAqB;IACrB,eAAe;IACf,kBAAkB;IAClB,cAAc;IACd,eAAe;IACf,kBAAkB;IAClB,mBAAmB;IACnB,iBAAiB;AACrB;;;AAGA;IACI;qBACiB;IACjB,gBAAgB;IAChB,yBAAyB;IACzB,kBAAkB;IAClB,cAAc;IACd,gBAAgB;IAChB,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,kBAAkB;IAClB,gBAAgB;IAChB,WAAW;IACX,cAAc;AAClB;;AAEA;IACI,YAAY;IACZ,WAAW;AACf;;;;AAIA;IACI,YAAY;IACZ,qBAAqB;IACrB,kBAAkB;AACtB;;AAEA;IACI,mCAAmC;IACnC,oBAAoB;AACxB;;AAEA;IACI,iBAAiB;IACjB,gBAAgB;IAChB,eAAe;IACf,kBAAkB;IAClB,cAAc;;AAElB;;AAEA;IACI,cAAc;IACd,WAAW;IACX,qBAAqB;AACzB;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".header-user-menu {\r\n    position: absolute;\r\n    background-color: white;\r\n    /* transition: 0.5s; */\r\n    border-radius: 3px;\r\n    z-index: 2;\r\n    border: 1px solid rgba(0, 0, 0, .15);\r\n    font-size: 18px;\r\n    top: 65px;\r\n    right: 10px;\r\n    width: 200px;\r\n    height: 100px;\r\n\r\n}\r\n\r\n.header-user-menu-show {\r\n    visibility: visible;\r\n}\r\n\r\n.header-user-menu-hide {\r\n    /* right: -230px; */\r\n    /* right: 0px;\r\n    width: 0px;\r\n    height: 0px; */\r\n    visibility: hidden;\r\n}\r\n\r\n.header-user-menu a {\r\n    text-decoration: none;\r\n}\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    cursor: pointer;\r\n    text-align: right;\r\n    display: flex;\r\n    padding-top: 5px;\r\n    /* padding-right: 5px; */\r\n    min-width: 100px;\r\n    justify-content: space-around;\r\n    max-width: 250px;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n    color: oldlace;\r\n    cursor: pointer;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    padding-top: 10px;\r\n}\r\n\r\n\r\n.header-user-name-text {\r\n    /* display: block;\r\n    max-width: 50%; */\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n    color: oldlace;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n\r\ndiv.header-user-img {\r\n    height: 50px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    width: 50px;\r\n    flex-shrink: 0;\r\n}\r\n\r\ndiv.header-user-img img {\r\n    height: 100%;\r\n    width: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    position: relative;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}\r\n\r\n.header-user-menu-line {\r\n    padding-left: 5px;\r\n    padding-top: 3px;\r\n    cursor: pointer;\r\n    border-radius: 3px;\r\n    color: #007bff;\r\n\r\n}\r\n\r\n.header-user-menu-line a {\r\n    display: block;\r\n    width: 100%;\r\n    text-decoration: none;\r\n}\r\n\r\n.header-user-menu-line:hover {\r\n    background-color: #c4c1d6;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48205,12 +48205,20 @@ exports.ChangeProjectUserActionCreator = ChangeProjectUserActionCreator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ClearPokerStateActionCreator = exports.ClearPokerStateActionName = void 0;
+exports.ClearRoomPokerStateActionCreator = exports.ClearRoomPokerStateActionName = exports.ClearPokerStateActionCreator = exports.ClearPokerStateActionName = void 0;
+//полностью закрывается приложение покера
 exports.ClearPokerStateActionName = 'ClearPokerStateAction';
 function ClearPokerStateActionCreator() {
     return { type: exports.ClearPokerStateActionName, payload: null };
 }
 exports.ClearPokerStateActionCreator = ClearPokerStateActionCreator;
+;
+//только выход из комнаты
+exports.ClearRoomPokerStateActionName = 'ClearRoomPokerStateAction';
+function ClearRoomPokerStateActionCreator() {
+    return { type: exports.ClearRoomPokerStateActionName, payload: null };
+}
+exports.ClearRoomPokerStateActionCreator = ClearRoomPokerStateActionCreator;
 ;
 
 
@@ -50042,6 +50050,7 @@ exports.PlaningPokerController = exports.HubEndpoints = exports.HubEndpointsBack
 var RoomAction_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/RoomAction */ "./src/Models/Actions/PlaningPokerApp/RoomAction.ts");
 var StoryActions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/StoryActions */ "./src/Models/Actions/PlaningPokerApp/StoryActions.ts");
 var UserActions_1 = __webpack_require__(/*! ../../Actions/PlaningPokerApp/UserActions */ "./src/Models/Actions/PlaningPokerApp/UserActions.ts");
+var AlertData_1 = __webpack_require__(/*! ../../Models/AlertData */ "./src/Models/Models/AlertData.ts");
 var EndVoteInfo_1 = __webpack_require__(/*! ../../Models/PlaningPoker/EndVoteInfo */ "./src/Models/Models/PlaningPoker/EndVoteInfo.ts");
 var RoomShortInfo_1 = __webpack_require__(/*! ../../Models/PlaningPoker/State/RoomShortInfo */ "./src/Models/Models/PlaningPoker/State/RoomShortInfo.ts");
 var Story_1 = __webpack_require__(/*! ../../Models/PlaningPoker/State/Story */ "./src/Models/Models/PlaningPoker/State/Story.ts");
@@ -50186,6 +50195,9 @@ var PlaningPokerController = /** @class */ (function () {
                 }
                 if (data) {
                     dispatch((0, RoomAction_1.SetRoomImageActionCreator)(data.result || ''));
+                    var alertFactory = new AlertData_1.AlertData();
+                    var alert_1 = alertFactory.GetDefaultNotify("Изображение загружено");
+                    window.G_AddAbsoluteAlertToState(alert_1);
                 }
             });
         };
@@ -52100,6 +52112,17 @@ function PlaningPokerReducer(state, action) {
             {
                 var newState = (0, cloneDeep_1.default)(st);
                 newState.PlaningPokerApp = new PlaningPokerApp_1.PlaningPokerAppState();
+                return newState;
+            }
+        case Actions_1.ClearRoomPokerStateActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(st);
+                var tmp = newState.PlaningPokerApp;
+                //RoomsList
+                //User
+                newState.PlaningPokerApp = new PlaningPokerApp_1.PlaningPokerAppState();
+                newState.PlaningPokerApp.RoomsList = tmp.RoomsList;
+                newState.PlaningPokerApp.User = tmp.User;
                 return newState;
             }
     }
@@ -55639,6 +55662,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var React = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 __webpack_require__(/*! ./AppListItem.css */ "./src/components/Body/Menu/AppListItem/AppListItem.css");
 var AppListItem = function (props) {
     //offset-md-1
@@ -55648,7 +55672,7 @@ var AppListItem = function (props) {
     }
     return React.createElement("div", { className: "app-one-item col-sm-4 col-md-3 col-lg-2 col-6" },
         React.createElement("div", { className: "app-one-item-inner" },
-            React.createElement("a", { href: props.Data.Path },
+            React.createElement(react_router_dom_1.Link, { to: props.Data.Path },
                 React.createElement("img", { className: "persent-100-width-height", src: imgLogo }),
                 props.Data.Name)));
 };
@@ -56554,11 +56578,15 @@ var PlaningPokerMain = function (props) {
             //надо проверить что произошла именно ошибка а не пользак с страницы ушел например
         });
         return function cleanUp() {
-            myHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.ConnectedToRoomError);
-            myHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.EnteredInRoom);
-            myHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.PlaningNotifyFromServer);
-            myHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NeedRefreshTokens);
-            myHubConnection.stop();
+            try {
+                myHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.ConnectedToRoomError);
+                myHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.EnteredInRoom);
+                myHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.PlaningNotifyFromServer);
+                myHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NeedRefreshTokens);
+                myHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.OnWindowClosedAsync, __planing_poker_roomname_ref__);
+                myHubConnection.stop();
+            }
+            catch (_a) { }
             props.ClearPokerState();
         };
     }, []);
@@ -56648,32 +56676,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 __webpack_require__(/*! ./RoomTimer.css */ "./src/components/Body/PlaningPoker/RoomTimer/RoomTimer.css");
-//let __planing_room_timer_props_ref__: IRoomTimerProps = null;
 var __planing_room_iterator__ = 0;
 var RoomTimer = function (props) {
-    //const [lifeTime, setLifeTime] = useState(0);
     var _a = (0, react_1.useState)(0), iterator = _a[0], setIterator = _a[1];
-    //__planing_room_timer_props_ref__ = props;
     __planing_room_iterator__ = iterator;
-    // useEffect(() => {
-    //     let interv = setInterval(() => {
-    //         if (__planing_room_timer_props_ref__.DieDate) {
-    //             let timerVal = __planing_room_timer_props_ref__.DieDate.getTime() - new Date().getTime();
-    //             timerVal = timerVal > 0 ? timerVal : 0;
-    //             setLifeTime(timerVal);
-    //             if (timerVal === 0) {
-    //                 clearInterval(interv);
-    //                 props.ForceLeaveFromRoom();
-    //             }
-    //         }
-    //     }, 1000);
-    //     // setStateInterval(interv);
-    //     return () => {
-    //         // clearInterval(interval);
-    //         clearInterval(interv);
-    //         // setStateInterval(null);
-    //     }
-    // }, [])
     (0, react_1.useEffect)(function () {
         var interv = setInterval(function () {
             if (__planing_room_iterator__ > 10000) {
@@ -56681,11 +56687,8 @@ var RoomTimer = function (props) {
             }
             setIterator(__planing_room_iterator__ + 1);
         }, 1000);
-        // setStateInterval(interv);
         return function () {
-            // clearInterval(interval);
             clearInterval(interv);
-            // setStateInterval(null);
         };
     }, []);
     var timerVal = 0;
@@ -56825,6 +56828,7 @@ var UserActions_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPo
 var EndVoteInfo_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/EndVoteInfo */ "./src/Models/Models/PlaningPoker/EndVoteInfo.ts");
 var Story_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/State/Story */ "./src/Models/Models/PlaningPoker/State/Story.ts");
 var UserInRoom_1 = __webpack_require__(/*! ../../../../Models/Models/PlaningPoker/State/UserInRoom */ "./src/Models/Models/PlaningPoker/State/UserInRoom.ts");
+var Actions_1 = __webpack_require__(/*! ../../../../Models/Actions/PlaningPokerApp/Actions */ "./src/Models/Actions/PlaningPokerApp/Actions.ts");
 __webpack_require__(/*! ./Room.css */ "./src/components/Body/PlaningPoker/Room/Room.css");
 //подписки сигналр захватывают пропсы непонятно как, раньше это работало, но предположительно после введения deepClone
 //все вообще отвалилось. 6.30.2021, вот так получилось пофиксить, замена обработчика подписки на => не помогала
@@ -56971,21 +56975,29 @@ var Room = function (props) {
             window.G_AddAbsoluteAlertToState(alert);
         });
         return function cleanUp() {
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.MovedStoryToComplete);
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.DeletedStory);
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.CurrentStoryChanged);
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NewCurrentStory);
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.AddedNewStory);
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.VoteEnd);
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.VoteStart);
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.UserRoleChanged);
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.VoteChanged);
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.UserLeaved);
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.UserNameChanged);
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NewUserInRoom);
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NewRoomAlive);
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.RoomWasSaved);
-            props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.RoomCardsChanged);
+            var _a;
+            try {
+                //try catch нужен на случай если произошло закрытие компонента PlaningPokerMain и подключение вообще закрылось
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.MovedStoryToComplete);
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.DeletedStory);
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.CurrentStoryChanged);
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NewCurrentStory);
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.AddedNewStory);
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.VoteEnd);
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.VoteStart);
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.UserRoleChanged);
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.VoteChanged);
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.UserLeaved);
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.UserNameChanged);
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NewUserInRoom);
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.NewRoomAlive);
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.RoomWasSaved);
+                props.MyHubConnection.off(G_PlaningPokerController.EndPoints.EndpointsFront.RoomCardsChanged);
+                props.MyHubConnection.send(G_PlaningPokerController.EndPoints.EndpointsBack.OnWindowClosedAsync, (_a = __planing_room_props_ref__ === null || __planing_room_props_ref__ === void 0 ? void 0 : __planing_room_props_ref__.RoomInfo) === null || _a === void 0 ? void 0 : _a.Name);
+            }
+            catch (_b) {
+            }
+            props.ClearPokerRoomState();
         };
     }, []);
     var forceLeaveFromRoom = function () {
@@ -57298,6 +57310,9 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     res.SetRoomCards = function (cards) {
         dispatch((0, RoomAction_1.SetRoomCardsActionCreator)(cards));
+    };
+    res.ClearPokerRoomState = function () {
+        dispatch((0, Actions_1.ClearRoomPokerStateActionCreator)());
     };
     return res;
 };
@@ -59815,6 +59830,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 var HeaderLogo_1 = __importDefault(__webpack_require__(/*! ../HeaderLogo/HeaderLogo */ "./src/components/Header/HeaderLogo/HeaderLogo.tsx"));
 var HeaderUserMenu_1 = __importDefault(__webpack_require__(/*! ../HeaderUserMenu/HeaderUserMenu */ "./src/components/Header/HeaderUserMenu/HeaderUserMenu.tsx"));
 __webpack_require__(/*! ./HeaderMain.css */ "./src/components/Header/HeaderMain/HeaderMain.css");
@@ -59826,11 +59842,11 @@ var HeaderMain = function (props) {
     }
     return react_1.default.createElement("div", { className: 'main-header' },
         react_1.default.createElement("div", { className: 'main-header-menu ' + menuClass },
-            react_1.default.createElement("div", { key: 'menu-home', className: 'main-header-menu-line' },
-                react_1.default.createElement("a", { href: "/menu" }, "Home")),
+            react_1.default.createElement("div", { key: 'menu-home', className: 'main-header-menu-line', onClick: function () { return setShowMenu(false); } },
+                react_1.default.createElement(react_router_dom_1.Link, { to: "/menu" }, "Home")),
             react_1.default.createElement("hr", null),
-            props.Apps.map(function (x) { return react_1.default.createElement("div", { key: x.Name, className: 'main-header-menu-line' },
-                react_1.default.createElement("a", { href: x.Path }, x.Name)); })),
+            props.Apps.map(function (x) { return react_1.default.createElement("div", { key: x.Name, className: 'main-header-menu-line', onClick: function () { return setShowMenu(false); } },
+                react_1.default.createElement(react_router_dom_1.Link, { to: x.Path }, x.Name)); })),
         react_1.default.createElement("div", { className: 'main-header-inner' },
             react_1.default.createElement("div", { className: 'main-header-row' },
                 react_1.default.createElement(HeaderLogo_1.default, { ShowMenu: function () { return setShowMenu(!showMenu); }, MenuShowed: showMenu }),
@@ -59885,6 +59901,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 var AlertData_1 = __webpack_require__(/*! ../../../Models/Models/AlertData */ "./src/Models/Models/AlertData.ts");
 __webpack_require__(/*! ./HeaderUserMenu.css */ "./src/components/Header/HeaderUserMenu/HeaderUserMenu.css");
 var HeaderUserMenu = function (props) {
@@ -59924,15 +59941,18 @@ var HeaderUserMenu = function (props) {
                 react_1.default.createElement("div", { className: 'header-user-name-text' }, props.Auth.User.Name),
                 react_1.default.createElement("div", { className: 'header-user-img' }, UserImageRender(props.Auth.User.Image))),
             react_1.default.createElement("div", { className: menuClass },
-                react_1.default.createElement("div", { onClick: function () { return location.href = '/menu/person-settings/'; }, className: 'header-user-menu-line' }, "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"),
+                react_1.default.createElement("div", { className: 'header-user-menu-line', onClick: function () { return setShowMenu(false); } },
+                    react_1.default.createElement(react_router_dom_1.Link, { to: '/menu/person-settings/' }, "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438")),
                 react_1.default.createElement("div", { onClick: function () { return exitApp(); }, className: 'header-user-menu-line' }, "\u0412\u044B\u0445\u043E\u0434")));
     };
     var NotLogginedUserRender = function () {
         return react_1.default.createElement(react_1.default.Fragment, null,
             react_1.default.createElement("div", { className: 'header-auth-dropdown', onClick: function () { return setShowMenu(!showMenu); } }, "\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F"),
             react_1.default.createElement("div", { className: menuClass },
-                react_1.default.createElement("div", { onClick: function () { return location.href = '/menu/auth/login/'; }, className: 'header-user-menu-line' }, "\u0412\u043E\u0439\u0442\u0438"),
-                react_1.default.createElement("div", { onClick: function () { return location.href = '/menu/auth/register/'; }, className: 'header-user-menu-line' }, "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F")));
+                react_1.default.createElement("div", { className: 'header-user-menu-line', onClick: function () { return setShowMenu(false); } },
+                    react_1.default.createElement(react_router_dom_1.Link, { to: '/menu/auth/login/' }, "\u0412\u043E\u0439\u0442\u0438")),
+                react_1.default.createElement("div", { className: 'header-user-menu-line', onClick: function () { return setShowMenu(false); } },
+                    react_1.default.createElement(react_router_dom_1.Link, { to: '/menu/auth/register/' }, "\u0417\u0430\u0440\u0435\u0433\u0438\u0441\u0442\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C\u0441\u044F"))));
     };
     return react_1.default.createElement("div", { className: 'header-user-block-inner' }, LogginedOrNotRender(props.Auth.AuthSuccess));
 };
