@@ -31,6 +31,7 @@ namespace PlanitPoker.Models.Entity
                 }
             }
         }
+
         public string UserConnectionId { get; set; }//signalRUserId
         public List<string> Role { get; set; }//enum?
         public string Name { get; set; }
@@ -62,6 +63,18 @@ namespace PlanitPoker.Models.Entity
         public PlanitUser()
         {
             Role = new List<string>();
+        }
+
+        public PlanitUser(PlanitUser user)
+        {
+            MainAppUserId = user.MainAppUserId;
+            PlaningAppUserId = user.PlaningAppUserId;
+            UserConnectionId = user.UserConnectionId;
+            Role = user.Role.ToList();
+            Name = user.Name;
+            Vote = user.Vote;
+            HasVote = user.HasVote;
+            ImageLink = user.ImageLink;
         }
 
 
@@ -96,7 +109,5 @@ namespace PlanitPoker.Models.Entity
             //Role = obj.Roles.Split(',').ToList();
             Role = JsonSerializer.Deserialize<List<string>>(obj.Roles);
         }
-
-
     }
 }

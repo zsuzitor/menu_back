@@ -491,39 +491,7 @@ namespace PlanitPoker.Models.Services
 
 
 
-        public async Task<(PlanitUser user, bool sc)> KickFromRoomAsync(string roomName, string userConnectionIdRequest,
-            string userId)
-        {
-            var room = await TryGetRoomAsync(roomName);
-            return await KickFromRoomAsync(room, userConnectionIdRequest, userId);
-
-
-        }
-
-        public async Task<(PlanitUser user, bool sc)> KickFromRoomAsync(Room room, string userConnectionIdRequest,
-            string userId)
-        {
-            if (string.IsNullOrWhiteSpace(userId))
-            {
-                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.PlanitUserNotFound);
-            }
-
-            if (room == null)
-            {
-                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
-            }
-
-            PlanitUser user = null;
-            var rs = await UpdateIfCan(room, userConnectionIdRequest, true, (rm) =>
-            {
-                //rm.Users.RemoveAt((int)userForDelIndex);
-                user = rm.Users.FirstOrDefault(x => x.PlaningAppUserId == userId);
-                rm.Users.RemoveAll(x => x.PlaningAppUserId == userId);
-                return Task.FromResult(true);
-            });
-
-            return (user, rs);
-        }
+        
 
         /// <summary>
         /// тянет еще и из бд
@@ -985,6 +953,54 @@ namespace PlanitPoker.Models.Services
 
         }
 
+        public async Task<(PlanitUser user, bool sc)> KickFromRoomAsync(string roomName, string userConnectionIdRequest,
+            string userId)
+        {
+            var room = await TryGetRoomAsync(roomName);
+            return await KickFromRoomAsync(room, userConnectionIdRequest, userId);
+        }
+
+        public async Task<(PlanitUser user, bool sc)> KickFromRoomAsync(Room room, string userConnectionIdRequest,
+            string userId)
+        {
+            if (string.IsNullOrWhiteSpace(userId))
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.PlanitUserNotFound);
+            }
+
+            if (room == null)
+            {
+                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+            }
+
+            PlanitUser user = null;
+            var rs = await UpdateIfCan(room, userConnectionIdRequest, true, async (rm) =>
+            {
+                //rm.Users.RemoveAt((int)userForDelIndex);
+                var us = rm.Users.FirstOrDefault(x => x.PlaningAppUserId == userId);
+                if (us == null)
+                {
+                    user = null;
+                    return true;
+                }
+
+                user = new PlanitUser(us);
+
+                if (us.MainAppUserId == null)
+                {
+                    rm.Users.RemoveAll(x => x.PlaningAppUserId == userId);
+                }
+                else
+                {
+                    us.UserConnectionId = null;
+                }
+
+                return true;//Task.FromResult(true);
+            });
+
+            return (user, rs);
+        }
+
         public async Task<(bool sc, string userId)> LeaveFromRoomAsync(string roomName, string userConnectionIdRequest)
         {
             var room = await TryGetRoomAsync(roomName);
@@ -1000,35 +1016,44 @@ namespace PlanitPoker.Models.Services
 
             bool result = false;
             string userId = null;
-            await room.SetConcurentValue(_multiThreadHelper, rm =>
+            var rs = await UpdateIfCan(room, userConnectionIdRequest, false, async rm =>
             {
-                var admins = rm.StoredRoom.Users.Where(x => x.IsAdmin).ToList();
-                //проверить залогинен ли пользак в мейн апе, и если залогенен то НЕ передавать админку!
-                var currentUser = admins.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
-                if (currentUser != null)
-                {
-                    if (admins.Count < 2 && currentUser.MainAppUserId == null)
-                    {
-                        var newAdmin = rm.StoredRoom.Users.FirstOrDefault(x => !x.IsAdmin);
-                        newAdmin?.Role.Add(Consts.Roles.Admin);
-                    }
-                }
-                else
+                //var admins = rm.Users.Where(x => x.IsAdmin).ToList();
+                ////проверить залогинен ли пользак в мейн апе, и если залогенен то НЕ передавать админку!
+                //var currentUser = admins.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
+                //if (currentUser != null)
+                //{
+                //    if (admins.Count < 2 && currentUser.MainAppUserId == null)
+                //    {
+                //        var newAdmin = rm.Users.FirstOrDefault(x => !x.IsAdmin && x.MainAppUserId != null);
+
+                //        //if(newAdmin == null)//надо либо обновлять ui тогда через сокеты
+                //        //, либо смысла не имеет, тк что бы прорасло надо обновлять страницу
+                //        //а неавторизованный зайдет как новый пользак
+                //        //{
+                //        //    newAdmin = rm.StoredRoom.Users.FirstOrDefault(x => !x.IsAdmin);
+                //        //}
+
+                //        newAdmin?.Role.Add(Consts.Roles.Admin);
+                //    }
+                //}
+                //else
+                PlanitUser currentUser = null;
                 {
                     currentUser =
-                        rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
+                        rm.Users.FirstOrDefault(x => x.UserConnectionId == userConnectionIdRequest);
                 }
 
                 if (currentUser == null)
                 {
                     result = true;
-                    return;
+                    return true;
                 }
 
                 userId = currentUser.PlaningAppUserId;
                 if (currentUser.MainAppUserId == null)
                 {
-                    rm.StoredRoom.Users.RemoveAll(x => x.UserConnectionId == userConnectionIdRequest);
+                    rm.Users.RemoveAll(x => x.UserConnectionId == userConnectionIdRequest);
                 }
                 else
                 {
@@ -1036,6 +1061,7 @@ namespace PlanitPoker.Models.Services
                 }
 
                 result = true;
+                return true;
             });
 
             return (result, userId);

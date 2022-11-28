@@ -607,7 +607,7 @@ namespace PlanitPoker.Models.Hubs
 
 
 
-        public async Task OnWindowClosedAsync(string roomName)//, string userId
+        public async Task OnWindowClosedAsync(string roomName)
         {
             roomName = NormalizeRoomName(roomName);
             string connectionId = GetConnectionId();
@@ -682,20 +682,6 @@ namespace PlanitPoker.Models.Hubs
             }, _logger);
 
         }
-
-        // ReSharper disable once UnusedMember.Global
-        //public async Task<IEnumerable<StoryReturn>> LoadNotActualStories(string roomName)
-        //{
-        //    roomName = NormalizeRoomName(roomName);
-        //    Log(LogLevel.Debug, nameof(LoadNotActualStories), string.Empty, roomName, GetConnectionId(), string.Empty);
-        //    return await _apiHealper.DoStandartSomething(async () =>
-        //    {
-        //        var stories = await _planitPokerService.LoadNotActualStories(roomName);
-        //        return stories.Select(x => new StoryReturn(x));
-        //    }, new List<StoryReturn>(), _logger);
-
-        //}
-
 
 
 
