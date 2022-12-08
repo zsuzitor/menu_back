@@ -56839,9 +56839,9 @@ var Room = function (props) {
     //эффект для доступа по прямой ссылке
     //
     //#state
-    var _a = (0, react_1.useState)(null), dieRoomTime = _a[0], setDieRoomTime = _a[1];
-    var _b = (0, react_1.useState)(false), hideVoteState = _b[0], setHideVoteState = _b[1];
-    var _c = (0, react_1.useState)(props.UserInfo.UserName), userNameLocalState = _c[0], setUserNameLocalState = _c[1]; //для редактирования
+    // const [dieRoomTime, setDieRoomTime] = useState(null);
+    var _a = (0, react_1.useState)(false), hideVoteState = _a[0], setHideVoteState = _a[1];
+    var _b = (0, react_1.useState)(props.UserInfo.UserName), userNameLocalState = _b[0], setUserNameLocalState = _b[1]; //для редактирования
     var currentUserIsAdmin = (new PlaningPokerHelper_1.PlaningPokerHelper()).CurrentUserIsAdmin(props.UsersList, props.UserInfo.UserId);
     (0, react_1.useEffect)(function () {
         if (!props.RoomInfo.Name) {
@@ -56863,9 +56863,9 @@ var Room = function (props) {
             setUserNameLocalState(props.UserInfo.UserName);
         }
     }, [props.HubConnected]);
-    (0, react_1.useEffect)(function () {
-        setDieRoomTime(props.DieRoomTimeInitial);
-    }, [props.DieRoomTimeInitial]);
+    // useEffect(() => {
+    //     setDieRoomTime(props.DieRoomTimeInitial);
+    // }, [props.DieRoomTimeInitial]);
     (0, react_1.useEffect)(function () {
         if (!props.RoomInfo.InRoom) {
             return;
@@ -56966,7 +56966,7 @@ var Room = function (props) {
             if (!newDieTime) {
                 return;
             }
-            setDieRoomTime(new Date(newDieTime));
+            props.SetInitialRoomDieTime(new Date(newDieTime));
         });
         props.MyHubConnection.on(G_PlaningPokerController.EndPoints.EndpointsFront.RoomCardsChanged, function (newData) {
             props.SetRoomCards(newData);
@@ -57196,7 +57196,7 @@ var Room = function (props) {
         react_1.default.createElement("div", { className: 'planing-room-header planing-poker-left-one-section' },
             react_1.default.createElement("div", { className: 'room-top-info' },
                 react_1.default.createElement("h1", null, props.RoomInfo.Name),
-                react_1.default.createElement(RoomTimer_1.default, { DieDate: dieRoomTime, AliveRoom: aliveRoom, ForceLeaveFromRoom: forceLeaveFromRoom }),
+                react_1.default.createElement(RoomTimer_1.default, { DieDate: props.DieRoomTimeInitial, AliveRoom: aliveRoom, ForceLeaveFromRoom: forceLeaveFromRoom }),
                 roomMainActionButton(),
                 renderNotAuthMessage()),
             react_1.default.createElement("div", { className: 'room-image' },
@@ -57313,6 +57313,9 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     res.ClearPokerRoomState = function () {
         dispatch((0, Actions_1.ClearRoomPokerStateActionCreator)());
+    };
+    res.SetInitialRoomDieTime = function (date) {
+        dispatch((0, RoomAction_1.SetInitialRoomDieTimeActionCreator)(date));
     };
     return res;
 };
