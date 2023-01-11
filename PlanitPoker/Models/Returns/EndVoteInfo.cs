@@ -20,6 +20,7 @@ namespace PlanitPoker.Models.Returns
         public decimal Average { get; set; }
         [JsonPropertyName("min_vote")]
         public decimal MinVote { get; set; }
+
         [JsonPropertyName("max_vote")]
         public decimal MaxVote { get; set; }
     }

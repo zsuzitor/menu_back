@@ -51285,8 +51285,8 @@ var EndVoteInfo = /** @class */ (function () {
             return;
         }
         this.AverageVote = newData.average_vote;
-        this.MinVote = newData.max_vote;
-        this.MaxVote = newData.min_vote;
+        this.MinVote = newData.min_vote;
+        this.MaxVote = newData.max_vote;
         this.UsersInfo = newData.users_info.map(function (x) {
             var y = new EndVoteUserInfo();
             y.FillByBackModel(x);
@@ -57079,14 +57079,13 @@ var Room = function (props) {
         var withoutMarkNames = props.UsersList.filter(function (x) { return !x.HasVote; })
             .map(function (x) { return x.Name; }).join(', ');
         var renderOneNonNumberMark = function (vote) {
-            return react_1.default.createElement(react_1.default.Fragment, null,
-                react_1.default.createElement("p", { key: 'vote_res' + vote },
-                    "\u041E\u0446\u0435\u043D\u043A\u0430 ",
-                    vote,
-                    ": ",
-                    props.UsersList.filter(function (x) { return x.HasVote
-                        && x.Vote === vote; })
-                        .map(function (x) { return x.Name; }).join(', ')));
+            return react_1.default.createElement("p", { key: 'vote_res' + vote },
+                "\u041E\u0446\u0435\u043D\u043A\u0430 ",
+                vote,
+                ": ",
+                props.UsersList.filter(function (x) { return x.HasVote
+                    && x.Vote === vote; })
+                    .map(function (x) { return x.Name; }).join(', '));
         };
         return react_1.default.createElement("div", null,
             react_1.default.createElement("div", { className: "padding-10-top" }),

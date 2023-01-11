@@ -281,6 +281,15 @@ namespace PlanitPoker.Models.Services
             string oldConnectionId = null;
             var success = await room.SetConcurentValueAsync(_multiThreadHelper, rm =>
             {
+                var nowPlus = DateTime.Now.AddMinutes(5);
+                if (rm.StoredRoom.DieDate < nowPlus)
+                {
+                    //это нужно на случай если таймер уже закончился, но рума не очищена,
+                    //в таком случае как только ты в нее заходишь тебя выкидывает по таймеру
+                    //todo в иделе надо всем пользакам обновить время, но это не критично
+                    rm.StoredRoom.DieDate = nowPlus;
+                }
+
                 var us = rm.StoredRoom.Users.FirstOrDefault(x => x.UserConnectionId == user.UserConnectionId
                                                                  || (user.MainAppUserId.HasValue &&
                                                                      x.MainAppUserId == user.MainAppUserId));
