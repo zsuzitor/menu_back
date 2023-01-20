@@ -20,6 +20,7 @@ namespace PlanitPoker.Models.Services
         Task<EndVoteInfo> GetEndVoteInfoAsync(string roomName);
 
         Task<EndVoteInfo> GetEndVoteInfo(Room room);
+        Task<EndVoteInfo> RecalcEndVoteInfo(Room room);
 
         //Task<List<string>> DeleteRoom(string roomName);
         Task<Room> DeleteRoomAsync(string roomName, string userConnectionIdRequest);

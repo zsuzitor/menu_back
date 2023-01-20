@@ -145,6 +145,15 @@ namespace PlanitPoker.Models.Services
 
         public async Task<EndVoteInfo> GetEndVoteInfo(Room room)
         {
+            var res = await room.GetConcurentValue(_multiThreadHelper, rm =>
+            {
+                return new EndVoteInfo(rm.StoredRoom.EndVoteInfo);
+            });
+            return res.res;
+        }
+
+        public async Task<EndVoteInfo> RecalcEndVoteInfo(Room room)
+        {
             if (room == null)
             {
                 throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
@@ -170,6 +179,11 @@ namespace PlanitPoker.Models.Services
 
             if (res == null)
             {
+                //await room.SetConcurentValue(_multiThreadHelper,
+                //    rm =>
+                //    {
+                //        rm.StoredRoom.EndVoteInfo = new EndVoteInfo();
+                //    });
                 return null;
             }
 
@@ -187,6 +201,11 @@ namespace PlanitPoker.Models.Services
             }
 
             result.UsersInfo = res.Select(x => new EndVoteUserInfo() { Id = x.userId, Vote = x.vote }).ToList();
+            await room.SetConcurentValue(_multiThreadHelper,
+                    rm =>
+                    {
+                        rm.StoredRoom.EndVoteInfo = new EndVoteInfo(result);
+                    });
             return result;
         }
 
@@ -391,7 +410,10 @@ namespace PlanitPoker.Models.Services
             }
 
             return await room.SetConcurentValue(_multiThreadHelper,
-                rm => { rm.StoredRoom.Users.ForEach(x => { x.Vote = null; }); });
+                rm => {
+                    rm.StoredRoom.Users.ForEach(x => { x.Vote = null; });
+                    rm.StoredRoom.EndVoteInfo = new EndVoteInfo();
+                });
         }
 
         public async Task<Room> CreateRoomWithUserAsync(string roomName, string password, PlanitUser user)
@@ -724,7 +746,7 @@ namespace PlanitPoker.Models.Services
                 throw new SomeCustomException(ErrorConsts.SomeError);
             }
 
-            var result = await GetEndVoteInfo(room);
+            var result = await RecalcEndVoteInfo(room);
             return result;
 
         }
@@ -849,6 +871,11 @@ namespace PlanitPoker.Models.Services
                 if (story.IdDb != null)
                 {
                     await _storyRepository.ChangeCompleteAsync(story.IdDb.Value, true);
+                }
+
+                if(rm.CurrentStoryId == storyId)
+                {
+                    rm.CurrentStoryId = string.Empty;
                 }
 
                 //rm.TotalNotActualStoriesCount++;

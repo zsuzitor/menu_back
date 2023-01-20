@@ -50311,6 +50311,9 @@ var PlaningPokerController = /** @class */ (function () {
                     st.FillByBackModel(x);
                     return st;
                 })));
+                var mainAppUserId = getState().PlaningPokerApp.User.UserId;
+                var currentUser = newUsersData.find(function (x) { return x.Id == mainAppUserId; });
+                dispatch((0, RoomAction_1.SetSelectedCardActionCreator)((currentUser === null || currentUser === void 0 ? void 0 : currentUser.Vote) || '-1'));
                 if (onSuccess) {
                     onSuccess(error, data);
                 }
@@ -57368,6 +57371,13 @@ var Paggination_1 = __importDefault(__webpack_require__(/*! ../../Paggination/Pa
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var PlaningPokerHelper_1 = __webpack_require__(/*! ../../../../Models/BL/PlaningPokerApp/PlaningPokerHelper */ "./src/Models/BL/PlaningPokerApp/PlaningPokerHelper.ts");
 __webpack_require__(/*! ./StoriesSection.css */ "./src/components/Body/PlaningPoker/StoriesSection/StoriesSection.css");
+var ListStoryType;
+(function (ListStoryType) {
+    ListStoryType[ListStoryType["Actual"] = 1] = "Actual";
+    ListStoryType[ListStoryType["ThisSession"] = 2] = "ThisSession";
+    ListStoryType[ListStoryType["Old"] = 3] = "Old";
+})(ListStoryType || (ListStoryType = {}));
+;
 var StoriesSectionState = /** @class */ (function () {
     function StoriesSectionState() {
         this.NameForAdd = "";
@@ -57379,14 +57389,14 @@ var StoriesSectionState = /** @class */ (function () {
 var StoriesSection = function (props) {
     var initStories = new StoriesSectionState();
     var _a = (0, react_1.useState)(initStories), storiesState = _a[0], setStoriesState = _a[1];
-    var _b = (0, react_1.useState)(1), listStoryTypeState = _b[0], setListStoryTypeState = _b[1];
+    var _b = (0, react_1.useState)(ListStoryType.Actual), listStoryTypeState = _b[0], setListStoryTypeState = _b[1];
     var _c = (0, react_1.useState)(false), showNewStoryForm = _c[0], setShowNewStoryForm = _c[1];
     var _d = (0, react_1.useState)(1), storiesPageNumber = _d[0], setstoriesPageNumber = _d[1];
     var storyHelper = new PlaningPokerHelper_1.StoriesHelper();
     var currentStory = storyHelper.GetStoryById(props.Stories, props.CurrentStoryId);
     var _e = (0, react_1.useState)((currentStory === null || currentStory === void 0 ? void 0 : currentStory.Name) || ''), currentStoryNameChange = _e[0], setCurrentStoryNameChange = _e[1];
     var _f = (0, react_1.useState)((currentStory === null || currentStory === void 0 ? void 0 : currentStory.Description) || ''), currentStoryDescriptionChange = _f[0], setCurrentStoryDescriptionChange = _f[1];
-    var countStoriesOnPage = 3;
+    var countStoriesOnPage = 15;
     var storiesHelper = new PlaningPokerHelper_1.StoriesHelper();
     (0, react_1.useEffect)(function () {
         // ResetCurrentStoryById();
@@ -57499,7 +57509,7 @@ var StoriesSection = function (props) {
             return react_1.default.createElement(react_1.default.Fragment, null);
         };
         var addNewForm = react_1.default.createElement(react_1.default.Fragment, null);
-        if (props.IsAdmin && listStoryTypeState === 1) {
+        if (props.IsAdmin && listStoryTypeState === ListStoryType.Actual) {
             adminButtonInList = function (id) {
                 return react_1.default.createElement("div", { className: 'stories-but-block' },
                     react_1.default.createElement("div", { className: 'stories-action-btn', onClick: function () { return makeCurrentStory(id); }, title: '\u0421\u0434\u0435\u043B\u0430\u0442\u044C \u0442\u0435\u043A\u0443\u0449\u0435\u0439' },
@@ -57507,7 +57517,7 @@ var StoriesSection = function (props) {
                     react_1.default.createElement("div", { className: 'stories-del-but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () { return deleteStory(id); } },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })));
             };
-            addNewForm = listStoryTypeState !== 1 ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement("div", null,
+            addNewForm = listStoryTypeState !== ListStoryType.Actual ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement("div", null,
                 react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return setShowNewStoryForm(!showNewStoryForm); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u044E"));
         }
         var completedStoryInfo = function (story) {
@@ -57525,7 +57535,7 @@ var StoriesSection = function (props) {
         };
         var storiesForRender = [];
         var paggination = react_1.default.createElement(react_1.default.Fragment, null);
-        if (listStoryTypeState === 3) {
+        if (listStoryTypeState === ListStoryType.Old) {
             if (props.TotalNotActualStoriesCount > countStoriesOnPage) {
                 paggination = react_1.default.createElement(Paggination_1.default, { ElementsCount: props.TotalNotActualStoriesCount, PageNumber: storiesPageNumber, ElementsOnPage: countStoriesOnPage, SetPageNumber: setstoriesPageNumber });
             }
@@ -57533,8 +57543,8 @@ var StoriesSection = function (props) {
         }
         else {
             storiesForRender = props.Stories
-                .filter(function (x) { return (!x.Completed && listStoryTypeState === 1)
-                || (x.Completed && listStoryTypeState === 2 && x.ThisSession); })
+                .filter(function (x) { return (!x.Completed && listStoryTypeState === ListStoryType.Actual)
+                || (x.Completed && listStoryTypeState === ListStoryType.ThisSession && x.ThisSession); })
                 .sort(function (x1, x2) {
                 var x1Date = new Date(x1.Date || 0);
                 var x2Date = new Date(x2.Date || 0);
@@ -57569,9 +57579,9 @@ var StoriesSection = function (props) {
                     react_1.default.createElement("div", null,
                         react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return AddNewStory(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"))); } }),
             react_1.default.createElement("div", { className: 'room-stories-type-selector' },
-                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === 1 ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(1); } }, "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
-                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === 2 ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(2); } }, "\u041E\u0446\u0435\u043D\u0435\u043D\u043D\u044B\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
-                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === 3 ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(3); } }, "\u0412\u0441\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438")),
+                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === ListStoryType.Actual ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(ListStoryType.Actual); } }, "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
+                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === ListStoryType.ThisSession ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(ListStoryType.ThisSession); } }, "\u041E\u0446\u0435\u043D\u0435\u043D\u043D\u044B\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
+                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === ListStoryType.Old ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(ListStoryType.Old); } }, "\u0412\u0441\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438")),
             react_1.default.createElement("div", null, addNewForm),
             paggination,
             react_1.default.createElement("div", null,

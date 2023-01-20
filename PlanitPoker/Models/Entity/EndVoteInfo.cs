@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json.Serialization;
 
-namespace PlanitPoker.Models.Returns
+namespace PlanitPoker.Models.Entity
 {
 
     public sealed class EndVoteUserInfo
@@ -10,6 +11,17 @@ namespace PlanitPoker.Models.Returns
         public string Id { get; set; }
         [JsonPropertyName("vote")]
         public string Vote { get; set; }
+
+        public EndVoteUserInfo()
+        {
+
+        }
+
+        public EndVoteUserInfo(EndVoteUserInfo obj)
+        {
+            Id = obj.Id;
+            Vote = obj.Vote;
+        }
     }
 
     public class EndVoteInfo
@@ -23,5 +35,19 @@ namespace PlanitPoker.Models.Returns
 
         [JsonPropertyName("max_vote")]
         public decimal MaxVote { get; set; }
+
+        public EndVoteInfo()
+        {
+            UsersInfo = new List<EndVoteUserInfo>();
+        }
+
+
+        public EndVoteInfo(EndVoteInfo obj) :this()
+        {
+            UsersInfo = obj.UsersInfo.Select(x => new EndVoteUserInfo(x)).ToList();
+            Average = obj.Average;
+            MinVote = obj.MinVote;
+            MaxVote = obj.MaxVote;
+        }
     }
 }

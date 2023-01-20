@@ -208,12 +208,13 @@ namespace PlanitPoker.Models.Hubs
                 }
 
                 await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.RoomCardsChanged, cardsList);
-                var result = await _planitPokerService.GetEndVoteInfo(room);
+                var result = await _planitPokerService.RecalcEndVoteInfo(room);
                 if (result == null)
                 {
                     throw new SomeCustomException(ErrorConsts.SomeError);
                 }
 
+                //todo зачем это?
                 await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.VoteEnd, result);
 
             }, _logger);

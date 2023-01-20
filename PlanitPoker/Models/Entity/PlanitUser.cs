@@ -37,7 +37,9 @@ namespace PlanitPoker.Models.Entity
         public string Name { get; set; }
         public string Vote { get; set; }
         ////не актуально на стороне сервера, проставлятся только для отправки на ui. todo можно вынести в отдельную модель
-        public bool HasVote { get; set; }
+        private bool _hasVote;
+        public bool HasVote { get => (_hasVote ? _hasVote: Vote != null);
+            set { _hasVote = value; } }
         public string ImageLink { get; set; }
 
 

@@ -25,6 +25,8 @@ namespace PlanitPoker.Models.Entity
         public long TotalNotActualStoriesCount { get; set; }
         public List<string> Cards { get; set; }
 
+        public EndVoteInfo EndVoteInfo { get; set; }
+
 
         public StoredRoom()
         {
@@ -34,6 +36,7 @@ namespace PlanitPoker.Models.Entity
             DieDate = DateTime.Now.AddHours(Consts.DefaultHourRoomAlive); //DateTime.Now.AddMinutes(2);//
             CurrentStoryId = string.Empty;
             Cards = new List<string>();
+            EndVoteInfo = new EndVoteInfo();
         }
 
         public StoredRoom(string name, string password) : this()
