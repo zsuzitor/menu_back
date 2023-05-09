@@ -45,6 +45,11 @@ namespace Menu.Controllers
             //return View("Index");
         }
 
+        public ActionResult VaultApp()
+        {
+            return View("Index");
+
+        }
 
     }
 }

@@ -285,6 +285,7 @@ namespace Menu
                 routes.MapRoute("default_wordscards_app_react", "words-cards-app/{*url}", new { controller = "Menu", action = "WordsCardsApp" });
                 routes.MapRoute("planing_poker", "planing-poker/{*url}", new { controller = "Menu", action = "PlaningPoker" });
                 routes.MapRoute("code_review", "code-review/{*url}", new { controller = "Menu", action = "CodeReviewApp" });
+                routes.MapRoute("vault", "vault-app/{*url}", new { controller = "Menu", action = "VaultApp" });
 
                 //routes.MapRoute(
                 //    name: "default",
