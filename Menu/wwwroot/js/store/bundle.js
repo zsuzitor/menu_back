@@ -3150,6 +3150,33 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".user-list-role-but {\r\n    display: 
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/Vault/CreateVault/CreateVault.css":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/Vault/CreateVault/CreateVault.css ***!
+  \*****************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/Vault/OneVaultInList/OneVaultInList.css":
 /*!***********************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/Vault/OneVaultInList/OneVaultInList.css ***!
@@ -3197,7 +3224,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".vault-secrets-list {\r\n    display: flex;\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/Vault/OneVault/OneVault.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,aAAa;IACb,eAAe;AACnB","sourcesContent":[".vault-secrets-list {\r\n    display: flex;\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3224,7 +3251,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".vault-list-container {\r\n    display: flex;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/Vault/VaultList/VaultList.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,SAAS;IACT,eAAe;AACnB","sourcesContent":[".vault-list-container {\r\n    display: flex;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".vault-list-container {\r\n    display: flex;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.create-vault-in-list {\r\n    width: 200px;\r\n    height: 110px;\r\n    border: 2px solid black;\r\n    border-radius: 5px;\r\n    font-size: 120px;\r\n    cursor: pointer;\r\n    text-align: center;\r\n    line-height: 70px;\r\n    vertical-align: middle;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/Vault/VaultList/VaultList.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,SAAS;IACT,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,uBAAuB;IACvB,kBAAkB;IAClB,gBAAgB;IAChB,eAAe;IACf,kBAAkB;IAClB,iBAAiB;IACjB,sBAAsB;AAC1B","sourcesContent":[".vault-list-container {\r\n    display: flex;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.create-vault-in-list {\r\n    width: 200px;\r\n    height: 110px;\r\n    border: 2px solid black;\r\n    border-radius: 5px;\r\n    font-size: 120px;\r\n    cursor: pointer;\r\n    text-align: center;\r\n    line-height: 70px;\r\n    vertical-align: middle;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3278,7 +3305,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n}\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more-but {}", "",{"version":3,"sources":["webpack://./src/components/Body/Vault/VaultSecret/VaultSecret.css"],"names":[],"mappings":"AAAA;IACI,4BAA4B;IAC5B,uBAAuB;IACvB,WAAW;AACf;;AAEA;IACI,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA,wBAAwB;;AAExB,oBAAoB;;AAEpB,oBAAoB;;AAEpB,wBAAwB","sourcesContent":[".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n}\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more-but {}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -47340,6 +47367,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/components/Body/Vault/CreateVault/CreateVault.css":
+/*!***************************************************************!*\
+  !*** ./src/components/Body/Vault/CreateVault/CreateVault.css ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_CreateVault_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./CreateVault.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/Vault/CreateVault/CreateVault.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_CreateVault_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_CreateVault_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_CreateVault_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_CreateVault_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/components/Body/Vault/OneVaultInList/OneVaultInList.css":
 /*!*********************************************************************!*\
   !*** ./src/components/Body/Vault/OneVaultInList/OneVaultInList.css ***!
@@ -51117,11 +51199,14 @@ var VaultController = /** @class */ (function () {
     };
     VaultController.prototype.GetVaultSecrets = function (vaultId, onSuccess) {
         var resMoq = [];
-        resMoq.push({ id: 1, key: "11111", value: "val1", isCoded: false });
-        resMoq.push({ id: 2, key: "111112", value: "val12", isCoded: false });
-        resMoq.push({ id: 3, key: "111113", value: "val13", isCoded: false });
-        resMoq.push({ id: 4, key: "111114", value: "val14", isCoded: false });
-        resMoq.push({ id: 5, key: "111115", value: "val15", isCoded: true });
+        // isCoded: boolean;
+        // isPublic: boolean;
+        // dieDate: Date;
+        resMoq.push({ id: 1, key: "11111", value: "val1", isCoded: false, isPublic: true, dieDate: null });
+        resMoq.push({ id: 2, key: "111112", value: "val12", isCoded: false, isPublic: true, dieDate: null });
+        resMoq.push({ id: 3, key: "111113", value: "val13", isCoded: false, isPublic: false, dieDate: null });
+        resMoq.push({ id: 4, key: "111114", value: "val14", isCoded: false, isPublic: false, dieDate: null });
+        resMoq.push({ id: 5, key: "111115", value: "val15", isCoded: true, isPublic: true, dieDate: null });
         onSuccess(null, resMoq);
         // G_AjaxHelper.GoAjaxRequest({
         //     Data: {
@@ -52366,6 +52451,8 @@ var OneVaultSecret = /** @class */ (function () {
         this.Key = newData.key;
         this.Value = newData.value;
         this.IsCoded = newData.isCoded;
+        this.IsPublic = newData.isPublic;
+        this.DieDate = newData.dieDate;
     };
     return OneVaultSecret;
 }());
@@ -58669,6 +58756,79 @@ exports["default"] = connectToStore(UserInList);
 
 /***/ }),
 
+/***/ "./src/components/Body/Vault/CreateVault/CreateVault.tsx":
+/*!***************************************************************!*\
+  !*** ./src/components/Body/Vault/CreateVault/CreateVault.tsx ***!
+  \***************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var CreateVaultSetup_1 = __importDefault(__webpack_require__(/*! ./CreateVaultSetup */ "./src/components/Body/Vault/CreateVault/CreateVaultSetup.tsx"));
+__webpack_require__(/*! ./CreateVault.css */ "./src/components/Body/Vault/CreateVault/CreateVault.css");
+var CreateVault = function (props) {
+    var _a = (0, react_1.useState)(''), code = _a[0], setCode = _a[1];
+    (0, react_1.useEffect)(function () {
+    }, []);
+    return react_1.default.createElement("div", { className: 'create-vault' }, "\u0444\u043E\u0440\u043C\u0430 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F");
+};
+exports["default"] = (0, CreateVaultSetup_1.default)(CreateVault);
+
+
+/***/ }),
+
+/***/ "./src/components/Body/Vault/CreateVault/CreateVaultSetup.tsx":
+/*!********************************************************************!*\
+  !*** ./src/components/Body/Vault/CreateVault/CreateVaultSetup.tsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var mapStateToProps = function (state, ownProps) {
+    var res = {};
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+// and that function returns the connected, wrapper component:
+
+
+/***/ }),
+
 /***/ "./src/components/Body/Vault/OneVaultInList/OneVaultInList.tsx":
 /*!*********************************************************************!*\
   !*** ./src/components/Body/Vault/OneVaultInList/OneVaultInList.tsx ***!
@@ -58788,7 +58948,8 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var VaultSecret_1 = __importDefault(__webpack_require__(/*! ../VaultSecret/VaultSecret */ "./src/components/Body/Vault/VaultSecret/VaultSecret.tsx"));
 __webpack_require__(/*! ./OneVault.css */ "./src/components/Body/Vault/OneVault/OneVault.css");
 var OneVault = function (props) {
-    var _a = (0, react_1.useState)(''), code = _a[0], setCode = _a[1];
+    // const [code, setCode] = useState('');
+    var _a = (0, react_1.useState)(''), filterSecretKey = _a[0], setFilterSecretKey = _a[1];
     if (!props.VaultId) {
         //todo это полная копия из vaultMain, вынести в 1 место
         var pathNameUrlSplit = document.location.pathname.split('/');
@@ -58817,8 +58978,13 @@ var OneVault = function (props) {
         backLink,
         react_1.default.createElement("div", null,
             react_1.default.createElement("p", null, vault.Id),
-            react_1.default.createElement("p", null, vault.Name)),
-        vault.Secrets.map(function (s) { return react_1.default.createElement(VaultSecret_1.default, { Secret: s }); }));
+            react_1.default.createElement("p", null, vault.Name),
+            react_1.default.createElement("button", null, "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C"),
+            react_1.default.createElement("button", null, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")),
+        react_1.default.createElement("input", { type: 'text', placeholder: '\u043F\u043E\u0438\u0441\u043A', onChange: (function (e) { return setFilterSecretKey(e.target.value); }), value: filterSecretKey }),
+        react_1.default.createElement("div", { className: 'vault-secrets-list' }, vault.Secrets.filter(function (x) { return !filterSecretKey || (x.Key.indexOf(filterSecretKey) != -1); })
+            .map(function (s) { return react_1.default.createElement(VaultSecret_1.default, { key: s.Id, Secret: s }); })),
+        react_1.default.createElement("button", null, "\u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C"));
 };
 exports["default"] = (0, OneVaultSetup_1.default)(OneVault);
 
@@ -58895,12 +59061,19 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var VaultListSetup_1 = __importDefault(__webpack_require__(/*! ./VaultListSetup */ "./src/components/Body/Vault/VaultList/VaultListSetup.tsx"));
 var OneVaultInList_1 = __importDefault(__webpack_require__(/*! ../OneVaultInList/OneVaultInList */ "./src/components/Body/Vault/OneVaultInList/OneVaultInList.tsx"));
+var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
+var CreateVault_1 = __importDefault(__webpack_require__(/*! ../CreateVault/CreateVault */ "./src/components/Body/Vault/CreateVault/CreateVault.tsx"));
 __webpack_require__(/*! ./VaultList.css */ "./src/components/Body/Vault/VaultList/VaultList.css");
 var VaultList = function (props) {
     var _a = (0, react_1.useState)(''), code = _a[0], setCode = _a[1];
+    var _b = (0, react_1.useState)(false), showAddForm = _b[0], setShowAddForm = _b[1];
     (0, react_1.useEffect)(function () {
     }, []);
-    return react_1.default.createElement("div", { className: 'vault-list-container' }, props.Vaults.map(function (v) { return react_1.default.createElement(OneVaultInList_1.default, { key: v.Id, Vault: v }); }));
+    return react_1.default.createElement("div", { className: 'vault-list' },
+        react_1.default.createElement("div", null, showAddForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowAddForm(false); }, IsHeightWindow: false, Title: '\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430', InnerContent: function () { return react_1.default.createElement(CreateVault_1.default, null); } }) : react_1.default.createElement(react_1.default.Fragment, null)),
+        react_1.default.createElement("div", { className: 'vault-list-container' },
+            props.Vaults.map(function (v) { return react_1.default.createElement(OneVaultInList_1.default, { key: v.Id, Vault: v }); }),
+            react_1.default.createElement("div", { className: 'create-vault-in-list', onClick: function () { return setShowAddForm(!showAddForm); } }, "+")));
 };
 exports["default"] = (0, VaultListSetup_1.default)(VaultList);
 
@@ -58984,7 +59157,7 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var OneVault_1 = __importDefault(__webpack_require__(/*! ../OneVault/OneVault */ "./src/components/Body/Vault/OneVault/OneVault.tsx"));
 __webpack_require__(/*! ./VaultMain.css */ "./src/components/Body/Vault/VaultMain/VaultMain.css");
 var VaultMain = function (props) {
-    var _a = (0, react_1.useState)(''), code = _a[0], setCode = _a[1];
+    // const [code, setCode] = useState('');
     (0, react_1.useEffect)(function () {
         props.LoadMyVaults();
     }, []);
@@ -59081,6 +59254,8 @@ __webpack_require__(/*! ./VaultSecret.css */ "./src/components/Body/Vault/VaultS
 var VaultSecret = function (props) {
     var _a;
     var _b = (0, react_1.useState)(((_a = props.Secret) === null || _a === void 0 ? void 0 : _a.Key) || ''), secretKey = _b[0], setKey = _b[1];
+    var _c = (0, react_1.useState)(false), showValueState = _c[0], setShowValueState = _c[1];
+    var _d = (0, react_1.useState)(false), showMoreInfo = _d[0], setShowMoreInfo = _d[1];
     var secret = props.Secret;
     (0, react_1.useEffect)(function () {
         var _a, _b;
@@ -59090,12 +59265,28 @@ var VaultSecret = function (props) {
             setKey(((_b = props.Secret) === null || _b === void 0 ? void 0 : _b.Key) || '');
         }
     }, [secret === null || secret === void 0 ? void 0 : secret.Key]);
+    var showValueImage = 'eye5.png';
+    var showValueTitle = 'Скрыть значение';
+    if (!showValueState) {
+        showValueImage = 'eye1.png';
+        showValueTitle = 'Показать значение';
+    }
     return react_1.default.createElement("div", { className: 'vault-secret' },
-        secret.Key,
-        "__",
-        secret.Value,
-        "__",
-        secret.IsCoded);
+        react_1.default.createElement("div", { className: 'vault-secret-main' },
+            react_1.default.createElement("div", { className: 'vault-secret-key', title: secret.Key }, secret.Key),
+            react_1.default.createElement("div", { className: 'vault-secret-val' }, secret.Value),
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("div", { className: 'but vault-secret-show-val', title: showValueTitle },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + showValueImage })),
+                react_1.default.createElement("div", { className: 'but vault-secret-copy' },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'copy.png' })),
+                react_1.default.createElement("div", { className: 'but vault-secret-more-but', onClick: function () { return setShowMoreInfo(!showMoreInfo); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'arrow2.png' })))),
+        showMoreInfo ? react_1.default.createElement("div", { className: 'vault-secret-more' },
+            "\u0434\u043E\u043F \u0438\u043D\u0444\u0430",
+            secret.IsCoded,
+            secret.DieDate + "",
+            react_1.default.createElement("button", null, "\u0443\u0434\u0430\u043B\u0438\u0442\u044C")) : react_1.default.createElement(react_1.default.Fragment, null));
 };
 exports["default"] = (0, VaultSecretSetup_1.default)(VaultSecret);
 
