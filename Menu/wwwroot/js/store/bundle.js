@@ -3224,7 +3224,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".vault-secrets-list {\r\n    display: flex;\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/Vault/OneVault/OneVault.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,aAAa;IACb,eAAe;AACnB","sourcesContent":[".vault-secrets-list {\r\n    display: flex;\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".vault-secrets-list {\r\n    display: flex;\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/Vault/OneVault/OneVault.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,aAAa;IACb,eAAe;IACf,iBAAiB;AACrB","sourcesContent":[".vault-secrets-list {\r\n    display: flex;\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3305,7 +3305,34 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n}\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more-but {}", "",{"version":3,"sources":["webpack://./src/components/Body/Vault/VaultSecret/VaultSecret.css"],"names":[],"mappings":"AAAA;IACI,4BAA4B;IAC5B,uBAAuB;IACvB,WAAW;AACf;;AAEA;IACI,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA,wBAAwB;;AAExB,oBAAoB;;AAEpB,oBAAoB;;AAEpB,wBAAwB","sourcesContent":[".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n}\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more-but {}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    transition: min-height 0.5s ease-in-out;\r\n    padding: 5px;\r\n}\r\n\r\n.vault-secret-hide {\r\n    min-height: 40px;\r\n}\r\n\r\n.vault-secret-show {\r\n    min-height: 100px;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {\r\n}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/Vault/VaultSecret/VaultSecret.css"],"names":[],"mappings":"AAAA;IACI,4BAA4B;IAC5B,uBAAuB;IACvB,WAAW;IACX,kBAAkB;IAClB,oCAAoC;IACpC,gBAAgB;IAChB,uCAAuC;IACvC,YAAY;AAChB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,cAAc;AAClB;;AAEA,oBAAoB;;AAEpB;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;AACtB;;;;AAIA;IACI,aAAa;IACb,SAAS;AACb;;;AAGA;IACI,YAAY;IACZ,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA,wBAAwB;;AAExB,oBAAoB;;;AAGpB;AACA;;AAEA;IACI,aAAa;IACb,QAAQ;IACR,iBAAiB;AACrB","sourcesContent":[".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    transition: min-height 0.5s ease-in-out;\r\n    padding: 5px;\r\n}\r\n\r\n.vault-secret-hide {\r\n    min-height: 40px;\r\n}\r\n\r\n.vault-secret-show {\r\n    min-height: 100px;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {\r\n}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/Vault/VaultUser/VaultUser.css":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/Vault/VaultUser/VaultUser.css ***!
+  \*************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3413,7 +3440,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "div.main-header {\r\n    height: 3.75rem;\r\n    /* border: 2px solid black; */\r\n    background-color: #fff;\r\n    position: relative;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\ndiv.main-header-inner {\r\n    height: 100%;\r\n}\r\n\r\ndiv.main-header-row {\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.main-header-menu {\r\n    position: absolute;\r\n    padding: 0.625rem;\r\n    width: 200px;\r\n    /*height: 300px;*/\r\n    top: 4.5rem;\r\n    z-index: 2;\r\n    font-size: 18px;\r\n    background-color: white;\r\n    border-radius: 3px;\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n.main-header-menu-line {\r\n    padding: 5px 10px;\r\n    cursor: pointer;\r\n    border-radius: 0.25rem;\r\n}\r\n\r\n.main-header-menu-line:hover {\r\n    background-color: #edeef0;\r\n}\r\n\r\n.main-header-menu-line + .main-header-menu-line {\r\n    margin-top: 0.25rem;\r\n}\r\n\r\n.main-header-menu-line a {\r\n    width: 100%;\r\n    display: block;\r\n    text-decoration: none;\r\n    color: #000;\r\n}\r\n\r\n.main-header-menu-hide {\r\n    left: -210px;\r\n}\r\n\r\n.main-header-menu-show {\r\n    left: 0.75rem;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    border-radius: .75rem;\r\n}\r\n\r\n/* .main-header-menu a {\r\n} */", "",{"version":3,"sources":["webpack://./src/components/Header/HeaderMain/HeaderMain.css"],"names":[],"mappings":"AAAA;IACI,eAAe;IACf,6BAA6B;IAC7B,sBAAsB;IACtB,kBAAkB;IAClB,oCAAoC;AACxC;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,kBAAkB;IAClB,iBAAiB;IACjB,YAAY;IACZ,iBAAiB;IACjB,WAAW;IACX,UAAU;IACV,eAAe;IACf,uBAAuB;IACvB,kBAAkB;IAClB,4BAA4B;AAChC;;AAEA;IACI,iBAAiB;IACjB,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,WAAW;IACX,cAAc;IACd,qBAAqB;IACrB,WAAW;AACf;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,oCAAoC;IACpC,qBAAqB;AACzB;;AAEA;GACG","sourcesContent":["div.main-header {\r\n    height: 3.75rem;\r\n    /* border: 2px solid black; */\r\n    background-color: #fff;\r\n    position: relative;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\ndiv.main-header-inner {\r\n    height: 100%;\r\n}\r\n\r\ndiv.main-header-row {\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.main-header-menu {\r\n    position: absolute;\r\n    padding: 0.625rem;\r\n    width: 200px;\r\n    /*height: 300px;*/\r\n    top: 4.5rem;\r\n    z-index: 2;\r\n    font-size: 18px;\r\n    background-color: white;\r\n    border-radius: 3px;\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n.main-header-menu-line {\r\n    padding: 5px 10px;\r\n    cursor: pointer;\r\n    border-radius: 0.25rem;\r\n}\r\n\r\n.main-header-menu-line:hover {\r\n    background-color: #edeef0;\r\n}\r\n\r\n.main-header-menu-line + .main-header-menu-line {\r\n    margin-top: 0.25rem;\r\n}\r\n\r\n.main-header-menu-line a {\r\n    width: 100%;\r\n    display: block;\r\n    text-decoration: none;\r\n    color: #000;\r\n}\r\n\r\n.main-header-menu-hide {\r\n    left: -210px;\r\n}\r\n\r\n.main-header-menu-show {\r\n    left: 0.75rem;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    border-radius: .75rem;\r\n}\r\n\r\n/* .main-header-menu a {\r\n} */"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "div.main-header {\r\n    height: 3.75rem;\r\n    /* border: 2px solid black; */\r\n    background-color: #fff;\r\n    position: relative;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\ndiv.main-header-inner {\r\n    height: 100%;\r\n}\r\n\r\ndiv.main-header-row {\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.main-header-menu {\r\n    position: absolute;\r\n    padding: 0.625rem;\r\n    width: 200px;\r\n    /*height: 300px;*/\r\n    top: 4.5rem;\r\n    z-index: 2;\r\n    font-size: 18px;\r\n    background-color: white;\r\n    border-radius: 3px;\r\n    /* transition: 0.5s ease-in-out; */\r\n    transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);\r\n}\r\n\r\n.main-header-menu-line {\r\n    padding: 5px 10px;\r\n    cursor: pointer;\r\n    border-radius: 0.25rem;\r\n}\r\n\r\n.main-header-menu-line:hover {\r\n    background-color: #edeef0;\r\n}\r\n\r\n.main-header-menu-line + .main-header-menu-line {\r\n    margin-top: 0.25rem;\r\n}\r\n\r\n.main-header-menu-line a {\r\n    width: 100%;\r\n    display: block;\r\n    text-decoration: none;\r\n    color: #000;\r\n}\r\n\r\n.main-header-menu-hide {\r\n    left: -210px;\r\n}\r\n\r\n.main-header-menu-show {\r\n    left: 0.75rem;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    border-radius: .75rem;\r\n}\r\n\r\n/* .main-header-menu a {\r\n} */", "",{"version":3,"sources":["webpack://./src/components/Header/HeaderMain/HeaderMain.css"],"names":[],"mappings":"AAAA;IACI,eAAe;IACf,6BAA6B;IAC7B,sBAAsB;IACtB,kBAAkB;IAClB,oCAAoC;AACxC;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,kBAAkB;IAClB,iBAAiB;IACjB,YAAY;IACZ,iBAAiB;IACjB,WAAW;IACX,UAAU;IACV,eAAe;IACf,uBAAuB;IACvB,kBAAkB;IAClB,kCAAkC;IAClC,sDAAsD;AAC1D;;AAEA;IACI,iBAAiB;IACjB,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,WAAW;IACX,cAAc;IACd,qBAAqB;IACrB,WAAW;AACf;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,oCAAoC;IACpC,qBAAqB;AACzB;;AAEA;GACG","sourcesContent":["div.main-header {\r\n    height: 3.75rem;\r\n    /* border: 2px solid black; */\r\n    background-color: #fff;\r\n    position: relative;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\ndiv.main-header-inner {\r\n    height: 100%;\r\n}\r\n\r\ndiv.main-header-row {\r\n    height: 100%;\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.main-header-menu {\r\n    position: absolute;\r\n    padding: 0.625rem;\r\n    width: 200px;\r\n    /*height: 300px;*/\r\n    top: 4.5rem;\r\n    z-index: 2;\r\n    font-size: 18px;\r\n    background-color: white;\r\n    border-radius: 3px;\r\n    /* transition: 0.5s ease-in-out; */\r\n    transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);\r\n}\r\n\r\n.main-header-menu-line {\r\n    padding: 5px 10px;\r\n    cursor: pointer;\r\n    border-radius: 0.25rem;\r\n}\r\n\r\n.main-header-menu-line:hover {\r\n    background-color: #edeef0;\r\n}\r\n\r\n.main-header-menu-line + .main-header-menu-line {\r\n    margin-top: 0.25rem;\r\n}\r\n\r\n.main-header-menu-line a {\r\n    width: 100%;\r\n    display: block;\r\n    text-decoration: none;\r\n    color: #000;\r\n}\r\n\r\n.main-header-menu-hide {\r\n    left: -210px;\r\n}\r\n\r\n.main-header-menu-show {\r\n    left: 0.75rem;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    border-radius: .75rem;\r\n}\r\n\r\n/* .main-header-menu a {\r\n} */"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3440,7 +3467,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".header-user-menu {\r\n    position: absolute;\r\n    background-color: white;\r\n    transition: 0.5s ease-in-out;\r\n    border-radius: 0.75rem;\r\n    z-index: 2;\r\n    font-size: 18px;\r\n    top: 4.5rem;\r\n    padding: 0.625rem;\r\n    width: 210px;\r\n    /*height: 100px;*/\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.header-user-menu-show {\r\n    right: 0.75rem;\r\n    visibility: visible;\r\n}\r\n\r\n.header-user-menu-hide {\r\n    right: -230px;\r\n    /* right: 0px;\r\n    width: 0px;\r\n    height: 0px; */\r\n    visibility: hidden;\r\n}\r\n\r\n.header-user-menu a {\r\n    text-decoration: none;\r\n}\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    cursor: pointer;\r\n    text-align: right;\r\n    display: flex;\r\n    padding-right: 5px;\r\n    min-width: 100px;\r\n    justify-content: space-around;\r\n    max-width: 250px;\r\n    align-items: center;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n    color: black;\r\n    cursor: pointer;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    padding-top: 10px;\r\n}\r\n\r\ndiv.header-auth-dropdown:hover {\r\n    background-color: #99a2ad;\r\n}\r\n\r\n\r\n.header-user-name-text {\r\n    /* display: block;\r\n    max-width: 50%; */\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n    color: black;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n\r\ndiv.header-user-img {\r\n    height: 50px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    width: 50px;\r\n    flex-shrink: 0;\r\n}\r\n\r\ndiv.header-user-img img {\r\n    height: 100%;\r\n    width: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    position: relative;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}\r\n\r\n.header-user-menu-line {\r\n    padding: 5px 10px;\r\n    cursor: pointer;\r\n    border-radius: 0.25rem;\r\n    color: black;\r\n}\r\n\r\n.header-user-menu-line + .header-user-menu-line {\r\n    margin-top: 0.25rem;\r\n}\r\n\r\n.header-user-menu-line a {\r\n    display: block;\r\n    width: 100%;\r\n    text-decoration: none;\r\n    color: black;\r\n}\r\n\r\n.header-user-menu-line:hover {\r\n    background-color: #edeef0;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Header/HeaderUserMenu/HeaderUserMenu.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,uBAAuB;IACvB,4BAA4B;IAC5B,sBAAsB;IACtB,UAAU;IACV,eAAe;IACf,WAAW;IACX,iBAAiB;IACjB,YAAY;IACZ,iBAAiB;IACjB,4CAA4C;IAC5C,oCAAoC;AACxC;;AAEA;IACI,cAAc;IACd,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb;;kBAEc;IACd,kBAAkB;AACtB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,oBAAoB;IACpB,kCAAkC;IAClC,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,eAAe;IACf,iBAAiB;IACjB,aAAa;IACb,kBAAkB;IAClB,gBAAgB;IAChB,6BAA6B;IAC7B,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,YAAY;IACZ,qBAAqB;IACrB,eAAe;IACf,kBAAkB;IAClB,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,yBAAyB;AAC7B;;;AAGA;IACI;qBACiB;IACjB,gBAAgB;IAChB,yBAAyB;IACzB,kBAAkB;IAClB,YAAY;IACZ,gBAAgB;IAChB,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,kBAAkB;IAClB,gBAAgB;IAChB,WAAW;IACX,cAAc;AAClB;;AAEA;IACI,YAAY;IACZ,WAAW;AACf;;;;AAIA;IACI,YAAY;IACZ,qBAAqB;IACrB,kBAAkB;AACtB;;AAEA;IACI,mCAAmC;IACnC,oBAAoB;AACxB;;AAEA;IACI,iBAAiB;IACjB,eAAe;IACf,sBAAsB;IACtB,YAAY;AAChB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,cAAc;IACd,WAAW;IACX,qBAAqB;IACrB,YAAY;AAChB;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".header-user-menu {\r\n    position: absolute;\r\n    background-color: white;\r\n    transition: 0.5s ease-in-out;\r\n    border-radius: 0.75rem;\r\n    z-index: 2;\r\n    font-size: 18px;\r\n    top: 4.5rem;\r\n    padding: 0.625rem;\r\n    width: 210px;\r\n    /*height: 100px;*/\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.header-user-menu-show {\r\n    right: 0.75rem;\r\n    visibility: visible;\r\n}\r\n\r\n.header-user-menu-hide {\r\n    right: -230px;\r\n    /* right: 0px;\r\n    width: 0px;\r\n    height: 0px; */\r\n    visibility: hidden;\r\n}\r\n\r\n.header-user-menu a {\r\n    text-decoration: none;\r\n}\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    cursor: pointer;\r\n    text-align: right;\r\n    display: flex;\r\n    padding-right: 5px;\r\n    min-width: 100px;\r\n    justify-content: space-around;\r\n    max-width: 250px;\r\n    align-items: center;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n    color: black;\r\n    cursor: pointer;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    padding-top: 10px;\r\n}\r\n\r\ndiv.header-auth-dropdown:hover {\r\n    background-color: #99a2ad;\r\n}\r\n\r\n\r\n.header-user-name-text {\r\n    /* display: block;\r\n    max-width: 50%; */\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n    color: black;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n\r\ndiv.header-user-img {\r\n    height: 50px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    width: 50px;\r\n    flex-shrink: 0;\r\n}\r\n\r\ndiv.header-user-img img {\r\n    height: 100%;\r\n    width: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    position: relative;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}\r\n\r\n.header-user-menu-line {\r\n    padding: 5px 10px;\r\n    cursor: pointer;\r\n    border-radius: 0.25rem;\r\n    color: black;\r\n}\r\n\r\n.header-user-menu-line + .header-user-menu-line {\r\n    margin-top: 0.25rem;\r\n}\r\n\r\n.header-user-menu-line a {\r\n    display: block;\r\n    width: 100%;\r\n    text-decoration: none;\r\n    color: black;\r\n}\r\n\r\n.header-user-menu-line:hover {\r\n    background-color: #edeef0;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".header-user-menu {\r\n    position: absolute;\r\n    background-color: white;\r\n    /* transition: 0.5s ease-in-out; */\r\n    transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);\r\n    border-radius: 0.75rem;\r\n    z-index: 2;\r\n    font-size: 18px;\r\n    top: 4.5rem;\r\n    padding: 0.625rem;\r\n    width: 210px;\r\n    /*height: 100px;*/\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.header-user-menu-show {\r\n    right: 0.75rem;\r\n    visibility: visible;\r\n}\r\n\r\n.header-user-menu-hide {\r\n    right: -230px;\r\n    /* right: 0px;\r\n    width: 0px;\r\n    height: 0px; */\r\n    visibility: hidden;\r\n}\r\n\r\n.header-user-menu a {\r\n    text-decoration: none;\r\n}\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    cursor: pointer;\r\n    text-align: right;\r\n    display: flex;\r\n    padding-right: 5px;\r\n    min-width: 100px;\r\n    justify-content: space-around;\r\n    max-width: 250px;\r\n    align-items: center;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n    color: black;\r\n    cursor: pointer;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    padding-top: 10px;\r\n}\r\n\r\ndiv.header-auth-dropdown:hover {\r\n    background-color: #99a2ad;\r\n}\r\n\r\n\r\n.header-user-name-text {\r\n    /* display: block;\r\n    max-width: 50%; */\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n    color: black;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n\r\ndiv.header-user-img {\r\n    height: 50px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    width: 50px;\r\n    flex-shrink: 0;\r\n}\r\n\r\ndiv.header-user-img img {\r\n    height: 100%;\r\n    width: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    position: relative;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}\r\n\r\n.header-user-menu-line {\r\n    padding: 5px 10px;\r\n    cursor: pointer;\r\n    border-radius: 0.25rem;\r\n    color: black;\r\n}\r\n\r\n.header-user-menu-line + .header-user-menu-line {\r\n    margin-top: 0.25rem;\r\n}\r\n\r\n.header-user-menu-line a {\r\n    display: block;\r\n    width: 100%;\r\n    text-decoration: none;\r\n    color: black;\r\n}\r\n\r\n.header-user-menu-line:hover {\r\n    background-color: #edeef0;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Header/HeaderUserMenu/HeaderUserMenu.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,uBAAuB;IACvB,kCAAkC;IAClC,sDAAsD;IACtD,sBAAsB;IACtB,UAAU;IACV,eAAe;IACf,WAAW;IACX,iBAAiB;IACjB,YAAY;IACZ,iBAAiB;IACjB,4CAA4C;IAC5C,oCAAoC;AACxC;;AAEA;IACI,cAAc;IACd,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb;;kBAEc;IACd,kBAAkB;AACtB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,oBAAoB;IACpB,kCAAkC;IAClC,qBAAqB;AACzB;;AAEA;IACI,YAAY;IACZ,eAAe;IACf,iBAAiB;IACjB,aAAa;IACb,kBAAkB;IAClB,gBAAgB;IAChB,6BAA6B;IAC7B,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,YAAY;IACZ,qBAAqB;IACrB,eAAe;IACf,kBAAkB;IAClB,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,mBAAmB;IACnB,iBAAiB;AACrB;;AAEA;IACI,yBAAyB;AAC7B;;;AAGA;IACI;qBACiB;IACjB,gBAAgB;IAChB,yBAAyB;IACzB,kBAAkB;IAClB,YAAY;IACZ,gBAAgB;IAChB,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,kBAAkB;IAClB,gBAAgB;IAChB,WAAW;IACX,cAAc;AAClB;;AAEA;IACI,YAAY;IACZ,WAAW;AACf;;;;AAIA;IACI,YAAY;IACZ,qBAAqB;IACrB,kBAAkB;AACtB;;AAEA;IACI,mCAAmC;IACnC,oBAAoB;AACxB;;AAEA;IACI,iBAAiB;IACjB,eAAe;IACf,sBAAsB;IACtB,YAAY;AAChB;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,cAAc;IACd,WAAW;IACX,qBAAqB;IACrB,YAAY;AAChB;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".header-user-menu {\r\n    position: absolute;\r\n    background-color: white;\r\n    /* transition: 0.5s ease-in-out; */\r\n    transition: 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);\r\n    border-radius: 0.75rem;\r\n    z-index: 2;\r\n    font-size: 18px;\r\n    top: 4.5rem;\r\n    padding: 0.625rem;\r\n    width: 210px;\r\n    /*height: 100px;*/\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.header-user-menu-show {\r\n    right: 0.75rem;\r\n    visibility: visible;\r\n}\r\n\r\n.header-user-menu-hide {\r\n    right: -230px;\r\n    /* right: 0px;\r\n    width: 0px;\r\n    height: 0px; */\r\n    visibility: hidden;\r\n}\r\n\r\n.header-user-menu a {\r\n    text-decoration: none;\r\n}\r\n\r\ndiv.header-user-block {\r\n    height: 100%;\r\n    /* transition: 1s; */\r\n    /* border-left: 1px solid white; */\r\n    /* cursor: pointer; */\r\n}\r\n\r\ndiv.header-user-dropdown {\r\n    height: 100%;\r\n    cursor: pointer;\r\n    text-align: right;\r\n    display: flex;\r\n    padding-right: 5px;\r\n    min-width: 100px;\r\n    justify-content: space-around;\r\n    max-width: 250px;\r\n    align-items: center;\r\n}\r\n\r\ndiv.header-auth-dropdown {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    font-size: 20px;\r\n    text-align: center;\r\n    color: black;\r\n    cursor: pointer;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    padding-top: 10px;\r\n}\r\n\r\ndiv.header-auth-dropdown:hover {\r\n    background-color: #99a2ad;\r\n}\r\n\r\n\r\n.header-user-name-text {\r\n    /* display: block;\r\n    max-width: 50%; */\r\n    overflow: hidden;\r\n    /* padding-right: 10px; */\r\n    margin-right: 10px;\r\n    color: black;\r\n    font-weight: 600;\r\n    font-size: 20px;\r\n}\r\n\r\ndiv.header-user-img {\r\n    height: 50px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    width: 50px;\r\n    flex-shrink: 0;\r\n}\r\n\r\ndiv.header-user-img img {\r\n    height: 100%;\r\n    width: 100%;\r\n}\r\n\r\n\r\n\r\ndiv.header-user-block-inner {\r\n    height: 100%;\r\n    /* cursor: pointer; */\r\n    position: relative;\r\n}\r\n\r\ndiv.header-user-block-inner:hover {\r\n    /* background-color: greenyellow; */\r\n    /* transition: 1s; */\r\n}\r\n\r\n.header-user-menu-line {\r\n    padding: 5px 10px;\r\n    cursor: pointer;\r\n    border-radius: 0.25rem;\r\n    color: black;\r\n}\r\n\r\n.header-user-menu-line + .header-user-menu-line {\r\n    margin-top: 0.25rem;\r\n}\r\n\r\n.header-user-menu-line a {\r\n    display: block;\r\n    width: 100%;\r\n    text-decoration: none;\r\n    color: black;\r\n}\r\n\r\n.header-user-menu-line:hover {\r\n    background-color: #edeef0;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -47697,6 +47724,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/components/Body/Vault/VaultUser/VaultUser.css":
+/*!***********************************************************!*\
+  !*** ./src/components/Body/Vault/VaultUser/VaultUser.css ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_VaultUser_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./VaultUser.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/Vault/VaultUser/VaultUser.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_VaultUser_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_VaultUser_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_VaultUser_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_VaultUser_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/components/Footer/FooterMain/FooterMain.css":
 /*!*********************************************************!*\
   !*** ./src/components/Footer/FooterMain/FooterMain.css ***!
@@ -49111,7 +49193,7 @@ exports.UserRoleChangedActionCreator = UserRoleChangedActionCreator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SetVaultsSecretsActionCreator = exports.SetVaultsSecretsActionName = exports.SetVaultsListActionCreator = exports.SetVaultsListActionName = exports.ChangeCurrentVaultIdActionCreator = exports.ChangeCurrentVaultIdActionName = void 0;
+exports.SetVaultsPeopleActionCreator = exports.SetVaultsPeopleActionName = exports.SetVaultsSecretsActionCreator = exports.SetVaultsSecretsActionName = exports.SetVaultsListActionCreator = exports.SetVaultsListActionName = exports.ChangeCurrentVaultIdActionCreator = exports.ChangeCurrentVaultIdActionName = void 0;
 exports.ChangeCurrentVaultIdActionName = 'ChangeCurrentVaultIdAction';
 function ChangeCurrentVaultIdActionCreator(data) {
     return { type: exports.ChangeCurrentVaultIdActionName, payload: data };
@@ -49129,6 +49211,12 @@ function SetVaultsSecretsActionCreator(data) {
     return { type: exports.SetVaultsSecretsActionName, payload: data };
 }
 exports.SetVaultsSecretsActionCreator = SetVaultsSecretsActionCreator;
+;
+exports.SetVaultsPeopleActionName = 'SetVaultsPeopleAction';
+function SetVaultsPeopleActionCreator(data) {
+    return { type: exports.SetVaultsPeopleActionName, payload: data };
+}
+exports.SetVaultsPeopleActionCreator = SetVaultsPeopleActionCreator;
 ;
 
 
@@ -51143,6 +51231,7 @@ exports.VaultController = void 0;
 var VaultActions_1 = __webpack_require__(/*! ../../Actions/VaultApp/VaultActions */ "./src/Models/Actions/VaultApp/VaultActions.ts");
 var OneVault_1 = __webpack_require__(/*! ../../Models/VaultApp/State/OneVault */ "./src/Models/Models/VaultApp/State/OneVault.ts");
 var OneVaultSecret_1 = __webpack_require__(/*! ../../Models/VaultApp/State/OneVaultSecret */ "./src/Models/Models/VaultApp/State/OneVaultSecret.ts");
+var VaultUser_1 = __webpack_require__(/*! ../../Models/VaultApp/State/VaultUser */ "./src/Models/Models/VaultApp/State/VaultUser.ts");
 var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var VaultController = /** @class */ (function () {
     function VaultController() {
@@ -51207,6 +51296,45 @@ var VaultController = /** @class */ (function () {
         resMoq.push({ id: 3, key: "111113", value: "val13", isCoded: false, isPublic: false, dieDate: null });
         resMoq.push({ id: 4, key: "111114", value: "val14", isCoded: false, isPublic: false, dieDate: null });
         resMoq.push({ id: 5, key: "111115", value: "val15", isCoded: true, isPublic: true, dieDate: null });
+        onSuccess(null, resMoq);
+        // G_AjaxHelper.GoAjaxRequest({
+        //     Data: {
+        //         'roomname': roomname,
+        //         'userConnectionId': userId
+        //     },
+        //     Type: "GET",
+        //     FuncSuccess: (xhr, status, jqXHR) => {
+        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+        //     },
+        //     FuncError: (xhr, status, error) => { },
+        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
+        // });
+    };
+    VaultController.prototype.LoadVaultPeopleRedux = function (vaultId) {
+        var _this = this;
+        return function (dispatch, getState) {
+            _this.LoadVaultPeople(vaultId, function (error, data) {
+                if (data) {
+                    var newData = data.map(function (x) {
+                        var us = new VaultUser_1.VaultUser();
+                        us.FillByBackModel(x);
+                        return us;
+                    });
+                    dispatch((0, VaultActions_1.SetVaultsPeopleActionCreator)({ VaultId: vaultId, People: newData }));
+                }
+            });
+        };
+    };
+    VaultController.prototype.LoadVaultPeople = function (vaultId, onSuccess) {
+        var resMoq = [];
+        // isCoded: boolean;
+        // isPublic: boolean;
+        // dieDate: Date;
+        resMoq.push({ id: 1, email: 'userMail1@vvv.vv' });
+        resMoq.push({ id: 2, email: 'userMail2@vvv.vv' });
+        resMoq.push({ id: 3, email: 'userMail3@vvv.vv' });
+        resMoq.push({ id: 4, email: 'userMail4@vvv.vv' });
+        resMoq.push({ id: 5, email: 'userMail5@vvv.vv' });
         onSuccess(null, resMoq);
         // G_AjaxHelper.GoAjaxRequest({
         //     Data: {
@@ -52421,6 +52549,7 @@ exports.OneVault = void 0;
 var OneVault = /** @class */ (function () {
     function OneVault() {
         this.Secrets = [];
+        this.People = [];
     }
     OneVault.prototype.FillByBackModel = function (newData) {
         this.Id = newData.id;
@@ -52479,6 +52608,30 @@ var VaultAppState = /** @class */ (function () {
     return VaultAppState;
 }());
 exports.VaultAppState = VaultAppState;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/VaultApp/State/VaultUser.ts":
+/*!*******************************************************!*\
+  !*** ./src/Models/Models/VaultApp/State/VaultUser.ts ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.VaultUser = void 0;
+var VaultUser = /** @class */ (function () {
+    function VaultUser() {
+    }
+    VaultUser.prototype.FillByBackModel = function (newData) {
+        this.Id = newData.id;
+        this.Email = newData.email;
+    };
+    return VaultUser;
+}());
+exports.VaultUser = VaultUser;
 
 
 /***/ }),
@@ -53590,6 +53743,14 @@ function VaultReducer(state, action) {
                 var typedAction_1 = action.payload;
                 var vault = newState.VaultApp.VaultList.find(function (x) { return x.Id == typedAction_1.VaultId; });
                 vault.Secrets = typedAction_1.Secrets;
+                return newState;
+            }
+        case VaultActions_1.SetVaultsPeopleActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var typedAction_2 = action.payload;
+                var vault = newState.VaultApp.VaultList.find(function (x) { return x.Id == typedAction_2.VaultId; });
+                vault.People = typedAction_2.People;
                 return newState;
             }
     }
@@ -58787,18 +58948,62 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var CreateVaultSetup_1 = __importDefault(__webpack_require__(/*! ./CreateVaultSetup */ "./src/components/Body/Vault/CreateVault/CreateVaultSetup.tsx"));
+var VaultUser_1 = __importDefault(__webpack_require__(/*! ../VaultUser/VaultUser */ "./src/components/Body/Vault/VaultUser/VaultUser.tsx"));
 __webpack_require__(/*! ./CreateVault.css */ "./src/components/Body/Vault/CreateVault/CreateVault.css");
 var CreateVault = function (props) {
-    var _a = (0, react_1.useState)(''), code = _a[0], setCode = _a[1];
+    var _a, _b, _c, _d;
+    var _e = (0, react_1.useState)(((_a = props.Vault) === null || _a === void 0 ? void 0 : _a.Name) || ''), name = _e[0], setName = _e[1];
+    var _f = (0, react_1.useState)(((_b = props.Vault) === null || _b === void 0 ? void 0 : _b.IsPublic) || false), vaultPublic = _f[0], setVaultPublic = _f[1];
+    var _g = (0, react_1.useState)(''), code = _g[0], setCode = _g[1];
+    var _h = (0, react_1.useState)([]), deletedUser = _h[0], setDeletedUser = _h[1];
+    var _j = (0, react_1.useState)([]), addedUser = _j[0], setAddedUser = _j[1];
     (0, react_1.useEffect)(function () {
     }, []);
-    return react_1.default.createElement("div", { className: 'create-vault' }, "\u0444\u043E\u0440\u043C\u0430 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F");
+    (0, react_1.useEffect)(function () {
+        var _a;
+        if (!((_a = props.Vault) === null || _a === void 0 ? void 0 : _a.Id)) {
+            return;
+        }
+        props.LoadVaultPeople(props.Vault.Id);
+    }, [(_c = props.Vault) === null || _c === void 0 ? void 0 : _c.Id]);
+    var people = __spreadArray(__spreadArray([], props.Vault.People, true), addedUser, true);
+    return react_1.default.createElement("div", { className: 'create-vault' },
+        react_1.default.createElement("label", null, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"),
+        react_1.default.createElement("input", { type: 'text', placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: name, onChange: function (e) { return setName(e.target.value); } }),
+        react_1.default.createElement("label", null, "\u041F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0439"),
+        react_1.default.createElement("input", { type: 'checkbox', placeholder: '\u041F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0439', checked: vaultPublic, onChange: function (e) { return setVaultPublic(e.target.checked); } }),
+        react_1.default.createElement("p", null, "\u041B\u044E\u0434\u0438 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430"),
+        ((_d = props.Vault) === null || _d === void 0 ? void 0 : _d.Id) ? react_1.default.createElement(react_1.default.Fragment, null,
+            people.map(function (u) { return react_1.default.createElement(VaultUser_1.default, { User: u, MarkedAsDeleted: deletedUser.findIndex(function (x) { return x == u.Id; }) >= 0, Delete: function () {
+                    if (props.Vault.People.findIndex(function (x) { return x.Id == u.Id; })) {
+                        setDeletedUser(__spreadArray(__spreadArray([], deletedUser, true), [u.Id], false));
+                    }
+                    else {
+                        //убрать из добавленных
+                        setAddedUser(addedUser.splice(addedUser.findIndex(function (x) { return x.Email == u.Email; }), 1));
+                    }
+                }, RedoDelete: function () {
+                    setDeletedUser(deletedUser.splice(deletedUser.findIndex(function (x) { return x == u.Id; }), 1));
+                } }); }),
+            react_1.default.createElement("label", null, "\u041F\u043E\u0447\u0442\u0430"),
+            react_1.default.createElement("input", { type: 'text' }),
+            react_1.default.createElement("button", { className: 'btn btn-primary' }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C")) : react_1.default.createElement(react_1.default.Fragment, null),
+        react_1.default.createElement("button", { className: 'btn btn-primary' }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"));
 };
 exports["default"] = (0, CreateVaultSetup_1.default)(CreateVault);
 
@@ -58821,6 +59026,9 @@ var mapStateToProps = function (state, ownProps) {
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
     var res = {};
+    res.LoadVaultPeople = function (vaultId) {
+        dispatch(window.G_VaultController.GetVaultSecretsRedux(vaultId));
+    };
     return res;
 };
 exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -58946,10 +59154,13 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 var OneVaultSetup_1 = __importDefault(__webpack_require__(/*! ./OneVaultSetup */ "./src/components/Body/Vault/OneVault/OneVaultSetup.tsx"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 var VaultSecret_1 = __importDefault(__webpack_require__(/*! ../VaultSecret/VaultSecret */ "./src/components/Body/Vault/VaultSecret/VaultSecret.tsx"));
+var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
+var CreateVault_1 = __importDefault(__webpack_require__(/*! ../CreateVault/CreateVault */ "./src/components/Body/Vault/CreateVault/CreateVault.tsx"));
 __webpack_require__(/*! ./OneVault.css */ "./src/components/Body/Vault/OneVault/OneVault.css");
 var OneVault = function (props) {
     // const [code, setCode] = useState('');
     var _a = (0, react_1.useState)(''), filterSecretKey = _a[0], setFilterSecretKey = _a[1];
+    var _b = (0, react_1.useState)(false), showEditForm = _b[0], setShowEditForm = _b[1];
     if (!props.VaultId) {
         //todo это полная копия из vaultMain, вынести в 1 место
         var pathNameUrlSplit = document.location.pathname.split('/');
@@ -58975,16 +59186,17 @@ var OneVault = function (props) {
             react_1.default.createElement("div", null, "\u041D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E"));
     }
     return react_1.default.createElement("div", { className: 'one-vault-list' },
+        showEditForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowEditForm(false); }, IsHeightWindow: false, Title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430', InnerContent: function () { return react_1.default.createElement(CreateVault_1.default, { Vault: vault }); } }) : react_1.default.createElement(react_1.default.Fragment, null),
         backLink,
         react_1.default.createElement("div", null,
             react_1.default.createElement("p", null, vault.Id),
             react_1.default.createElement("p", null, vault.Name),
-            react_1.default.createElement("button", null, "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C"),
-            react_1.default.createElement("button", null, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")),
+            react_1.default.createElement("button", { className: 'btn btn-primary', onClick: function () { return setShowEditForm(true); } }, "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C"),
+            react_1.default.createElement("button", { className: 'btn btn-primary', onClick: function () { return alert('todo props.delete; linkredirect.click?'); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")),
         react_1.default.createElement("input", { type: 'text', placeholder: '\u043F\u043E\u0438\u0441\u043A', onChange: (function (e) { return setFilterSecretKey(e.target.value); }), value: filterSecretKey }),
         react_1.default.createElement("div", { className: 'vault-secrets-list' }, vault.Secrets.filter(function (x) { return !filterSecretKey || (x.Key.indexOf(filterSecretKey) != -1); })
             .map(function (s) { return react_1.default.createElement(VaultSecret_1.default, { key: s.Id, Secret: s }); })),
-        react_1.default.createElement("button", null, "\u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C"));
+        react_1.default.createElement("button", { className: 'btn btn-primary' }, "\u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C"));
 };
 exports["default"] = (0, OneVaultSetup_1.default)(OneVault);
 
@@ -59252,17 +59464,19 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 var VaultSecretSetup_1 = __importDefault(__webpack_require__(/*! ./VaultSecretSetup */ "./src/components/Body/Vault/VaultSecret/VaultSecretSetup.tsx"));
 __webpack_require__(/*! ./VaultSecret.css */ "./src/components/Body/Vault/VaultSecret/VaultSecret.css");
 var VaultSecret = function (props) {
-    var _a;
-    var _b = (0, react_1.useState)(((_a = props.Secret) === null || _a === void 0 ? void 0 : _a.Key) || ''), secretKey = _b[0], setKey = _b[1];
-    var _c = (0, react_1.useState)(false), showValueState = _c[0], setShowValueState = _c[1];
-    var _d = (0, react_1.useState)(false), showMoreInfo = _d[0], setShowMoreInfo = _d[1];
+    var _a, _b;
+    var _c = (0, react_1.useState)(((_a = props.Secret) === null || _a === void 0 ? void 0 : _a.Key) || ''), secretKey = _c[0], setKey = _c[1];
+    var _d = (0, react_1.useState)(((_b = props.Secret) === null || _b === void 0 ? void 0 : _b.Value) || ''), secretValue = _d[0], setValue = _d[1];
+    var _e = (0, react_1.useState)(false), showValueState = _e[0], setShowValueState = _e[1];
+    var _f = (0, react_1.useState)(false), showMoreInfo = _f[0], setShowMoreInfo = _f[1];
     var secret = props.Secret;
     (0, react_1.useEffect)(function () {
-        var _a, _b;
+        var _a, _b, _c;
         setKey(((_a = props.Secret) === null || _a === void 0 ? void 0 : _a.Key) || '');
         if (!(secret === null || secret === void 0 ? void 0 : secret.Key)) {
             //todo берем из урла, сетаем в стейт id, грузим запись из бд и сохраняем в стейт запись
-            setKey(((_b = props.Secret) === null || _b === void 0 ? void 0 : _b.Key) || '');
+            setKey(((_b = props.Secret) === null || _b === void 0 ? void 0 : _b.Key) || ''); //todo тут надо сетнуть то что загрузили
+            setValue(((_c = props.Secret) === null || _c === void 0 ? void 0 : _c.Value) || ''); //todo тут надо сетнуть то что загрузили
         }
     }, [secret === null || secret === void 0 ? void 0 : secret.Key]);
     var showValueImage = 'eye5.png';
@@ -59271,22 +59485,37 @@ var VaultSecret = function (props) {
         showValueImage = 'eye1.png';
         showValueTitle = 'Показать значение';
     }
-    return react_1.default.createElement("div", { className: 'vault-secret' },
+    var vaultSecretClass = 'vault-secret-hide';
+    var showMoreButtonClass = '';
+    if (showMoreInfo) {
+        vaultSecretClass = 'vault-secret-show';
+        showMoreButtonClass = ' but-opend';
+    }
+    return react_1.default.createElement("div", { className: 'vault-secret ' + vaultSecretClass },
         react_1.default.createElement("div", { className: 'vault-secret-main' },
             react_1.default.createElement("div", { className: 'vault-secret-key', title: secret.Key }, secret.Key),
-            react_1.default.createElement("div", { className: 'vault-secret-val' }, secret.Value),
-            react_1.default.createElement("div", null,
+            react_1.default.createElement("div", { className: 'vault-secret-val' },
+                react_1.default.createElement("textarea", { value: secretValue, onChange: function (e) { return setValue(e.target.value); } })),
+            react_1.default.createElement("div", { className: 'vault-secret-main-buttons' },
                 react_1.default.createElement("div", { className: 'but vault-secret-show-val', title: showValueTitle },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + showValueImage })),
-                react_1.default.createElement("div", { className: 'but vault-secret-copy' },
+                react_1.default.createElement("div", { className: 'but vault-secret-copy', title: '\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435' },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'copy.png' })),
-                react_1.default.createElement("div", { className: 'but vault-secret-more-but', onClick: function () { return setShowMoreInfo(!showMoreInfo); } },
+                react_1.default.createElement("div", { className: 'but vault-secret-more-but' + showMoreButtonClass, title: '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0431\u043E\u043B\u044C\u0448\u0435', onClick: function () { return setShowMoreInfo(!showMoreInfo); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'arrow2.png' })))),
-        showMoreInfo ? react_1.default.createElement("div", { className: 'vault-secret-more' },
+         true ? react_1.default.createElement("div", { className: 'vault-secret-more' },
             "\u0434\u043E\u043F \u0438\u043D\u0444\u0430",
-            secret.IsCoded,
-            secret.DieDate + "",
-            react_1.default.createElement("button", null, "\u0443\u0434\u0430\u043B\u0438\u0442\u044C")) : react_1.default.createElement(react_1.default.Fragment, null));
+            secret.IsCoded ? 'coded' : 'noncoded',
+            'diedate' + secret.DieDate + "",
+            react_1.default.createElement("div", { className: 'buttons' },
+                react_1.default.createElement("div", { className: 'but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () { return alert('todo'); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'delete-icon.png' })),
+                react_1.default.createElement("div", { className: 'but', title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C', onClick: function () { return alert('todo'); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'save-icon.png' })),
+                react_1.default.createElement("div", { className: 'but', title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F', onClick: function () { return alert('todo'); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'cancel.png' })),
+                react_1.default.createElement("div", { className: 'but', title: '\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0441\u0435\u043A\u0440\u0435\u0442', onClick: function () { return alert('todo'); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'share-icon.png' })))) : 0);
 };
 exports["default"] = (0, VaultSecretSetup_1.default)(VaultSecret);
 
@@ -59297,6 +59526,83 @@ exports["default"] = (0, VaultSecretSetup_1.default)(VaultSecret);
 /*!********************************************************************!*\
   !*** ./src/components/Body/Vault/VaultSecret/VaultSecretSetup.tsx ***!
   \********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var mapStateToProps = function (state, ownProps) {
+    var res = {};
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+// and that function returns the connected, wrapper component:
+
+
+/***/ }),
+
+/***/ "./src/components/Body/Vault/VaultUser/VaultUser.tsx":
+/*!***********************************************************!*\
+  !*** ./src/components/Body/Vault/VaultUser/VaultUser.tsx ***!
+  \***********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var VaultUserSetup_1 = __importDefault(__webpack_require__(/*! ./VaultUserSetup */ "./src/components/Body/Vault/VaultUser/VaultUserSetup.tsx"));
+__webpack_require__(/*! ./VaultUser.css */ "./src/components/Body/Vault/VaultUser/VaultUser.css");
+var VaultUser = function (props) {
+    (0, react_1.useEffect)(function () {
+    }, []);
+    return react_1.default.createElement("div", null,
+        props.User.Email,
+        props.MarkedAsDeleted ? react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement("button", { className: 'btn btn-primary', onClick: function () { return props.RedoDelete(props.User.Id); } }, "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C")) :
+            react_1.default.createElement(react_1.default.Fragment, null,
+                react_1.default.createElement("button", { className: 'btn btn-primary', onClick: function () { return props.Delete(props.User.Id); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")));
+};
+exports["default"] = (0, VaultUserSetup_1.default)(VaultUser);
+
+
+/***/ }),
+
+/***/ "./src/components/Body/Vault/VaultUser/VaultUserSetup.tsx":
+/*!****************************************************************!*\
+  !*** ./src/components/Body/Vault/VaultUser/VaultUserSetup.tsx ***!
+  \****************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
