@@ -3305,7 +3305,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    transition: min-height 0.5s ease-in-out;\r\n    padding: 5px;\r\n}\r\n\r\n.vault-secret-hide {\r\n    min-height: 40px;\r\n}\r\n\r\n.vault-secret-show {\r\n    min-height: 100px;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {\r\n}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/Vault/VaultSecret/VaultSecret.css"],"names":[],"mappings":"AAAA;IACI,4BAA4B;IAC5B,uBAAuB;IACvB,WAAW;IACX,kBAAkB;IAClB,oCAAoC;IACpC,gBAAgB;IAChB,uCAAuC;IACvC,YAAY;AAChB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,cAAc;AAClB;;AAEA,oBAAoB;;AAEpB;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;AACtB;;;;AAIA;IACI,aAAa;IACb,SAAS;AACb;;;AAGA;IACI,YAAY;IACZ,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA,wBAAwB;;AAExB,oBAAoB;;;AAGpB;AACA;;AAEA;IACI,aAAa;IACb,QAAQ;IACR,iBAAiB;AACrB","sourcesContent":[".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    transition: min-height 0.5s ease-in-out;\r\n    padding: 5px;\r\n}\r\n\r\n.vault-secret-hide {\r\n    min-height: 40px;\r\n}\r\n\r\n.vault-secret-show {\r\n    min-height: 100px;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {\r\n}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n    height: 40px;\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    height: 130px;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/Vault/VaultSecret/VaultSecret.css"],"names":[],"mappings":"AAAA;IACI,4BAA4B;IAC5B,uBAAuB;IACvB,WAAW;IACX,kBAAkB;IAClB,oCAAoC;IACpC,gBAAgB;IAChB,YAAY;IACZ,6CAA6C;IAC7C,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;IACtB,YAAY;AAChB;;AAEA;IACI,uBAAuB;IACvB,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,cAAc;AAClB;;AAEA,oBAAoB;;AAEpB;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;AACtB;;;;AAIA;IACI,aAAa;IACb,SAAS;AACb;;;AAGA;IACI,YAAY;IACZ,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA,wBAAwB;;AAExB,oBAAoB;;;AAGpB,wBAAwB;;AAExB;IACI,aAAa;IACb,QAAQ;IACR,iBAAiB;AACrB","sourcesContent":[".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n    height: 40px;\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    height: 130px;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -49193,7 +49193,7 @@ exports.UserRoleChangedActionCreator = UserRoleChangedActionCreator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SetVaultsPeopleActionCreator = exports.SetVaultsPeopleActionName = exports.SetVaultsSecretsActionCreator = exports.SetVaultsSecretsActionName = exports.SetVaultsListActionCreator = exports.SetVaultsListActionName = exports.ChangeCurrentVaultIdActionCreator = exports.ChangeCurrentVaultIdActionName = void 0;
+exports.SetCurrentVaultActionCreator = exports.SetCurrentVaultActionName = exports.SetSingleSecretActionCreator = exports.SetSingleSecretActionName = exports.DeleteSecretActionCreator = exports.DeleteSecretActionName = exports.SetVaultsPeopleActionCreator = exports.SetVaultsPeopleActionName = exports.SetVaultsSecretsActionCreator = exports.SetVaultsSecretsActionName = exports.SetVaultsListActionCreator = exports.SetVaultsListActionName = exports.ChangeCurrentVaultIdActionCreator = exports.ChangeCurrentVaultIdActionName = void 0;
 exports.ChangeCurrentVaultIdActionName = 'ChangeCurrentVaultIdAction';
 function ChangeCurrentVaultIdActionCreator(data) {
     return { type: exports.ChangeCurrentVaultIdActionName, payload: data };
@@ -49217,6 +49217,24 @@ function SetVaultsPeopleActionCreator(data) {
     return { type: exports.SetVaultsPeopleActionName, payload: data };
 }
 exports.SetVaultsPeopleActionCreator = SetVaultsPeopleActionCreator;
+;
+exports.DeleteSecretActionName = 'DeleteSecretAction';
+function DeleteSecretActionCreator(data) {
+    return { type: exports.DeleteSecretActionName, payload: data };
+}
+exports.DeleteSecretActionCreator = DeleteSecretActionCreator;
+;
+exports.SetSingleSecretActionName = 'SetSingleSecretAction';
+function SetSingleSecretActionCreator(data) {
+    return { type: exports.SetSingleSecretActionName, payload: data };
+}
+exports.SetSingleSecretActionCreator = SetSingleSecretActionCreator;
+;
+exports.SetCurrentVaultActionName = 'SetCurrentVaultAction';
+function SetCurrentVaultActionCreator(data) {
+    return { type: exports.SetCurrentVaultActionName, payload: data };
+}
+exports.SetCurrentVaultActionCreator = SetCurrentVaultActionCreator;
 ;
 
 
@@ -49330,7 +49348,7 @@ var FetchHelper = /** @class */ (function () {
     };
     FetchHelper.prototype.GoAjaxRequest = function (obj, fileLoad) {
         return __awaiter(this, void 0, void 0, function () {
-            var response, getUrl, urlParams_1, dataKeys, formData_1, dataKeys, responseResult, successFromInner, successedRefresh, newObj, resp, alertLogic_1;
+            var response, getUrl, urlParams_1, dataKeys, formData_1, dataKeys, responseResult, successFromInner, resultFromInner, successedRefresh, newObj, resp, alertLogic_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -49380,6 +49398,7 @@ var FetchHelper = /** @class */ (function () {
                     case 5:
                         responseResult = _a.sent();
                         successFromInner = false;
+                        resultFromInner = null;
                         if (!(response.status === 401)) return [3 /*break*/, 9];
                         if (!obj.NeedTryRefreshToken) return [3 /*break*/, 8];
                         return [4 /*yield*/, this.TryRefreshToken(obj.NotRedirectWhenNotAuth, null)];
@@ -49390,7 +49409,7 @@ var FetchHelper = /** @class */ (function () {
                         newObj.NeedTryRefreshToken = false;
                         return [4 /*yield*/, this.GoAjaxRequest(newObj)];
                     case 7:
-                        _a.sent();
+                        resultFromInner = _a.sent();
                         successFromInner = true;
                         _a.label = 8;
                     case 8: return [3 /*break*/, 10];
@@ -49409,10 +49428,14 @@ var FetchHelper = /** @class */ (function () {
                         }
                         _a.label = 10;
                     case 10:
-                        if (response.ok && !successFromInner) {
-                            obj.FuncSuccess(responseResult, null, null);
+                        if (successFromInner) {
+                            return [2 /*return*/, resultFromInner];
                         }
-                        return [2 /*return*/];
+                        else if (response.ok) {
+                            obj.FuncSuccess(responseResult, null, null);
+                            return [2 /*return*/, responseResult]; //todo возможно надо отдавать всегда
+                        }
+                        return [2 /*return*/, null];
                 }
             });
         });
@@ -51230,6 +51253,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.VaultController = void 0;
 var VaultActions_1 = __webpack_require__(/*! ../../Actions/VaultApp/VaultActions */ "./src/Models/Actions/VaultApp/VaultActions.ts");
 var OneVault_1 = __webpack_require__(/*! ../../Models/VaultApp/State/OneVault */ "./src/Models/Models/VaultApp/State/OneVault.ts");
+var OneVaultInList_1 = __webpack_require__(/*! ../../Models/VaultApp/State/OneVaultInList */ "./src/Models/Models/VaultApp/State/OneVaultInList.ts");
 var OneVaultSecret_1 = __webpack_require__(/*! ../../Models/VaultApp/State/OneVaultSecret */ "./src/Models/Models/VaultApp/State/OneVaultSecret.ts");
 var VaultUser_1 = __webpack_require__(/*! ../../Models/VaultApp/State/VaultUser */ "./src/Models/Models/VaultApp/State/VaultUser.ts");
 var ControllerHelper_1 = __webpack_require__(/*! ../ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
@@ -51242,7 +51266,7 @@ var VaultController = /** @class */ (function () {
             _this.GetVaults(function (error, data) {
                 if (data) {
                     var newData = data.map(function (x) {
-                        var us = new OneVault_1.OneVault();
+                        var us = new OneVaultInList_1.OneVaultInList();
                         us.FillByBackModel(x);
                         return us;
                     });
@@ -51291,11 +51315,46 @@ var VaultController = /** @class */ (function () {
         // isCoded: boolean;
         // isPublic: boolean;
         // dieDate: Date;
-        resMoq.push({ id: 1, key: "11111", value: "val1", isCoded: false, isPublic: true, dieDate: null });
-        resMoq.push({ id: 2, key: "111112", value: "val12", isCoded: false, isPublic: true, dieDate: null });
-        resMoq.push({ id: 3, key: "111113", value: "val13", isCoded: false, isPublic: false, dieDate: null });
-        resMoq.push({ id: 4, key: "111114", value: "val14", isCoded: false, isPublic: false, dieDate: null });
-        resMoq.push({ id: 5, key: "111115", value: "val15", isCoded: true, isPublic: true, dieDate: null });
+        resMoq.push({ vaultId: vaultId, id: 1, key: "111111", value: "val11", isCoded: false, isPublic: true, dieDate: null });
+        resMoq.push({ vaultId: vaultId, id: 2, key: "111112", value: "val12", isCoded: false, isPublic: true, dieDate: null });
+        resMoq.push({ vaultId: vaultId, id: 3, key: "111113", value: "val13", isCoded: false, isPublic: false, dieDate: null });
+        resMoq.push({ vaultId: vaultId, id: 4, key: "111114", value: "val14", isCoded: false, isPublic: false, dieDate: null });
+        resMoq.push({ vaultId: vaultId, id: 5, key: "111115", value: "val15", isCoded: true, isPublic: true, dieDate: null });
+        onSuccess(null, resMoq);
+        // G_AjaxHelper.GoAjaxRequest({
+        //     Data: {
+        //         'roomname': roomname,
+        //         'userConnectionId': userId
+        //     },
+        //     Type: "GET",
+        //     FuncSuccess: (xhr, status, jqXHR) => {
+        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+        //     },
+        //     FuncError: (xhr, status, error) => { },
+        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
+        // });
+    };
+    VaultController.prototype.GetCurrentVaultRedux = function (vaultId) {
+        var _this = this;
+        return function (dispatch, getState) {
+            _this.GetCurrentVault(vaultId, function (error, data) {
+                if (data) {
+                    var newData = new OneVault_1.OneVault();
+                    newData.FillByBackModel(data);
+                    dispatch((0, VaultActions_1.SetCurrentVaultActionCreator)(newData));
+                }
+            });
+        };
+    };
+    VaultController.prototype.GetCurrentVault = function (vaultId, onSuccess) {
+        var resMoq = {};
+        resMoq.id = vaultId;
+        resMoq.isPublic = true;
+        resMoq.name = 'nametest';
+        resMoq.secrets;
+        this.GetVaultSecrets(vaultId, function (error, data) {
+            resMoq.secrets = data;
+        });
         onSuccess(null, resMoq);
         // G_AjaxHelper.GoAjaxRequest({
         //     Data: {
@@ -51349,6 +51408,86 @@ var VaultController = /** @class */ (function () {
         //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
         // });
     };
+    VaultController.prototype.DeleteSecretRedux = function (secretId, vaultId) {
+        var _this = this;
+        return function (dispatch, getState) {
+            _this.DeleteSecret(secretId, vaultId, function (error, data) {
+                if (data === null || data === void 0 ? void 0 : data.result) {
+                    dispatch((0, VaultActions_1.DeleteSecretActionCreator)({ VaultId: vaultId, SecretId: secretId }));
+                }
+            });
+        };
+    };
+    VaultController.prototype.DeleteSecret = function (secretId, vaultId, onSuccess) {
+        onSuccess(null, { result: true });
+        // G_AjaxHelper.GoAjaxRequest({
+        //     Data: {
+        //         'roomname': roomname,
+        //         'userConnectionId': userId
+        //     },
+        //     Type: "GET",
+        //     FuncSuccess: (xhr, status, jqXHR) => {
+        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+        //     },
+        //     FuncError: (xhr, status, error) => { },
+        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
+        // });
+    };
+    VaultController.prototype.CreateSecretRedux = function (secretId) {
+        return function (dispatch, getState) {
+            // this.DeleteSecret(secretId, vaultId,
+            //     (error: MainErrorObjectBack, data: BoolResultBack) => {
+            //         if (data?.result) {
+            //             dispatch(DeleteSecretActionCreator({ VaultId: vaultId, SecretId: secretId }));
+            //         }
+            //     });
+        };
+    };
+    VaultController.prototype.UpdateSecretRedux = function (secretId) {
+        return function (dispatch, getState) {
+            // this.DeleteSecret(secretId, vaultId,
+            //     (error: MainErrorObjectBack, data: BoolResultBack) => {
+            //         if (data?.result) {
+            //             dispatch(DeleteSecretActionCreator({ VaultId: vaultId, SecretId: secretId }));
+            //         }
+            //     });
+        };
+    };
+    VaultController.prototype.GetSingleSecretRedux = function (secretId) {
+        var _this = this;
+        return function (dispatch, getState) {
+            _this.GetOneSecret(secretId, function (error, data) {
+                if (data) {
+                    var newData = new OneVaultSecret_1.OneVaultSecret();
+                    newData.FillByBackModel(data);
+                    dispatch((0, VaultActions_1.SetSingleSecretActionCreator)(newData));
+                }
+            });
+        };
+    };
+    VaultController.prototype.GetOneSecret = function (secretId, onSuccess) {
+        var rs = {};
+        rs.id = secretId;
+        rs.isCoded = true;
+        rs.isPublic = true;
+        rs.key = 'test1';
+        rs.value = 'val1';
+        rs.vaultId = 1;
+        onSuccess(null, rs);
+        //G_AjaxHelper.GoAjaxRequest({
+        //     Data: {
+        //         'roomname': roomname,
+        //         'userConnectionId': userId
+        //     },
+        //     Type: "GET",
+        //     FuncSuccess: (xhr, status, jqXHR) => {
+        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+        //     },
+        //     FuncError: (xhr, status, error) => { },
+        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
+        // });
+    };
+    //
     VaultController.prototype.mapWithResult = function (onSuccess) {
         return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
     };
@@ -52540,12 +52679,13 @@ exports.AppState = AppState;
 /*!******************************************************!*\
   !*** ./src/Models/Models/VaultApp/State/OneVault.ts ***!
   \******************************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OneVault = void 0;
+var OneVaultSecret_1 = __webpack_require__(/*! ./OneVaultSecret */ "./src/Models/Models/VaultApp/State/OneVaultSecret.ts");
 var OneVault = /** @class */ (function () {
     function OneVault() {
         this.Secrets = [];
@@ -52554,10 +52694,41 @@ var OneVault = /** @class */ (function () {
     OneVault.prototype.FillByBackModel = function (newData) {
         this.Id = newData.id;
         this.Name = newData.name;
+        this.Secrets = newData.secrets.map(function (x) {
+            var rs = new OneVaultSecret_1.OneVaultSecret();
+            rs.FillByBackModel(x);
+            return rs;
+        });
+        // this.People = ;
+        this.IsPublic = newData.isPublic;
     };
     return OneVault;
 }());
 exports.OneVault = OneVault;
+
+
+/***/ }),
+
+/***/ "./src/Models/Models/VaultApp/State/OneVaultInList.ts":
+/*!************************************************************!*\
+  !*** ./src/Models/Models/VaultApp/State/OneVaultInList.ts ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.OneVaultInList = void 0;
+var OneVaultInList = /** @class */ (function () {
+    function OneVaultInList() {
+    }
+    OneVaultInList.prototype.FillByBackModel = function (newData) {
+        this.Id = newData.id;
+        this.Name = newData.name;
+    };
+    return OneVaultInList;
+}());
+exports.OneVaultInList = OneVaultInList;
 
 
 /***/ }),
@@ -52582,6 +52753,7 @@ var OneVaultSecret = /** @class */ (function () {
         this.IsCoded = newData.isCoded;
         this.IsPublic = newData.isPublic;
         this.DieDate = newData.dieDate;
+        this.VaultId = newData.vaultId;
     };
     return OneVaultSecret;
 }());
@@ -53740,19 +53912,46 @@ function VaultReducer(state, action) {
         case VaultActions_1.SetVaultsSecretsActionName:
             {
                 var newState = (0, cloneDeep_1.default)(state);
-                var typedAction_1 = action.payload;
-                var vault = newState.VaultApp.VaultList.find(function (x) { return x.Id == typedAction_1.VaultId; });
-                vault.Secrets = typedAction_1.Secrets;
+                var typedAction = action.payload;
+                // let vault = newState.VaultApp.VaultList.find(x => x.Id == typedAction.VaultId);
+                var vault = newState.VaultApp.CurrentVault;
+                vault.Secrets = typedAction.Secrets;
                 return newState;
             }
         case VaultActions_1.SetVaultsPeopleActionName:
             {
                 var newState = (0, cloneDeep_1.default)(state);
-                var typedAction_2 = action.payload;
-                var vault = newState.VaultApp.VaultList.find(function (x) { return x.Id == typedAction_2.VaultId; });
-                vault.People = typedAction_2.People;
+                var typedAction = action.payload;
+                // let vault = newState.VaultApp.VaultList.find(x => x.Id == typedAction.VaultId);
+                var vault = newState.VaultApp.CurrentVault;
+                vault.People = typedAction.People;
                 return newState;
             }
+        case VaultActions_1.DeleteSecretActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var typedAction_1 = action.payload;
+                // let vault = newState.VaultApp.VaultList.find(x => x.Id == typedAction.VaultId);
+                var vault = newState.VaultApp.CurrentVault;
+                vault.Secrets = vault.Secrets
+                    .splice(vault.Secrets.findIndex(function (x) { return x.Id == typedAction_1.SecretId; }), 1);
+                return newState;
+            }
+        case VaultActions_1.SetSingleSecretActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var typedAction = action.payload;
+                newState.VaultApp.OpenedSecret = typedAction;
+                return newState;
+            }
+        case VaultActions_1.SetCurrentVaultActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var typedAction = action.payload;
+                newState.VaultApp.CurrentVault = typedAction;
+                return newState;
+            }
+        //
     }
     return state;
 }
@@ -58984,12 +59183,12 @@ var CreateVault = function (props) {
     var people = __spreadArray(__spreadArray([], props.Vault.People, true), addedUser, true);
     return react_1.default.createElement("div", { className: 'create-vault' },
         react_1.default.createElement("label", null, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"),
-        react_1.default.createElement("input", { type: 'text', placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: name, onChange: function (e) { return setName(e.target.value); } }),
+        react_1.default.createElement("input", { type: 'text', placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: name, className: 'form-control', onChange: function (e) { return setName(e.target.value); } }),
         react_1.default.createElement("label", null, "\u041F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0439"),
-        react_1.default.createElement("input", { type: 'checkbox', placeholder: '\u041F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0439', checked: vaultPublic, onChange: function (e) { return setVaultPublic(e.target.checked); } }),
+        react_1.default.createElement("input", { type: 'checkbox', placeholder: '\u041F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0439', checked: vaultPublic, className: 'form-control', onChange: function (e) { return setVaultPublic(e.target.checked); } }),
         react_1.default.createElement("p", null, "\u041B\u044E\u0434\u0438 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430"),
         ((_d = props.Vault) === null || _d === void 0 ? void 0 : _d.Id) ? react_1.default.createElement(react_1.default.Fragment, null,
-            people.map(function (u) { return react_1.default.createElement(VaultUser_1.default, { User: u, MarkedAsDeleted: deletedUser.findIndex(function (x) { return x == u.Id; }) >= 0, Delete: function () {
+            people.map(function (u) { return react_1.default.createElement(VaultUser_1.default, { key: u.Id, User: u, MarkedAsDeleted: deletedUser.findIndex(function (x) { return x == u.Id; }) >= 0, Delete: function () {
                     if (props.Vault.People.findIndex(function (x) { return x.Id == u.Id; })) {
                         setDeletedUser(__spreadArray(__spreadArray([], deletedUser, true), [u.Id], false));
                     }
@@ -59001,9 +59200,9 @@ var CreateVault = function (props) {
                     setDeletedUser(deletedUser.splice(deletedUser.findIndex(function (x) { return x == u.Id; }), 1));
                 } }); }),
             react_1.default.createElement("label", null, "\u041F\u043E\u0447\u0442\u0430"),
-            react_1.default.createElement("input", { type: 'text' }),
-            react_1.default.createElement("button", { className: 'btn btn-primary' }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C")) : react_1.default.createElement(react_1.default.Fragment, null),
-        react_1.default.createElement("button", { className: 'btn btn-primary' }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"));
+            react_1.default.createElement("input", { type: 'text', className: 'form-control', placeholder: '\u041F\u043E\u0447\u0442\u0430' }),
+            react_1.default.createElement("button", { className: 'btn btn-b-light' }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C")) : react_1.default.createElement(react_1.default.Fragment, null),
+        react_1.default.createElement("button", { className: 'btn btn-b-light' }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"));
 };
 exports["default"] = (0, CreateVaultSetup_1.default)(CreateVault);
 
@@ -59027,7 +59226,7 @@ var mapStateToProps = function (state, ownProps) {
 var mapDispatchToProps = function (dispatch, ownProps) {
     var res = {};
     res.LoadVaultPeople = function (vaultId) {
-        dispatch(window.G_VaultController.GetVaultSecretsRedux(vaultId));
+        dispatch(window.G_VaultController.LoadVaultPeopleRedux(vaultId));
     };
     return res;
 };
@@ -59161,23 +59360,25 @@ var OneVault = function (props) {
     // const [code, setCode] = useState('');
     var _a = (0, react_1.useState)(''), filterSecretKey = _a[0], setFilterSecretKey = _a[1];
     var _b = (0, react_1.useState)(false), showEditForm = _b[0], setShowEditForm = _b[1];
-    if (!props.VaultId) {
-        //todo это полная копия из vaultMain, вынести в 1 место
-        var pathNameUrlSplit = document.location.pathname.split('/');
-        if (pathNameUrlSplit && pathNameUrlSplit.length > 3 && pathNameUrlSplit[2] === 'vault') {
-            if (pathNameUrlSplit[3] != (props.VaultId + '')) {
-                props.SetCurrentVaultId(+pathNameUrlSplit[3]);
+    // let vault = props.Vaults.find(x => x.Id === props.VaultId);
+    var vault = props.Vault;
+    (0, react_1.useEffect)(function () {
+        if (!props.VaultId) {
+            //todo это полная копия из vaultMain, вынести в 1 место
+            var pathNameUrlSplit = document.location.pathname.split('/');
+            if (pathNameUrlSplit && pathNameUrlSplit.length > 3 && pathNameUrlSplit[2] === 'vault') {
+                if (pathNameUrlSplit[3] != (props.VaultId + '')) {
+                    props.SetCurrentVaultId(+pathNameUrlSplit[3]);
+                }
             }
         }
-    }
-    var vault = props.Vaults.find(function (x) { return x.Id === props.VaultId; });
-    (0, react_1.useEffect)(function () {
     }, []);
     (0, react_1.useEffect)(function () {
         if (!props.VaultId) {
             return;
         }
-        props.LoadVaultSecrets(props.VaultId);
+        // props.LoadVaultSecrets(props.VaultId);
+        props.LoadVault(props.VaultId);
     }, [props.VaultId]);
     var backLink = react_1.default.createElement(react_router_dom_1.Link, { to: '/vault-app/' }, "\u0421\u043F\u0438\u0441\u043E\u043A Vaults");
     if (!vault) {
@@ -59186,17 +59387,17 @@ var OneVault = function (props) {
             react_1.default.createElement("div", null, "\u041D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E"));
     }
     return react_1.default.createElement("div", { className: 'one-vault-list' },
-        showEditForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowEditForm(false); }, IsHeightWindow: false, Title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430', InnerContent: function () { return react_1.default.createElement(CreateVault_1.default, { Vault: vault }); } }) : react_1.default.createElement(react_1.default.Fragment, null),
+        showEditForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowEditForm(false); }, IsHeightWindow: true, Title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430', InnerContent: function () { return react_1.default.createElement(CreateVault_1.default, { Vault: vault }); } }) : react_1.default.createElement(react_1.default.Fragment, null),
         backLink,
         react_1.default.createElement("div", null,
             react_1.default.createElement("p", null, vault.Id),
             react_1.default.createElement("p", null, vault.Name),
-            react_1.default.createElement("button", { className: 'btn btn-primary', onClick: function () { return setShowEditForm(true); } }, "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C"),
-            react_1.default.createElement("button", { className: 'btn btn-primary', onClick: function () { return alert('todo props.delete; linkredirect.click?'); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")),
-        react_1.default.createElement("input", { type: 'text', placeholder: '\u043F\u043E\u0438\u0441\u043A', onChange: (function (e) { return setFilterSecretKey(e.target.value); }), value: filterSecretKey }),
+            react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return setShowEditForm(true); } }, "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C"),
+            react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return alert('todo props.delete; linkredirect.click?'); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")),
+        react_1.default.createElement("input", { type: 'text', className: 'form-control', placeholder: '\u041F\u043E\u0438\u0441\u043A', onChange: (function (e) { return setFilterSecretKey(e.target.value); }), value: filterSecretKey }),
         react_1.default.createElement("div", { className: 'vault-secrets-list' }, vault.Secrets.filter(function (x) { return !filterSecretKey || (x.Key.indexOf(filterSecretKey) != -1); })
             .map(function (s) { return react_1.default.createElement(VaultSecret_1.default, { key: s.Id, Secret: s }); })),
-        react_1.default.createElement("button", { className: 'btn btn-primary' }, "\u0434\u043E\u0431\u0430\u0432\u0438\u0442\u044C"));
+        react_1.default.createElement("button", { className: 'btn btn-b-light' }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"));
 };
 exports["default"] = (0, OneVaultSetup_1.default)(OneVault);
 
@@ -59216,7 +59417,7 @@ var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react
 var VaultActions_1 = __webpack_require__(/*! ../../../../Models/Actions/VaultApp/VaultActions */ "./src/Models/Actions/VaultApp/VaultActions.ts");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
-    res.Vaults = state.VaultApp.VaultList;
+    res.Vault = state.VaultApp.CurrentVault;
     return res;
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
@@ -59226,6 +59427,12 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     res.LoadVaultSecrets = function (vaultId) {
         dispatch(window.G_VaultController.GetVaultSecretsRedux(vaultId));
+    };
+    res.LoadVault = function (vaultId) {
+        dispatch(window.G_VaultController.GetCurrentVaultRedux(vaultId));
+    };
+    res.CreateSecret = function (vaultId) {
+        dispatch(window.G_VaultController.CreateSecretRedux(vaultId));
     };
     return res;
 };
@@ -59280,6 +59487,7 @@ var VaultList = function (props) {
     var _a = (0, react_1.useState)(''), code = _a[0], setCode = _a[1];
     var _b = (0, react_1.useState)(false), showAddForm = _b[0], setShowAddForm = _b[1];
     (0, react_1.useEffect)(function () {
+        props.LoadMyVaults();
     }, []);
     return react_1.default.createElement("div", { className: 'vault-list' },
         react_1.default.createElement("div", null, showAddForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowAddForm(false); }, IsHeightWindow: false, Title: '\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430', InnerContent: function () { return react_1.default.createElement(CreateVault_1.default, null); } }) : react_1.default.createElement(react_1.default.Fragment, null)),
@@ -59319,6 +59527,10 @@ var mapStateToProps = function (state, ownProps) {
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
     var res = {};
+    res.LoadMyVaults = function () {
+        // dispatch(SetVaultsListActionCreator());
+        dispatch(window.G_VaultController.GetVaultsRedux());
+    };
     return res;
 };
 exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -59367,22 +59579,23 @@ var VaultMainSetup_1 = __importDefault(__webpack_require__(/*! ./VaultMainSetup 
 var VaultList_1 = __importDefault(__webpack_require__(/*! ../VaultList/VaultList */ "./src/components/Body/Vault/VaultList/VaultList.tsx"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 var OneVault_1 = __importDefault(__webpack_require__(/*! ../OneVault/OneVault */ "./src/components/Body/Vault/OneVault/OneVault.tsx"));
+var VaultSecret_1 = __importDefault(__webpack_require__(/*! ../VaultSecret/VaultSecret */ "./src/components/Body/Vault/VaultSecret/VaultSecret.tsx"));
 __webpack_require__(/*! ./VaultMain.css */ "./src/components/Body/Vault/VaultMain/VaultMain.css");
 var VaultMain = function (props) {
     // const [code, setCode] = useState('');
     (0, react_1.useEffect)(function () {
-        props.LoadMyVaults();
+        // let pathNameUrlSplit = document.location.pathname.split('/');
+        // if (pathNameUrlSplit && pathNameUrlSplit.length > 3 && pathNameUrlSplit[2] === 'vault') {
+        //     if (pathNameUrlSplit[3] != (props.VaultId + '')) {
+        //         props.SetCurrentVaultId(+pathNameUrlSplit[3]);
+        //     }
+        // }
     }, []);
-    var pathNameUrlSplit = document.location.pathname.split('/');
-    if (pathNameUrlSplit && pathNameUrlSplit.length > 3 && pathNameUrlSplit[2] === 'vault') {
-        if (pathNameUrlSplit[3] != (props.VaultId + '')) {
-            props.SetCurrentVaultId(+pathNameUrlSplit[3]);
-        }
-    }
     return react_1.default.createElement("div", { className: 'main-vault-container' },
         react_1.default.createElement(react_router_dom_1.Routes, null,
             react_1.default.createElement(react_router_dom_1.Route, { path: "/", element: react_1.default.createElement(VaultList_1.default, null) }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "/vault/*", element: react_1.default.createElement(OneVault_1.default, { VaultId: props.VaultId }) })));
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/vault/*", element: react_1.default.createElement(OneVault_1.default, { VaultId: props.VaultId }) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: "/secret/*", element: react_1.default.createElement(VaultSecret_1.default, null) })));
 };
 exports["default"] = (0, VaultMainSetup_1.default)(VaultMain);
 
@@ -59399,7 +59612,6 @@ exports["default"] = (0, VaultMainSetup_1.default)(VaultMain);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var VaultActions_1 = __webpack_require__(/*! ../../../../Models/Actions/VaultApp/VaultActions */ "./src/Models/Actions/VaultApp/VaultActions.ts");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.VaultId = state.VaultApp.CurrentVaultId;
@@ -59410,13 +59622,13 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     // res.LoadMyPaste = () => {
     //     // dispatch(window.G_VaultController.GetUsersIsRoomRedux(roomname, userConnectionId));
     //  };
-    res.SetCurrentVaultId = function (id) {
-        dispatch((0, VaultActions_1.ChangeCurrentVaultIdActionCreator)({ Id: id }));
-    };
-    res.LoadMyVaults = function () {
-        // dispatch(SetVaultsListActionCreator());
-        dispatch(window.G_VaultController.GetVaultsRedux());
-    };
+    // res.SetCurrentVaultId = (id: number) => {
+    //     dispatch(ChangeCurrentVaultIdActionCreator({ Id: id }));
+    // };
+    // res.LoadMyVaults = () => {
+    //     // dispatch(SetVaultsListActionCreator());
+    //     dispatch(window.G_VaultController.GetVaultsRedux());
+    // };
     return res;
 };
 exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -59464,24 +59676,46 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 var VaultSecretSetup_1 = __importDefault(__webpack_require__(/*! ./VaultSecretSetup */ "./src/components/Body/Vault/VaultSecret/VaultSecretSetup.tsx"));
 __webpack_require__(/*! ./VaultSecret.css */ "./src/components/Body/Vault/VaultSecret/VaultSecret.css");
 var VaultSecret = function (props) {
-    var _a, _b;
-    var _c = (0, react_1.useState)(((_a = props.Secret) === null || _a === void 0 ? void 0 : _a.Key) || ''), secretKey = _c[0], setKey = _c[1];
-    var _d = (0, react_1.useState)(((_b = props.Secret) === null || _b === void 0 ? void 0 : _b.Value) || ''), secretValue = _d[0], setValue = _d[1];
-    var _e = (0, react_1.useState)(false), showValueState = _e[0], setShowValueState = _e[1];
-    var _f = (0, react_1.useState)(false), showMoreInfo = _f[0], setShowMoreInfo = _f[1];
     var secret = props.Secret;
+    if (!secret) {
+        secret = props.SingleSecret;
+    }
+    var _a = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.Key) || ''), secretKey = _a[0], setSecretKey = _a[1];
+    var _b = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.Value) || ''), secretValue = _b[0], setSecretValue = _b[1];
+    var _c = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.DieDate) || null), secretDieDate = _c[0], setSecretDieDate = _c[1];
+    var _d = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded), secretIsCoded = _d[0], setSecretIsCoded = _d[1];
+    var _e = (0, react_1.useState)(false), showMoreInfo = _e[0], setShowMoreInfo = _e[1];
+    var _f = (0, react_1.useState)(false), showSecretValue = _f[0], setShowSecretValue = _f[1];
     (0, react_1.useEffect)(function () {
-        var _a, _b, _c;
-        setKey(((_a = props.Secret) === null || _a === void 0 ? void 0 : _a.Key) || '');
+        var _a;
         if (!(secret === null || secret === void 0 ? void 0 : secret.Key)) {
             //todo берем из урла, сетаем в стейт id, грузим запись из бд и сохраняем в стейт запись
-            setKey(((_b = props.Secret) === null || _b === void 0 ? void 0 : _b.Key) || ''); //todo тут надо сетнуть то что загрузили
-            setValue(((_c = props.Secret) === null || _c === void 0 ? void 0 : _c.Value) || ''); //todo тут надо сетнуть то что загрузили
+            var pathNameUrlSplit = document.location.pathname.split('/');
+            if (pathNameUrlSplit && pathNameUrlSplit.length > 3 && pathNameUrlSplit[2] === 'secret') {
+                props.GetSingleSecret(+pathNameUrlSplit[3]);
+            }
         }
+        else {
+            setSecretKey(((_a = props.Secret) === null || _a === void 0 ? void 0 : _a.Key) || '');
+        }
+        setSecretKey((secret === null || secret === void 0 ? void 0 : secret.Key) || ''); //todo тут надо сетнуть то что загрузили
+        setSecretValue((secret === null || secret === void 0 ? void 0 : secret.Value) || ''); //todo тут надо сетнуть то что загрузили
+        setSecretDieDate((secret === null || secret === void 0 ? void 0 : secret.DieDate) || null);
+        setSecretIsCoded((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded);
+        setShowSecretValue(false);
     }, [secret === null || secret === void 0 ? void 0 : secret.Key]);
+    function dateToYMD(date) {
+        if (!date) {
+            return '3000-01-01';
+        }
+        var d = date.getDate();
+        var m = date.getMonth() + 1; //Month from 0 to 11
+        var y = date.getFullYear();
+        return '' + y + '-' + (m <= 9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
+    }
     var showValueImage = 'eye5.png';
     var showValueTitle = 'Скрыть значение';
-    if (!showValueState) {
+    if (!showSecretValue) {
         showValueImage = 'eye1.png';
         showValueTitle = 'Показать значение';
     }
@@ -59491,22 +59725,29 @@ var VaultSecret = function (props) {
         vaultSecretClass = 'vault-secret-show';
         showMoreButtonClass = ' but-opend';
     }
+    // console.log('d1' + secretDieDate);
+    if (!secret) {
+        return react_1.default.createElement("div", null, "todo \u041D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E");
+    }
     return react_1.default.createElement("div", { className: 'vault-secret ' + vaultSecretClass },
         react_1.default.createElement("div", { className: 'vault-secret-main' },
-            react_1.default.createElement("div", { className: 'vault-secret-key', title: secret.Key }, secret.Key),
+            react_1.default.createElement("div", { className: 'vault-secret-key', title: secretKey }, secretKey),
             react_1.default.createElement("div", { className: 'vault-secret-val' },
-                react_1.default.createElement("textarea", { value: secretValue, onChange: function (e) { return setValue(e.target.value); } })),
+                react_1.default.createElement("textarea", { value: showSecretValue ? secretValue : '***', className: 'form-control', onChange: function (e) { return setSecretValue(e.target.value); } })),
             react_1.default.createElement("div", { className: 'vault-secret-main-buttons' },
-                react_1.default.createElement("div", { className: 'but vault-secret-show-val', title: showValueTitle },
+                react_1.default.createElement("div", { className: 'but vault-secret-show-val', title: showValueTitle, onClick: function () { return setShowSecretValue(!showSecretValue); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + showValueImage })),
-                react_1.default.createElement("div", { className: 'but vault-secret-copy', title: '\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435' },
+                react_1.default.createElement("div", { className: 'but vault-secret-copy', title: '\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435', onClick: function () { return navigator.clipboard.writeText(secretValue); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'copy.png' })),
                 react_1.default.createElement("div", { className: 'but vault-secret-more-but' + showMoreButtonClass, title: '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0431\u043E\u043B\u044C\u0448\u0435', onClick: function () { return setShowMoreInfo(!showMoreInfo); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'arrow2.png' })))),
-         true ? react_1.default.createElement("div", { className: 'vault-secret-more' },
-            "\u0434\u043E\u043F \u0438\u043D\u0444\u0430",
-            secret.IsCoded ? 'coded' : 'noncoded',
-            'diedate' + secret.DieDate + "",
+        showMoreInfo ? react_1.default.createElement("div", { className: 'vault-secret-more' },
+            react_1.default.createElement("label", null, "\u0417\u0430\u0448\u0438\u0444\u0440\u043E\u0432\u0430\u043D\u043E"),
+            react_1.default.createElement("input", { type: 'checkbox', checked: secretIsCoded, onChange: function () { return setSecretIsCoded(!secretIsCoded); } }),
+            react_1.default.createElement("input", { type: 'date', value: dateToYMD(secretDieDate), className: 'form-control', style: { width: '140px' }, onChange: function (e) {
+                    setSecretDieDate(e.target.valueAsDate);
+                    // console.log('d2' + e.target.valueAsDate);
+                } }),
             react_1.default.createElement("div", { className: 'buttons' },
                 react_1.default.createElement("div", { className: 'but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () { return alert('todo'); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'delete-icon.png' })),
@@ -59514,8 +59755,8 @@ var VaultSecret = function (props) {
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'save-icon.png' })),
                 react_1.default.createElement("div", { className: 'but', title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F', onClick: function () { return alert('todo'); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'cancel.png' })),
-                react_1.default.createElement("div", { className: 'but', title: '\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0441\u0435\u043A\u0440\u0435\u0442', onClick: function () { return alert('todo'); } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'share-icon.png' })))) : 0);
+                react_1.default.createElement("div", { className: 'but', title: '\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0441\u0435\u043A\u0440\u0435\u0442', onClick: function () { return navigator.clipboard.writeText(document.location.origin + '/vault-app/secret/' + secret.Id); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'share-icon.png' })))) : react_1.default.createElement(react_1.default.Fragment, null));
 };
 exports["default"] = (0, VaultSecretSetup_1.default)(VaultSecret);
 
@@ -59534,10 +59775,20 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
+    res.SingleSecret = state.VaultApp.OpenedSecret;
     return res;
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
     var res = {};
+    res.DeleteSecret = function (secretId, vaultId) {
+        dispatch(window.G_VaultController.DeleteSecretRedux(secretId, vaultId));
+    };
+    res.UpdateSecret = function (id) {
+        dispatch(window.G_VaultController.UpdateSecretRedux(id));
+    };
+    res.GetSingleSecret = function (id) {
+        dispatch(window.G_VaultController.GetSingleSecretRedux(id));
+    };
     return res;
 };
 exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -59590,9 +59841,9 @@ var VaultUser = function (props) {
     return react_1.default.createElement("div", null,
         props.User.Email,
         props.MarkedAsDeleted ? react_1.default.createElement(react_1.default.Fragment, null,
-            react_1.default.createElement("button", { className: 'btn btn-primary', onClick: function () { return props.RedoDelete(props.User.Id); } }, "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C")) :
+            react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return props.RedoDelete(props.User.Id); } }, "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C")) :
             react_1.default.createElement(react_1.default.Fragment, null,
-                react_1.default.createElement("button", { className: 'btn btn-primary', onClick: function () { return props.Delete(props.User.Id); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")));
+                react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return props.Delete(props.User.Id); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")));
 };
 exports["default"] = (0, VaultUserSetup_1.default)(VaultUser);
 
