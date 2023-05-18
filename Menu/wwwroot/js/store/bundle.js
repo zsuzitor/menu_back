@@ -2954,7 +2954,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".vault-secrets-list {\r\n    display: flex;\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/OneVault/OneVault.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,aAAa;IACb,eAAe;IACf,iBAAiB;AACrB","sourcesContent":[".vault-secrets-list {\r\n    display: flex;\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".vault-secrets-list {\r\n    display: flex;\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n}\r\n\r\n.vault-secrets-list input.form-control {\r\n    height: 30px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/OneVault/OneVault.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,aAAa;IACb,eAAe;IACf,iBAAiB;AACrB;;AAEA;IACI,YAAY;AAChB","sourcesContent":[".vault-secrets-list {\r\n    display: flex;\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n}\r\n\r\n.vault-secrets-list input.form-control {\r\n    height: 30px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3035,7 +3035,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n    height: 40px;\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    height: 130px;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/VaultSecret/VaultSecret.css"],"names":[],"mappings":"AAAA;IACI,4BAA4B;IAC5B,uBAAuB;IACvB,WAAW;IACX,kBAAkB;IAClB,oCAAoC;IACpC,gBAAgB;IAChB,YAAY;IACZ,6CAA6C;IAC7C,4BAA4B;AAChC;;AAEA;IACI,sBAAsB;IACtB,YAAY;AAChB;;AAEA;IACI,uBAAuB;IACvB,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,cAAc;AAClB;;AAEA,oBAAoB;;AAEpB;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;AACtB;;;;AAIA;IACI,aAAa;IACb,SAAS;AACb;;;AAGA;IACI,YAAY;IACZ,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA,wBAAwB;;AAExB,oBAAoB;;;AAGpB,wBAAwB;;AAExB;IACI,aAAa;IACb,QAAQ;IACR,iBAAiB;AACrB","sourcesContent":[".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n    height: 40px;\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    height: 130px;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n.vault-secret-new {\r\n    /* border-color: green;\r\n    border: 0.3px solid green; */\r\n    box-shadow: 0 0 5px green;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n    height: 40px;\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    height: 130px;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/VaultSecret/VaultSecret.css"],"names":[],"mappings":"AAAA;IACI,4BAA4B;IAC5B,uBAAuB;IACvB,WAAW;IACX,kBAAkB;IAClB,oCAAoC;IACpC,gBAAgB;IAChB,YAAY;IACZ,6CAA6C;IAC7C,4BAA4B;AAChC;;AAEA;IACI;gCAC4B;IAC5B,yBAAyB;AAC7B;;AAEA;IACI,sBAAsB;IACtB,YAAY;AAChB;;AAEA;IACI,uBAAuB;IACvB,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,cAAc;AAClB;;AAEA,oBAAoB;;AAEpB;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;AACtB;;;;AAIA;IACI,aAAa;IACb,SAAS;AACb;;;AAGA;IACI,YAAY;IACZ,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA,wBAAwB;;AAExB,oBAAoB;;;AAGpB,wBAAwB;;AAExB;IACI,aAAa;IACb,QAAQ;IACR,iBAAiB;AACrB","sourcesContent":[".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n.vault-secret-new {\r\n    /* border-color: green;\r\n    border: 0.3px solid green; */\r\n    box-shadow: 0 0 5px green;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n    height: 40px;\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    height: 130px;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -56193,10 +56193,10 @@ var CreateVault = function (props) {
                 newVault.Name = vaultName;
                 if ((_a = props.Vault) === null || _a === void 0 ? void 0 : _a.Id) {
                     newVault.Id = props.Vault.Id;
-                    props.UpdateVault(newVault);
+                    props.UpdateVault(newVault, function () { return props.WasCreated(); });
                 }
                 else {
-                    props.CreateVault(newVault);
+                    props.CreateVault(newVault, function () { return props.WasCreated(); });
                 }
             } }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"));
 };
@@ -56224,11 +56224,11 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     res.LoadVaultPeople = function (vaultId) {
         dispatch(window.G_VaultController.LoadVaultPeopleRedux(vaultId));
     };
-    res.CreateVault = function (vault) {
-        dispatch(window.G_VaultController.CreateVaultRedux(vault));
+    res.CreateVault = function (vault, successCallBack) {
+        dispatch(window.G_VaultController.CreateVaultRedux(vault, successCallBack));
     };
-    res.UpdateVault = function (vault) {
-        dispatch(window.G_VaultController.UpdateVaultRedux(vault));
+    res.UpdateVault = function (vault, successCallBack) {
+        dispatch(window.G_VaultController.UpdateVaultRedux(vault, successCallBack));
     };
     return res;
 };
@@ -56357,11 +56357,13 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var VaultSecret_1 = __importDefault(__webpack_require__(/*! ../VaultSecret/VaultSecret */ "./src/Apps/Vault/Components/VaultSecret/VaultSecret.tsx"));
 var CreateVault_1 = __importDefault(__webpack_require__(/*! ../CreateVault/CreateVault */ "./src/Apps/Vault/Components/CreateVault/CreateVault.tsx"));
 var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
+var OneVaultSecret_1 = __webpack_require__(/*! ../../Models/Entity/State/OneVaultSecret */ "./src/Apps/Vault/Models/Entity/State/OneVaultSecret.ts");
 __webpack_require__(/*! ./OneVault.css */ "./src/Apps/Vault/Components/OneVault/OneVault.css");
 var OneVault = function (props) {
     // const [code, setCode] = useState('');
     var _a = (0, react_1.useState)(''), filterSecretKey = _a[0], setFilterSecretKey = _a[1];
     var _b = (0, react_1.useState)(false), showEditForm = _b[0], setShowEditForm = _b[1];
+    // const [shoNewSecretForm, setShoNewSecretForm] = useState(false);
     // let vault = props.Vaults.find(x => x.Id === props.VaultId);
     var vault = props.Vault;
     (0, react_1.useEffect)(function () {
@@ -56388,8 +56390,9 @@ var OneVault = function (props) {
             backLink,
             react_1.default.createElement("div", null, "\u041D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E"));
     }
+    var secretForNewForm = new OneVaultSecret_1.OneVaultSecret();
     return react_1.default.createElement("div", { className: 'one-vault-list' },
-        showEditForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowEditForm(false); }, IsHeightWindow: true, Title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430', InnerContent: function () { return react_1.default.createElement(CreateVault_1.default, { Vault: vault }); } }) : react_1.default.createElement(react_1.default.Fragment, null),
+        showEditForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowEditForm(false); }, IsHeightWindow: true, Title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430', InnerContent: function () { return react_1.default.createElement(CreateVault_1.default, { Vault: vault, WasCreated: function () { return setShowEditForm(false); } }); } }) : react_1.default.createElement(react_1.default.Fragment, null),
         backLink,
         react_1.default.createElement("div", null,
             react_1.default.createElement("p", null, vault.Id),
@@ -56400,9 +56403,10 @@ var OneVault = function (props) {
                     document.getElementById('list_vault_link_id').click();
                 } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")),
         react_1.default.createElement("input", { type: 'text', className: 'form-control', placeholder: '\u041F\u043E\u0438\u0441\u043A', onChange: (function (e) { return setFilterSecretKey(e.target.value); }), value: filterSecretKey }),
-        react_1.default.createElement("div", { className: 'vault-secrets-list' }, vault.Secrets.filter(function (x) { return !filterSecretKey || (x.Key.indexOf(filterSecretKey) != -1); })
-            .map(function (s) { return react_1.default.createElement(VaultSecret_1.default, { key: s.Id, Secret: s }); })),
-        react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return alert('todo'); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"));
+        react_1.default.createElement("div", { className: 'vault-secrets-list' },
+            react_1.default.createElement(VaultSecret_1.default, { key: "new_secret", IsNew: true, Secret: secretForNewForm }),
+            vault.Secrets.filter(function (x) { return !filterSecretKey || (x.Key.indexOf(filterSecretKey) != -1); })
+                .map(function (s) { return react_1.default.createElement(VaultSecret_1.default, { key: s.Id, Secret: s, IsNew: false }); })));
 };
 exports["default"] = (0, OneVaultSetup_1.default)(OneVault);
 
@@ -56498,10 +56502,10 @@ var VaultList = function (props) {
         props.LoadMyVaults();
     }, []);
     return react_1.default.createElement("div", { className: 'vault-list' },
-        react_1.default.createElement("div", null, showAddForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowAddForm(false); }, IsHeightWindow: false, Title: '\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430', InnerContent: function () { return react_1.default.createElement(CreateVault_1.default, null); } }) : react_1.default.createElement(react_1.default.Fragment, null)),
+        react_1.default.createElement("div", null, showAddForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowAddForm(false); }, IsHeightWindow: false, Title: '\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430', InnerContent: function () { return react_1.default.createElement(CreateVault_1.default, { WasCreated: function () { return setShowAddForm(false); } }); } }) : react_1.default.createElement(react_1.default.Fragment, null)),
         react_1.default.createElement("div", { className: 'vault-list-container' },
             props.Vaults.map(function (v) { return react_1.default.createElement(OneVaultInList_1.default, { key: v.Id, Vault: v }); }),
-            react_1.default.createElement("div", { className: 'create-vault-in-list', onClick: function () { return setShowAddForm(!showAddForm); } }, "+")));
+            react_1.default.createElement("div", { className: 'create-vault-in-list', onClick: function () { return setShowAddForm(true); } }, "+")));
 };
 exports["default"] = (0, VaultListSetup_1.default)(VaultList);
 
@@ -56696,21 +56700,22 @@ var VaultSecret = function (props) {
     var _f = (0, react_1.useState)(false), showSecretValue = _f[0], setShowSecretValue = _f[1];
     (0, react_1.useEffect)(function () {
         if (!(secret === null || secret === void 0 ? void 0 : secret.Key)) {
-            //todo берем из урла, сетаем в стейт id, грузим запись из бд и сохраняем в стейт запись
             var pathNameUrlSplit = document.location.pathname.split('/');
             if (pathNameUrlSplit && pathNameUrlSplit.length > 3 && pathNameUrlSplit[2] === 'secret') {
                 props.GetSingleSecret(+pathNameUrlSplit[3]);
             }
         }
-        else {
-            setSecretKey((secret === null || secret === void 0 ? void 0 : secret.Key) || '');
-        }
-        setSecretKey((secret === null || secret === void 0 ? void 0 : secret.Key) || ''); //todo тут надо сетнуть то что загрузили
-        setSecretValue((secret === null || secret === void 0 ? void 0 : secret.Value) || ''); //todo тут надо сетнуть то что загрузили
-        setSecretDieDate((secret === null || secret === void 0 ? void 0 : secret.DieDate) || null);
-        setSecretIsCoded((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded);
+        // else {
+        //     setSecretKey(secret?.Key || '');
+        // }
+        setSecretKey((secret === null || secret === void 0 ? void 0 : secret.Key) || '');
         setShowSecretValue(false);
     }, [secret === null || secret === void 0 ? void 0 : secret.Key]);
+    (0, react_1.useEffect)(function () {
+        setSecretValue((secret === null || secret === void 0 ? void 0 : secret.Value) || '');
+        setSecretDieDate((secret === null || secret === void 0 ? void 0 : secret.DieDate) || null);
+        setSecretIsCoded((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded);
+    }, [secret === null || secret === void 0 ? void 0 : secret.Value, secret === null || secret === void 0 ? void 0 : secret.DieDate, secret === null || secret === void 0 ? void 0 : secret.IsCoded]);
     function dateToYMD(date) {
         if (!date) {
             return '3000-01-01';
@@ -56720,6 +56725,18 @@ var VaultSecret = function (props) {
         var y = date.getFullYear();
         return '' + y + '-' + (m <= 9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
     }
+    function cancelChanges() {
+        setSecretValue(secret.Value);
+        setSecretDieDate((secret === null || secret === void 0 ? void 0 : secret.DieDate) || null);
+        setSecretIsCoded((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded);
+        setShowSecretValue(false);
+    }
+    var hasChanges = //secretKey != (secret?.Key || '')
+     
+    //||
+    secretValue != (secret === null || secret === void 0 ? void 0 : secret.Value)
+        || secretDieDate != secret.DieDate
+        || secretIsCoded != ((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded);
     var showValueImage = 'eye5.png';
     var showValueTitle = 'Скрыть значение';
     if (!showSecretValue) {
@@ -56732,20 +56749,25 @@ var VaultSecret = function (props) {
         vaultSecretClass = 'vault-secret-show';
         showMoreButtonClass = ' but-opend';
     }
+    if (props.IsNew) {
+        vaultSecretClass += " vault-secret-new";
+    }
     // console.log('d1' + secretDieDate);
     if (!secret) {
         return react_1.default.createElement("div", null, "todo \u041D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E");
     }
     return react_1.default.createElement("div", { className: 'vault-secret ' + vaultSecretClass },
         react_1.default.createElement("div", { className: 'vault-secret-main' },
-            react_1.default.createElement("div", { className: 'vault-secret-key', title: secretKey }, secretKey),
+            react_1.default.createElement("div", { className: 'vault-secret-key', title: secretKey },
+                react_1.default.createElement("input", { type: 'text', className: 'form-control', value: secretKey, onChange: function (e) { return setSecretKey(e.target.value); } })),
             react_1.default.createElement("div", { className: 'vault-secret-val' },
-                react_1.default.createElement("textarea", { value: showSecretValue ? secretValue : '***', className: 'form-control', onChange: function (e) { return setSecretValue(e.target.value); } })),
+                react_1.default.createElement("textarea", { value: (showSecretValue || props.IsNew) ? secretValue : '***', className: 'form-control', onChange: function (e) { return setSecretValue(e.target.value); } })),
             react_1.default.createElement("div", { className: 'vault-secret-main-buttons' },
-                react_1.default.createElement("div", { className: 'but vault-secret-show-val', title: showValueTitle, onClick: function () { return setShowSecretValue(!showSecretValue); } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + showValueImage })),
-                react_1.default.createElement("div", { className: 'but vault-secret-copy', title: '\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435', onClick: function () { return navigator.clipboard.writeText(secretValue); } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'copy.png' })),
+                props.IsNew ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement("div", { className: 'but vault-secret-show-val', title: showValueTitle, onClick: function () { return setShowSecretValue(!showSecretValue); } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + showValueImage })),
+                    react_1.default.createElement("div", { className: 'but vault-secret-copy', title: '\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435', onClick: function () { return navigator.clipboard.writeText(secretValue); } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'copy.png' }))),
                 react_1.default.createElement("div", { className: 'but vault-secret-more-but' + showMoreButtonClass, title: '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0431\u043E\u043B\u044C\u0448\u0435', onClick: function () { return setShowMoreInfo(!showMoreInfo); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'arrow2.png' })))),
         showMoreInfo ? react_1.default.createElement("div", { className: 'vault-secret-more' },
@@ -56756,27 +56778,34 @@ var VaultSecret = function (props) {
                     // console.log('d2' + e.target.valueAsDate);
                 } }),
             react_1.default.createElement("div", { className: 'buttons' },
-                react_1.default.createElement("div", { className: 'but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () { return props.DeleteSecret(props.Secret.Id, props.Secret.VaultId); } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'delete-icon.png' })),
-                react_1.default.createElement("div", { className: 'but', title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C', onClick: function () {
-                        var newData = {};
-                        newData.Id = props.Secret.Id;
-                        newData.Key = secretKey;
-                        newData.Value = secretValue;
-                        newData.VaultId = secret.VaultId;
-                        props.UpdateSecret(newData);
-                        alert('todo');
-                    } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'save-icon.png' })),
-                react_1.default.createElement("div", { className: 'but', title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F', onClick: function () {
-                        setSecretValue(secret.Value);
-                        setSecretDieDate((secret === null || secret === void 0 ? void 0 : secret.DieDate) || null);
-                        setSecretIsCoded((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded);
-                        setShowSecretValue(false);
-                    } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'cancel.png' })),
-                react_1.default.createElement("div", { className: 'but', title: '\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0441\u0435\u043A\u0440\u0435\u0442', onClick: function () { return navigator.clipboard.writeText(document.location.origin + '/vault-app/secret/' + secret.Id); } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'share-icon.png' })))) : react_1.default.createElement(react_1.default.Fragment, null));
+                hasChanges ? react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement("div", { className: 'but', title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C', onClick: function () {
+                            var newData = {};
+                            newData.Id = props.Secret.Id;
+                            newData.Key = secretKey;
+                            newData.Value = secretValue;
+                            newData.VaultId = secret.VaultId;
+                            if (props.IsNew) {
+                                props.CreateSecret(newData);
+                                cancelChanges();
+                            }
+                            else {
+                                props.UpdateSecret(newData);
+                            }
+                        } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'save-icon.png' })),
+                    react_1.default.createElement("div", { className: 'but', title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F', onClick: function () {
+                            cancelChanges();
+                        } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'cancel.png' }))) : react_1.default.createElement(react_1.default.Fragment, null),
+                props.IsNew ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement("div", { className: 'but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () {
+                            return props.DeleteSecret(props.Secret.Id, props.Secret.VaultId);
+                        } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'delete-icon.png' })),
+                    react_1.default.createElement("div", { className: 'but', title: '\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0441\u0435\u043A\u0440\u0435\u0442', onClick: function () { return navigator.clipboard
+                            .writeText(document.location.origin + '/vault-app/secret/' + secret.Id); } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'share-icon.png' }))))) : react_1.default.createElement(react_1.default.Fragment, null));
 };
 exports["default"] = (0, VaultSecretSetup_1.default)(VaultSecret);
 
@@ -56808,6 +56837,9 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     res.GetSingleSecret = function (id) {
         dispatch(window.G_VaultController.GetSingleSecretRedux(id));
+    };
+    res.CreateSecret = function (secret) {
+        dispatch(window.G_VaultController.CreateSecretRedux(secret));
     };
     return res;
 };
@@ -56952,6 +56984,12 @@ function UpdateVaultActionCreator(data) {
 }
 exports.UpdateVaultActionCreator = UpdateVaultActionCreator;
 ;
+// export interface IUpdateSecretActionPayload extends IUpdateSecretEntity {
+//     Id: number;
+//     VaultId: number;
+//     Key: string;
+//     Value: string;
+// }
 exports.UpdateSecretActionName = 'UpdateSecretAction';
 function UpdateSecretActionCreator(data) {
     return { type: exports.UpdateSecretActionName, payload: data };
@@ -57178,7 +57216,9 @@ var VaultController = /** @class */ (function () {
         return function (dispatch, getState) {
             _this.CreateSecret(secret, function (error, data) {
                 if (data) {
-                    dispatch((0, VaultActions_1.CreateSecretActionCreator)(secret));
+                    var newData = new OneVaultSecret_1.OneVaultSecret();
+                    newData.FillByBackModel(data);
+                    dispatch((0, VaultActions_1.CreateSecretActionCreator)(newData));
                 }
             });
         };
@@ -57186,6 +57226,12 @@ var VaultController = /** @class */ (function () {
     VaultController.prototype.CreateSecret = function (secret, onSuccess) {
         var newData = {};
         newData.id = Math.floor(Math.random() * 9999);
+        newData.dieDate = secret.DieDate;
+        newData.isCoded = secret.IsCoded;
+        newData.isPublic = secret.IsPublic;
+        newData.key = secret.Key;
+        newData.value = secret.Value;
+        newData.vaultId = secret.VaultId;
         onSuccess(null, newData);
         //G_AjaxHelper.GoAjaxRequest({
         //     Data: {
@@ -57205,13 +57251,22 @@ var VaultController = /** @class */ (function () {
         return function (dispatch, getState) {
             _this.UpdateSecret(secret, function (error, data) {
                 if (data) { //todo закидывать secret? тогде поменять на bool result
-                    dispatch((0, VaultActions_1.UpdateSecretActionCreator)(secret));
+                    var newData = new OneVaultSecret_1.OneVaultSecret();
+                    newData.FillByBackModel(data);
+                    dispatch((0, VaultActions_1.UpdateSecretActionCreator)(newData));
                 }
             });
         };
     };
     VaultController.prototype.UpdateSecret = function (secret, onSuccess) {
         var newData = {};
+        newData.id = secret.Id;
+        newData.dieDate = secret.DieDate;
+        newData.isCoded = secret.IsCoded;
+        newData.isPublic = secret.IsPublic;
+        newData.key = secret.Key;
+        newData.value = secret.Value;
+        newData.vaultId = secret.VaultId;
         // newData.id = Math.floor(Math.random() * 9999);
         onSuccess(null, newData);
         //G_AjaxHelper.GoAjaxRequest({
@@ -57261,7 +57316,7 @@ var VaultController = /** @class */ (function () {
         //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
         // });
     };
-    VaultController.prototype.UpdateVaultRedux = function (vault) {
+    VaultController.prototype.UpdateVaultRedux = function (vault, successCallBack) {
         var _this = this;
         return function (dispatch, getState) {
             _this.UpdateVault(vault, function (error, data) {
@@ -57271,6 +57326,7 @@ var VaultController = /** @class */ (function () {
                     newData.Name = vault.Name;
                     newData.IsPublic = vault.IsPublic;
                     dispatch((0, VaultActions_1.UpdateVaultActionCreator)(newData));
+                    successCallBack();
                 }
             });
         };
@@ -57290,7 +57346,7 @@ var VaultController = /** @class */ (function () {
         //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
         // });
     };
-    VaultController.prototype.CreateVaultRedux = function (vault) {
+    VaultController.prototype.CreateVaultRedux = function (vault, successCallBack) {
         var _this = this;
         return function (dispatch, getState) {
             _this.CreateVault(vault, function (error, data) {
@@ -57300,6 +57356,7 @@ var VaultController = /** @class */ (function () {
                     newdata.IsPublic = data.isPublic;
                     newdata.Name = data.name;
                     dispatch((0, VaultActions_1.CreateVaultActionCreator)(newdata));
+                    successCallBack();
                 }
             });
         };
@@ -57683,6 +57740,9 @@ function VaultReducer(state, action) {
                     if (secret) {
                         secret.Key = typedAction_4.Key;
                         secret.Value = typedAction_4.Value;
+                        secret.DieDate = typedAction_4.DieDate;
+                        secret.IsCoded = typedAction_4.IsCoded;
+                        secret.IsPublic = typedAction_4.IsPublic;
                     }
                 }
                 return newState;
@@ -57697,6 +57757,9 @@ function VaultReducer(state, action) {
                     newSecret.Key = typedAction.Key;
                     newSecret.Value = typedAction.Value;
                     newSecret.VaultId = typedAction.VaultId;
+                    newSecret.DieDate = typedAction.DieDate;
+                    newSecret.IsCoded = typedAction.IsCoded;
+                    newSecret.IsPublic = typedAction.IsPublic;
                     newState.VaultApp.CurrentVault.Secrets.push(newSecret);
                 }
                 return newState;
