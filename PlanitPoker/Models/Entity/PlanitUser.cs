@@ -49,7 +49,7 @@ namespace PlanitPoker.Models.Entity
         {
             get
             {
-                return Role.Any(x => x == Consts.Roles.Creator || x == Consts.Roles.Admin);
+                return Role.Any(x => x == Constants.Roles.Creator || x == Constants.Roles.Admin);
             }
         }
 
@@ -57,7 +57,7 @@ namespace PlanitPoker.Models.Entity
         {
             get
             {
-                return !Role.Any(x => x == Consts.Roles.Observer);
+                return !Role.Any(x => x == Constants.Roles.Observer);
             }
         }
 

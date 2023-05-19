@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using BO.Models.MenuApp.DAL.Domain;
 using BO.Models.WordsCardsApp.DAL.Domain;
 using BO.Models.CodeReviewApp.DAL.Domain;
+using BO.Models.VaultApp.Dal;
 
 namespace BO.Models.DAL.Domain
 {
@@ -23,6 +24,7 @@ namespace BO.Models.DAL.Domain
         public List<WordCard> WordsCards { get; set; }
         public List<WordsList> WordsLists { get; set; }
         public List<ProjectUser> CodeReviewProjects { get; set; }
+        public List<VaultUser> Vaults { get; set; }
 
 
         public User()
@@ -31,6 +33,7 @@ namespace BO.Models.DAL.Domain
             WordsCards = new List<WordCard>();
             WordsLists = new List<WordsList>();
             CodeReviewProjects = new List<ProjectUser>();
+            Vaults = new List<VaultUser>();
         }
     }
 }

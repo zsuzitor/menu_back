@@ -14,27 +14,23 @@ namespace PlanitPoker.Models
     {
         public void ErrorContainerInitialize(ErrorContainer errorContainer)
         {//todo может это лучше через наследование? под каждое приложение свой контейнер
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomNameIsEmpty, "Название комнаты не указано");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.PlanitUserNotFound, "Пользователь не найден");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomAlreadyExist, "Комната уже существует");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.SomeErrorWithRoomCreating, "Неизвестная ошибка при создании комнаты");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.BadRoomNameWithRoomCreating, "Нельзя использовать данное название, разрешены англ буквы+цифры до 30 знаков");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomNotFound, "Комната не найдена");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.DontHaveAccess, "Нет доступа");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.CantVote, "Нельзя проголосовать");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.StoryNotFound, "История не найдена");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.StoryBadStatus, "Неверный статус истории");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadPassword, "Пароль не подходит");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomNameIsEmpty, "Название комнаты не указано");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.PlanitUserNotFound, "Пользователь не найден");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomAlreadyExist, "Комната уже существует");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.SomeErrorWithRoomCreating, "Неизвестная ошибка при создании комнаты");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.BadRoomNameWithRoomCreating, "Нельзя использовать данное название, разрешены англ буквы+цифры до 30 знаков");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomNotFound, "Комната не найдена");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.DontHaveAccess, "Нет доступа");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.CantVote, "Нельзя проголосовать");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.StoryNotFound, "История не найдена");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.StoryBadStatus, "Неверный статус истории");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomBadPassword, "Пароль не подходит");
 
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadVoteMark, "Оценка не входит в допустимый диапазон");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadVoteMarks, "Передан неверный список оценок");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadCountCards, "Передано неверное количество карточек, доспустимо от 2 до 100");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.RoomBadLengthCard, "Допустимая длина карточки 5 символов");
-            errorContainer.InitError(Consts.PlanitPokerErrorConsts.UsernameBad, "Имя пользователя - кириллица/латиница/цифры до 50 символов");
-            
-
-
-
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomBadVoteMark, "Оценка не входит в допустимый диапазон");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomBadVoteMarks, "Передан неверный список оценок");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomBadCountCards, "Передано неверное количество карточек, доспустимо от 2 до 100");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomBadLengthCard, "Допустимая длина карточки 5 символов");
+            errorContainer.InitError(Constants.PlanitPokerErrorConsts.UsernameBad, "Имя пользователя - кириллица/латиница/цифры до 50 символов");
 
 
         }

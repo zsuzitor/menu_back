@@ -2,6 +2,7 @@
 using BO.Models.DAL.Domain;
 using BO.Models.MenuApp.DAL.Domain;
 using BO.Models.PlaningPoker.DAL;
+using BO.Models.VaultApp.Dal;
 using BO.Models.WordsCardsApp.DAL.Domain;
 using Microsoft.EntityFrameworkCore;
 
@@ -42,15 +43,21 @@ namespace DAL.Models.DAL
         #endregion PlaningPoker
 
 
-        #region coreReviewApp
+        #region codeReviewApp
         public DbSet<Project> ReviewProject { get; set; }
         public DbSet<ProjectUser> ReviewProjectUsers { get; set; }
         public DbSet<TaskReview> ReviewTasks { get; set; }
         public DbSet<CommentReview> ReviewComment { get; set; }
 
 
-        #endregion coreReviewApp
+        #endregion codeReviewApp
 
+        #region VaultApp
+        public DbSet<Vault> Vaults { get; set; }
+        public DbSet<Secret> Secrets { get; set; }
+        public DbSet<VaultUser> VaultUsers { get; set; }
+
+        #endregion VaultApp    
 
 
 
@@ -66,7 +73,7 @@ namespace DAL.Models.DAL
         {
             modelBuilder.Entity<MainNLogEntity>().HasKey(x => x.Id).IsClustered(false);
             modelBuilder.Entity<MainNLogEntity>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
-                
+
 
             modelBuilder.Entity<MainNLogEntity>().HasIndex(x => x.EnteredDate);
             //https://docs.microsoft.com/ru-ru/ef/core/modeling/generated-properties?tabs=fluent-api
@@ -164,6 +171,25 @@ namespace DAL.Models.DAL
                 .HasForeignKey(x => x.TaskId).OnDelete(DeleteBehavior.Cascade);
 
             #endregion coreReviewApp
+
+
+            #region VaultApp
+            //vault
+            modelBuilder.Entity<Vault>().HasKey(x => x.Id);
+            modelBuilder.Entity<Vault>().HasMany(x => x.Secrets).WithOne(x => x.Vault)
+                .HasForeignKey(x => x.VaultId).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Vault>().HasMany(x => x.Users).WithOne(x => x.Vault)
+                .HasForeignKey(x => x.VaultId).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<User>().HasMany(x => x.Vaults).WithOne(x => x.User)
+                .HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<VaultUser>().HasKey(x => x.Id);
+
+            modelBuilder.Entity<Secret>().HasKey(x => x.Id);
+            modelBuilder.Entity<Secret>().Property(x => x.Key).IsRequired();
+            modelBuilder.Entity<Secret>().HasOne(x => x.Vault).WithMany(x => x.Secrets);
+
+            #endregion VaultApp
 
             base.OnModelCreating(modelBuilder);
         }

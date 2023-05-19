@@ -69,7 +69,7 @@ namespace PlanitPoker.Models.Helpers
                     _errorService.AddError(error);
                 }
 
-                _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.PlanitUserNotFound));
+                _errorService.AddError(_errorContainer.TryGetError(Constants.PlanitPokerErrorConsts.PlanitUserNotFound));
                 //await WriteReturnResponseAsync(response, _errorService.GetErrorsObject(), 401);//TODO 401
                 //return;
             }
@@ -96,7 +96,7 @@ namespace PlanitPoker.Models.Helpers
 
             
             var erF = new ErrorObjectReturnFactory();
-            await _planitHub.Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NotifyFromServer,
+            await _planitHub.Clients.Caller.SendAsync(Constants.PlanitPokerHubEndpoints.NotifyFromServer,
                 erF.GetObjectReturn(_errorService.GetErrorsObject()));
 
             await InvokeHubFrontMethodByErrorContainer();
@@ -138,11 +138,11 @@ namespace PlanitPoker.Models.Helpers
         //возникло исключение и мы должны что то вызвать особенное на фронте, нотифая не хватит
         private async Task InvokeHubFrontMethodByErrorContainer()
         {
-            if (_errorService.HasError(Consts.PlanitPokerErrorConsts.RoomNotFound))
+            if (_errorService.HasError(Constants.PlanitPokerErrorConsts.RoomNotFound))
             {
                 //пока так
                 //можно в хабе делать доп try catch и уже там что то такое добавить а тут убрать
-                await _planitHub.Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
+                await _planitHub.Clients.Caller.SendAsync(Constants.PlanitPokerHubEndpoints.ConnectedToRoomError);
             }
         }
 

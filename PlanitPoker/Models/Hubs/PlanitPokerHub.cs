@@ -122,7 +122,7 @@ namespace PlanitPoker.Models.Hubs
                 if (expired && userInfo != null)
                 {
                     //не прерываем процесс создания румы, но сообщаем о том что нужен рефреш
-                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NeedRefreshTokens);
+                    await Clients.Caller.SendAsync(Constants.PlanitPokerHubEndpoints.NeedRefreshTokens);
                 }
 
                 var user = new PlanitUser()
@@ -138,7 +138,7 @@ namespace PlanitPoker.Models.Hubs
                 var room = await _planitPokerService.CreateRoomWithUserAsync(roomName, password, user);
                 if (room == null)
                 {
-                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.RoomNotCreated);
+                    await Clients.Caller.SendAsync(Constants.PlanitPokerHubEndpoints.RoomNotCreated);
 
                     return;
                 }
@@ -161,13 +161,13 @@ namespace PlanitPoker.Models.Hubs
                 var room = await _planitPokerService.TryGetRoomAsync(roomName);
                 if (room == null)
                 {
-                    throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+                    throw new SomeCustomException(Constants.PlanitPokerErrorConsts.RoomNotFound);
                 }
 
                 var newDieDate = await _planitPokerService.AddTimeAliveRoom(room);
                 if (newDieDate != DateTime.MinValue)
                 {
-                    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.NewRoomAlive, newDieDate);
+                    await Clients.Group(roomName).SendAsync(Constants.PlanitPokerHubEndpoints.NewRoomAlive, newDieDate);
                     return;
                 }
 
@@ -188,13 +188,13 @@ namespace PlanitPoker.Models.Hubs
             {
                 if (string.IsNullOrWhiteSpace(cards))
                 {
-                    throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomBadVoteMarks);
+                    throw new SomeCustomException(Constants.PlanitPokerErrorConsts.RoomBadVoteMarks);
                 }
 
                 var rg = new Regex(@"^[a-zA-Z0-9;\.]*$");
                 if (!rg.IsMatch(cards))
                 {
-                    throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomBadVoteMarks);
+                    throw new SomeCustomException(Constants.PlanitPokerErrorConsts.RoomBadVoteMarks);
                 }
 
                 var room = await _planitPokerService.TryGetRoomAsync(roomName);
@@ -207,7 +207,7 @@ namespace PlanitPoker.Models.Hubs
                     throw new SomeCustomException(ErrorConsts.SomeError);
                 }
 
-                await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.RoomCardsChanged, cardsList);
+                await Clients.Group(roomName).SendAsync(Constants.PlanitPokerHubEndpoints.RoomCardsChanged, cardsList);
                 var result = await _planitPokerService.RecalcEndVoteInfo(room);
                 if (result == null)
                 {
@@ -215,7 +215,7 @@ namespace PlanitPoker.Models.Hubs
                 }
 
                 //todo зачем это?
-                await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.VoteEnd, result);
+                await Clients.Group(roomName).SendAsync(Constants.PlanitPokerHubEndpoints.VoteEnd, result);
 
             }, _logger);
 
@@ -244,15 +244,15 @@ namespace PlanitPoker.Models.Hubs
 
                 if (string.IsNullOrEmpty(roomName))
                 {
-                    _errorService.AddError(_errorContainer.TryGetError(Consts.PlanitPokerErrorConsts.RoomNameIsEmpty));
+                    _errorService.AddError(_errorContainer.TryGetError(Constants.PlanitPokerErrorConsts.RoomNameIsEmpty));
                     await _apiHealper.NotifyFromErrorService();
-                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.ConnectedToRoomError);
+                    await Clients.Caller.SendAsync(Constants.PlanitPokerHubEndpoints.ConnectedToRoomError);
                 }
 
                 var room = await _planitPokerService.TryGetRoomAsync(roomName, password);
                 if (room == null)
                 {
-                    throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+                    throw new SomeCustomException(Constants.PlanitPokerErrorConsts.RoomNotFound);
                 }
 
                 UserInfo userInfo = null;
@@ -271,7 +271,7 @@ namespace PlanitPoker.Models.Hubs
                 if (expired && userInfo != null)
                 {
                     //не прерываем процесс подключения, но сообщаем о том что нужен рефреш
-                    await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.NeedRefreshTokens);
+                    await Clients.Caller.SendAsync(Constants.PlanitPokerHubEndpoints.NeedRefreshTokens);
                 }
 
                 var user = new PlanitUser()
@@ -301,7 +301,7 @@ namespace PlanitPoker.Models.Hubs
                 await _planitPokerService.StartVoteAsync(roomName, connectionId);
                 //todo Consts.PlanitPokerHubEndpoints.ConnectedToRoomError
 
-                await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.VoteStart);
+                await Clients.Group(roomName).SendAsync(Constants.PlanitPokerHubEndpoints.VoteStart);
 
             }, _logger);
         }
@@ -320,7 +320,7 @@ namespace PlanitPoker.Models.Hubs
                     throw new SomeCustomException(ErrorConsts.SomeError);
                 }
 
-                await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.VoteEnd, result);
+                await Clients.Group(roomName).SendAsync(Constants.PlanitPokerHubEndpoints.VoteEnd, result);
 
             }, _logger);
 
@@ -339,7 +339,7 @@ namespace PlanitPoker.Models.Hubs
                 var room = await _planitPokerService.TryGetRoomAsync(roomName);
                 if (room == null)
                 {
-                    throw new SomeCustomException(Consts.PlanitPokerErrorConsts.RoomNotFound);
+                    throw new SomeCustomException(Constants.PlanitPokerErrorConsts.RoomNotFound);
                 }
 
 
@@ -353,7 +353,7 @@ namespace PlanitPoker.Models.Hubs
                 var adminsId = await _planitPokerService.GetAdminsIdAsync(room);
                 if (adminsId != null && adminsId.Count > 0)
                 {
-                    await Clients.Clients(adminsId).SendAsync(Consts.PlanitPokerHubEndpoints.VoteChanged, userId, vote);
+                    await Clients.Clients(adminsId).SendAsync(Constants.PlanitPokerHubEndpoints.VoteChanged, userId, vote);
                 }
 
                 //if (allVoted)
@@ -364,7 +364,7 @@ namespace PlanitPoker.Models.Hubs
                 //}
 
                 await Clients.GroupExcept(roomName, adminsId)
-                    .SendAsync(Consts.PlanitPokerHubEndpoints.VoteChanged, userId, "?");
+                    .SendAsync(Constants.PlanitPokerHubEndpoints.VoteChanged, userId, "?");
                 //await Clients.Caller.SendAsync(VoteSuccess, vote);
                 return true;
             }, false, _logger);
@@ -385,7 +385,7 @@ namespace PlanitPoker.Models.Hubs
                 if (kicked.sc)
                 {
                     await Clients.Group(roomName)
-                        .SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved, new List<string>() { userId });
+                        .SendAsync(Constants.PlanitPokerHubEndpoints.UserLeaved, new List<string>() { userId });
                     await Groups.RemoveFromGroupAsync(kicked.user.UserConnectionId, roomName);
 
                     //if (userConnectionId == kicked.user.UserConnectionId)
@@ -422,7 +422,7 @@ namespace PlanitPoker.Models.Hubs
                 if (sc)
                 {
                     await Clients.Group(roomName)
-                        .SendAsync(Consts.PlanitPokerHubEndpoints.UserNameChanged, userId, newUserName);
+                        .SendAsync(Constants.PlanitPokerHubEndpoints.UserNameChanged, userId, newUserName);
                     return true;
                 }
 
@@ -449,7 +449,7 @@ namespace PlanitPoker.Models.Hubs
                 }
 
                 await Clients.Group(roomName)
-                    .SendAsync(Consts.PlanitPokerHubEndpoints.UserRoleChanged, userId, 1, newRole);
+                    .SendAsync(Constants.PlanitPokerHubEndpoints.UserRoleChanged, userId, 1, newRole);
                 return;
 
             }, _logger);
@@ -471,7 +471,7 @@ namespace PlanitPoker.Models.Hubs
                 if (sc)
                 {
                     await Clients.Group(roomName)
-                        .SendAsync(Consts.PlanitPokerHubEndpoints.UserRoleChanged, userId, 2, oldRole);
+                        .SendAsync(Constants.PlanitPokerHubEndpoints.UserRoleChanged, userId, 2, oldRole);
                 }
             }, _logger);
 
@@ -499,7 +499,7 @@ namespace PlanitPoker.Models.Hubs
                 if (sc)
                 {
                     await Clients.Group(roomName)
-                        .SendAsync(Consts.PlanitPokerHubEndpoints.AddedNewStory, new StoryReturn(newStory));
+                        .SendAsync(Constants.PlanitPokerHubEndpoints.AddedNewStory, new StoryReturn(newStory));
                 }
             }, _logger);
             //invoke AddedNewStory
@@ -534,7 +534,7 @@ namespace PlanitPoker.Models.Hubs
 
                 if (string.IsNullOrEmpty(newStory.Id))
                 {
-                    throw new SomeCustomException(Consts.PlanitPokerErrorConsts.StoryNotFound);
+                    throw new SomeCustomException(Constants.PlanitPokerErrorConsts.StoryNotFound);
                 }
 
                 var sc = await _planitPokerService.ChangeStoryAsync(roomName, connectionId, newStory);
@@ -542,7 +542,7 @@ namespace PlanitPoker.Models.Hubs
                 if (sc)
                 {
                     await Clients.Group(roomName)
-                        .SendAsync(Consts.PlanitPokerHubEndpoints.CurrentStoryChanged, storyId, storyName,
+                        .SendAsync(Constants.PlanitPokerHubEndpoints.CurrentStoryChanged, storyId, storyName,
                             storyDescription); //new StoryReturn(newStory)
                 }
             }, _logger);
@@ -561,7 +561,7 @@ namespace PlanitPoker.Models.Hubs
 
                 if (sc)
                 {
-                    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.NewCurrentStory, storyId);
+                    await Clients.Group(roomName).SendAsync(Constants.PlanitPokerHubEndpoints.NewCurrentStory, storyId);
                 }
             }, _logger);
 
@@ -579,7 +579,7 @@ namespace PlanitPoker.Models.Hubs
 
                 if (sc)
                 {
-                    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.DeletedStory, storyId);
+                    await Clients.Group(roomName).SendAsync(Constants.PlanitPokerHubEndpoints.DeletedStory, storyId);
                 }
             }, _logger);
 
@@ -597,7 +597,7 @@ namespace PlanitPoker.Models.Hubs
                 var (oldId, story) = await _planitPokerService.MakeStoryCompleteAsync(roomName, storyId, GetConnectionId());
                 if (story != null)
                 {
-                    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.MovedStoryToComplete, oldId,
+                    await Clients.Group(roomName).SendAsync(Constants.PlanitPokerHubEndpoints.MovedStoryToComplete, oldId,
                         new StoryReturn(story));
                 }
             }, _logger);
@@ -621,7 +621,7 @@ namespace PlanitPoker.Models.Hubs
                     if (sc)
                     {
                         await Groups.RemoveFromGroupAsync(connectionId, roomName);
-                        await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved,
+                        await Clients.Group(roomName).SendAsync(Constants.PlanitPokerHubEndpoints.UserLeaved,
                             new List<string>() { userId });
 
                     }
@@ -650,7 +650,7 @@ namespace PlanitPoker.Models.Hubs
                     if (res.Success)
                     {
                         await Clients.Group(roomName)
-                         .SendAsync(Consts.PlanitPokerHubEndpoints.RoomWasSaved, res);
+                         .SendAsync(Constants.PlanitPokerHubEndpoints.RoomWasSaved, res);
 
                     }
 
@@ -673,7 +673,7 @@ namespace PlanitPoker.Models.Hubs
                 if (usersId != null && usersId.Count > 0)
                 {
                     //await Clients.Group(roomName).
-                    await Clients.Group(roomName).SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved,
+                    await Clients.Group(roomName).SendAsync(Constants.PlanitPokerHubEndpoints.UserLeaved,
                         usersId.Select(x => x.PlaningAppUserId));
                     foreach (var userConId in usersId)
                     {
@@ -766,7 +766,7 @@ namespace PlanitPoker.Models.Hubs
                 var roomName = await room.GetConcurentValue(_multiThreadHelper, rm => rm.StoredRoom.Name);
                 await Groups.RemoveFromGroupAsync(oldConnectionId, roomName.res);
                 await Clients.Client(oldConnectionId)
-                    .SendAsync(Consts.PlanitPokerHubEndpoints.UserLeaved, new List<string>() { userId });
+                    .SendAsync(Constants.PlanitPokerHubEndpoints.UserLeaved, new List<string>() { userId });
             }
 
 
@@ -786,10 +786,10 @@ namespace PlanitPoker.Models.Hubs
 
             var returnUser = new PlanitUserReturn(us.res);
 
-            await Clients.Group(roomnm.res).SendAsync(Consts.PlanitPokerHubEndpoints.NewUserInRoom, returnUser);
+            await Clients.Group(roomnm.res).SendAsync(Constants.PlanitPokerHubEndpoints.NewUserInRoom, returnUser);
             await Groups.AddToGroupAsync(userConnectionId, roomnm.res);
 
-            await Clients.Caller.SendAsync(Consts.PlanitPokerHubEndpoints.EnteredInRoom, userId,
+            await Clients.Caller.SendAsync(Constants.PlanitPokerHubEndpoints.EnteredInRoom, userId,
                 userId == mainAppUserId?.ToString()); //,usersInRoom//todo мб лучше отдельным запросом?
             return true;
         }
@@ -797,12 +797,12 @@ namespace PlanitPoker.Models.Hubs
 
         private List<string> GetDefaultRoles()
         {
-            return new List<string>() { Consts.Roles.User };
+            return new List<string>() { Constants.Roles.User };
         }
 
         private List<string> GetCreatorRoles()
         {
-            return new List<string>(GetDefaultRoles()) { Consts.Roles.Creator, Consts.Roles.Admin };
+            return new List<string>(GetDefaultRoles()) { Constants.Roles.Creator, Constants.Roles.Admin };
         }
 
 
@@ -833,7 +833,7 @@ namespace PlanitPoker.Models.Hubs
             var rg = new Regex("^[a-zA-Z0-9_]{1,30}$");
             if (!rg.Match(roomName).Success)
             {
-                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.BadRoomNameWithRoomCreating);
+                throw new SomeCustomException(Constants.PlanitPokerErrorConsts.BadRoomNameWithRoomCreating);
             }
         }
 
@@ -842,7 +842,7 @@ namespace PlanitPoker.Models.Hubs
             var rg = new Regex("^[а-яА-Яa-zA-Z0-9_@. ]{1,50}$");
             if (!rg.Match(userName).Success)
             {
-                throw new SomeCustomException(Consts.PlanitPokerErrorConsts.UsernameBad);
+                throw new SomeCustomException(Constants.PlanitPokerErrorConsts.UsernameBad);
             }
         }
 

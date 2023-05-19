@@ -2,7 +2,7 @@
 
 namespace PlanitPoker.Models
 {
-    public class Consts
+    public class Constants
     {
         public const int DefaultHourRoomAlive = 2;
 

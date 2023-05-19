@@ -3035,7 +3035,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n.vault-secret-new {\r\n    /* border-color: green;\r\n    border: 0.3px solid green; */\r\n    box-shadow: 0 0 5px green;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n    height: 40px;\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    height: 130px;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/VaultSecret/VaultSecret.css"],"names":[],"mappings":"AAAA;IACI,4BAA4B;IAC5B,uBAAuB;IACvB,WAAW;IACX,kBAAkB;IAClB,oCAAoC;IACpC,gBAAgB;IAChB,YAAY;IACZ,6CAA6C;IAC7C,4BAA4B;AAChC;;AAEA;IACI;gCAC4B;IAC5B,yBAAyB;AAC7B;;AAEA;IACI,sBAAsB;IACtB,YAAY;AAChB;;AAEA;IACI,uBAAuB;IACvB,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,cAAc;AAClB;;AAEA,oBAAoB;;AAEpB;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;AACtB;;;;AAIA;IACI,aAAa;IACb,SAAS;AACb;;;AAGA;IACI,YAAY;IACZ,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA,wBAAwB;;AAExB,oBAAoB;;;AAGpB,wBAAwB;;AAExB;IACI,aAAa;IACb,QAAQ;IACR,iBAAiB;AACrB","sourcesContent":[".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n.vault-secret-new {\r\n    /* border-color: green;\r\n    border: 0.3px solid green; */\r\n    box-shadow: 0 0 5px green;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n    height: 40px;\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    height: 130px;\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n@media all and (min-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 40px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 110px;\r\n    }\r\n}\r\n\r\n@media all and (min-width: 460px) and (max-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 80px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 140px;\r\n    }\r\n}\r\n\r\n.vault-secret-more .more-data {\r\n    display: flex;\r\n}\r\n\r\n.vault-secret-new {\r\n    /* border-color: green;\r\n    border: 0.3px solid green; */\r\n    box-shadow: 0 0 5px green;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    /* height: 130px; */\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/VaultSecret/VaultSecret.css"],"names":[],"mappings":"AAAA;IACI,4BAA4B;IAC5B,uBAAuB;IACvB,WAAW;IACX,kBAAkB;IAClB,oCAAoC;IACpC,gBAAgB;IAChB,YAAY;IACZ,6CAA6C;IAC7C,4BAA4B;AAChC;;AAEA;IACI;QACI,YAAY;IAChB;;IAEA;QACI,uBAAuB;QACvB,aAAa;IACjB;AACJ;;AAEA;IACI;QACI,YAAY;IAChB;;IAEA;QACI,uBAAuB;QACvB,aAAa;IACjB;AACJ;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI;gCAC4B;IAC5B,yBAAyB;AAC7B;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,uBAAuB;IACvB,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,cAAc;AAClB;;AAEA,oBAAoB;;AAEpB;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;AACtB;;;;AAIA;IACI,aAAa;IACb,SAAS;AACb;;;AAGA;IACI,YAAY;IACZ,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA,wBAAwB;;AAExB,oBAAoB;;;AAGpB,wBAAwB;;AAExB;IACI,aAAa;IACb,QAAQ;IACR,iBAAiB;AACrB","sourcesContent":[".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n@media all and (min-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 40px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 110px;\r\n    }\r\n}\r\n\r\n@media all and (min-width: 460px) and (max-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 80px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 140px;\r\n    }\r\n}\r\n\r\n.vault-secret-more .more-data {\r\n    display: flex;\r\n}\r\n\r\n.vault-secret-new {\r\n    /* border-color: green;\r\n    border: 0.3px solid green; */\r\n    box-shadow: 0 0 5px green;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    /* height: 130px; */\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -56285,7 +56285,8 @@ var OneVaultInList = function (props) {
         react_1.default.createElement("div", null,
             react_1.default.createElement("p", null, props.Vault.Id),
             react_1.default.createElement("p", null, props.Vault.Name),
-            react_1.default.createElement(react_router_dom_1.Link, { to: '/vault-app/vault/' + props.Vault.Id }, "\u041E\u0442\u043A\u0440\u044B\u0442\u044C")));
+            react_1.default.createElement(react_router_dom_1.Link, { to: G_VaultController.RouteUrlVaultApp
+                    + G_VaultController.RouteUrlOneVault + props.Vault.Id }, "\u041E\u0442\u043A\u0440\u044B\u0442\u044C")));
 };
 exports["default"] = (0, OneVaultInListSetup_1.default)(OneVaultInList);
 
@@ -56384,7 +56385,7 @@ var OneVault = function (props) {
         // props.LoadVaultSecrets(props.VaultId);
         props.LoadVault(props.VaultId);
     }, [props.VaultId]);
-    var backLink = react_1.default.createElement(react_router_dom_1.Link, { id: 'list_vault_link_id', to: '/vault-app/' }, "\u0421\u043F\u0438\u0441\u043E\u043A Vaults");
+    var backLink = react_1.default.createElement(react_router_dom_1.Link, { id: 'list_vault_link_id', to: G_VaultController.RouteUrlVaultApp }, "\u0421\u043F\u0438\u0441\u043E\u043A Vaults");
     if (!vault) {
         return react_1.default.createElement("div", null,
             backLink,
@@ -56605,9 +56606,9 @@ var VaultMain = function (props) {
     }, []);
     return react_1.default.createElement("div", { className: 'main-vault-container' },
         react_1.default.createElement(react_router_dom_1.Routes, null,
-            react_1.default.createElement(react_router_dom_1.Route, { path: "/", element: react_1.default.createElement(VaultList_1.default, null) }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "/vault/*", element: react_1.default.createElement(OneVault_1.default, { VaultId: props.VaultId }) }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "/secret/*", element: react_1.default.createElement(VaultSecret_1.default, null) })));
+            react_1.default.createElement(react_router_dom_1.Route, { path: G_VaultController.RouteUrlVaultsList, element: react_1.default.createElement(VaultList_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: G_VaultController.RouteUrlOneVault + '*', element: react_1.default.createElement(OneVault_1.default, { VaultId: props.VaultId }) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: G_VaultController.RouteUrlOneSecret + '*', element: react_1.default.createElement(VaultSecret_1.default, null) })));
 };
 exports["default"] = (0, VaultMainSetup_1.default)(VaultMain);
 
@@ -56686,6 +56687,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var VaultSecretSetup_1 = __importDefault(__webpack_require__(/*! ./VaultSecretSetup */ "./src/Apps/Vault/Components/VaultSecret/VaultSecretSetup.tsx"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 __webpack_require__(/*! ./VaultSecret.css */ "./src/Apps/Vault/Components/VaultSecret/VaultSecret.css");
 var VaultSecret = function (props) {
     var secret = props.Secret;
@@ -56734,7 +56736,8 @@ var VaultSecret = function (props) {
     var hasChanges = //secretKey != (secret?.Key || '')
      
     //||
-    secretValue != (secret === null || secret === void 0 ? void 0 : secret.Value)
+    secretKey != (secret === null || secret === void 0 ? void 0 : secret.Key)
+        || secretValue != (secret === null || secret === void 0 ? void 0 : secret.Value)
         || secretDieDate != secret.DieDate
         || secretIsCoded != ((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded);
     var showValueImage = 'eye5.png';
@@ -56757,6 +56760,9 @@ var VaultSecret = function (props) {
         return react_1.default.createElement("div", null, "todo \u041D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E");
     }
     return react_1.default.createElement("div", { className: 'vault-secret ' + vaultSecretClass },
+        props.SingleSecret ? react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement(react_router_dom_1.Link, { to: G_VaultController.RouteUrlVaultApp }, "\u0421\u043F\u0438\u0441\u043E\u043A Vaults"),
+            react_1.default.createElement(react_router_dom_1.Link, { to: G_VaultController.RouteUrlVaultApp + G_VaultController.RouteUrlOneVault + (secret === null || secret === void 0 ? void 0 : secret.VaultId) }, "Vault")) : react_1.default.createElement(react_1.default.Fragment, null),
         react_1.default.createElement("div", { className: 'vault-secret-main' },
             react_1.default.createElement("div", { className: 'vault-secret-key', title: secretKey },
                 react_1.default.createElement("input", { type: 'text', className: 'form-control', value: secretKey, onChange: function (e) { return setSecretKey(e.target.value); } })),
@@ -56771,12 +56777,13 @@ var VaultSecret = function (props) {
                 react_1.default.createElement("div", { className: 'but vault-secret-more-but' + showMoreButtonClass, title: '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0431\u043E\u043B\u044C\u0448\u0435', onClick: function () { return setShowMoreInfo(!showMoreInfo); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'arrow2.png' })))),
         showMoreInfo ? react_1.default.createElement("div", { className: 'vault-secret-more' },
-            react_1.default.createElement("label", null, "\u0417\u0430\u0448\u0438\u0444\u0440\u043E\u0432\u0430\u043D\u043E"),
-            react_1.default.createElement("input", { type: 'checkbox', checked: secretIsCoded, onChange: function () { return setSecretIsCoded(!secretIsCoded); } }),
-            react_1.default.createElement("input", { type: 'date', value: dateToYMD(secretDieDate), className: 'form-control', style: { width: '140px' }, onChange: function (e) {
-                    setSecretDieDate(e.target.valueAsDate);
-                    // console.log('d2' + e.target.valueAsDate);
-                } }),
+            react_1.default.createElement("div", { className: 'more-data' },
+                react_1.default.createElement("label", null, "\u0417\u0430\u0448\u0438\u0444\u0440\u043E\u0432\u0430\u043D\u043E"),
+                react_1.default.createElement("input", { type: 'checkbox', checked: secretIsCoded, onChange: function () { return setSecretIsCoded(!secretIsCoded); } }),
+                react_1.default.createElement("input", { type: 'date', value: dateToYMD(secretDieDate), className: 'form-control', style: { width: '140px' }, onChange: function (e) {
+                        setSecretDieDate(e.target.valueAsDate);
+                        // console.log('d2' + e.target.valueAsDate);
+                    } })),
             react_1.default.createElement("div", { className: 'buttons' },
                 hasChanges ? react_1.default.createElement(react_1.default.Fragment, null,
                     react_1.default.createElement("div", { className: 'but', title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C', onClick: function () {
@@ -56804,7 +56811,8 @@ var VaultSecret = function (props) {
                         } },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'delete-icon.png' })),
                     react_1.default.createElement("div", { className: 'but', title: '\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0441\u0435\u043A\u0440\u0435\u0442', onClick: function () { return navigator.clipboard
-                            .writeText(document.location.origin + '/vault-app/secret/' + secret.Id); } },
+                            .writeText(document.location.origin + G_VaultController.RouteUrlVaultApp
+                            + G_VaultController.RouteUrlOneSecret + secret.Id); } },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'share-icon.png' }))))) : react_1.default.createElement(react_1.default.Fragment, null));
 };
 exports["default"] = (0, VaultSecretSetup_1.default)(VaultSecret);
@@ -57037,6 +57045,10 @@ var OneVaultSecret_1 = __webpack_require__(/*! ../Entity/State/OneVaultSecret */
 var VaultUser_1 = __webpack_require__(/*! ../Entity/State/VaultUser */ "./src/Apps/Vault/Models/Entity/State/VaultUser.ts");
 var VaultController = /** @class */ (function () {
     function VaultController() {
+        this.RouteUrlVaultApp = "/vault-app";
+        this.RouteUrlVaultsList = "/";
+        this.RouteUrlOneVault = "/vault/";
+        this.RouteUrlOneSecret = "/secret/";
     }
     VaultController.prototype.GetVaultsRedux = function () {
         var _this = this;
@@ -57487,6 +57499,11 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OneVaultSecret = void 0;
 var OneVaultSecret = /** @class */ (function () {
     function OneVaultSecret() {
+        this.Key = '';
+        this.Value = '';
+        this.IsCoded = false;
+        this.IsPublic = false;
+        this.DieDate = null;
     }
     OneVaultSecret.prototype.FillByBackModel = function (newData) {
         this.Id = newData.id;
@@ -57671,7 +57688,7 @@ function VaultReducer(state, action) {
                 var typedAction_1 = action.payload;
                 // let vault = newState.VaultApp.VaultList.find(x => x.Id == typedAction.VaultId);
                 var vault = newState.VaultApp.CurrentVault;
-                vault.Secrets = vault.Secrets
+                vault.Secrets
                     .splice(vault.Secrets.findIndex(function (x) { return x.Id == typedAction_1.SecretId; }), 1);
                 return newState;
             }

@@ -43,6 +43,7 @@ using Hangfire.MemoryStorage;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using CodeReviewApp.Models.Services.Interfaces;
+using VaultApp.Models;
 
 namespace Menu
 {
@@ -60,6 +61,7 @@ namespace Menu
                 new WordsCardsAppInitializer(),
                 new PlanitPokerInitializer(),
                 new CodeReviewAppInitializer(),
+                new VaultAppInitializer(),
             };
         }
 
