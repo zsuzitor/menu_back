@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 using BO.Models.DAL.Domain;
+using System.Collections.Generic;
 
 namespace DAL.Models.DAL.Repositories
 {
@@ -26,6 +27,23 @@ namespace DAL.Models.DAL.Repositories
         public async Task<User> GetUserByIdNoTrackAsync(long userId)
         {
             return await _db.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Id == userId);
+        }
+
+        public async Task<List<(long userId, string email)>> GetUserEmailsAsync(List<long> userId)
+        {
+            var res = await _db.Users.AsNoTracking().Where(x => userId.Contains(x.Id))
+                .Select(x => new { x.Id, x.Email }).ToListAsync();
+            return res.Select(x => (x.Id, x.Email)).ToList();
+            //new User() { Id = x.Id, Email = x.Email }
+        }
+
+        public async Task<List<(long userId, string email)>> GetIdByEmailAsync(List<string> email)
+        {
+            return (await _db.Users.AsNoTracking()
+                .Where(x => email.Contains(x.Email))
+                .Select(x => new { Id = x.Id, Email = x.Email })
+                .ToListAsync())
+                .Select(x => (x.Id, x.Email)).ToList();
         }
 
         public async Task<User> GetUserByIdAndRefreshTokenAsync(long userId, string refreshTokenHash)
@@ -79,7 +97,8 @@ namespace DAL.Models.DAL.Repositories
 
         public async Task<User> GetByEmailAndPasswordHashAsync(string email, string passwordHash)
         {
-            return await _db.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Email == email && x.PasswordHash == passwordHash);
+            return await _db.Users.AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Email == email && x.PasswordHash == passwordHash);
         }
 
         public async Task<bool> UserIsExist(string email, string login = null)
@@ -176,5 +195,7 @@ namespace DAL.Models.DAL.Repositories
 
             return user;
         }
+
+       
     }
 }

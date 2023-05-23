@@ -6,11 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Entity\" />
-    <Folder Include="Models\Repositories\Implementation\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\BO\BO.csproj" />
     <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\DAL\DAL.csproj" />
   </ItemGroup>

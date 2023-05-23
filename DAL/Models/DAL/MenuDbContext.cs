@@ -183,9 +183,16 @@ namespace DAL.Models.DAL
             modelBuilder.Entity<User>().HasMany(x => x.Vaults).WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
 
+
             modelBuilder.Entity<VaultUser>().HasKey(x => x.Id);
+            modelBuilder.Entity<VaultUser>().HasIndex(x => x.UserId);
+            modelBuilder.Entity<VaultUser>().HasIndex(x => x.VaultId);
+            modelBuilder.Entity<VaultUser>().HasOne(x => x.Vault).WithMany(x => x.Users)
+                .HasForeignKey(x => x.VaultId).OnDelete(DeleteBehavior.Cascade);
+
 
             modelBuilder.Entity<Secret>().HasKey(x => x.Id);
+            modelBuilder.Entity<Secret>().HasIndex(x => x.VaultId);
             modelBuilder.Entity<Secret>().Property(x => x.Key).IsRequired();
             modelBuilder.Entity<Secret>().HasOne(x => x.Vault).WithMany(x => x.Secrets);
 

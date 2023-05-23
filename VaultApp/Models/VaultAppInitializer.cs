@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 using VaultApp.Models.Repositories;
+using VaultApp.Models.Repositories.Implementation;
 using VaultApp.Models.Services;
+using VaultApp.Models.Services.Implementation;
 
 namespace VaultApp.Models
 {
@@ -14,20 +16,26 @@ namespace VaultApp.Models
     {
         public void ErrorContainerInitialize(ErrorContainer errorContainer)
         {
-            //errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomNameIsEmpty, "Название комнаты не указано");
+            errorContainer.InitError(Constants.ErrorConstants.VaultNotAllowed, "Vault не найден или нет доступа");
+            errorContainer.InitError(Constants.ErrorConstants.VaultNotFound, "Vault не найден");
+            errorContainer.InitError(Constants.ErrorConstants.VaultUsersEmpty, "В vault не останется пользователей");
+            errorContainer.InitError(Constants.ErrorConstants.SecretNotFound, "Secret не найден или нет доступа");
+
+            
+
+
         }
 
         public void RepositoriesInitialize(IServiceCollection services)
         {
-            services.AddScoped<ISecretRepository, >());
-            services.AddScoped<IVaultRepository, >());
+            services.AddScoped<ISecretRepository, SecretRepository>();
+            services.AddScoped<IVaultRepository, VaultRepository>();
         }
 
         public void ServicesInitialize(IServiceCollection services)
         {
-            services.AddScoped<ISecretService, >());
-            services.AddScoped<IVaultService, >());
-
+            services.AddScoped<ISecretService, SecretService>();
+            services.AddScoped<IVaultService, VaultService>();
         }
 
 
