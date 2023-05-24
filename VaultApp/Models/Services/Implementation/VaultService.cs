@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using VaultApp.Models.Entity;
 using VaultApp.Models.Entity.Input;
 using VaultApp.Models.Repositories;
 
@@ -31,7 +32,7 @@ namespace VaultApp.Models.Services.Implementation
 
 
 
-        public async Task<List<VaultUser>> GetPeopleAsync(long vaultId, UserInfo userInfo)
+        public async Task<List<VaultUser>> GetUsersAsync(long vaultId, UserInfo userInfo)
         {
             await HasAccessToVaultWithError(vaultId, userInfo);
             return await _vaultRepository.GetUsers(vaultId);
@@ -39,7 +40,7 @@ namespace VaultApp.Models.Services.Implementation
 
         public async Task<List<Vault>> GetUserVaultsAsync(UserInfo userInfo)
         {
-            return await _vaultRepository.GetList(userInfo.UserId);
+            return await _vaultRepository.GetFullList(userInfo.UserId);
         }
 
         public async Task<Vault> GetVaultAsync(long vaultId, UserInfo userInfo)
@@ -70,7 +71,7 @@ namespace VaultApp.Models.Services.Implementation
                     usersForAdd = usersForAdd.Where(x => oldVault.Users
                     .FirstOrDefault(u => u.Id == x.userId) == null).ToList();
                     oldVault.Users.AddRange(usersForAdd
-                        .Select(x => new VaultUser() { UserId = x.userId, VaultId = vault.Id }));
+                        .Select(x => new VaultUserDal() { UserId = x.userId, VaultId = vault.Id }));
                 }
 
                 if (oldVault.Users.Count == 0)
@@ -91,10 +92,9 @@ namespace VaultApp.Models.Services.Implementation
         public async Task<Vault> CreateVaultAsync(CreateVault vault, UserInfo userInfo)
         {
             var newVault = new Vault();
-            newVault.Id = vault.Id;
             newVault.Name = vault.Name;
             newVault.IsPublic = vault.IsPublic;
-            newVault.Users.Add(new VaultUser() { UserId = userInfo.UserId });
+            newVault.Users.Add(new VaultUserDal() { UserId = userInfo.UserId });
             return await _vaultRepository.AddAsync(newVault);
         }
 

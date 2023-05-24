@@ -4,14 +4,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using VaultApp.Models.Entity;
 
 namespace VaultApp.Models.Repositories
 {
     internal interface IVaultRepository : IGeneralRepository<Vault, long>
     {
         Task<List<VaultUser>> GetUsers(long vaultId);
-        Task<List<VaultUser>> LoadUsers(Vault vault);
-        Task<List<Vault>> GetList(long userId);
+        Task<List<VaultUserDal>> LoadUsers(Vault vault);
+        Task<List<Vault>> GetFullList(long userId);
+        //Task<List<Vault>> GetShortList(long userId);
         Task<bool> UserInVaultAsync(long vaultId, long userId);
     }
 }

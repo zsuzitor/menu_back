@@ -55,7 +55,7 @@ namespace DAL.Models.DAL
         #region VaultApp
         public DbSet<Vault> Vaults { get; set; }
         public DbSet<Secret> Secrets { get; set; }
-        public DbSet<VaultUser> VaultUsers { get; set; }
+        public DbSet<VaultUserDal> VaultUsers { get; set; }
 
         #endregion VaultApp    
 
@@ -184,10 +184,10 @@ namespace DAL.Models.DAL
                 .HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
 
 
-            modelBuilder.Entity<VaultUser>().HasKey(x => x.Id);
-            modelBuilder.Entity<VaultUser>().HasIndex(x => x.UserId);
-            modelBuilder.Entity<VaultUser>().HasIndex(x => x.VaultId);
-            modelBuilder.Entity<VaultUser>().HasOne(x => x.Vault).WithMany(x => x.Users)
+            modelBuilder.Entity<VaultUserDal>().HasKey(x => x.Id);
+            modelBuilder.Entity<VaultUserDal>().HasIndex(x => x.UserId);
+            modelBuilder.Entity<VaultUserDal>().HasIndex(x => x.VaultId);
+            modelBuilder.Entity<VaultUserDal>().HasOne(x => x.Vault).WithMany(x => x.Users)
                 .HasForeignKey(x => x.VaultId).OnDelete(DeleteBehavior.Cascade);
 
 

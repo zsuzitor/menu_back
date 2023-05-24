@@ -1,7 +1,10 @@
 ﻿using Common.Models.Error.services.Interfaces;
+using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
+using Menu.Models.Returns.Types.VaultApp;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 using System.Threading.Tasks;
 using VaultApp.Models.Entity.Input;
 using VaultApp.Models.Services;
@@ -25,7 +28,7 @@ namespace Menu.Controllers.VaultApp
 
         public VaultController(IApiHelper apiHealper,
             ILogger<VaultController> logger, IJWTService jwtService,
-        IErrorService errorService, IVaultService vaultService
+            IErrorService errorService, IVaultService vaultService
         )
         {
             _apiHealper = apiHealper;
@@ -44,7 +47,8 @@ namespace Menu.Controllers.VaultApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _vaultService.GetUserVaultsAsync(userInfo);
+                    var res = (await _vaultService.GetUserVaultsAsync(userInfo))
+                        .Select(x => new VaultInListReturn().Fill(x));
                     await _apiHealper.WriteResponseAsync(Response, res);
 
                 }, Response, _logger);
@@ -62,7 +66,7 @@ namespace Menu.Controllers.VaultApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _vaultService.GetVaultAsync(vaultId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, new SingleVaultReturn().Fill(res, null));
 
                 }, Response, _logger);
         }
@@ -76,7 +80,8 @@ namespace Menu.Controllers.VaultApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _vaultService.GetPeopleAsync(vaultId, userInfo);
+                    var res = (await _vaultService.GetUsersAsync(vaultId, userInfo))
+                        .Select(x => new VaultUserReturn().Fill(x));
                     await _apiHealper.WriteResponseAsync(Response, res);
 
                 }, Response, _logger);
@@ -92,7 +97,8 @@ namespace Menu.Controllers.VaultApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _vaultService.UpdateVaultAsync(vault, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, res);
+                    var users = await _vaultService.GetUsersAsync(res.Id, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, new SingleVaultReturn().Fill(res, users));
 
                 }, Response, _logger);
         }
@@ -107,7 +113,7 @@ namespace Menu.Controllers.VaultApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _vaultService.CreateVaultAsync(vault, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, new SingleVaultReturn().Fill(res, null));
 
                 }, Response, _logger);
         }
@@ -122,7 +128,7 @@ namespace Menu.Controllers.VaultApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _vaultService.DeleteVaultAsync(vaultId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, res);
+                    await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
 
                 }, Response, _logger);
         }

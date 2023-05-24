@@ -11,12 +11,12 @@ namespace BO.Models.VaultApp.Dal
         public bool IsPublic { get; set; }
 
         public List<Secret> Secrets { get; set; }
-        public List<VaultUser> Users { get; set; }
+        public List<VaultUserDal> Users { get; set; }
 
         public Vault()
         {
             Secrets = new List<Secret>();
-            Users = new List<VaultUser>();
+            Users = new List<VaultUserDal>();
         }
     }
 }

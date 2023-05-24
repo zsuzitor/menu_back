@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BO.Models.VaultApp.Dal
 {
-    public class VaultUser
+    public class VaultUserDal
     {
         public long Id { get; set; }
         public long UserId { get; set; }

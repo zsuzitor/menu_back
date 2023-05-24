@@ -56193,6 +56193,8 @@ var CreateVault = function (props) {
                 newVault.Name = vaultName;
                 if ((_a = props.Vault) === null || _a === void 0 ? void 0 : _a.Id) {
                     newVault.Id = props.Vault.Id;
+                    newVault.UsersForDelete = __spreadArray([], deletedUser, true);
+                    newVault.UsersForAdd = addedUser.map(function (x) { return x.Email; });
                     props.UpdateVault(newVault, function () { return props.WasCreated(); });
                 }
                 else {
@@ -56688,18 +56690,21 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var VaultSecretSetup_1 = __importDefault(__webpack_require__(/*! ./VaultSecretSetup */ "./src/Apps/Vault/Components/VaultSecret/VaultSecretSetup.tsx"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 __webpack_require__(/*! ./VaultSecret.css */ "./src/Apps/Vault/Components/VaultSecret/VaultSecret.css");
 var VaultSecret = function (props) {
+    var _a;
     var secret = props.Secret;
     if (!secret) {
         secret = props.SingleSecret;
     }
-    var _a = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.Key) || ''), secretKey = _a[0], setSecretKey = _a[1];
-    var _b = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.Value) || ''), secretValue = _b[0], setSecretValue = _b[1];
-    var _c = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.DieDate) || null), secretDieDate = _c[0], setSecretDieDate = _c[1];
-    var _d = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded), secretIsCoded = _d[0], setSecretIsCoded = _d[1];
-    var _e = (0, react_1.useState)(false), showMoreInfo = _e[0], setShowMoreInfo = _e[1];
-    var _f = (0, react_1.useState)(false), showSecretValue = _f[0], setShowSecretValue = _f[1];
+    var _b = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.Key) || ''), secretKey = _b[0], setSecretKey = _b[1];
+    var _c = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.Value) || ''), secretValue = _c[0], setSecretValue = _c[1];
+    var _d = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.DieDate) || null), secretDieDate = _d[0], setSecretDieDate = _d[1];
+    var _e = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded), secretIsCoded = _e[0], setSecretIsCoded = _e[1];
+    var _f = (0, react_1.useState)((_a = secret === null || secret === void 0 ? void 0 : secret.IsPublic) !== null && _a !== void 0 ? _a : false), secretIsPublic = _f[0], setSecretIsPublic = _f[1];
+    var _g = (0, react_1.useState)(false), showMoreInfo = _g[0], setShowMoreInfo = _g[1];
+    var _h = (0, react_1.useState)(false), showSecretValue = _h[0], setShowSecretValue = _h[1];
     (0, react_1.useEffect)(function () {
         if (!(secret === null || secret === void 0 ? void 0 : secret.Key)) {
             var pathNameUrlSplit = document.location.pathname.split('/');
@@ -56759,61 +56764,70 @@ var VaultSecret = function (props) {
     if (!secret) {
         return react_1.default.createElement("div", null, "todo \u041D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E");
     }
-    return react_1.default.createElement("div", { className: 'vault-secret ' + vaultSecretClass },
+    return react_1.default.createElement(react_1.default.Fragment, null,
         props.SingleSecret ? react_1.default.createElement(react_1.default.Fragment, null,
             react_1.default.createElement(react_router_dom_1.Link, { to: G_VaultController.RouteUrlVaultApp }, "\u0421\u043F\u0438\u0441\u043E\u043A Vaults"),
             react_1.default.createElement(react_router_dom_1.Link, { to: G_VaultController.RouteUrlVaultApp + G_VaultController.RouteUrlOneVault + (secret === null || secret === void 0 ? void 0 : secret.VaultId) }, "Vault")) : react_1.default.createElement(react_1.default.Fragment, null),
-        react_1.default.createElement("div", { className: 'vault-secret-main' },
-            react_1.default.createElement("div", { className: 'vault-secret-key', title: secretKey },
-                react_1.default.createElement("input", { type: 'text', className: 'form-control', value: secretKey, onChange: function (e) { return setSecretKey(e.target.value); } })),
-            react_1.default.createElement("div", { className: 'vault-secret-val' },
-                react_1.default.createElement("textarea", { value: (showSecretValue || props.IsNew) ? secretValue : '***', className: 'form-control', onChange: function (e) { return setSecretValue(e.target.value); } })),
-            react_1.default.createElement("div", { className: 'vault-secret-main-buttons' },
-                props.IsNew ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement(react_1.default.Fragment, null,
-                    react_1.default.createElement("div", { className: 'but vault-secret-show-val', title: showValueTitle, onClick: function () { return setShowSecretValue(!showSecretValue); } },
-                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + showValueImage })),
-                    react_1.default.createElement("div", { className: 'but vault-secret-copy', title: '\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435', onClick: function () { return navigator.clipboard.writeText(secretValue); } },
-                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'copy.png' }))),
-                react_1.default.createElement("div", { className: 'but vault-secret-more-but' + showMoreButtonClass, title: '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0431\u043E\u043B\u044C\u0448\u0435', onClick: function () { return setShowMoreInfo(!showMoreInfo); } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'arrow2.png' })))),
-        showMoreInfo ? react_1.default.createElement("div", { className: 'vault-secret-more' },
-            react_1.default.createElement("div", { className: 'more-data' },
-                react_1.default.createElement("label", null, "\u0417\u0430\u0448\u0438\u0444\u0440\u043E\u0432\u0430\u043D\u043E"),
-                react_1.default.createElement("input", { type: 'checkbox', checked: secretIsCoded, onChange: function () { return setSecretIsCoded(!secretIsCoded); } }),
-                react_1.default.createElement("input", { type: 'date', value: dateToYMD(secretDieDate), className: 'form-control', style: { width: '140px' }, onChange: function (e) {
-                        setSecretDieDate(e.target.valueAsDate);
-                        // console.log('d2' + e.target.valueAsDate);
-                    } })),
-            react_1.default.createElement("div", { className: 'buttons' },
-                hasChanges ? react_1.default.createElement(react_1.default.Fragment, null,
-                    react_1.default.createElement("div", { className: 'but', title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C', onClick: function () {
-                            var newData = {};
-                            newData.Id = props.Secret.Id;
-                            newData.Key = secretKey;
-                            newData.Value = secretValue;
-                            newData.VaultId = secret.VaultId;
-                            if (props.IsNew) {
-                                props.CreateSecret(newData);
+        react_1.default.createElement("div", { className: 'vault-secret ' + vaultSecretClass },
+            react_1.default.createElement("div", { className: 'vault-secret-main' },
+                react_1.default.createElement("div", { className: 'vault-secret-key', title: secretKey },
+                    react_1.default.createElement("input", { type: 'text', className: 'form-control', value: secretKey, onChange: function (e) { return setSecretKey(e.target.value); } })),
+                react_1.default.createElement("div", { className: 'vault-secret-val' },
+                    react_1.default.createElement("textarea", { value: (showSecretValue || props.IsNew) ? secretValue : '***', className: 'form-control', onChange: function (e) { return setSecretValue(e.target.value); } })),
+                react_1.default.createElement("div", { className: 'vault-secret-main-buttons' },
+                    props.IsNew ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement(react_1.default.Fragment, null,
+                        react_1.default.createElement("div", { className: 'but vault-secret-show-val', title: showValueTitle, onClick: function () { return setShowSecretValue(!showSecretValue); } },
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + showValueImage })),
+                        react_1.default.createElement("div", { className: 'but vault-secret-copy', title: '\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435', onClick: function () { return navigator.clipboard.writeText(secretValue); } },
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'copy.png' }))),
+                    react_1.default.createElement("div", { className: 'but vault-secret-more-but' + showMoreButtonClass, title: '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0431\u043E\u043B\u044C\u0448\u0435', onClick: function () { return setShowMoreInfo(!showMoreInfo); } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'arrow2.png' })))),
+            showMoreInfo ? react_1.default.createElement("div", { className: 'vault-secret-more' },
+                react_1.default.createElement("div", { className: 'more-data' },
+                    react_1.default.createElement("label", null, "\u0417\u0430\u0448\u0438\u0444\u0440\u043E\u0432\u0430\u043D\u043E"),
+                    react_1.default.createElement("input", { type: 'checkbox', checked: secretIsCoded, onChange: function () { return setSecretIsCoded(!secretIsCoded); } }),
+                    react_1.default.createElement("label", null, "\u041F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0439"),
+                    react_1.default.createElement("input", { type: 'checkbox', checked: secretIsPublic, onChange: function () { return setSecretIsPublic(!secretIsPublic); } }),
+                    react_1.default.createElement("input", { type: 'date', value: dateToYMD(secretDieDate), className: 'form-control', style: { width: '140px' }, onChange: function (e) {
+                            setSecretDieDate(e.target.valueAsDate);
+                            // console.log('d2' + e.target.valueAsDate);
+                        } })),
+                react_1.default.createElement("div", { className: 'buttons' },
+                    hasChanges ? react_1.default.createElement(react_1.default.Fragment, null,
+                        react_1.default.createElement("div", { className: 'but', title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C', onClick: function () {
+                                if (!secretKey) {
+                                    G_AddAbsoluteAlertToState(new AlertData_1.AlertData().GetDefaultError("Ключ обязателен для заполнения"));
+                                    return;
+                                }
+                                var newData = {};
+                                newData.Id = props.Secret.Id;
+                                newData.Key = secretKey;
+                                newData.Value = secretValue;
+                                newData.VaultId = secret.VaultId;
+                                newData.IsPublic = secretIsPublic;
+                                newData.IsCoded = secretIsCoded;
+                                if (props.IsNew) {
+                                    props.CreateSecret(newData);
+                                    cancelChanges();
+                                }
+                                else {
+                                    props.UpdateSecret(newData);
+                                }
+                            } },
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'save-icon.png' })),
+                        react_1.default.createElement("div", { className: 'but', title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F', onClick: function () {
                                 cancelChanges();
-                            }
-                            else {
-                                props.UpdateSecret(newData);
-                            }
-                        } },
-                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'save-icon.png' })),
-                    react_1.default.createElement("div", { className: 'but', title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F', onClick: function () {
-                            cancelChanges();
-                        } },
-                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'cancel.png' }))) : react_1.default.createElement(react_1.default.Fragment, null),
-                props.IsNew ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement(react_1.default.Fragment, null,
-                    react_1.default.createElement("div", { className: 'but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () {
-                            return props.DeleteSecret(props.Secret.Id, props.Secret.VaultId);
-                        } },
-                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'delete-icon.png' })),
-                    react_1.default.createElement("div", { className: 'but', title: '\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0441\u0435\u043A\u0440\u0435\u0442', onClick: function () { return navigator.clipboard
-                            .writeText(document.location.origin + G_VaultController.RouteUrlVaultApp
-                            + G_VaultController.RouteUrlOneSecret + secret.Id); } },
-                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'share-icon.png' }))))) : react_1.default.createElement(react_1.default.Fragment, null));
+                            } },
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'cancel.png' }))) : react_1.default.createElement(react_1.default.Fragment, null),
+                    props.IsNew ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement(react_1.default.Fragment, null,
+                        react_1.default.createElement("div", { className: 'but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () {
+                                return props.DeleteSecret(props.Secret.Id, props.Secret.VaultId);
+                            } },
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'delete-icon.png' })),
+                        react_1.default.createElement("div", { className: 'but', title: '\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0441\u0435\u043A\u0440\u0435\u0442', onClick: function () { return navigator.clipboard
+                                .writeText(document.location.origin + G_VaultController.RouteUrlVaultApp
+                                + G_VaultController.RouteUrlOneSecret + secret.Id); } },
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'share-icon.png' }))))) : react_1.default.createElement(react_1.default.Fragment, null)));
 };
 exports["default"] = (0, VaultSecretSetup_1.default)(VaultSecret);
 
@@ -57037,7 +57051,6 @@ exports.DeleteVaultActionCreator = DeleteVaultActionCreator;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.VaultController = void 0;
 var VaultActions_1 = __webpack_require__(/*! ../Actions/VaultActions */ "./src/Apps/Vault/Models/Actions/VaultActions.ts");
-var BoolResultBack_1 = __webpack_require__(/*! ../../../../Models/BackModel/BoolResultBack */ "./src/Models/BackModel/BoolResultBack.ts");
 var OneVault_1 = __webpack_require__(/*! ../Entity/State/OneVault */ "./src/Apps/Vault/Models/Entity/State/OneVault.ts");
 var ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var OneVaultInList_1 = __webpack_require__(/*! ../Entity/State/OneVaultInList */ "./src/Apps/Vault/Models/Entity/State/OneVaultInList.ts");
@@ -57066,24 +57079,21 @@ var VaultController = /** @class */ (function () {
         };
     };
     VaultController.prototype.GetVaults = function (onSuccess) {
-        var resMoq = [];
-        resMoq.push({ id: 1, name: "11111" });
-        resMoq.push({ id: 2, name: "22" });
-        resMoq.push({ id: 3, name: "33" });
-        resMoq.push({ id: 4, name: "44" });
-        onSuccess(null, resMoq);
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: {
-        //         'roomname': roomname,
-        //         'userConnectionId': userId
-        //     },
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
-        // });
+        var _this = this;
+        // let resMoq = [];
+        // resMoq.push({ id: 1, name: "11111" });
+        // resMoq.push({ id: 2, name: "22" });
+        // resMoq.push({ id: 3, name: "33" });
+        // resMoq.push({ id: 4, name: "44" });
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {},
+            Type: "GET",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/vault/get-my-vaults',
+        });
     };
     VaultController.prototype.GetVaultSecretsRedux = function (vaultId) {
         var _this = this;
@@ -57101,33 +57111,33 @@ var VaultController = /** @class */ (function () {
         };
     };
     VaultController.prototype.GetVaultSecrets = function (vaultId, onSuccess) {
-        var resMoq = [];
-        // isCoded: boolean;
-        // isPublic: boolean;
-        // dieDate: Date;
-        resMoq.push({ vaultId: vaultId, id: 1, key: "111111", value: "val11", isCoded: false, isPublic: true, dieDate: null });
-        resMoq.push({ vaultId: vaultId, id: 2, key: "111112", value: "val12", isCoded: false, isPublic: true, dieDate: null });
-        resMoq.push({ vaultId: vaultId, id: 3, key: "111113", value: "val13", isCoded: false, isPublic: false, dieDate: null });
-        resMoq.push({ vaultId: vaultId, id: 4, key: "111114", value: "val14", isCoded: false, isPublic: false, dieDate: null });
-        resMoq.push({ vaultId: vaultId, id: 5, key: "111115", value: "val15", isCoded: true, isPublic: true, dieDate: null });
-        onSuccess(null, resMoq);
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: {
-        //         'roomname': roomname,
-        //         'userConnectionId': userId
-        //     },
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
-        // });
+        // let resMoq = [];
+        var _this = this;
+        // // isCoded: boolean;
+        // // isPublic: boolean;
+        // // dieDate: Date;
+        // resMoq.push({ vaultId: vaultId, id: 1, key: "111111", value: "val11", isCoded: false, isPublic: true, dieDate: null });
+        // resMoq.push({ vaultId: vaultId, id: 2, key: "111112", value: "val12", isCoded: false, isPublic: true, dieDate: null });
+        // resMoq.push({ vaultId: vaultId, id: 3, key: "111113", value: "val13", isCoded: false, isPublic: false, dieDate: null });
+        // resMoq.push({ vaultId: vaultId, id: 4, key: "111114", value: "val14", isCoded: false, isPublic: false, dieDate: null });
+        // resMoq.push({ vaultId: vaultId, id: 5, key: "111115", value: "val15", isCoded: true, isPublic: true, dieDate: null });
+        // onSuccess(null, resMoq);
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'vaultId': vaultId
+            },
+            Type: "GET",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/secret/get-vault-secrets',
+        });
     };
     VaultController.prototype.GetCurrentVaultRedux = function (vaultId) {
         var _this = this;
         return function (dispatch, getState) {
-            _this.GetCurrentVault(vaultId, function (error, data) {
+            _this.GetVault(vaultId, function (error, data) {
                 if (data) {
                     var newData = new OneVault_1.OneVault();
                     newData.FillByBackModel(data);
@@ -57136,28 +57146,28 @@ var VaultController = /** @class */ (function () {
             });
         };
     };
-    VaultController.prototype.GetCurrentVault = function (vaultId, onSuccess) {
-        var resMoq = {};
-        resMoq.id = vaultId;
-        resMoq.isPublic = true;
-        resMoq.name = 'nametest';
-        resMoq.secrets;
-        this.GetVaultSecrets(vaultId, function (error, data) {
-            resMoq.secrets = data;
-        });
-        onSuccess(null, resMoq);
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: {
-        //         'roomname': roomname,
-        //         'userConnectionId': userId
-        //     },
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
+    VaultController.prototype.GetVault = function (vaultId, onSuccess) {
+        var _this = this;
+        // let resMoq = {} as IOneVaultReturn;
+        // resMoq.id = vaultId;
+        // resMoq.isPublic = true;
+        // resMoq.name = 'nametest';
+        // resMoq.secrets
+        // this.GetVaultSecrets(vaultId, (error: MainErrorObjectBack, data: IOneVaultSecretReturn[]) => {
+        //     resMoq.secrets = data;
         // });
+        // onSuccess(null, resMoq);
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'vaultId': vaultId
+            },
+            Type: "GET",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/vault/get-vault',
+        });
     };
     VaultController.prototype.LoadVaultPeopleRedux = function (vaultId) {
         var _this = this;
@@ -57175,28 +57185,28 @@ var VaultController = /** @class */ (function () {
         };
     };
     VaultController.prototype.LoadVaultPeople = function (vaultId, onSuccess) {
-        var resMoq = [];
+        // let resMoq = [];
+        var _this = this;
         // isCoded: boolean;
         // isPublic: boolean;
         // dieDate: Date;
-        resMoq.push({ id: 1, email: 'userMail1@vvv.vv' });
-        resMoq.push({ id: 2, email: 'userMail2@vvv.vv' });
-        resMoq.push({ id: 3, email: 'userMail3@vvv.vv' });
-        resMoq.push({ id: 4, email: 'userMail4@vvv.vv' });
-        resMoq.push({ id: 5, email: 'userMail5@vvv.vv' });
-        onSuccess(null, resMoq);
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: {
-        //         'roomname': roomname,
-        //         'userConnectionId': userId
-        //     },
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
-        // });
+        // resMoq.push({ id: 1, email: 'userMail1@vvv.vv' });
+        // resMoq.push({ id: 2, email: 'userMail2@vvv.vv' });
+        // resMoq.push({ id: 3, email: 'userMail3@vvv.vv' });
+        // resMoq.push({ id: 4, email: 'userMail4@vvv.vv' });
+        // resMoq.push({ id: 5, email: 'userMail5@vvv.vv' });
+        // onSuccess(null, resMoq);
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'vaultId': vaultId
+            },
+            Type: "GET",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/vault/get-vault-people',
+        });
     };
     VaultController.prototype.DeleteSecretRedux = function (secretId, vaultId) {
         var _this = this;
@@ -57209,19 +57219,19 @@ var VaultController = /** @class */ (function () {
         };
     };
     VaultController.prototype.DeleteSecret = function (secretId, vaultId, onSuccess) {
-        onSuccess(null, { result: true });
-        // G_AjaxHelper.GoAjaxRequest({
-        //     Data: {
-        //         'roomname': roomname,
-        //         'userConnectionId': userId
-        //     },
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
-        // });
+        var _this = this;
+        // onSuccess(null, { result: true });
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'vaultId': vaultId
+            },
+            Type: "DELETE",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/secret/delete-secret',
+        });
     };
     VaultController.prototype.CreateSecretRedux = function (secret) {
         var _this = this;
@@ -57236,27 +57246,32 @@ var VaultController = /** @class */ (function () {
         };
     };
     VaultController.prototype.CreateSecret = function (secret, onSuccess) {
-        var newData = {};
-        newData.id = Math.floor(Math.random() * 9999);
-        newData.dieDate = secret.DieDate;
-        newData.isCoded = secret.IsCoded;
-        newData.isPublic = secret.IsPublic;
-        newData.key = secret.Key;
-        newData.value = secret.Value;
-        newData.vaultId = secret.VaultId;
-        onSuccess(null, newData);
-        //G_AjaxHelper.GoAjaxRequest({
-        //     Data: {
-        //         'roomname': roomname,
-        //         'userConnectionId': userId
-        //     },
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
-        // });
+        var _this = this;
+        // let newData = {} as IOneVaultSecretReturn;
+        // newData.id = Math.floor(Math.random() * 9999);
+        // newData.dieDate = secret.DieDate;
+        // newData.isCoded = secret.IsCoded;
+        // newData.isPublic = secret.IsPublic;
+        // newData.key = secret.Key;
+        // newData.value = secret.Value;
+        // newData.vaultId = secret.VaultId;
+        // onSuccess(null, newData);
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'VaultId': secret.VaultId,
+                'Key': secret.Key,
+                'Value': secret.Value,
+                'IsCoded': secret.IsCoded,
+                'IsPublic': secret.IsPublic,
+                'DieDate': secret.DieDate
+            },
+            Type: "PUT",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/secret/create-secret',
+        });
     };
     VaultController.prototype.UpdateSecretRedux = function (secret) {
         var _this = this;
@@ -57271,28 +57286,34 @@ var VaultController = /** @class */ (function () {
         };
     };
     VaultController.prototype.UpdateSecret = function (secret, onSuccess) {
-        var newData = {};
-        newData.id = secret.Id;
-        newData.dieDate = secret.DieDate;
-        newData.isCoded = secret.IsCoded;
-        newData.isPublic = secret.IsPublic;
-        newData.key = secret.Key;
-        newData.value = secret.Value;
-        newData.vaultId = secret.VaultId;
-        // newData.id = Math.floor(Math.random() * 9999);
-        onSuccess(null, newData);
-        //G_AjaxHelper.GoAjaxRequest({
-        //     Data: {
-        //         'roomname': roomname,
-        //         'userConnectionId': userId
-        //     },
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
-        // });
+        var _this = this;
+        // let newData = {} as IOneVaultSecretReturn;
+        // newData.id = secret.Id;
+        // newData.dieDate = secret.DieDate;
+        // newData.isCoded = secret.IsCoded;
+        // newData.isPublic = secret.IsPublic;
+        // newData.key = secret.Key;
+        // newData.value = secret.Value;
+        // newData.vaultId = secret.VaultId;
+        // // newData.id = Math.floor(Math.random() * 9999);
+        // onSuccess(null, newData);
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'Id': secret.Id,
+                'VaultId': secret.VaultId,
+                'Key': secret.Key,
+                'Value': secret.Value,
+                'IsCoded': secret.IsCoded,
+                'IsPublic': secret.IsPublic,
+                'DieDate': secret.DieDate
+            },
+            Type: "PATCH",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/secret/update-secret',
+        });
     };
     VaultController.prototype.GetSingleSecretRedux = function (secretId) {
         var _this = this;
@@ -57307,36 +57328,36 @@ var VaultController = /** @class */ (function () {
         };
     };
     VaultController.prototype.GetOneSecret = function (secretId, onSuccess) {
-        var rs = {};
-        rs.id = secretId;
-        rs.isCoded = true;
-        rs.isPublic = true;
-        rs.key = 'test1';
-        rs.value = 'val1';
-        rs.vaultId = 1;
-        onSuccess(null, rs);
-        //G_AjaxHelper.GoAjaxRequest({
-        //     Data: {
-        //         'roomname': roomname,
-        //         'userConnectionId': userId
-        //     },
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
-        // });
+        var _this = this;
+        // let rs = {} as IOneVaultSecretReturn;
+        // rs.id = secretId;
+        // rs.isCoded = true;
+        // rs.isPublic = true;
+        // rs.key = 'test1';
+        // rs.value = 'val1';
+        // rs.vaultId = 1;
+        // onSuccess(null, rs);
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'secretId': secretId
+            },
+            Type: "GET",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/secret/get-secret',
+        });
     };
     VaultController.prototype.UpdateVaultRedux = function (vault, successCallBack) {
         var _this = this;
         return function (dispatch, getState) {
             _this.UpdateVault(vault, function (error, data) {
-                if (data === null || data === void 0 ? void 0 : data.result) {
+                if (data) {
                     var newData = {};
-                    newData.Id = vault.Id;
-                    newData.Name = vault.Name;
-                    newData.IsPublic = vault.IsPublic;
+                    newData.Id = data.id;
+                    newData.Name = data.name;
+                    newData.IsPublic = data.is_public;
                     dispatch((0, VaultActions_1.UpdateVaultActionCreator)(newData));
                     successCallBack();
                 }
@@ -57344,19 +57365,23 @@ var VaultController = /** @class */ (function () {
         };
     };
     VaultController.prototype.UpdateVault = function (vault, onSuccess) {
-        onSuccess(null, BoolResultBack_1.BoolResultBack.GetTrue());
-        //G_AjaxHelper.GoAjaxRequest({
-        //     Data: {
-        //         'roomname': roomname,
-        //         'userConnectionId': userId
-        //     },
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
-        // });
+        var _this = this;
+        // onSuccess(null, BoolResultBack.GetTrue());
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'Id': vault.Id,
+                'Name': vault.Name,
+                'IsPublic': vault.IsPublic,
+                'UsersForDelete': vault.UsersForDelete,
+                'UsersForAdd': vault.UsersForAdd
+            },
+            Type: "PATCH",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/vault/update-vault',
+        });
     };
     VaultController.prototype.CreateVaultRedux = function (vault, successCallBack) {
         var _this = this;
@@ -57365,7 +57390,7 @@ var VaultController = /** @class */ (function () {
                 if (data === null || data === void 0 ? void 0 : data.id) {
                     var newdata = {};
                     newdata.Id = data.id;
-                    newdata.IsPublic = data.isPublic;
+                    newdata.IsPublic = data.is_public;
                     newdata.Name = data.name;
                     dispatch((0, VaultActions_1.CreateVaultActionCreator)(newdata));
                     successCallBack();
@@ -57374,24 +57399,25 @@ var VaultController = /** @class */ (function () {
         };
     };
     VaultController.prototype.CreateVault = function (vault, onSuccess) {
-        var newData = {};
-        // newData.id = vault.Id;
-        newData.id = Math.floor(Math.random() * 9999);
-        newData.name = vault.Name;
-        newData.isPublic = vault.IsPublic;
-        onSuccess(null, newData);
-        //G_AjaxHelper.GoAjaxRequest({
-        //     Data: {
-        //         'roomname': roomname,
-        //         'userConnectionId': userId
-        //     },
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
-        // });
+        var _this = this;
+        // let newData = {} as ICreateVaultReturn;
+        // // newData.id = vault.Id;
+        // newData.id = Math.floor(Math.random() * 9999);
+        // newData.name = vault.Name;
+        // newData.isPublic = vault.IsPublic;
+        // onSuccess(null, newData);
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'Name': vault.Name,
+                'IsPublic': vault.IsPublic,
+            },
+            Type: "PUT",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/vault/create-vault',
+        });
     };
     VaultController.prototype.DeleteVaultRedux = function (vaultId) {
         var _this = this;
@@ -57404,19 +57430,19 @@ var VaultController = /** @class */ (function () {
         };
     };
     VaultController.prototype.DeleteVault = function (vaultId, onSuccess) {
-        onSuccess(null, BoolResultBack_1.BoolResultBack.GetTrue());
-        //G_AjaxHelper.GoAjaxRequest({
-        //     Data: {
-        //         'roomname': roomname,
-        //         'userConnectionId': userId
-        //     },
-        //     Type: "GET",
-        //     FuncSuccess: (xhr, status, jqXHR) => {
-        //         this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-        //     },
-        //     FuncError: (xhr, status, error) => { },
-        //     Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
-        // });
+        var _this = this;
+        // onSuccess(null, BoolResultBack.GetTrue());
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'vaultId': vaultId
+            },
+            Type: "DELETE",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/vault/delete-vault',
+        });
     };
     //
     VaultController.prototype.mapWithResult = function (onSuccess) {
@@ -57454,7 +57480,7 @@ var OneVault = /** @class */ (function () {
             return rs;
         });
         // this.People = ;
-        this.IsPublic = newData.isPublic;
+        this.IsPublic = newData.is_public;
     };
     return OneVault;
 }());
@@ -57479,6 +57505,7 @@ var OneVaultInList = /** @class */ (function () {
     OneVaultInList.prototype.FillByBackModel = function (newData) {
         this.Id = newData.id;
         this.Name = newData.name;
+        this.IsPublic = newData.is_public;
     };
     return OneVaultInList;
 }());
@@ -57509,10 +57536,10 @@ var OneVaultSecret = /** @class */ (function () {
         this.Id = newData.id;
         this.Key = newData.key;
         this.Value = newData.value;
-        this.IsCoded = newData.isCoded;
-        this.IsPublic = newData.isPublic;
-        this.DieDate = newData.dieDate;
-        this.VaultId = newData.vaultId;
+        this.IsCoded = newData.is_coded;
+        this.IsPublic = newData.is_public;
+        this.DieDate = newData.die_date;
+        this.VaultId = newData.vault_id;
     };
     return OneVaultSecret;
 }());
@@ -57579,6 +57606,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.UpdateVaultEntity = void 0;
 var UpdateVaultEntity = /** @class */ (function () {
     function UpdateVaultEntity() {
+        this.UsersForAdd = [];
+        this.UsersForDelete = [];
     }
     return UpdateVaultEntity;
 }());
@@ -60417,38 +60446,25 @@ exports.AjaxHelper = AjaxHelper;
 
 /***/ }),
 
-/***/ "./src/Models/BackModel/BoolResultBack.ts":
-/*!************************************************!*\
-  !*** ./src/Models/BackModel/BoolResultBack.ts ***!
-  \************************************************/
+/***/ "./src/Models/BL/ErrorHandleLogic.ts":
+/*!*******************************************!*\
+  !*** ./src/Models/BL/ErrorHandleLogic.ts ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.StringResultBack = exports.BoolResultBack = void 0;
-var BoolResultBack = /** @class */ (function () {
-    function BoolResultBack() {
+exports.MainErrorHandler = void 0;
+var MainErrorHandler = /** @class */ (function () {
+    function MainErrorHandler() {
     }
-    BoolResultBack.GetTrue = function () {
-        var res = new BoolResultBack();
-        res.result = true;
-        return res;
+    MainErrorHandler.prototype.NotAuth = function () {
+        document.location.href = "/menu/auth/login/";
     };
-    BoolResultBack.GetFalse = function () {
-        var res = new BoolResultBack();
-        res.result = false;
-        return res;
-    };
-    return BoolResultBack;
+    return MainErrorHandler;
 }());
-exports.BoolResultBack = BoolResultBack;
-var StringResultBack = /** @class */ (function () {
-    function StringResultBack() {
-    }
-    return StringResultBack;
-}());
-exports.StringResultBack = StringResultBack;
+exports.MainErrorHandler = MainErrorHandler;
 
 
 /***/ }),
@@ -60869,29 +60885,6 @@ var CustomImage = /** @class */ (function () {
     return CustomImage;
 }());
 exports.CustomImage = CustomImage;
-
-
-/***/ }),
-
-/***/ "./src/Models/Entity/ErrorHandleLogic.ts":
-/*!***********************************************!*\
-  !*** ./src/Models/Entity/ErrorHandleLogic.ts ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, exports) => {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.MainErrorHandler = void 0;
-var MainErrorHandler = /** @class */ (function () {
-    function MainErrorHandler() {
-    }
-    MainErrorHandler.prototype.NotAuth = function () {
-        document.location.href = "/menu/auth/login/";
-    };
-    return MainErrorHandler;
-}());
-exports.MainErrorHandler = MainErrorHandler;
 
 
 /***/ }),
@@ -62749,7 +62742,7 @@ var CodeReviewProjectController_1 = __webpack_require__(/*! ./Apps/CodeReviewApp
 var CodeReviewTaskController_1 = __webpack_require__(/*! ./Apps/CodeReviewApp/Models/Controllers/CodeReviewTaskController */ "./src/Apps/CodeReviewApp/Models/Controllers/CodeReviewTaskController.ts");
 var CodeReviewUserController_1 = __webpack_require__(/*! ./Apps/CodeReviewApp/Models/Controllers/CodeReviewUserController */ "./src/Apps/CodeReviewApp/Models/Controllers/CodeReviewUserController.ts");
 var WordsListController_1 = __webpack_require__(/*! ./Apps/WordsCardsApp/Models/Controllers/WordsListController */ "./src/Apps/WordsCardsApp/Models/Controllers/WordsListController.ts");
-var ErrorHandleLogic_1 = __webpack_require__(/*! ./Models/Entity/ErrorHandleLogic */ "./src/Models/Entity/ErrorHandleLogic.ts");
+var ErrorHandleLogic_1 = __webpack_require__(/*! ./Models/BL/ErrorHandleLogic */ "./src/Models/BL/ErrorHandleLogic.ts");
 __webpack_require__(/*! ../style/main.css */ "./style/main.css");
 __webpack_require__(/*! ../style/body.css */ "./style/body.css");
 __webpack_require__(/*! ../style/alerts.css */ "./style/alerts.css");

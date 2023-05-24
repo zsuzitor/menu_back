@@ -32,5 +32,10 @@ namespace Common.Models.Return
         {
             Result = obj.Result;
         }
+
+        public BoolResultReturn(bool obj)
+        {
+            Result = obj;
+        }
     }
 }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using VaultApp.Models.Entity;
 using VaultApp.Models.Entity.Input;
 
 namespace VaultApp.Models.Services
@@ -12,7 +13,7 @@ namespace VaultApp.Models.Services
     {
         Task<List<Vault>> GetUserVaultsAsync(UserInfo userInfo);
         Task<Vault> GetVaultAsync(long vaultId, UserInfo userInfo);
-        Task<List<VaultUser>> GetPeopleAsync(long vaultId, UserInfo userInfo);
+        Task<List<VaultUser>> GetUsersAsync(long vaultId, UserInfo userInfo);
         Task<Vault> UpdateVaultAsync(UpdateVault vault, UserInfo userInfo);
         Task<Vault> CreateVaultAsync(CreateVault vault, UserInfo userInfo);
         Task<bool> DeleteVaultAsync(long vaultId, UserInfo userInfo);
