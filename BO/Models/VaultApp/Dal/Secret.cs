@@ -11,7 +11,7 @@ namespace BO.Models.VaultApp.Dal
         public string Value { get; set; }
         public bool IsCoded { get; set; }
         public bool IsPublic { get; set; }
-        public DateTime DieDate { get; set; }
+        public DateTime? DieDate { get; set; }
 
         public long VaultId { get; set; }
         public Vault Vault { get; set; }

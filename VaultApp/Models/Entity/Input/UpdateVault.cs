@@ -11,5 +11,11 @@ namespace VaultApp.Models.Entity.Input
         public bool IsPublic { get; set; }
         public List<long> UsersForDelete { get; set; }
         public List<string> UsersForAdd { get; set; }
+
+        public UpdateVault()
+        {
+            UsersForDelete = new List<long>();
+            UsersForAdd = new List<string>();
+        }
     }
 }

@@ -50,6 +50,19 @@ namespace VaultApp.Models.Services.Implementation
 
         }
 
+        public async Task<Vault> GetVaultWithSecretAsync(long vaultId, UserInfo userInfo)
+        {
+            await HasAccessToVaultWithError(vaultId, userInfo);
+            var vault = await _vaultRepository.GetAsync(vaultId);
+            if (vault == null)
+            {
+                return null;
+            }
+
+            _ = _vaultRepository.LoadSecrets(vault);
+            return vault;
+        }
+
         public async Task<Vault> UpdateVaultAsync(UpdateVault vault, UserInfo userInfo)
         {
             await HasAccessToVaultWithError(vault.Id, userInfo);
@@ -69,7 +82,7 @@ namespace VaultApp.Models.Services.Implementation
                 {
                     var usersForAdd = await _userRepository.GetIdByEmailAsync(vault.UsersForAdd);
                     usersForAdd = usersForAdd.Where(x => oldVault.Users
-                    .FirstOrDefault(u => u.Id == x.userId) == null).ToList();
+                        .FirstOrDefault(u => u.UserId == x.userId) == null).ToList();
                     oldVault.Users.AddRange(usersForAdd
                         .Select(x => new VaultUserDal() { UserId = x.userId, VaultId = vault.Id }));
                 }
@@ -117,7 +130,7 @@ namespace VaultApp.Models.Services.Implementation
 
         public async Task HasAccessToVaultWithError(long vaultId, UserInfo userInfo)
         {
-            if (await HasAccessToVault(vaultId, userInfo))
+            if (!await HasAccessToVault(vaultId, userInfo))
             {
                 throw new SomeCustomException(Constants.ErrorConstants.VaultNotAllowed);
             }

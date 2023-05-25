@@ -65,7 +65,7 @@ namespace Menu.Controllers.VaultApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _vaultService.GetVaultAsync(vaultId, userInfo);
+                    var res = await _vaultService.GetVaultWithSecretAsync(vaultId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new SingleVaultReturn().Fill(res, null));
 
                 }, Response, _logger);
@@ -104,7 +104,7 @@ namespace Menu.Controllers.VaultApp
         }
 
         [Route("create-vault")]
-        [HttpPatch]
+        [HttpPut]
         public async Task CreateVault([FromForm] CreateVault vault)
         {
             await _apiHealper.DoStandartSomething(

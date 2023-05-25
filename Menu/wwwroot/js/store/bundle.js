@@ -3008,7 +3008,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".main-vault-container {\r\n    width: 100%;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/VaultMain/VaultMain.css"],"names":[],"mappings":"AAAA;IACI,WAAW;AACf","sourcesContent":[".main-vault-container {\r\n    width: 100%;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".main-vault-container {\r\n    width: 100%;\r\n}\r\n\r\n.main-vault-container .preloader{\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: black;\r\n    z-index: 40;\r\n    /* filter: blur(300px); */\r\n    opacity: 0.8;\r\n    /* transition: 1s; */\r\n    margin: -4.5rem -0.75rem;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/VaultMain/VaultMain.css"],"names":[],"mappings":"AAAA;IACI,WAAW;AACf;;AAEA;IACI,eAAe;IACf,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,WAAW;IACX,yBAAyB;IACzB,YAAY;IACZ,oBAAoB;IACpB,wBAAwB;AAC5B","sourcesContent":[".main-vault-container {\r\n    width: 100%;\r\n}\r\n\r\n.main-vault-container .preloader{\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: black;\r\n    z-index: 40;\r\n    /* filter: blur(300px); */\r\n    opacity: 0.8;\r\n    /* transition: 1s; */\r\n    margin: -4.5rem -0.75rem;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -56178,7 +56178,7 @@ var CreateVault = function (props) {
             react_1.default.createElement("label", null, "\u041F\u043E\u0447\u0442\u0430"),
             react_1.default.createElement("input", { type: 'text', className: 'form-control', placeholder: '\u041F\u043E\u0447\u0442\u0430', value: userEmailForAdd, onChange: function (e) { return setUserEmailForAdd(e.target.value); } }),
             react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () {
-                    if (people.find(function (x) { return x.Email == userEmailForAdd; })) {
+                    if (!userEmailForAdd || people.find(function (x) { return x.Email == userEmailForAdd; })) {
                         return;
                     }
                     var forAdd = new VaultUser_2.VaultUser();
@@ -56407,7 +56407,7 @@ var OneVault = function (props) {
                 } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")),
         react_1.default.createElement("input", { type: 'text', className: 'form-control', placeholder: '\u041F\u043E\u0438\u0441\u043A', onChange: (function (e) { return setFilterSecretKey(e.target.value); }), value: filterSecretKey }),
         react_1.default.createElement("div", { className: 'vault-secrets-list' },
-            react_1.default.createElement(VaultSecret_1.default, { key: "new_secret", IsNew: true, Secret: secretForNewForm }),
+            react_1.default.createElement(VaultSecret_1.default, { key: "new_secret", IsNew: true, Secret: secretForNewForm, VaultId: vault.Id }),
             vault.Secrets.filter(function (x) { return !filterSecretKey || (x.Key.indexOf(filterSecretKey) != -1); })
                 .map(function (s) { return react_1.default.createElement(VaultSecret_1.default, { key: s.Id, Secret: s, IsNew: false }); })));
 };
@@ -56607,6 +56607,7 @@ var VaultMain = function (props) {
         // }
     }, []);
     return react_1.default.createElement("div", { className: 'main-vault-container' },
+        react_1.default.createElement("div", { className: 'preloader', id: 'vault_preloader' }),
         react_1.default.createElement(react_router_dom_1.Routes, null,
             react_1.default.createElement(react_router_dom_1.Route, { path: G_VaultController.RouteUrlVaultsList, element: react_1.default.createElement(VaultList_1.default, null) }),
             react_1.default.createElement(react_router_dom_1.Route, { path: G_VaultController.RouteUrlOneVault + '*', element: react_1.default.createElement(OneVault_1.default, { VaultId: props.VaultId }) }),
@@ -56723,9 +56724,10 @@ var VaultSecret = function (props) {
         setSecretDieDate((secret === null || secret === void 0 ? void 0 : secret.DieDate) || null);
         setSecretIsCoded((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded);
     }, [secret === null || secret === void 0 ? void 0 : secret.Value, secret === null || secret === void 0 ? void 0 : secret.DieDate, secret === null || secret === void 0 ? void 0 : secret.IsCoded]);
+    var defaultDieDate = '3000-01-01';
     function dateToYMD(date) {
         if (!date) {
-            return '3000-01-01';
+            return defaultDieDate;
         }
         var d = date.getDate();
         var m = date.getMonth() + 1; //Month from 0 to 11
@@ -56734,6 +56736,7 @@ var VaultSecret = function (props) {
     }
     function cancelChanges() {
         setSecretValue(secret.Value);
+        setSecretKey(secret.Key);
         setSecretDieDate((secret === null || secret === void 0 ? void 0 : secret.DieDate) || null);
         setSecretIsCoded((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded);
         setShowSecretValue(false);
@@ -56803,9 +56806,10 @@ var VaultSecret = function (props) {
                                 newData.Id = props.Secret.Id;
                                 newData.Key = secretKey;
                                 newData.Value = secretValue;
-                                newData.VaultId = secret.VaultId;
+                                newData.VaultId = (secret === null || secret === void 0 ? void 0 : secret.VaultId) || props.VaultId;
                                 newData.IsPublic = secretIsPublic;
                                 newData.IsCoded = secretIsCoded;
+                                newData.DieDate = secretDieDate || null; //</>new Date(defaultDieDate);
                                 if (props.IsNew) {
                                     props.CreateSecret(newData);
                                     cancelChanges();
@@ -57066,7 +57070,9 @@ var VaultController = /** @class */ (function () {
     VaultController.prototype.GetVaultsRedux = function () {
         var _this = this;
         return function (dispatch, getState) {
+            _this.preloader(true);
             _this.GetVaults(function (error, data) {
+                _this.preloader(false);
                 if (data) {
                     var newData = data.map(function (x) {
                         var us = new OneVaultInList_1.OneVaultInList();
@@ -57080,11 +57086,6 @@ var VaultController = /** @class */ (function () {
     };
     VaultController.prototype.GetVaults = function (onSuccess) {
         var _this = this;
-        // let resMoq = [];
-        // resMoq.push({ id: 1, name: "11111" });
-        // resMoq.push({ id: 2, name: "22" });
-        // resMoq.push({ id: 3, name: "33" });
-        // resMoq.push({ id: 4, name: "44" });
         G_AjaxHelper.GoAjaxRequest({
             Data: {},
             Type: "GET",
@@ -57098,7 +57099,9 @@ var VaultController = /** @class */ (function () {
     VaultController.prototype.GetVaultSecretsRedux = function (vaultId) {
         var _this = this;
         return function (dispatch, getState) {
+            _this.preloader(true);
             _this.GetVaultSecrets(vaultId, function (error, data) {
+                _this.preloader(false);
                 if (data) {
                     var newData = data.map(function (x) {
                         var us = new OneVaultSecret_1.OneVaultSecret();
@@ -57111,17 +57114,7 @@ var VaultController = /** @class */ (function () {
         };
     };
     VaultController.prototype.GetVaultSecrets = function (vaultId, onSuccess) {
-        // let resMoq = [];
         var _this = this;
-        // // isCoded: boolean;
-        // // isPublic: boolean;
-        // // dieDate: Date;
-        // resMoq.push({ vaultId: vaultId, id: 1, key: "111111", value: "val11", isCoded: false, isPublic: true, dieDate: null });
-        // resMoq.push({ vaultId: vaultId, id: 2, key: "111112", value: "val12", isCoded: false, isPublic: true, dieDate: null });
-        // resMoq.push({ vaultId: vaultId, id: 3, key: "111113", value: "val13", isCoded: false, isPublic: false, dieDate: null });
-        // resMoq.push({ vaultId: vaultId, id: 4, key: "111114", value: "val14", isCoded: false, isPublic: false, dieDate: null });
-        // resMoq.push({ vaultId: vaultId, id: 5, key: "111115", value: "val15", isCoded: true, isPublic: true, dieDate: null });
-        // onSuccess(null, resMoq);
         G_AjaxHelper.GoAjaxRequest({
             Data: {
                 'vaultId': vaultId
@@ -57131,13 +57124,15 @@ var VaultController = /** @class */ (function () {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/secret/get-vault-secrets',
+            Url: G_PathToServer + 'api/VaultSecret/get-vault-secrets',
         });
     };
     VaultController.prototype.GetCurrentVaultRedux = function (vaultId) {
         var _this = this;
         return function (dispatch, getState) {
+            _this.preloader(true);
             _this.GetVault(vaultId, function (error, data) {
+                _this.preloader(false);
                 if (data) {
                     var newData = new OneVault_1.OneVault();
                     newData.FillByBackModel(data);
@@ -57148,15 +57143,6 @@ var VaultController = /** @class */ (function () {
     };
     VaultController.prototype.GetVault = function (vaultId, onSuccess) {
         var _this = this;
-        // let resMoq = {} as IOneVaultReturn;
-        // resMoq.id = vaultId;
-        // resMoq.isPublic = true;
-        // resMoq.name = 'nametest';
-        // resMoq.secrets
-        // this.GetVaultSecrets(vaultId, (error: MainErrorObjectBack, data: IOneVaultSecretReturn[]) => {
-        //     resMoq.secrets = data;
-        // });
-        // onSuccess(null, resMoq);
         G_AjaxHelper.GoAjaxRequest({
             Data: {
                 'vaultId': vaultId
@@ -57172,7 +57158,9 @@ var VaultController = /** @class */ (function () {
     VaultController.prototype.LoadVaultPeopleRedux = function (vaultId) {
         var _this = this;
         return function (dispatch, getState) {
+            _this.preloader(true);
             _this.LoadVaultPeople(vaultId, function (error, data) {
+                _this.preloader(false);
                 if (data) {
                     var newData = data.map(function (x) {
                         var us = new VaultUser_1.VaultUser();
@@ -57185,17 +57173,7 @@ var VaultController = /** @class */ (function () {
         };
     };
     VaultController.prototype.LoadVaultPeople = function (vaultId, onSuccess) {
-        // let resMoq = [];
         var _this = this;
-        // isCoded: boolean;
-        // isPublic: boolean;
-        // dieDate: Date;
-        // resMoq.push({ id: 1, email: 'userMail1@vvv.vv' });
-        // resMoq.push({ id: 2, email: 'userMail2@vvv.vv' });
-        // resMoq.push({ id: 3, email: 'userMail3@vvv.vv' });
-        // resMoq.push({ id: 4, email: 'userMail4@vvv.vv' });
-        // resMoq.push({ id: 5, email: 'userMail5@vvv.vv' });
-        // onSuccess(null, resMoq);
         G_AjaxHelper.GoAjaxRequest({
             Data: {
                 'vaultId': vaultId
@@ -57211,7 +57189,9 @@ var VaultController = /** @class */ (function () {
     VaultController.prototype.DeleteSecretRedux = function (secretId, vaultId) {
         var _this = this;
         return function (dispatch, getState) {
+            _this.preloader(true);
             _this.DeleteSecret(secretId, vaultId, function (error, data) {
+                _this.preloader(false);
                 if (data === null || data === void 0 ? void 0 : data.result) {
                     dispatch((0, VaultActions_1.DeleteSecretActionCreator)({ VaultId: vaultId, SecretId: secretId }));
                 }
@@ -57230,13 +57210,15 @@ var VaultController = /** @class */ (function () {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/secret/delete-secret',
+            Url: G_PathToServer + 'api/VaultSecret/delete-secret',
         });
     };
     VaultController.prototype.CreateSecretRedux = function (secret) {
         var _this = this;
         return function (dispatch, getState) {
+            _this.preloader(true);
             _this.CreateSecret(secret, function (error, data) {
+                _this.preloader(false);
                 if (data) {
                     var newData = new OneVaultSecret_1.OneVaultSecret();
                     newData.FillByBackModel(data);
@@ -57247,37 +57229,33 @@ var VaultController = /** @class */ (function () {
     };
     VaultController.prototype.CreateSecret = function (secret, onSuccess) {
         var _this = this;
-        // let newData = {} as IOneVaultSecretReturn;
-        // newData.id = Math.floor(Math.random() * 9999);
-        // newData.dieDate = secret.DieDate;
-        // newData.isCoded = secret.IsCoded;
-        // newData.isPublic = secret.IsPublic;
-        // newData.key = secret.Key;
-        // newData.value = secret.Value;
-        // newData.vaultId = secret.VaultId;
-        // onSuccess(null, newData);
+        var data = {
+            'VaultId': secret.VaultId,
+            'Key': secret.Key,
+            'Value': secret.Value,
+            'IsCoded': secret.IsCoded,
+            'IsPublic': secret.IsPublic,
+        };
+        if (secret.DieDate) {
+            data.DieDate = secret.DieDate.toJSON();
+        }
         G_AjaxHelper.GoAjaxRequest({
-            Data: {
-                'VaultId': secret.VaultId,
-                'Key': secret.Key,
-                'Value': secret.Value,
-                'IsCoded': secret.IsCoded,
-                'IsPublic': secret.IsPublic,
-                'DieDate': secret.DieDate
-            },
+            Data: data,
             Type: "PUT",
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/secret/create-secret',
+            Url: G_PathToServer + 'api/VaultSecret/create-secret',
         });
     };
     VaultController.prototype.UpdateSecretRedux = function (secret) {
         var _this = this;
         return function (dispatch, getState) {
+            _this.preloader(true);
             _this.UpdateSecret(secret, function (error, data) {
-                if (data) { //todo закидывать secret? тогде поменять на bool result
+                _this.preloader(false);
+                if (data) {
                     var newData = new OneVaultSecret_1.OneVaultSecret();
                     newData.FillByBackModel(data);
                     dispatch((0, VaultActions_1.UpdateSecretActionCreator)(newData));
@@ -57287,38 +57265,33 @@ var VaultController = /** @class */ (function () {
     };
     VaultController.prototype.UpdateSecret = function (secret, onSuccess) {
         var _this = this;
-        // let newData = {} as IOneVaultSecretReturn;
-        // newData.id = secret.Id;
-        // newData.dieDate = secret.DieDate;
-        // newData.isCoded = secret.IsCoded;
-        // newData.isPublic = secret.IsPublic;
-        // newData.key = secret.Key;
-        // newData.value = secret.Value;
-        // newData.vaultId = secret.VaultId;
-        // // newData.id = Math.floor(Math.random() * 9999);
-        // onSuccess(null, newData);
+        var data = {
+            'Id': secret.Id,
+            'VaultId': secret.VaultId,
+            'Key': secret.Key,
+            'Value': secret.Value,
+            'IsCoded': secret.IsCoded,
+            'IsPublic': secret.IsPublic,
+        };
+        if (secret.DieDate) {
+            data.DieDate = secret.DieDate.toJSON();
+        }
         G_AjaxHelper.GoAjaxRequest({
-            Data: {
-                'Id': secret.Id,
-                'VaultId': secret.VaultId,
-                'Key': secret.Key,
-                'Value': secret.Value,
-                'IsCoded': secret.IsCoded,
-                'IsPublic': secret.IsPublic,
-                'DieDate': secret.DieDate
-            },
+            Data: data,
             Type: "PATCH",
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/secret/update-secret',
+            Url: G_PathToServer + 'api/VaultSecret/update-secret',
         });
     };
     VaultController.prototype.GetSingleSecretRedux = function (secretId) {
         var _this = this;
         return function (dispatch, getState) {
+            _this.preloader(true);
             _this.GetOneSecret(secretId, function (error, data) {
+                _this.preloader(false);
                 if (data) {
                     var newData = new OneVaultSecret_1.OneVaultSecret();
                     newData.FillByBackModel(data);
@@ -57329,14 +57302,6 @@ var VaultController = /** @class */ (function () {
     };
     VaultController.prototype.GetOneSecret = function (secretId, onSuccess) {
         var _this = this;
-        // let rs = {} as IOneVaultSecretReturn;
-        // rs.id = secretId;
-        // rs.isCoded = true;
-        // rs.isPublic = true;
-        // rs.key = 'test1';
-        // rs.value = 'val1';
-        // rs.vaultId = 1;
-        // onSuccess(null, rs);
         G_AjaxHelper.GoAjaxRequest({
             Data: {
                 'secretId': secretId
@@ -57346,13 +57311,15 @@ var VaultController = /** @class */ (function () {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: function (xhr, status, error) { },
-            Url: G_PathToServer + 'api/secret/get-secret',
+            Url: G_PathToServer + 'api/VaultSecret/get-secret',
         });
     };
     VaultController.prototype.UpdateVaultRedux = function (vault, successCallBack) {
         var _this = this;
         return function (dispatch, getState) {
+            _this.preloader(true);
             _this.UpdateVault(vault, function (error, data) {
+                _this.preloader(false);
                 if (data) {
                     var newData = {};
                     newData.Id = data.id;
@@ -57366,15 +57333,30 @@ var VaultController = /** @class */ (function () {
     };
     VaultController.prototype.UpdateVault = function (vault, onSuccess) {
         var _this = this;
+        var data = new FormData();
+        data.append('Id', vault.Id + '');
+        data.append('Name', vault.Name);
+        data.append('IsPublic', vault.IsPublic + '');
+        if (vault.UsersForDelete) {
+            vault.UsersForDelete.forEach(function (item, index) {
+                data.append('UsersForDelete', item + '');
+            });
+        }
+        if (vault.UsersForAdd) {
+            vault.UsersForAdd.forEach(function (item, index) {
+                data.append('UsersForAdd', item + '');
+            });
+        }
         // onSuccess(null, BoolResultBack.GetTrue());
         G_AjaxHelper.GoAjaxRequest({
-            Data: {
-                'Id': vault.Id,
-                'Name': vault.Name,
-                'IsPublic': vault.IsPublic,
-                'UsersForDelete': vault.UsersForDelete,
-                'UsersForAdd': vault.UsersForAdd
-            },
+            // Data: {
+            //     'Id': vault.Id,
+            //     'Name': vault.Name,
+            //     'IsPublic': vault.IsPublic,
+            //     'UsersForDelete': vault.UsersForDelete,
+            //     'UsersForAdd': vault.UsersForAdd
+            // },
+            Data: data,
             Type: "PATCH",
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
@@ -57386,7 +57368,9 @@ var VaultController = /** @class */ (function () {
     VaultController.prototype.CreateVaultRedux = function (vault, successCallBack) {
         var _this = this;
         return function (dispatch, getState) {
+            _this.preloader(true);
             _this.CreateVault(vault, function (error, data) {
+                _this.preloader(false);
                 if (data === null || data === void 0 ? void 0 : data.id) {
                     var newdata = {};
                     newdata.Id = data.id;
@@ -57400,16 +57384,10 @@ var VaultController = /** @class */ (function () {
     };
     VaultController.prototype.CreateVault = function (vault, onSuccess) {
         var _this = this;
-        // let newData = {} as ICreateVaultReturn;
-        // // newData.id = vault.Id;
-        // newData.id = Math.floor(Math.random() * 9999);
-        // newData.name = vault.Name;
-        // newData.isPublic = vault.IsPublic;
-        // onSuccess(null, newData);
         G_AjaxHelper.GoAjaxRequest({
             Data: {
                 'Name': vault.Name,
-                'IsPublic': vault.IsPublic,
+                'IsPublic': vault.IsPublic
             },
             Type: "PUT",
             FuncSuccess: function (xhr, status, jqXHR) {
@@ -57422,7 +57400,9 @@ var VaultController = /** @class */ (function () {
     VaultController.prototype.DeleteVaultRedux = function (vaultId) {
         var _this = this;
         return function (dispatch, getState) {
+            _this.preloader(true);
             _this.DeleteVault(vaultId, function (error, data) {
+                _this.preloader(false);
                 if (data === null || data === void 0 ? void 0 : data.result) {
                     dispatch((0, VaultActions_1.DeleteVaultActionCreator)(vaultId));
                 }
@@ -57447,6 +57427,25 @@ var VaultController = /** @class */ (function () {
     //
     VaultController.prototype.mapWithResult = function (onSuccess) {
         return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
+    };
+    VaultController.prototype.preloader = function (show) {
+        if (!window.CodeReviewCounter) {
+            window.CodeReviewCounter = 0;
+        }
+        var preloader = document.getElementById('vault_preloader');
+        if (!preloader) {
+            return;
+        }
+        if (show) {
+            window.CodeReviewCounter++;
+            preloader.style.display = 'block';
+        }
+        else {
+            window.CodeReviewCounter--;
+            if (!window.CodeReviewCounter) {
+                preloader.style.display = 'none';
+            }
+        }
     };
     return VaultController;
 }());
@@ -57538,7 +57537,7 @@ var OneVaultSecret = /** @class */ (function () {
         this.Value = newData.value;
         this.IsCoded = newData.is_coded;
         this.IsPublic = newData.is_public;
-        this.DieDate = newData.die_date;
+        this.DieDate = newData.die_date ? new Date(newData.die_date) : null;
         this.VaultId = newData.vault_id;
     };
     return OneVaultSecret;

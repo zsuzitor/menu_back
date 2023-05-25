@@ -12,6 +12,7 @@ namespace VaultApp.Models.Repositories
     {
         Task<List<VaultUser>> GetUsers(long vaultId);
         Task<List<VaultUserDal>> LoadUsers(Vault vault);
+        Task<List<Secret>> LoadSecrets(Vault vault);
         Task<List<Vault>> GetFullList(long userId);
         //Task<List<Vault>> GetShortList(long userId);
         Task<bool> UserInVaultAsync(long vaultId, long userId);

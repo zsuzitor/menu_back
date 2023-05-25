@@ -22,7 +22,7 @@ namespace Menu.Models.Returns.Types.VaultApp
         public bool IsPublic { get; set; }
 
         [JsonPropertyName("die_date")]
-        public DateTime DieDate { get; set; }
+        public DateTime? DieDate { get; set; }
 
         [JsonPropertyName("vault_id")]
         public long VaultId { get; set; }

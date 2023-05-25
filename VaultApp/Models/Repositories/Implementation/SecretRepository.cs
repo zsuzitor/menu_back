@@ -19,9 +19,8 @@ namespace VaultApp.Models.Repositories.Implementation
 
         public async Task DeleteExpiredSecrets()
         {
-            _db.Secrets.RemoveRange(_db.Secrets.Where(x => x.DieDate < DateTime.Now));
+            _db.Secrets.RemoveRange(_db.Secrets.Where(x => x.DieDate != null && x.DieDate < DateTime.Now));
             await _db.SaveChangesAsync();
-
         }
 
         public async Task<List<Secret>> GetByVaultIdAsync(long vaultId)

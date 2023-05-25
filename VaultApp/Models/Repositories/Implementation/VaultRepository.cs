@@ -37,6 +37,12 @@ namespace VaultApp.Models.Repositories.Implementation
             return vault.Users;
         }
 
+        public async Task<List<Secret>> LoadSecrets(Vault vault)
+        {
+            await _db.Entry(vault).Collection(x => x.Secrets).LoadAsync();
+            return vault.Secrets;
+        }
+
         public async Task<bool> UserInVaultAsync(long vaultId, long userId)
         {
             return (await _db.VaultUsers.Where(x => x.VaultId == vaultId && x.UserId == userId)
