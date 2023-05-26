@@ -18,6 +18,7 @@ namespace VaultApp.Models.Services
         Task<Vault> UpdateVaultAsync(UpdateVault vault, UserInfo userInfo);
         Task<Vault> CreateVaultAsync(CreateVault vault, UserInfo userInfo);
         Task<bool> DeleteVaultAsync(long vaultId, UserInfo userInfo);
+        Task<bool> ExistVaultAsync(long vaultId, string password, UserInfo userInfo);
         Task HasAccessToVaultWithError(long vaultId, UserInfo userInfo);
 
     }

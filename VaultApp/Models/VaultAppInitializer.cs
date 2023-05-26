@@ -20,9 +20,7 @@ namespace VaultApp.Models
             errorContainer.InitError(Constants.ErrorConstants.VaultNotFound, "Vault не найден");
             errorContainer.InitError(Constants.ErrorConstants.VaultUsersEmpty, "В vault не останется пользователей");
             errorContainer.InitError(Constants.ErrorConstants.SecretNotFound, "Secret не найден или нет доступа");
-
-            
-
+            errorContainer.InitError(Constants.ErrorConstants.VaultNotFill, "Не заполнена модель vault");
 
         }
 

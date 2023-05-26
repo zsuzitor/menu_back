@@ -56134,12 +56134,13 @@ var UpdateVaultEntity_1 = __webpack_require__(/*! ../../Models/Entity/UpdateVaul
 var VaultUser_2 = __webpack_require__(/*! ../../Models/Entity/State/VaultUser */ "./src/Apps/Vault/Models/Entity/State/VaultUser.ts");
 __webpack_require__(/*! ./CreateVault.css */ "./src/Apps/Vault/Components/CreateVault/CreateVault.css");
 var CreateVault = function (props) {
-    var _a, _b, _c, _d, _e;
-    var _f = (0, react_1.useState)(((_a = props.Vault) === null || _a === void 0 ? void 0 : _a.Name) || ''), vaultName = _f[0], setVaultName = _f[1];
-    var _g = (0, react_1.useState)(((_b = props.Vault) === null || _b === void 0 ? void 0 : _b.IsPublic) || false), vaultPublic = _g[0], setVaultPublic = _g[1];
-    var _h = (0, react_1.useState)([]), deletedUser = _h[0], setDeletedUser = _h[1];
-    var _j = (0, react_1.useState)([]), addedUser = _j[0], setAddedUser = _j[1];
-    var _k = (0, react_1.useState)(''), userEmailForAdd = _k[0], setUserEmailForAdd = _k[1];
+    var _a, _b, _c, _d, _e, _f;
+    var _g = (0, react_1.useState)(((_a = props.Vault) === null || _a === void 0 ? void 0 : _a.Name) || ''), vaultName = _g[0], setVaultName = _g[1];
+    var _h = (0, react_1.useState)(((_b = props.Vault) === null || _b === void 0 ? void 0 : _b.IsPublic) || false), vaultPublic = _h[0], setVaultPublic = _h[1];
+    var _j = (0, react_1.useState)([]), deletedUser = _j[0], setDeletedUser = _j[1];
+    var _k = (0, react_1.useState)([]), addedUser = _k[0], setAddedUser = _k[1];
+    var _l = (0, react_1.useState)(''), userEmailForAdd = _l[0], setUserEmailForAdd = _l[1];
+    var _m = (0, react_1.useState)(''), vaultPassword = _m[0], setVaultPassword = _m[1];
     (0, react_1.useEffect)(function () {
     }, []);
     (0, react_1.useEffect)(function () {
@@ -56158,7 +56159,11 @@ var CreateVault = function (props) {
         react_1.default.createElement("input", { type: 'text', placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: vaultName, className: 'form-control', onChange: function (e) { return setVaultName(e.target.value); } }),
         react_1.default.createElement("label", null, "\u041F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0439"),
         react_1.default.createElement("input", { type: 'checkbox', placeholder: '\u041F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0439', checked: vaultPublic, className: 'form-control', onChange: function (e) { return setVaultPublic(e.target.checked); } }),
-        ((_e = props.Vault) === null || _e === void 0 ? void 0 : _e.Id) ? react_1.default.createElement(react_1.default.Fragment, null,
+        ((_e = props.Vault) === null || _e === void 0 ? void 0 : _e.Id) ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement("input", { type: 'password', value: vaultPassword, onChange: function (e) {
+                    return setVaultPassword(e.target.value);
+                } })),
+        ((_f = props.Vault) === null || _f === void 0 ? void 0 : _f.Id) ? react_1.default.createElement(react_1.default.Fragment, null,
             react_1.default.createElement("p", null, "\u041B\u044E\u0434\u0438 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430"),
             people.map(function (u) { return react_1.default.createElement(VaultUser_1.default, { key: u.Email, User: u, MarkedAsDeleted: deletedUser.findIndex(function (x) { return x == u.Id; }) >= 0, Delete: function () {
                     if (props.Vault.People.findIndex(function (x) { return x.Id == u.Id; }) >= 0) {
@@ -56198,6 +56203,7 @@ var CreateVault = function (props) {
                     props.UpdateVault(newVault, function () { return props.WasCreated(); });
                 }
                 else {
+                    newVault.Password = vaultPassword;
                     props.CreateVault(newVault, function () { return props.WasCreated(); });
                 }
             } }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"));
@@ -56366,6 +56372,7 @@ var OneVault = function (props) {
     // const [code, setCode] = useState('');
     var _a = (0, react_1.useState)(''), filterSecretKey = _a[0], setFilterSecretKey = _a[1];
     var _b = (0, react_1.useState)(false), showEditForm = _b[0], setShowEditForm = _b[1];
+    var _c = (0, react_1.useState)(''), vaultPassword = _c[0], setVaultPassword = _c[1];
     // const [shoNewSecretForm, setShoNewSecretForm] = useState(false);
     // let vault = props.Vaults.find(x => x.Id === props.VaultId);
     var vault = props.Vault;
@@ -56399,6 +56406,10 @@ var OneVault = function (props) {
         backLink,
         react_1.default.createElement("div", null,
             react_1.default.createElement("p", null, vault.Id),
+            react_1.default.createElement("input", { type: 'password', value: vaultPassword, onChange: function (e) {
+                    return setVaultPassword(e.target.value);
+                } }),
+            react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return props.VaultAuth(vaultPassword); } }, "\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u0442\u044C Vault"),
             react_1.default.createElement("p", null, vault.Name),
             react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return setShowEditForm(true); } }, "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C"),
             react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () {
@@ -56448,6 +56459,9 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     res.DeleteVault = function (vaultId) {
         dispatch(window.G_VaultController.DeleteVaultRedux(vaultId));
+    };
+    res.VaultAuth = function (password) {
+        dispatch(window.G_VaultController.VaultAuthorizeRedux(password));
     };
     return res;
 };
@@ -56791,6 +56805,7 @@ var VaultSecret = function (props) {
                     react_1.default.createElement("input", { type: 'checkbox', checked: secretIsCoded, onChange: function () { return setSecretIsCoded(!secretIsCoded); } }),
                     react_1.default.createElement("label", null, "\u041F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0439"),
                     react_1.default.createElement("input", { type: 'checkbox', checked: secretIsPublic, onChange: function () { return setSecretIsPublic(!secretIsPublic); } }),
+                    react_1.default.createElement("label", null, "\u0421\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442 \u0434\u043E:"),
                     react_1.default.createElement("input", { type: 'date', value: dateToYMD(secretDieDate), className: 'form-control', style: { width: '140px' }, onChange: function (e) {
                             setSecretDieDate(e.target.valueAsDate);
                             // console.log('d2' + e.target.valueAsDate);
@@ -56961,7 +56976,7 @@ exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToPr
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.DeleteVaultActionCreator = exports.DeleteVaultActionName = exports.CreateVaultActionCreator = exports.CreateVaultActionName = exports.CreateSecretActionCreator = exports.CreateSecretActionName = exports.UpdateSecretActionCreator = exports.UpdateSecretActionName = exports.UpdateVaultActionCreator = exports.UpdateVaultActionName = exports.SetCurrentVaultActionCreator = exports.SetCurrentVaultActionName = exports.SetSingleSecretActionCreator = exports.SetSingleSecretActionName = exports.DeleteSecretActionCreator = exports.DeleteSecretActionName = exports.SetVaultsPeopleActionCreator = exports.SetVaultsPeopleActionName = exports.SetVaultsSecretsActionCreator = exports.SetVaultsSecretsActionName = exports.SetVaultsListActionCreator = exports.SetVaultsListActionName = exports.ChangeCurrentVaultIdActionCreator = exports.ChangeCurrentVaultIdActionName = void 0;
+exports.VaultAuthorizeActionCreator = exports.VaultAuthorizeActionName = exports.DeleteVaultActionCreator = exports.DeleteVaultActionName = exports.CreateVaultActionCreator = exports.CreateVaultActionName = exports.CreateSecretActionCreator = exports.CreateSecretActionName = exports.UpdateSecretActionCreator = exports.UpdateSecretActionName = exports.UpdateVaultActionCreator = exports.UpdateVaultActionName = exports.SetCurrentVaultActionCreator = exports.SetCurrentVaultActionName = exports.SetSingleSecretActionCreator = exports.SetSingleSecretActionName = exports.DeleteSecretActionCreator = exports.DeleteSecretActionName = exports.SetVaultsPeopleActionCreator = exports.SetVaultsPeopleActionName = exports.SetVaultsSecretsActionCreator = exports.SetVaultsSecretsActionName = exports.SetVaultsListActionCreator = exports.SetVaultsListActionName = exports.ChangeCurrentVaultIdActionCreator = exports.ChangeCurrentVaultIdActionName = void 0;
 exports.ChangeCurrentVaultIdActionName = 'ChangeCurrentVaultIdAction';
 function ChangeCurrentVaultIdActionCreator(data) {
     return { type: exports.ChangeCurrentVaultIdActionName, payload: data };
@@ -57039,6 +57054,12 @@ function DeleteVaultActionCreator(data) {
     return { type: exports.DeleteVaultActionName, payload: data };
 }
 exports.DeleteVaultActionCreator = DeleteVaultActionCreator;
+;
+exports.VaultAuthorizeActionName = 'VaultAuthorizeAction';
+function VaultAuthorizeActionCreator(data) {
+    return { type: exports.VaultAuthorizeActionName, payload: data };
+}
+exports.VaultAuthorizeActionCreator = VaultAuthorizeActionCreator;
 ;
 
 
@@ -57186,24 +57207,24 @@ var VaultController = /** @class */ (function () {
             Url: G_PathToServer + 'api/vault/get-vault-people',
         });
     };
-    VaultController.prototype.DeleteSecretRedux = function (secretId, vaultId) {
+    VaultController.prototype.DeleteSecretRedux = function (secretId) {
         var _this = this;
         return function (dispatch, getState) {
             _this.preloader(true);
-            _this.DeleteSecret(secretId, vaultId, function (error, data) {
+            _this.DeleteSecret(secretId, function (error, data) {
                 _this.preloader(false);
                 if (data === null || data === void 0 ? void 0 : data.result) {
-                    dispatch((0, VaultActions_1.DeleteSecretActionCreator)({ VaultId: vaultId, SecretId: secretId }));
+                    dispatch((0, VaultActions_1.DeleteSecretActionCreator)({ SecretId: secretId }));
                 }
             });
         };
     };
-    VaultController.prototype.DeleteSecret = function (secretId, vaultId, onSuccess) {
+    VaultController.prototype.DeleteSecret = function (secretId, onSuccess) {
         var _this = this;
         // onSuccess(null, { result: true });
         G_AjaxHelper.GoAjaxRequest({
             Data: {
-                'vaultId': vaultId
+                'secretId': secretId
             },
             Type: "DELETE",
             FuncSuccess: function (xhr, status, jqXHR) {
@@ -57387,7 +57408,8 @@ var VaultController = /** @class */ (function () {
         G_AjaxHelper.GoAjaxRequest({
             Data: {
                 'Name': vault.Name,
-                'IsPublic': vault.IsPublic
+                'IsPublic': vault.IsPublic,
+                'Password': vault.Password
             },
             Type: "PUT",
             FuncSuccess: function (xhr, status, jqXHR) {
@@ -57422,6 +57444,33 @@ var VaultController = /** @class */ (function () {
             },
             FuncError: function (xhr, status, error) { },
             Url: G_PathToServer + 'api/vault/delete-vault',
+        });
+    };
+    VaultController.prototype.VaultAuthorizeRedux = function (password) {
+        var _this = this;
+        return function (dispatch, getState) {
+            _this.preloader(true);
+            _this.VaultAuthorize(password, function (error, data) {
+                _this.preloader(false);
+                if (data === null || data === void 0 ? void 0 : data.result) {
+                    dispatch((0, VaultActions_1.VaultAuthorizeActionCreator)(true));
+                }
+            });
+        };
+    };
+    VaultController.prototype.VaultAuthorize = function (password, onSuccess) {
+        var _this = this;
+        // onSuccess(null, BoolResultBack.GetTrue());
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'password': password
+            },
+            Type: "POST",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/vault/authorize',
         });
     };
     //
@@ -57469,6 +57518,7 @@ var OneVault = /** @class */ (function () {
     function OneVault() {
         this.Secrets = [];
         this.People = [];
+        this.IsAuthorized = false;
     }
     OneVault.prototype.FillByBackModel = function (newData) {
         this.Id = newData.id;
@@ -57809,6 +57859,16 @@ function VaultReducer(state, action) {
                 }
                 return newState;
             }
+        case VaultActions_1.VaultAuthorizeActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var typedAction = action.payload;
+                if (newState.VaultApp.CurrentVault) {
+                    newState.VaultApp.CurrentVault.IsAuthorized = typedAction;
+                }
+                return newState;
+            }
+        //
         //
         //
     }

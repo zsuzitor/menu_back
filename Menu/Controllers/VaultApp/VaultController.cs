@@ -2,6 +2,7 @@
 using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.Returns.Types.VaultApp;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Linq;
@@ -130,6 +131,21 @@ namespace Menu.Controllers.VaultApp
                     var res = await _vaultService.DeleteVaultAsync(vaultId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
 
+                }, Response, _logger);
+        }
+
+        [Route("authorize")]
+        [HttpPost]
+        public async Task AuthorizeVault([FromForm] long vaultId, [FromForm] string password)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _vaultService.ExistVaultAsync(vaultId, password, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
+                    Response.Cookies.Append("Auth_Vault"+ vaultId, password, new CookieOptions() { HttpOnly = true });
                 }, Response, _logger);
         }
     }

@@ -8,6 +8,7 @@ namespace BO.Models.VaultApp.Dal
     {
         public long Id { get; set; }
         public string Name { get; set; }
+        public string PasswordHash { get; set; }
         public bool IsPublic { get; set; }
 
         public List<Secret> Secrets { get; set; }

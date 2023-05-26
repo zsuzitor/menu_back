@@ -16,5 +16,7 @@ namespace VaultApp.Models.Repositories
         Task<List<Vault>> GetFullList(long userId);
         //Task<List<Vault>> GetShortList(long userId);
         Task<bool> UserInVaultAsync(long vaultId, long userId);
+        Task<bool> ExistVaultAsync(long vaultId, string passwordHash);
+
     }
 }

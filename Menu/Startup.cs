@@ -163,6 +163,8 @@ namespace Menu
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
             services.AddSingleton<IWorker, Worker>();
+            services.AddSingleton<ICacheAccessor, MemoryCacheAccessor>();
+            services.AddSingleton<ICacheService, CacheService>();
             if (mailSendingConfig.MockMailing)
             {
                 services.AddSingleton<IEmailServiceSender, EmailServiceSenderMock>();

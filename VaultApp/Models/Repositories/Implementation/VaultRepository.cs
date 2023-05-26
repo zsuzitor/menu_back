@@ -47,7 +47,12 @@ namespace VaultApp.Models.Repositories.Implementation
         {
             return (await _db.VaultUsers.Where(x => x.VaultId == vaultId && x.UserId == userId)
                 .Select(x => x.Id).FirstOrDefaultAsync()) != 0;
+        }
 
+        public async Task<bool> ExistVaultAsync(long vaultId, string passwordHash)
+        {
+            return (await _db.Vaults.Where(x => x.Id == vaultId && x.PasswordHash == passwordHash)
+                 .Select(x => x.Id).FirstOrDefaultAsync()) != 0;
         }
     }
 }
