@@ -11,10 +11,10 @@ namespace VaultApp.Models.Services
     public interface ISecretService
     {
         Task<bool> DeleteSecretAsync(long secretId, UserInfo userInfo);
-        Task<Secret> UpdateSecretAsync(UpdateSecret secret, UserInfo userInfo);
-        Task<Secret> CreateSecretAsync(CreateSecret secret, UserInfo userInfo);
+        Task<Secret> UpdateSecretAsync(UpdateSecret secret, UserInfo userInfo, string passwordForCoded);
+        Task<Secret> CreateSecretAsync(CreateSecret secret, UserInfo userInfo, string passwordForCoded);
         Task<Secret> GetSecretAsync(long secretId, UserInfo userInfo);
-        Task<List<Secret>> GetSecretsAsync(long vaultId, UserInfo userInfo);
+        Task<List<Secret>> GetSecretsAsync(long vaultId, UserInfo userInfo, string passwordForCoded);
 
 
         Task DeleteExpiredSecrets();

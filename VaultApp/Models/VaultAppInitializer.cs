@@ -21,7 +21,9 @@ namespace VaultApp.Models
             errorContainer.InitError(Constants.ErrorConstants.VaultUsersEmpty, "В vault не останется пользователей");
             errorContainer.InitError(Constants.ErrorConstants.SecretNotFound, "Secret не найден или нет доступа");
             errorContainer.InitError(Constants.ErrorConstants.VaultNotFill, "Не заполнена модель vault");
+            errorContainer.InitError(Constants.ErrorConstants.VaultBadAuth, "Vault не авторизован");
 
+            //
         }
 
         public void RepositoriesInitialize(IServiceCollection services)

@@ -13,7 +13,7 @@ namespace VaultApp.Models.Services
     {
         Task<List<Vault>> GetUserVaultsAsync(UserInfo userInfo);
         Task<Vault> GetVaultAsync(long vaultId, UserInfo userInfo);
-        Task<Vault> GetVaultWithSecretAsync(long vaultId, UserInfo userInfo);
+        Task<Vault> GetVaultWithSecretAsync(long vaultId, UserInfo userInfo, string vaultPassword);
         Task<List<VaultUser>> GetUsersAsync(long vaultId, UserInfo userInfo);
         Task<Vault> UpdateVaultAsync(UpdateVault vault, UserInfo userInfo);
         Task<Vault> CreateVaultAsync(CreateVault vault, UserInfo userInfo);

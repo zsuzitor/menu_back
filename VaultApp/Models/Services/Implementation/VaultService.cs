@@ -25,20 +25,24 @@ namespace VaultApp.Models.Services.Implementation
         private readonly MenuDbContext _db;
 
         private readonly IVaultRepository _vaultRepository;
+        private readonly ISecretRepository _secretRepository;
         private readonly IUserRepository _userRepository;
         private readonly IJWTHasher _hasher;
         private readonly ICacheService _cache;
+        private readonly ICoder _coder;
 
         public VaultService(IVaultRepository vaultRepository
             , DBHelper dbHelper, MenuDbContext db, IUserRepository userRepository
-            , ICacheService cache, IJWTHasher hasher)
+            , ICacheService cache, IJWTHasher hasher, ICoder coder, ISecretRepository secretRepository)
         {
             _vaultRepository = vaultRepository;
             _dbHelper = dbHelper;
             _db = db;
             _userRepository = userRepository;
+            _secretRepository = secretRepository;
             _cache = cache;
             _hasher = hasher;
+            _coder = coder;
         }
 
 
@@ -47,33 +51,45 @@ namespace VaultApp.Models.Services.Implementation
         {
             await HasAccessToVaultWithError(vaultId, userInfo);
             (var suc, var users) = await _cache.GetOrSet(VaultUsersCache + vaultId
-                , async () => await _vaultRepository.GetUsers(vaultId)
+                , async () => await _vaultRepository.GetUsersAsync(vaultId)
                 , VaultUsersCacheTime);
             return users;
         }
 
         public async Task<List<Vault>> GetUserVaultsAsync(UserInfo userInfo)
         {
-            return await _vaultRepository.GetFullList(userInfo.UserId);
+            return await _vaultRepository.GetFullListNoTrackAsync(userInfo.UserId);
         }
 
         public async Task<Vault> GetVaultAsync(long vaultId, UserInfo userInfo)
         {
             await HasAccessToVaultWithError(vaultId, userInfo);
-            return await _vaultRepository.GetAsync(vaultId);
+            return await _vaultRepository.GetNoTrackAsync(vaultId);
 
         }
 
-        public async Task<Vault> GetVaultWithSecretAsync(long vaultId, UserInfo userInfo)
+        public async Task<Vault> GetVaultWithSecretAsync(long vaultId, UserInfo userInfo, string vaultPassword)
         {
             await HasAccessToVaultWithError(vaultId, userInfo);
-            var vault = await _vaultRepository.GetAsync(vaultId);
+            var vault = await _vaultRepository.GetNoTrackAsync(vaultId);
             if (vault == null)
             {
                 return null;
             }
 
-            _ = _vaultRepository.LoadSecrets(vault);
+            if (!vault.PasswordHash.Equals(_hasher.GetHash(vaultPassword)))
+            {
+                vaultPassword = null;
+            }
+
+            vault.Secrets = await _secretRepository.GetByVaultIdNoTrackAsync(vault.Id);
+            //_ = _vaultRepository.LoadSecrets(vault);
+            vault.Secrets.ForEach(x => {
+                if (x.IsCoded && !string.IsNullOrEmpty(vaultPassword))
+                {
+                    x.Value = _coder.DecryptFromString(x.Value, vaultPassword);
+                }
+            });
             return vault;
         }
 
@@ -95,7 +111,7 @@ namespace VaultApp.Models.Services.Implementation
                 }
 
                 _cache.Remove(VaultUsersCache + vault.Id);
-                _ = await _vaultRepository.LoadUsers(oldVault);
+                _ = await _vaultRepository.LoadUsersAsync(oldVault);
                 oldVault.Users = oldVault.Users.Where(x => !vault.UsersForDelete.Contains(x.Id)).ToList();
 
                 if (vault.UsersForAdd.Count > 0)
@@ -144,20 +160,7 @@ namespace VaultApp.Models.Services.Implementation
             return await _vaultRepository.DeleteAsync(vaultId) != null;
         }
 
-        private async Task<bool> HasAccessToVault(long vaultId, UserInfo userInfo)
-        {
-            if (userInfo == null)
-            {
-                return false;
-            }
-
-            (var suc, var users) = await _cache.GetOrSet(VaultUsersCache + vaultId
-                , async () => await _vaultRepository.GetUsers(vaultId)
-                , VaultUsersCacheTime);
-
-            return users.FirstOrDefault(x => x.UserId == userInfo.UserId) != null;
-            //return await _vaultRepository.UserInVaultAsync(vaultId, userInfo.UserId);
-        }
+       
 
 
         public async Task HasAccessToVaultWithError(long vaultId, UserInfo userInfo)
@@ -173,6 +176,22 @@ namespace VaultApp.Models.Services.Implementation
             await HasAccessToVaultWithError(vaultId, userInfo);
             var hashedPassword = _hasher.GetHash(password);
             return await _vaultRepository.ExistVaultAsync(vaultId, hashedPassword);
+        }
+
+
+        private async Task<bool> HasAccessToVault(long vaultId, UserInfo userInfo)
+        {
+            if (userInfo == null)
+            {
+                return false;
+            }
+
+            (var suc, var users) = await _cache.GetOrSet(VaultUsersCache + vaultId
+                , async () => await _vaultRepository.GetUsersAsync(vaultId)
+                , VaultUsersCacheTime);
+
+            return users.FirstOrDefault(x => x.UserId == userInfo.UserId) != null;
+            //return await _vaultRepository.UserInVaultAsync(vaultId, userInfo.UserId);
         }
     }
 }

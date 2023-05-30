@@ -13,5 +13,19 @@ namespace BO.Models.VaultApp.Dal
 
         public Vault Vault { get; set; }
         public long VaultId { get; set; }
+
+        public VaultUserDal()
+        {
+
+        }
+
+        public VaultUserDal(VaultUserDal dt)
+        {
+            Id = dt.Id;
+            UserId = dt.UserId;
+            User = dt.User;
+            Vault = dt.Vault;
+            VaultId = dt.VaultId;
+        }
     }
 }

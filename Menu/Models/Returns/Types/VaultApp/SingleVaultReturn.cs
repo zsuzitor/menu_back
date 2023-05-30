@@ -17,6 +17,9 @@ namespace Menu.Models.Returns.Types.VaultApp
         [JsonPropertyName("is_public")]
         public bool IsPublic { get; set; }
 
+        [JsonPropertyName("is_auth")]
+        public bool IsAuth { get; set; }
+
         [JsonPropertyName("secrets")]
         public List<SecretReturn> Secrets { get; set; }
 

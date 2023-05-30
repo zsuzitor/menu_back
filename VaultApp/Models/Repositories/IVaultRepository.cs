@@ -10,10 +10,10 @@ namespace VaultApp.Models.Repositories
 {
     internal interface IVaultRepository : IGeneralRepository<Vault, long>
     {
-        Task<List<VaultUser>> GetUsers(long vaultId);
-        Task<List<VaultUserDal>> LoadUsers(Vault vault);
-        Task<List<Secret>> LoadSecrets(Vault vault);
-        Task<List<Vault>> GetFullList(long userId);
+        Task<List<VaultUser>> GetUsersAsync(long vaultId);
+        Task<List<VaultUserDal>> LoadUsersAsync(Vault vault);
+        Task<List<Secret>> LoadSecretsAsync(Vault vault);
+        Task<List<Vault>> GetFullListNoTrackAsync(long userId);
         //Task<List<Vault>> GetShortList(long userId);
         Task<bool> UserInVaultAsync(long vaultId, long userId);
         Task<bool> ExistVaultAsync(long vaultId, string passwordHash);

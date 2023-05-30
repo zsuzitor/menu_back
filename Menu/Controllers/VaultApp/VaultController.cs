@@ -1,6 +1,7 @@
 ﻿using Common.Models.Error.services.Interfaces;
 using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
+using Menu.Models;
 using Menu.Models.Returns.Types.VaultApp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,12 +25,14 @@ namespace Menu.Controllers.VaultApp
         private readonly IErrorService _errorService;
 
         private readonly IVaultService _vaultService;
+        private readonly IJWTHasher _hasher;
 
 
 
         public VaultController(IApiHelper apiHealper,
             ILogger<VaultController> logger, IJWTService jwtService,
-            IErrorService errorService, IVaultService vaultService
+            IErrorService errorService, IVaultService vaultService,
+            IJWTHasher hasher
         )
         {
             _apiHealper = apiHealper;
@@ -37,6 +40,7 @@ namespace Menu.Controllers.VaultApp
             _errorService = errorService;
             _jwtService = jwtService;
             _vaultService = vaultService;
+            _hasher = hasher;
         }
 
         [Route("get-my-vaults")]
@@ -64,10 +68,19 @@ namespace Menu.Controllers.VaultApp
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
+                    var vaultAuthPassword = Request.Cookies[Constants.VaultAuthCookie];
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _vaultService.GetVaultWithSecretAsync(vaultId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new SingleVaultReturn().Fill(res, null));
+                    var res = await _vaultService.GetVaultWithSecretAsync(vaultId, userInfo, vaultAuthPassword);
+                    var isAuth = false;
+                    if (res.PasswordHash.Equals(_hasher.GetHash(vaultAuthPassword)))
+                    {
+                        isAuth = true;
+                    }
+
+                    var result = new SingleVaultReturn().Fill(res, null);
+                    result.IsAuth = isAuth;
+                    await _apiHealper.WriteResponseAsync(Response, result);
 
                 }, Response, _logger);
         }
@@ -96,6 +109,7 @@ namespace Menu.Controllers.VaultApp
                 async () =>
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    vault.Password = _hasher.GetHash(vault.Password);
 
                     var res = await _vaultService.UpdateVaultAsync(vault, userInfo);
                     var users = await _vaultService.GetUsersAsync(res.Id, userInfo);
@@ -112,6 +126,7 @@ namespace Menu.Controllers.VaultApp
                 async () =>
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    vault.Password = _hasher.GetHash(vault.Password);
 
                     var res = await _vaultService.CreateVaultAsync(vault, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new SingleVaultReturn().Fill(res, null));
@@ -142,10 +157,10 @@ namespace Menu.Controllers.VaultApp
                 async () =>
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-                    var res = await _vaultService.ExistVaultAsync(vaultId, password, userInfo);
+                    var hashPass = _hasher.GetHash(password);
+                    var res = await _vaultService.ExistVaultAsync(vaultId, hashPass, userInfo);
+                    Response.Cookies.Append(Constants.VaultAuthCookie, hashPass, new CookieOptions() { HttpOnly = true });
                     await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
-                    Response.Cookies.Append("Auth_Vault"+ vaultId, password, new CookieOptions() { HttpOnly = true });
                 }, Response, _logger);
         }
     }

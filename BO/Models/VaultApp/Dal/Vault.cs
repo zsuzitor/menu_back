@@ -1,6 +1,8 @@
 ﻿using BO.Models.DAL;
 using System.Collections.Generic;
 using BO.Models.DAL.Domain;
+using System.Linq;
+
 
 namespace BO.Models.VaultApp.Dal
 {
@@ -18,6 +20,16 @@ namespace BO.Models.VaultApp.Dal
         {
             Secrets = new List<Secret>();
             Users = new List<VaultUserDal>();
+        }
+
+        public Vault(Vault dt)
+        {
+            Id = dt.Id;
+            Name = dt.Name;
+            PasswordHash = dt.PasswordHash;
+            IsPublic = dt.IsPublic;
+            Secrets = dt.Secrets?.Select(x => new Secret(x)).ToList();
+            Users = dt.Users?.Select(x => new VaultUserDal(x)).ToList();
         }
     }
 }

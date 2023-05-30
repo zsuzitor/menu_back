@@ -165,6 +165,10 @@ namespace Menu
             services.AddSingleton<IWorker, Worker>();
             services.AddSingleton<ICacheAccessor, MemoryCacheAccessor>();
             services.AddSingleton<ICacheService, CacheService>();
+            services.AddSingleton<ICoder, AesCoder1>();
+
+            //
+
             if (mailSendingConfig.MockMailing)
             {
                 services.AddSingleton<IEmailServiceSender, EmailServiceSenderMock>();

@@ -10,6 +10,8 @@ namespace VaultApp.Models.Repositories
     internal interface ISecretRepository : IGeneralRepository<Secret, long>
     {
         Task DeleteExpiredSecrets();
-        Task<List<Secret>> GetByVaultIdAsync(long vaultId);
+        //Task<List<Secret>> GetByVaultIdNoTrackAsync(long vaultId);
+        Task<List<Secret>> GetByVaultIdNoTrackAsync(long vaultId);
+        Task<long> GetVaultIdAsync(long secretId);
     }
 }

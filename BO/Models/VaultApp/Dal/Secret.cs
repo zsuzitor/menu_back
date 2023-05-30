@@ -15,5 +15,22 @@ namespace BO.Models.VaultApp.Dal
 
         public long VaultId { get; set; }
         public Vault Vault { get; set; }
+
+        public Secret()
+        {
+
+        }
+
+        public Secret(Secret dt)
+        {
+            Id = dt.Id;
+            Key = dt.Key;
+            Value = dt.Value;
+            IsCoded = dt.IsCoded;
+            IsPublic = dt.IsPublic;
+            DieDate = dt.DieDate;
+            VaultId = dt.VaultId;
+            Vault = dt.Vault;
+        }
     }
 }

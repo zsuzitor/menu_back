@@ -1,6 +1,7 @@
 ﻿using Common.Models.Error.services.Interfaces;
 using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
+using Menu.Models;
 using Menu.Models.Returns.Types.VaultApp;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -45,9 +46,10 @@ namespace Menu.Controllers.VaultApp
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
+                    var vaultAuthPassword = Request.Cookies[Constants.VaultAuthCookie];
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = (await _secretService.GetSecretsAsync(vaultId, userInfo))
+                    var res = (await _secretService.GetSecretsAsync(vaultId, userInfo, vaultAuthPassword))
                         .Select(x => new SecretReturn().Fill(x));
                     await _apiHealper.WriteResponseAsync(Response, res);
 
@@ -76,9 +78,10 @@ namespace Menu.Controllers.VaultApp
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
+                    var vaultAuthPassword = Request.Cookies[Constants.VaultAuthCookie];
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _secretService.CreateSecretAsync(secret, userInfo);
+                    var res = await _secretService.CreateSecretAsync(secret, userInfo, vaultAuthPassword);
                     await _apiHealper.WriteResponseAsync(Response, new SecretReturn().Fill(res));
 
                 }, Response, _logger);
@@ -92,9 +95,10 @@ namespace Menu.Controllers.VaultApp
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
+                    var vaultAuthPassword = Request.Cookies[Constants.VaultAuthCookie];
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _secretService.UpdateSecretAsync(secret, userInfo);
+                    var res = await _secretService.UpdateSecretAsync(secret, userInfo, vaultAuthPassword);
                     await _apiHealper.WriteResponseAsync(Response, new SecretReturn().Fill(res));
 
                 }, Response, _logger);

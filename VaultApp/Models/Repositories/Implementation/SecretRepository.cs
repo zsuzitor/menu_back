@@ -23,9 +23,20 @@ namespace VaultApp.Models.Repositories.Implementation
             await _db.SaveChangesAsync();
         }
 
-        public async Task<List<Secret>> GetByVaultIdAsync(long vaultId)
+        //public async Task<List<Secret>> GetByVaultIdAsync(long vaultId)
+        //{
+        //    return await _db.Secrets.Where(x => x.VaultId == vaultId).ToListAsync();
+        //}
+
+        public async Task<List<Secret>> GetByVaultIdNoTrackAsync(long vaultId)
         {
-            return await _db.Secrets.Where(x => x.VaultId == vaultId).ToListAsync();
+            return await _db.Secrets.AsNoTracking().Where(x => x.VaultId == vaultId).ToListAsync();
+
+        }
+
+        public async Task<long> GetVaultIdAsync(long secretId)
+        {
+            return await _db.Secrets.Where(x => x.Id == secretId).Select(x => x.VaultId).FirstOrDefaultAsync();
         }
     }
 }

@@ -18,26 +18,26 @@ namespace VaultApp.Models.Repositories.Implementation
 
         }
 
-        public async Task<List<Vault>> GetFullList(long userId)
+        public async Task<List<Vault>> GetFullListNoTrackAsync(long userId)
         {
-            return await _db.VaultUsers.Where(x => x.UserId == userId)
+            return await _db.VaultUsers.AsNoTracking().Where(x => x.UserId == userId)
                 .Join(_db.Vaults, (x1 => x1.VaultId), (x2 => x2.Id), (x3, x4) => x4).ToListAsync();
         }
 
-        public async Task<List<VaultUser>> GetUsers(long vaultId)
+        public async Task<List<VaultUser>> GetUsersAsync(long vaultId)
         {
             return await _db.VaultUsers.Where(x => x.VaultId == vaultId)
                 .Join(_db.Users, x1 => x1.UserId, x2 => x2.Id,
                 (x3, x4) => new VaultUser() { Id = x3.Id, UserId = x3.UserId, Email = x4.Email }).ToListAsync();
         }
 
-        public async Task<List<VaultUserDal>> LoadUsers(Vault vault)
+        public async Task<List<VaultUserDal>> LoadUsersAsync(Vault vault)
         {
             await _db.Entry(vault).Collection(x => x.Users).LoadAsync();
             return vault.Users;
         }
 
-        public async Task<List<Secret>> LoadSecrets(Vault vault)
+        public async Task<List<Secret>> LoadSecretsAsync(Vault vault)
         {
             await _db.Entry(vault).Collection(x => x.Secrets).LoadAsync();
             return vault.Secrets;
@@ -51,7 +51,7 @@ namespace VaultApp.Models.Repositories.Implementation
 
         public async Task<bool> ExistVaultAsync(long vaultId, string passwordHash)
         {
-            return (await _db.Vaults.Where(x => x.Id == vaultId && x.PasswordHash == passwordHash)
+            return (await _db.Vaults.AsNoTracking().Where(x => x.Id == vaultId && x.PasswordHash == passwordHash)
                  .Select(x => x.Id).FirstOrDefaultAsync()) != 0;
         }
     }
