@@ -34,6 +34,12 @@ namespace VaultApp.Models.Repositories.Implementation
 
         }
 
+        public async Task<List<Secret>> GetCodedByVaultIdAsync(long vaultId)
+        {
+            return await _db.Secrets.Where(x => x.VaultId == vaultId && x.IsCoded).ToListAsync();
+
+        }
+
         public async Task<long> GetVaultIdAsync(long secretId)
         {
             return await _db.Secrets.Where(x => x.Id == secretId).Select(x => x.VaultId).FirstOrDefaultAsync();

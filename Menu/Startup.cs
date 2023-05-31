@@ -166,6 +166,9 @@ namespace Menu
             services.AddSingleton<ICacheAccessor, MemoryCacheAccessor>();
             services.AddSingleton<ICacheService, CacheService>();
             services.AddSingleton<ICoder, AesCoder1>();
+            services.AddSingleton<IHasher, Hasher>();
+
+            //
 
             //
 

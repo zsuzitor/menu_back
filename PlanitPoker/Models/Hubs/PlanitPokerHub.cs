@@ -19,6 +19,7 @@ using PlanitPoker.Models.Entity;
 using System.Text.RegularExpressions;
 using Menu.Models.Services.Interfaces;
 using BO.Models.DAL.Domain;
+using BL.Models.Services.Interfaces;
 
 namespace PlanitPoker.Models.Hubs
 {
@@ -34,7 +35,7 @@ namespace PlanitPoker.Models.Hubs
         private readonly IPlanitPokerService _planitPokerService;
         private readonly IJWTService _jwtService;
         private readonly IPlanitApiHelper _apiHealper;
-        private readonly IJWTHasher _hasher;
+        private readonly IHasher _hasher;
         private readonly IErrorService _errorService;
 
         private readonly IErrorContainer _errorContainer;
@@ -49,15 +50,10 @@ namespace PlanitPoker.Models.Hubs
 
 
 
-
-
-
-
-
         public PlanitPokerHub(MultiThreadHelper multiThreadHelper,
             IStringValidator stringValidator, IPlanitPokerService planitPokerService,
             IUserService userService,
-            IPlanitApiHelper apiHealper, IJWTService jwtService, IJWTHasher hasher, IErrorService errorService
+            IPlanitApiHelper apiHealper, IJWTService jwtService, IHasher hasher, IErrorService errorService
             , IErrorContainer errorContainer, ILogger<PlanitPokerHub> logger, ILoggerFactory loggerFactory)
         {
             _multiThreadHelper = multiThreadHelper;

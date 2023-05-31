@@ -12,6 +12,7 @@ namespace VaultApp.Models.Repositories
         Task DeleteExpiredSecrets();
         //Task<List<Secret>> GetByVaultIdNoTrackAsync(long vaultId);
         Task<List<Secret>> GetByVaultIdNoTrackAsync(long vaultId);
+        Task<List<Secret>> GetCodedByVaultIdAsync(long vaultId);
         Task<long> GetVaultIdAsync(long secretId);
     }
 }

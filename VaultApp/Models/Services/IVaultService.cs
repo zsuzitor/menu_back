@@ -15,11 +15,14 @@ namespace VaultApp.Models.Services
         Task<Vault> GetVaultAsync(long vaultId, UserInfo userInfo);
         Task<Vault> GetVaultWithSecretAsync(long vaultId, UserInfo userInfo, string vaultPassword);
         Task<List<VaultUser>> GetUsersAsync(long vaultId, UserInfo userInfo);
-        Task<Vault> UpdateVaultAsync(UpdateVault vault, UserInfo userInfo);
+        Task<Vault> UpdateVaultAsync(UpdateVault vault, UserInfo userInfo, string vaultPassword);
         Task<Vault> CreateVaultAsync(CreateVault vault, UserInfo userInfo);
         Task<bool> DeleteVaultAsync(long vaultId, UserInfo userInfo);
         Task<bool> ExistVaultAsync(long vaultId, string password, UserInfo userInfo);
+        Task<bool> ExistVaultOrNullPasswordAsync(long vaultId, string password, UserInfo userInfo);
         Task HasAccessToVaultWithError(long vaultId, UserInfo userInfo);
+        Task<bool> ChangePasswordAsync(long vaultId, string oldPassword, string newPassword, UserInfo userInfo);
+
 
     }
 }

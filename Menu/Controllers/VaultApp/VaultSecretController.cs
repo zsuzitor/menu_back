@@ -111,9 +111,10 @@ namespace Menu.Controllers.VaultApp
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    var vaultAuthPassword = Request.Cookies[Constants.VaultAuthCookie];
 
-                    var res = await _secretService.GetSecretAsync(secretId, userInfo);
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    var res = await _secretService.GetSecretAsync(secretId, userInfo, vaultAuthPassword);
                     await _apiHealper.WriteResponseAsync(Response, new SecretReturn().Fill(res));
 
                 }, Response, _logger);

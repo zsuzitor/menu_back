@@ -2880,6 +2880,33 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".user-list-role-but {\r\n    display: 
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/Vault/Components/CreateSecret/CreateSecret.css":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/Vault/Components/CreateSecret/CreateSecret.css ***!
+  \*******************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/Vault/Components/CreateVault/CreateVault.css":
 /*!*****************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/Vault/Components/CreateVault/CreateVault.css ***!
@@ -2954,7 +2981,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".vault-secrets-list {\r\n    display: flex;\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n}\r\n\r\n.vault-secrets-list input.form-control {\r\n    height: 30px;\r\n}\r\n\r\n.vault-auth {\r\n    display: flex;\r\n}\r\n\r\n.vault-auth input {\r\n    width: 200px;\r\n}\r\n\r\n.vault-header {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.vault-header .buttons-block {\r\n    display: flex;\r\n    row-gap: 20px;\r\n}\r\n\r\n.vault-header .vault-name {\r\n    font-size: x-large;\r\n    font-weight: bold;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/OneVault/OneVault.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,aAAa;IACb,eAAe;IACf,iBAAiB;AACrB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,aAAa;IACb,aAAa;AACjB;;AAEA;IACI,kBAAkB;IAClB,iBAAiB;AACrB","sourcesContent":[".vault-secrets-list {\r\n    display: flex;\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n}\r\n\r\n.vault-secrets-list input.form-control {\r\n    height: 30px;\r\n}\r\n\r\n.vault-auth {\r\n    display: flex;\r\n}\r\n\r\n.vault-auth input {\r\n    width: 200px;\r\n}\r\n\r\n.vault-header {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.vault-header .buttons-block {\r\n    display: flex;\r\n    row-gap: 20px;\r\n}\r\n\r\n.vault-header .vault-name {\r\n    font-size: x-large;\r\n    font-weight: bold;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".vault-secrets-list {\r\n    display: flex;\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n}\r\n\r\n.vault-secrets-list input.form-control {\r\n    height: 30px;\r\n}\r\n\r\n.vault-auth {\r\n    display: flex;\r\n}\r\n\r\n.vault-auth input {\r\n    width: 200px;\r\n}\r\n\r\n.vault-header {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.vault-header .buttons-block .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n.vault-header .buttons-block {\r\n    display: flex;\r\n    gap: 5px;\r\n}\r\n\r\n.vault-header .vault-name {\r\n    font-size: x-large;\r\n    font-weight: bold;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/OneVault/OneVault.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,aAAa;IACb,eAAe;IACf,iBAAiB;AACrB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,QAAQ;AACZ;;AAEA;IACI,kBAAkB;IAClB,iBAAiB;AACrB","sourcesContent":[".vault-secrets-list {\r\n    display: flex;\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n}\r\n\r\n.vault-secrets-list input.form-control {\r\n    height: 30px;\r\n}\r\n\r\n.vault-auth {\r\n    display: flex;\r\n}\r\n\r\n.vault-auth input {\r\n    width: 200px;\r\n}\r\n\r\n.vault-header {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.vault-header .buttons-block .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n.vault-header .buttons-block {\r\n    display: flex;\r\n    gap: 5px;\r\n}\r\n\r\n.vault-header .vault-name {\r\n    font-size: x-large;\r\n    font-weight: bold;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3035,7 +3062,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n@media all and (min-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 40px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 110px;\r\n    }\r\n}\r\n\r\n@media all and (min-width: 460px) and (max-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 80px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 140px;\r\n    }\r\n}\r\n\r\n.vault-secret-more .more-data {\r\n    display: flex;\r\n}\r\n\r\n.vault-secret-new {\r\n    /* border-color: green;\r\n    border: 0.3px solid green; */\r\n    box-shadow: 0 0 5px green;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    /* height: 130px; */\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/VaultSecret/VaultSecret.css"],"names":[],"mappings":"AAAA;IACI,4BAA4B;IAC5B,uBAAuB;IACvB,WAAW;IACX,kBAAkB;IAClB,oCAAoC;IACpC,gBAAgB;IAChB,YAAY;IACZ,6CAA6C;IAC7C,4BAA4B;AAChC;;AAEA;IACI;QACI,YAAY;IAChB;;IAEA;QACI,uBAAuB;QACvB,aAAa;IACjB;AACJ;;AAEA;IACI;QACI,YAAY;IAChB;;IAEA;QACI,uBAAuB;QACvB,aAAa;IACjB;AACJ;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI;gCAC4B;IAC5B,yBAAyB;AAC7B;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,uBAAuB;IACvB,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,cAAc;AAClB;;AAEA,oBAAoB;;AAEpB;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;AACtB;;;;AAIA;IACI,aAAa;IACb,SAAS;AACb;;;AAGA;IACI,YAAY;IACZ,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA,wBAAwB;;AAExB,oBAAoB;;;AAGpB,wBAAwB;;AAExB;IACI,aAAa;IACb,QAAQ;IACR,iBAAiB;AACrB","sourcesContent":[".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n@media all and (min-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 40px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 110px;\r\n    }\r\n}\r\n\r\n@media all and (min-width: 460px) and (max-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 80px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 140px;\r\n    }\r\n}\r\n\r\n.vault-secret-more .more-data {\r\n    display: flex;\r\n}\r\n\r\n.vault-secret-new {\r\n    /* border-color: green;\r\n    border: 0.3px solid green; */\r\n    box-shadow: 0 0 5px green;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    /* height: 130px; */\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n@media all and (min-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 40px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 110px;\r\n    }\r\n}\r\n\r\n@media all and (min-width: 460px) and (max-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 80px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 140px;\r\n    }\r\n}\r\n\r\n\r\n.vault-secret-new {\r\n    /* border-color: green;\r\n    border: 0.3px solid green; */\r\n    box-shadow: 0 0 5px green;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    /* height: 130px; */\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n.vault-secret-more .more-data {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/VaultSecret/VaultSecret.css"],"names":[],"mappings":"AAAA;IACI,4BAA4B;IAC5B,uBAAuB;IACvB,WAAW;IACX,kBAAkB;IAClB,oCAAoC;IACpC,gBAAgB;IAChB,YAAY;IACZ,6CAA6C;IAC7C,4BAA4B;AAChC;;AAEA;IACI;QACI,YAAY;IAChB;;IAEA;QACI,uBAAuB;QACvB,aAAa;IACjB;AACJ;;AAEA;IACI;QACI,YAAY;IAChB;;IAEA;QACI,uBAAuB;QACvB,aAAa;IACjB;AACJ;;;AAGA;IACI;gCAC4B;IAC5B,yBAAyB;AAC7B;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,uBAAuB;IACvB,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,cAAc;AAClB;;AAEA,oBAAoB;;AAEpB;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,SAAS;AACb;;AAEA;IACI,aAAa;IACb,eAAe;AACnB;;;AAGA;IACI,YAAY;IACZ,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA,wBAAwB;;AAExB,oBAAoB;;;AAGpB,wBAAwB;;AAExB;IACI,aAAa;IACb,QAAQ;IACR,iBAAiB;AACrB","sourcesContent":[".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n@media all and (min-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 40px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 110px;\r\n    }\r\n}\r\n\r\n@media all and (min-width: 460px) and (max-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 80px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 140px;\r\n    }\r\n}\r\n\r\n\r\n.vault-secret-new {\r\n    /* border-color: green;\r\n    border: 0.3px solid green; */\r\n    box-shadow: 0 0 5px green;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    /* height: 130px; */\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n.vault-secret-more .more-data {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46844,6 +46871,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/Apps/Vault/Components/CreateSecret/CreateSecret.css":
+/*!*****************************************************************!*\
+  !*** ./src/Apps/Vault/Components/CreateSecret/CreateSecret.css ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_CreateSecret_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./CreateSecret.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/Vault/Components/CreateSecret/CreateSecret.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_CreateSecret_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_CreateSecret_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_CreateSecret_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_CreateSecret_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/Apps/Vault/Components/CreateVault/CreateVault.css":
 /*!***************************************************************!*\
   !*** ./src/Apps/Vault/Components/CreateVault/CreateVault.css ***!
@@ -56083,6 +56165,146 @@ exports.UserReducer = UserReducer;
 
 /***/ }),
 
+/***/ "./src/Apps/Vault/Components/CreateSecret/CreateSecret.tsx":
+/*!*****************************************************************!*\
+  !*** ./src/Apps/Vault/Components/CreateSecret/CreateSecret.tsx ***!
+  \*****************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var CreateSecretSetup_1 = __importDefault(__webpack_require__(/*! ./CreateSecretSetup */ "./src/Apps/Vault/Components/CreateSecret/CreateSecretSetup.tsx"));
+var Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
+var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
+__webpack_require__(/*! ./CreateSecret.css */ "./src/Apps/Vault/Components/CreateSecret/CreateSecret.css");
+__webpack_require__(/*! ../VaultSecret/VaultSecret.css */ "./src/Apps/Vault/Components/VaultSecret/VaultSecret.css");
+var CreateSecret = function (props) {
+    var _a;
+    var _b = (0, react_1.useState)(''), secretKey = _b[0], setSecretKey = _b[1];
+    var _c = (0, react_1.useState)(''), secretValue = _c[0], setSecretValue = _c[1];
+    var _d = (0, react_1.useState)(null), secretDieDate = _d[0], setSecretDieDate = _d[1];
+    var _e = (0, react_1.useState)(false), secretIsCoded = _e[0], setSecretIsCoded = _e[1];
+    var _f = (0, react_1.useState)(false), secretIsPublic = _f[0], setSecretIsPublic = _f[1];
+    (0, react_1.useEffect)(function () {
+    }, []);
+    var defaultDieDate = '3000-01-01';
+    var helper = new Helper_1.Helper();
+    function cancelChanges() {
+        setSecretValue('');
+        setSecretKey('');
+        setSecretDieDate(null);
+        setSecretIsCoded(false);
+        setSecretIsPublic(false);
+    }
+    return react_1.default.createElement("div", { className: 'vault-secret' },
+        react_1.default.createElement("div", { className: 'vault-secret-main' },
+            react_1.default.createElement("div", { className: 'vault-secret-key', title: secretKey },
+                react_1.default.createElement("input", { type: 'text', className: 'form-control', value: secretKey, onChange: function (e) { return setSecretKey(e.target.value); } })),
+            react_1.default.createElement("div", { className: 'vault-secret-val' },
+                react_1.default.createElement("textarea", { value: secretValue, className: 'form-control', onChange: function (e) { return setSecretValue(e.target.value); } })),
+            react_1.default.createElement("div", { className: 'vault-secret-main-buttons' },
+                react_1.default.createElement("div", { className: 'but', title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C', onClick: function () {
+                        if (!secretKey) {
+                            G_AddAbsoluteAlertToState(new AlertData_1.AlertData().GetDefaultError("Ключ обязателен для заполнения"));
+                            return;
+                        }
+                        if (!secretValue) {
+                            G_AddAbsoluteAlertToState(new AlertData_1.AlertData().GetDefaultError("Значение обязательно для заполнения"));
+                            return;
+                        }
+                        if (secretIsCoded && !props.VaultIsAuthorized) {
+                            G_AddAbsoluteAlertToState(new AlertData_1.AlertData().GetDefaultError("Для работы с  зашифрованным secret необходимо авторизовать Vault"));
+                            return;
+                        }
+                        var newData = {};
+                        newData.Key = secretKey;
+                        newData.Value = secretValue;
+                        newData.VaultId = props.VaultId;
+                        newData.IsPublic = secretIsPublic;
+                        newData.IsCoded = secretIsCoded;
+                        newData.DieDate = secretDieDate || null; //</>new Date(defaultDieDate);
+                        props.CreateSecret(newData);
+                        cancelChanges();
+                    } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'save-icon.png' })),
+                react_1.default.createElement("div", { className: 'but', title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F', onClick: function () {
+                        cancelChanges();
+                    } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'cancel.png' })))),
+        react_1.default.createElement("div", { className: 'vault-secret-more' },
+            react_1.default.createElement("div", { className: 'more-data' },
+                react_1.default.createElement("label", null, "\u0417\u0430\u0448\u0438\u0444\u0440\u043E\u0432\u0430\u043D\u043E"),
+                react_1.default.createElement("input", { type: 'checkbox', checked: secretIsCoded, onChange: function () { return setSecretIsCoded(!secretIsCoded); } }),
+                react_1.default.createElement("label", null, "\u041F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0439"),
+                react_1.default.createElement("input", { type: 'checkbox', checked: secretIsPublic, onChange: function () { return setSecretIsPublic(!secretIsPublic); } }),
+                react_1.default.createElement("label", null, "\u0421\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442 \u0434\u043E:"),
+                react_1.default.createElement("input", { type: 'date', value: (_a = helper.DateToYMD(secretDieDate)) !== null && _a !== void 0 ? _a : defaultDieDate, className: 'form-control', style: { width: '140px' }, onChange: function (e) {
+                        setSecretDieDate(e.target.valueAsDate);
+                        // console.log('d2' + e.target.valueAsDate);
+                    } }))));
+};
+exports["default"] = (0, CreateSecretSetup_1.default)(CreateSecret);
+
+
+/***/ }),
+
+/***/ "./src/Apps/Vault/Components/CreateSecret/CreateSecretSetup.tsx":
+/*!**********************************************************************!*\
+  !*** ./src/Apps/Vault/Components/CreateSecret/CreateSecretSetup.tsx ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var mapStateToProps = function (state, ownProps) {
+    var _a, _b;
+    var res = {};
+    res.VaultIsAuthorized = (_b = (_a = state.VaultApp.CurrentVault) === null || _a === void 0 ? void 0 : _a.IsAuthorized) !== null && _b !== void 0 ? _b : false;
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    res.CreateSecret = function (secret) {
+        dispatch(window.G_VaultController.CreateSecretRedux(secret));
+    };
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+// and that function returns the connected, wrapper component:
+
+
+/***/ }),
+
 /***/ "./src/Apps/Vault/Components/CreateVault/CreateVault.tsx":
 /*!***************************************************************!*\
   !*** ./src/Apps/Vault/Components/CreateVault/CreateVault.tsx ***!
@@ -56132,6 +56354,7 @@ var CreateVaultSetup_1 = __importDefault(__webpack_require__(/*! ./CreateVaultSe
 var VaultUser_1 = __importDefault(__webpack_require__(/*! ../VaultUser/VaultUser */ "./src/Apps/Vault/Components/VaultUser/VaultUser.tsx"));
 var UpdateVaultEntity_1 = __webpack_require__(/*! ../../Models/Entity/UpdateVaultEntity */ "./src/Apps/Vault/Models/Entity/UpdateVaultEntity.ts");
 var VaultUser_2 = __webpack_require__(/*! ../../Models/Entity/State/VaultUser */ "./src/Apps/Vault/Models/Entity/State/VaultUser.ts");
+var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 __webpack_require__(/*! ./CreateVault.css */ "./src/Apps/Vault/Components/CreateVault/CreateVault.css");
 var CreateVault = function (props) {
     var _a, _b, _c, _d, _e, _f;
@@ -56159,10 +56382,17 @@ var CreateVault = function (props) {
         react_1.default.createElement("input", { type: 'text', placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: vaultName, className: 'form-control', onChange: function (e) { return setVaultName(e.target.value); } }),
         react_1.default.createElement("label", null, "\u041F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0439"),
         react_1.default.createElement("input", { type: 'checkbox', placeholder: '\u041F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0439', checked: vaultPublic, className: 'form-control m-checkbox', onChange: function (e) { return setVaultPublic(e.target.checked); } }),
-        ((_e = props.Vault) === null || _e === void 0 ? void 0 : _e.Id) ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement(react_1.default.Fragment, null,
-            react_1.default.createElement("input", { type: 'password', value: vaultPassword, onChange: function (e) {
-                    return setVaultPassword(e.target.value);
-                } })),
+        react_1.default.createElement("input", { type: 'password', value: vaultPassword, className: 'form-control', onChange: function (e) {
+                return setVaultPassword(e.target.value);
+            } }),
+        ((_e = props.Vault) === null || _e === void 0 ? void 0 : _e.Id) ? react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () {
+                    if (!vaultPassword) {
+                        G_AddAbsoluteAlertToState(new AlertData_1.AlertData().GetDefaultError("Пароль обязателен для заполнения"));
+                        return;
+                    }
+                    props.UpdateVaultPassword(props.Vault.Id, vaultPassword);
+                } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C")) : react_1.default.createElement(react_1.default.Fragment, null),
         ((_f = props.Vault) === null || _f === void 0 ? void 0 : _f.Id) ? react_1.default.createElement(react_1.default.Fragment, null,
             react_1.default.createElement("p", null, "\u041B\u044E\u0434\u0438 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430"),
             people.map(function (u) { return react_1.default.createElement(VaultUser_1.default, { key: u.Email, User: u, MarkedAsDeleted: deletedUser.findIndex(function (x) { return x == u.Id; }) >= 0, Delete: function () {
@@ -56237,6 +56467,9 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     res.UpdateVault = function (vault, successCallBack) {
         dispatch(window.G_VaultController.UpdateVaultRedux(vault, successCallBack));
+    };
+    res.UpdateVaultPassword = function (vaultId, pwd) {
+        dispatch(window.G_VaultController.UpdateVaultPasswordRedux(vaultId, pwd));
     };
     return res;
 };
@@ -56366,8 +56599,8 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var VaultSecret_1 = __importDefault(__webpack_require__(/*! ../VaultSecret/VaultSecret */ "./src/Apps/Vault/Components/VaultSecret/VaultSecret.tsx"));
 var CreateVault_1 = __importDefault(__webpack_require__(/*! ../CreateVault/CreateVault */ "./src/Apps/Vault/Components/CreateVault/CreateVault.tsx"));
 var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
-var OneVaultSecret_1 = __webpack_require__(/*! ../../Models/Entity/State/OneVaultSecret */ "./src/Apps/Vault/Models/Entity/State/OneVaultSecret.ts");
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
+var CreateSecret_1 = __importDefault(__webpack_require__(/*! ../CreateSecret/CreateSecret */ "./src/Apps/Vault/Components/CreateSecret/CreateSecret.tsx"));
 __webpack_require__(/*! ./OneVault.css */ "./src/Apps/Vault/Components/OneVault/OneVault.css");
 var OneVault = function (props) {
     // const [code, setCode] = useState('');
@@ -56378,7 +56611,8 @@ var OneVault = function (props) {
     // let vault = props.Vaults.find(x => x.Id === props.VaultId);
     var vault = props.Vault;
     (0, react_1.useEffect)(function () {
-        if (!props.VaultId) {
+        //if (!props.VaultId)
+        {
             //todo это полная копия из vaultMain, вынести в 1 место
             var pathNameUrlSplit = document.location.pathname.split('/');
             if (pathNameUrlSplit && pathNameUrlSplit.length > 3 && pathNameUrlSplit[2] === 'vault') {
@@ -56387,6 +56621,7 @@ var OneVault = function (props) {
                 }
             }
         }
+        return function () { props.CloseCurrentVault(); };
     }, []);
     (0, react_1.useEffect)(function () {
         if (!props.VaultId) {
@@ -56416,7 +56651,8 @@ var OneVault = function (props) {
             backLink,
             react_1.default.createElement("div", null, "\u041D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E"));
     }
-    var secretForNewForm = new OneVaultSecret_1.OneVaultSecret();
+    var secretsForView = vault.Secrets.filter(function (x) { return !filterSecretKey
+        || (x.Key.indexOf(filterSecretKey) != -1); });
     return react_1.default.createElement("div", { className: 'one-vault-list' },
         showEditForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowEditForm(false); }, IsHeightWindow: true, Title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0445\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0430', InnerContent: function () { return react_1.default.createElement(CreateVault_1.default, { Vault: vault, WasCreated: function () { return setShowEditForm(false); } }); } }) : react_1.default.createElement(react_1.default.Fragment, null),
         backLink,
@@ -56424,17 +56660,19 @@ var OneVault = function (props) {
             react_1.default.createElement("div", { className: 'vault-header' },
                 react_1.default.createElement("label", { className: 'vault-name' }, vault.Name),
                 react_1.default.createElement("div", { className: 'buttons-block' },
-                    react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return setShowEditForm(true); } }, "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C"),
-                    react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () {
+                    react_1.default.createElement("div", { className: 'but', title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C', onClick: function () { return setShowEditForm(true); } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'pencil-edit.png' })),
+                    react_1.default.createElement("div", { className: 'but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () {
                             props.DeleteVault(props.Vault.Id);
                             document.getElementById('list_vault_link_id').click();
-                        } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"))),
-            react_1.default.createElement("div", null,
-                react_1.default.createElement("button", { onClick: function () {
-                        var passLen = Math.floor(Math.random() * 5) + 9; //генерим от 0 до 4, и прибавляем 9, получаем от 9 до 13
-                        navigator.clipboard.writeText(passwordGenerate(10));
-                        G_AddAbsoluteAlertToState(new AlertData_1.AlertData().GetDefaultNotify("Скопировано"));
-                    } }, "\u0421\u0433\u0435\u043D\u0435\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C")),
+                        } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'delete-icon.png' })),
+                    react_1.default.createElement("div", { className: 'but', title: '\u0421\u0433\u0435\u043D\u0435\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', onClick: function () {
+                            var passLen = Math.floor(Math.random() * 5) + 13; //генерим от 0 до y-1, и прибавляем x, получаем от 0+x до y-1+x
+                            navigator.clipboard.writeText(passwordGenerate(10));
+                            G_AddAbsoluteAlertToState(new AlertData_1.AlertData().GetDefaultNotify("Скопировано"));
+                        } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'key.png' })))),
             props.VaultIsAuthorized ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement("div", { className: 'vault-auth' },
                 react_1.default.createElement("input", { type: 'password', className: 'form-control', value: vaultPassword, onChange: function (e) {
                         return setVaultPassword(e.target.value);
@@ -56442,11 +56680,11 @@ var OneVault = function (props) {
                 react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () {
                         return props.VaultAuth(props.VaultId, vaultPassword);
                     } }, "\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u0442\u044C Vault"))),
-        react_1.default.createElement("input", { type: 'text', className: 'form-control', placeholder: '\u041F\u043E\u0438\u0441\u043A', onChange: (function (e) { return setFilterSecretKey(e.target.value); }), value: filterSecretKey }),
         react_1.default.createElement("div", { className: 'vault-secrets-list' },
-            react_1.default.createElement(VaultSecret_1.default, { key: "new_secret", IsNew: true, Secret: secretForNewForm, VaultId: vault.Id }),
-            vault.Secrets.filter(function (x) { return !filterSecretKey || (x.Key.indexOf(filterSecretKey) != -1); })
-                .map(function (s) { return react_1.default.createElement(VaultSecret_1.default, { key: s.Id, Secret: s, IsNew: false }); })));
+            react_1.default.createElement(CreateSecret_1.default, { VaultId: vault.Id }),
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("input", { type: 'text', className: 'form-control', placeholder: '\u041F\u043E\u0438\u0441\u043A', onChange: (function (e) { return setFilterSecretKey(e.target.value); }), value: filterSecretKey })),
+            secretsForView.length > 0 ? react_1.default.createElement(react_1.default.Fragment, null, secretsForView.map(function (s) { return react_1.default.createElement(VaultSecret_1.default, { key: s.Id, Secret: s }); })) : react_1.default.createElement(react_1.default.Fragment, null, "\u0417\u0434\u0435\u0441\u044C \u043F\u043E\u043A\u0430 \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435\u0442")));
 };
 exports["default"] = (0, OneVaultSetup_1.default)(OneVault);
 
@@ -56490,6 +56728,10 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     res.VaultAuth = function (vaultId, password) {
         dispatch(window.G_VaultController.VaultAuthorizeRedux(vaultId, password));
+    };
+    res.CloseCurrentVault = function () {
+        dispatch((0, VaultActions_1.ChangeCurrentVaultIdActionCreator)({ Id: 0 }));
+        dispatch((0, VaultActions_1.SetCurrentVaultActionCreator)(null));
     };
     return res;
 };
@@ -56734,20 +56976,21 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 var VaultSecretSetup_1 = __importDefault(__webpack_require__(/*! ./VaultSecretSetup */ "./src/Apps/Vault/Components/VaultSecret/VaultSecretSetup.tsx"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
+var Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
 __webpack_require__(/*! ./VaultSecret.css */ "./src/Apps/Vault/Components/VaultSecret/VaultSecret.css");
 var VaultSecret = function (props) {
-    var _a, _b;
+    var _a, _b, _c;
     var secret = props.Secret;
     if (!secret) {
         secret = props.SingleSecret;
     }
-    var _c = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.Key) || ''), secretKey = _c[0], setSecretKey = _c[1];
-    var _d = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.Value) || ''), secretValue = _d[0], setSecretValue = _d[1];
-    var _e = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.DieDate) || null), secretDieDate = _e[0], setSecretDieDate = _e[1];
-    var _f = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded), secretIsCoded = _f[0], setSecretIsCoded = _f[1];
-    var _g = (0, react_1.useState)((_a = secret === null || secret === void 0 ? void 0 : secret.IsPublic) !== null && _a !== void 0 ? _a : false), secretIsPublic = _g[0], setSecretIsPublic = _g[1];
-    var _h = (0, react_1.useState)(false), showMoreInfo = _h[0], setShowMoreInfo = _h[1];
-    var _j = (0, react_1.useState)(false), showSecretValue = _j[0], setShowSecretValue = _j[1];
+    var _d = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.Key) || ''), secretKey = _d[0], setSecretKey = _d[1];
+    var _e = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.Value) || ''), secretValue = _e[0], setSecretValue = _e[1];
+    var _f = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.DieDate) || null), secretDieDate = _f[0], setSecretDieDate = _f[1];
+    var _g = (0, react_1.useState)((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded), secretIsCoded = _g[0], setSecretIsCoded = _g[1];
+    var _h = (0, react_1.useState)((_a = secret === null || secret === void 0 ? void 0 : secret.IsPublic) !== null && _a !== void 0 ? _a : false), secretIsPublic = _h[0], setSecretIsPublic = _h[1];
+    var _j = (0, react_1.useState)(false), showMoreInfo = _j[0], setShowMoreInfo = _j[1];
+    var _k = (0, react_1.useState)(false), showSecretValue = _k[0], setShowSecretValue = _k[1];
     (0, react_1.useEffect)(function () {
         if (!(secret === null || secret === void 0 ? void 0 : secret.Key)) {
             var pathNameUrlSplit = document.location.pathname.split('/');
@@ -56767,21 +57010,15 @@ var VaultSecret = function (props) {
         setSecretIsCoded((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded);
     }, [secret === null || secret === void 0 ? void 0 : secret.Value, secret === null || secret === void 0 ? void 0 : secret.DieDate, secret === null || secret === void 0 ? void 0 : secret.IsCoded]);
     var defaultDieDate = '3000-01-01';
-    function dateToYMD(date) {
-        if (!date) {
-            return defaultDieDate;
-        }
-        var d = date.getDate();
-        var m = date.getMonth() + 1; //Month from 0 to 11
-        var y = date.getFullYear();
-        return '' + y + '-' + (m <= 9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
-    }
+    var helper = new Helper_1.Helper();
     function cancelChanges() {
+        var _a;
         setSecretValue(secret.Value);
         setSecretKey(secret.Key);
         setSecretDieDate((secret === null || secret === void 0 ? void 0 : secret.DieDate) || null);
         setSecretIsCoded((secret === null || secret === void 0 ? void 0 : secret.IsCoded) == null ? true : secret.IsCoded);
         setShowSecretValue(false);
+        setSecretIsPublic((_a = secret === null || secret === void 0 ? void 0 : secret.IsPublic) !== null && _a !== void 0 ? _a : false);
     }
     var hasChanges = //secretKey != (secret?.Key || '')
      
@@ -56803,9 +57040,6 @@ var VaultSecret = function (props) {
         vaultSecretClass = 'vault-secret-show';
         showMoreButtonClass = ' but-opend';
     }
-    if (props.IsNew) {
-        vaultSecretClass += " vault-secret-new";
-    }
     // console.log('d1' + secretDieDate);
     if (!secret) {
         return react_1.default.createElement("div", null, "todo \u041D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E");
@@ -56820,16 +57054,15 @@ var VaultSecret = function (props) {
                 react_1.default.createElement("div", { className: 'vault-secret-key', title: secretKey },
                     react_1.default.createElement("input", { type: 'text', className: 'form-control', value: secretKey, onChange: function (e) { return setSecretKey(e.target.value); } })),
                 react_1.default.createElement("div", { className: 'vault-secret-val' },
-                    react_1.default.createElement("textarea", { value: (showSecretValue || props.IsNew) ? secretValue : '***', className: 'form-control', onChange: function (e) { return setSecretValue(e.target.value); } })),
+                    react_1.default.createElement("textarea", { value: (showSecretValue) ? secretValue : '***', className: 'form-control', onChange: function (e) { return setSecretValue(e.target.value); } })),
                 react_1.default.createElement("div", { className: 'vault-secret-main-buttons' },
-                    props.IsNew ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement(react_1.default.Fragment, null,
-                        react_1.default.createElement("div", { className: 'but vault-secret-show-val', title: showValueTitle, onClick: function () { return setShowSecretValue(!showSecretValue); } },
-                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + showValueImage })),
-                        react_1.default.createElement("div", { className: 'but vault-secret-copy', title: '\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435', onClick: function () {
-                                navigator.clipboard.writeText(secretValue);
-                                G_AddAbsoluteAlertToState(new AlertData_1.AlertData().GetDefaultNotify("Скопировано"));
-                            } },
-                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'copy.png' }))),
+                    react_1.default.createElement("div", { className: 'but vault-secret-show-val', title: showValueTitle, onClick: function () { return setShowSecretValue(!showSecretValue); } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + showValueImage })),
+                    react_1.default.createElement("div", { className: 'but vault-secret-copy', title: '\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435', onClick: function () {
+                            navigator.clipboard.writeText(secretValue);
+                            G_AddAbsoluteAlertToState(new AlertData_1.AlertData().GetDefaultNotify("Скопировано"));
+                        } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'copy.png' })),
                     react_1.default.createElement("div", { className: 'but vault-secret-more-but' + showMoreButtonClass, title: '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0431\u043E\u043B\u044C\u0448\u0435', onClick: function () { return setShowMoreInfo(!showMoreInfo); } },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'arrow2.png' })))),
             showMoreInfo ? react_1.default.createElement("div", { className: 'vault-secret-more' },
@@ -56839,7 +57072,7 @@ var VaultSecret = function (props) {
                     react_1.default.createElement("label", null, "\u041F\u0443\u0431\u043B\u0438\u0447\u043D\u044B\u0439"),
                     react_1.default.createElement("input", { type: 'checkbox', checked: secretIsPublic, onChange: function () { return setSecretIsPublic(!secretIsPublic); } }),
                     react_1.default.createElement("label", null, "\u0421\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442 \u0434\u043E:"),
-                    react_1.default.createElement("input", { type: 'date', value: dateToYMD(secretDieDate), className: 'form-control', style: { width: '140px' }, onChange: function (e) {
+                    react_1.default.createElement("input", { type: 'date', value: (_c = helper.DateToYMD(secretDieDate)) !== null && _c !== void 0 ? _c : defaultDieDate, className: 'form-control', style: { width: '140px' }, onChange: function (e) {
                             setSecretDieDate(e.target.valueAsDate);
                             // console.log('d2' + e.target.valueAsDate);
                         } })),
@@ -56862,35 +57095,28 @@ var VaultSecret = function (props) {
                                 newData.Id = props.Secret.Id;
                                 newData.Key = secretKey;
                                 newData.Value = secretValue;
-                                newData.VaultId = (secret === null || secret === void 0 ? void 0 : secret.VaultId) || props.VaultId;
+                                newData.VaultId = secret === null || secret === void 0 ? void 0 : secret.VaultId;
                                 newData.IsPublic = secretIsPublic;
                                 newData.IsCoded = secretIsCoded;
                                 newData.DieDate = secretDieDate || null; //</>new Date(defaultDieDate);
-                                if (props.IsNew) {
-                                    props.CreateSecret(newData);
-                                    cancelChanges();
-                                }
-                                else {
-                                    props.UpdateSecret(newData);
-                                }
+                                props.UpdateSecret(newData);
                             } },
                             react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'save-icon.png' })),
                         react_1.default.createElement("div", { className: 'but', title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F', onClick: function () {
                                 cancelChanges();
                             } },
                             react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'cancel.png' }))) : react_1.default.createElement(react_1.default.Fragment, null),
-                    props.IsNew ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement(react_1.default.Fragment, null,
-                        react_1.default.createElement("div", { className: 'but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () {
-                                return props.DeleteSecret(props.Secret.Id, props.Secret.VaultId);
-                            } },
-                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'delete-icon.png' })),
-                        react_1.default.createElement("div", { className: 'but', title: '\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0441\u0435\u043A\u0440\u0435\u0442', onClick: function () {
-                                navigator.clipboard
-                                    .writeText(document.location.origin + G_VaultController.RouteUrlVaultApp
-                                    + G_VaultController.RouteUrlOneSecret + secret.Id);
-                                G_AddAbsoluteAlertToState(new AlertData_1.AlertData().GetDefaultNotify("Ссылка Скопирована"));
-                            } },
-                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'share-icon.png' }))))) : react_1.default.createElement(react_1.default.Fragment, null)));
+                    react_1.default.createElement("div", { className: 'but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () {
+                            return props.DeleteSecret(props.Secret.Id, props.Secret.VaultId);
+                        } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'delete-icon.png' })),
+                    react_1.default.createElement("div", { className: 'but', title: '\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0441\u0435\u043A\u0440\u0435\u0442', onClick: function () {
+                            navigator.clipboard
+                                .writeText(document.location.origin + G_VaultController.RouteUrlVaultApp
+                                + G_VaultController.RouteUrlOneSecret + secret.Id);
+                            G_AddAbsoluteAlertToState(new AlertData_1.AlertData().GetDefaultNotify("Ссылка Скопирована"));
+                        } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'share-icon.png' })))) : react_1.default.createElement(react_1.default.Fragment, null)));
 };
 exports["default"] = (0, VaultSecretSetup_1.default)(VaultSecret);
 
@@ -56924,9 +57150,6 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     res.GetSingleSecret = function (id) {
         dispatch(window.G_VaultController.GetSingleSecretRedux(id));
-    };
-    res.CreateSecret = function (secret) {
-        dispatch(window.G_VaultController.CreateSecretRedux(secret));
     };
     return res;
 };
@@ -57485,6 +57708,34 @@ var VaultController = /** @class */ (function () {
             Url: G_PathToServer + 'api/vault/delete-vault',
         });
     };
+    VaultController.prototype.UpdateVaultPasswordRedux = function (vaultId, pwd) {
+        var _this = this;
+        return function (dispatch, getState) {
+            _this.preloader(true);
+            _this.UpdateVaultPassword(vaultId, pwd, function (error, data) {
+                _this.preloader(false);
+                // if (data?.result) {
+                //     dispatch(DeleteVaultActionCreator(vaultId));
+                // }
+            });
+        };
+    };
+    VaultController.prototype.UpdateVaultPassword = function (vaultId, pwd, onSuccess) {
+        var _this = this;
+        // onSuccess(null, BoolResultBack.GetTrue());
+        G_AjaxHelper.GoAjaxRequest({
+            Data: {
+                'vaultId': vaultId,
+                'password': pwd
+            },
+            Type: "PATCH",
+            FuncSuccess: function (xhr, status, jqXHR) {
+                _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+            },
+            FuncError: function (xhr, status, error) { },
+            Url: G_PathToServer + 'api/vault/change-password',
+        });
+    };
     VaultController.prototype.VaultAuthorizeRedux = function (vaultId, password) {
         var _this = this;
         return function (dispatch, getState) {
@@ -57566,6 +57817,7 @@ var OneVault = /** @class */ (function () {
         this.IsAuthorized = false;
     }
     OneVault.prototype.FillByBackModel = function (newData) {
+        var _a;
         this.Id = newData.id;
         this.Name = newData.name;
         this.Secrets = newData.secrets.map(function (x) {
@@ -57575,6 +57827,7 @@ var OneVault = /** @class */ (function () {
         });
         // this.People = ;
         this.IsPublic = newData.is_public;
+        this.IsAuthorized = (_a = newData.is_auth) !== null && _a !== void 0 ? _a : false;
     };
     return OneVault;
 }());
@@ -60569,6 +60822,35 @@ var MainErrorHandler = /** @class */ (function () {
     return MainErrorHandler;
 }());
 exports.MainErrorHandler = MainErrorHandler;
+
+
+/***/ }),
+
+/***/ "./src/Models/BL/Helper.ts":
+/*!*********************************!*\
+  !*** ./src/Models/BL/Helper.ts ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Helper = void 0;
+var Helper = /** @class */ (function () {
+    function Helper() {
+    }
+    Helper.prototype.DateToYMD = function (date) {
+        if (!date) {
+            return null;
+        }
+        var d = date.getDate();
+        var m = date.getMonth() + 1; //Month from 0 to 11
+        var y = date.getFullYear();
+        return '' + y + '-' + (m <= 9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
+    };
+    return Helper;
+}());
+exports.Helper = Helper;
 
 
 /***/ }),

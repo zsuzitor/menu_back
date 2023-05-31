@@ -27,13 +27,13 @@ namespace VaultApp.Models.Services.Implementation
         private readonly IVaultRepository _vaultRepository;
         private readonly ISecretRepository _secretRepository;
         private readonly IUserRepository _userRepository;
-        private readonly IJWTHasher _hasher;
+        private readonly IHasher _hasher;
         private readonly ICacheService _cache;
         private readonly ICoder _coder;
 
         public VaultService(IVaultRepository vaultRepository
             , DBHelper dbHelper, MenuDbContext db, IUserRepository userRepository
-            , ICacheService cache, IJWTHasher hasher, ICoder coder, ISecretRepository secretRepository)
+            , ICacheService cache, IHasher hasher, ICoder coder, ISecretRepository secretRepository)
         {
             _vaultRepository = vaultRepository;
             _dbHelper = dbHelper;
@@ -77,14 +77,22 @@ namespace VaultApp.Models.Services.Implementation
                 return null;
             }
 
-            if (!vault.PasswordHash.Equals(_hasher.GetHash(vaultPassword)))
+            if (!string.IsNullOrWhiteSpace(vaultPassword)
+                && !vault.PasswordHash.Equals(_hasher.GetHash(vaultPassword)))
             {
+                vaultPassword = null;
+            }
+
+            if (string.IsNullOrWhiteSpace(vault.PasswordHash))
+            {
+                //особо смысла нет тк если пароля нет в волте то и зашифрованных секретовы быть не может, но для наглядности
                 vaultPassword = null;
             }
 
             vault.Secrets = await _secretRepository.GetByVaultIdNoTrackAsync(vault.Id);
             //_ = _vaultRepository.LoadSecrets(vault);
-            vault.Secrets.ForEach(x => {
+            vault.Secrets.ForEach(x =>
+            {
                 if (x.IsCoded && !string.IsNullOrEmpty(vaultPassword))
                 {
                     x.Value = _coder.DecryptFromString(x.Value, vaultPassword);
@@ -93,7 +101,7 @@ namespace VaultApp.Models.Services.Implementation
             return vault;
         }
 
-        public async Task<Vault> UpdateVaultAsync(UpdateVault vault, UserInfo userInfo)
+        public async Task<Vault> UpdateVaultAsync(UpdateVault vault, UserInfo userInfo, string vaultPassword)
         {
             if (string.IsNullOrEmpty(vault.Name))// || string.IsNullOrEmpty(vault.Password))
             {
@@ -108,6 +116,12 @@ namespace VaultApp.Models.Services.Implementation
                 if (oldVault == null)
                 {
                     throw new SomeCustomException(Constants.ErrorConstants.VaultNotFound);
+                }
+
+                if (!string.IsNullOrWhiteSpace(oldVault.PasswordHash)
+                    && !oldVault.PasswordHash.Equals(_hasher.GetHash(vaultPassword)))
+                {
+                    throw new SomeCustomException(Constants.ErrorConstants.VaultBadAuth);
                 }
 
                 _cache.Remove(VaultUsersCache + vault.Id);
@@ -131,7 +145,9 @@ namespace VaultApp.Models.Services.Implementation
                 //var usersForAdd = vault.UsersForAdd.Where(x=>oldVault.Users.FirstOrDefault(u=>u.))
                 oldVault.IsPublic = vault.IsPublic;
                 oldVault.Name = vault.Name;
-                //oldVault.PasswordHash = _hasher.GetHash(vault.Password);//todo
+
+                
+
                 await _vaultRepository.UpdateAsync(oldVault);
                 result = oldVault;
             });
@@ -160,7 +176,7 @@ namespace VaultApp.Models.Services.Implementation
             return await _vaultRepository.DeleteAsync(vaultId) != null;
         }
 
-       
+
 
 
         public async Task HasAccessToVaultWithError(long vaultId, UserInfo userInfo)
@@ -178,6 +194,12 @@ namespace VaultApp.Models.Services.Implementation
             return await _vaultRepository.ExistVaultAsync(vaultId, hashedPassword);
         }
 
+        public async Task<bool> ExistVaultOrNullPasswordAsync(long vaultId, string password, UserInfo userInfo)
+        {
+            await HasAccessToVaultWithError(vaultId, userInfo);
+            var hashedPassword = _hasher.GetHash(password);
+            return await _vaultRepository.ExistVaultOrNullPasswordAsync(vaultId, hashedPassword);
+        }
 
         private async Task<bool> HasAccessToVault(long vaultId, UserInfo userInfo)
         {
@@ -192,6 +214,34 @@ namespace VaultApp.Models.Services.Implementation
 
             return users.FirstOrDefault(x => x.UserId == userInfo.UserId) != null;
             //return await _vaultRepository.UserInVaultAsync(vaultId, userInfo.UserId);
+        }
+
+        public async Task<bool> ChangePasswordAsync(long vaultId, string oldPassword, string newPassword, UserInfo userInfo)
+        {
+            await HasAccessToVaultWithError(vaultId, userInfo);
+            var hashedPassword = _hasher.GetHash(oldPassword);
+            var result = false;
+            await _dbHelper.ActionInTransaction(_db, async () =>
+            {
+                var vault = await _vaultRepository.GetAsync(vaultId);
+                if (!vault.PasswordHash.Equals(hashedPassword))
+                {
+                    throw new SomeCustomException(Constants.ErrorConstants.VaultBadAuth);
+                }
+
+                vault.PasswordHash = _hasher.GetHash(newPassword);
+                await _vaultRepository.UpdateAsync(vault);
+                var secrets = await _secretRepository.GetCodedByVaultIdAsync(vaultId);
+                secrets.ForEach(x =>
+                {
+                    var tmpVal = _coder.DecryptFromString(x.Value, oldPassword);
+                    x.Value = _coder.EncryptWithString(tmpVal, newPassword);
+                });
+                await _secretRepository.UpdateAsync(secrets);
+                result = true;
+            });
+
+            return result;
         }
     }
 }

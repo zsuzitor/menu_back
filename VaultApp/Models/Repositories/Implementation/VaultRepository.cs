@@ -51,7 +51,15 @@ namespace VaultApp.Models.Repositories.Implementation
 
         public async Task<bool> ExistVaultAsync(long vaultId, string passwordHash)
         {
-            return (await _db.Vaults.AsNoTracking().Where(x => x.Id == vaultId && x.PasswordHash == passwordHash)
+            return (await _db.Vaults.AsNoTracking().Where(x => x.Id == vaultId
+                && (x.PasswordHash.Equals(passwordHash)))
+                 .Select(x => x.Id).FirstOrDefaultAsync()) != 0;
+        }
+
+        public async Task<bool> ExistVaultOrNullPasswordAsync(long vaultId, string passwordHash)
+        {
+            return (await _db.Vaults.AsNoTracking().Where(x => x.Id == vaultId
+                && (string.IsNullOrWhiteSpace(x.PasswordHash) || x.PasswordHash == passwordHash))
                  .Select(x => x.Id).FirstOrDefaultAsync()) != 0;
         }
     }

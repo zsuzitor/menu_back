@@ -19,6 +19,7 @@ using jwtLib.JWTAuth.Interfaces;
 using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using Menu.Models.Services.Interfaces;
+using BL.Models.Services.Interfaces;
 
 namespace PlanitPoker.Models.Services
 {
@@ -36,7 +37,7 @@ namespace PlanitPoker.Models.Services
         private readonly IStoryRepository _storyRepository;
         private readonly IErrorService _errorService;
         private readonly IErrorContainer _errorContainer;
-        private readonly IJWTHasher _hasher;
+        private readonly IHasher _hasher;
         private readonly IImageService _imageService;
 
 
@@ -55,7 +56,7 @@ namespace PlanitPoker.Models.Services
                 MultiThreadHelper multiThreadHelper,
                 IRoomRepository roomRepository, IStoryRepository storyRepository
                 , IErrorService errorService, IErrorContainer errorContainer,
-                 IJWTHasher hasher,
+                 IHasher hasher,
                 DBHelper dbHelper, MenuDbContext db,
                 IPlaningUserRepository planingUserRepository,
                 IImageService imageService

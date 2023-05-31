@@ -17,12 +17,12 @@ namespace VaultApp.Models.Services.Implementation
         private readonly ISecretRepository _secretRepository;
         //private readonly IVaultRepository _vaultRepository;
         private readonly IVaultService _vaultService;
-        private readonly IJWTHasher _hasher;
+        private readonly IHasher _hasher;
         private readonly ICoder _coder;
 
 
         public SecretService(ISecretRepository secretRepository
-            , IVaultService vaultService, ICoder coder, IJWTHasher hasher)
+            , IVaultService vaultService, ICoder coder, IHasher hasher)
         {
             _secretRepository = secretRepository;
             _vaultService = vaultService;
@@ -47,7 +47,8 @@ namespace VaultApp.Models.Services.Implementation
 
             if (newSecret.IsCoded)
             {
-                if (!await _vaultService.ExistVaultAsync(secret.VaultId, _hasher.GetHash(passwordForCoded), userInfo))
+                if (string.IsNullOrWhiteSpace(passwordForCoded)
+                    || !await _vaultService.ExistVaultAsync(secret.VaultId, passwordForCoded, userInfo))
                 {
                     throw new SomeCustomException(Constants.ErrorConstants.VaultBadAuth);
                 }
@@ -78,7 +79,8 @@ namespace VaultApp.Models.Services.Implementation
             if (secret.IsCoded)
             {
                 var vaultId = await _secretRepository.GetVaultIdAsync(secret.Id);
-                if (!await _vaultService.ExistVaultAsync(vaultId, _hasher.GetHash(passwordForCoded), userInfo))
+                if (string.IsNullOrWhiteSpace(passwordForCoded)
+                    || !await _vaultService.ExistVaultAsync(vaultId, passwordForCoded, userInfo))
                 {
                     throw new SomeCustomException(Constants.ErrorConstants.VaultBadAuth);
                 }
@@ -115,12 +117,17 @@ namespace VaultApp.Models.Services.Implementation
             return await _secretRepository.DeleteAsync(oldSecret) != null;
         }
 
-        public async Task<Secret> GetSecretAsync(long secretId, UserInfo userInfo)
+        public async Task<Secret> GetSecretAsync(long secretId, UserInfo userInfo, string passwordForCoded)
         {
             var secret = await _secretRepository.GetAsync(secretId);
             if (secret == null)
             {
                 throw new SomeCustomException(Constants.ErrorConstants.SecretNotFound);
+            }
+
+            if (secret.IsCoded && !string.IsNullOrEmpty(passwordForCoded))
+            {
+                secret.Value = _coder.DecryptFromString(secret.Value, passwordForCoded);
             }
 
             if (secret.IsPublic)
