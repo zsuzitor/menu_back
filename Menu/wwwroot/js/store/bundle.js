@@ -2954,7 +2954,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".one-vault-in-list {\r\n    width: 200px;\r\n    height: 110px;\r\n    border: 2px solid black;\r\n    border-radius: 5px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/OneVaultInList/OneVaultInList.css"],"names":[],"mappings":"AAAA;IACI,YAAY;IACZ,aAAa;IACb,uBAAuB;IACvB,kBAAkB;AACtB","sourcesContent":[".one-vault-in-list {\r\n    width: 200px;\r\n    height: 110px;\r\n    border: 2px solid black;\r\n    border-radius: 5px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".one-vault-in-list {\r\n    width: 200px;\r\n    height: 110px;\r\n    border: 2px solid black;\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n}\r\n\r\n.one-vault-in-list a {\r\n    text-decoration: none;\r\n}\r\n\r\n.one-vault-in-list-inner {\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/OneVaultInList/OneVaultInList.css"],"names":[],"mappings":"AAAA;IACI,YAAY;IACZ,aAAa;IACb,uBAAuB;IACvB,kBAAkB;IAClB,aAAa;AACjB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,WAAW;IACX,YAAY;;AAEhB","sourcesContent":[".one-vault-in-list {\r\n    width: 200px;\r\n    height: 110px;\r\n    border: 2px solid black;\r\n    border-radius: 5px;\r\n    padding: 10px;\r\n}\r\n\r\n.one-vault-in-list a {\r\n    text-decoration: none;\r\n}\r\n\r\n.one-vault-in-list-inner {\r\n    width: 100%;\r\n    height: 100%;\r\n\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3062,7 +3062,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n@media all and (min-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 40px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 110px;\r\n    }\r\n}\r\n\r\n@media all and (min-width: 460px) and (max-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 80px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 140px;\r\n    }\r\n}\r\n\r\n\r\n.vault-secret-new {\r\n    /* border-color: green;\r\n    border: 0.3px solid green; */\r\n    box-shadow: 0 0 5px green;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    /* height: 130px; */\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n.vault-secret-more .more-data {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/VaultSecret/VaultSecret.css"],"names":[],"mappings":"AAAA;IACI,4BAA4B;IAC5B,uBAAuB;IACvB,WAAW;IACX,kBAAkB;IAClB,oCAAoC;IACpC,gBAAgB;IAChB,YAAY;IACZ,6CAA6C;IAC7C,4BAA4B;AAChC;;AAEA;IACI;QACI,YAAY;IAChB;;IAEA;QACI,uBAAuB;QACvB,aAAa;IACjB;AACJ;;AAEA;IACI;QACI,YAAY;IAChB;;IAEA;QACI,uBAAuB;QACvB,aAAa;IACjB;AACJ;;;AAGA;IACI;gCAC4B;IAC5B,yBAAyB;AAC7B;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,uBAAuB;IACvB,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,cAAc;AAClB;;AAEA,oBAAoB;;AAEpB;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,SAAS;AACb;;AAEA;IACI,aAAa;IACb,eAAe;AACnB;;;AAGA;IACI,YAAY;IACZ,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA,wBAAwB;;AAExB,oBAAoB;;;AAGpB,wBAAwB;;AAExB;IACI,aAAa;IACb,QAAQ;IACR,iBAAiB;AACrB","sourcesContent":[".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n@media all and (min-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 40px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 110px;\r\n    }\r\n}\r\n\r\n@media all and (min-width: 460px) and (max-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 80px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 140px;\r\n    }\r\n}\r\n\r\n\r\n.vault-secret-new {\r\n    /* border-color: green;\r\n    border: 0.3px solid green; */\r\n    box-shadow: 0 0 5px green;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    /* height: 130px; */\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n.vault-secret-more .more-data {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n@media all and (min-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 40px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 110px;\r\n    }\r\n}\r\n\r\n@media all and (min-width: 460px) and (max-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 80px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 140px;\r\n    }\r\n}\r\n\r\n\r\n.vault-secret-new {\r\n    /* border-color: green;\r\n    border: 0.3px solid green; */\r\n    box-shadow: 0 0 5px green;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    /* height: 130px; */\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n.vault-secret-more .more-data {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n    max-height: 100px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/VaultSecret/VaultSecret.css"],"names":[],"mappings":"AAAA;IACI,4BAA4B;IAC5B,uBAAuB;IACvB,WAAW;IACX,kBAAkB;IAClB,oCAAoC;IACpC,gBAAgB;IAChB,YAAY;IACZ,6CAA6C;IAC7C,4BAA4B;AAChC;;AAEA;IACI;QACI,YAAY;IAChB;;IAEA;QACI,uBAAuB;QACvB,aAAa;IACjB;AACJ;;AAEA;IACI;QACI,YAAY;IAChB;;IAEA;QACI,uBAAuB;QACvB,aAAa;IACjB;AACJ;;;AAGA;IACI;gCAC4B;IAC5B,yBAAyB;AAC7B;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,uBAAuB;IACvB,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;IAClB,gBAAgB;AACpB;;AAEA;IACI,cAAc;AAClB;;AAEA,oBAAoB;;AAEpB;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,SAAS;AACb;;AAEA;IACI,aAAa;IACb,eAAe;AACnB;;;AAGA;IACI,YAAY;IACZ,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,iBAAiB;AACrB;;AAEA,wBAAwB;;AAExB,oBAAoB;;;AAGpB,wBAAwB;;AAExB;IACI,aAAa;IACb,QAAQ;IACR,iBAAiB;AACrB","sourcesContent":[".vault-secret {\r\n    /* border: 1px solid blue; */\r\n    background-color: white;\r\n    width: 100%;\r\n    border-radius: 5px;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    /* transition: min-height 0.5s ease-in-out; */\r\n    transition: 0.5s ease-in-out;\r\n}\r\n\r\n@media all and (min-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 40px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 110px;\r\n    }\r\n}\r\n\r\n@media all and (min-width: 460px) and (max-width: 640px) {\r\n    .vault-secret-hide {\r\n        height: 80px;\r\n    }\r\n\r\n    .vault-secret-show {\r\n        /* min-height: 100px; */\r\n        height: 140px;\r\n    }\r\n}\r\n\r\n\r\n.vault-secret-new {\r\n    /* border-color: green;\r\n    border: 0.3px solid green; */\r\n    box-shadow: 0 0 5px green;\r\n}\r\n\r\n.vault-secret-hide {\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret-show {\r\n    /* min-height: 100px; */\r\n    /* height: 130px; */\r\n}\r\n\r\n.vault-secret-main {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    /* min-height: 40px; */\r\n}\r\n\r\n.vault-secret .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n    transition: 0.5s;\r\n}\r\n\r\n.vault-secret .but-opend {\r\n    rotate: 180deg;\r\n}\r\n\r\n.vault-secret-more {}\r\n\r\n.vault-secret-more .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n.vault-secret-more .buttons {\r\n    display: flex;\r\n    gap: 10px;\r\n}\r\n\r\n.vault-secret-more .more-data {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n\r\n.vault-secret-key {\r\n    flex-grow: 1;\r\n    width: 200px;\r\n    overflow: hidden;\r\n}\r\n\r\n.vault-secret-val {\r\n    flex-grow: 5;\r\n    overflow: hidden;\r\n    min-width: 300px;\r\n}\r\n\r\n.vault-secret-val textarea {\r\n    width: 100%;\r\n    height: 30px;\r\n    max-height: 100px;\r\n}\r\n\r\n.vault-secret-show-val {}\r\n\r\n.vault-secret-copy {}\r\n\r\n\r\n.vault-secret-more-but {}\r\n\r\n.vault-secret-main-buttons {\r\n    display: flex;\r\n    gap: 5px;\r\n    padding-left: 5px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48809,11 +48809,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 var OneTask_1 = __webpack_require__(/*! ../../Models/Entity/State/OneTask */ "./src/Apps/CodeReviewApp/Models/Entity/State/OneTask.ts");
+var AddTaskSetup_1 = __importDefault(__webpack_require__(/*! ./AddTaskSetup */ "./src/Apps/CodeReviewApp/Components/AddTask/AddTaskSetup.tsx"));
 __webpack_require__(/*! ./AddTask.css */ "./src/Apps/CodeReviewApp/Components/AddTask/AddTask.css");
 var AddTask = function (props) {
     var _a = (0, react_1.useState)(''), newTaskName = _a[0], setNewTaskName = _a[1];
@@ -48860,6 +48863,22 @@ var AddTask = function (props) {
         react_1.default.createElement("br", null),
         react_1.default.createElement("button", { className: 'btn-b btn-border create-new-task-btn', onClick: function () { return createNewTask(); } }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C"));
 };
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, AddTaskSetup_1.default)(AddTask);
+
+
+/***/ }),
+
+/***/ "./src/Apps/CodeReviewApp/Components/AddTask/AddTaskSetup.tsx":
+/*!********************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Components/AddTask/AddTaskSetup.tsx ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.Auth = state.Auth;
@@ -48872,9 +48891,7 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     return res;
 };
-var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
-// and that function returns the connected, wrapper component:
-exports["default"] = connectToStore(AddTask);
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 
 
 /***/ }),
@@ -48918,8 +48935,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var ProjectDetail_1 = __importDefault(__webpack_require__(/*! ../ProjectDetail/ProjectDetail */ "./src/Apps/CodeReviewApp/Components/ProjectDetail/ProjectDetail.tsx"));
 var ProjectsList_1 = __importDefault(__webpack_require__(/*! ../ProjectsList/ProjectsList */ "./src/Apps/CodeReviewApp/Components/ProjectsList/ProjectsList.tsx"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var Actions_1 = __webpack_require__(/*! ../../Models/Actions/Actions */ "./src/Apps/CodeReviewApp/Models/Actions/Actions.ts");
+var CodeReviewMainSetup_1 = __importDefault(__webpack_require__(/*! ./CodeReviewMainSetup */ "./src/Apps/CodeReviewApp/Components/CodeReviewMain/CodeReviewMainSetup.tsx"));
 __webpack_require__(/*! ./CodeReviewMain.css */ "./src/Apps/CodeReviewApp/Components/CodeReviewMain/CodeReviewMain.css");
 var CodeReviewMain = function (props) {
     var _a = (0, react_1.useState)(true), visibleList = _a[0], setVisibleList = _a[1];
@@ -48946,6 +48962,23 @@ var CodeReviewMain = function (props) {
         react_1.default.createElement("div", { className: 'code-review-project-info' },
             react_1.default.createElement(ProjectDetail_1.default, { Project: props.ProjectsList.find(function (x) { return x.Id == props.CurrentProjectId; }), Tasks: props.Tasks })));
 };
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, CodeReviewMainSetup_1.default)(CodeReviewMain);
+
+
+/***/ }),
+
+/***/ "./src/Apps/CodeReviewApp/Components/CodeReviewMain/CodeReviewMainSetup.tsx":
+/*!**********************************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Components/CodeReviewMain/CodeReviewMainSetup.tsx ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var Actions_1 = __webpack_require__(/*! ../../Models/Actions/Actions */ "./src/Apps/CodeReviewApp/Models/Actions/Actions.ts");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.CurrentProjectId = state.CodeReviewApp.CurrentProjectId;
@@ -48969,9 +49002,7 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     return res;
 };
-var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
-// and that function returns the connected, wrapper component:
-exports["default"] = connectToStore(CodeReviewMain);
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 
 
 /***/ }),
@@ -48989,8 +49020,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var ProjectActions_1 = __webpack_require__(/*! ../../Models/Actions/ProjectActions */ "./src/Apps/CodeReviewApp/Models/Actions/ProjectActions.ts");
+var OneProjectInListSetup_1 = __importDefault(__webpack_require__(/*! ./OneProjectInListSetup */ "./src/Apps/CodeReviewApp/Components/OneProjectInList/OneProjectInListSetup.tsx"));
 __webpack_require__(/*! ./OneProjectInList.css */ "./src/Apps/CodeReviewApp/Components/OneProjectInList/OneProjectInList.css");
 var OneProjectInList = function (props) {
     var projectClassName = 'review-project';
@@ -49003,6 +49033,23 @@ var OneProjectInList = function (props) {
             }
         } }, props.Project.Name);
 };
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, OneProjectInListSetup_1.default)(OneProjectInList);
+
+
+/***/ }),
+
+/***/ "./src/Apps/CodeReviewApp/Components/OneProjectInList/OneProjectInListSetup.tsx":
+/*!**************************************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Components/OneProjectInList/OneProjectInListSetup.tsx ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var ProjectActions_1 = __webpack_require__(/*! ../../Models/Actions/ProjectActions */ "./src/Apps/CodeReviewApp/Models/Actions/ProjectActions.ts");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     // res.CurrentProjectId = state.CodeReviewApp.CurrentProjectId;
@@ -49015,9 +49062,7 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     return res;
 };
-var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
-// and that function returns the connected, wrapper component:
-exports["default"] = connectToStore(OneProjectInList);
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 
 
 /***/ }),
@@ -49053,11 +49098,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 var ProjectUser_1 = __webpack_require__(/*! ../../Models/Entity/State/ProjectUser */ "./src/Apps/CodeReviewApp/Models/Entity/State/ProjectUser.ts");
+var OneProjectUserSetup_1 = __importDefault(__webpack_require__(/*! ./OneProjectUserSetup */ "./src/Apps/CodeReviewApp/Components/OneProjectUser/OneProjectUserSetup.tsx"));
 __webpack_require__(/*! ./OneProjectUser.css */ "./src/Apps/CodeReviewApp/Components/OneProjectUser/OneProjectUser.css");
 var OneProjectUser = function (props) {
     var _a = (0, react_1.useState)(props.User.Name), userName = _a[0], setUserName = _a[1];
@@ -49116,6 +49164,22 @@ var OneProjectUser = function (props) {
                 } },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u043E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' }))) : react_1.default.createElement(react_1.default.Fragment, null));
 };
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, OneProjectUserSetup_1.default)(OneProjectUser);
+
+
+/***/ }),
+
+/***/ "./src/Apps/CodeReviewApp/Components/OneProjectUser/OneProjectUserSetup.tsx":
+/*!**********************************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Components/OneProjectUser/OneProjectUserSetup.tsx ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     return res;
@@ -49125,9 +49189,7 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     res.ChangeUser = function (user) { dispatch(window.G_CodeReviewUserController.ChangeProjectUserRedux(user)); };
     return res;
 };
-var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
-// and that function returns the connected, wrapper component:
-exports["default"] = connectToStore(OneProjectUser);
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 
 
 /***/ }),
@@ -49163,11 +49225,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var CommentDelete_1 = __webpack_require__(/*! ../../Models/Entity/CommentDelete */ "./src/Apps/CodeReviewApp/Models/Entity/CommentDelete.ts");
-var CommentUpdate_1 = __webpack_require__(/*! ../../Models/Entity/CommentUpdate */ "./src/Apps/CodeReviewApp/Models/Entity/CommentUpdate.ts");
+var OneReviewTaskCommentSetup_1 = __importDefault(__webpack_require__(/*! ./OneReviewTaskCommentSetup */ "./src/Apps/CodeReviewApp/Components/OneReviewTaskComment/OneReviewTaskCommentSetup.tsx"));
 __webpack_require__(/*! ./OneReviewTaskComment.css */ "./src/Apps/CodeReviewApp/Components/OneReviewTaskComment/OneReviewTaskComment.css");
 var OneReviewTaskComment = function (props) {
     var _a, _b;
@@ -49217,6 +49280,24 @@ var OneReviewTaskComment = function (props) {
             react_1.default.createElement("div", { className: 'review-task-comment-edit-button', onClick: function () { return setEditMode(function (st) { return true; }); } },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'edit-1.svg', alt: "Edit", title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C' }))) : react_1.default.createElement(react_1.default.Fragment, null)));
 };
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, OneReviewTaskCommentSetup_1.default)(OneReviewTaskComment);
+
+
+/***/ }),
+
+/***/ "./src/Apps/CodeReviewApp/Components/OneReviewTaskComment/OneReviewTaskCommentSetup.tsx":
+/*!**********************************************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Components/OneReviewTaskComment/OneReviewTaskCommentSetup.tsx ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var CommentDelete_1 = __webpack_require__(/*! ../../Models/Entity/CommentDelete */ "./src/Apps/CodeReviewApp/Models/Entity/CommentDelete.ts");
+var CommentUpdate_1 = __webpack_require__(/*! ../../Models/Entity/CommentUpdate */ "./src/Apps/CodeReviewApp/Models/Entity/CommentUpdate.ts");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.ProjectUsers = state.CodeReviewApp.CurrentProjectUsers;
@@ -49240,9 +49321,7 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     return res;
 };
-var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
-// and that function returns the connected, wrapper component:
-exports["default"] = connectToStore(OneReviewTaskComment);
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 
 
 /***/ }),
@@ -49294,11 +49373,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 var OneReviewTaskComment_1 = __importDefault(__webpack_require__(/*! ../OneReviewTaskComment/OneReviewTaskComment */ "./src/Apps/CodeReviewApp/Components/OneReviewTaskComment/OneReviewTaskComment.tsx"));
-var CommentActions_1 = __webpack_require__(/*! ../../Models/Actions/CommentActions */ "./src/Apps/CodeReviewApp/Models/Actions/CommentActions.ts");
-var CommentSet_1 = __webpack_require__(/*! ../../Models/Entity/CommentSet */ "./src/Apps/CodeReviewApp/Models/Entity/CommentSet.ts");
+var OneReviewTaskSetup_1 = __importDefault(__webpack_require__(/*! ./OneReviewTaskSetup */ "./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTaskSetup.tsx"));
 __webpack_require__(/*! ./OneReviewTask.css */ "./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.css");
 var OneReviewTask = function (props) {
     var _a = (0, react_1.useState)(props.Task.Name), taskName = _a[0], setTaskName = _a[1];
@@ -49430,6 +49507,24 @@ var OneReviewTask = function (props) {
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'external-link.png', alt: "Comments", title: '\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443' })))),
         renderComments());
 };
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, OneReviewTaskSetup_1.default)(OneReviewTask);
+
+
+/***/ }),
+
+/***/ "./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTaskSetup.tsx":
+/*!********************************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTaskSetup.tsx ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var CommentActions_1 = __webpack_require__(/*! ../../Models/Actions/CommentActions */ "./src/Apps/CodeReviewApp/Models/Actions/CommentActions.ts");
+var CommentSet_1 = __webpack_require__(/*! ../../Models/Entity/CommentSet */ "./src/Apps/CodeReviewApp/Models/Entity/CommentSet.ts");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.ProjectUsers = state.CodeReviewApp.CurrentProjectUsers;
@@ -49457,9 +49552,7 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     return res;
 };
-var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
-// and that function returns the connected, wrapper component:
-exports["default"] = connectToStore(OneReviewTask);
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 
 
 /***/ }),
@@ -49502,13 +49595,11 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var OneReviewTask_1 = __importDefault(__webpack_require__(/*! ../OneReviewTask/OneReviewTask */ "./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.tsx"));
 var AddTask_1 = __importDefault(__webpack_require__(/*! ../AddTask/AddTask */ "./src/Apps/CodeReviewApp/Components/AddTask/AddTask.tsx"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var PlaningPokerHelper_1 = __webpack_require__(/*! ../../../PlaningPoker/Models/PlaningPokerHelper */ "./src/Apps/PlaningPoker/Models/PlaningPokerHelper.ts");
 var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
 var Paggination_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/Paggination/Paggination */ "./src/components/Body/Paggination/Paggination.tsx"));
-var TasksFilter_1 = __webpack_require__(/*! ../../Models/Entity/State/TasksFilter */ "./src/Apps/CodeReviewApp/Models/Entity/State/TasksFilter.ts");
 var ProjectUsers_1 = __importDefault(__webpack_require__(/*! ../ProjectUsers/ProjectUsers */ "./src/Apps/CodeReviewApp/Components/ProjectUsers/ProjectUsers.tsx"));
-var TaskActions_1 = __webpack_require__(/*! ../../Models/Actions/TaskActions */ "./src/Apps/CodeReviewApp/Models/Actions/TaskActions.ts");
+var ProjectDetailSetup_1 = __importDefault(__webpack_require__(/*! ./ProjectDetailSetup */ "./src/Apps/CodeReviewApp/Components/ProjectDetail/ProjectDetailSetup.tsx"));
 __webpack_require__(/*! ./ProjectDetail.css */ "./src/Apps/CodeReviewApp/Components/ProjectDetail/ProjectDetail.css");
 var ProjectDetail = function (props) {
     var _a, _b;
@@ -49631,6 +49722,24 @@ var ProjectDetail = function (props) {
                     react_1.default.createElement("img", { src: G_PathToBaseImages + 'exclamation.png', alt: "" }),
                     react_1.default.createElement("h2", null, "\u0417\u0430\u0434\u0430\u0447\u0438 \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u044B!"))));
 };
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, ProjectDetailSetup_1.default)(ProjectDetail);
+
+
+/***/ }),
+
+/***/ "./src/Apps/CodeReviewApp/Components/ProjectDetail/ProjectDetailSetup.tsx":
+/*!********************************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Components/ProjectDetail/ProjectDetailSetup.tsx ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var TaskActions_1 = __webpack_require__(/*! ../../Models/Actions/TaskActions */ "./src/Apps/CodeReviewApp/Models/Actions/TaskActions.ts");
+var TasksFilter_1 = __webpack_require__(/*! ../../Models/Entity/State/TasksFilter */ "./src/Apps/CodeReviewApp/Models/Entity/State/TasksFilter.ts");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.ProjectUsers = state.CodeReviewApp.CurrentProjectUsers;
@@ -49666,9 +49775,7 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     return res;
 };
-var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
-// and that function returns the connected, wrapper component:
-exports["default"] = connectToStore(ProjectDetail);
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 
 
 /***/ }),
@@ -49710,7 +49817,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var OneProjectUser_1 = __importDefault(__webpack_require__(/*! ../OneProjectUser/OneProjectUser */ "./src/Apps/CodeReviewApp/Components/OneProjectUser/OneProjectUser.tsx"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var ProjectUsersSetup_1 = __importDefault(__webpack_require__(/*! ./ProjectUsersSetup */ "./src/Apps/CodeReviewApp/Components/ProjectUsers/ProjectUsersSetup.tsx"));
 __webpack_require__(/*! ./ProjectUsers.css */ "./src/Apps/CodeReviewApp/Components/ProjectUsers/ProjectUsers.css");
 var ProjectUsers = function (props) {
     var _a = (0, react_1.useState)(''), newUserName = _a[0], setNewUserName = _a[1];
@@ -49740,6 +49847,22 @@ var ProjectUsers = function (props) {
             return react_1.default.createElement(OneProjectUser_1.default, { User: x, key: x.Id });
         }));
 };
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, ProjectUsersSetup_1.default)(ProjectUsers);
+
+
+/***/ }),
+
+/***/ "./src/Apps/CodeReviewApp/Components/ProjectUsers/ProjectUsersSetup.tsx":
+/*!******************************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Components/ProjectUsers/ProjectUsersSetup.tsx ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.ProjectId = state.CodeReviewApp.CurrentProjectId;
@@ -49753,9 +49876,7 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     return res;
 };
-var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
-// and that function returns the connected, wrapper component:
-exports["default"] = connectToStore(ProjectUsers);
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 
 
 /***/ }),
@@ -49797,9 +49918,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var OneProjectInList_1 = __importDefault(__webpack_require__(/*! ../OneProjectInList/OneProjectInList */ "./src/Apps/CodeReviewApp/Components/OneProjectInList/OneProjectInList.tsx"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
-// import { OneProjectInList as OneProjectInListModel } from '../../Models/Entity/State/State/OneProjectInList';
+var ProjectsListSetup_1 = __importDefault(__webpack_require__(/*! ./ProjectsListSetup */ "./src/Apps/CodeReviewApp/Components/ProjectsList/ProjectsListSetup.tsx"));
 __webpack_require__(/*! ./ProjectsList.css */ "./src/Apps/CodeReviewApp/Components/ProjectsList/ProjectsList.css");
 var ProjectsList = function (props) {
     var _a = (0, react_1.useState)(''), newProjectName = _a[0], setNewProjectName = _a[1];
@@ -49832,6 +49952,22 @@ var ProjectsList = function (props) {
             react_1.default.createElement("input", { className: 'form-input', type: "text", value: filterProjectName, placeholder: '\u0424\u0438\u043B\u044C\u0442\u0440', onChange: function (e) { return setFilterProjectName(e.target.value); } }),
             renderList()));
 };
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, ProjectsListSetup_1.default)(ProjectsList);
+
+
+/***/ }),
+
+/***/ "./src/Apps/CodeReviewApp/Components/ProjectsList/ProjectsListSetup.tsx":
+/*!******************************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Components/ProjectsList/ProjectsListSetup.tsx ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     return res;
@@ -49843,9 +49979,7 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     return res;
 };
-var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
-// and that function returns the connected, wrapper component:
-exports["default"] = connectToStore(ProjectsList);
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 
 
 /***/ }),
@@ -50103,7 +50237,7 @@ var CodeReviewCommentController = /** @class */ (function () {
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "PATCH",
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: function (xhr, status, jqXHR) {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
@@ -50131,7 +50265,7 @@ var CodeReviewCommentController = /** @class */ (function () {
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "DELETE",
+                Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
                 FuncSuccess: function (xhr, status, jqXHR) {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
@@ -50196,7 +50330,7 @@ var CodeReviewCommentController = /** @class */ (function () {
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "GET",
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: function (xhr, status, jqXHR) {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
@@ -50281,7 +50415,7 @@ var CodeReviewProjectController = /** @class */ (function () {
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "DELETE",
+                Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
                 FuncSuccess: function (xhr, status, jqXHR) {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
@@ -50314,7 +50448,7 @@ var CodeReviewProjectController = /** @class */ (function () {
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "GET",
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: function (xhr, status, jqXHR) {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
@@ -50375,7 +50509,7 @@ var CodeReviewProjectController = /** @class */ (function () {
         this.GetUserProjects = function (onSuccess) {
             G_AjaxHelper.GoAjaxRequest({
                 Data: {},
-                Type: "GET",
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: function (xhr, status, jqXHR) {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
@@ -50487,7 +50621,7 @@ var CodeReviewTaskController = /** @class */ (function () {
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "PATCH",
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: function (xhr, status, jqXHR) {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
@@ -50523,7 +50657,7 @@ var CodeReviewTaskController = /** @class */ (function () {
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "GET",
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: function (xhr, status, jqXHR) {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
@@ -50551,7 +50685,7 @@ var CodeReviewTaskController = /** @class */ (function () {
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "DELETE",
+                Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
                 FuncSuccess: function (xhr, status, jqXHR) {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
@@ -50625,7 +50759,7 @@ var CodeReviewUserController = /** @class */ (function () {
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "DELETE",
+                Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
                 FuncSuccess: function (xhr, status, jqXHR) {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
@@ -50689,7 +50823,7 @@ var CodeReviewUserController = /** @class */ (function () {
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "PATCH",
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: function (xhr, status, jqXHR) {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
@@ -52747,12 +52881,13 @@ exports.OneCardInListDataBack = OneCardInListDataBack;
 /*!******************************************************************!*\
   !*** ./src/Apps/MenuApp/Models/Controllers/ArticleController.ts ***!
   \******************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ArticleController = exports.IdInput = void 0;
+var ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var IdInput = /** @class */ (function () {
     function IdInput() {
     }
@@ -52765,7 +52900,7 @@ var ArticleController = /** @class */ (function () {
     ArticleController.prototype.GetAllShortForUser = function (onSuccess) {
         G_AjaxHelper.GoAjaxRequest({
             Data: {},
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
@@ -52789,7 +52924,7 @@ var ArticleController = /** @class */ (function () {
         };
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
@@ -52815,7 +52950,7 @@ var ArticleController = /** @class */ (function () {
         };
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "PATCH",
+            Type: ControllerHelper_1.ControllerHelper.PatchHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
@@ -52877,7 +53012,7 @@ var ArticleController = /** @class */ (function () {
         }
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "PATCH",
+            Type: ControllerHelper_1.ControllerHelper.PatchHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
@@ -52997,26 +53132,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SettingsPage = void 0;
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 var RoomInfo_1 = __webpack_require__(/*! ../../Models/Entity/State/RoomInfo */ "./src/Apps/PlaningPoker/Models/Entity/State/RoomInfo.ts");
+var EditRoomSetup_1 = __importStar(__webpack_require__(/*! ./EditRoomSetup */ "./src/Apps/PlaningPoker/Components/EditRoom/EditRoomSetup.tsx"));
 __webpack_require__(/*! ./EditRoom.css */ "./src/Apps/PlaningPoker/Components/EditRoom/EditRoom.css");
-var SettingsPage;
-(function (SettingsPage) {
-    SettingsPage[SettingsPage["Info"] = 0] = "Info";
-    SettingsPage[SettingsPage["Password"] = 1] = "Password";
-    SettingsPage[SettingsPage["Marks"] = 2] = "Marks";
-})(SettingsPage = exports.SettingsPage || (exports.SettingsPage = {}));
-;
 var EditRoom = function (props) {
     var _a = (0, react_1.useState)(''), oldPassword = _a[0], setOldPassword = _a[1];
     var _b = (0, react_1.useState)(''), newPassword = _b[0], setNewPassword = _b[1];
     var _c = (0, react_1.useState)(''), newPasswordConfirm = _c[0], setNewPasswordConfirm = _c[1];
     var stringCards = props.Cards.join(';');
     var _d = (0, react_1.useState)(stringCards), cards = _d[0], setCards = _d[1];
-    var _e = (0, react_1.useState)(SettingsPage.Info), showSection = _e[0], setShowSection = _e[1];
+    var _e = (0, react_1.useState)(EditRoomSetup_1.SettingsPage.Info), showSection = _e[0], setShowSection = _e[1];
     (0, react_1.useEffect)(function () {
         setCards(stringCards);
     }, [stringCards]);
@@ -53090,14 +53217,14 @@ var EditRoom = function (props) {
         props.UpdateRoomImage(props.RoomName, img);
     };
     var sectionContent = react_1.default.createElement(react_1.default.Fragment, null);
-    if (showSection === SettingsPage.Info) {
+    if (showSection === EditRoomSetup_1.SettingsPage.Info) {
         sectionContent = react_1.default.createElement(react_1.default.Fragment, null,
             react_1.default.createElement("label", null, "\u0418\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435 \u0433\u0440\u0443\u043F\u043F\u044B"),
             react_1.default.createElement("input", { className: 'form-control', type: 'file', id: 'main_image_input' }),
             react_1.default.createElement("button", { type: "button", className: 'btn btn-b-light', onClick: function () { return loadImage(); } }, "\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u044C"),
             react_1.default.createElement("button", { type: "button", className: 'btn btn-b-light', onClick: function () { return removeImage(); } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"));
     }
-    if (showSection === SettingsPage.Password) {
+    if (showSection === EditRoomSetup_1.SettingsPage.Password) {
         sectionContent = react_1.default.createElement(react_1.default.Fragment, null,
             react_1.default.createElement("label", null, "\u0421\u0442\u0430\u0440\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C"),
             react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setOldPassword(e.target.value); }, placeholder: '\u0421\u0442\u0430\u0440\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: oldPassword }),
@@ -53107,7 +53234,7 @@ var EditRoom = function (props) {
             react_1.default.createElement("input", { type: 'password', className: 'persent-100-width form-control', onChange: function (e) { return setNewPasswordConfirm(e.target.value); }, placeholder: '\u041D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', value: newPasswordConfirm }),
             react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return changePassword(); } }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C \u043F\u0430\u0440\u043E\u043B\u044C"));
     }
-    else if (showSection === SettingsPage.Marks) {
+    else if (showSection === EditRoomSetup_1.SettingsPage.Marks) {
         sectionContent = react_1.default.createElement(react_1.default.Fragment, null,
             react_1.default.createElement("label", null, "\u041E\u0446\u0435\u043D\u043A\u0438 \u0447\u0435\u0440\u0435\u0437 ;"),
             react_1.default.createElement("input", { type: 'text', className: 'persent-100-width form-control', onChange: function (e) { return setCards(e.target.value); }, placeholder: '\u041E\u0446\u0435\u043D\u043A\u0438', value: cards }),
@@ -53117,12 +53244,36 @@ var EditRoom = function (props) {
     }
     return react_1.default.createElement("div", null,
         react_1.default.createElement("div", { className: 'edit-room-sections-block' },
-            react_1.default.createElement("div", { onClick: function () { return setShowSection(SettingsPage.Info); } }, "\u0418\u043D\u0444\u043E"),
-            react_1.default.createElement("div", { onClick: function () { return setShowSection(SettingsPage.Password); } }, "\u041F\u0430\u0440\u043E\u043B\u044C"),
-            react_1.default.createElement("div", { onClick: function () { return setShowSection(SettingsPage.Marks); } }, "\u041E\u0446\u0435\u043D\u043A\u0438")),
+            react_1.default.createElement("div", { onClick: function () { return setShowSection(EditRoomSetup_1.SettingsPage.Info); } }, "\u0418\u043D\u0444\u043E"),
+            react_1.default.createElement("div", { onClick: function () { return setShowSection(EditRoomSetup_1.SettingsPage.Password); } }, "\u041F\u0430\u0440\u043E\u043B\u044C"),
+            react_1.default.createElement("div", { onClick: function () { return setShowSection(EditRoomSetup_1.SettingsPage.Marks); } }, "\u041E\u0446\u0435\u043D\u043A\u0438")),
         react_1.default.createElement("hr", null),
         sectionContent);
 };
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, EditRoomSetup_1.default)(EditRoom);
+
+
+/***/ }),
+
+/***/ "./src/Apps/PlaningPoker/Components/EditRoom/EditRoomSetup.tsx":
+/*!*********************************************************************!*\
+  !*** ./src/Apps/PlaningPoker/Components/EditRoom/EditRoomSetup.tsx ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.SettingsPage = void 0;
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var SettingsPage;
+(function (SettingsPage) {
+    SettingsPage[SettingsPage["Info"] = 0] = "Info";
+    SettingsPage[SettingsPage["Password"] = 1] = "Password";
+    SettingsPage[SettingsPage["Marks"] = 2] = "Marks";
+})(SettingsPage = exports.SettingsPage || (exports.SettingsPage = {}));
+;
 var mapStateToProps = function (state, ownProps) {
     var _a;
     var res = {};
@@ -53139,9 +53290,7 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     return res;
 };
-var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
-// and that function returns the connected, wrapper component:
-exports["default"] = connectToStore(EditRoom);
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 
 
 /***/ }),
@@ -53177,22 +53326,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var RoomAction_1 = __webpack_require__(/*! ../../Models/Actions/RoomAction */ "./src/Apps/PlaningPoker/Models/Actions/RoomAction.ts");
-var UserActions_1 = __webpack_require__(/*! ../../Models/Actions/UserActions */ "./src/Apps/PlaningPoker/Models/Actions/UserActions.ts");
+var IndexSetup_1 = __importDefault(__webpack_require__(/*! ./IndexSetup */ "./src/Apps/PlaningPoker/Components/Index/IndexSetup.tsx"));
 __webpack_require__(/*! ./Index.css */ "./src/Apps/PlaningPoker/Components/Index/Index.css");
 var Index = function (props) {
     var _a = (0, react_1.useState)(props.RoomInfo.Name || ''), roomName = _a[0], setRoomName = _a[1];
     var _b = (0, react_1.useState)(props.RoomInfo.Password || ''), roomPassword = _b[0], setRoomPassword = _b[1];
-    // let roomList: { RoomName: string, RoomImg: string }[] = [];
-    // roomList.push({ RoomName: 'room1', RoomImg: '' });
-    // roomList.push({ RoomName: 'room2', RoomImg: '' });
-    // roomList.push({ RoomName: 'room3', RoomImg: '' });
-    // roomList.push({ RoomName: 'room4', RoomImg: '' });
     (0, react_1.useEffect)(function () {
         var pathNameUrlSplit = document.location.pathname.split('/');
         if (pathNameUrlSplit && pathNameUrlSplit.length > 2) {
@@ -53282,6 +53427,24 @@ var Index = function (props) {
                 react_1.default.createElement("img", { className: "persent-100-width-height", src: G_PathToBaseImages + 'exclamation.png', alt: "" }),
                 react_1.default.createElement("p", null, "\u0415\u0441\u043B\u0438 \u0441\u043E\u0437\u0434\u0430\u0442\u044C \u043A\u043E\u043C\u043D\u0430\u0442\u0443 \u0431\u0435\u0437 \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u0438 \u0432 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u043C \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u0438, \u0441\u043E\u0437\u0434\u0430\u0435\u0442\u0441\u044F \u043E\u0434\u043D\u043E\u0440\u0430\u0437\u043E\u0432\u0430\u044F \u043A\u043E\u043C\u043D\u0430\u0442\u0430 (\u0431\u0443\u0434\u0435\u0442 \u0443\u0434\u0430\u043B\u0435\u043D\u0430 \u0447\u0435\u0440\u0435\u0437 \u043D\u0435\u043A\u043E\u0442\u043E\u0440\u043E\u0435 \u0432\u0440\u0435\u043C\u044F).")));
 };
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, IndexSetup_1.default)(Index);
+
+
+/***/ }),
+
+/***/ "./src/Apps/PlaningPoker/Components/Index/IndexSetup.tsx":
+/*!***************************************************************!*\
+  !*** ./src/Apps/PlaningPoker/Components/Index/IndexSetup.tsx ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var RoomAction_1 = __webpack_require__(/*! ../../Models/Actions/RoomAction */ "./src/Apps/PlaningPoker/Models/Actions/RoomAction.ts");
+var UserActions_1 = __webpack_require__(/*! ../../Models/Actions/UserActions */ "./src/Apps/PlaningPoker/Models/Actions/UserActions.ts");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.RoomInfo = state.PlaningPokerApp.RoomInfo;
@@ -53307,9 +53470,7 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     return res;
 };
-var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
-// and that function returns the connected, wrapper component:
-exports["default"] = connectToStore(Index);
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 
 
 /***/ }),
@@ -53328,11 +53489,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 __webpack_require__(/*! ./OneVoteCard.css */ "./src/Apps/PlaningPoker/Components/OneVoteCard/OneVoteCard.css");
-var OneVoteCardProp = /** @class */ (function () {
-    function OneVoteCardProp() {
-    }
-    return OneVoteCardProp;
-}());
 var OneVoteCard = function (props) {
     var selectedClass = "";
     if (props.NeedSelect) {
@@ -53751,17 +53907,13 @@ var OneVoteCard_1 = __importDefault(__webpack_require__(/*! ../OneVoteCard/OneVo
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 var StoriesSection_1 = __importDefault(__webpack_require__(/*! ../StoriesSection/StoriesSection */ "./src/Apps/PlaningPoker/Components/StoriesSection/StoriesSection.tsx"));
 var RoomTimer_1 = __importDefault(__webpack_require__(/*! ../RoomTimer/RoomTimer */ "./src/Apps/PlaningPoker/Components/RoomTimer/RoomTimer.tsx"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var PlaningPokerHelper_1 = __webpack_require__(/*! ../../Models/PlaningPokerHelper */ "./src/Apps/PlaningPoker/Models/PlaningPokerHelper.ts");
 var EditRoom_1 = __importDefault(__webpack_require__(/*! ../EditRoom/EditRoom */ "./src/Apps/PlaningPoker/Components/EditRoom/EditRoom.tsx"));
 var Story_1 = __webpack_require__(/*! ../../Models/Entity/State/Story */ "./src/Apps/PlaningPoker/Models/Entity/State/Story.ts");
 var UserInRoom_1 = __webpack_require__(/*! ../../Models/Entity/State/UserInRoom */ "./src/Apps/PlaningPoker/Models/Entity/State/UserInRoom.ts");
-var Actions_1 = __webpack_require__(/*! ../../Models/Actions/Actions */ "./src/Apps/PlaningPoker/Models/Actions/Actions.ts");
 var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
 var EndVoteInfo_1 = __webpack_require__(/*! ../../Models/Entity/EndVoteInfo */ "./src/Apps/PlaningPoker/Models/Entity/EndVoteInfo.ts");
-var RoomAction_1 = __webpack_require__(/*! ../../Models/Actions/RoomAction */ "./src/Apps/PlaningPoker/Models/Actions/RoomAction.ts");
-var StoryActions_1 = __webpack_require__(/*! ../../Models/Actions/StoryActions */ "./src/Apps/PlaningPoker/Models/Actions/StoryActions.ts");
-var UserActions_1 = __webpack_require__(/*! ../../Models/Actions/UserActions */ "./src/Apps/PlaningPoker/Models/Actions/UserActions.ts");
+var RoomSetup_1 = __importDefault(__webpack_require__(/*! ./RoomSetup */ "./src/Apps/PlaningPoker/Components/Room/RoomSetup.tsx"));
 __webpack_require__(/*! ./Room.css */ "./src/Apps/PlaningPoker/Components/Room/Room.css");
 //подписки сигналр захватывают пропсы непонятно как, раньше это работало, но предположительно после введения deepClone
 //все вообще отвалилось. 6.30.2021, вот так получилось пофиксить, замена обработчика подписки на => не помогала
@@ -54152,6 +54304,26 @@ var Room = function (props) {
             react_1.default.createElement("div", { className: "display_none" },
                 react_1.default.createElement(react_router_dom_1.Link, { id: "move_to_index_link_react", to: "/planing-poker/" }, "hidden"))));
 };
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, RoomSetup_1.default)(Room);
+
+
+/***/ }),
+
+/***/ "./src/Apps/PlaningPoker/Components/Room/RoomSetup.tsx":
+/*!*************************************************************!*\
+  !*** ./src/Apps/PlaningPoker/Components/Room/RoomSetup.tsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var Actions_1 = __webpack_require__(/*! ../../Models/Actions/Actions */ "./src/Apps/PlaningPoker/Models/Actions/Actions.ts");
+var RoomAction_1 = __webpack_require__(/*! ../../Models/Actions/RoomAction */ "./src/Apps/PlaningPoker/Models/Actions/RoomAction.ts");
+var StoryActions_1 = __webpack_require__(/*! ../../Models/Actions/StoryActions */ "./src/Apps/PlaningPoker/Models/Actions/StoryActions.ts");
+var UserActions_1 = __webpack_require__(/*! ../../Models/Actions/UserActions */ "./src/Apps/PlaningPoker/Models/Actions/UserActions.ts");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.UserInfo = state.PlaningPokerApp.User;
@@ -54251,9 +54423,7 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     return res;
 };
-var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
-// and that function returns the connected, wrapper component:
-exports["default"] = connectToStore(Room);
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 
 
 /***/ }),
@@ -54296,30 +54466,15 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var RoomInfo_1 = __webpack_require__(/*! ../../Models/Entity/State/RoomInfo */ "./src/Apps/PlaningPoker/Models/Entity/State/RoomInfo.ts");
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var PlaningPokerHelper_1 = __webpack_require__(/*! ../../Models/PlaningPokerHelper */ "./src/Apps/PlaningPoker/Models/PlaningPokerHelper.ts");
 var Paggination_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/Paggination/Paggination */ "./src/components/Body/Paggination/Paggination.tsx"));
 var AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
+var StoriesSectionSetup_1 = __importStar(__webpack_require__(/*! ./StoriesSectionSetup */ "./src/Apps/PlaningPoker/Components/StoriesSection/StoriesSectionSetup.tsx"));
 __webpack_require__(/*! ./StoriesSection.css */ "./src/Apps/PlaningPoker/Components/StoriesSection/StoriesSection.css");
-var ListStoryType;
-(function (ListStoryType) {
-    ListStoryType[ListStoryType["Actual"] = 1] = "Actual";
-    ListStoryType[ListStoryType["ThisSession"] = 2] = "ThisSession";
-    ListStoryType[ListStoryType["Old"] = 3] = "Old";
-})(ListStoryType || (ListStoryType = {}));
-;
-var StoriesSectionState = /** @class */ (function () {
-    function StoriesSectionState() {
-        this.NameForAdd = "";
-        this.DescriptionForAdd = "";
-        this.SortByDateAsc = false;
-    }
-    return StoriesSectionState;
-}());
 var StoriesSection = function (props) {
-    var initStories = new StoriesSectionState();
+    var initStories = new StoriesSectionSetup_1.StoriesSectionState();
     var _a = (0, react_1.useState)(initStories), storiesState = _a[0], setStoriesState = _a[1];
-    var _b = (0, react_1.useState)(ListStoryType.Actual), listStoryTypeState = _b[0], setListStoryTypeState = _b[1];
+    var _b = (0, react_1.useState)(StoriesSectionSetup_1.ListStoryType.Actual), listStoryTypeState = _b[0], setListStoryTypeState = _b[1];
     var _c = (0, react_1.useState)(false), showNewStoryForm = _c[0], setShowNewStoryForm = _c[1];
     var _d = (0, react_1.useState)(1), storiesPageNumber = _d[0], setstoriesPageNumber = _d[1];
     var storyHelper = new PlaningPokerHelper_1.StoriesHelper();
@@ -54439,7 +54594,7 @@ var StoriesSection = function (props) {
             return react_1.default.createElement(react_1.default.Fragment, null);
         };
         var addNewForm = react_1.default.createElement(react_1.default.Fragment, null);
-        if (props.IsAdmin && listStoryTypeState === ListStoryType.Actual) {
+        if (props.IsAdmin && listStoryTypeState === StoriesSectionSetup_1.ListStoryType.Actual) {
             adminButtonInList = function (id) {
                 return react_1.default.createElement("div", { className: 'stories-but-block' },
                     react_1.default.createElement("div", { className: 'stories-action-btn', onClick: function () { return makeCurrentStory(id); }, title: '\u0421\u0434\u0435\u043B\u0430\u0442\u044C \u0442\u0435\u043A\u0443\u0449\u0435\u0439' },
@@ -54447,7 +54602,7 @@ var StoriesSection = function (props) {
                     react_1.default.createElement("div", { className: 'stories-del-but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () { return deleteStory(id); } },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })));
             };
-            addNewForm = listStoryTypeState !== ListStoryType.Actual ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement("div", null,
+            addNewForm = listStoryTypeState !== StoriesSectionSetup_1.ListStoryType.Actual ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement("div", null,
                 react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: function () { return setShowNewStoryForm(!showNewStoryForm); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u044E"));
         }
         var completedStoryInfo = function (story) {
@@ -54465,7 +54620,7 @@ var StoriesSection = function (props) {
         };
         var storiesForRender = [];
         var paggination = react_1.default.createElement(react_1.default.Fragment, null);
-        if (listStoryTypeState === ListStoryType.Old) {
+        if (listStoryTypeState === StoriesSectionSetup_1.ListStoryType.Old) {
             if (props.TotalNotActualStoriesCount > countStoriesOnPage) {
                 paggination = react_1.default.createElement(Paggination_1.default, { ElementsCount: props.TotalNotActualStoriesCount, PageNumber: storiesPageNumber, ElementsOnPage: countStoriesOnPage, SetPageNumber: setstoriesPageNumber });
             }
@@ -54473,8 +54628,8 @@ var StoriesSection = function (props) {
         }
         else {
             storiesForRender = props.Stories
-                .filter(function (x) { return (!x.Completed && listStoryTypeState === ListStoryType.Actual)
-                || (x.Completed && listStoryTypeState === ListStoryType.ThisSession && x.ThisSession); })
+                .filter(function (x) { return (!x.Completed && listStoryTypeState === StoriesSectionSetup_1.ListStoryType.Actual)
+                || (x.Completed && listStoryTypeState === StoriesSectionSetup_1.ListStoryType.ThisSession && x.ThisSession); })
                 .sort(function (x1, x2) {
                 var x1Date = new Date(x1.Date || 0);
                 var x2Date = new Date(x2.Date || 0);
@@ -54509,9 +54664,9 @@ var StoriesSection = function (props) {
                     react_1.default.createElement("div", null,
                         react_1.default.createElement("button", { className: "btn btn-success", onClick: function () { return AddNewStory(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"))); } }),
             react_1.default.createElement("div", { className: 'room-stories-type-selector' },
-                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === ListStoryType.Actual ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(ListStoryType.Actual); } }, "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
-                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === ListStoryType.ThisSession ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(ListStoryType.ThisSession); } }, "\u041E\u0446\u0435\u043D\u0435\u043D\u043D\u044B\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
-                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === ListStoryType.Old ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(ListStoryType.Old); } }, "\u0412\u0441\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438")),
+                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === StoriesSectionSetup_1.ListStoryType.Actual ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(StoriesSectionSetup_1.ListStoryType.Actual); } }, "\u0410\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
+                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === StoriesSectionSetup_1.ListStoryType.ThisSession ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(StoriesSectionSetup_1.ListStoryType.ThisSession); } }, "\u041E\u0446\u0435\u043D\u0435\u043D\u043D\u044B\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
+                react_1.default.createElement("div", { className: 'type-section' + (listStoryTypeState === StoriesSectionSetup_1.ListStoryType.Old ? ' type-section-select' : ''), onClick: function () { return setListStoryTypeState(StoriesSectionSetup_1.ListStoryType.Old); } }, "\u0412\u0441\u0435 \u0438\u0441\u0442\u043E\u0440\u0438\u0438")),
             react_1.default.createElement("div", null, addNewForm),
             paggination,
             react_1.default.createElement("div", null,
@@ -54535,6 +54690,39 @@ var StoriesSection = function (props) {
         react_1.default.createElement("div", { className: "padding-10-top" }),
         react_1.default.createElement("div", null, storiesListRender()));
 };
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, StoriesSectionSetup_1.default)(StoriesSection);
+
+
+/***/ }),
+
+/***/ "./src/Apps/PlaningPoker/Components/StoriesSection/StoriesSectionSetup.tsx":
+/*!*********************************************************************************!*\
+  !*** ./src/Apps/PlaningPoker/Components/StoriesSection/StoriesSectionSetup.tsx ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.StoriesSectionState = exports.ListStoryType = void 0;
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var ListStoryType;
+(function (ListStoryType) {
+    ListStoryType[ListStoryType["Actual"] = 1] = "Actual";
+    ListStoryType[ListStoryType["ThisSession"] = 2] = "ThisSession";
+    ListStoryType[ListStoryType["Old"] = 3] = "Old";
+})(ListStoryType = exports.ListStoryType || (exports.ListStoryType = {}));
+;
+var StoriesSectionState = /** @class */ (function () {
+    function StoriesSectionState() {
+        this.NameForAdd = "";
+        this.DescriptionForAdd = "";
+        this.SortByDateAsc = false;
+    }
+    return StoriesSectionState;
+}());
+exports.StoriesSectionState = StoriesSectionState;
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.RoomName = state.PlaningPokerApp.RoomInfo.Name;
@@ -54554,9 +54742,7 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     return res;
 };
-var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
-// and that function returns the connected, wrapper component:
-exports["default"] = connectToStore(StoriesSection);
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 
 
 /***/ }),
@@ -54592,10 +54778,13 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var RoomInfo_1 = __webpack_require__(/*! ../../Models/Entity/State/RoomInfo */ "./src/Apps/PlaningPoker/Models/Entity/State/RoomInfo.ts");
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var UserInListSetup_1 = __importDefault(__webpack_require__(/*! ./UserInListSetup */ "./src/Apps/PlaningPoker/Components/UserInList/UserInListSetup.tsx"));
 __webpack_require__(/*! ./UserInList.css */ "./src/Apps/PlaningPoker/Components/UserInList/UserInList.css");
 var UserInList = function (props) {
     var _a = (0, react_1.useState)("-"), selectedEditRole = _a[0], changeSelectedEditRoleState = _a[1];
@@ -54683,6 +54872,22 @@ var UserInList = function (props) {
             userButton),
         react_1.default.createElement("div", { className: "padding-10-top" }));
 };
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, UserInListSetup_1.default)(UserInList);
+
+
+/***/ }),
+
+/***/ "./src/Apps/PlaningPoker/Components/UserInList/UserInListSetup.tsx":
+/*!*************************************************************************!*\
+  !*** ./src/Apps/PlaningPoker/Components/UserInList/UserInListSetup.tsx ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var mapStateToProps = function (state, ownProps) {
     var _a, _b, _c;
     var res = {};
@@ -54698,9 +54903,7 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     var res = {};
     return res;
 };
-var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
-// and that function returns the connected, wrapper component:
-exports["default"] = connectToStore(UserInList);
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 
 
 /***/ }),
@@ -55061,7 +55264,7 @@ var PlaningPokerController = /** @class */ (function () {
         var _this = this;
         G_AjaxHelper.GoAjaxRequest({
             Data: {},
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -55096,7 +55299,7 @@ var PlaningPokerController = /** @class */ (function () {
                 'pageNumber': page,
                 'pageSize': countOnPage,
             },
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -55129,7 +55332,7 @@ var PlaningPokerController = /** @class */ (function () {
         data.append('roomname', roomname);
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "PATCH",
+            Type: ControllerHelper_1.ControllerHelper.PatchHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -55164,7 +55367,7 @@ var PlaningPokerController = /** @class */ (function () {
                 'oldPassword': oldPassword,
                 'newPassword': newPassword,
             },
-            Type: "PATCH",
+            Type: ControllerHelper_1.ControllerHelper.PatchHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -55194,7 +55397,7 @@ var PlaningPokerController = /** @class */ (function () {
                 'roomname': roomname,
                 'userConnectionId': userId
             },
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -55245,7 +55448,7 @@ var PlaningPokerController = /** @class */ (function () {
                 'roomname': roomname,
                 'userConnectionId': userId
             },
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -56523,11 +56726,9 @@ var OneVaultInList = function (props) {
     (0, react_1.useEffect)(function () {
     }, []);
     return react_1.default.createElement("div", { className: 'one-vault-in-list' },
-        react_1.default.createElement("div", null,
-            react_1.default.createElement("p", null, props.Vault.Id),
-            react_1.default.createElement("p", null, props.Vault.Name),
-            react_1.default.createElement(react_router_dom_1.Link, { to: G_VaultController.RouteUrlVaultApp
-                    + G_VaultController.RouteUrlOneVault + props.Vault.Id }, "\u041E\u0442\u043A\u0440\u044B\u0442\u044C")));
+        react_1.default.createElement(react_router_dom_1.Link, { to: G_VaultController.RouteUrlVaultApp
+                + G_VaultController.RouteUrlOneVault + props.Vault.Id },
+            react_1.default.createElement("div", { className: 'one-vault-in-list-inner' }, props.Vault.Name)));
 };
 exports["default"] = (0, OneVaultInListSetup_1.default)(OneVaultInList);
 
@@ -56663,8 +56864,10 @@ var OneVault = function (props) {
                     react_1.default.createElement("div", { className: 'but', title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C', onClick: function () { return setShowEditForm(true); } },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'pencil-edit.png' })),
                     react_1.default.createElement("div", { className: 'but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () {
-                            props.DeleteVault(props.Vault.Id);
-                            document.getElementById('list_vault_link_id').click();
+                            if (confirm('Удалить?')) {
+                                props.DeleteVault(props.Vault.Id);
+                                document.getElementById('list_vault_link_id').click();
+                            }
                         } },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'delete-icon.png' })),
                     react_1.default.createElement("div", { className: 'but', title: '\u0421\u0433\u0435\u043D\u0435\u0440\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043D\u043E\u0432\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C', onClick: function () {
@@ -56684,6 +56887,7 @@ var OneVault = function (props) {
             react_1.default.createElement(CreateSecret_1.default, { VaultId: vault.Id }),
             react_1.default.createElement("div", null,
                 react_1.default.createElement("input", { type: 'text', className: 'form-control', placeholder: '\u041F\u043E\u0438\u0441\u043A', onChange: (function (e) { return setFilterSecretKey(e.target.value); }), value: filterSecretKey })),
+            react_1.default.createElement("br", null),
             secretsForView.length > 0 ? react_1.default.createElement(react_1.default.Fragment, null, secretsForView.map(function (s) { return react_1.default.createElement(VaultSecret_1.default, { key: s.Id, Secret: s }); })) : react_1.default.createElement(react_1.default.Fragment, null, "\u0417\u0434\u0435\u0441\u044C \u043F\u043E\u043A\u0430 \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435\u0442")));
 };
 exports["default"] = (0, OneVaultSetup_1.default)(OneVault);
@@ -56992,6 +57196,13 @@ var VaultSecret = function (props) {
     var _j = (0, react_1.useState)(false), showMoreInfo = _j[0], setShowMoreInfo = _j[1];
     var _k = (0, react_1.useState)(false), showSecretValue = _k[0], setShowSecretValue = _k[1];
     (0, react_1.useEffect)(function () {
+        return function () {
+            if (props.SingleSecret) {
+                props.ClearSingleSecret();
+            }
+        };
+    }, []);
+    (0, react_1.useEffect)(function () {
         if (!(secret === null || secret === void 0 ? void 0 : secret.Key)) {
             var pathNameUrlSplit = document.location.pathname.split('/');
             if (pathNameUrlSplit && pathNameUrlSplit.length > 3 && pathNameUrlSplit[2] === 'secret') {
@@ -57092,7 +57303,7 @@ var VaultSecret = function (props) {
                                     return;
                                 }
                                 var newData = {};
-                                newData.Id = props.Secret.Id;
+                                newData.Id = secret.Id;
                                 newData.Key = secretKey;
                                 newData.Value = secretValue;
                                 newData.VaultId = secret === null || secret === void 0 ? void 0 : secret.VaultId;
@@ -57107,7 +57318,7 @@ var VaultSecret = function (props) {
                             } },
                             react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'cancel.png' }))) : react_1.default.createElement(react_1.default.Fragment, null),
                     react_1.default.createElement("div", { className: 'but', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C', onClick: function () {
-                            return props.DeleteSecret(props.Secret.Id, props.Secret.VaultId);
+                            return props.DeleteSecret(secret.Id, secret.VaultId);
                         } },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'delete-icon.png' })),
                     react_1.default.createElement("div", { className: 'but', title: '\u0421\u0441\u044B\u043B\u043A\u0430 \u043D\u0430 \u0441\u0435\u043A\u0440\u0435\u0442', onClick: function () {
@@ -57133,6 +57344,7 @@ exports["default"] = (0, VaultSecretSetup_1.default)(VaultSecret);
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var VaultActions_1 = __webpack_require__(/*! ../../Models/Actions/VaultActions */ "./src/Apps/Vault/Models/Actions/VaultActions.ts");
 var mapStateToProps = function (state, ownProps) {
     var _a, _b;
     var res = {};
@@ -57150,6 +57362,9 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     res.GetSingleSecret = function (id) {
         dispatch(window.G_VaultController.GetSingleSecretRedux(id));
+    };
+    res.ClearSingleSecret = function () {
+        dispatch((0, VaultActions_1.SetSingleSecretActionCreator)(null));
     };
     return res;
 };
@@ -57379,7 +57594,7 @@ var VaultController = /** @class */ (function () {
         var _this = this;
         G_AjaxHelper.GoAjaxRequest({
             Data: {},
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -57410,7 +57625,7 @@ var VaultController = /** @class */ (function () {
             Data: {
                 'vaultId': vaultId
             },
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -57438,7 +57653,7 @@ var VaultController = /** @class */ (function () {
             Data: {
                 'vaultId': vaultId
             },
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -57469,7 +57684,7 @@ var VaultController = /** @class */ (function () {
             Data: {
                 'vaultId': vaultId
             },
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -57496,7 +57711,7 @@ var VaultController = /** @class */ (function () {
             Data: {
                 'secretId': secretId
             },
-            Type: "DELETE",
+            Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -57569,7 +57784,7 @@ var VaultController = /** @class */ (function () {
         }
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "PATCH",
+            Type: ControllerHelper_1.ControllerHelper.PatchHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -57597,7 +57812,7 @@ var VaultController = /** @class */ (function () {
             Data: {
                 'secretId': secretId
             },
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -57640,7 +57855,7 @@ var VaultController = /** @class */ (function () {
         }
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "PATCH",
+            Type: ControllerHelper_1.ControllerHelper.PatchHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -57700,7 +57915,7 @@ var VaultController = /** @class */ (function () {
             Data: {
                 'vaultId': vaultId
             },
-            Type: "DELETE",
+            Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -57728,7 +57943,7 @@ var VaultController = /** @class */ (function () {
                 'vaultId': vaultId,
                 'password': pwd
             },
-            Type: "PATCH",
+            Type: ControllerHelper_1.ControllerHelper.PatchHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -57761,7 +57976,7 @@ var VaultController = /** @class */ (function () {
                 'password': password,
                 'vaultId': vaultId
             },
-            Type: "POST",
+            Type: ControllerHelper_1.ControllerHelper.PostHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -58871,7 +59086,7 @@ var WordActions = /** @class */ (function (_super) {
     WordActions.prototype.DosnloadFile = function () {
         // G_AjaxHelper.GoAjaxRequest({
         //     Data: {},
-        //     Type: "GET",
+        //     Type: ControllerHelper.GetHttp,
         //     FuncSuccess: (xhr, status, jqXHR) => {
         //     },
         //     FuncError: (xhr, status, error) => { },
@@ -59834,7 +60049,7 @@ var WordsCardsListWork = /** @class */ (function (_super) {
         // let refThis = this;
         // G_AjaxHelper.GoAjaxRequest({
         //     Data: {},
-        //     Type: "GET",
+        //     Type: ControllerHelper.GetHttp,
         //     FuncSuccess: (xhr, status, jqXHR) => {
         //         let resp: MainErrorObjectBack = xhr as MainErrorObjectBack;
         //         if (resp.errors) {
@@ -59932,19 +60147,20 @@ exports.WordsCardsListWork = WordsCardsListWork;
 /*!***************************************************************************!*\
   !*** ./src/Apps/WordsCardsApp/Models/Controllers/WordsCardsController.ts ***!
   \***************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.WordsCardsController = void 0;
+var ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var WordsCardsController = /** @class */ (function () {
     function WordsCardsController() {
     }
     WordsCardsController.prototype.GetAllForUser = function (onSuccess) {
         G_AjaxHelper.GoAjaxRequest({
             Data: {},
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
@@ -60024,7 +60240,7 @@ var WordsCardsController = /** @class */ (function () {
         data.append('id', cardId + '');
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "DELETE",
+            Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
@@ -60054,7 +60270,7 @@ var WordsCardsController = /** @class */ (function () {
         }
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "PATCH",
+            Type: ControllerHelper_1.ControllerHelper.PatchHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
@@ -60080,7 +60296,7 @@ var WordsCardsController = /** @class */ (function () {
         var refThis = this;
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "PATCH",
+            Type: ControllerHelper_1.ControllerHelper.PatchHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
@@ -60115,12 +60331,13 @@ exports.WordsCardsController = WordsCardsController;
 /*!**************************************************************************!*\
   !*** ./src/Apps/WordsCardsApp/Models/Controllers/WordsListController.ts ***!
   \**************************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.WordsListController = void 0;
+var ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var WordsListController = /** @class */ (function () {
     function WordsListController() {
     }
@@ -60128,7 +60345,7 @@ var WordsListController = /** @class */ (function () {
         var refThis = this;
         G_AjaxHelper.GoAjaxRequest({
             Data: {},
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
@@ -60175,7 +60392,7 @@ var WordsListController = /** @class */ (function () {
         var refThis = this;
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "DELETE",
+            Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
@@ -60223,7 +60440,7 @@ var WordsListController = /** @class */ (function () {
         var refThis = this;
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "DELETE",
+            Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
@@ -60247,7 +60464,7 @@ var WordsListController = /** @class */ (function () {
         data.append('id', model.Id + '');
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "PATCH",
+            Type: ControllerHelper_1.ControllerHelper.PatchHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 var resp = xhr;
                 if (resp.errors) {
@@ -60615,7 +60832,7 @@ var AjaxHelper = /** @class */ (function () {
         var _this = this;
         return this.GoAjaxRequest({
             Data: {},
-            Type: "POST",
+            Type: ControllerHelper_1.ControllerHelper.PostHttp,
             NeedTryRefreshToken: false,
             NotRedirectWhenNotAuth: notRedirectWhenNotAuth,
             FuncSuccess: function (xhr, status, jqXHR) {
@@ -60662,7 +60879,7 @@ var AjaxHelper = /** @class */ (function () {
         var _this = this;
         this.GoAjaxRequest({
             Data: {},
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             NeedTryRefreshToken: false,
             NotRedirectWhenNotAuth: true,
             FuncSuccess: function (xhr, status, jqXHR) {
@@ -60885,12 +61102,12 @@ var AuthenticateController = /** @class */ (function () {
         var _this = this;
         var data = {
             'email': model.Email,
-            'password': model.Password,
+            'password': model.Password
         };
         // let ajx: AjaxHelper.IAjaxHelper = new AjaxHelper.AjaxHelper();
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "POST",
+            Type: ControllerHelper_1.ControllerHelper.PostHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -60903,7 +61120,7 @@ var AuthenticateController = /** @class */ (function () {
         var data = {
             'email': model.Email,
             'password': model.Password,
-            "password_confirm": model.ConfirmPassword,
+            "password_confirm": model.ConfirmPassword
         };
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
@@ -60917,11 +61134,11 @@ var AuthenticateController = /** @class */ (function () {
     AuthenticateController.prototype.SendMessageForgotPassword = function (login, onSuccess) {
         var _this = this;
         var data = {
-            'email': login,
+            'email': login
         };
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "POST",
+            Type: ControllerHelper_1.ControllerHelper.PostHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -60932,11 +61149,11 @@ var AuthenticateController = /** @class */ (function () {
     AuthenticateController.prototype.CheckRecoverPasswordCode = function (code, onSuccess) {
         var _this = this;
         var data = {
-            'code': code,
+            'code': code
         };
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "POST",
+            Type: ControllerHelper_1.ControllerHelper.PostHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -60948,11 +61165,11 @@ var AuthenticateController = /** @class */ (function () {
         var _this = this;
         var data = {
             'code': code,
-            'password': password,
+            'password': password
         };
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "POST",
+            Type: ControllerHelper_1.ControllerHelper.PostHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -60965,7 +61182,7 @@ var AuthenticateController = /** @class */ (function () {
         var data = {};
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "POST",
+            Type: ControllerHelper_1.ControllerHelper.PostHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -60979,7 +61196,7 @@ var AuthenticateController = /** @class */ (function () {
         // let ajx: AjaxHelper.IAjaxHelper = new AjaxHelper.AjaxHelper();
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
@@ -61053,6 +61270,10 @@ var ControllerHelper = /** @class */ (function () {
             return result;
         }
     };
+    ControllerHelper.GetHttp = 'GET';
+    ControllerHelper.PostHttp = 'POST';
+    ControllerHelper.PatchHttp = 'PATCH';
+    ControllerHelper.DeleteHttp = 'DELETE';
     return ControllerHelper;
 }());
 exports.ControllerHelper = ControllerHelper;
@@ -61087,7 +61308,7 @@ var UsersController = /** @class */ (function () {
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "PATCH",
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: function (xhr, status, jqXHR) {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
@@ -61101,7 +61322,7 @@ var UsersController = /** @class */ (function () {
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "PATCH",
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: function (xhr, status, jqXHR) {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
@@ -61114,7 +61335,7 @@ var UsersController = /** @class */ (function () {
         var _this = this;
         G_AjaxHelper.GoAjaxRequest({
             Data: {},
-            Type: "GET",
+            Type: ControllerHelper_1.ControllerHelper.GetHttp,
             NotRedirectWhenNotAuth: true,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
@@ -61145,7 +61366,7 @@ var UsersController = /** @class */ (function () {
         }
         G_AjaxHelper.GoAjaxRequest({
             Data: data,
-            Type: "PATCH",
+            Type: ControllerHelper_1.ControllerHelper.PatchHttp,
             FuncSuccess: function (xhr, status, jqXHR) {
                 _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },

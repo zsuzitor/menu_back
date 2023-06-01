@@ -21,6 +21,7 @@ namespace VaultApp.Models.Services
         Task<bool> ExistVaultAsync(long vaultId, string password, UserInfo userInfo);
         Task<bool> ExistVaultOrNullPasswordAsync(long vaultId, string password, UserInfo userInfo);
         Task HasAccessToVaultWithError(long vaultId, UserInfo userInfo);
+        Task HasAccessToReadVaultWithError(long vaultId, UserInfo userInfo);
         Task<bool> ChangePasswordAsync(long vaultId, string oldPassword, string newPassword, UserInfo userInfo);
 
 

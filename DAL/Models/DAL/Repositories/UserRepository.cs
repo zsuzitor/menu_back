@@ -196,6 +196,10 @@ namespace DAL.Models.DAL.Repositories
             return user;
         }
 
-       
+        public async Task<User> UpdateAsync(User newUser)
+        {
+            await _db.SaveChangesAsync();
+            return newUser;
+        }
     }
 }

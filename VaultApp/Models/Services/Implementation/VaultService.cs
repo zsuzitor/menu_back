@@ -49,7 +49,7 @@ namespace VaultApp.Models.Services.Implementation
 
         public async Task<List<VaultUser>> GetUsersAsync(long vaultId, UserInfo userInfo)
         {
-            await HasAccessToVaultWithError(vaultId, userInfo);
+            await HasAccessToReadVaultWithError(vaultId, userInfo);
             (var suc, var users) = await _cache.GetOrSet(VaultUsersCache + vaultId
                 , async () => await _vaultRepository.GetUsersAsync(vaultId)
                 , VaultUsersCacheTime);
@@ -70,11 +70,15 @@ namespace VaultApp.Models.Services.Implementation
 
         public async Task<Vault> GetVaultWithSecretAsync(long vaultId, UserInfo userInfo, string vaultPassword)
         {
-            await HasAccessToVaultWithError(vaultId, userInfo);
             var vault = await _vaultRepository.GetNoTrackAsync(vaultId);
             if (vault == null)
             {
-                return null;
+                throw new SomeCustomException(Constants.ErrorConstants.VaultNotFound);
+            }
+
+            if (!vault.IsPublic)
+            {
+                await HasAccessToVaultWithError(vaultId, userInfo);
             }
 
             if (!string.IsNullOrWhiteSpace(vaultPassword)
@@ -185,6 +189,21 @@ namespace VaultApp.Models.Services.Implementation
             {
                 throw new SomeCustomException(Constants.ErrorConstants.VaultNotAllowed);
             }
+        }
+
+        public async Task HasAccessToReadVaultWithError(long vaultId, UserInfo userInfo)
+        {
+            if (await HasAccessToVault(vaultId, userInfo))
+            {
+                return;
+            }
+
+            if (await _vaultRepository.VaultIsPublicAsync(vaultId))
+            {
+                return;
+            }
+
+            throw new SomeCustomException(Constants.ErrorConstants.VaultNotAllowed);
         }
 
         public async Task<bool> ExistVaultAsync(long vaultId, string password, UserInfo userInfo)

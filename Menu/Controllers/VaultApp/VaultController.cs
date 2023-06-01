@@ -70,7 +70,7 @@ namespace Menu.Controllers.VaultApp
                 async () =>
                 {
                     var vaultAuthPassword = Request.Cookies[Constants.VaultAuthCookie];
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, false);
 
                     var res = await _vaultService.GetVaultWithSecretAsync(vaultId, userInfo, vaultAuthPassword);
                     var isAuth = false;
@@ -94,7 +94,7 @@ namespace Menu.Controllers.VaultApp
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, false);
 
                     var res = (await _vaultService.GetUsersAsync(vaultId, userInfo))
                         .Select(x => new VaultUserReturn().Fill(x));

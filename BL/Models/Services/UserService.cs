@@ -180,11 +180,16 @@ namespace Menu.Models.Services
                 }
             }
 
-            var user = await _userRepository.UpdateImageAsync(userId, pathImage);
+            var user = await _userRepository.GetUserByIdAsync(userId);
             if (user == null)
             {
                 throw new SomeCustomException(ErrorConsts.NotFound);
             }
+
+            var oldImgPath = user.ImagePath;
+            user.ImagePath = pathImage;
+            _ = await _userRepository.UpdateAsync(user);
+            await _imageService.DeleteFileWithOutDbRecord(oldImgPath);
 
             return pathImage;
 

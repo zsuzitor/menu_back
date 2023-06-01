@@ -62,5 +62,10 @@ namespace VaultApp.Models.Repositories.Implementation
                 && (string.IsNullOrWhiteSpace(x.PasswordHash) || x.PasswordHash == passwordHash))
                  .Select(x => x.Id).FirstOrDefaultAsync()) != 0;
         }
+
+        public async Task<bool> VaultIsPublicAsync(long vaultId)
+        {
+            return (await _db.Vaults.Where(x => x.Id == vaultId).Select(x => x.IsPublic).FirstOrDefaultAsync());
+        }
     }
 }

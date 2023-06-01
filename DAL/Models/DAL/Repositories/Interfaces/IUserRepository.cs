@@ -16,6 +16,7 @@ namespace DAL.Models.DAL.Repositories.Interfaces
         Task<bool> SetRefreshTokenHashAsync(long userId, string refreshTokenHash);
         Task<User> GetByEmailAndPasswordHashAsync(string email, string passwordHash);
         Task<User> CreateNewAsync(User newUser);
+        Task<User> UpdateAsync(User newUser);
         Task<bool> UserIsExist(string email, string login = null);
         Task<long?> GetIdByEmailAsync(string email);
         Task<List<(long userId, string email)>> GetIdByEmailAsync(List<string> email);

@@ -127,7 +127,11 @@ namespace VaultApp.Models.Services.Implementation
 
             if (secret.IsCoded && !string.IsNullOrEmpty(passwordForCoded))
             {
-                secret.Value = _coder.DecryptFromString(secret.Value, passwordForCoded);
+                try
+                {
+                    secret.Value = _coder.DecryptFromString(secret.Value, passwordForCoded);
+                }
+                catch { }
             }
 
             if (secret.IsPublic)
@@ -135,13 +139,13 @@ namespace VaultApp.Models.Services.Implementation
                 return secret;
             }
 
-            await _vaultService.HasAccessToVaultWithError(secret.VaultId, userInfo);
+            await _vaultService.HasAccessToReadVaultWithError(secret.VaultId, userInfo);
             return secret;
         }
 
         public async Task<List<Secret>> GetSecretsAsync(long vaultId, UserInfo userInfo, string vaultAuthPassword)
         {
-            await _vaultService.HasAccessToVaultWithError(vaultId, userInfo);
+            await _vaultService.HasAccessToReadVaultWithError(vaultId, userInfo);
             var res = await _secretRepository.GetByVaultIdNoTrackAsync(vaultId);
             res.ForEach(x => {
                 if (x.IsCoded && !string.IsNullOrEmpty(vaultAuthPassword))

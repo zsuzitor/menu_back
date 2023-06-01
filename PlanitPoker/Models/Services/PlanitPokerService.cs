@@ -1263,18 +1263,42 @@ namespace PlanitPoker.Models.Services
                 }
             }
 
+
             var success = await UpdateIfCan(room, userId, true, async rm =>
             {
-                rm.ImagePath = pathImage;
-                return true;
+                try
+                {
+                    var roomDb = await _roomRepository.GetByNameAsync(roomName);
+                    string oldImage = null;
+                    if (roomDb != null)
+                    {
+                        oldImage = roomDb.ImagePath;
+                        roomDb.ImagePath = pathImage;
+                        _ = await _roomRepository.UpdateAsync(roomDb);
+                    }
+
+                    oldImage ??= rm.ImagePath;
+                    await _imageService.DeleteFileWithOutDbRecord(oldImage);
+
+                    rm.ImagePath = pathImage;
+                    return true;
+                }
+                catch
+                {
+                    await _imageService.DeleteFileWithOutDbRecord(pathImage);
+                    return false;
+                }
+
             });
 
-            if (success)
+            if (!success)
             {
-                return pathImage;
+                return null;
             }
 
-            return null;
+
+
+            return pathImage;
 
         }
 
