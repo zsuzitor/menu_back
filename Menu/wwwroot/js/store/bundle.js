@@ -53579,7 +53579,10 @@ var PlaningPokerMain = function (props) {
     __planing_poker_hubConnected_ref__ = hubConnected;
     //componentdidmount, должен вызваться уже когда childs отрендерятся
     (0, react_1.useEffect)(function () {
-        myHubConnection.onclose(function () {
+        myHubConnection.onclose(function (error) {
+            if (error) {
+                alert('Ошибка соединения с сервером, обновите страницу');
+            }
             //todo тут сообщение об ошибке или что то еще мб перезагрузить страницу\редирект?
         });
         // window.onbeforeunload = function(e) {
@@ -56430,9 +56433,9 @@ var CreateSecret = function (props) {
     return react_1.default.createElement("div", { className: 'vault-secret' },
         react_1.default.createElement("div", { className: 'vault-secret-main' },
             react_1.default.createElement("div", { className: 'vault-secret-key', title: secretKey },
-                react_1.default.createElement("input", { type: 'text', className: 'form-control', value: secretKey, onChange: function (e) { return setSecretKey(e.target.value); } })),
+                react_1.default.createElement("input", { type: 'text', className: 'form-control', placeholder: '\u041A\u043B\u044E\u0447', value: secretKey, onChange: function (e) { return setSecretKey(e.target.value); } })),
             react_1.default.createElement("div", { className: 'vault-secret-val' },
-                react_1.default.createElement("textarea", { value: secretValue, className: 'form-control', onChange: function (e) { return setSecretValue(e.target.value); } })),
+                react_1.default.createElement("textarea", { value: secretValue, className: 'form-control', placeholder: '\u0417\u043D\u0430\u0447\u0435\u043D\u0438\u0435', onChange: function (e) { return setSecretValue(e.target.value); } })),
             react_1.default.createElement("div", { className: 'vault-secret-main-buttons' },
                 react_1.default.createElement("div", { className: 'but', title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C', onClick: function () {
                         if (!secretKey) {
@@ -56454,8 +56457,7 @@ var CreateSecret = function (props) {
                         newData.IsPublic = secretIsPublic;
                         newData.IsCoded = secretIsCoded;
                         newData.DieDate = secretDieDate || null; //</>new Date(defaultDieDate);
-                        props.CreateSecret(newData);
-                        cancelChanges();
+                        props.CreateSecret(newData, function () { return cancelChanges(); });
                     } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'save-icon.png' })),
                 react_1.default.createElement("div", { className: 'but', title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F', onClick: function () {
@@ -56497,8 +56499,8 @@ var mapStateToProps = function (state, ownProps) {
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
     var res = {};
-    res.CreateSecret = function (secret) {
-        dispatch(window.G_VaultController.CreateSecretRedux(secret));
+    res.CreateSecret = function (secret, cb) {
+        dispatch(window.G_VaultController.CreateSecretRedux(secret, cb));
     };
     return res;
 };
@@ -56923,9 +56925,6 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     res.LoadVault = function (vaultId) {
         dispatch(window.G_VaultController.GetCurrentVaultRedux(vaultId));
-    };
-    res.CreateSecret = function (secret) {
-        dispatch(window.G_VaultController.CreateSecretRedux(secret));
     };
     res.DeleteVault = function (vaultId) {
         dispatch(window.G_VaultController.DeleteVaultRedux(vaultId));
@@ -57719,7 +57718,7 @@ var VaultController = /** @class */ (function () {
             Url: G_PathToServer + 'api/VaultSecret/delete-secret',
         });
     };
-    VaultController.prototype.CreateSecretRedux = function (secret) {
+    VaultController.prototype.CreateSecretRedux = function (secret, successCallBack) {
         var _this = this;
         return function (dispatch, getState) {
             _this.preloader(true);
@@ -57729,6 +57728,9 @@ var VaultController = /** @class */ (function () {
                     var newData = new OneVaultSecret_1.OneVaultSecret();
                     newData.FillByBackModel(data);
                     dispatch((0, VaultActions_1.CreateSecretActionCreator)(newData));
+                    if (successCallBack) {
+                        successCallBack();
+                    }
                 }
             });
         };
@@ -62697,8 +62699,7 @@ var FooterMain = function (props) {
                 // onClick={() => setShowDefaultFooter(!showDefaultFooter)}>
                 onClick: function () { return setShowDefaultFooter(true); } },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/red_cloud.png" })),
-            !showDefaultFooter ? react_1.default.createElement("div", { className: "footer-eye" },
-                react_1.default.createElement("img", { className: 'persent-100-width-height footer-eye-img', src: "/images/eye3.png" }))
+            !showDefaultFooter ? react_1.default.createElement(react_1.default.Fragment, null)
                 :
                     react_1.default.createElement("div", { className: 'main-footer-inner container' },
                         react_1.default.createElement("div", { className: 'row' },
@@ -63175,7 +63176,7 @@ var MainComponent = function (props) {
         // new AppItem({ Logo: G_EmptyImagePath, Name: "TimeBooking", Path: "/menu-app" }),
         new AppItem_1.AppItem({ Logo: "/images/poker_logo.jpg", Name: "Planning Poker", Path: "/planing-poker" }),
         new AppItem_1.AppItem({ Logo: "/images/code_review_logo.png", Name: "Code Review", Path: "/code-review/" }),
-        new AppItem_1.AppItem({ Logo: G_EmptyImagePath, Name: "Vault", Path: "/vault-app/" }),
+        new AppItem_1.AppItem({ Logo: "/images/vaultapp.png", Name: "Vault", Path: (G_VaultController.RouteUrlVaultApp + '/') }),
     ];
     (0, react_1.useEffect)(function () {
         window.G_AddAbsoluteAlertToState = AddMainALert;

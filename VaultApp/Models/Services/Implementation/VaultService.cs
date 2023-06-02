@@ -237,6 +237,11 @@ namespace VaultApp.Models.Services.Implementation
 
         public async Task<bool> ChangePasswordAsync(long vaultId, string oldPassword, string newPassword, UserInfo userInfo)
         {
+            if (string.IsNullOrWhiteSpace(newPassword))
+            {
+                throw new SomeCustomException(Constants.ErrorConstants.VaultNotFill);
+            }
+
             await HasAccessToVaultWithError(vaultId, userInfo);
             var hashedPassword = _hasher.GetHash(oldPassword);
             var result = false;
