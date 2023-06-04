@@ -16,12 +16,13 @@ namespace VaultApp.Models
     {
         public void ErrorContainerInitialize(ErrorContainer errorContainer)
         {
-            errorContainer.InitError(Constants.ErrorConstants.VaultNotAllowed, "Vault не найден или нет доступа");
-            errorContainer.InitError(Constants.ErrorConstants.VaultNotFound, "Vault не найден");
-            errorContainer.InitError(Constants.ErrorConstants.VaultUsersEmpty, "В vault не останется пользователей");
-            errorContainer.InitError(Constants.ErrorConstants.SecretNotFound, "Secret не найден или нет доступа");
-            errorContainer.InitError(Constants.ErrorConstants.VaultNotFill, "Не заполнена модель vault");
-            errorContainer.InitError(Constants.ErrorConstants.VaultBadAuth, "Vault не авторизован");
+            errorContainer.InitError(Constants.VaultErrorConstants.VaultNotAllowed, "Vault не найден или нет доступа");
+            errorContainer.InitError(Constants.VaultErrorConstants.VaultNotFound, "Vault не найден");
+            errorContainer.InitError(Constants.VaultErrorConstants.VaultUsersEmpty, "В vault не останется пользователей");
+            errorContainer.InitError(Constants.VaultErrorConstants.SecretNotFound, "Secret не найден или нет доступа");
+            errorContainer.InitError(Constants.VaultErrorConstants.VaultNotFill, "Не заполнена модель vault");
+            errorContainer.InitError(Constants.VaultErrorConstants.VaultBadAuth, "Vault не авторизован");
+            errorContainer.InitError(Constants.VaultErrorConstants.VaultNameNotValide, "Имя Vault не валидно, только кириллица/латиница/буквы и символ '_'");
 
             //
         }

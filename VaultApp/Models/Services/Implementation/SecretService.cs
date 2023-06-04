@@ -50,7 +50,7 @@ namespace VaultApp.Models.Services.Implementation
                 if (string.IsNullOrWhiteSpace(passwordForCoded)
                     || !await _vaultService.ExistVaultAsync(secret.VaultId, passwordForCoded, userInfo))
                 {
-                    throw new SomeCustomException(Constants.ErrorConstants.VaultBadAuth);
+                    throw new SomeCustomException(Constants.VaultErrorConstants.VaultBadAuth);
                 }
 
                 newSecret.Value = _coder.EncryptWithString(newSecret.Value, passwordForCoded);
@@ -67,7 +67,7 @@ namespace VaultApp.Models.Services.Implementation
             var oldSecret = await _secretRepository.GetAsync(secret.Id);
             if (oldSecret == null)
             {
-                throw new SomeCustomException(Constants.ErrorConstants.SecretNotFound);
+                throw new SomeCustomException(Constants.VaultErrorConstants.SecretNotFound);
             }
 
             
@@ -82,7 +82,7 @@ namespace VaultApp.Models.Services.Implementation
                 if (string.IsNullOrWhiteSpace(passwordForCoded)
                     || !await _vaultService.ExistVaultAsync(vaultId, passwordForCoded, userInfo))
                 {
-                    throw new SomeCustomException(Constants.ErrorConstants.VaultBadAuth);
+                    throw new SomeCustomException(Constants.VaultErrorConstants.VaultBadAuth);
                 }
 
                 oldSecret.Value = _coder.EncryptWithString(oldSecret.Value, passwordForCoded);
@@ -110,7 +110,7 @@ namespace VaultApp.Models.Services.Implementation
             var oldSecret = await _secretRepository.GetAsync(secretId);
             if (oldSecret == null)
             {
-                throw new SomeCustomException(Constants.ErrorConstants.SecretNotFound);
+                throw new SomeCustomException(Constants.VaultErrorConstants.SecretNotFound);
             }
 
             await _vaultService.HasAccessToVaultWithError(oldSecret.VaultId, userInfo);
@@ -122,7 +122,7 @@ namespace VaultApp.Models.Services.Implementation
             var secret = await _secretRepository.GetAsync(secretId);
             if (secret == null)
             {
-                throw new SomeCustomException(Constants.ErrorConstants.SecretNotFound);
+                throw new SomeCustomException(Constants.VaultErrorConstants.SecretNotFound);
             }
 
             if (secret.IsCoded && !string.IsNullOrEmpty(passwordForCoded))

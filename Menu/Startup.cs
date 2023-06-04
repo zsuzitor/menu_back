@@ -257,6 +257,7 @@ namespace Menu
 
             app.UseHangfireDashboard();
 
+            ImageDataIOStorage.Init(env.WebRootPath);
 
             foreach (var init in _appsInitializers)
             {
@@ -286,7 +287,6 @@ namespace Menu
 
             #endregion planitPoker
 
-            ImageDataIOStorage.Init(env.WebRootPath);
 
 
             app.UseMvc(routes =>

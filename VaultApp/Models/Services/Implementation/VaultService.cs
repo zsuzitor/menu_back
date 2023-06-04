@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using VaultApp.Models.Entity;
 using VaultApp.Models.Entity.Input;
@@ -73,7 +74,7 @@ namespace VaultApp.Models.Services.Implementation
             var vault = await _vaultRepository.GetNoTrackAsync(vaultId);
             if (vault == null)
             {
-                throw new SomeCustomException(Constants.ErrorConstants.VaultNotFound);
+                throw new SomeCustomException(Constants.VaultErrorConstants.VaultNotFound);
             }
 
             if (!vault.IsPublic)
@@ -109,8 +110,10 @@ namespace VaultApp.Models.Services.Implementation
         {
             if (string.IsNullOrEmpty(vault.Name))// || string.IsNullOrEmpty(vault.Password))
             {
-                throw new SomeCustomException(Constants.ErrorConstants.VaultNotFill);
+                throw new SomeCustomException(Constants.VaultErrorConstants.VaultNotFill);
             }
+
+            ValidateVaultName(vault.Name);
 
             await HasAccessToVaultWithError(vault.Id, userInfo);
             Vault result = null;
@@ -119,13 +122,13 @@ namespace VaultApp.Models.Services.Implementation
                 var oldVault = await _vaultRepository.GetAsync(vault.Id);
                 if (oldVault == null)
                 {
-                    throw new SomeCustomException(Constants.ErrorConstants.VaultNotFound);
+                    throw new SomeCustomException(Constants.VaultErrorConstants.VaultNotFound);
                 }
 
                 if (!string.IsNullOrWhiteSpace(oldVault.PasswordHash)
                     && !oldVault.PasswordHash.Equals(_hasher.GetHash(vaultPassword)))
                 {
-                    throw new SomeCustomException(Constants.ErrorConstants.VaultBadAuth);
+                    throw new SomeCustomException(Constants.VaultErrorConstants.VaultBadAuth);
                 }
 
                 _cache.Remove(VaultUsersCache + vault.Id);
@@ -143,7 +146,7 @@ namespace VaultApp.Models.Services.Implementation
 
                 if (oldVault.Users.Count == 0)
                 {
-                    throw new SomeCustomException(Constants.ErrorConstants.VaultUsersEmpty);
+                    throw new SomeCustomException(Constants.VaultErrorConstants.VaultUsersEmpty);
                 }
 
                 //var usersForAdd = vault.UsersForAdd.Where(x=>oldVault.Users.FirstOrDefault(u=>u.))
@@ -163,8 +166,10 @@ namespace VaultApp.Models.Services.Implementation
         {
             if (string.IsNullOrEmpty(vault.Name) || string.IsNullOrEmpty(vault.Password))
             {
-                throw new SomeCustomException(Constants.ErrorConstants.VaultNotFill);
+                throw new SomeCustomException(Constants.VaultErrorConstants.VaultNotFill);
             }
+
+            ValidateVaultName(vault.Name);
 
             var newVault = new Vault();
             newVault.Name = vault.Name;
@@ -187,7 +192,7 @@ namespace VaultApp.Models.Services.Implementation
         {
             if (!await HasAccessToVault(vaultId, userInfo))
             {
-                throw new SomeCustomException(Constants.ErrorConstants.VaultNotAllowed);
+                throw new SomeCustomException(Constants.VaultErrorConstants.VaultNotAllowed);
             }
         }
 
@@ -203,7 +208,7 @@ namespace VaultApp.Models.Services.Implementation
                 return;
             }
 
-            throw new SomeCustomException(Constants.ErrorConstants.VaultNotAllowed);
+            throw new SomeCustomException(Constants.VaultErrorConstants.VaultNotAllowed);
         }
 
         public async Task<bool> ExistVaultAsync(long vaultId, string password, UserInfo userInfo)
@@ -220,26 +225,13 @@ namespace VaultApp.Models.Services.Implementation
             return await _vaultRepository.ExistVaultOrNullPasswordAsync(vaultId, hashedPassword);
         }
 
-        private async Task<bool> HasAccessToVault(long vaultId, UserInfo userInfo)
-        {
-            if (userInfo == null)
-            {
-                return false;
-            }
-
-            (var suc, var users) = await _cache.GetOrSet(VaultUsersCache + vaultId
-                , async () => await _vaultRepository.GetUsersAsync(vaultId)
-                , VaultUsersCacheTime);
-
-            return users.FirstOrDefault(x => x.UserId == userInfo.UserId) != null;
-            //return await _vaultRepository.UserInVaultAsync(vaultId, userInfo.UserId);
-        }
+        
 
         public async Task<bool> ChangePasswordAsync(long vaultId, string oldPassword, string newPassword, UserInfo userInfo)
         {
             if (string.IsNullOrWhiteSpace(newPassword))
             {
-                throw new SomeCustomException(Constants.ErrorConstants.VaultNotFill);
+                throw new SomeCustomException(Constants.VaultErrorConstants.VaultNotFill);
             }
 
             await HasAccessToVaultWithError(vaultId, userInfo);
@@ -250,7 +242,7 @@ namespace VaultApp.Models.Services.Implementation
                 var vault = await _vaultRepository.GetAsync(vaultId);
                 if (!vault.PasswordHash.Equals(hashedPassword))
                 {
-                    throw new SomeCustomException(Constants.ErrorConstants.VaultBadAuth);
+                    throw new SomeCustomException(Constants.VaultErrorConstants.VaultBadAuth);
                 }
 
                 vault.PasswordHash = _hasher.GetHash(newPassword);
@@ -266,6 +258,31 @@ namespace VaultApp.Models.Services.Implementation
             });
 
             return result;
+        }
+
+
+        private async Task<bool> HasAccessToVault(long vaultId, UserInfo userInfo)
+        {
+            if (userInfo == null)
+            {
+                return false;
+            }
+
+            (var suc, var users) = await _cache.GetOrSet(VaultUsersCache + vaultId
+                , async () => await _vaultRepository.GetUsersAsync(vaultId)
+                , VaultUsersCacheTime);
+
+            return users.FirstOrDefault(x => x.UserId == userInfo.UserId) != null;
+            //return await _vaultRepository.UserInVaultAsync(vaultId, userInfo.UserId);
+        }
+
+        private void ValidateVaultName(string name)
+        {
+            var rg = new Regex("^[а-яА-Яa-zA-Z0-9_]{1,30}$");
+            if (!rg.Match(name).Success)
+            {
+                throw new SomeCustomException(Constants.VaultErrorConstants.VaultNameNotValide);
+            }
         }
     }
 }
