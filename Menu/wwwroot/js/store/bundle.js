@@ -56423,7 +56423,7 @@ var CreateSecret = function (props) {
     }, []);
     var helper = new Helper_1.Helper();
     var currentDate = new Date();
-    var defaultDieDate = ((currentDate.getUTCFullYear() + 500)
+    var defaultDieDate = ((currentDate.getUTCFullYear() + 10)
         + '-' + helper.addZeroIfNumShort((currentDate.getUTCMonth() + 1)))
         + '-' + helper.addZeroIfNumShort(currentDate.getUTCDate());
     function cancelChanges() {
@@ -57311,7 +57311,7 @@ var VaultSecret = function (props) {
     }, [secret === null || secret === void 0 ? void 0 : secret.Value, secret === null || secret === void 0 ? void 0 : secret.DieDate, secret === null || secret === void 0 ? void 0 : secret.IsCoded]);
     var helper = new Helper_1.Helper();
     var currentDate = new Date();
-    var defaultDieDate = ((currentDate.getUTCFullYear() + 500)
+    var defaultDieDate = ((currentDate.getUTCFullYear() + 10)
         + '-' + helper.addZeroIfNumShort((currentDate.getUTCMonth() + 1)))
         + '-' + helper.addZeroIfNumShort(currentDate.getUTCDate());
     function cancelChanges() {
