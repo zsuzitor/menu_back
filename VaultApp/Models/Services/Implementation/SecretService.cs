@@ -78,14 +78,14 @@ namespace VaultApp.Models.Services.Implementation
             oldSecret.Key = secret.Key;
             if (secret.IsCoded)
             {
-                var vaultId = await _secretRepository.GetVaultIdAsync(secret.Id);
+                var vaultId = oldSecret.VaultId;//await _secretRepository.GetVaultIdAsync(secret.Id);
                 if (string.IsNullOrWhiteSpace(passwordForCoded)
                     || !await _vaultService.ExistVaultAsync(vaultId, passwordForCoded, userInfo))
                 {
                     throw new SomeCustomException(Constants.VaultErrorConstants.VaultBadAuth);
                 }
 
-                oldSecret.Value = _coder.EncryptWithString(oldSecret.Value, passwordForCoded);
+                oldSecret.Value = _coder.EncryptWithString(secret.Value, passwordForCoded);
             }
             else
             {
