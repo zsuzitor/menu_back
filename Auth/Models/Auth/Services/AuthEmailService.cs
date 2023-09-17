@@ -6,17 +6,17 @@ namespace Auth.Models.Auth.Services
 {
     public sealed class AuthEmailService : EmailServiceBase
     {
-        public override string ConfigurationKey => "DefaultMailSettings";
+        public const string ConfigurationKey = "DefaultMailSettings";
 
-        private readonly MailSendingConfig __config;
-        protected override MailSendingConfig _config => __config;
+        private readonly MailSendingInstanceConfig __config;
+        protected override MailSendingInstanceConfig _config => __config;
 
 
         public AuthEmailService(
             IEmailServiceSender emailService, MailSendingConfig config)
             : base(emailService)
         {
-            __config = config;
+            __config = config.Values[ConfigurationKey];
         }
     }
 }

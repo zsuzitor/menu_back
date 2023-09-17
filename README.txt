@@ -40,9 +40,11 @@ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=SqlServerSuperPassword2017" 
 docker run --name menu-pg-13.3 -p 5432:5432 -e POSTGRES_USER=pgusermenu -e POSTGRES_PASSWORD=pgpwd4menu -e POSTGRES_DB=menu -d postgres:13.3
 "Host=localhost;Port=5432;Database=menu;Username=pgusermenu;Password=pgpwd4menu"
 при миграции с mssql на postgres надо грохнуть все миграции и снапшоты и перестроить заного
+также есть ветка на гитхаб с небольшими изменениями
 
-
-
+#redis
+https://redis.io/docs/getting-started/install-stack/docker/
+docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
 
 
 поставка

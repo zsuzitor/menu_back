@@ -60,7 +60,7 @@ namespace MenuApp.Models.BL.Services
                 article = await _articleRepository.AddAsync(article);
 
 
-                article.AdditionalImages = await _imageService.Upload(newArticle.AdditionalImages, article.Id);
+                article.AdditionalImages = await _imageService.Upload(newArticle.AdditionalImages, (img) => img.ArticleId = article.Id);
 
                 return article;
             }
@@ -120,7 +120,7 @@ namespace MenuApp.Models.BL.Services
                 await _articleRepository.UpdateAsync(oldObj);
             }
 
-            var newImages = await _imageService.Upload(newArticle.AdditionalImages, oldObj.Id);
+            var newImages = await _imageService.Upload(newArticle.AdditionalImages, (img) => img.ArticleId = oldObj.Id);
 
             //удаляем в конце тк самая неважная операция и самая ломающая
             

@@ -12,26 +12,28 @@ namespace Menu.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        //IDistributedCache _cache;//enable AddStackExchangeRedisCache or another in startup
+        IDistributedCache _cache;//enable AddStackExchangeRedisCache or another in startup
 
         public ValuesController(
-            //IDistributedCache cache
+            IDistributedCache cache
             //IWorker worker
             )
         {
-            //_cache = cache;
+            //ch.Get("t3",out int t1);
+            _cache = cache;
             //worker.Recurring("", "* * * * *");
         }
 
         [HttpGet("cache-test")]
-        public void CacheCheck()
+        public string CacheCheck()
         {
-            //_cache.SetString("test_key_1", "test_val", new DistributedCacheEntryOptions()
-            //{
-            //    AbsoluteExpirationRelativeToNow = new TimeSpan(0, 1, 0)
-            //});
+            _cache.SetString("test_key_1", "test_val", new DistributedCacheEntryOptions()
+            {
+                AbsoluteExpirationRelativeToNow = new TimeSpan(0, 5, 0)
+            });
 
-            //var val = _cache.GetString("test_key_1");
+            var val = _cache.GetString("test_key_1");
+            return "cached";
         }
 
 

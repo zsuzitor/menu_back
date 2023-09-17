@@ -11,19 +11,18 @@ namespace CodeReviewApp.Models.Services
 
     public sealed class ReviewAppEmailService : EmailServiceBase, IReviewAppEmailService
     {
-        public override string ConfigurationKey => "DefaultMailSettings";
+        public const string ConfigurationKey = "DefaultMailSettings";
         public string DefaultSubject => "Code Review";
-        private readonly MailSendingConfig __config;
-        protected override MailSendingConfig _config => __config;
+        private readonly MailSendingInstanceConfig __config;
+        protected override MailSendingInstanceConfig _config => __config;
 
 
         public ReviewAppEmailService(
             IEmailServiceSender emailService, MailSendingConfig config)
             :base(emailService)
         {
-            __config = config;
+            __config = config.Values[ConfigurationKey];
         }
-
 
 
         public async Task QueueNewCommentInReviewTaskAsync(string email, string taskName)

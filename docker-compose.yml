@@ -1,0 +1,48 @@
+
+
+version: "3"
+
+services:
+  server:
+  # папка с докерфайлом
+    build: ./
+    ports:
+      - 8080:80
+    environment:
+      TEST_q: 'qweqwe'
+      CACHE__REDIS__HOST : cache
+      CACHE__REDIS__PORT : 6379
+      # Server=db - это обязательно название сервиса из compose файла - https://stackoverflow.com/questions/52926064/how-to-connect-to-sql-server-docker-container-from-another-container
+      ConnectionStrings__DefaultConnection: 'Server=db;Database=Menu-DataBase;User Id=SA;Password=SqlServerSuperPassword2017;Integrated Security=false;TrustServerCertificate=true'
+      UseInMemoryDataProvider: 'false'
+    depends_on:
+      - cache
+      - db
+
+  cache:
+    image: redis/redis-stack:latest
+    restart: always
+    ports:
+      - '6379:6379'
+      - '8001:8001'
+    # command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2017-CU11-ubuntu
+    restart: always
+    ports:
+      - '1433:1433'
+    environment:
+      SA_PASSWORD: 'SqlServerSuperPassword2017'
+      ACCEPT_EULA: 'Y'
+    volumes:
+      # - mssql-server-linux-data:/var/opt/mssql/data
+      - ./menu-db-volume:/var/opt/mssql/data
+      # - /data/project/mssql/log:/var/opt/mssql/log
+      # - /data/project/mssql/secrets:/var/opt/mssql/secrets
+
+
+# volumes:
+#   mssql-server-linux-data:
+
+

@@ -9,12 +9,12 @@ namespace BL.Models.Services
 {
     public abstract class EmailServiceBase : IEmailService
     {
-        public abstract string ConfigurationKey { get; }
+        //public abstract string ConfigurationKey { get; }
 
         //public abstract string DefaultSubject { get; }
 
         protected readonly IEmailServiceSender _emailService;
-        protected abstract MailSendingConfig _config { get; }
+        protected abstract MailSendingInstanceConfig _config { get; }
 
         //todo думаю нужен репозиторий и бд, все взаимодействие можно растащить по методам
         protected readonly List<OneMail> _forSend;
@@ -35,8 +35,7 @@ namespace BL.Models.Services
                 return;
             }
 
-            var reviewConfig = _config.Values[ConfigurationKey];
-            await _emailService.SendEmailAsync(email, subject, message, reviewConfig);
+            await _emailService.SendEmailAsync(email, subject, message, _config);
         }
 
         public virtual async Task QueueEmailAsync(string email, string subject, string message)
@@ -98,8 +97,7 @@ namespace BL.Models.Services
                 }
             }
 
-            var reviewConfig = _config.Values[ConfigurationKey];
-            await _emailService.SendEmailAsync(combinedForSend, reviewConfig);
+            await _emailService.SendEmailAsync(combinedForSend, _config);
         }
     }
 }

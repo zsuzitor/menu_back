@@ -2,6 +2,7 @@
 
 using BO.Models.DAL.Domain;
 using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -9,16 +10,16 @@ namespace Menu.Models.Services.Interfaces
 {
     public interface IImageService
     {
-        Task<CustomImage> Upload(IFormFile image, long articleId);
-        Task<List<CustomImage>> Upload(List<IFormFile> images, long articleId);
+        Task<CustomImage> Upload(IFormFile image, Action<CustomImage> beforeCreate);
+        Task<List<CustomImage>> Upload(List<IFormFile> images, Action<CustomImage> beforeCreate);
 
         /// <summary>
         /// создает физический файл и заносит в бд
         /// </summary>
         /// <param name="images"></param>
-        /// <param name="articleId"></param>
+        /// <param name="beforeCreate"></param>
         /// <returns></returns>
-        Task<List<CustomImage>> GetCreatableUploadObjects(List<IFormFile> images, long articleId);
+        Task<List<CustomImage>> GetCreatableUploadObjects(List<IFormFile> images, Action<CustomImage> beforeCreate);
         Task<string> CreateWithOutDbRecord(IFormFile image);
         Task<string> CreateUploadFileWithOutDbRecord(IFormFile image);
 

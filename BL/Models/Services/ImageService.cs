@@ -25,7 +25,7 @@ namespace Menu.Models.Services
             _imageDataStorage = imageDataStorage;
         }
 
-        public  async Task<CustomImage> Upload(IFormFile image, long articleId)
+        public  async Task<CustomImage> Upload(IFormFile image, Action<CustomImage> beforeCreate)
         {
             if (image == null)
             {
@@ -36,9 +36,9 @@ namespace Menu.Models.Services
 
             var res = new CustomImage()
             {
-                ArticleId = articleId,
                 Path = physImg,
             };
+            beforeCreate(res);
 
             await _imageRepository.AddAsync(res);
             
@@ -49,9 +49,9 @@ namespace Menu.Models.Services
         /// создает физ файлы но не добавляет их в бд(id объектов 0)
         /// </summary>
         /// <param name="images"></param>
-        /// <param name="articleId"></param>
+        /// <param name="beforeCreate"></param>
         /// <returns></returns>
-        public async Task<List<CustomImage>> GetCreatableUploadObjects(List<IFormFile> images, long articleId)
+        public async Task<List<CustomImage>> GetCreatableUploadObjects(List<IFormFile> images, Action<CustomImage> beforeCreate)
         {
             if (images == null || images.Count == 0)
             {
@@ -65,9 +65,9 @@ namespace Menu.Models.Services
 
                 var img = new CustomImage()
                 {
-                    ArticleId = articleId,
                     Path = physImg,
                 };
+                beforeCreate(img);
                 imagesForAdd.Add(img);
             }
 
@@ -76,14 +76,14 @@ namespace Menu.Models.Services
 
 
         /// <summary>
-        /// возвращает готовые созданные объекты
+        ///  возвращает готовые созданные объекты
         /// </summary>
         /// <param name="images"></param>
-        /// <param name="articleId"></param>
+        /// <param name="beforeCreate"></param>
         /// <returns></returns>
-        public async Task<List<CustomImage>> Upload(List<IFormFile> images, long articleId)
+        public async Task<List<CustomImage>> Upload(List<IFormFile> images, Action<CustomImage> beforeCreate)
         {
-            var res = await GetCreatableUploadObjects(images, articleId);
+            var res = await GetCreatableUploadObjects(images, beforeCreate);
             if (res == null || res.Count == 0)
             {
                 return new List<CustomImage>();

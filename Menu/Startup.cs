@@ -44,6 +44,7 @@ using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using CodeReviewApp.Models.Services.Interfaces;
 using VaultApp.Models;
+using BL.Models.Services.Cache;
 
 namespace Menu
 {
@@ -70,7 +71,8 @@ namespace Menu
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)//, IConfiguration configuration)
         {
-            services.AddMvc(option => option.EnableEndpointRouting = false).SetCompatibilityVersion(CompatibilityVersion.Latest);
+            services.AddMvc(option => option.EnableEndpointRouting = false)
+                .SetCompatibilityVersion(CompatibilityVersion.Latest);
 
 
             if (bool.Parse(Configuration["UseInMemoryDataProvider"]))
@@ -106,17 +108,9 @@ namespace Menu
             }
 
 
-            //
-
-            
 
             // Add the processing server as IHostedService
             services.AddHangfireServer();
-
-
-
-
-
 
 
             //конфигурируем encoders(HtmlEncoder и тд) что бы они не ломали русские буквы
@@ -128,8 +122,6 @@ namespace Menu
             });
 
             services.AddSignalR();
-
-
             
             
 
@@ -137,7 +129,6 @@ namespace Menu
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
 
-            
 
 
             //healpers
@@ -167,6 +158,26 @@ namespace Menu
             services.AddSingleton<ICacheService, CacheService>();
             services.AddSingleton<ICoder, AesCoder1>();
             services.AddSingleton<IHasher, Hasher>();
+
+            //cache
+            var redisHost = Configuration["CACHE:REDIS:HOST"];
+            var redisPort = Configuration["CACHE:REDIS:PORT"];
+            var redisInstanceName = Configuration["CACHE:REDIS:INSTANCE_NAME"];
+            if (string.IsNullOrEmpty(redisHost) || string.IsNullOrEmpty(redisPort))
+            {
+                services.AddSingleton<ICacheAccessor, MemoryCacheAccessor>();
+
+            }
+            else
+            {
+                services.AddStackExchangeRedisCache(options =>
+                {
+                    options.Configuration = $"{redisHost}:{redisPort}";
+                    options.InstanceName = redisInstanceName;
+                });
+                services.AddSingleton<ICacheAccessor, RedisCacheAccessor>();
+            }
+            
 
             //
 
@@ -242,6 +253,18 @@ namespace Menu
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
+            //накатываем миграции если надо
+            if (!bool.Parse(Configuration["UseInMemoryDataProvider"]))
+            {
+                using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+                {
+                    var context = serviceScope.ServiceProvider.GetRequiredService<MenuDbContext>();
+                    context.Database.SetCommandTimeout(600);
+                    context.Database.Migrate();
+                }
+            }
+
+
 
             if (env.IsDevelopment())
             {

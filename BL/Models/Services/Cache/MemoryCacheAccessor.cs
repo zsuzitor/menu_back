@@ -1,10 +1,9 @@
 ﻿using BL.Models.Services.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
-namespace BL.Models.Services
+namespace BL.Models.Services.Cache
 {
     public class MemoryCacheAccessor : ICacheAccessor
     {
@@ -19,9 +18,21 @@ namespace BL.Models.Services
             return _memoryCache.TryGetValue(key, out result);
         }
 
+        public async Task<(bool, T)> GetAsync<T>(string key)
+        {
+            var res = Get(key, out T result);
+            return await Task.FromResult((res, result));
+        }
+
         public bool Exist(string key)
         {
              return _memoryCache.TryGetValue(key, out _);
+        }
+        
+        public async Task<bool> ExistAsync(string key)
+        {
+            var res = Exist(key);
+            return await Task.FromResult(res);
         }
 
         public void Set<T>(string key, T value, TimeSpan time)
@@ -32,9 +43,27 @@ namespace BL.Models.Services
             _memoryCache.Set(key, value, cacheEntryOptions);
         }
 
+        public async Task SetAsync<T>(string key, T value, TimeSpan time)
+        {
+            Set(key, value, time);
+            await Task.CompletedTask;
+        }
+
         public void Remove(string key)
         {
             _memoryCache.Remove(key);
         }
+
+        public async Task RemoveAsync(string key)
+        {
+            Remove(key);
+            await Task.CompletedTask;
+        }
+
+
+
+
+
+        
     }
 }
