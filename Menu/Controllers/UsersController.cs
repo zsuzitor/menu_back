@@ -7,7 +7,7 @@ using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Common.Models.Return;
-using Common.Models.Poco;
+using Common.Models.Entity;
 using Microsoft.AspNetCore.Http;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;

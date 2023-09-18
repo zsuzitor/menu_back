@@ -8,7 +8,7 @@ using VaultApp.Models.Entity;
 
 namespace VaultApp.Models.Repositories
 {
-    internal interface IVaultRepository : IGeneralRepository<Vault, long>
+    public interface IVaultRepository : IGeneralRepository<Vault, long>
     {
         Task<List<VaultUser>> GetUsersAsync(long vaultId);
         Task<List<VaultUserDal>> LoadUsersAsync(Vault vault);

@@ -20,7 +20,9 @@ services:
       - db
 
   cache:
+  # dev variant
     image: redis/redis-stack:latest
+    # image: redis/redis-stack-server - prod variant
     restart: always
     ports:
       - '6379:6379'

@@ -1,6 +1,6 @@
 ﻿using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
-using Common.Models.Poco;
+using Common.Models.Entity;
 using jwtLib.JWTAuth.Interfaces;
 using WEB.Common.Models.Helpers.Interfaces;
 using Menu.Models.InputModels.WordsCardsApp;

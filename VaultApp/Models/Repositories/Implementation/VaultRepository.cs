@@ -11,7 +11,7 @@ using VaultApp.Models.Entity;
 
 namespace VaultApp.Models.Repositories.Implementation
 {
-    internal sealed class VaultRepository : GeneralRepository<Vault, long>, IVaultRepository
+    public sealed class VaultRepository : GeneralRepository<Vault, long>, IVaultRepository
     {
         public VaultRepository(MenuDbContext db) : base(db)
         {

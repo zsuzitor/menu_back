@@ -17,7 +17,7 @@ using VaultApp.Models.Repositories;
 
 namespace VaultApp.Models.Services.Implementation
 {
-    internal sealed class VaultService : IVaultService
+    public sealed class VaultService : IVaultService
     {
         private const string VaultUsersCache = "vault_users_";
         private readonly TimeSpan VaultUsersCacheTime = TimeSpan.FromSeconds(300);

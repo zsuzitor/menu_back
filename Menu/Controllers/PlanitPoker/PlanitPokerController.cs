@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Menu.Models.Returns.Types.PlanitPoker;
 using System.Linq;
 using PlanitPoker.Models.Returns;
-using Common.Models.Poco;
+using Common.Models.Entity;
 using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.Http;

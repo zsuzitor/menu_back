@@ -1,6 +1,6 @@
 ﻿
 
-namespace Auth.Models.Auth.Poco.Input
+namespace Auth.Models.Auth.Entity.Input
 {
     public sealed class RegisterModel
     {

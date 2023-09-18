@@ -6,14 +6,23 @@ using DAL.Models.DAL.Repositories;
 using Menu.Tests.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
-namespace Menu.Tests
+namespace Menu.Tests.Tests.Dal
 {
     public class ImageRepositoryTesting : TestBase
     {
+        [Theory]
+        [InlineData(-1)]
+        public  void test_test(int num)
+        {
+            Assert.Equal(num, -1);
+
+        }
+
         [Fact]
-        public async void CreateNewArticle_Created()
+        public async Task CreateNewImageWithArticle_Created()
         {
 
             using var db = GetDbContext();
@@ -44,7 +53,7 @@ namespace Menu.Tests
         }
 
         [Fact]
-        public async void CreateNewArticles_Created()
+        public async Task CreateNewImages_Created()
         {
 
             using var db = GetDbContext();
@@ -99,7 +108,7 @@ namespace Menu.Tests
 
 
         [Fact]
-        public async void DeleteArticle_Deleted()
+        public async Task DeleteImage_Deleted()
         {
 
             using var db = GetDbContext();
@@ -117,13 +126,5 @@ namespace Menu.Tests
             Assert.Equal(delImg.ArticleId, deleted[0].ArticleId);
 
         }
-
-
-
     }
-
-
-
-
-
 }

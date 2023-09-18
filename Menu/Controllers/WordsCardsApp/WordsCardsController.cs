@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
-using Common.Models.Poco;
+using Common.Models.Entity;
 using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
 using WEB.Common.Models.Helpers.Interfaces;

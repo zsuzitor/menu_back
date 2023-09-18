@@ -6,7 +6,7 @@ using Common.Models.Error;
 using Common.Models.Exceptions;
 using System.Threading.Tasks;
 using Menu.Models.Services.Interfaces;
-using Auth.Models.Auth.Poco.Input;
+using Auth.Models.Auth.Entity.Input;
 using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
 using System.Collections.Generic;

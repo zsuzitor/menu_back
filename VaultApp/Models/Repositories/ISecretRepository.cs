@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace VaultApp.Models.Repositories
 {
-    internal interface ISecretRepository : IGeneralRepository<Secret, long>
+    public interface ISecretRepository : IGeneralRepository<Secret, long>
     {
         Task DeleteExpiredSecrets();
         //Task<List<Secret>> GetByVaultIdNoTrackAsync(long vaultId);

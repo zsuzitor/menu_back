@@ -11,7 +11,7 @@ using Common.Models.Exceptions;
 using Common.Models.Error;
 using Common.Models.Return;
 using Menu.Models.Returns.Types;
-using Common.Models.Poco;
+using Common.Models.Entity;
 using System.ComponentModel.DataAnnotations;
 using jwtLib.JWTAuth.Interfaces;
 using BO.Models.Auth;

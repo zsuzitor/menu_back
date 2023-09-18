@@ -1,7 +1,7 @@
 ﻿
 using jwtLib.JWTAuth.Models.Poco;
 using System.Threading.Tasks;
-using Auth.Models.Auth.Poco.Input;
+using Auth.Models.Auth.Entity.Input;
 
 namespace Auth.Models.Auth.Services.Interfaces
 {

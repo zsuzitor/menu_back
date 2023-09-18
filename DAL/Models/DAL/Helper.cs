@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models.DAL
 {
-    public sealed class DBHelper
+    public class DBHelper
     {
         private readonly IConfiguration _configuration;
 
@@ -19,7 +19,7 @@ namespace DAL.Models.DAL
         //    _db = db;
         //}
 
-        public async Task ActionInTransaction(MenuDbContext db, Func<Task> action)
+        public virtual async Task ActionInTransaction(MenuDbContext db, Func<Task> action)
         {
             //в inmemory нет транзакций, это можно сделать отдельной реализацией но пока пусть так
             if (bool.Parse(_configuration["UseInMemoryDataProvider"]))

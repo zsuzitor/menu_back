@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-using Common.Models.Poco;
+using Common.Models.Entity;
 
 namespace Common.Models.Return
 {
