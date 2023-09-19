@@ -16,19 +16,20 @@ namespace Menu
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, config) =>
+                .ConfigureAppConfiguration((hostingContext, configBuidler) =>
                 {
                     //config.Sources.Clear();
 
                     var env = hostingContext.HostingEnvironment;
-                    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                    configBuidler
+                        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                         .AddJsonFile($"appsettings.{env.EnvironmentName}.json",
-                            optional: true, reloadOnChange: true);
-                    config.AddEnvironmentVariables();
+                            optional: true, reloadOnChange: true)
+                        .AddEnvironmentVariables();
 
                     if (args != null)
                     {
-                        config.AddCommandLine(args);
+                        configBuidler.AddCommandLine(args);
                     }
                 })
                 .UseStartup<Startup>().ConfigureLogging(logging =>

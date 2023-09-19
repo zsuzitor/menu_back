@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BL.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Logging;
 
 namespace Menu.Controllers
 {
@@ -12,16 +13,18 @@ namespace Menu.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        IDistributedCache _cache;//enable AddStackExchangeRedisCache or another in startup
-
+        private readonly IDistributedCache _cache;//enable AddStackExchangeRedisCache or another in startup
+        private readonly ILogger _logger;
         public ValuesController(
             IDistributedCache cache
             //IWorker worker
+            ,ILogger<ValuesController> logger
             )
         {
             //ch.Get("t3",out int t1);
             _cache = cache;
             //worker.Recurring("", "* * * * *");
+            _logger = logger;
         }
 
         [HttpGet("cache-test")]
@@ -34,6 +37,21 @@ namespace Menu.Controllers
 
             var val = _cache.GetString("test_key_1");
             return "cached";
+        }
+
+        [HttpGet("throw")]
+        public string Throw_()
+        {
+            try
+            {
+                throw new Exception("тестовое исключение valuecontroller");
+            }
+            catch (Exception ex)
+            {
+                _logger?.LogError(ex, "2тестовое исключение valuecontroller");
+                throw;
+            }
+
         }
 
 

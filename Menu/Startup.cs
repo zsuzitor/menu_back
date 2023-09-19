@@ -71,6 +71,9 @@ namespace Menu
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)//, IConfiguration configuration)
         {
+            //конфигурацию накатывает на логирование(в частности nlogconfig) что бы там получить строку подключения
+            NLog.Extensions.Logging.ConfigSettingLayoutRenderer.DefaultConfiguration = Configuration;
+
             services.AddMvc(option => option.EnableEndpointRouting = false)
                 .SetCompatibilityVersion(CompatibilityVersion.Latest);
 
@@ -97,7 +100,8 @@ namespace Menu
                     .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
                     .UseSimpleAssemblyNameTypeSerializer()
                     .UseRecommendedSerializerSettings()
-                    .UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection"), new SqlServerStorageOptions
+                    .UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection")
+                    , new SqlServerStorageOptions
                     {
                         CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
                         SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
@@ -106,8 +110,6 @@ namespace Menu
                         DisableGlobalLocks = true
                     }));
             }
-
-
 
             // Add the processing server as IHostedService
             services.AddHangfireServer();
@@ -223,12 +225,6 @@ namespace Menu
                 services.AddSingleton<IImageDataStorage, ImageDataIOStorage>(x =>
                     new ImageDataIOStorage(x.GetService<IFileService>(), imageConfig));
             }
-
-            
-
-
-
-
             
 
             //auth
