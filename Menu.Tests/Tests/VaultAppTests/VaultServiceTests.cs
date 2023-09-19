@@ -21,25 +21,27 @@ namespace Menu.Tests.Tests.VaultAppTests
         {
             var userId = 1;
             var (db, _, hasherMoq, _, service) = SetupVaultService();
-            var vaultForCreate = new VaultApp.Models.Entity.Input.CreateVault()
-            { Name = "name1", Password = "pwd1", IsPublic = true };
-            var createdVault = await service.CreateVaultAsync(
-                 vaultForCreate
-                 , new BO.Models.Auth.UserInfo(userId));
+            using (db)
+            {
+                var vaultForCreate = new VaultApp.Models.Entity.Input.CreateVault()
+                { Name = "name1", Password = "pwd1", IsPublic = true };
+                var createdVault = await service.CreateVaultAsync(
+                     vaultForCreate
+                     , new BO.Models.Auth.UserInfo(userId));
 
-            var createdVaultFromDb = db.Vaults.FirstOrDefault(x => x.Id == createdVault.Id);
-
-            Assert.NotEqual(0, createdVault.Id);
-            Assert.NotNull(createdVaultFromDb);
-            Assert.Equal(vaultForCreate.Name, createdVaultFromDb.Name);
-            Assert.Equal(vaultForCreate.IsPublic, createdVaultFromDb.IsPublic);
-            Assert.Equal(hasherMoq.GetHash(vaultForCreate.Password), createdVaultFromDb.PasswordHash);
+                var createdVaultFromDb = db.Vaults.FirstOrDefault(x => x.Id == createdVault.Id);
+                Assert.NotEqual(0, createdVault.Id);
+                Assert.NotNull(createdVaultFromDb);
+                Assert.Equal(vaultForCreate.Name, createdVaultFromDb.Name);
+                Assert.Equal(vaultForCreate.IsPublic, createdVaultFromDb.IsPublic);
+                Assert.Equal(hasherMoq.GetHash(vaultForCreate.Password), createdVaultFromDb.PasswordHash);
+            }
         }
 
 
         private (MenuDbContext, IDBHelper, IHasher, ICoder, IVaultService) SetupVaultService()
         {
-            using var db = GetDbContext();
+            var db = GetDbContext();
             var dbHelperMoq = GetDBHelper();
             var hasherMoq = GetHasher();
             var coder = new FakeCoder();
