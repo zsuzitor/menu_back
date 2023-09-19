@@ -43,7 +43,7 @@ namespace PlanitPoker.Models.Services
 
 
 
-        private readonly DBHelper _dbHelper;
+        private readonly IDBHelper _dbHelper;
 
 
         private static readonly List<string> DefaultCards = new List<string>()
@@ -57,7 +57,7 @@ namespace PlanitPoker.Models.Services
                 IRoomRepository roomRepository, IStoryRepository storyRepository
                 , IErrorService errorService, IErrorContainer errorContainer,
                  IHasher hasher,
-                DBHelper dbHelper, MenuDbContext db,
+                IDBHelper dbHelper, MenuDbContext db,
                 IPlaningUserRepository planingUserRepository,
                 IImageService imageService
             )

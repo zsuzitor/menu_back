@@ -17,9 +17,9 @@ namespace Menu.Tests.Models
             return new MenuDbContext(options);
         }
 
-        public DBHelper GetDBHelper()
+        public IDBHelper GetDBHelper()
         {
-            var dbHelperMoq = new Mock<DBHelper>();
+            var dbHelperMoq = new Mock<IDBHelper>();
             dbHelperMoq
                 .Setup(x
                     => x.ActionInTransaction(It.IsAny<MenuDbContext>(), It.IsAny<Func<Task>>()))
@@ -30,7 +30,7 @@ namespace Menu.Tests.Models
         public IHasher GetHasher()
         {
             var hasher = new Mock<IHasher>();
-            hasher.Setup(x => x.GetHash(It.IsAny<string>())).Returns<string>(s => s);
+            hasher.Setup(x => x.GetHash(It.IsAny<string>())).Returns<string>(s => $"__{s}__with_hash__");
             return hasher.Object;
         }
 

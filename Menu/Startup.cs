@@ -138,7 +138,7 @@ namespace Menu
             //InitReturnTypeContainer(returnContainer);
             services.AddSingleton<MultiThreadHelper, MultiThreadHelper>();
             services.AddSingleton<IStringValidator, StringValidator>();
-            services.AddSingleton<DBHelper>();
+            services.AddSingleton<IDBHelper, DBHelper>();
 
 
 

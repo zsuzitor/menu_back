@@ -22,7 +22,7 @@ namespace VaultApp.Models.Services.Implementation
         private const string VaultUsersCache = "vault_users_";
         private readonly TimeSpan VaultUsersCacheTime = TimeSpan.FromSeconds(300);
 
-        private readonly DBHelper _dbHelper;
+        private readonly IDBHelper _dbHelper;
         private readonly MenuDbContext _db;
 
         private readonly IVaultRepository _vaultRepository;
@@ -33,7 +33,7 @@ namespace VaultApp.Models.Services.Implementation
         private readonly ICoder _coder;
 
         public VaultService(IVaultRepository vaultRepository
-            , DBHelper dbHelper, MenuDbContext db, IUserRepository userRepository
+            , IDBHelper dbHelper, MenuDbContext db, IUserRepository userRepository
             , ICacheService cache, IHasher hasher, ICoder coder, ISecretRepository secretRepository)
         {
             _vaultRepository = vaultRepository;
