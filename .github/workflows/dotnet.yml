@@ -3,19 +3,36 @@
 
 name: .NET
 
-on:
-  push:
+on: 
+  push: #[workflow_dispatch]
     branches: [ "master" ]
+    paths-ignore:
+      - '.github/test/*'
   pull_request:
     branches: [ "master" ]
+env:
+  ENV1: production
+  GH_SECRET: ${{ secrets.GH_SECRET }}
+
 
 jobs:
-  build:
-
+  hello:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
+      - name: Print to console
+        run: |
+          echo print hellow message
+          echo "${{ env.ENV1 }}"
+          echo "${{ env.GH_SECRET }}"
+        #использование объектов которые предоставлены гитхабом https://docs.github.com/en/actions/learn-github-actions/contexts
+        # гитхаб функции https://docs.github.com/en/actions/learn-github-actions/expressions#functions
+
+  build:
+    runs-on: ubuntu-latest
+    needs: hello
+    steps:
+    - name: Get code
+      uses: actions/checkout@v3
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
@@ -26,3 +43,17 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-files
+        path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-files
