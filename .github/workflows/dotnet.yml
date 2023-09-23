@@ -7,9 +7,10 @@ on:
   push: #[workflow_dispatch]
     branches: [ "master" ]
     paths-ignore:
-      - '.github/test/*'
+      - '.github/workflows/*'
   pull_request:
     branches: [ "master" ]
+  workflow_dispatch:
 env:
   ENV1: production
   GH_SECRET: ${{ secrets.GH_SECRET }}
@@ -43,19 +44,19 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Publish
-      run: dotnet publish Menu/Menu.csproj -c Release -o build
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: build-files
-        path: build
+#    - name: Publish
+#      run: dotnet publish Menu/Menu.csproj -c Release -o build
+#    - name: Upload artifacts
+#      uses: actions/upload-artifact@v3
+#      with:
+#        name: build-files
+#        path: build
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: build-files
+ # deploy:
+ #   needs: build
+ #   runs-on: ubuntu-latest
+ #   steps:
+ #     - name: Get build artifacts
+ #       uses: actions/download-artifact@v3
+ #       with:
+ #         name: build-files
