@@ -1,0 +1,21 @@
+minikube start
+minikube addons enable ingress
+eval $(minikube docker-env)
+minikube image build . -t menuapp_image:dev   -- в папке с докерфайлом. это урок 8
+kubectl apply -f .k8s
+//minikube service menu-service-np
+
+ингресс не завелся
+
+
+
+несколько реплик
+стейтфул роут на покер
+деплоймент+ингресс
+конфигмаап
+под с редисом и бд
+prob на меню
+hpa
+
+
+

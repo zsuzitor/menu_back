@@ -1,3 +1,6 @@
+docker-compose build
+docker-compose up
+
 http://localhost:8000/api/values
 http://localhost:8000/menu/auth/register/
 

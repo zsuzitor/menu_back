@@ -1,0 +1,35 @@
+---
+# file: practice/2.application-abstractions/3.deployment/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: menu-deployment
+spec:
+  replicas: 2 #после настройки hpa удалить
+  selector:
+    matchLabels:
+      app: menu
+  template:
+    metadata:
+      labels:
+        app: menu
+    spec:
+      containers:
+      - image: menuapp_image:dev
+        name: menu
+        env:
+        - name: TEST
+          value: foo
+        envFrom: # указываем конфиг мап
+        - configMapRef:
+            name: menu-configmap
+        ports:
+        - containerPort: 80
+        resources: #очень желательно
+          requests: #сколько как мы ожидаем(может вылезти) будет использовать, нужно для раскидывания подов по нодам
+            cpu: 1000m
+            memory: 1000Mi
+          limits: #если полезет выше, перезапустит контейнер
+            cpu: 2000m
+            memory: 2000Mi
+...

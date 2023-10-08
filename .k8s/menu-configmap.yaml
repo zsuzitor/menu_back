@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: menu-configmap
+data:
+  ConnectionStrings__DefaultConnection: ""
+  UseInMemoryDataProvider: "true"
+  CACHE__REDIS__HOST: ""
+  CACHE__REDIS__PORT: ""
+  TEST_CONFIG: "test"
+...

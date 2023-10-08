@@ -10,16 +10,16 @@ services:
       - 8080:80
     environment:
       TEST_q: 'qweqwe'
-      CACHE__REDIS__HOST : cache
+      CACHE__REDIS__HOST : cacheservice
       CACHE__REDIS__PORT : 6379
       # Server=db - это обязательно название сервиса из compose файла - https://stackoverflow.com/questions/52926064/how-to-connect-to-sql-server-docker-container-from-another-container
-      ConnectionStrings__DefaultConnection: 'Server=db;Database=Menu-DataBase;User Id=SA;Password=SqlServerSuperPassword2017;Integrated Security=false;TrustServerCertificate=true'
+      ConnectionStrings__DefaultConnection: 'Server=dbservice;Database=Menu-DataBase;User Id=SA;Password=SqlServerSuperPassword2017;Integrated Security=false;TrustServerCertificate=true'
       UseInMemoryDataProvider: 'false'
     depends_on:
-      - cache
-      - db
+      - cacheservice
+      - dbservice
 
-  cache:
+  cacheservice:
   # dev variant
     image: redis/redis-stack:latest
     # image: redis/redis-stack-server - prod variant
@@ -29,7 +29,7 @@ services:
       - '8001:8001'
     # command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
 
-  db:
+  dbservice:
     image: mcr.microsoft.com/mssql/server:2017-CU11-ubuntu
     restart: always
     ports:
