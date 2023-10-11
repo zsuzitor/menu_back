@@ -39,7 +39,7 @@ services:
       ACCEPT_EULA: 'Y'
     volumes:
       # - mssql-server-linux-data:/var/opt/mssql/data
-      - ./menu-db-volume:/var/opt/mssql/data
+      - ./menu_volumes/menu-db-volume:/var/opt/mssql/data
       # - /data/project/mssql/log:/var/opt/mssql/log
       # - /data/project/mssql/secrets:/var/opt/mssql/secrets
 
