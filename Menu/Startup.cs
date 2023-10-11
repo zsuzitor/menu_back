@@ -266,6 +266,7 @@ namespace Menu
             {
                 app.UseDeveloperExceptionPage();
                 //app.UseDatabaseErrorPage();
+                app.UseHangfireDashboard();
             }
             else
             {
@@ -273,8 +274,6 @@ namespace Menu
                 app.UseHsts();
             }
 
-
-            app.UseHangfireDashboard();
 
             ImageDataIOStorage.Init(env.WebRootPath);
 
@@ -322,11 +321,6 @@ namespace Menu
                 //    template: "{controller=Menu}/{action=Index}/{id?}");
 
             });
-
-
-
-
         }
-
     }
 }

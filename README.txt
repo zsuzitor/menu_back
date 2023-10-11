@@ -5,6 +5,8 @@ http://localhost:8000/api/values
 http://localhost:8000/menu/auth/register/
 
 
+https://localhost:44305/hangfire
+
 
 
 
