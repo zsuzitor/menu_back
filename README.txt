@@ -10,6 +10,10 @@ https://localhost:44305/hangfire - дашборд hangfire
 уровень логов настраивается в nlog.config
 включить\выключить эластик  в nlog.config, но настройки в appsettings
 
+установка полезностей в контейнер
+apt-get update
+apt-get install vim
+apt-get -y install curl
 
 
 

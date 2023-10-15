@@ -49,9 +49,10 @@ namespace Menu.Controllers
             catch (Exception ex)
             {
                 _logger?.LogError(ex, "2тестовое исключение valuecontroller");
-                throw;
+                //throw;
             }
 
+            return "throwed";
         }
 
 

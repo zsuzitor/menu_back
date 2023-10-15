@@ -4,7 +4,8 @@ metadata:
   name: menu-service-np
 spec:
   ports:
-  - port: 80
+  - name: http #ingress  dont work but service is
+    port: 80
     targetPort: 80
   selector:
     app: menu

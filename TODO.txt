@@ -1,4 +1,4 @@
-﻿
+﻿в логах вижу ошибку Microsoft.AspNetCore.Antiforgery.DefaultAntiforgery
 
 NEWGEN
 миграция на .core 5 а лучше 6

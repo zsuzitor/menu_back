@@ -1,6 +1,6 @@
 
 
-version: "3"
+version: "3.1"
 
 services:
   server:
@@ -12,12 +12,17 @@ services:
       TEST_q: 'qweqwe'
       CACHE__REDIS__HOST : cacheservice
       CACHE__REDIS__PORT : 6379
+      AppLogging__ElasticSearchUrl : http://elasticsearchservice
+      AppLogging__ElasticSearchPort : 9200
+      AppLogging__ElasticSearchLogin : elastic
+      AppLogging__ElasticSearchPassword : MyPw123
       # Server=db - это обязательно название сервиса из compose файла - https://stackoverflow.com/questions/52926064/how-to-connect-to-sql-server-docker-container-from-another-container
       ConnectionStrings__DefaultConnection: 'Server=dbservice;Database=Menu-DataBase;User Id=SA;Password=SqlServerSuperPassword2017;Integrated Security=false;TrustServerCertificate=true'
       UseInMemoryDataProvider: 'false'
     depends_on:
       - cacheservice
       - dbservice
+      - elasticsearchservice
 
   cacheservice:
   # dev variant
@@ -43,6 +48,41 @@ services:
       # - /data/project/mssql/log:/var/opt/mssql/log
       # - /data/project/mssql/secrets:/var/opt/mssql/secrets
 
+  elasticsearchservice:
+   container_name: elasticsearch
+   image: elastic/elasticsearch:7.17.13 #docker.elastic.co/elasticsearch/elasticsearch:7.9.2
+   ports:
+    - 9200:9200
+   volumes:
+    - ./menu_volumes/elasticsearch-data:/usr/share/elasticsearch/data
+   environment:
+    - xpack.monitoring.enabled=true
+    - xpack.watcher.enabled=false
+    - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    - discovery.type=single-node
+    - xpack.security.enabled=true
+    - "ELASTIC_USERNAME=elastic"
+    - "ELASTIC_PASSWORD=MyPw123"
+  #  networks:
+  #   - elastic
+
+  kibanaservice:
+   container_name: kibana
+   image: elastic/kibana:7.17.13 #docker.elastic.co/kibana/kibana:7.17.13
+   ports:
+    - 5601:5601
+   depends_on:
+    - elasticsearchservice
+   environment:
+    - ELASTICSEARCH_URL=http://localhost:9200
+    - "ELASTICSEARCH_USERNAME=elastic"
+    - "ELASTICSEARCH_PASSWORD=MyPw123"
+  #  networks:
+  #   - elastic
+  
+# networks:
+#   elastic:
+#     driver: bridge
 
 # volumes:
 #   mssql-server-linux-data:

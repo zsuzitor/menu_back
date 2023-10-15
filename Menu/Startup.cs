@@ -69,7 +69,7 @@ namespace Menu
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)//, IConfiguration configuration)
+        public void ConfigureServices(IServiceCollection services)
         {
             //конфигурацию накатывает на логирование(в частности nlogconfig) что бы там получить строку подключения
             NLog.Extensions.Logging.ConfigSettingLayoutRenderer.DefaultConfiguration = Configuration;
@@ -81,7 +81,6 @@ namespace Menu
             if (bool.Parse(Configuration["UseInMemoryDataProvider"]))
             {
                 services.AddDbContext<MenuDbContext>(options =>
-                //options.UseInMemoryDatabase(); //Microsoft.EntityFrameworkCore.InMemory
                 options.UseInMemoryDatabase("MenuDbContext"));
                 services.AddHangfire(configuration => configuration
                     .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
@@ -181,9 +180,6 @@ namespace Menu
             }
             
 
-            //
-
-            //
 
             if (mailSendingConfig.MockMailing)
             {
@@ -195,7 +191,6 @@ namespace Menu
             }
 
             
-            //&
             var errorContainer = new ErrorContainer();
             services.AddSingleton<IErrorContainer, ErrorContainer>(x => errorContainer);
 
@@ -206,12 +201,6 @@ namespace Menu
                 init.ErrorContainerInitialize(errorContainer);
             }
 
-
-            //cache
-            //services.AddStackExchangeRedisCache(options =>
-            //{
-            //    options.Configuration = Configuration.GetValue<string>("CacheSettings:Redis:ConnectionString");
-            //});
 
 
             var imageConfig = new ImageConfig();
@@ -227,10 +216,6 @@ namespace Menu
             }
             
 
-            //auth
-            //services.InjectJwtAuth(Configuration);
-            //services.AddScoped<IAuthService, AuthService>();
-
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
@@ -238,12 +223,6 @@ namespace Menu
                 options.SuppressModelStateInvalidFilter = true;
             });
 
-            //var srvB = services.BuildServiceProvider();
-            //var server = srvB.GetService<IServer>();
-
-            //var addresses = server?.Features.Get<IServerAddressesFeature>();
-
-            //var g= addresses?.Addresses ?? Array.Empty<string>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -260,7 +239,6 @@ namespace Menu
                     context.Database.Migrate();
                 }
             }
-
 
 
             app.UseHangfireDashboard(options: new DashboardOptions()
