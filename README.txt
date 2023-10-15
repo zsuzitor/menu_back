@@ -5,8 +5,10 @@ http://localhost:8000/api/values
 http://localhost:8000/menu/auth/register/
 
 
-https://localhost:44305/hangfire
-
+https://localhost:44305/hangfire - дашборд hangfire
+что бы выключить редис - просто не заполняем поля в конфиге - CACHE REDIS
+уровень логов настраивается в nlog.config
+включить\выключить эластик  в nlog.config, но настройки в appsettings
 
 
 
@@ -16,11 +18,7 @@ testmail@mail.com
 testPass123!
 
 
-logLevel
-указывается в 3х местах
-Program
-nlog config
-appsettings config
+
 
 обратить внимание на параметр PhysicalPath
 при разработке он один, при деплое по идеи будет другой, можно проверить загрузив картинку и проверив что она там где надо

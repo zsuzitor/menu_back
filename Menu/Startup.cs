@@ -250,7 +250,8 @@ namespace Menu
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
         {
             //накатываем миграции если надо
-            if (!bool.Parse(Configuration["UseInMemoryDataProvider"]))
+            if (!bool.Parse(Configuration["UseInMemoryDataProvider"])
+                && bool.Parse(Configuration["SetupAutoDBMigrate"]))
             {
                 using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
                 {
@@ -262,11 +263,15 @@ namespace Menu
 
 
 
+            app.UseHangfireDashboard(options: new DashboardOptions()
+            {
+                IsReadOnlyFunc = c => !env.IsDevelopment()
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 //app.UseDatabaseErrorPage();
-                app.UseHangfireDashboard();
             }
             else
             {

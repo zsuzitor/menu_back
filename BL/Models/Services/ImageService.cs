@@ -103,7 +103,7 @@ namespace Menu.Models.Services
 
             string uniqueFileName = Guid.NewGuid().ToString() + "-"
                 + DateTime.Now.Ticks + "." + image.FileName.Split('.').Last();//TODO имя тут неправильно так передавать
-            return await _imageDataStorage.Create(image.OpenReadStream(), uniqueFileName);
+            return await _imageDataStorage.CreateAsync(image.OpenReadStream(), uniqueFileName);
         }
 
         public async Task<string> CreateUploadFileWithOutDbRecord(IFormFile image)
@@ -116,7 +116,7 @@ namespace Menu.Models.Services
 
             string uniqueFileName = Guid.NewGuid().ToString() + "-"
                 + DateTime.Now.Ticks + "." + image.FileName.Split('.').Last();//TODO имя тут неправильно так передавать
-            return await _imageDataStorage.CreateUpload(image.OpenReadStream(), uniqueFileName);
+            return await _imageDataStorage.CreateUploadAsync(image.OpenReadStream(), uniqueFileName);
         }
 
 
@@ -132,7 +132,7 @@ namespace Menu.Models.Services
             //TODO ну вернется false и как это обработать?
             //todo может тут проверить что это именно картинка??
             //return await _fileService.DeletePhysicalFile(path);
-            return await _imageDataStorage.Delete(path);
+            return await _imageDataStorage.DeleteAsync(path);
         }
 
 

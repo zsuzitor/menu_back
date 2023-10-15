@@ -31,17 +31,17 @@ namespace DAL.Models.DAL.Repositories
             BlobContainerClient containerClient = await blobServiceClient.CreateBlobContainerAsync(_containerImagesName);
         }
 
-        public async Task<string> Create(Stream readStream, string fileName)
+        public async Task<string> CreateAsync(Stream readStream, string fileName)
         {
             return await Create(readStream, _containerImagesName, fileName);
         }
 
-        public async Task<string> CreateUpload(Stream readStream, string fileName)
+        public async Task<string> CreateUploadAsync(Stream readStream, string fileName)
         {
             return await Create(readStream, _containerUploadedImagesName, fileName);
         }
 
-        public async Task<bool> Delete(string path)
+        public async Task<bool> DeleteAsync(string path)
         {
             if (string.IsNullOrWhiteSpace(path))
             {

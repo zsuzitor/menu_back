@@ -1,5 +1,9 @@
-﻿NEWGEN
+﻿
+
+NEWGEN
 миграция на .core 5 а лучше 6
+hangfire нужно выносить в отдельный контейнер как то?
+handire dashbord торчит сейчас наружу, но просто убрать UseHangfireDashboard вроде как нельзя тк все ломается
 
 сайт для аукциона pointauc.ru
 сайт для отслеживания акций
@@ -7,6 +11,9 @@
 добавить сюда тот сайт по фильмам
 
 
+меню, все выходящие файлы сложить в 1 папку
+mockMail, logfile nlog-internal,еще что то?
+logstash почитать
 
 проверить var context = GlobalHost.ConnectionManager.GetHubContext<ChatHub>();
 

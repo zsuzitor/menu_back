@@ -23,7 +23,7 @@ namespace DAL.Models.DAL.Repositories
             WebRootPath = webRootPath;
         }
 
-        public async Task<string> Create(Stream readStream, string fileName)
+        public async Task<string> CreateAsync(Stream readStream, string fileName)
         {
             if (readStream == null)
             {
@@ -46,20 +46,20 @@ namespace DAL.Models.DAL.Repositories
             return filePath;
         }
 
-        public async Task<string> CreateUpload(Stream readStream, string fileName)
+        public async Task<string> CreateUploadAsync(Stream readStream, string fileName)
         {
             if (readStream == null)
             {
                 return null;
             }
 
-            string resPath =  _fileService.PathCombine("images", "uploads", fileName);
-            string filePath = _fileService.PathCombine(WebRootPath,  resPath);
+            string resPath = _fileService.PathCombine("images", "uploads", fileName);
+            string filePath = _fileService.PathCombine(WebRootPath, resPath);
             await _fileService.Create(readStream, filePath);
             return "\\" + resPath;
         }
 
-        public async Task<bool> Delete(string path)
+        public async Task<bool> DeleteAsync(string path)
         {
             if (string.IsNullOrWhiteSpace(path))
             {

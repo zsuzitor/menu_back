@@ -7,8 +7,8 @@ namespace DAL.Models.DAL.Repositories.Interfaces
     public interface IImageDataStorage
     {
         Task Init();
-        Task<bool> Delete(string path);
-        Task<string> Create(Stream readStream, string fileName);
-        Task<string> CreateUpload(Stream readStream, string fileName);
+        Task<bool> DeleteAsync(string path);
+        Task<string> CreateAsync(Stream readStream, string fileName);
+        Task<string> CreateUploadAsync(Stream readStream, string fileName);
     }
 }
