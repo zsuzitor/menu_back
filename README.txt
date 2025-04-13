@@ -1,9 +1,11 @@
 docker-compose build
 docker-compose up
 
-http://localhost:8000/api/values
+http://localhost:8000/api/values/get
 http://localhost:8000/menu/auth/register/
+https://localhost:44305/menu
 
+под k8s отдельная ридми в папке .k8s
 
 https://localhost:44305/hangfire - дашборд hangfire
 что бы выключить редис - просто не заполняем поля в конфиге - CACHE REDIS
@@ -29,12 +31,18 @@ testPass123!
 
 
 #db
-при накатке первой миграции надо выключать исключения nloga потому что он пытается логировать в несозданную бд
+выключить UseInMemoryDataProvider в appsettings
+основные таблицы можно сделать через миграцию в проекте DAL, а можно его просто запустить(поправить коннекшн стринг)
+также можно через запуск основного приложения смотри конфиг SetupAutoDBMigrate
+таблицы hangfire создадутся при запуске
+если накатывать через консоль то при накатке первой миграции надо выключать исключения nloga потому что он пытается логировать в несозданную бд
 throwExceptions="false"
  "Server=.\\SQLEXPRESS;Database=Menu-DataBase;Trusted_Connection=True;MultipleActiveResultSets=true"
 после update database надо локально запустить приложение, это нужно что бы hangfire прорастил в бд свои таблицы. просто update не хватит
 
-строка подключения находится в appsettings + nlog.config
+строка подключения находится в 
+C:\code\menu_back\Menu\appsettings.json
+C:\code\menu_back\DAL\appsettings.json -- для накатки миграций
 
 #mssql
 Server=127.0.0.1,1433;Database=Menu-DataBase;User Id=SA;Password=SqlServerSuperPassword2017
@@ -46,7 +54,7 @@ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=SqlServerSuperPassword2017" 
 #postgresql
 docker run --name menu-pg-13.3 -p 5432:5432 -e POSTGRES_USER=pgusermenu -e POSTGRES_PASSWORD=pgpwd4menu -e POSTGRES_DB=menu -d postgres:13.3
 "Host=localhost;Port=5432;Database=menu;Username=pgusermenu;Password=pgpwd4menu"
-при миграции с mssql на postgres надо грохнуть все миграции и снапшоты и перестроить заного
+при миграции с mssql на postgres надо грохнуть все миграции и снапшоты и перестроить заново
 также есть ветка на гитхаб с небольшими изменениями
 
 #redis
@@ -57,8 +65,8 @@ docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 redis/redis-stack:lat
 поставка
 1 обновить конфиги:
 nlog
-appsettings
-2 накат миграций
+appsettings(выключить UseInMemoryDataProvider в appsettings)
+2 накат миграций(||запуск DAL)
 3 скопировать файлы с заменой(убедиться что картинки\uploads были сохранены)
 
 

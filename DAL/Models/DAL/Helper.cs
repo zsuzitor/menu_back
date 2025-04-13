@@ -33,18 +33,26 @@ namespace DAL.Models.DAL
                 return;
             }
 
-            using (var tr = await db.Database.BeginTransactionAsync())
+            var transaction = db.Database.CurrentTransaction;
+            if (transaction == null)
             {
-                try
+                using (var tr = await db.Database.BeginTransactionAsync())
                 {
-                    await action();
-                    await tr.CommitAsync();
+                    try
+                    {
+                        await action();
+                        await tr.CommitAsync();
+                    }
+                    catch
+                    {
+                        await tr.RollbackAsync();
+                        throw;
+                    }
                 }
-                catch
-                {
-                    await tr.RollbackAsync();
-                    throw;
-                }
+            }
+            else
+            {
+                await action();
             }
         }
     }
