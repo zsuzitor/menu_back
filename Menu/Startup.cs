@@ -45,6 +45,7 @@ using Microsoft.AspNetCore.Hosting.Server.Features;
 using CodeReviewApp.Models.Services.Interfaces;
 using VaultApp.Models;
 using BL.Models.Services.Cache;
+using Hangfire.Dashboard.BasicAuthorization;
 
 namespace Menu
 {
@@ -242,10 +243,36 @@ namespace Menu
             }
 
 
-            app.UseHangfireDashboard(options: new DashboardOptions()
+            //if (env.IsDevelopment() || env.IsEnvironment("dev") || env.IsEnvironment("qa"))
+            //{
+            //    app.UseHangfireDashboard(
+            //        //options: new DashboardOptions()
+            //        //{
+            //        //    IsReadOnlyFunc = c => !env.IsDevelopment()
+            //        //}
+            //        );
+            //}
+            app.UseHangfireDashboard("/hangfire", new DashboardOptions
             {
-                IsReadOnlyFunc = c => !env.IsDevelopment()
+                Authorization = new[]
+                {
+                    new BasicAuthAuthorizationFilter(new BasicAuthAuthorizationFilterOptions
+                    {
+                        RequireSsl = true,
+                        SslRedirect = true,
+                        LoginCaseSensitive = true,
+                        Users = new[]
+                        {
+                            new BasicAuthAuthorizationUser
+                            {
+                                Login = Configuration["Hangfire:Login"],
+                                PasswordClear = Configuration["Hangfire:Password"]
+                            }
+                        }
+                    })
+                }
             });
+
 
             if (env.IsDevelopment())
             {

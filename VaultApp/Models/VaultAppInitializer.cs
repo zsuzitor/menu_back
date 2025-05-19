@@ -1,5 +1,6 @@
 ﻿using Common.Models;
 using Common.Models.Error;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -44,7 +45,8 @@ namespace VaultApp.Models
         {
             Expression<Action<ISecretService>> actAlert = prSrv => prSrv.DeleteExpiredSecrets();//.Wait();
             var worker = serviceProvider.GetRequiredService<IWorker>();
-            worker.Recurring("vault_secrets_clean", "0 0 * * *", actAlert);//каждый день
+            var conf = serviceProvider.GetRequiredService<IConfiguration>();
+            worker.Recurring("vault_secrets_clean", conf["VaultApp:NotificationJobCron"], actAlert);
         }
 
     }

@@ -1,5 +1,6 @@
 ﻿using Common.Models;
 using Common.Models.Error;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PlanitPoker.Models.Helpers;
 using PlanitPoker.Models.Repositories;
@@ -55,7 +56,8 @@ namespace PlanitPoker.Models
         {
             Expression<Action<IPlanitPokerService>> actAlert = prSrv => prSrv.HandleInRoomsMemoryAsync();//.Wait();
             var worker = serviceProvider.GetRequiredService<IWorker>();
-            worker.Recurring("planit_poker_clean", "0 * * * *", actAlert);//каждый час
+            var conf = serviceProvider.GetRequiredService<IConfiguration>();
+            worker.Recurring("planing_poker_clean", conf["PlaningPokerApp:NotificationJobCron"], actAlert);
         }
     }
 }

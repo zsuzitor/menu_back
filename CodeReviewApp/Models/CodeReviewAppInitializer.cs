@@ -5,6 +5,7 @@ using CodeReviewApp.Models.Services;
 using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models;
 using Common.Models.Error;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq.Expressions;
@@ -73,7 +74,8 @@ namespace CodeReviewApp.Models
             //Expression<Action<IProjectService>> actAlert = prSrv => prSrv.AlertAsync();//.Wait();
             Expression<Action<IReviewAppEmailService>> actAlert = prSrv => prSrv.SendQueueAsync();//.Wait();
             var worker = serviceProvider.GetRequiredService<IWorker>();
-            worker.Recurring("code_review_alert", "*/5 * * * *", actAlert);//каждые 5 минут
+            var conf = serviceProvider.GetRequiredService<IConfiguration>();
+            worker.Recurring("code_review_alert", conf["CodeReviewApp:NotificationJobCron"], actAlert);
 
 
             //return;
