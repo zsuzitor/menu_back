@@ -61,7 +61,7 @@ namespace CodeReviewApp.Models
             services.AddScoped<ITaskReviewService, TaskReviewService>();
             services.AddScoped<IProjectUserService, ProjectUserService>();
             services.AddScoped<ITaskReviewCommentService, TaskReviewCommentService>();
-            services.AddSingleton<IReviewAppEmailService, ReviewAppEmailService>();
+            services.AddScoped<IReviewAppEmailService, ReviewAppEmailService>();
 
             
             //services.AddScoped<IProjectService, >();

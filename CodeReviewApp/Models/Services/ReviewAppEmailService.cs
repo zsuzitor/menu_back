@@ -2,6 +2,7 @@
 using BL.Models.Services.Interfaces;
 using BO.Models.Configs;
 using CodeReviewApp.Models.Services.Interfaces;
+using DAL.Models.DAL.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,14 +13,14 @@ namespace CodeReviewApp.Models.Services
     public sealed class ReviewAppEmailService : EmailServiceBase, IReviewAppEmailService
     {
         public const string ConfigurationKey = "DefaultMailSettings";
-        public string DefaultSubject => "Code Review";
+        public const string DefaultSubject = "Code Review";
         private readonly MailSendingInstanceConfig __config;
         protected override MailSendingInstanceConfig _config => __config;
-
+        protected override string Group => "ReviewApp";
 
         public ReviewAppEmailService(
-            IEmailServiceSender emailService, MailSendingConfig config)
-            :base(emailService)
+            IEmailServiceSender emailService, INotificationRepository notificationRepository, MailSendingConfig config)
+            :base(emailService, notificationRepository)
         {
             __config = config.Values[ConfigurationKey];
         }

@@ -18,6 +18,9 @@ namespace DAL.Models.DAL
     {
         #region main
         public DbSet<MainNLogEntity> MainLogTable { get; set; }
+
+        public DbSet<Notification> Notifications { get; set; }
+
         #endregion main
 
 
@@ -81,6 +84,7 @@ namespace DAL.Models.DAL
             modelBuilder.UserBuild();
             modelBuilder.ArticleBuild();
             modelBuilder.CustomImageBuild();
+            modelBuilder.NotificationBuild();
 
 
             #region wordscards

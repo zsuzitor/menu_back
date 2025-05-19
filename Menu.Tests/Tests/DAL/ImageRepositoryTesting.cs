@@ -117,7 +117,7 @@ namespace Menu.Tests.Tests.Dal
             ImageRepository imgRepo = new ImageRepository(db);
 
             var delImg = db.Images.OrderBy(x => x.Id).Skip(1).First();
-            var deleted = await imgRepo.DeleteAsync(new List<CustomImage>() { delImg });
+            var deleted = (await imgRepo.DeleteAsync(new List<CustomImage>() { delImg })).ToList();
 
             Assert.NotNull(deleted);
             Assert.Single(deleted);

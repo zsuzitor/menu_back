@@ -1,6 +1,7 @@
 ﻿using BL.Models.Services;
 using BL.Models.Services.Interfaces;
 using BO.Models.Configs;
+using DAL.Models.DAL.Repositories.Interfaces;
 
 namespace Auth.Models.Auth.Services
 {
@@ -10,11 +11,12 @@ namespace Auth.Models.Auth.Services
 
         private readonly MailSendingInstanceConfig __config;
         protected override MailSendingInstanceConfig _config => __config;
+        protected override string Group => "AuthEmail";
 
 
         public AuthEmailService(
-            IEmailServiceSender emailService, MailSendingConfig config)
-            : base(emailService)
+            IEmailServiceSender emailService, INotificationRepository notificationRepository, MailSendingConfig config)
+            : base(emailService, notificationRepository)
         {
             __config = config.Values[ConfigurationKey];
         }

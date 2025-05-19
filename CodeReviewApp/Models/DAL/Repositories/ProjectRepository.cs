@@ -76,7 +76,7 @@ namespace CodeReviewApp.Models.DAL.Repositories
             return project;
         }
 
-        public override async Task<List<Project>> DeleteAsync(List<Project> records)
+        public override async Task<IEnumerable<Project>> DeleteAsync(IEnumerable<Project> records)
         {
             _db.ReviewProject.AttachRange(records);
             foreach (var item in records)

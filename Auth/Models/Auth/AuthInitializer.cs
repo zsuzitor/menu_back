@@ -53,7 +53,7 @@ namespace Auth.Models.Auth
                 //return settings;
             });
 
-            services.AddSingleton<AuthEmailService, AuthEmailService>();
+            services.AddScoped<AuthEmailService, AuthEmailService>();
             services.AddScoped<IAuthService, AuthService>();
         }
 

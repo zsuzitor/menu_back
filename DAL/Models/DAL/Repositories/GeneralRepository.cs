@@ -23,8 +23,10 @@ namespace DAL.Models.DAL.Repositories
             return newRecord;
         }
 
-        public virtual async Task<List<T1>> AddAsync(List<T1> newRecords)
+        public virtual async Task<IEnumerable<T1>> AddAsync(IEnumerable<T1> newRecords)
         {
+            if (newRecords == null || newRecords.Count() == 0)
+                return newRecords;
             _db.Set<T1>().AddRange(newRecords);
             await _db.SaveChangesAsync();
             return newRecords;
@@ -32,8 +34,10 @@ namespace DAL.Models.DAL.Repositories
 
 
 
-        public virtual async Task<List<T1>> DeleteAsync(List<T1> records)
+        public virtual async Task<IEnumerable<T1>> DeleteAsync(IEnumerable<T1> records)
         {
+            if (records == null || records.Count() == 0)
+                return records;
             _db.Set<T1>().AttachRange(records);//?
             _db.Set<T1>().RemoveRange(records);
             await _db.SaveChangesAsync();
@@ -94,6 +98,8 @@ namespace DAL.Models.DAL.Repositories
 
         public virtual async Task<IEnumerable<T1>> UpdateAsync(IEnumerable<T1> records)
         {
+            if (records == null || records.Count() == 0)
+                return records;
             //_db.Set<T1>().AttachRange(records);
             await _db.SaveChangesAsync();
             return records;

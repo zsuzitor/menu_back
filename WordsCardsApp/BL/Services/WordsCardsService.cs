@@ -108,7 +108,7 @@ namespace WordsCardsApp.BL.Services
                 }
 
                 var resWordCards = await _wordCardRepository.AddAsync(forAdd);
-                return resWordCards;
+                return resWordCards.ToList();
             }
             catch
             {
@@ -216,7 +216,7 @@ namespace WordsCardsApp.BL.Services
             }
 
             //strFile = await reader.ReadLineAsync();
-            return await _wordCardRepository.AddAsync(dataForAdd);
+            return (await _wordCardRepository.AddAsync(dataForAdd)).ToList();
         }
 
         public async Task<WordCard> Delete(long id, UserInfo userInfo)

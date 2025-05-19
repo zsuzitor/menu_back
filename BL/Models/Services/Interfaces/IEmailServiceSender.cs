@@ -32,6 +32,10 @@ namespace BL.Models.Services.Interfaces
         Task SendEmailAsync(string email, string subject, string message);
         Task QueueEmailAsync(string email, string subject, string message);
         Task QueueEmailAsync(List<string> email, string subject, string message);
+        /// <summary>
+        /// для несрочных сообщений, склеивает несколько писем в 1
+        /// </summary>
+        /// <returns></returns>
         Task SendQueueAsync();
     }
 }

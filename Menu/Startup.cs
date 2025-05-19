@@ -129,6 +129,7 @@ namespace Menu
             //repositories
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
+            services.AddScoped<INotificationRepository, NotificationRepository>();
 
 
 
