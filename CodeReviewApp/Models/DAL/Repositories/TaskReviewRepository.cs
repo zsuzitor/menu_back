@@ -2,6 +2,7 @@
 using CodeReviewApp.Models.DAL.Repositories.Interfaces;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
+using DAL.Models.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace CodeReviewApp.Models.DAL.Repositories
 {
     public sealed class TaskReviewRepository : GeneralRepository<TaskReview, long>, ITaskReviewRepository
     {
-        public TaskReviewRepository(MenuDbContext db) : base(db)
+        public TaskReviewRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
         {
         }
 

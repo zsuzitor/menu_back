@@ -1,4 +1,5 @@
-﻿using Common.Models;
+﻿using BL.Models.Services.Interfaces;
+using Common.Models;
 using Common.Models.Error;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 using VaultApp.Models.Repositories;
 using VaultApp.Models.Repositories.Implementation;
 using VaultApp.Models.Services;
@@ -40,6 +42,11 @@ namespace VaultApp.Models
             services.AddScoped<IVaultService, VaultService>();
         }
 
+
+        public async Task ConfigurationInitialize(IServiceProvider services)
+        {
+            var configurationService = services.GetRequiredService<IConfigurationService>();
+        }
 
         public void WorkersInitialize(IServiceProvider serviceProvider)
         {

@@ -1,5 +1,6 @@
 ﻿
 
+using BL.Models.Services.Interfaces;
 using Common.Models;
 using Common.Models.Error;
 using Menu.Models.Services.Interfaces;
@@ -8,6 +9,7 @@ using MenuApp.Models.DAL.Repositories;
 using MenuApp.Models.DAL.Repositories.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Threading.Tasks;
 
 namespace MenuApp.Models
 {
@@ -30,6 +32,11 @@ namespace MenuApp.Models
 
         }
 
+
+        public async Task ConfigurationInitialize(IServiceProvider services)
+        {
+            var configurationService = services.GetRequiredService<IConfigurationService>();
+        }
 
         public void WorkersInitialize(IServiceProvider serviceProvider)
         {

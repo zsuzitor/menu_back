@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace DAL.Models.DAL.Repositories
 {
-    public class ImageRepository: GeneralRepository<CustomImage, long>,IImageRepository
+    public class ImageRepository: GeneralRepository<CustomImage, long>, IImageRepository
     {
 
-        public ImageRepository(MenuDbContext db):base(db)
+        public ImageRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) :base(db, repo)
         {
         }
 

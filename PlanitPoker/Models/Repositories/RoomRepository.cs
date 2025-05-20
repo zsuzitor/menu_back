@@ -7,6 +7,7 @@ using DAL.Models.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 using PlanitPoker.Models.Repositories.Interfaces;
 using System.Threading.Tasks;
+using DAL.Models.DAL.Repositories.Interfaces;
 
 namespace PlanitPoker.Models.Repositories
 {
@@ -14,7 +15,7 @@ namespace PlanitPoker.Models.Repositories
     {
 
 
-        public RoomRepository(MenuDbContext db) : base(db)
+        public RoomRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
         {
         }
 

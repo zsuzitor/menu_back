@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using Microsoft.EntityFrameworkCore.Query;
+using DAL.Models.DAL.Repositories.Interfaces;
 
 namespace PlanitPoker.Models.Repositories
 {
@@ -19,7 +20,7 @@ namespace PlanitPoker.Models.Repositories
     {
 
 
-        public PlaningUserRepository(MenuDbContext db) : base(db)
+        public PlaningUserRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
         {
         }
 

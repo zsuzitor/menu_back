@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using System.Security.Claims;
 using System.Collections.Generic;
 using System.Linq;
+using BL.Models.Services;
+using BL.Models.Services.Interfaces;
 
 namespace Auth.Models.Auth.Services
 {
@@ -21,6 +23,7 @@ namespace Auth.Models.Auth.Services
         private readonly IJWTService _jwtService;
         private readonly ITokenHandler _tokenHandler;
         private readonly IConfiguration _configuration;
+        private readonly IConfigurationService _configurationService;
         private readonly AuthEmailService _authEmailService;
 
 
@@ -29,7 +32,7 @@ namespace Auth.Models.Auth.Services
 
         public AuthService(IJWTHasher hasher, IUserService userService
             , IJWTService jwtService, ITokenHandler tokenHandler
-            , IConfiguration configuration
+            , IConfiguration configuration, IConfigurationService configurationService
             , AuthEmailService authEmailService)
         {
             _hasher = hasher;
@@ -37,6 +40,7 @@ namespace Auth.Models.Auth.Services
             _userService = userService;
             _tokenHandler = tokenHandler;
             _configuration = configuration;
+            _configurationService = configurationService;
             _authEmailService = authEmailService;
         }
 
@@ -134,7 +138,8 @@ namespace Auth.Models.Auth.Services
             ClaimsIdentity claimsIdentity =
                 new ClaimsIdentity(claims, "password_restore");
             var token = _tokenHandler.GenerateToken(claimsIdentity, tokenLifeTime, key);
-            await _authEmailService.SendEmailAsync(email, "Восстановление пароля", token);
+            var subject = await _configurationService.Get(AuthConst.AuthEmailConfigurationsCode.PasswordRestoreEmailSubject);
+            await _authEmailService.SendEmailAsync(email, subject?.Value, token);
             return true;
         }
 

@@ -45,10 +45,10 @@ namespace Menu.Tests.Tests.VaultAppTests
             var dbHelperMoq = GetDBHelper();
             var hasherMoq = GetHasher();
             var coder = new FakeCoder();
-            var service = new VaultService(new VaultRepository(db), dbHelperMoq, db
+            var service = new VaultService(new VaultRepository(db, new GeneralRepositoryStrategy(db)), dbHelperMoq, db
                 , new UserRepository(db)
                 , new CacheService(new FakeCacheAccessor())
-                , hasherMoq, coder, new SecretRepository(db));
+                , hasherMoq, coder, new SecretRepository(db, new GeneralRepositoryStrategy(db)));
             return (db, dbHelperMoq, hasherMoq, coder, service);
         }
     }

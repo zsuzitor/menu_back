@@ -1,6 +1,7 @@
 ﻿using BO.Models.VaultApp.Dal;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
+using DAL.Models.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace VaultApp.Models.Repositories.Implementation
 {
     public sealed class SecretRepository : GeneralRepository<Secret, long>, ISecretRepository
     {
-        public SecretRepository(MenuDbContext db) : base(db)
+        public SecretRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
         {
 
         }

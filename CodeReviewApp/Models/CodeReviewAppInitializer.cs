@@ -1,4 +1,5 @@
 ﻿
+using BL.Models.Services.Interfaces;
 using CodeReviewApp.Models.DAL.Repositories;
 using CodeReviewApp.Models.DAL.Repositories.Interfaces;
 using CodeReviewApp.Models.Services;
@@ -9,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models
 {
@@ -66,6 +68,16 @@ namespace CodeReviewApp.Models
 
             
             //services.AddScoped<IProjectService, >();
+        }
+
+        public async Task ConfigurationInitialize(IServiceProvider services)
+        {
+            var configurationService = services.GetRequiredService<IConfigurationService>();
+            await configurationService.AddIfNotExist(Consts.EmailConfigurationsCode.AddedNewCommentInTask, "Добавлен новый комментарий в задачу {{taskName}}");
+            await configurationService.AddIfNotExist(Consts.EmailConfigurationsCode.NewReviewerInTask, "Назначение ревьювером по задаче {{taskName}}");
+            await configurationService.AddIfNotExist(Consts.EmailConfigurationsCode.StatusInTaskWasChanged, "Изменен статус на {{newStatus}} в задаче {{taskName}}");
+
+            //
         }
 
         public void WorkersInitialize(IServiceProvider serviceProvider)

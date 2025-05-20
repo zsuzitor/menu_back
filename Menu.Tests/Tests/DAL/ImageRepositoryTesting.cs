@@ -28,7 +28,7 @@ namespace Menu.Tests.Tests.Dal
             using var db = GetDbContext();
 
             new DefaultData().InitDbDefault(db);
-            ImageRepository imgRepo = new ImageRepository(db);
+            ImageRepository imgRepo = new ImageRepository(db, new GeneralRepositoryStrategy(db));
             var newArticle = new Article()
             {
                 Body = "body1",
@@ -59,7 +59,7 @@ namespace Menu.Tests.Tests.Dal
             using var db = GetDbContext();
 
             new DefaultData().InitDbDefault(db);
-            ImageRepository imgRepo = new ImageRepository(db);
+            ImageRepository imgRepo = new ImageRepository(db, new GeneralRepositoryStrategy(db));
 
             var articlesForAdd = new List<Article>()
             {
@@ -114,7 +114,7 @@ namespace Menu.Tests.Tests.Dal
             using var db = GetDbContext();
 
             new DefaultData().InitDbDefault(db);
-            ImageRepository imgRepo = new ImageRepository(db);
+            ImageRepository imgRepo = new ImageRepository(db, new GeneralRepositoryStrategy(db));
 
             var delImg = db.Images.OrderBy(x => x.Id).Skip(1).First();
             var deleted = (await imgRepo.DeleteAsync(new List<CustomImage>() { delImg })).ToList();

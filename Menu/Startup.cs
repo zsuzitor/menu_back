@@ -130,7 +130,9 @@ namespace Menu
             //repositories
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
+            services.AddScoped<IGeneralRepositoryStrategy, GeneralRepositoryStrategy>();
             services.AddScoped<INotificationRepository, NotificationRepository>();
+            services.AddScoped<IConfigurationRepository, ConfigurationRepository>();
 
 
 
@@ -156,11 +158,14 @@ namespace Menu
             services.AddScoped<IErrorService, ErrorService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddSingleton<IWorker, Worker>();
+            services.AddScoped<IConfigurationService, ConfigurationService>();
+            services.AddSingleton<IWorker, HangfireWorker>();
             services.AddSingleton<ICacheAccessor, MemoryCacheAccessor>();
             services.AddSingleton<ICacheService, CacheService>();
             services.AddSingleton<ICoder, AesCoder1>();
             services.AddSingleton<IHasher, Hasher>();
+
+            
 
             //cache
             var redisHost = Configuration["CACHE:REDIS:HOST"];
@@ -291,6 +296,7 @@ namespace Menu
             foreach (var init in _appsInitializers)
             {
                 init.WorkersInitialize(serviceProvider);
+                (init.ConfigurationInitialize(serviceProvider).GetAwaiter()).GetResult();
             }
 
             //var prt = collect.GetRequiredService<IProjectService>();

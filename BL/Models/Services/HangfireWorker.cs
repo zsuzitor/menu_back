@@ -7,13 +7,13 @@ using System.Linq.Expressions;
 namespace BL.Models.Services
 {
     //Hangfire.AspNetCore
-    public sealed class Worker : IWorker
+    public sealed class HangfireWorker : IWorker
     {
         //static HttpClient client = new HttpClient();
         //private readonly IHttpClientFactory _httpClientFactory;
         private readonly HttpClient _httpClient;
         private static object _locker = new object();
-        public Worker()//IHttpClientFactory httpClientFactory)
+        public HangfireWorker()//IHttpClientFactory httpClientFactory)
         {
             //_httpClientFactory = httpClientFactory;
             _httpClient = new HttpClient();

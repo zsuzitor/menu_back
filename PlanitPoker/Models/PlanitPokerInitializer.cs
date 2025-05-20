@@ -1,4 +1,5 @@
-﻿using Common.Models;
+﻿using BL.Models.Services.Interfaces;
+using Common.Models;
 using Common.Models.Error;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,6 +9,7 @@ using PlanitPoker.Models.Repositories.Interfaces;
 using PlanitPoker.Models.Services;
 using System;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace PlanitPoker.Models
 {
@@ -51,6 +53,10 @@ namespace PlanitPoker.Models
             
         }
 
+        public async Task ConfigurationInitialize(IServiceProvider services)
+        {
+            var configurationService = services.GetRequiredService<IConfigurationService>();
+        }
 
         public void WorkersInitialize(IServiceProvider serviceProvider)
         {

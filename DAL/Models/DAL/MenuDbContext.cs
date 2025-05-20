@@ -11,6 +11,7 @@ using DAL.Models.DAL.ContextSetup.PlaningPoker;
 using DAL.Models.DAL.ContextSetup.VaultApp;
 using DAL.Models.DAL.ContextSetup.WordsCards;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace DAL.Models.DAL
 {
@@ -20,6 +21,8 @@ namespace DAL.Models.DAL
         public DbSet<MainNLogEntity> MainLogTable { get; set; }
 
         public DbSet<Notification> Notifications { get; set; }
+
+        public DbSet<Configuration> Configurations { get; set; }
 
         #endregion main
 
@@ -85,6 +88,7 @@ namespace DAL.Models.DAL
             modelBuilder.ArticleBuild();
             modelBuilder.CustomImageBuild();
             modelBuilder.NotificationBuild();
+            modelBuilder.ConfigurationBuild();
 
 
             #region wordscards

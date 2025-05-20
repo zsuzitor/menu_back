@@ -1,6 +1,7 @@
 ﻿using Auth.Models.Auth.Services;
 using Auth.Models.Auth.Services.Interfaces;
 using Auth.Models.Auth.Settings;
+using BL.Models.Services.Interfaces;
 using Common.Models;
 using Common.Models.Error;
 using jwtLib.JWTAuth.Interfaces;
@@ -8,6 +9,7 @@ using jwtLib.JWTAuth.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Threading.Tasks;
 
 namespace Auth.Models.Auth
 {
@@ -17,6 +19,12 @@ namespace Auth.Models.Auth
         public AuthInitializer(IConfiguration configuration)
         {
             _configuration = configuration;
+        }
+
+        public async Task ConfigurationInitialize(IServiceProvider services)
+        {
+            var configurationService = services.GetRequiredService<IConfigurationService>();
+            await configurationService.AddIfNotExist(AuthConst.AuthEmailConfigurationsCode.PasswordRestoreEmailSubject, "Восстановление пароля");
         }
 
         public void ErrorContainerInitialize(ErrorContainer errorContainer)

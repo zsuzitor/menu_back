@@ -1,9 +1,11 @@
 ﻿
 
+using BL.Models.Services.Interfaces;
 using Common.Models;
 using Common.Models.Error;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Threading.Tasks;
 using WordsCardsApp.BL.Services;
 using WordsCardsApp.BL.Services.Interfaces;
 using WordsCardsApp.DAL.Repositories;
@@ -31,8 +33,12 @@ namespace WordsCardsApp
             services.AddScoped<IWordsListService, WordsListService>();
         }
 
-        
 
+
+        public async Task ConfigurationInitialize(IServiceProvider services)
+        {
+            var configurationService = services.GetRequiredService<IConfigurationService>();
+        }
 
         public void WorkersInitialize(IServiceProvider serviceProvider)
         {

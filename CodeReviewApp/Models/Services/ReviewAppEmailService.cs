@@ -12,6 +12,8 @@ namespace CodeReviewApp.Models.Services
 
     public sealed class ReviewAppEmailService : EmailServiceBase, IReviewAppEmailService
     {
+        private readonly IConfigurationService _configurationService;
+
         public const string ConfigurationKey = "DefaultMailSettings";
         public const string DefaultSubject = "Code Review";
         private readonly MailSendingInstanceConfig __config;
@@ -19,31 +21,42 @@ namespace CodeReviewApp.Models.Services
         protected override string Group => "ReviewApp";
 
         public ReviewAppEmailService(
-            IEmailServiceSender emailService, INotificationRepository notificationRepository, MailSendingConfig config)
-            :base(emailService, notificationRepository)
+            IEmailServiceSender emailService, INotificationRepository notificationRepository,
+            IConfigurationService configurationService, MailSendingConfig config)
+            : base(emailService, notificationRepository)
         {
             __config = config.Values[ConfigurationKey];
+            _configurationService = configurationService;
         }
 
 
         public async Task QueueNewCommentInReviewTaskAsync(string email, string taskName)
         {
-            await QueueEmailAsync(email, DefaultSubject, $"Добавлен новый комментарий в задачу {taskName}");
+
+            var config = await _configurationService.Get(Consts.EmailConfigurationsCode.AddedNewCommentInTask);
+            var text = config.Value.Replace("{{taskName}}", taskName);
+            await QueueEmailAsync(email, DefaultSubject, text);
         }
 
         public async Task QueueNewCommentInReviewTaskAsync(List<string> email, string taskName)
         {
-            await QueueEmailAsync(email, DefaultSubject, $"Добавлен новый комментарий в задачу {taskName}");
+            var config = await _configurationService.Get(Consts.EmailConfigurationsCode.AddedNewCommentInTask);
+            var text = config.Value.Replace("{{taskName}}", taskName);
+            await QueueEmailAsync(email, DefaultSubject, text);
         }
 
         public async Task QueueReviewerInReviewTaskAsync(string email, string taskName)
         {
-            await QueueEmailAsync(email, DefaultSubject, $"Назначение ревьювером по задаче {taskName}");
+            var config = await _configurationService.Get(Consts.EmailConfigurationsCode.NewReviewerInTask);
+            var text = config.Value.Replace("{{taskName}}", taskName);
+            await QueueEmailAsync(email, DefaultSubject, text);
         }
 
         public async Task QueueChangeStatusTaskAsync(string email, string taskName, string newStatus)
         {
-            await QueueEmailAsync(email, DefaultSubject, $"Изменен статус на {newStatus} в задаче {taskName}");
+            var config = await _configurationService.Get(Consts.EmailConfigurationsCode.StatusInTaskWasChanged);
+            var text = config.Value.Replace("{{taskName}}", taskName).Replace("{{newStatus}}", newStatus);
+            await QueueEmailAsync(email, DefaultSubject, text);
         }
     }
 }

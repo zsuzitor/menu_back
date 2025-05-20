@@ -12,7 +12,7 @@ namespace DAL.Models.DAL.Repositories
 {
     public class NotificationRepository : GeneralRepository<Notification, long>, INotificationRepository
     {
-        public NotificationRepository(MenuDbContext db) : base(db)
+        public NotificationRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
         {
 
         }

@@ -31,5 +31,13 @@ namespace CodeReviewApp.Models
 
             
         }
+
+        public class EmailConfigurationsCode
+        {
+            public const string AddedNewCommentInTask = "AddedNewCommentInTask";
+            public const string NewReviewerInTask = "NewReviewerInTask";
+            public const string StatusInTaskWasChanged = "StatusInTaskWasChanged";
+
+        }
     }
 }

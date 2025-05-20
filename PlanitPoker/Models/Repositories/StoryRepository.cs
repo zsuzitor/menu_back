@@ -3,6 +3,7 @@
 using BO.Models.PlaningPoker.DAL;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
+using DAL.Models.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using PlanitPoker.Models.Repositories.Interfaces;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace PlanitPoker.Models.Repositories
     {
 
 
-        public StoryRepository(MenuDbContext db) : base(db)
+        public StoryRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
         {
         }
 

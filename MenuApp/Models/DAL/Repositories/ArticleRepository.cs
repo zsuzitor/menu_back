@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using DAL.Models.DAL;
 using MenuApp.Models.BO;
 using DAL.Models.DAL.Repositories;
+using DAL.Models.DAL.Repositories.Interfaces;
 
 namespace MenuApp.Models.DAL.Repositories
 {
@@ -15,7 +16,7 @@ namespace MenuApp.Models.DAL.Repositories
     {
 
 
-        public ArticleRepository(MenuDbContext db) : base(db)
+        public ArticleRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
         {
         }
 

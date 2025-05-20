@@ -3,6 +3,7 @@
 using BO.Models.WordsCardsApp.DAL.Domain;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
+using DAL.Models.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace WordsCardsApp.DAL.Repositories
 {
     public sealed class WordsListRepository : GeneralRepository<WordsList, long>, IWordsListRepository
     {
-        public WordsListRepository(MenuDbContext db) : base(db)
+        public WordsListRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
         {
         }
 

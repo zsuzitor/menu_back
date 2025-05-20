@@ -3,6 +3,7 @@ using BO.Models.CodeReviewApp.DAL.Domain;
 using CodeReviewApp.Models.DAL.Repositories.Interfaces;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
+using DAL.Models.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace CodeReviewApp.Models.DAL.Repositories
 {
     internal sealed class UserRepository : GeneralRepository<ProjectUser, long>, IProjectUserRepository
     {
-        public UserRepository(MenuDbContext db) : base(db)
+        public UserRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
         {
         }
 
