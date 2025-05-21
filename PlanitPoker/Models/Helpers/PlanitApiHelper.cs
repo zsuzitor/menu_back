@@ -1,8 +1,9 @@
 ﻿
 using System;
 using System.Threading.Tasks;
+using BL.Models.Services;
+using BL.Models.Services.Interfaces;
 using Common.Models.Error;
-using Common.Models.Error.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using Common.Models.Return;
@@ -28,8 +29,8 @@ namespace PlanitPoker.Models.Helpers
     {
         private Hub _planitHub;
 
-        public PlanitApiHelper(IErrorService errorService, IErrorContainer errorContainer,
-            IStringValidator stringValidator) : base(errorService, errorContainer, stringValidator)
+        public PlanitApiHelper(IErrorService errorService, IConfigurationService configurationService,
+            IStringValidator stringValidator) : base(errorService, configurationService, stringValidator)
         {
             _planitHub = null;
         }
@@ -56,26 +57,25 @@ namespace PlanitPoker.Models.Helpers
             }
             catch (SomeCustomException e)
             {
-                ErrorFromCustomException(e);
+                await ErrorFromCustomException(e);
             }
             catch (StopException)
             {
             }
             catch (NotAuthException)
             {//ветка вообще не особо актуальная для покера
-                var error = _errorContainer.TryGetError(ErrorConsts.NotAuthorized);
-                if (error != null)
-                {
-                    _errorService.AddError(error);
-                }
+                var error = await _configurationService.GetAsync(ErrorConsts.NotAuthorized);
+                _errorService.AddError(ErrorConsts.NotAuthorized, error.Value);
 
-                _errorService.AddError(_errorContainer.TryGetError(Constants.PlanitPokerErrorConsts.PlanitUserNotFound));
+                var error2 = await _configurationService.GetAsync(Constants.PlanitPokerErrorConsts.PlanitUserNotFound);
+                _errorService.AddError(Constants.PlanitPokerErrorConsts.PlanitUserNotFound, error2.Value);
                 //await WriteReturnResponseAsync(response, _errorService.GetErrorsObject(), 401);//TODO 401
                 //return;
             }
             catch (Exception e)
             {
-                _errorService.AddError(_errorContainer.TryGetError(ErrorConsts.SomeError));
+                var error = await _configurationService.GetAsync(ErrorConsts.SomeError);
+                _errorService.AddError(ErrorConsts.SomeError, error.Value);
                 logger?.LogError(e, ErrorConsts.SomeError);
             }
 

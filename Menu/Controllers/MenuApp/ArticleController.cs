@@ -2,7 +2,6 @@
 using System;
 using System.Threading.Tasks;
 using jwtLib.JWTAuth.Interfaces;
-using Common.Models.Error.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using WEB.Common.Models.Helpers.Interfaces;
@@ -13,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Menu.Models.InputModels.MenuApp;
 using Menu.Models.Returns.Types.MenuApp;
+using BL.Models.Services.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -28,7 +28,7 @@ namespace Menu.Controllers
         private readonly IApiHelper _apiHealper;
         private readonly IArticleService _articleService;
         private readonly IErrorService _errorService;
-        private readonly IErrorContainer _errorContainer;
+        private readonly IConfigurationService _configurationService;
         private readonly ILogger _logger;
         //private readonly IWebHostEnvironment _webHostEnvironment;
 
@@ -40,14 +40,14 @@ namespace Menu.Controllers
 
         public ArticleController(
              IJWTService jwtService, IApiHelper apiHealper, IArticleService articleService,
-             IErrorService errorService, IErrorContainer errorContainer, ILogger<ArticleController> logger)
+             IErrorService errorService, IConfigurationService configurationService, ILogger<ArticleController> logger)
         {
             //_articleRepository = articleRepository;
             _jwtService = jwtService;
             _apiHealper = apiHealper;
             _articleService = articleService;
             _errorService = errorService;
-            _errorContainer = errorContainer;
+            _configurationService = configurationService;
             _logger = logger;
             //_webHostEnvironment = webHostEnvironment;
 

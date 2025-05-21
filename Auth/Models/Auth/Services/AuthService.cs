@@ -138,7 +138,7 @@ namespace Auth.Models.Auth.Services
             ClaimsIdentity claimsIdentity =
                 new ClaimsIdentity(claims, "password_restore");
             var token = _tokenHandler.GenerateToken(claimsIdentity, tokenLifeTime, key);
-            var subject = await _configurationService.Get(AuthConst.AuthEmailConfigurationsCode.PasswordRestoreEmailSubject);
+            var subject = await _configurationService.GetAsync(AuthConst.AuthEmailConfigurationsCode.PasswordRestoreEmailSubject);
             await _authEmailService.SendEmailAsync(email, subject?.Value, token);
             return true;
         }

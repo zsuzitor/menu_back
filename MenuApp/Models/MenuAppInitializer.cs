@@ -15,7 +15,7 @@ namespace MenuApp.Models
 {
     public sealed class MenuAppInitializer : IStartUpInitializer
     {
-        public void ErrorContainerInitialize(ErrorContainer errorContainer)
+        public async Task ErrorContainerInitialize(IServiceProvider services)
         {
 
         }

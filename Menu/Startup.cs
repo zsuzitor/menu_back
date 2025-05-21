@@ -7,7 +7,6 @@ using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
 using Common.Models.Error;
-using Common.Models.Error.Interfaces;
 using Common.Models.Error.services;
 using Common.Models.Error.services.Interfaces;
 using WEB.Common.Models.Helpers;
@@ -46,6 +45,7 @@ using CodeReviewApp.Models.Services.Interfaces;
 using VaultApp.Models;
 using BL.Models.Services.Cache;
 using Hangfire.Dashboard.BasicAuthorization;
+using Menu.Models;
 
 namespace Menu
 {
@@ -58,6 +58,7 @@ namespace Menu
         {
             Configuration = configuration;
             _appsInitializers = new List<IStartUpInitializer>() {
+                new MainAppInitializer(),
                 new AuthInitializer(configuration),
                 new MenuAppInitializer(),
                 new WordsCardsAppInitializer(),
@@ -125,14 +126,6 @@ namespace Menu
 
             services.AddSignalR();
             
-            
-
-            //repositories
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IImageRepository, ImageRepository>();
-            services.AddScoped<IGeneralRepositoryStrategy, GeneralRepositoryStrategy>();
-            services.AddScoped<INotificationRepository, NotificationRepository>();
-            services.AddScoped<IConfigurationRepository, ConfigurationRepository>();
 
 
 
@@ -152,20 +145,6 @@ namespace Menu
             services.AddSingleton<MailSendingConfig>(x => mailSendingConfig);
             
 
-
-            //services
-            services.AddSingleton<IFileService, PhysicalFileService>();
-            services.AddScoped<IErrorService, ErrorService>();
-            services.AddScoped<IImageService, ImageService>();
-            services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IConfigurationService, ConfigurationService>();
-            services.AddSingleton<IWorker, HangfireWorker>();
-            services.AddSingleton<ICacheAccessor, MemoryCacheAccessor>();
-            services.AddSingleton<ICacheService, CacheService>();
-            services.AddSingleton<ICoder, AesCoder1>();
-            services.AddSingleton<IHasher, Hasher>();
-
-            
 
             //cache
             var redisHost = Configuration["CACHE:REDIS:HOST"];
@@ -198,14 +177,11 @@ namespace Menu
             }
 
             
-            var errorContainer = new ErrorContainer();
-            services.AddSingleton<IErrorContainer, ErrorContainer>(x => errorContainer);
 
             foreach (var init in _appsInitializers)
             {
                 init.RepositoriesInitialize(services);
                 init.ServicesInitialize(services);
-                init.ErrorContainerInitialize(errorContainer);
             }
 
 
@@ -297,6 +273,7 @@ namespace Menu
             {
                 init.WorkersInitialize(serviceProvider);
                 (init.ConfigurationInitialize(serviceProvider).GetAwaiter()).GetResult();
+                (init.ErrorContainerInitialize(serviceProvider).GetAwaiter()).GetResult();
             }
 
             //var prt = collect.GetRequiredService<IProjectService>();

@@ -24,13 +24,13 @@ namespace Auth.Models.Auth
         public async Task ConfigurationInitialize(IServiceProvider services)
         {
             var configurationService = services.GetRequiredService<IConfigurationService>();
-            await configurationService.AddIfNotExist(AuthConst.AuthEmailConfigurationsCode.PasswordRestoreEmailSubject, "Восстановление пароля");
+            await configurationService.AddIfNotExistAsync(AuthConst.AuthEmailConfigurationsCode.PasswordRestoreEmailSubject, "Восстановление пароля","Main", "configuration");
         }
 
-        public void ErrorContainerInitialize(ErrorContainer errorContainer)
+        public async Task ErrorContainerInitialize(IServiceProvider services)
         {
-            errorContainer.InitError(AuthConst.AuthErrors.ProblemWithRecoverPasswordToken
-                , "Передан неверный токен, попробуйте другой");
+            var configurationService = services.GetRequiredService<IConfigurationService>();
+            await configurationService.AddIfNotExistAsync(AuthConst.AuthErrors.ProblemWithRecoverPasswordToken, "Передан неверный токен, попробуйте другой", "Main", "Error");
         }
 
         public void RepositoriesInitialize(IServiceCollection services)

@@ -17,15 +17,16 @@ namespace VaultApp.Models
 {
     public class VaultAppInitializer : IStartUpInitializer
     {
-        public void ErrorContainerInitialize(ErrorContainer errorContainer)
+        public async Task ErrorContainerInitialize(IServiceProvider services)
         {
-            errorContainer.InitError(Constants.VaultErrorConstants.VaultNotAllowed, "Vault не найден или нет доступа");
-            errorContainer.InitError(Constants.VaultErrorConstants.VaultNotFound, "Vault не найден");
-            errorContainer.InitError(Constants.VaultErrorConstants.VaultUsersEmpty, "В vault не останется пользователей");
-            errorContainer.InitError(Constants.VaultErrorConstants.SecretNotFound, "Secret не найден или нет доступа");
-            errorContainer.InitError(Constants.VaultErrorConstants.VaultNotFill, "Не заполнена модель vault");
-            errorContainer.InitError(Constants.VaultErrorConstants.VaultBadAuth, "Vault не авторизован");
-            errorContainer.InitError(Constants.VaultErrorConstants.VaultNameNotValide, "Имя Vault не валидно, только кириллица/латиница/буквы и символ '_'");
+            var configurationService = services.GetRequiredService<IConfigurationService>();
+            await configurationService.AddIfNotExistAsync(Constants.VaultErrorConstants.VaultNotAllowed, "Vault не найден или нет доступа", "VaultApp", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.VaultErrorConstants.VaultNotFound, "Vault не найден", "VaultApp", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.VaultErrorConstants.VaultUsersEmpty, "В vault не останется пользователей", "VaultApp", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.VaultErrorConstants.SecretNotFound, "Secret не найден или нет доступа", "VaultApp", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.VaultErrorConstants.VaultNotFill, "Не заполнена модель vault", "VaultApp", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.VaultErrorConstants.VaultBadAuth, "Vault не авторизован", "VaultApp", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.VaultErrorConstants.VaultNameNotValide, "Имя Vault не валидно, только кириллица/латиница/буквы и символ '_'", "VaultApp", "Error");
 
             //
         }

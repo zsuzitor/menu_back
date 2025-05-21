@@ -18,18 +18,19 @@ namespace BL.Models.Services
             _cacheService = cahce;
         }
 
-        public async Task AddIfNotExist(string key, string value)
+        public async Task AddIfNotExistAsync(string key, string value, string group, string type)
         {
             if (await _configurationRepository.ExistsByKey(key))
             {
                 return;
             }
 
-            await _configurationRepository.AddAsync(new BO.Models.DAL.Domain.Configuration() { Key = key, Value = value, Group = "configuration" });
+            await _configurationRepository.AddAsync(new BO.Models.DAL.Domain.Configuration()
+            { Key = key, Value = value, Group = group, Type = type });
             _cacheService.Set(key, value, TimeSpan.FromHours(1));
         }
 
-        public async Task<Configuration> Get(string key)
+        public async Task<Configuration> GetAsync(string key)
         {
             var res = await _cacheService.GetOrSet(key, async () =>
             {

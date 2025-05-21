@@ -33,28 +33,28 @@ namespace CodeReviewApp.Models.Services
         public async Task QueueNewCommentInReviewTaskAsync(string email, string taskName)
         {
 
-            var config = await _configurationService.Get(Consts.EmailConfigurationsCode.AddedNewCommentInTask);
+            var config = await _configurationService.GetAsync(Consts.EmailConfigurationsCode.AddedNewCommentInTask);
             var text = config.Value.Replace("{{taskName}}", taskName);
             await QueueEmailAsync(email, DefaultSubject, text);
         }
 
         public async Task QueueNewCommentInReviewTaskAsync(List<string> email, string taskName)
         {
-            var config = await _configurationService.Get(Consts.EmailConfigurationsCode.AddedNewCommentInTask);
+            var config = await _configurationService.GetAsync(Consts.EmailConfigurationsCode.AddedNewCommentInTask);
             var text = config.Value.Replace("{{taskName}}", taskName);
             await QueueEmailAsync(email, DefaultSubject, text);
         }
 
         public async Task QueueReviewerInReviewTaskAsync(string email, string taskName)
         {
-            var config = await _configurationService.Get(Consts.EmailConfigurationsCode.NewReviewerInTask);
+            var config = await _configurationService.GetAsync(Consts.EmailConfigurationsCode.NewReviewerInTask);
             var text = config.Value.Replace("{{taskName}}", taskName);
             await QueueEmailAsync(email, DefaultSubject, text);
         }
 
         public async Task QueueChangeStatusTaskAsync(string email, string taskName, string newStatus)
         {
-            var config = await _configurationService.Get(Consts.EmailConfigurationsCode.StatusInTaskWasChanged);
+            var config = await _configurationService.GetAsync(Consts.EmailConfigurationsCode.StatusInTaskWasChanged);
             var text = config.Value.Replace("{{taskName}}", taskName).Replace("{{newStatus}}", newStatus);
             await QueueEmailAsync(email, DefaultSubject, text);
         }

@@ -15,7 +15,7 @@ namespace WordsCardsApp
 {
     public sealed class WordsCardsAppInitializer : IStartUpInitializer
     {
-        public void ErrorContainerInitialize(ErrorContainer errorContainer)
+        public async Task ErrorContainerInitialize(IServiceProvider services)
         {
 
         }

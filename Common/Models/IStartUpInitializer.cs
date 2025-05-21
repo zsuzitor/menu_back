@@ -11,7 +11,7 @@ namespace Common.Models
 
     public interface IStartUpInitializer
     {
-        void ErrorContainerInitialize(ErrorContainer errorContainer);
+        Task ErrorContainerInitialize(IServiceProvider services);
         Task ConfigurationInitialize(IServiceProvider services);
         void ServicesInitialize(IServiceCollection services);
         void RepositoriesInitialize(IServiceCollection services);

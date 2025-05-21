@@ -1,7 +1,6 @@
 ﻿using jwtLib.JWTAuth.Interfaces;
 using jwtLib.JWTAuth.Models.Poco;
 using Common.Models.Error;
-using Common.Models.Error.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using WEB.Common.Models.Helpers.Interfaces;
@@ -17,6 +16,8 @@ using System.IO;
 using Common.Models.Return;
 using Common.Models.Validators;
 using WEB.Common.Models.Returns;
+using BL.Models.Services.Interfaces;
+using Common.Models.Error.services;
 
 namespace WEB.Common.Models.Helpers
 {
@@ -31,7 +32,7 @@ namespace WEB.Common.Models.Helpers
 
 
         protected readonly IErrorService _errorService;
-        protected readonly IErrorContainer _errorContainer;
+        protected readonly IConfigurationService _configurationService;
         protected readonly long _fileMaxSize;
 
         /// <summary>
@@ -44,13 +45,13 @@ namespace WEB.Common.Models.Helpers
 
 
 
-        public ApiHelper(IErrorService errorService, IErrorContainer errorContainer,
+        public ApiHelper(IErrorService errorService, IConfigurationService configurationService,
             IStringValidator stringValidator)
         {
             _fileMaxSize = 1024 * 1024 * 3;
 
             _errorService = errorService;
-            _errorContainer = errorContainer;
+            _configurationService = configurationService;
             //_returnContainer = returnContainer;
             _stringValidator = stringValidator;
         }
@@ -301,25 +302,24 @@ namespace WEB.Common.Models.Helpers
             }
             catch (SomeCustomException e)
             {
-                ErrorFromCustomException(e);
+                await ErrorFromCustomException(e);
             }
             catch (StopException)
             {
             }
             catch (NotAuthException)
             {
-                var error = _errorContainer.TryGetError(ErrorConsts.NotAuthorized);
-                if (error != null)
-                {
-                    _errorService.AddError(error);
-                }
-                
+                var error = await _configurationService.GetAsync(ErrorConsts.NotAuthorized);
+                _errorService.AddError(ErrorConsts.NotAuthorized, error.Value);
+
                 await WriteResponseAsync(response, new ErrorObjectReturnFactory().GetObjectReturn(_errorService.GetErrorsObject()), 401);//TODO 401
                 return;
             }
             catch (Exception e)
             {
-                _errorService.AddError(_errorContainer.TryGetError(ErrorConsts.SomeError));
+
+                var error = await _configurationService.GetAsync(ErrorConsts.SomeError);
+                _errorService.AddError(ErrorConsts.SomeError, error.Value);
                 logger?.LogError(e, ErrorConsts.SomeError);
             }
 
@@ -330,22 +330,22 @@ namespace WEB.Common.Models.Helpers
         /// добавляет ошибку в errorService и все
         /// </summary>
         /// <param name="e"></param>
-        protected void ErrorFromCustomException(SomeCustomException e)
+        protected async Task ErrorFromCustomException(SomeCustomException e)
         {
             if (string.IsNullOrWhiteSpace(e.Message))
             {
                 return;
             }
 
-            var error = _errorContainer.TryGetError(e.Message);
+            var error = await _configurationService.GetAsync(e.Message);
             if (error != null)
             {
+                _errorService.AddError(e.Message, error.Value);
                 if (!string.IsNullOrWhiteSpace(e.Body))
                 {
-                    error.Errors.Add(e.Body);
+                    _errorService.AddError(e.Message, e.Body);
                 }
-
-                _errorService.AddError(error);
+                
                 return;
             }
 

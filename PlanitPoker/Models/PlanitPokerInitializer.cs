@@ -15,25 +15,26 @@ namespace PlanitPoker.Models
 {
     public class PlanitPokerInitializer: IStartUpInitializer
     {
-        public void ErrorContainerInitialize(ErrorContainer errorContainer)
-        {//todo может это лучше через наследование? под каждое приложение свой контейнер
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomNameIsEmpty, "Название комнаты не указано");
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.PlanitUserNotFound, "Пользователь не найден");
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomAlreadyExist, "Комната уже существует");
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.SomeErrorWithRoomCreating, "Неизвестная ошибка при создании комнаты");
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.BadRoomNameWithRoomCreating, "Нельзя использовать данное название, разрешены англ буквы+цифры до 30 знаков");
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomNotFound, "Комната не найдена");
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.DontHaveAccess, "Нет доступа");
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.CantVote, "Нельзя проголосовать");
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.StoryNotFound, "История не найдена");
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.StoryBadStatus, "Неверный статус истории");
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomBadPassword, "Пароль не подходит");
+        public async Task ErrorContainerInitialize(IServiceProvider services)
+        {
 
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomBadVoteMark, "Оценка не входит в допустимый диапазон");
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomBadVoteMarks, "Передан неверный список оценок");
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomBadCountCards, "Передано неверное количество карточек, доспустимо от 2 до 100");
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.RoomBadLengthCard, "Допустимая длина карточки 5 символов");
-            errorContainer.InitError(Constants.PlanitPokerErrorConsts.UsernameBad, "Имя пользователя - кириллица/латиница/цифры до 50 символов");
+            var configurationService = services.GetRequiredService<IConfigurationService>();
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.RoomNameIsEmpty, "Название комнаты не указано", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.PlanitUserNotFound, "Пользователь не найден", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.RoomAlreadyExist, "Комната уже существует", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.SomeErrorWithRoomCreating, "Неизвестная ошибка при создании комнаты", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.BadRoomNameWithRoomCreating, "Нельзя использовать данное название, разрешены англ буквы+цифры до 30 знаков", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.RoomNotFound, "Комната не найдена", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.DontHaveAccess, "Нет доступа", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.CantVote, "Нельзя проголосовать", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.StoryNotFound, "История не найдена", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.StoryBadStatus, "Неверный статус истории", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.RoomBadPassword, "Пароль не подходит", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.RoomBadVoteMark, "Оценка не входит в допустимый диапазон", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.RoomBadVoteMarks, "Передан неверный список оценок", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.RoomBadCountCards, "Передано неверное количество карточек, доспустимо от 2 до 100", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.RoomBadLengthCard, "Допустимая длина карточки 5 символов", "PlaningPoker", "Error");
+            await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.UsernameBad, "Имя пользователя - кириллица/латиница/цифры до 50 символов", "PlaningPoker", "Error");
 
 
         }

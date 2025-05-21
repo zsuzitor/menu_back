@@ -1,6 +1,5 @@
 ﻿using BO.Models.PlaningPoker.DAL;
 using Common.Models;
-using Common.Models.Error.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using PlanitPoker.Models.Enums;
 using PlanitPoker.Models.Repositories.Interfaces;
@@ -36,7 +35,7 @@ namespace PlanitPoker.Models.Services
         private readonly IPlaningUserRepository _planingUserRepository;
         private readonly IStoryRepository _storyRepository;
         private readonly IErrorService _errorService;
-        private readonly IErrorContainer _errorContainer;
+        private readonly IConfigurationService _configurationService;
         private readonly IHasher _hasher;
         private readonly IImageService _imageService;
 
@@ -55,7 +54,7 @@ namespace PlanitPoker.Models.Services
         public PlanitPokerService(
                 MultiThreadHelper multiThreadHelper,
                 IRoomRepository roomRepository, IStoryRepository storyRepository
-                , IErrorService errorService, IErrorContainer errorContainer,
+                , IErrorService errorService, IConfigurationService configurationService,
                  IHasher hasher,
                 IDBHelper dbHelper, MenuDbContext db,
                 IPlaningUserRepository planingUserRepository,
@@ -69,7 +68,7 @@ namespace PlanitPoker.Models.Services
             _imageService = imageService;
 
             _errorService = errorService;
-            _errorContainer = errorContainer;
+            _configurationService = configurationService;
             _hasher = hasher;
             _dbHelper = dbHelper;
             _db = db;

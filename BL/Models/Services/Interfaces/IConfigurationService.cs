@@ -8,7 +8,7 @@ namespace BL.Models.Services.Interfaces
 {
     public interface IConfigurationService
     {
-        Task AddIfNotExist(string key, string value);
-        Task<Configuration> Get(string key);
+        Task AddIfNotExistAsync(string key, string value, string group, string type);
+        Task<Configuration> GetAsync(string key);
     }
 }

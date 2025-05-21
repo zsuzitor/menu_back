@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using BO.Models.Auth;
 using Common.Models;
 using Common.Models.Error;
-using Common.Models.Error.Interfaces;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using Common.Models.Validators;
@@ -38,7 +37,7 @@ namespace PlanitPoker.Models.Hubs
         private readonly IHasher _hasher;
         private readonly IErrorService _errorService;
 
-        private readonly IErrorContainer _errorContainer;
+        private readonly IConfigurationService _configurationService;
         private readonly ILogger _logger;
         private readonly ILogger _hublogger;
         private readonly IUserService _userService;
@@ -54,7 +53,7 @@ namespace PlanitPoker.Models.Hubs
             IStringValidator stringValidator, IPlanitPokerService planitPokerService,
             IUserService userService,
             IPlanitApiHelper apiHealper, IJWTService jwtService, IHasher hasher, IErrorService errorService
-            , IErrorContainer errorContainer, ILogger<PlanitPokerHub> logger, ILoggerFactory loggerFactory)
+            , IConfigurationService configurationService, ILogger<PlanitPokerHub> logger, ILoggerFactory loggerFactory)
         {
             _multiThreadHelper = multiThreadHelper;
             _stringValidator = stringValidator;
@@ -64,7 +63,7 @@ namespace PlanitPoker.Models.Hubs
             _jwtService = jwtService;
             _hasher = hasher;
             _errorService = errorService;
-            _errorContainer = errorContainer;
+            _configurationService = configurationService;
 
             _logger = logger;
             _hublogger = loggerFactory.CreateLogger("PlanitPoker");
@@ -240,7 +239,8 @@ namespace PlanitPoker.Models.Hubs
 
                 if (string.IsNullOrEmpty(roomName))
                 {
-                    _errorService.AddError(_errorContainer.TryGetError(Constants.PlanitPokerErrorConsts.RoomNameIsEmpty));
+                    _errorService.AddError(Constants.PlanitPokerErrorConsts.RoomNameIsEmpty, 
+                        (await _configurationService.GetAsync(Constants.PlanitPokerErrorConsts.RoomNameIsEmpty)).Value);
                     await _apiHealper.NotifyFromErrorService();
                     await Clients.Caller.SendAsync(Constants.PlanitPokerHubEndpoints.ConnectedToRoomError);
                 }

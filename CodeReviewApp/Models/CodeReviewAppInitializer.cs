@@ -18,32 +18,24 @@ namespace CodeReviewApp.Models
     {
         //public static IServiceProvider ServiceProvider;
 
-        public void ErrorContainerInitialize(ErrorContainer errorContainer)
+        public async Task ErrorContainerInitialize(IServiceProvider services)
         {
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.BadTaskReviewStatus, "Передан неверный статус задачи");
-            
-
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.ProjectNotFound, "Проект не найден");
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible, "Проект не найден или недоступен");
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.EmptyProjectName, "Не указано название проекта");
-
-            
-
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.EmptyUserName, "Не заполнено имя пользователя");
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.UserAlreadyAdded, "Пользователь уже был добавлен");
-            
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.ProjectUserNotFound, "Пользователь проекта не найден");
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject, "Нет прав на редактирование проекта");
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.UserNotFound, "Пользователь не найден");
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.TaskNotFound, "Задача не найдена");
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.ProjectHaveNoAccess, "Нет доступа к проекту");
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.CommentNotFoundOrNotAccess, "Комментарий не найден или нет доступа");
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.CommentNotFound, "Комментарий не найден");
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.UserInMainAppNotFound, "Пользователь основного приложения не найден");
-            errorContainer.InitError(Consts.CodeReviewErrorConsts.EmptyTaskName, "Не указано название задачи");
-
-
-
+            var configurationService = services.GetRequiredService<IConfigurationService>();
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.BadTaskReviewStatus, "Передан неверный статус задачи", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.ProjectNotFound, "Проект не найден", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible, "Проект не найден или недоступен", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.EmptyProjectName, "Не указано название проекта", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.EmptyUserName, "Не заполнено имя пользователя", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.UserAlreadyAdded, "Пользователь уже был добавлен", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.ProjectUserNotFound, "Пользователь проекта не найден", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject, "Нет прав на редактирование проекта", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.UserNotFound, "Пользователь не найден", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.TaskNotFound, "Задача не найдена", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.ProjectHaveNoAccess, "Нет доступа к проекту", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.CommentNotFoundOrNotAccess, "Комментарий не найден или нет доступа", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.CommentNotFound, "Комментарий не найден", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.UserInMainAppNotFound, "Пользователь основного приложения не найден", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.EmptyTaskName, "Не указано название задачи", "CodeReviewApp", "Error");
 
 
         }
@@ -73,9 +65,9 @@ namespace CodeReviewApp.Models
         public async Task ConfigurationInitialize(IServiceProvider services)
         {
             var configurationService = services.GetRequiredService<IConfigurationService>();
-            await configurationService.AddIfNotExist(Consts.EmailConfigurationsCode.AddedNewCommentInTask, "Добавлен новый комментарий в задачу {{taskName}}");
-            await configurationService.AddIfNotExist(Consts.EmailConfigurationsCode.NewReviewerInTask, "Назначение ревьювером по задаче {{taskName}}");
-            await configurationService.AddIfNotExist(Consts.EmailConfigurationsCode.StatusInTaskWasChanged, "Изменен статус на {{newStatus}} в задаче {{taskName}}");
+            await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.AddedNewCommentInTask, "Добавлен новый комментарий в задачу {{taskName}}", "CodeReviewApp", "configuration");
+            await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.NewReviewerInTask, "Назначение ревьювером по задаче {{taskName}}", "CodeReviewApp", "configuration");
+            await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.StatusInTaskWasChanged, "Изменен статус на {{newStatus}} в задаче {{taskName}}", "CodeReviewApp", "configuration");
 
             //
         }
