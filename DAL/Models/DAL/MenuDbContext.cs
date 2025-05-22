@@ -60,6 +60,7 @@ namespace DAL.Models.DAL
         public DbSet<ProjectUser> ReviewProjectUsers { get; set; }
         public DbSet<TaskReview> ReviewTasks { get; set; }
         public DbSet<CommentReview> ReviewComment { get; set; }
+        public DbSet<TaskReviewStatus> TaskReviewStatus { get; set; }
 
 
         #endregion codeReviewApp
