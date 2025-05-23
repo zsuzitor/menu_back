@@ -56,7 +56,7 @@ namespace Menu.Controllers.CodeReviewApp
                     if (!string.IsNullOrWhiteSpace(mainAppUserEmail))
                     {
                         userIdForAdd = await _mainAppUserService.GetIdByEmailAsync(mainAppUserEmail);
-                        if(userIdForAdd == null)
+                        if (userIdForAdd == null)
                         {
                             throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserInMainAppNotFound);
                         }

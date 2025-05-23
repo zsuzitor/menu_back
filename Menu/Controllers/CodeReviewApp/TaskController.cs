@@ -43,7 +43,7 @@ namespace Menu.Controllers.CodeReviewApp
         [Route("get-project-tasks")]
         [HttpGet]
         public async Task GetProjectTasks(long projectId, string nameLike
-            , long? creatorId, long? reviewerId, int? status, int pageNumber, int pageSize)
+            , long? creatorId, long? reviewerId, int? statusId, int pageNumber, int pageSize)
         {
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -63,22 +63,9 @@ namespace Menu.Controllers.CodeReviewApp
                         reviewerId = null;
                     }
 
-                    if (status == -1)
+                    if (statusId == -1)
                     {
-                        status = null;
-                    }
-
-                    CodeReviewTaskStatus? enumStatus = null;
-                    if (status != null)
-                    {
-                        if (!Enum.GetValues(typeof(CodeReviewTaskStatus)).Cast<int>().Contains((int)status))
-                        {
-                            throw new SomeCustomException(Consts.CodeReviewErrorConsts.BadTaskReviewStatus);
-                        }
-                        else
-                        {
-                            enumStatus = (CodeReviewTaskStatus)status;
-                        }
+                        statusId = null;
                     }
 
 
@@ -91,9 +78,9 @@ namespace Menu.Controllers.CodeReviewApp
                     }
 
                     var tasks = await _taskReviewService.GetTasksAsync(projectId
-                        , nameLike, creatorId, reviewerId, enumStatus, pageNumber, pageSize);
+                        , nameLike, creatorId, reviewerId, statusId, pageNumber, pageSize);
                     var tasksCount = await _taskReviewService.GetTasksCountAsync(projectId
-                        , nameLike, creatorId, reviewerId, enumStatus);
+                        , nameLike, creatorId, reviewerId, statusId);
                     var taskReturn = tasks.Select(x => new TaskReviewReturn(x));
 
                     await _apiHealper.WriteResponseAsync(Response,
@@ -107,7 +94,7 @@ namespace Menu.Controllers.CodeReviewApp
         [Route("add-new-task")]
         [HttpPut]
         public async Task AddNewTask([FromForm] string taskName, [FromForm] long taskCreatorId
-            , [FromForm] long? taskReviwerId, [FromForm] string taskLink, [FromForm] long projectId)
+            , [FromForm] long? taskReviwerId, [FromForm] string taskLink, [FromForm] long projectId, [FromForm] long statusId)
         {
             taskName = _apiHealper.StringValidator(taskName);
             taskLink = _apiHealper.StringValidator(taskLink);
@@ -129,6 +116,7 @@ namespace Menu.Controllers.CodeReviewApp
                         ReviewerId = taskReviwerId,
                         Link = taskLink,
                         ProjectId = projectId,
+                        StatusId = statusId,
                     }, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
@@ -137,7 +125,7 @@ namespace Menu.Controllers.CodeReviewApp
                             Name = res.Name,
                             CreatorId = res.CreatorId,
                             ReviewerId = res.ReviewerId,
-                            Status = res.Status,
+                            Status = new TaskReviewStatusReturn(res.Status),
                             Link = res.Link,
                         });
 
@@ -148,7 +136,7 @@ namespace Menu.Controllers.CodeReviewApp
         [Route("update-task")]
         [HttpPatch]
         public async Task UpdateTask([FromForm] long taskId, [FromForm] string name
-            , [FromForm] int status, [FromForm] long creatorId, [FromForm] long? reviewerId
+            , [FromForm] int statusId, [FromForm] long creatorId, [FromForm] long? reviewerId
             , [FromForm] string taskLink)
         {
             name = _apiHealper.StringValidator(name);
@@ -163,16 +151,13 @@ namespace Menu.Controllers.CodeReviewApp
                     }
 
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                    if (!Enum.GetValues(typeof(CodeReviewTaskStatus)).Cast<int>().Contains(status))
-                    {
-                        throw new SomeCustomException(Consts.CodeReviewErrorConsts.BadTaskReviewStatus);
-                    }
+                    
 
                     var res = await _taskReviewService.UpdateAsync(new TaskReview()
                     {
                         Id = taskId,
                         Name = name,
-                        Status = (CodeReviewTaskStatus)status,
+                        StatusId = statusId,
                         CreatorId = creatorId,
                         ReviewerId = reviewerId,
                         Link = taskLink,

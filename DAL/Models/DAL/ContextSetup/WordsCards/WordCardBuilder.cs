@@ -10,14 +10,19 @@ namespace DAL.Models.DAL.ContextSetup.WordsCards
     {
         public static void WordCardBuild(this ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<WordCard>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.HasMany(x => x.WordCardWordList)
+                    .WithOne(x => x.WordCard)
+                    .HasForeignKey(x => x.WordCardId).OnDelete(DeleteBehavior.Cascade);
 
+                entity.Property(p => p.RowVersion)
+                    .IsRowVersion() // Автоматически обновляется SQL Server
+                    .IsConcurrencyToken(); // Включает проверку на конфликты
+                entity.ToTable("WordsCards");
+            });
 
-            modelBuilder.Entity<WordCard>().HasKey(x => x.Id);
-            modelBuilder.Entity<WordCard>().HasMany(x => x.WordCardWordList)
-                .WithOne(x => x.WordCard)
-                .HasForeignKey(x => x.WordCardId).OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<WordCard>().ToTable("WordsCards");
         }
     }
 }

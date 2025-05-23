@@ -36,6 +36,11 @@ namespace CodeReviewApp.Models
             await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.CommentNotFound, "Комментарий не найден", "CodeReviewApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.UserInMainAppNotFound, "Пользователь основного приложения не найден", "CodeReviewApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.EmptyTaskName, "Не указано название задачи", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.TaskWithStatusExists, "Существует задачи с указанным статусом", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists, "Переданный статус не существует", "CodeReviewApp", "Error");
+
+            
+
 
 
         }
@@ -46,6 +51,9 @@ namespace CodeReviewApp.Models
             services.AddScoped<ITaskReviewRepository, TaskReviewRepository>();
             services.AddScoped<IProjectUserRepository, UserRepository>();
             services.AddScoped<ITaskReviewCommentRepository, TaskReviewCommentRepository>();
+            services.AddScoped<ITaskStatusRepository, TaskStatusRepository>();
+
+            
 
 
         }

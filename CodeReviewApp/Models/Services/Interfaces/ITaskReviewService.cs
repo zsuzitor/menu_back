@@ -10,10 +10,11 @@ namespace CodeReviewApp.Models.Services.Interfaces
     {
         Task<TaskReview> CreateAsync(TaskReview task, UserInfo userInfo);
         Task<List<TaskReview>> GetTasksAsync(long projectId);
+        Task<bool> ExistAsync(long projectId, long statusId);
         Task<List<TaskReview>> GetTasksAsync(long projectId, string name, long? creatorId
-            , long? reviewerId, CodeReviewTaskStatus? status, int pageNumber, int pageSize);
+            , long? reviewerId, long? statusId, int pageNumber, int pageSize);
         Task<long> GetTasksCountAsync(long projectId, string name, long? creatorId
-            , long? reviewerId, CodeReviewTaskStatus? status);
+            , long? reviewerId, long? statusId);
         Task<TaskReview> UpdateAsync(TaskReview task, UserInfo userInfo);
         Task<TaskReview> DeleteIfAccess(long id, UserInfo userInfo);
         Task<List<CommentReview>> GetCommentsAsync(long taskId, UserInfo userInfo);

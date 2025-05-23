@@ -15,6 +15,9 @@ namespace BO.Models.CodeReviewApp.DAL.Domain
         //public List<string> LocalUsers { get; set; }
         public List<TaskReview> Tasks { get; set; }
 
+        public List<TaskReviewStatus> TaskStatuses { get; set; }
+
+        public byte[] RowVersion { get; set; }
 
         public Project()
         {

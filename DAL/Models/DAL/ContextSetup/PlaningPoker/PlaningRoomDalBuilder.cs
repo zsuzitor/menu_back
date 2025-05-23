@@ -10,16 +10,23 @@ namespace DAL.Models.DAL.ContextSetup.PlaningPoker
     {
         public static void PlaningRoomDalBuild(this ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<PlaningRoomDal>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.Property(x => x.Name).IsRequired();
+                entity.HasIndex(x => x.Name).IsUnique();
+                entity.HasMany(x => x.Stories).WithOne(x => x.Room)
+                    .HasForeignKey(x => x.RoomId).OnDelete(DeleteBehavior.Cascade);
+                entity.HasMany(x => x.Users).WithOne(x => x.Room)
+                    .HasForeignKey(x => x.RoomId).OnDelete(DeleteBehavior.Cascade);
+                entity.ToTable("PlaningRooms");
 
-            modelBuilder.Entity<PlaningRoomDal>().HasKey(x => x.Id);
-            modelBuilder.Entity<PlaningRoomDal>().Property(x => x.Name).IsRequired();
-            modelBuilder.Entity<PlaningRoomDal>().HasIndex(x => x.Name).IsUnique();
-            modelBuilder.Entity<PlaningRoomDal>().HasMany(x => x.Stories).WithOne(x => x.Room)
-                .HasForeignKey(x => x.RoomId).OnDelete(DeleteBehavior.Cascade);
-            modelBuilder.Entity<PlaningRoomDal>().HasMany(x => x.Users).WithOne(x => x.Room)
-                .HasForeignKey(x => x.RoomId).OnDelete(DeleteBehavior.Cascade);
+                entity.Property(p => p.RowVersion)
+                    .IsRowVersion() // Автоматически обновляется SQL Server
+                    .IsConcurrencyToken(); // Включает проверку на конфликты
+            });
 
-            modelBuilder.Entity<PlaningRoomDal>().ToTable("PlaningRooms");
+
         }
     }
 }

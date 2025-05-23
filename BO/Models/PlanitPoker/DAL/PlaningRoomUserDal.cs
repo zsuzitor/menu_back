@@ -21,5 +21,8 @@ namespace BO.Models.PlaningPoker.DAL
 
         public long RoomId { get; set; }
         public PlaningRoomDal Room { get; set; }
+
+        public byte[] RowVersion { get; set; }
+
     }
 }

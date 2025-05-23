@@ -88,13 +88,15 @@ namespace Menu.Controllers.CodeReviewApp
                         throw new SomeCustomException("project_not_found");
                     }
 
-                    var users = await _projectUserService.GetProjectUsersAsync(projectId);
+                    var statuses = (await _projectService.GetStatusesAsync(projectId, userInfo)).Select(x => new TaskReviewStatusReturn(x));
+
+                    var users = await _projectUserService.GetProjectUsersAsync(projectId, userInfo);
                     //var tasks = await _taskReviewService.GetTasksAsync(projectId);
                     var usersReturn = users.Select(x => new ProjectUserReturn(x));
                     //var taskReturn = tasks.Select(x => new TaskReviewReturn(x));
 
                     await _apiHealper.WriteResponseAsync(Response,
-                        new { Users = usersReturn });//, Tasks = taskReturn
+                        new { Users = usersReturn, Statuses = statuses });//, Tasks = taskReturn
 
                 }, Response, _logger);
 
@@ -102,10 +104,6 @@ namespace Menu.Controllers.CodeReviewApp
 
         
 
-
-        
-
-        
 
         [Route("delete-project")]
         [HttpDelete]

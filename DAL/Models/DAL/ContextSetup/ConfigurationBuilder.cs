@@ -10,11 +10,13 @@ namespace DAL.Models.DAL.ContextSetup
     {
         public static void ConfigurationBuild(this ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Configuration>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.HasIndex(x => x.Key).IsUnique();
+                entity.ToTable("Configurations");
 
-            modelBuilder.Entity<Configuration>().HasKey(x => x.Id);
-            modelBuilder.Entity<Configuration>().HasIndex(x => x.Key).IsUnique();
-
-            modelBuilder.Entity<Configuration>().ToTable("Configurations");
+            });
         }
     }
 }

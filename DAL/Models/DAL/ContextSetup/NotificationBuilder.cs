@@ -10,11 +10,13 @@ namespace DAL.Models.DAL.ContextSetup
     {
         public static void NotificationBuild(this ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Notification>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.ToTable("Notifications");
 
-            modelBuilder.Entity<Notification>().HasKey(x => x.Id);
-            //modelBuilder.Entity<CustomImage>().HasOne(x => x.Article);
+            });
 
-            modelBuilder.Entity<Notification>().ToTable("Notifications");
         }
     }
 }

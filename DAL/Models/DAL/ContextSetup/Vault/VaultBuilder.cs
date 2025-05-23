@@ -12,15 +12,23 @@ namespace DAL.Models.DAL.ContextSetup.VaultApp
     {
         public static void VaultBuild(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Vault>().HasKey(x => x.Id);
-            modelBuilder.Entity<Vault>().HasMany(x => x.Secrets).WithOne(x => x.Vault)
-                .HasForeignKey(x => x.VaultId).OnDelete(DeleteBehavior.Cascade);
-            modelBuilder.Entity<Vault>().HasMany(x => x.Users).WithOne(x => x.Vault)
-                .HasForeignKey(x => x.VaultId).OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Vault>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.HasMany(x => x.Secrets).WithOne(x => x.Vault)
+                    .HasForeignKey(x => x.VaultId).OnDelete(DeleteBehavior.Cascade);
+                entity.HasMany(x => x.Users).WithOne(x => x.Vault)
+                    .HasForeignKey(x => x.VaultId).OnDelete(DeleteBehavior.Cascade);
+
+                entity.Property(p => p.RowVersion)
+                    .IsRowVersion() // Автоматически обновляется SQL Server
+                    .IsConcurrencyToken(); // Включает проверку на конфликты
+                entity.ToTable("Vaults");
+            });
+
             modelBuilder.Entity<User>().HasMany(x => x.Vaults).WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Vault>().ToTable("Vaults");
         }
     }
 }

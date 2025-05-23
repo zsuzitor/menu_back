@@ -15,6 +15,8 @@ namespace BO.Models.WordsCardsApp.DAL.Domain
 
         public List<WordCardWordList> WordCardWordList { get; set; }
 
+        public byte[] RowVersion { get; set; }
+
         public WordsList()
         {
             WordCardWordList = new List<WordCardWordList>();

@@ -16,15 +16,17 @@ namespace CodeReviewApp.Models.Services
         private readonly IProjectUserService _projectUserService;
         private readonly ITaskReviewCommentService _taskReviewCommentService;
         private readonly IReviewAppEmailService _reviewAppEmailService;
+        private readonly ITaskStatusRepository _taskStatusRepository;
         public TaskReviewService(ITaskReviewRepository taskReviewRepository,
             IProjectRepository projectRepository, IProjectUserService projectUserService
-            , ITaskReviewCommentService taskReviewCommentService, IReviewAppEmailService reviewAppEmailService)
+            , ITaskReviewCommentService taskReviewCommentService, IReviewAppEmailService reviewAppEmailService, ITaskStatusRepository taskStatusRepository)
         {
             _taskReviewRepository = taskReviewRepository;
             _projectRepository = projectRepository;
             _projectUserService = projectUserService;
             _taskReviewCommentService = taskReviewCommentService;
             _reviewAppEmailService = reviewAppEmailService;
+            _taskStatusRepository = taskStatusRepository;
         }
 
         public async Task<TaskReview> CreateAsync(TaskReview task, UserInfo userInfo)
@@ -60,17 +62,17 @@ namespace CodeReviewApp.Models.Services
         /// <param name="pageSize"></param>
         /// <returns></returns>
         public async Task<List<TaskReview>> GetTasksAsync(long projectId, string name, long? creatorId
-            , long? reviewerId, CodeReviewTaskStatus? status, int pageNumber, int pageSize)
+            , long? reviewerId, long? statusId, int pageNumber, int pageSize)
         {
             return await _taskReviewRepository.GetTasksAsync(projectId, name
-                , creatorId, reviewerId, status, pageNumber, pageSize);
+                , creatorId, reviewerId, statusId, pageNumber, pageSize);
         }
 
         public async Task<long> GetTasksCountAsync(long projectId, string name, long? creatorId
-            , long? reviewerId, CodeReviewTaskStatus? status)
+            , long? reviewerId, long? statusId)
         {
             return await _taskReviewRepository.GetTasksCountAsync(projectId, name
-                , creatorId, reviewerId, status);
+                , creatorId, reviewerId, statusId);
         }
 
         public async Task<TaskReview> UpdateAsync(TaskReview task, UserInfo userInfo)
@@ -96,6 +98,16 @@ namespace CodeReviewApp.Models.Services
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskHaveNoAccess);
             }
+
+            if (task.StatusId != upTask.StatusId)
+            {
+                var status = task.StatusId == null ? null : await _taskStatusRepository.GetAsync(task.StatusId.Value);
+                if (status == null || status.ProjectId != upTask.ProjectId)
+                {
+                    throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists);
+                }
+            }
+
 
             if (task.ReviewerId != null)
             {
@@ -241,6 +253,11 @@ namespace CodeReviewApp.Models.Services
 
             await _reviewAppEmailService.QueueNewCommentInReviewTaskAsync(emailForNotification, task.Name);
             return comment;
+        }
+
+        public async Task<bool> ExistAsync(long projectId, long statusId)
+        {
+            return await _taskReviewRepository.ExistAsync(projectId, statusId);
         }
     }
 }

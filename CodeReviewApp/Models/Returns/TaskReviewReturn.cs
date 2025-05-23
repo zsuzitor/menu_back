@@ -9,7 +9,7 @@ namespace CodeReviewApp.Models.Returns
         public string Link { get; set; }
         public long? CreatorId { get; set; }
         public long? ReviewerId { get; set; }
-        public int Status { get; set; }
+        public long? StatusId { get; set; }
 
         public TaskReviewReturn(TaskReview task)
         {
@@ -18,7 +18,7 @@ namespace CodeReviewApp.Models.Returns
             Link = task.Link;
             CreatorId = task.CreatorId;
             ReviewerId = task.ReviewerId;
-            Status = (int)task.Status;
+            StatusId = task.StatusId;
         }
     }
 }

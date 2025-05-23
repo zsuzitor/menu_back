@@ -16,6 +16,8 @@ namespace BO.Models.VaultApp.Dal
         public List<Secret> Secrets { get; set; }
         public List<VaultUserDal> Users { get; set; }
 
+        public byte[] RowVersion { get; set; }
+
         public Vault()
         {
             Secrets = new List<Secret>();

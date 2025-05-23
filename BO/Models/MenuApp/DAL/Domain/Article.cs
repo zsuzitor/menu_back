@@ -25,6 +25,8 @@ namespace BO.Models.MenuApp.DAL.Domain
 
         public List<CustomImage> AdditionalImages { get; set; }
 
+        public byte[] RowVersion { get; set; }
+
 
         public Article()
         {

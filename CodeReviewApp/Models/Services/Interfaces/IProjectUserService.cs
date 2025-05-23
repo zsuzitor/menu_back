@@ -15,7 +15,8 @@ namespace CodeReviewApp.Models.Services.Interfaces
         /// </summary>
         /// <param name="projectId"></param>
         /// <returns></returns>
-        Task<List<ProjectUser>> GetProjectUsersAsync(long projectId);
+        Task<List<ProjectUser>> GetProjectUsersAccessAsync(long projectId, UserInfo userInfo);
+        Task<List<ProjectUser>> GetProjectUsersAsync(long projectId, UserInfo userInfo);
         Task<bool> ExistAsync(long projectId, long userId);
 
 

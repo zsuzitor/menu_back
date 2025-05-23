@@ -17,6 +17,8 @@ namespace BO.Models.PlaningPoker.DAL
         public List<PlaningRoomUserDal> Users { get; set; }
         public string Cards { get; set; }
 
+        public byte[] RowVersion { get; set; }
+
 
         public PlaningRoomDal()
         {

@@ -11,9 +11,21 @@ namespace DAL.Models.DAL.ContextSetup.CodeReview
     {
         public static void TaskReviewBuild(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TaskReview>().HasMany(x => x.Comments).WithOne(x => x.Task)
-                .HasForeignKey(x => x.TaskId).OnDelete(DeleteBehavior.Cascade);
-            modelBuilder.Entity<TaskReview>().ToTable("ReviewTasks");
+            modelBuilder.Entity<TaskReview>(entity => {
+                entity.HasKey(x => x.Id);
+                entity.HasMany(x => x.Comments).WithOne(x => x.Task)
+                    .HasForeignKey(x => x.TaskId).OnDelete(DeleteBehavior.Cascade);
+                entity.HasOne(x => x.Status).WithMany(x => x.Tasks)
+                    .HasForeignKey(x => x.StatusId).OnDelete(DeleteBehavior.SetNull);
+
+                entity.ToTable("ReviewTasks");
+
+                entity.Property(p => p.RowVersion)
+                    .IsRowVersion() // Автоматически обновляется SQL Server
+                    .IsConcurrencyToken(); // Включает проверку на конфликты
+
+            });
+
 
         }
     }

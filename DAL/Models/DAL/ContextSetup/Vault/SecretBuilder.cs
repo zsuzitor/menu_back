@@ -10,13 +10,19 @@ namespace DAL.Models.DAL.ContextSetup.VaultApp
     {
         public static void SecretBuild(this ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Secret>(entity => {
+                entity.HasKey(x => x.Id);
+                entity.HasIndex(x => x.VaultId);
+                entity.Property(x => x.Key).IsRequired();
+                entity.HasOne(x => x.Vault).WithMany(x => x.Secrets);
+                entity.ToTable("Secrets");
 
-            modelBuilder.Entity<Secret>().HasKey(x => x.Id);
-            modelBuilder.Entity<Secret>().HasIndex(x => x.VaultId);
-            modelBuilder.Entity<Secret>().Property(x => x.Key).IsRequired();
-            modelBuilder.Entity<Secret>().HasOne(x => x.Vault).WithMany(x => x.Secrets);
+                entity.Property(p => p.RowVersion)
+                    .IsRowVersion() // Автоматически обновляется SQL Server
+                    .IsConcurrencyToken(); // Включает проверку на конфликты
+            });
 
-            modelBuilder.Entity<Secret>().ToTable("Secrets");
+            
         }
     }
 }

@@ -11,14 +11,20 @@ namespace DAL.Models.DAL.ContextSetup.VaultApp
     {
         public static void VaultUserDalBuild(this ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<VaultUserDal>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.HasIndex(x => x.UserId);
+                entity.HasIndex(x => x.VaultId);
+                entity.HasOne(x => x.Vault).WithMany(x => x.Users)
+                    .HasForeignKey(x => x.VaultId).OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<VaultUserDal>().HasKey(x => x.Id);
-            modelBuilder.Entity<VaultUserDal>().HasIndex(x => x.UserId);
-            modelBuilder.Entity<VaultUserDal>().HasIndex(x => x.VaultId);
-            modelBuilder.Entity<VaultUserDal>().HasOne(x => x.Vault).WithMany(x => x.Users)
-                .HasForeignKey(x => x.VaultId).OnDelete(DeleteBehavior.Cascade);
+                entity.Property(p => p.RowVersion)
+                    .IsRowVersion() // Автоматически обновляется SQL Server
+                    .IsConcurrencyToken(); // Включает проверку на конфликты
+                entity.ToTable("VaultUsers");
+            });
 
-            modelBuilder.Entity<VaultUserDal>().ToTable("VaultUsers");
         }
     }
 }

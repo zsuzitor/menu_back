@@ -11,13 +11,21 @@ namespace DAL.Models.DAL.ContextSetup.MenuApp
     {
         public static void ArticleBuild(this ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Article>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.HasMany(x => x.AdditionalImages)
+                    .WithOne(x => x.Article)
+                    .HasForeignKey(x => x.ArticleId).OnDelete(DeleteBehavior.Cascade);
+                entity.ToTable("Articles");
 
-            modelBuilder.Entity<Article>().HasKey(x => x.Id);
-            modelBuilder.Entity<Article>().HasMany(x => x.AdditionalImages)
-                .WithOne(x => x.Article)
-                .HasForeignKey(x => x.ArticleId).OnDelete(DeleteBehavior.Cascade);
 
-            modelBuilder.Entity<Article>().ToTable("Articles");
+                entity.Property(p => p.RowVersion)
+                  .IsRowVersion() // Автоматически обновляется SQL Server
+                  .IsConcurrencyToken(); // Включает проверку на конфликты
+            });
+
+
 
         }
     }

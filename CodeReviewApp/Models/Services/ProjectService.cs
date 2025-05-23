@@ -1,5 +1,6 @@
 ﻿using BO.Models.Auth;
 using BO.Models.CodeReviewApp.DAL.Domain;
+using CodeReviewApp.Models.DAL.Repositories;
 using CodeReviewApp.Models.DAL.Repositories.Interfaces;
 using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
@@ -12,16 +13,18 @@ namespace CodeReviewApp.Models.Services
     public sealed class ProjectService : IProjectService
     {
         private readonly IProjectRepository _projectRepository;
+        private readonly ITaskStatusRepository _taskStatusRepository;
         private readonly IProjectUserService _projectUserService;
         private readonly ITaskReviewService _taskReviewService;
         private readonly IUserService _mainAppUserService;
         public ProjectService(IProjectRepository projectRepository, IProjectUserService userService,
-            ITaskReviewService taskReviewService, IUserService mainAppUserService)
+            ITaskReviewService taskReviewService, IUserService mainAppUserService, ITaskStatusRepository taskStatusRepository)
         {
             _projectRepository = projectRepository;
             _projectUserService = userService;
             _taskReviewService = taskReviewService;
             _mainAppUserService = mainAppUserService;
+            _taskStatusRepository = taskStatusRepository;
         }
 
         public async Task<Project> CreateAsync(string name, UserInfo userInfo)
@@ -127,6 +130,13 @@ namespace CodeReviewApp.Models.Services
                 }
             }
 
+            var status = task.StatusId == null ? null : await _taskStatusRepository.GetAsync(task.StatusId.Value);
+            if (status == null)
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists);
+
+            }
+
             var newTask = new TaskReview()
             {
                 CreatorId = task.CreatorId,
@@ -135,6 +145,7 @@ namespace CodeReviewApp.Models.Services
                 ReviewerId = task.ReviewerId,
                 CreatorEntityId = userInfo.UserId,
                 Link = task.Link,
+                StatusId = task.StatusId,
             };
 
             //todo проверяем что creator+reviwer входит в проект. по идеи если что упадет с исключением
@@ -158,5 +169,57 @@ namespace CodeReviewApp.Models.Services
         {
             var g = 10;
         }
+
+        public async Task<List<TaskReviewStatus>> GetStatusesAsync(long projectId, UserInfo userInfo)
+        {
+            return await _taskStatusRepository.GetForProjectAsync(projectId);
+
+        }
+
+
+        public async Task<List<TaskReviewStatus>> GetStatusesAccessAsync(long projectId, UserInfo userInfo)
+        {
+            var s = await ExistIfAccessAsync(projectId, userInfo);
+            if (!s.access)
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+            }
+
+            return await GetStatusesAsync(projectId, userInfo);
+
+        }
+
+        public async Task<TaskReviewStatus> CreateStatusAsync(string status, long projectId, UserInfo userInfo)
+        {
+            var s = await ExistIfAccessAdminAsync(projectId, userInfo);
+            if (!s)
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+            }
+
+            return await _taskStatusRepository.AddAsync(new TaskReviewStatus() { Name = status, ProjectId = projectId });
+        }
+
+        public async Task<TaskReviewStatus> DeleteStatusAsync(long statusId, UserInfo userInfo)
+        {
+            var status = await _taskStatusRepository.GetAsync(statusId);
+
+            var s = await ExistIfAccessAdminAsync(status.ProjectId, userInfo);
+            if (!s)
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+            }
+
+            var taskExists = await _taskReviewService.ExistAsync(status.ProjectId, statusId);
+            if (taskExists)
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskWithStatusExists);
+
+            }
+
+            return await _taskStatusRepository.DeleteAsync(status);
+        }
+
+
     }
 }

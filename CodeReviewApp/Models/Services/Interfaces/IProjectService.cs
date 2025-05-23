@@ -21,5 +21,13 @@ namespace CodeReviewApp.Models.Services.Interfaces
         Task<bool> DeleteAsync(long projectId, UserInfo userInfo);
         Task AlertAsync();
 
+
+        Task<List<TaskReviewStatus>> GetStatusesAccessAsync(long projectId, UserInfo userInfo);
+        Task<List<TaskReviewStatus>> GetStatusesAsync(long projectId, UserInfo userInfo);
+        //Task<List<TaskReviewStatus>> GetStatusesAsync(Project project, UserInfo userInfo);
+        //Task<List<TaskReviewStatus>> Create(List<string> statuses, long projectId);
+        Task<TaskReviewStatus> CreateStatusAsync(string status, long projectId, UserInfo userInfo);
+        Task<TaskReviewStatus> DeleteStatusAsync(long statusId, UserInfo userInfo);
+
     }
 }

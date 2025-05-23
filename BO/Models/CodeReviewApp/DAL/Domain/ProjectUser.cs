@@ -23,6 +23,9 @@ namespace BO.Models.CodeReviewApp.DAL.Domain
         public List<TaskReview> CreateByUser { get; set; }
         public List<TaskReview> ReviewByUser { get; set; }
 
+
+        public byte[] RowVersion { get; set; }
+
         public ProjectUser()
         {
             Comments = new List<CommentReview>();

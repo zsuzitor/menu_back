@@ -14,6 +14,8 @@ namespace BO.Models.DAL.Domain
 
         public long? ArticleId { get; set; }//сейчас как каскад, при добавлении новых внешних ключей надо поаккуратнее мб сломается
         public Article Article { get; set; }
+        public byte[] RowVersion { get; set; }
+
 
 
     }

@@ -32,7 +32,15 @@ namespace CodeReviewApp.Models.Services
             return await _projectUserRepository.CreateAsync(user);
         }
 
-        public async Task<List<ProjectUser>> GetProjectUsersAsync(long projectId)
+        public async Task<List<ProjectUser>> GetProjectUsersAccessAsync(long projectId, UserInfo userInfo)
+        {
+
+            await ThrowIfNotAccessToProject(projectId, userInfo.UserId, false);
+
+            return await _projectUserRepository.GetProjectUsersAsync(projectId);
+        }
+
+        public async Task<List<ProjectUser>> GetProjectUsersAsync(long projectId, UserInfo userInfo)
         {
             return await _projectUserRepository.GetProjectUsersAsync(projectId);
         }

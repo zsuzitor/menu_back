@@ -1,24 +1,24 @@
-﻿using BO.Models.DAL.Domain;
+﻿using BO.Models.CodeReviewApp.DAL.Domain;
+using BO.Models.DAL.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DAL.Models.DAL.ContextSetup
+namespace DAL.Models.DAL.ContextSetup.CodeReview
 {
-    internal static class CustomImageBuilder
+    public static class TaskReviewStatusBuilder
     {
-        public static void CustomImageBuild(this ModelBuilder modelBuilder)
+        public static void TaskStatusBuild(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CustomImage>(entity =>
-            {
+            modelBuilder.Entity<TaskReviewStatus>(entity => {
                 entity.HasKey(x => x.Id);
+                entity.ToTable("TaskReviewStatus");
 
 
                 entity.Property(p => p.RowVersion)
                     .IsRowVersion() // Автоматически обновляется SQL Server
                     .IsConcurrencyToken(); // Включает проверку на конфликты
-                entity.ToTable("Images");
             });
 
         }

@@ -27,6 +27,8 @@ namespace BO.Models.DAL.Domain
         public List<VaultUserDal> Vaults { get; set; }
 
 
+        public byte[] RowVersion { get; set; }
+
         public User()
         {
             Articles = new List<Article>();

@@ -22,7 +22,7 @@ namespace CodeReviewApp.Models.DAL.Repositories
         }
 
         public async Task<List<TaskReview>> GetTasksAsync(long projectId, string name, long? creatorId
-            , long? reviewerId, CodeReviewTaskStatus? status, int pageNumber, int pageSize)
+            , long? reviewerId, long? statusId, int pageNumber, int pageSize)
         {
             if (pageNumber > 0)
             {
@@ -33,18 +33,18 @@ namespace CodeReviewApp.Models.DAL.Repositories
             return await _db.ReviewTasks.AsNoTracking().Where(x => x.ProjectId == projectId
                 && (creatorId == null || x.CreatorId == creatorId)
                 && (reviewerId == null || x.ReviewerId == reviewerId)
-                && (status == null || x.Status == status)
+                && (statusId == null || x.StatusId == statusId)
                 && (string.IsNullOrWhiteSpace(name) || EF.Functions.Like(x.Name, $"%{name}%"))).OrderBy(x => x.Id)
                 .Skip(skipCount).Take(pageSize).ToListAsync();
         }
 
         public async Task<long> GetTasksCountAsync(long projectId, string name, long? creatorId
-            , long? reviewerId, CodeReviewTaskStatus? status)
+            , long? reviewerId, long? statusId)
         {
             return await _db.ReviewTasks.Where(x => x.ProjectId == projectId
                 && (creatorId == null || x.CreatorId == creatorId)
                 && (reviewerId == null || x.ReviewerId == reviewerId)
-                && (status == null || x.Status == status)
+                && (statusId == null || x.StatusId == statusId)
                 && (string.IsNullOrWhiteSpace(name) || EF.Functions.Like(x.Name, $"%{name}%"))).CountAsync();
         }
 
@@ -65,6 +65,13 @@ namespace CodeReviewApp.Models.DAL.Repositories
                 x.Id == id
                 && x.ProjectId == projectId);
 
+        }
+
+        public async Task<bool> ExistAsync(long projectId, long statusId)
+        {
+            return await _db.ReviewTasks.AsNoTracking().AnyAsync(x =>
+                x.StatusId == statusId
+                && x.ProjectId == projectId);
         }
     }
 }

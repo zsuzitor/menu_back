@@ -10,16 +10,21 @@ namespace DAL.Models.DAL.ContextSetup.PlaningPoker
     {
         public static void PlaningRoomUserDalBuild(this ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<PlaningRoomUserDal>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.Property(x => x.MainAppUserId).IsRequired();
+                entity.HasOne(x => x.MainAppUser).WithMany()
+                    .HasForeignKey(x => x.MainAppUserId);
+                entity.HasOne(x => x.Room).WithMany(x => x.Users)
+                    .HasForeignKey(x => x.RoomId);
+                entity.ToTable("PlaningRoomUsers");
 
+                entity.Property(p => p.RowVersion)
+                    .IsRowVersion() // Автоматически обновляется SQL Server
+                    .IsConcurrencyToken(); // Включает проверку на конфликты
+            });
 
-            modelBuilder.Entity<PlaningRoomUserDal>().HasKey(x => x.Id);
-            modelBuilder.Entity<PlaningRoomUserDal>().Property(x => x.MainAppUserId).IsRequired();
-            modelBuilder.Entity<PlaningRoomUserDal>().HasOne(x => x.MainAppUser).WithMany()
-                .HasForeignKey(x => x.MainAppUserId);
-            modelBuilder.Entity<PlaningRoomUserDal>().HasOne(x => x.Room).WithMany(x => x.Users)
-                .HasForeignKey(x => x.RoomId);
-
-            modelBuilder.Entity<PlaningRoomUserDal>().ToTable("PlaningRoomUsers");
         }
     }
 }

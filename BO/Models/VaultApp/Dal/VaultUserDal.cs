@@ -14,6 +14,8 @@ namespace BO.Models.VaultApp.Dal
         public Vault Vault { get; set; }
         public long VaultId { get; set; }
 
+        public byte[] RowVersion { get; set; }
+
         public VaultUserDal()
         {
 

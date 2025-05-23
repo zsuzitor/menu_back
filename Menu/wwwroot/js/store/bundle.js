@@ -49380,7 +49380,7 @@ __webpack_require__(/*! ./OneReviewTask.css */ "./src/Apps/CodeReviewApp/Compone
 var OneReviewTask = function (props) {
     var _a = (0, react_1.useState)(props.Task.Name), taskName = _a[0], setTaskName = _a[1];
     var _b = (0, react_1.useState)(props.Task.Link || ''), taskLink = _b[0], setTaskLink = _b[1];
-    var _c = (0, react_1.useState)(props.Task.Status), taskStatus = _c[0], setTaskStatus = _c[1];
+    var _c = (0, react_1.useState)(props.Task.StatusId), taskStatus = _c[0], setTaskStatus = _c[1];
     var _d = (0, react_1.useState)(props.Task.ReviewerId || -1), taskReviewer = _d[0], setTaskreviewer = _d[1];
     var _e = (0, react_1.useState)(props.Task.CreatorId), taskCreator = _e[0], setTaskCreator = _e[1];
     var _f = (0, react_1.useState)(''), newCommentName = _f[0], setNewCommentName = _f[1];
@@ -49393,8 +49393,8 @@ var OneReviewTask = function (props) {
         setTaskLink(props.Task.Link || '');
     }, [props.Task.Link]);
     (0, react_1.useEffect)(function () {
-        setTaskStatus(props.Task.Status);
-    }, [props.Task.Status]);
+        setTaskStatus(props.Task.StatusId);
+    }, [props.Task.StatusId]);
     (0, react_1.useEffect)(function () {
         setTaskreviewer(props.Task.ReviewerId || -1);
     }, [props.Task.ReviewerId]);
@@ -49415,7 +49415,7 @@ var OneReviewTask = function (props) {
         }
         setTaskName(props.Task.Name);
         setTaskLink(props.Task.Link || '');
-        setTaskStatus(props.Task.Status);
+        setTaskStatus(props.Task.StatusId);
         setTaskreviewer(props.Task.ReviewerId || -1);
         setTaskCreator(props.Task.CreatorId);
     };
@@ -49429,7 +49429,7 @@ var OneReviewTask = function (props) {
         var forAdd = __assign({}, props.Task);
         forAdd.Name = taskName;
         forAdd.Link = taskLink;
-        forAdd.Status = taskStatus;
+        forAdd.StatusId = taskStatus;
         forAdd.ReviewerId = taskReviewer;
         forAdd.CreatorId = taskCreator;
         props.UpdateTask(forAdd);
@@ -49461,7 +49461,7 @@ var OneReviewTask = function (props) {
     };
     var taskHasChanges = taskName !== props.Task.Name ||
         (taskLink !== props.Task.Link && (taskLink || props.Task.Link)) ||
-        taskStatus !== props.Task.Status ||
+        taskStatus !== props.Task.StatusId ||
         ((props.Task.ReviewerId || taskReviewer != -1) && taskReviewer !== props.Task.ReviewerId) ||
         taskCreator !== props.Task.CreatorId;
     var creator = props.ProjectUsers.find(function (x) { return x.Id === taskCreator; });
@@ -49487,11 +49487,7 @@ var OneReviewTask = function (props) {
                     react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
                     reviewerList.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
                 react_1.default.createElement("span", null, "\u0421\u0442\u0430\u0442\u0443\u0441"),
-                react_1.default.createElement("select", { className: 'form-select', onChange: function (e) { return setTaskStatus(+e.target.value); }, value: taskStatus },
-                    react_1.default.createElement("option", { value: 0 }, "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E \u043A\u043E\u0434-\u0440\u0435\u0432\u044C\u044E"),
-                    react_1.default.createElement("option", { value: 1 }, "\u041D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B \u043F\u0440\u0430\u0432\u043A\u0438"),
-                    react_1.default.createElement("option", { value: 3 }, "\u0412 \u043F\u0440\u043E\u0446\u0435\u0441\u0441\u0435"),
-                    react_1.default.createElement("option", { value: 2 }, "\u0413\u043E\u0442\u043E\u0432\u043E"))),
+                react_1.default.createElement("select", { className: 'form-select', onChange: function (e) { return setTaskStatus(+e.target.value); }, value: taskStatus }, props.Statuses.map(function (status) { return react_1.default.createElement("option", { value: status.Id }, status.Name); }))),
             react_1.default.createElement("div", { className: 'one-review-task-buttons' },
                 taskHasChanges ?
                     react_1.default.createElement(react_1.default.Fragment, null,
@@ -49528,6 +49524,7 @@ var CommentSet_1 = __webpack_require__(/*! ../../Models/Entity/CommentSet */ "./
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.ProjectUsers = state.CodeReviewApp.CurrentProjectUsers;
+    res.Statuses = state.CodeReviewApp.CurrentProjectStatuses;
     return res;
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
@@ -49606,7 +49603,8 @@ var ProjectDetail = function (props) {
     var tasksOnPageCount = 5;
     var _c = (0, react_1.useState)(null), loadTasksTimerId = _c[0], setLoadTasksTimerId = _c[1];
     var _d = (0, react_1.useState)(false), showUserList = _d[0], setShowUserList = _d[1];
-    var _e = (0, react_1.useState)(false), showAddNewTaskForm = _e[0], setShowAddNewTaskForm = _e[1];
+    var _e = (0, react_1.useState)(false), showEditProject = _e[0], setShowEditProject = _e[1];
+    var _f = (0, react_1.useState)(false), showAddNewTaskForm = _f[0], setShowAddNewTaskForm = _f[1];
     (0, react_1.useEffect)(function () {
         var _a;
         if ((_a = props.Project) === null || _a === void 0 ? void 0 : _a.Id) {
@@ -49657,7 +49655,7 @@ var ProjectDetail = function (props) {
             Name: props.TasksFilters.TaskName, CreatorId: props.TasksFilters.CreatorId,
             PageNumber: props.TasksFilters.Page, PageSize: tasksOnPageCount,
             ProjectId: props.Project.Id, ReviewerId: props.TasksFilters.ReviewerId,
-            Status: props.TasksFilters.Status
+            StatusId: props.TasksFilters.Status
         };
         props.ReloadTasks(filter);
     };
@@ -49681,6 +49679,7 @@ var ProjectDetail = function (props) {
                     }
                 } },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043F\u0440\u043E\u0435\u043A\u0442' })),
+            showEditProject ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowEditProject(false); }, IsHeightWindow: true, Title: '\u0420\u0435\u0434\u0430\u043A\u0442\u043E\u0440\u0438\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u0430', InnerContent: function () { return react_1.default.createElement(ProjectUsers_1.default, null); } }) : react_1.default.createElement(react_1.default.Fragment, null),
             react_1.default.createElement("br", null),
             react_1.default.createElement("div", { className: "review-project-detail-main-header-buttons" },
                 react_1.default.createElement("button", { className: 'button button-grey', onClick: function () { return setShowUserList(function (e) { return true; }); } }, "\u041B\u044E\u0434\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"),
@@ -50160,6 +50159,38 @@ exports.SetFilterTaskActionCreator = SetFilterTaskActionCreator;
 
 /***/ }),
 
+/***/ "./src/Apps/CodeReviewApp/Models/Actions/TaskStatusActions.ts":
+/*!********************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Models/Actions/TaskStatusActions.ts ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CreateCurrentProjectTaskStatusActionCreator = exports.CreateCurrentProjectTaskStatusActionName = exports.DeleteCurrentProjectTaskStatusActionCreator = exports.DeleteCurrentProjectTaskStatusActionName = exports.SetCurrentProjectStatusesActionCreator = exports.SetCurrentProjectStatusesActionName = void 0;
+exports.SetCurrentProjectStatusesActionName = 'SetCurrentProjectStatusesAction';
+function SetCurrentProjectStatusesActionCreator(statuses) {
+    return { type: exports.SetCurrentProjectStatusesActionName, payload: statuses };
+}
+exports.SetCurrentProjectStatusesActionCreator = SetCurrentProjectStatusesActionCreator;
+;
+exports.DeleteCurrentProjectTaskStatusActionName = 'DeleteCurrentProjectTaskStatusAction';
+function DeleteCurrentProjectTaskStatusActionCreator(statusId) {
+    return { type: exports.DeleteCurrentProjectTaskStatusActionName, payload: statusId };
+}
+exports.DeleteCurrentProjectTaskStatusActionCreator = DeleteCurrentProjectTaskStatusActionCreator;
+;
+exports.CreateCurrentProjectTaskStatusActionName = 'CreateCurrentProjectTaskStatusAction';
+function CreateCurrentProjectTaskStatusActionCreator(status) {
+    return { type: exports.CreateCurrentProjectTaskStatusActionName, payload: status };
+}
+exports.CreateCurrentProjectTaskStatusActionCreator = CreateCurrentProjectTaskStatusActionCreator;
+;
+
+
+/***/ }),
+
 /***/ "./src/Apps/CodeReviewApp/Models/Actions/UserActions.ts":
 /*!**************************************************************!*\
   !*** ./src/Apps/CodeReviewApp/Models/Actions/UserActions.ts ***!
@@ -50380,9 +50411,11 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CodeReviewProjectController = void 0;
 var ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 var ProjectActions_1 = __webpack_require__(/*! ../Actions/ProjectActions */ "./src/Apps/CodeReviewApp/Models/Actions/ProjectActions.ts");
+var TaskStatusActions_1 = __webpack_require__(/*! ../Actions/TaskStatusActions */ "./src/Apps/CodeReviewApp/Models/Actions/TaskStatusActions.ts");
 var UserActions_1 = __webpack_require__(/*! ../Actions/UserActions */ "./src/Apps/CodeReviewApp/Models/Actions/UserActions.ts");
 var OneProjectInList_1 = __webpack_require__(/*! ../Entity/State/OneProjectInList */ "./src/Apps/CodeReviewApp/Models/Entity/State/OneProjectInList.ts");
 var ProjectUser_1 = __webpack_require__(/*! ../Entity/State/ProjectUser */ "./src/Apps/CodeReviewApp/Models/Entity/State/ProjectUser.ts");
+var TaskReviewStatus_1 = __webpack_require__(/*! ../Entity/State/TaskReviewStatus */ "./src/Apps/CodeReviewApp/Models/Entity/State/TaskReviewStatus.ts");
 var CodeReviewProjectController = /** @class */ (function () {
     function CodeReviewProjectController() {
         var _this = this;
@@ -50437,7 +50470,13 @@ var CodeReviewProjectController = /** @class */ (function () {
                             u.FillByBackModel(x);
                             return u;
                         });
+                        var dtStatuses = data.Statuses.map(function (x) {
+                            var u = new TaskReviewStatus_1.TaskReviewStatus();
+                            u.FillByBackModel(x);
+                            return u;
+                        });
                         dispatch((0, UserActions_1.SetCurrentProjectUsersActionCreator)(dtUsers));
+                        dispatch((0, TaskStatusActions_1.SetCurrentProjectStatusesActionCreator)(dtStatuses));
                     }
                 });
             };
@@ -50614,7 +50653,7 @@ var CodeReviewTaskController = /** @class */ (function () {
             var data = {
                 "taskId": task.Id,
                 "name": task.Name,
-                "status": task.Status,
+                "statusId": task.StatusId,
                 "creatorId": task.CreatorId,
                 "reviewerId": task.ReviewerId,
                 "taskLink": task.Link,
@@ -50651,7 +50690,7 @@ var CodeReviewTaskController = /** @class */ (function () {
                 "nameLike": taskFilter.Name,
                 "creatorId": taskFilter.CreatorId,
                 "reviewerId": taskFilter.ReviewerId,
-                "status": taskFilter.Status,
+                "statusId": taskFilter.StatusId,
                 "pageNumber": taskFilter.PageNumber,
                 "pageSize": taskFilter.PageSize,
             };
@@ -50719,6 +50758,111 @@ var CodeReviewTaskController = /** @class */ (function () {
     return CodeReviewTaskController;
 }());
 exports.CodeReviewTaskController = CodeReviewTaskController;
+
+
+/***/ }),
+
+/***/ "./src/Apps/CodeReviewApp/Models/Controllers/CodeReviewTaskStatusController.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Models/Controllers/CodeReviewTaskStatusController.ts ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CodeReviewTaskStatusController = void 0;
+var ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
+var TaskStatusActions_1 = __webpack_require__(/*! ../Actions/TaskStatusActions */ "./src/Apps/CodeReviewApp/Models/Actions/TaskStatusActions.ts");
+var TaskReviewStatus_1 = __webpack_require__(/*! ../Entity/State/TaskReviewStatus */ "./src/Apps/CodeReviewApp/Models/Entity/State/TaskReviewStatus.ts");
+var CodeReviewTaskStatusController = /** @class */ (function () {
+    function CodeReviewTaskStatusController() {
+        var _this = this;
+        this.DeleteStatusRedux = function (statusId) {
+            return function (dispatch, getState) {
+                _this.preloader(true);
+                _this.DeleteStatus(statusId, function (error, data) {
+                    _this.preloader(false);
+                    if (error) {
+                        return;
+                    }
+                    if (data === null || data === void 0 ? void 0 : data.result) {
+                        dispatch((0, TaskStatusActions_1.DeleteCurrentProjectTaskStatusActionCreator)(statusId));
+                    }
+                });
+            };
+        };
+        this.DeleteStatus = function (statusId, onSuccess) {
+            var data = {
+                "statusId": statusId,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/status/delete-status'
+            });
+        };
+        this.CreateStatusRedux = function (name, projectId) {
+            return function (dispatch, getState) {
+                _this.preloader(true);
+                _this.CreateStatus(name, projectId, function (error, data) {
+                    _this.preloader(false);
+                    if (error) {
+                        return;
+                    }
+                    if (data === null || data === void 0 ? void 0 : data.Id) {
+                        var forAdd = new TaskReviewStatus_1.TaskReviewStatus();
+                        forAdd.FillByBackModel(data);
+                        dispatch((0, TaskStatusActions_1.CreateCurrentProjectTaskStatusActionCreator)(forAdd));
+                    }
+                });
+            };
+        };
+        this.CreateStatus = function (name, projectId, onSuccess) {
+            var data = {
+                "status": name,
+                "projectId": projectId,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/status/create-status'
+            });
+        };
+    }
+    CodeReviewTaskStatusController.prototype.mapWithResult = function (onSuccess) {
+        return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
+    };
+    CodeReviewTaskStatusController.prototype.preloader = function (show) {
+        if (!window.CodeReviewCounter) {
+            window.CodeReviewCounter = 0;
+        }
+        var preloader = document.getElementById('code_review_preloader');
+        if (!preloader) {
+            return;
+        }
+        if (show) {
+            window.CodeReviewCounter++;
+            preloader.style.display = 'block';
+        }
+        else {
+            window.CodeReviewCounter--;
+            if (!window.CodeReviewCounter) {
+                preloader.style.display = 'none';
+            }
+        }
+    };
+    return CodeReviewTaskStatusController;
+}());
+exports.CodeReviewTaskStatusController = CodeReviewTaskStatusController;
 
 
 /***/ }),
@@ -50965,7 +51109,7 @@ var ProjectTaskData = /** @class */ (function () {
         this.Name = newData.Name;
         this.CreatorId = newData.CreatorId;
         this.ReviewerId = newData.ReviewerId;
-        this.Status = newData.Status;
+        this.StatusId = newData.StatusId;
         this.Link = newData.Link;
     };
     return ProjectTaskData;
@@ -51034,6 +51178,7 @@ var CodeReviewAppState = /** @class */ (function () {
         this.CurrentProjectTasks = [];
         this.CurrentProjectTasksAllCount = 0;
         this.CurrentProjectTasksFilters = new TasksFilter_1.TasksFilter();
+        this.CurrentProjectStatuses = [];
     }
     return CodeReviewAppState;
 }());
@@ -51085,7 +51230,7 @@ var OneTask = /** @class */ (function () {
         this.Name = data.Name;
         this.CreatorId = data.CreatorId;
         this.ReviewerId = data.ReviewerId;
-        this.Status = data.Status;
+        this.StatusId = data.StatusId;
         this.Link = data.Link;
     };
     OneTask.prototype.FillByIProjectTaskDataBack = function (data) {
@@ -51093,7 +51238,7 @@ var OneTask = /** @class */ (function () {
         this.Name = data.Name;
         this.CreatorId = data.CreatorId;
         this.ReviewerId = data.ReviewerId;
-        this.Status = data.Status;
+        this.StatusId = data.StatusId;
         this.Link = data.Link;
     };
     return OneTask;
@@ -51127,6 +51272,30 @@ var ProjectUser = /** @class */ (function () {
     return ProjectUser;
 }());
 exports.ProjectUser = ProjectUser;
+
+
+/***/ }),
+
+/***/ "./src/Apps/CodeReviewApp/Models/Entity/State/TaskReviewStatus.ts":
+/*!************************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Models/Entity/State/TaskReviewStatus.ts ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TaskReviewStatus = void 0;
+var TaskReviewStatus = /** @class */ (function () {
+    function TaskReviewStatus() {
+    }
+    TaskReviewStatus.prototype.FillByBackModel = function (newData) {
+        this.Id = newData.Id;
+        this.Name = newData.Name;
+    };
+    return TaskReviewStatus;
+}());
+exports.TaskReviewStatus = TaskReviewStatus;
 
 
 /***/ }),
@@ -51238,6 +51407,7 @@ function CodeReviewCommentReducer(state, action) {
         default:
             return state;
     }
+    return state;
 }
 exports.CodeReviewCommentReducer = CodeReviewCommentReducer;
 
@@ -51264,6 +51434,7 @@ var ProjectActions_1 = __webpack_require__(/*! ../Actions/ProjectActions */ "./s
 var TaskActions_1 = __webpack_require__(/*! ../Actions/TaskActions */ "./src/Apps/CodeReviewApp/Models/Actions/TaskActions.ts");
 var UserActions_1 = __webpack_require__(/*! ../Actions/UserActions */ "./src/Apps/CodeReviewApp/Models/Actions/UserActions.ts");
 var TasksFilter_1 = __webpack_require__(/*! ../Entity/State/TasksFilter */ "./src/Apps/CodeReviewApp/Models/Entity/State/TasksFilter.ts");
+var TaskStatusActions_1 = __webpack_require__(/*! ../Actions/TaskStatusActions */ "./src/Apps/CodeReviewApp/Models/Actions/TaskStatusActions.ts");
 // return Object.assign({}, state, { TestMessage: str });
 function CodeReviewProjectReducer(state, action) {
     if (state === void 0) { state = new AppState_1.AppState(); }
@@ -51280,6 +51451,7 @@ function CodeReviewProjectReducer(state, action) {
                 if (newState.CodeReviewApp.CurrentProjectId === projectId_1) {
                     //todo тут куча копирований стейта
                     newState = (0, ReducerCombiner_1.ReducerCombiner)(newState, (0, UserActions_1.SetCurrentProjectUsersActionCreator)([]));
+                    newState = (0, ReducerCombiner_1.ReducerCombiner)(newState, (0, TaskStatusActions_1.SetCurrentProjectStatusesActionCreator)([]));
                     var tasks = {};
                     tasks.Tasks = [];
                     tasks.TasksCount = 0;
@@ -51302,6 +51474,7 @@ function CodeReviewProjectReducer(state, action) {
                 newState.CodeReviewApp.CurrentProjectId = projectId;
                 //todo тут куча копирований стейта
                 newState = (0, ReducerCombiner_1.ReducerCombiner)(newState, (0, UserActions_1.SetCurrentProjectUsersActionCreator)([]));
+                newState = (0, ReducerCombiner_1.ReducerCombiner)(newState, (0, TaskStatusActions_1.SetCurrentProjectStatusesActionCreator)([]));
                 var tasks = {};
                 tasks.Tasks = [];
                 tasks.TasksCount = 0;
@@ -51319,6 +51492,7 @@ function CodeReviewProjectReducer(state, action) {
         default:
             return state;
     }
+    return state;
 }
 exports.CodeReviewProjectReducer = CodeReviewProjectReducer;
 
@@ -51346,12 +51520,14 @@ var AppState_1 = __webpack_require__(/*! ../../../../Models/Entity/State/AppStat
 var Actions_1 = __webpack_require__(/*! ../Actions/Actions */ "./src/Apps/CodeReviewApp/Models/Actions/Actions.ts");
 var CodeReviewAppState_1 = __webpack_require__(/*! ../Entity/State/CodeReviewAppState */ "./src/Apps/CodeReviewApp/Models/Entity/State/CodeReviewAppState.ts");
 var CommentReducer_1 = __webpack_require__(/*! ./CommentReducer */ "./src/Apps/CodeReviewApp/Models/Reducers/CommentReducer.ts");
+var TaskStatusReducer_1 = __webpack_require__(/*! ./TaskStatusReducer */ "./src/Apps/CodeReviewApp/Models/Reducers/TaskStatusReducer.ts");
 function CodeReviewAppReducer(state, action) {
     if (state === void 0) { state = new AppState_1.AppState(); }
     var st = (0, ProjectReducer_1.CodeReviewProjectReducer)(state, action);
     st = (0, UserReducer_1.CodeReviewUserReducer)(st, action);
     st = (0, CommentReducer_1.CodeReviewCommentReducer)(st, action);
     st = (0, TaskReducer_1.CodeReviewTaskReducer)(st, action);
+    st = (0, TaskStatusReducer_1.CodeReviewTaskStatusReducer)(st, action);
     switch (action.type) {
         case Actions_1.ClearCodeReviewStateActionName:
             {
@@ -51416,7 +51592,7 @@ function CodeReviewTaskReducer(state, action) {
                 var payload_1 = action.payload;
                 var tsk = newState.CodeReviewApp.CurrentProjectTasks.find(function (x) { return x.Id == payload_1.Id; });
                 tsk.Name = payload_1.Name;
-                tsk.Status = payload_1.Status;
+                tsk.StatusId = payload_1.StatusId;
                 tsk.ReviewerId = payload_1.ReviewerId;
                 tsk.CreatorId = payload_1.CreatorId;
                 tsk.Link = payload_1.Link;
@@ -51487,8 +51663,67 @@ function CodeReviewTaskReducer(state, action) {
         default:
             return state;
     }
+    return state;
 }
 exports.CodeReviewTaskReducer = CodeReviewTaskReducer;
+
+
+/***/ }),
+
+/***/ "./src/Apps/CodeReviewApp/Models/Reducers/TaskStatusReducer.ts":
+/*!*********************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Models/Reducers/TaskStatusReducer.ts ***!
+  \*********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CodeReviewTaskStatusReducer = void 0;
+var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
+var AppState_1 = __webpack_require__(/*! ../../../../Models/Entity/State/AppState */ "./src/Models/Entity/State/AppState.ts");
+var TaskStatusActions_1 = __webpack_require__(/*! ../Actions/TaskStatusActions */ "./src/Apps/CodeReviewApp/Models/Actions/TaskStatusActions.ts");
+// return Object.assign({}, state, { TestMessage: str });
+function CodeReviewTaskStatusReducer(state, action) {
+    if (state === void 0) { state = new AppState_1.AppState(); }
+    switch (action.type) {
+        case TaskStatusActions_1.SetCurrentProjectStatusesActionName: {
+            var newState = (0, cloneDeep_1.default)(state);
+            var statuses = action.payload;
+            newState.CodeReviewApp.CurrentProjectStatuses = __spreadArray([], statuses, true);
+            return newState;
+        }
+        case TaskStatusActions_1.DeleteCurrentProjectTaskStatusActionName: {
+            var newState = (0, cloneDeep_1.default)(state);
+            var statusId_1 = action.payload;
+            newState.CodeReviewApp.CurrentProjectStatuses = newState.CodeReviewApp.CurrentProjectStatuses
+                .filter(function (x) { return x.Id != statusId_1; });
+            return newState;
+        }
+        case TaskStatusActions_1.CreateCurrentProjectTaskStatusActionName: {
+            var newState = (0, cloneDeep_1.default)(state);
+            var status_1 = action.payload;
+            newState.CodeReviewApp.CurrentProjectStatuses.push(status_1);
+            return newState;
+        }
+        default:
+            return state;
+    }
+    return state;
+}
+exports.CodeReviewTaskStatusReducer = CodeReviewTaskStatusReducer;
 
 
 /***/ }),
@@ -51551,6 +51786,7 @@ function CodeReviewUserReducer(state, action) {
         default:
             return state;
     }
+    return state;
 }
 exports.CodeReviewUserReducer = CodeReviewUserReducer;
 
@@ -63540,6 +63776,7 @@ var CodeReviewTaskController_1 = __webpack_require__(/*! ./Apps/CodeReviewApp/Mo
 var CodeReviewUserController_1 = __webpack_require__(/*! ./Apps/CodeReviewApp/Models/Controllers/CodeReviewUserController */ "./src/Apps/CodeReviewApp/Models/Controllers/CodeReviewUserController.ts");
 var WordsListController_1 = __webpack_require__(/*! ./Apps/WordsCardsApp/Models/Controllers/WordsListController */ "./src/Apps/WordsCardsApp/Models/Controllers/WordsListController.ts");
 var ErrorHandleLogic_1 = __webpack_require__(/*! ./Models/BL/ErrorHandleLogic */ "./src/Models/BL/ErrorHandleLogic.ts");
+var CodeReviewTaskStatusController_1 = __webpack_require__(/*! ./Apps/CodeReviewApp/Models/Controllers/CodeReviewTaskStatusController */ "./src/Apps/CodeReviewApp/Models/Controllers/CodeReviewTaskStatusController.ts");
 __webpack_require__(/*! ../style/main.css */ "./style/main.css");
 __webpack_require__(/*! ../style/body.css */ "./style/body.css");
 __webpack_require__(/*! ../style/alerts.css */ "./style/alerts.css");
@@ -63568,6 +63805,7 @@ window.G_PlaningPokerController = new PlaningPokerController_1.PlaningPokerContr
 window.G_CodeReviewProjectController = new CodeReviewProjectController_1.CodeReviewProjectController();
 window.G_CodeReviewTaskController = new CodeReviewTaskController_1.CodeReviewTaskController();
 window.G_CodeReviewUserController = new CodeReviewUserController_1.CodeReviewUserController();
+window.G_CodeReviewTaskStatusController = new CodeReviewTaskStatusController_1.CodeReviewTaskStatusController();
 window.G_CodeReviewCommentController = new CodeReviewCommentController_1.CodeReviewCommentController();
 window.G_VaultController = new VaultController_1.VaultController();
 var configureStore = function (initialState) {

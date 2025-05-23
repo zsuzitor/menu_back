@@ -28,8 +28,10 @@ namespace CodeReviewApp.Models
             public const string CommentNotFound = "code_review_comment_not_found";
             public const string UserInMainAppNotFound = "code_review_user_main_app_not_found";
             public const string EmptyTaskName = "code_review_emptyTaskName";
+            public const string TaskWithStatusExists = "code_review_task_with_status_exist";
+            public const string TaskReviewStatusNotExists = "code_review_task_review_status_not_exist";
 
-            
+
         }
 
         public class EmailConfigurationsCode

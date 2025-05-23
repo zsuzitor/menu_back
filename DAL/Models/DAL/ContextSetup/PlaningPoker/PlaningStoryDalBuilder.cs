@@ -11,14 +11,20 @@ namespace DAL.Models.DAL.ContextSetup.PlaningPoker
     {
         public static void PlaningStoryDalBuild(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<PlaningStoryDal>().HasKey(x => x.Id);
-            modelBuilder.Entity<PlaningStoryDal>().HasOne(x => x.Room).WithMany(x => x.Stories)
-                .HasForeignKey(x => x.RoomId);
+            modelBuilder.Entity<PlaningStoryDal>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.HasOne(x => x.Room).WithMany(x => x.Stories)
+                    .HasForeignKey(x => x.RoomId);
+                entity.Property(e => e.Vote)
+                    .HasColumnType("decimal(18,4)");
+                entity.ToTable("PlaningStories");
 
-            modelBuilder.Entity<PlaningStoryDal>().Property(e => e.Vote)
-                .HasColumnType("decimal(18,4)");
+                entity.Property(p => p.RowVersion)
+                    .IsRowVersion() // Автоматически обновляется SQL Server
+                    .IsConcurrencyToken(); // Включает проверку на конфликты
+            });
 
-            modelBuilder.Entity<PlaningStoryDal>().ToTable("PlaningStories");
 
         }
     }
