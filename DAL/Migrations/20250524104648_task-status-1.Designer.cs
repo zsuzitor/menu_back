@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(MenuDbContext))]
-    [Migration("20250523212700_taskReviewStatusNew")]
-    partial class taskReviewStatusNew
+    [Migration("20250524104648_task-status-1")]
+    partial class taskstatus1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -732,7 +732,7 @@ namespace DAL.Migrations
                     b.HasOne("BO.Models.CodeReviewApp.DAL.Domain.TaskReviewStatus", "Status")
                         .WithMany("Tasks")
                         .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.NoAction);
                 });
 
             modelBuilder.Entity("BO.Models.CodeReviewApp.DAL.Domain.TaskReviewStatus", b =>

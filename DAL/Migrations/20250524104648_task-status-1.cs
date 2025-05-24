@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL.Migrations
 {
-    public partial class taskReviewStatusNew : Migration
+    public partial class taskstatus1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -136,8 +136,7 @@ namespace DAL.Migrations
                 table: "ReviewTasks",
                 column: "StatusId",
                 principalTable: "TaskReviewStatus",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.SetNull);
+                principalColumn: "Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

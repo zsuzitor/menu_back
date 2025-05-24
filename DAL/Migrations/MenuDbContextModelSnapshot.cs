@@ -730,7 +730,7 @@ namespace DAL.Migrations
                     b.HasOne("BO.Models.CodeReviewApp.DAL.Domain.TaskReviewStatus", "Status")
                         .WithMany("Tasks")
                         .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.NoAction);
                 });
 
             modelBuilder.Entity("BO.Models.CodeReviewApp.DAL.Domain.TaskReviewStatus", b =>

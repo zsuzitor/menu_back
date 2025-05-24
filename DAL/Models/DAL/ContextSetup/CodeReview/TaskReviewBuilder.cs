@@ -16,7 +16,7 @@ namespace DAL.Models.DAL.ContextSetup.CodeReview
                 entity.HasMany(x => x.Comments).WithOne(x => x.Task)
                     .HasForeignKey(x => x.TaskId).OnDelete(DeleteBehavior.Cascade);
                 entity.HasOne(x => x.Status).WithMany(x => x.Tasks)
-                    .HasForeignKey(x => x.StatusId).OnDelete(DeleteBehavior.SetNull);
+                    .HasForeignKey(x => x.StatusId).OnDelete(DeleteBehavior.NoAction);
 
                 entity.ToTable("ReviewTasks");
 
