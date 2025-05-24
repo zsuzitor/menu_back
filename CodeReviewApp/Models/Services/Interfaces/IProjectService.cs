@@ -28,6 +28,7 @@ namespace CodeReviewApp.Models.Services.Interfaces
         //Task<List<TaskReviewStatus>> Create(List<string> statuses, long projectId);
         Task<TaskReviewStatus> CreateStatusAsync(string status, long projectId, UserInfo userInfo);
         Task<TaskReviewStatus> DeleteStatusAsync(long statusId, UserInfo userInfo);
+        Task<TaskReviewStatus> UpdateStatusAsync(long statusId, string status, UserInfo userInfo);
 
     }
 }

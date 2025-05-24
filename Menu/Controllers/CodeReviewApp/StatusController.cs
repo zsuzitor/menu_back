@@ -83,5 +83,26 @@ namespace Menu.Controllers.CodeReviewApp
                 }, Response, _logger);
 
         }
+
+        [Route("update-status")]
+        [HttpPatch]
+        public async Task UpdateStatus([FromForm] long statusId, [FromForm] string status)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    //throw new NotAuthException();
+
+                    var res = await _projectService.UpdateStatusAsync(statusId, status, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response
+                         , new
+                         {
+                             result = res != null,
+                         });
+
+                }, Response, _logger);
+
+        }
     }
 }

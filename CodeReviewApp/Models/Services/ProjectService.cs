@@ -203,6 +203,10 @@ namespace CodeReviewApp.Models.Services
         public async Task<TaskReviewStatus> DeleteStatusAsync(long statusId, UserInfo userInfo)
         {
             var status = await _taskStatusRepository.GetAsync(statusId);
+            if (status == null)
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists);
+            }
 
             var s = await ExistIfAccessAdminAsync(status.ProjectId, userInfo);
             if (!s)
@@ -220,6 +224,25 @@ namespace CodeReviewApp.Models.Services
             return await _taskStatusRepository.DeleteAsync(status);
         }
 
+        public async Task<TaskReviewStatus> UpdateStatusAsync(long statusId, string status, UserInfo userInfo)
+        {
 
+            var statusEntity = await _taskStatusRepository.GetAsync(statusId);
+            if (statusEntity == null)
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists);
+            }
+
+            var s = await ExistIfAccessAdminAsync(statusEntity.ProjectId, userInfo);
+            if (!s)
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+            }
+
+            statusEntity.Name = status;
+            var res = await _taskStatusRepository.UpdateAsync(statusEntity);
+            return res;
+            
+        }
     }
 }

@@ -95,7 +95,6 @@ namespace DAL.Models.DAL.Repositories
 
         public virtual async Task<TType> UpdateAsync<TType>(TType record) where TType : class, IDomainRecord
         {
-            //_db.Set<TType>().Attach(record);
             await _db.SaveChangesAsync();
             return record;
         }
