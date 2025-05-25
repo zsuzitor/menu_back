@@ -4,6 +4,7 @@ using BO.Models.CodeReviewApp.DAL.Domain;
 using CodeReviewApp.Models.DAL.Repositories.Interfaces;
 using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
+using Pipelines.Sockets.Unofficial.Arenas;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -258,6 +259,16 @@ namespace CodeReviewApp.Models.Services
         public async Task<bool> ExistAsync(long projectId, long statusId)
         {
             return await _taskReviewRepository.ExistAsync(projectId, statusId);
+        }
+
+        public async Task<TaskReview> GetTaskAsync(long id)
+        {
+            return await _taskReviewRepository.GetNoTrackAsync(id);
+        }
+
+        public async Task<TaskReview> GetTaskWithCommentsAsync(long id)
+        {
+            return await _taskReviewRepository.GetTaskWithCommentsAsync(id);
         }
     }
 }

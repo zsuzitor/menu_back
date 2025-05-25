@@ -5,7 +5,9 @@ using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
 using Microsoft.Extensions.Logging;
+using Nest;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -90,6 +92,31 @@ namespace Menu.Controllers.CodeReviewApp
 
         }
 
+        [Route("get-project-task")]
+        [HttpGet]
+        public async Task GetProjectTask(long id)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var task = await _taskReviewService.GetTaskWithCommentsAsync(id) ?? throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskNotFound);
+                    var res = await _projectService.ExistIfAccessAsync(task.ProjectId, userInfo);
+                    if (!res.access)
+                    {
+                        throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFound);
+                    }
+
+
+                    var taskReturn = new TaskReviewReturn(task);
+
+                    await _apiHealper.WriteResponseAsync(Response,
+                        taskReturn);// new { Tasks = taskReturn });//"projectInfo_" + projectId
+
+                }, Response, _logger);
+
+        }
 
         [Route("add-new-task")]
         [HttpPut]

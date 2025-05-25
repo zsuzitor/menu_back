@@ -1,4 +1,6 @@
 ﻿using BO.Models.CodeReviewApp.DAL.Domain;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CodeReviewApp.Models.Returns
 {
@@ -10,6 +12,7 @@ namespace CodeReviewApp.Models.Returns
         public long? CreatorId { get; set; }
         public long? ReviewerId { get; set; }
         public long? StatusId { get; set; }
+        public List<CommentReviewReturn> Comments { get; set; }
 
         public TaskReviewReturn(TaskReview task)
         {
@@ -19,6 +22,7 @@ namespace CodeReviewApp.Models.Returns
             CreatorId = task.CreatorId;
             ReviewerId = task.ReviewerId;
             StatusId = task.StatusId;
+            Comments = (task.Comments ?? new List<CommentReview>()).Select(x => new CommentReviewReturn(x)).ToList();
         }
     }
 }

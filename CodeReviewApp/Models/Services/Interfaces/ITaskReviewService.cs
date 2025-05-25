@@ -10,6 +10,8 @@ namespace CodeReviewApp.Models.Services.Interfaces
     {
         Task<TaskReview> CreateAsync(TaskReview task, UserInfo userInfo);
         Task<List<TaskReview>> GetTasksAsync(long projectId);
+        Task<TaskReview> GetTaskAsync(long id);
+        Task<TaskReview> GetTaskWithCommentsAsync(long id);
         Task<bool> ExistAsync(long projectId, long statusId);
         Task<List<TaskReview>> GetTasksAsync(long projectId, string name, long? creatorId
             , long? reviewerId, long? statusId, int pageNumber, int pageSize);

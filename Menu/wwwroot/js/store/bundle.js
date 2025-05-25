@@ -2549,7 +2549,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".task-status-elem {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n}\r\n\r\n.task-status-elem .status-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/CodeReviewApp/Components/EditTaskStatus/EditTaskStatus.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,2BAA2B;IAC3B,SAAS;AACb;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB","sourcesContent":[".task-status-elem {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n}\r\n\r\n.task-status-elem .status-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".task-status-elem {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n    \r\n    background-color: dimgray;\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.task-status-elem .status-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/CodeReviewApp/Components/EditTaskStatus/EditTaskStatus.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,2BAA2B;IAC3B,SAAS;;IAET,yBAAyB;IACzB,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB","sourcesContent":[".task-status-elem {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n    \r\n    background-color: dimgray;\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.task-status-elem .status-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2657,7 +2657,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".one-review-task-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    width: 35px;\r\n    padding-left: 5px;\r\n    flex-direction: column;\r\n}\r\n\r\n.one-review-task-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    flex-grow: 2;\r\n    align-items: center;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.one-review-task-content > span + .form-select {\r\n    margin-right: 1rem;\r\n}\r\n\r\n.review-task-name-input {\r\n    height: 2.125rem;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 0.75rem;\r\n    gap: 0.5rem;\r\n    background-color: white;\r\n    overflow: hidden;\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-link-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    margin-bottom: 0.25rem;\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    background-color: #fff;\r\n}\r\n\r\n.one-review-task-comments-block hr {\r\n    margin: 0 0.75rem 0.5rem 0.75rem;\r\n}\r\n\r\n.one-review-task-comments-block-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    background-color: #fff;\r\n    white-space: pre-wrap;\r\n    padding: 0 0.75rem 0.75rem 0.75rem;\r\n    /* white-space: pre; */\r\n}\r\n\r\n.one-review-task-comments-block-inner > .form-input + .button {\r\n    margin-top: 0.5rem;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,sBAAsB;IACtB,4CAA4C;IAC5C,oCAAoC;IACpC,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,WAAW;IACX,iBAAiB;IACjB,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,YAAY;IACZ,mBAAmB;IACnB,WAAW;AACf;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,gBAAgB;IAChB,WAAW;IACX,uBAAuB;IACvB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,sBAAsB;IACtB,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;IACX,sBAAsB;IACtB,qBAAqB;IACrB,kCAAkC;IAClC,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".one-review-task-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    width: 35px;\r\n    padding-left: 5px;\r\n    flex-direction: column;\r\n}\r\n\r\n.one-review-task-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    flex-grow: 2;\r\n    align-items: center;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.one-review-task-content > span + .form-select {\r\n    margin-right: 1rem;\r\n}\r\n\r\n.review-task-name-input {\r\n    height: 2.125rem;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 0.75rem;\r\n    gap: 0.5rem;\r\n    background-color: white;\r\n    overflow: hidden;\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-link-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    margin-bottom: 0.25rem;\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    background-color: #fff;\r\n}\r\n\r\n.one-review-task-comments-block hr {\r\n    margin: 0 0.75rem 0.5rem 0.75rem;\r\n}\r\n\r\n.one-review-task-comments-block-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    background-color: #fff;\r\n    white-space: pre-wrap;\r\n    padding: 0 0.75rem 0.75rem 0.75rem;\r\n    /* white-space: pre; */\r\n}\r\n\r\n.one-review-task-comments-block-inner > .form-input + .button {\r\n    margin-top: 0.5rem;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".one-review-task-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    width: 35px;\r\n    padding-left: 5px;\r\n    flex-direction: column;\r\n}\r\n\r\n.one-review-task-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    flex-grow: 2;\r\n    align-items: center;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.one-review-task-content>span+.form-select {\r\n    margin-right: 1rem;\r\n}\r\n\r\n.review-task-name-input {\r\n    height: 2.125rem;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 0.75rem;\r\n    gap: 0.5rem;\r\n    background-color: white;\r\n    overflow: hidden;\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-link-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    margin-bottom: 0.25rem;\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    background-color: #fff;\r\n}\r\n\r\n.one-review-task-comments-block hr {\r\n    margin: 0 0.75rem 0.5rem 0.75rem;\r\n}\r\n\r\n.one-review-task-comments-block-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    background-color: #fff;\r\n    white-space: pre-wrap;\r\n    padding: 0 0.75rem 0.75rem 0.75rem;\r\n    /* white-space: pre; */\r\n}\r\n\r\n.one-review-task-comments-block-inner>.form-input+.button {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n.review-task-show-full-button .task-rotate {\r\n    rotate: 180deg;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,sBAAsB;IACtB,4CAA4C;IAC5C,oCAAoC;IACpC,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,WAAW;IACX,iBAAiB;IACjB,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,YAAY;IACZ,mBAAmB;IACnB,WAAW;AACf;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,gBAAgB;IAChB,WAAW;IACX,uBAAuB;IACvB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,sBAAsB;IACtB,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;IACX,sBAAsB;IACtB,qBAAqB;IACrB,kCAAkC;IAClC,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,cAAc;AAClB","sourcesContent":[".one-review-task-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    width: 35px;\r\n    padding-left: 5px;\r\n    flex-direction: column;\r\n}\r\n\r\n.one-review-task-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    flex-grow: 2;\r\n    align-items: center;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.one-review-task-content>span+.form-select {\r\n    margin-right: 1rem;\r\n}\r\n\r\n.review-task-name-input {\r\n    height: 2.125rem;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 0.75rem;\r\n    gap: 0.5rem;\r\n    background-color: white;\r\n    overflow: hidden;\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-link-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    margin-bottom: 0.25rem;\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    background-color: #fff;\r\n}\r\n\r\n.one-review-task-comments-block hr {\r\n    margin: 0 0.75rem 0.5rem 0.75rem;\r\n}\r\n\r\n.one-review-task-comments-block-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    background-color: #fff;\r\n    white-space: pre-wrap;\r\n    padding: 0 0.75rem 0.75rem 0.75rem;\r\n    /* white-space: pre; */\r\n}\r\n\r\n.one-review-task-comments-block-inner>.form-input+.button {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n.review-task-show-full-button .task-rotate {\r\n    rotate: 180deg;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -49126,28 +49126,43 @@ var CodeReviewMain = function (props) {
         };
     }, []);
     (0, react_1.useEffect)(function () {
-        if (props.CurrentProjectId > 0) {
+        if (props.CurrentProjectId && props.CurrentProjectId > 0) {
             props.GetProjectInfo(props.CurrentProjectId);
         }
     }, [props.CurrentProjectId]);
     (0, react_1.useEffect)(function () {
+        if (props.CurrentTaskId && props.CurrentTaskId > 0) {
+            props.GetTaskInfo(props.CurrentTaskId);
+        }
+    }, [props.CurrentTaskId]);
+    (0, react_1.useEffect)(function () {
         if (props.ProjectsList.length > 0 //страница загружена уже, список проектов есть
         ) {
             if (props.CurrentProjectId && props.CurrentProjectId > 0) {
-                navigate("/code-review/proj-" + props.CurrentProjectId);
+                if (props.CurrentTaskId && props.CurrentTaskId > 0) {
+                    navigate("/code-review/proj-" + props.CurrentProjectId + '/task-' + props.CurrentTaskId);
+                }
+                else {
+                    navigate("/code-review/proj-" + props.CurrentProjectId);
+                }
             }
             else {
                 //никакой проект не выбран
-                var match = window.location.href.match(/proj-(\d+)/);
-                if (match) {
-                    var projId = match[1];
-                    var projIdInt = parseInt(match[1], 10);
+                var matchProj = window.location.href.match(/proj-(\d+)/);
+                if (matchProj) {
+                    var projIdInt = parseInt(matchProj[1], 10);
                     props.SetCurrentProject(projIdInt);
+                    // console.log("SetCurrentProject" + projIdInt);
+                }
+                var matchTask = window.location.href.match(/task-(\d+)/);
+                if (matchTask) {
+                    var taskIdInt = parseInt(matchTask[1], 10);
+                    props.SetCurrentTask(taskIdInt);
                     // console.log("SetCurrentProject" + projIdInt);
                 }
             }
         }
-    }, [props.ProjectsList.length, props.CurrentProjectId]);
+    }, [props.ProjectsList.length, props.CurrentProjectId, props.CurrentTaskId]);
     var mainClass = ' code-review-projects-menu-main-hide';
     if (visibleList) {
         mainClass = ' code-review-projects-menu-main-visible';
@@ -49178,9 +49193,11 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var Actions_1 = __webpack_require__(/*! ../../Models/Actions/Actions */ "./src/Apps/CodeReviewApp/Models/Actions/Actions.ts");
 var ProjectActions_1 = __webpack_require__(/*! ../../Models/Actions/ProjectActions */ "./src/Apps/CodeReviewApp/Models/Actions/ProjectActions.ts");
+var TaskActions_1 = __webpack_require__(/*! ../../Models/Actions/TaskActions */ "./src/Apps/CodeReviewApp/Models/Actions/TaskActions.ts");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.CurrentProjectId = state.CodeReviewApp.CurrentProjectId;
+    res.CurrentTaskId = state.CodeReviewApp.CurrentTaskId;
     res.CurrentProjectUsers = state.CodeReviewApp.CurrentProjectUsers;
     res.ProjectsList = state.CodeReviewApp.ProjectsList;
     res.Tasks = state.CodeReviewApp.CurrentProjectTasks;
@@ -49201,6 +49218,12 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     res.SetCurrentProject = function (projectId) {
         dispatch((0, ProjectActions_1.SetCurrentProjectIdActionCreator)(projectId));
+    };
+    res.SetCurrentTask = function (taskId) {
+        dispatch((0, TaskActions_1.SetCurrentTaskIdActionCreator)(taskId));
+    };
+    res.GetTaskInfo = function (taskId) {
+        dispatch(window.G_CodeReviewTaskController.LoadTaskRedux(taskId));
     };
     return res;
 };
@@ -49769,6 +49792,7 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 var OneReviewTaskComment_1 = __importDefault(__webpack_require__(/*! ../OneReviewTaskComment/OneReviewTaskComment */ "./src/Apps/CodeReviewApp/Components/OneReviewTaskComment/OneReviewTaskComment.tsx"));
 var OneReviewTaskSetup_1 = __importDefault(__webpack_require__(/*! ./OneReviewTaskSetup */ "./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTaskSetup.tsx"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 __webpack_require__(/*! ./OneReviewTask.css */ "./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.css");
 var OneReviewTask = function (props) {
     var _a = (0, react_1.useState)(props.Task.Name), taskName = _a[0], setTaskName = _a[1];
@@ -49779,6 +49803,8 @@ var OneReviewTask = function (props) {
     var _f = (0, react_1.useState)(''), newCommentName = _f[0], setNewCommentName = _f[1];
     // const [comments, setComments] = useState([] as IOneTaskReviewCommentDataBack[]);
     var _g = (0, react_1.useState)(false), showComments = _g[0], setShowComments = _g[1];
+    var _h = (0, react_1.useState)(false), showFullTask = _h[0], setShowFullTask = _h[1];
+    var navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(function () {
         setTaskName(props.Task.Name);
     }, [props.Task.Name]);
@@ -49867,6 +49893,19 @@ var OneReviewTask = function (props) {
     if (reviewer && reviewer.Deactivated) {
         reviewerList.push(reviewer);
     }
+    if (!showFullTask) {
+        return react_1.default.createElement("div", { className: 'one-review-task-block' },
+            react_1.default.createElement("div", { className: 'one-review-task-block-flex' },
+                react_1.default.createElement("div", { className: 'one-review-task-short-content' },
+                    react_1.default.createElement("a", { href: '', onClick: function (e) {
+                            e.preventDefault();
+                            // navigate("/code-review/proj-" + props.CurrentProjectId+'/task-'+props.Task.Id);
+                            props.SetCurrentTask(props.Task.Id);
+                        } }, props.Task.Name)),
+                react_1.default.createElement("div", { className: 'one-review-task-buttons' },
+                    react_1.default.createElement("div", { className: 'review-task-show-full-button', onClick: function () { return setShowFullTask(true); } },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'arrow2.png', alt: "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u043F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E", title: '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u043F\u043E\u043B\u043D\u043E\u0441\u0442\u044C\u044E' })))));
+    }
     return react_1.default.createElement("div", { className: 'one-review-task-block' },
         react_1.default.createElement("div", { className: 'one-review-task-block-flex' },
             react_1.default.createElement("div", { className: 'one-review-task-content' },
@@ -49895,7 +49934,9 @@ var OneReviewTask = function (props) {
                 react_1.default.createElement("div", { className: 'review-task-comments-button', onClick: function () { return setShowComments(function (oldState) { return !oldState; }); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'comments.png', alt: "Comments", title: '\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438' })),
                 react_1.default.createElement("div", { className: 'review-task-link-button', onClick: function () { return taskLink && window.open(taskLink); } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'external-link.png', alt: "Comments", title: '\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443' })))),
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'external-link.png', alt: "Link", title: '\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443' })),
+                react_1.default.createElement("div", { className: 'review-task-show-full-button', onClick: function () { return setShowFullTask(false); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height task-rotate', src: G_PathToBaseImages + 'arrow2.png', alt: "\u0421\u043A\u0440\u044B\u0442\u044C", title: '\u0421\u043A\u0440\u044B\u0442\u044C' })))),
         renderComments());
 };
 // and that function returns the connected, wrapper component:
@@ -49916,6 +49957,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var CommentActions_1 = __webpack_require__(/*! ../../Models/Actions/CommentActions */ "./src/Apps/CodeReviewApp/Models/Actions/CommentActions.ts");
 var CommentSet_1 = __webpack_require__(/*! ../../Models/Entity/CommentSet */ "./src/Apps/CodeReviewApp/Models/Entity/CommentSet.ts");
+var TaskActions_1 = __webpack_require__(/*! ../../Models/Actions/TaskActions */ "./src/Apps/CodeReviewApp/Models/Actions/TaskActions.ts");
 var mapStateToProps = function (state, ownProps) {
     var res = {};
     res.ProjectUsers = state.CodeReviewApp.CurrentProjectUsers;
@@ -49941,6 +49983,9 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     };
     res.LoadTaskComments = function (taskId) {
         dispatch(window.G_CodeReviewCommentController.LoadCommentsRedux(taskId));
+    };
+    res.SetCurrentTask = function (taskId) {
+        dispatch((0, TaskActions_1.SetCurrentTaskIdActionCreator)(taskId));
     };
     return res;
 };
@@ -50001,6 +50046,11 @@ var ProjectDetail = function (props) {
     var _d = (0, react_1.useState)(false), showUserList = _d[0], setShowUserList = _d[1];
     var _e = (0, react_1.useState)(false), showEditProject = _e[0], setShowEditProject = _e[1];
     var _f = (0, react_1.useState)(false), showAddNewTaskForm = _f[0], setShowAddNewTaskForm = _f[1];
+    (0, react_1.useEffect)(function () {
+        return function () {
+            props.ClearProjectState();
+        };
+    }, []);
     (0, react_1.useEffect)(function () {
         var _a;
         if ((_a = props.Project) === null || _a === void 0 ? void 0 : _a.Id) {
@@ -50112,7 +50162,7 @@ var ProjectDetail = function (props) {
             react_1.default.createElement("h3", null, "\u0417\u0430\u0434\u0430\u0447\u0438"),
             props.Tasks.length
                 ? props.Tasks.map(function (x) {
-                    return react_1.default.createElement(OneReviewTask_1.default, { key: x.Id, Task: x, Comments: x.Comments });
+                    return react_1.default.createElement(OneReviewTask_1.default, { key: x.Id, Task: x, Comments: x.Comments, CurrentProjectId: props.Project.Id });
                 })
                 : react_1.default.createElement("div", { className: "review-project-tasks-no-tasks" },
                     react_1.default.createElement("img", { src: G_PathToBaseImages + 'exclamation.png', alt: "" }),
@@ -50168,6 +50218,9 @@ var mapDispatchToProps = function (dispatch, ownProps) {
         dispatch(window.G_CodeReviewProjectController.DeleteProjectRedux(id));
     };
     res.ClearFilterTask = function () {
+        dispatch((0, TaskActions_1.SetFilterTaskActionCreator)(new TasksFilter_1.TasksFilter()));
+    };
+    res.ClearProjectState = function () {
         dispatch((0, TaskActions_1.SetFilterTaskActionCreator)(new TasksFilter_1.TasksFilter()));
     };
     return res;
@@ -50448,7 +50501,7 @@ exports.SetCommentsActionCreator = SetCommentsActionCreator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SetProjectsActionCreator = exports.SetProjectsActionName = exports.SetCurrentProjectIdActionCreator = exports.SetCurrentProjectIdActionName = exports.AddNewProjectActionCreator = exports.AddNewProjectActionName = exports.DeleteProjectActionCreator = exports.DeleteProjectActionName = void 0;
+exports.ClearProjectStateActionCreator = exports.ClearProjectStateActionName = exports.SetProjectsActionCreator = exports.SetProjectsActionName = exports.SetCurrentProjectIdActionCreator = exports.SetCurrentProjectIdActionName = exports.AddNewProjectActionCreator = exports.AddNewProjectActionName = exports.DeleteProjectActionCreator = exports.DeleteProjectActionName = void 0;
 exports.DeleteProjectActionName = 'DeleteProjectAction';
 function DeleteProjectActionCreator(projectId) {
     return { type: exports.DeleteProjectActionName, payload: projectId };
@@ -50473,6 +50526,12 @@ function SetProjectsActionCreator(projects) {
 }
 exports.SetProjectsActionCreator = SetProjectsActionCreator;
 ;
+exports.ClearProjectStateActionName = 'ClearProjectStateAction';
+function ClearProjectStateActionCreator() {
+    return { type: exports.ClearProjectStateActionName, payload: null };
+}
+exports.ClearProjectStateActionCreator = ClearProjectStateActionCreator;
+;
 
 
 /***/ }),
@@ -50486,7 +50545,7 @@ exports.SetProjectsActionCreator = SetProjectsActionCreator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.SetFilterTaskActionCreator = exports.SetFilterTaskActionName = exports.SetFilterTaskStatusActionCreator = exports.SetFilterTaskStatusActionName = exports.SetFilterTaskPageActionCreator = exports.SetFilterTaskPageActionName = exports.SetFilterTaskNameActionCreator = exports.SetFilterTaskNameActionName = exports.SetFilterTaskReviewerActionCreator = exports.SetFilterTaskReviewerName = exports.SetFilterTaskCreatorActionCreator = exports.SetFilterTaskCreatorActionName = exports.DeleteTaskActionCreator = exports.DeleteTaskActionName = exports.LoadTasksActionCreator = exports.LoadTasksActionName = exports.UpdateTaskActionCreator = exports.UpdateTaskActionName = exports.AddLoadTriggerActionCreator = exports.AddLoadTriggerActionName = exports.AddTaskToProjectActionCreator = exports.AddTaskToProjectActionName = void 0;
+exports.ClearCurrentTaskStateActionCreator = exports.ClearCurrentTaskStateActionName = exports.LoadTaskActionCreator = exports.LoadTaskActionName = exports.SetCurrentTaskIdActionCreator = exports.SetCurrentTaskIdActionName = exports.SetFilterTaskActionCreator = exports.SetFilterTaskActionName = exports.SetFilterTaskStatusActionCreator = exports.SetFilterTaskStatusActionName = exports.SetFilterTaskPageActionCreator = exports.SetFilterTaskPageActionName = exports.SetFilterTaskNameActionCreator = exports.SetFilterTaskNameActionName = exports.SetFilterTaskReviewerActionCreator = exports.SetFilterTaskReviewerName = exports.SetFilterTaskCreatorActionCreator = exports.SetFilterTaskCreatorActionName = exports.DeleteTaskActionCreator = exports.DeleteTaskActionName = exports.LoadTasksActionCreator = exports.LoadTasksActionName = exports.UpdateTaskActionCreator = exports.UpdateTaskActionName = exports.AddLoadTriggerActionCreator = exports.AddLoadTriggerActionName = exports.AddTaskToProjectActionCreator = exports.AddTaskToProjectActionName = void 0;
 exports.AddTaskToProjectActionName = 'AddTaskToProjectAction';
 function AddTaskToProjectActionCreator(data) {
     return { type: exports.AddTaskToProjectActionName, payload: data };
@@ -50552,6 +50611,24 @@ function SetFilterTaskActionCreator(data) {
     return { type: exports.SetFilterTaskActionName, payload: data };
 }
 exports.SetFilterTaskActionCreator = SetFilterTaskActionCreator;
+;
+exports.SetCurrentTaskIdActionName = 'SetCurrentTaskIdAction';
+function SetCurrentTaskIdActionCreator(data) {
+    return { type: exports.SetCurrentTaskIdActionName, payload: data };
+}
+exports.SetCurrentTaskIdActionCreator = SetCurrentTaskIdActionCreator;
+;
+exports.LoadTaskActionName = 'LoadTaskAction';
+function LoadTaskActionCreator(data) {
+    return { type: exports.LoadTaskActionName, payload: data };
+}
+exports.LoadTaskActionCreator = LoadTaskActionCreator;
+;
+exports.ClearCurrentTaskStateActionName = 'ClearCurrentTaskStateAction';
+function ClearCurrentTaskStateActionCreator() {
+    return { type: exports.ClearCurrentTaskStateActionName, payload: null };
+}
+exports.ClearCurrentTaskStateActionCreator = ClearCurrentTaskStateActionCreator;
 ;
 
 
@@ -51028,6 +51105,7 @@ var CodeReviewTaskController = /** @class */ (function () {
                 "taskReviwerId": task.ReviewerId,
                 "taskLink": task.Link,
                 "projectId": projectId,
+                "statusId": task.StatusId,
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
@@ -51106,6 +51184,36 @@ var CodeReviewTaskController = /** @class */ (function () {
                 },
                 FuncError: function (xhr, status, error) { },
                 Url: G_PathToServer + 'api/codereview/task/get-project-tasks'
+            });
+        };
+        this.LoadTaskRedux = function (taskId) {
+            return function (dispatch, getState) {
+                _this.preloader(true);
+                _this.LoadTask(taskId, function (error, data) {
+                    _this.preloader(false);
+                    if (error) {
+                        return;
+                    }
+                    if (data) {
+                        var dt = new LoadReviewTasksResult_1.ProjectTaskData();
+                        dt.FillByBackModel(data);
+                        dispatch((0, TaskActions_1.LoadTaskActionCreator)(dt));
+                    }
+                });
+            };
+        };
+        this.LoadTask = function (taskId, onSuccess) {
+            var data = {
+                "id": taskId,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/task/get-project-task'
             });
         };
         this.DeleteTaskRedux = function (id) {
@@ -51530,12 +51638,13 @@ exports.CommentUpdate = CommentUpdate;
 /*!***********************************************************************!*\
   !*** ./src/Apps/CodeReviewApp/Models/Entity/LoadReviewTasksResult.ts ***!
   \***********************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.LoadReviewTasksResult = exports.ProjectTaskData = void 0;
+var OneTaskReviewComment_1 = __webpack_require__(/*! ./OneTaskReviewComment */ "./src/Apps/CodeReviewApp/Models/Entity/OneTaskReviewComment.ts");
 var ProjectTaskData = /** @class */ (function () {
     function ProjectTaskData() {
     }
@@ -51546,6 +51655,9 @@ var ProjectTaskData = /** @class */ (function () {
         this.ReviewerId = newData.ReviewerId;
         this.StatusId = newData.StatusId;
         this.Link = newData.Link;
+        this.Description = newData.Description;
+        this.Comments = newData.Comments.map(function (x) { return new OneTaskReviewComment_1.OneTaskReviewComment().FillByBackModel(x); });
+        return this;
     };
     return ProjectTaskData;
 }());
@@ -51586,6 +51698,14 @@ var OneTaskReviewComment = /** @class */ (function () {
         this.CreatorId = newData.CreatorId;
         this.Text = newData.Text;
         this.CreateDate = newData.CreateDate;
+        return this;
+    };
+    OneTaskReviewComment.prototype.FillByOneTaskReviewComment = function (newData) {
+        this.Id = newData.Id;
+        this.CreatorId = newData.CreatorId;
+        this.Text = newData.Text;
+        this.CreateDate = newData.CreateDate;
+        return this;
     };
     return OneTaskReviewComment;
 }());
@@ -51608,12 +51728,14 @@ var TasksFilter_1 = __webpack_require__(/*! ./TasksFilter */ "./src/Apps/CodeRev
 var CodeReviewAppState = /** @class */ (function () {
     function CodeReviewAppState() {
         this.CurrentProjectId = -1;
+        this.CurrentTaskId = -1;
         this.ProjectsList = [];
         this.CurrentProjectUsers = [];
         this.CurrentProjectTasks = [];
         this.CurrentProjectTasksAllCount = 0;
         this.CurrentProjectTasksFilters = new TasksFilter_1.TasksFilter();
         this.CurrentProjectStatuses = [];
+        this.CurrentTask = null;
     }
     return CodeReviewAppState;
 }());
@@ -51650,12 +51772,13 @@ exports.OneProjectInList = OneProjectInList;
 /*!***************************************************************!*\
   !*** ./src/Apps/CodeReviewApp/Models/Entity/State/OneTask.ts ***!
   \***************************************************************/
-/***/ ((__unused_webpack_module, exports) => {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OneTask = void 0;
+var OneTaskReviewComment_1 = __webpack_require__(/*! ../OneTaskReviewComment */ "./src/Apps/CodeReviewApp/Models/Entity/OneTaskReviewComment.ts");
 var OneTask = /** @class */ (function () {
     function OneTask() {
         this.Comments = [];
@@ -51667,6 +51790,10 @@ var OneTask = /** @class */ (function () {
         this.ReviewerId = data.ReviewerId;
         this.StatusId = data.StatusId;
         this.Link = data.Link;
+        this.Description = data.Description;
+        this.Comments = data.Comments
+            .map(function (x) { return new OneTaskReviewComment_1.OneTaskReviewComment().FillByOneTaskReviewComment(x); });
+        return this;
     };
     OneTask.prototype.FillByIProjectTaskDataBack = function (data) {
         this.Id = data.Id;
@@ -51675,6 +51802,10 @@ var OneTask = /** @class */ (function () {
         this.ReviewerId = data.ReviewerId;
         this.StatusId = data.StatusId;
         this.Link = data.Link;
+        this.Description = data.Description;
+        this.Comments = data.Comments.
+            map(function (x) { return new OneTaskReviewComment_1.OneTaskReviewComment().FillByBackModel(x); });
+        return this;
     };
     return OneTask;
 }());
@@ -51927,6 +52058,17 @@ function CodeReviewProjectReducer(state, action) {
                 newState.CodeReviewApp.ProjectsList = projects;
                 return newState;
             }
+        case ProjectActions_1.ClearProjectStateActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                newState.CodeReviewApp.CurrentProjectId = -1;
+                newState.CodeReviewApp.CurrentProjectUsers = [];
+                newState.CodeReviewApp.CurrentProjectTasksFilters = new TasksFilter_1.TasksFilter();
+                newState.CodeReviewApp.CurrentProjectTasksAllCount = 0;
+                newState.CodeReviewApp.CurrentProjectTasks = [];
+                newState.CodeReviewApp.CurrentProjectStatuses = [];
+                return newState;
+            }
         default:
             return state;
     }
@@ -52098,6 +52240,25 @@ function CodeReviewTaskReducer(state, action) {
                 newState.CodeReviewApp.CurrentProjectTasksFilters = payload;
                 return newState;
             }
+        case TaskActions_1.SetCurrentTaskIdActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var payload = action.payload;
+                newState.CodeReviewApp.CurrentTaskId = payload;
+                return newState;
+            }
+        case TaskActions_1.LoadTaskActionName: {
+            var newState = (0, cloneDeep_1.default)(state);
+            var payload = action.payload;
+            newState.CodeReviewApp.CurrentTask = new OneTask_1.OneTask().FillByProjectTaskData(payload);
+            return newState;
+        }
+        case TaskActions_1.ClearCurrentTaskStateActionName: {
+            var newState = (0, cloneDeep_1.default)(state);
+            newState.CodeReviewApp.CurrentTaskId = -1;
+            newState.CodeReviewApp.CurrentTask = null;
+            return newState;
+        }
         default:
             return state;
     }
