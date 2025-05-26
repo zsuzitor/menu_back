@@ -2637,6 +2637,33 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".one-review-comment-block {\r\n    dis
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetail.css":
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetail.css ***!
+  \*****************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.css":
 /*!*****************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.css ***!
@@ -2657,7 +2684,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".one-review-task-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    width: 35px;\r\n    padding-left: 5px;\r\n    flex-direction: column;\r\n}\r\n\r\n.one-review-task-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    flex-grow: 2;\r\n    align-items: center;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.one-review-task-content>span+.form-select {\r\n    margin-right: 1rem;\r\n}\r\n\r\n.review-task-name-input {\r\n    height: 2.125rem;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 0.75rem;\r\n    gap: 0.5rem;\r\n    background-color: white;\r\n    overflow: hidden;\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-link-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    margin-bottom: 0.25rem;\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    background-color: #fff;\r\n}\r\n\r\n.one-review-task-comments-block hr {\r\n    margin: 0 0.75rem 0.5rem 0.75rem;\r\n}\r\n\r\n.one-review-task-comments-block-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    background-color: #fff;\r\n    white-space: pre-wrap;\r\n    padding: 0 0.75rem 0.75rem 0.75rem;\r\n    /* white-space: pre; */\r\n}\r\n\r\n.one-review-task-comments-block-inner>.form-input+.button {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n.review-task-show-full-button .task-rotate {\r\n    rotate: 180deg;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,sBAAsB;IACtB,4CAA4C;IAC5C,oCAAoC;IACpC,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,WAAW;IACX,iBAAiB;IACjB,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,YAAY;IACZ,mBAAmB;IACnB,WAAW;AACf;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,gBAAgB;IAChB,WAAW;IACX,uBAAuB;IACvB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,sBAAsB;IACtB,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;IACX,sBAAsB;IACtB,qBAAqB;IACrB,kCAAkC;IAClC,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,cAAc;AAClB","sourcesContent":[".one-review-task-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    width: 35px;\r\n    padding-left: 5px;\r\n    flex-direction: column;\r\n}\r\n\r\n.one-review-task-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    flex-grow: 2;\r\n    align-items: center;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.one-review-task-content>span+.form-select {\r\n    margin-right: 1rem;\r\n}\r\n\r\n.review-task-name-input {\r\n    height: 2.125rem;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 0.75rem;\r\n    gap: 0.5rem;\r\n    background-color: white;\r\n    overflow: hidden;\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-link-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    margin-bottom: 0.25rem;\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    background-color: #fff;\r\n}\r\n\r\n.one-review-task-comments-block hr {\r\n    margin: 0 0.75rem 0.5rem 0.75rem;\r\n}\r\n\r\n.one-review-task-comments-block-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    background-color: #fff;\r\n    white-space: pre-wrap;\r\n    padding: 0 0.75rem 0.75rem 0.75rem;\r\n    /* white-space: pre; */\r\n}\r\n\r\n.one-review-task-comments-block-inner>.form-input+.button {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n.review-task-show-full-button .task-rotate {\r\n    rotate: 180deg;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".one-review-task-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    width: 35px;\r\n    padding-left: 5px;\r\n    flex-direction: column;\r\n}\r\n\r\n.one-review-task-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    flex-grow: 2;\r\n    align-items: center;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.one-review-task-content>span+.form-select {\r\n    margin-right: 1rem;\r\n}\r\n\r\n.review-task-name-input {\r\n    height: 2.125rem;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 0.75rem;\r\n    gap: 0.5rem;\r\n    background-color: white;\r\n    overflow: hidden;\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-link-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    margin-bottom: 0.25rem;\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-show-full-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    background-color: #fff;\r\n}\r\n\r\n.one-review-task-comments-block hr {\r\n    margin: 0 0.75rem 0.5rem 0.75rem;\r\n}\r\n\r\n.one-review-task-comments-block-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    background-color: #fff;\r\n    white-space: pre-wrap;\r\n    padding: 0 0.75rem 0.75rem 0.75rem;\r\n    /* white-space: pre; */\r\n}\r\n\r\n.one-review-task-comments-block-inner>.form-input+.button {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n.review-task-show-full-button .task-rotate {\r\n    rotate: 180deg;\r\n}\r\n\r\n.one-review-task-short-content {\r\n    flex-grow: 2;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,sBAAsB;IACtB,4CAA4C;IAC5C,oCAAoC;IACpC,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,WAAW;IACX,iBAAiB;IACjB,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,YAAY;IACZ,mBAAmB;IACnB,WAAW;AACf;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,gBAAgB;IAChB,WAAW;IACX,uBAAuB;IACvB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,sBAAsB;IACtB,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;;IAEI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;IACX,sBAAsB;IACtB,qBAAqB;IACrB,kCAAkC;IAClC,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,cAAc;AAClB;;AAEA;IACI,YAAY;AAChB","sourcesContent":[".one-review-task-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    width: 35px;\r\n    padding-left: 5px;\r\n    flex-direction: column;\r\n}\r\n\r\n.one-review-task-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    flex-grow: 2;\r\n    align-items: center;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.one-review-task-content>span+.form-select {\r\n    margin-right: 1rem;\r\n}\r\n\r\n.review-task-name-input {\r\n    height: 2.125rem;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 0.75rem;\r\n    gap: 0.5rem;\r\n    background-color: white;\r\n    overflow: hidden;\r\n}\r\n\r\n.review-task-save-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-comments-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-link-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-delete-button {\r\n    margin-bottom: 0.25rem;\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-task-show-full-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    background-color: #fff;\r\n}\r\n\r\n.one-review-task-comments-block hr {\r\n    margin: 0 0.75rem 0.5rem 0.75rem;\r\n}\r\n\r\n.one-review-task-comments-block-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    background-color: #fff;\r\n    white-space: pre-wrap;\r\n    padding: 0 0.75rem 0.75rem 0.75rem;\r\n    /* white-space: pre; */\r\n}\r\n\r\n.one-review-task-comments-block-inner>.form-input+.button {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n.review-task-show-full-button .task-rotate {\r\n    rotate: 180deg;\r\n}\r\n\r\n.one-review-task-short-content {\r\n    flex-grow: 2;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -46430,6 +46457,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetail.css":
+/*!***************************************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetail.css ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_OneReviewTaskDetail_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./OneReviewTaskDetail.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetail.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_OneReviewTaskDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_OneReviewTaskDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_OneReviewTaskDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_OneReviewTaskDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.css":
 /*!***************************************************************************!*\
   !*** ./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.css ***!
@@ -49115,6 +49197,7 @@ var ProjectDetail_1 = __importDefault(__webpack_require__(/*! ../ProjectDetail/P
 var ProjectsList_1 = __importDefault(__webpack_require__(/*! ../ProjectsList/ProjectsList */ "./src/Apps/CodeReviewApp/Components/ProjectsList/ProjectsList.tsx"));
 var CodeReviewMainSetup_1 = __importDefault(__webpack_require__(/*! ./CodeReviewMainSetup */ "./src/Apps/CodeReviewApp/Components/CodeReviewMain/CodeReviewMainSetup.tsx"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+var OneReviewTaskDetail_1 = __importDefault(__webpack_require__(/*! ../OneReviewTaskDetail/OneReviewTaskDetail */ "./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetail.tsx"));
 __webpack_require__(/*! ./CodeReviewMain.css */ "./src/Apps/CodeReviewApp/Components/CodeReviewMain/CodeReviewMain.css");
 var CodeReviewMain = function (props) {
     var _a = (0, react_1.useState)(true), visibleList = _a[0], setVisibleList = _a[1];
@@ -49172,8 +49255,12 @@ var CodeReviewMain = function (props) {
         react_1.default.createElement("div", { className: 'code-review-projects-menu-main' + mainClass },
             react_1.default.createElement("div", { onClick: function () { return setVisibleList(function (v) { return !v; }); }, className: "hide-review-projects-menu-button" }, visibleList ? '<' : '>'),
             react_1.default.createElement(ProjectsList_1.default, { Projects: props.ProjectsList, CurrentProjectId: props.CurrentProjectId })),
-        react_1.default.createElement("div", { className: 'code-review-project-info' },
-            react_1.default.createElement(ProjectDetail_1.default, { Project: props.ProjectsList.find(function (x) { return x.Id == props.CurrentProjectId; }), Tasks: props.Tasks })));
+        props.CurrentTaskId && props.CurrentTaskId > 0 ?
+            react_1.default.createElement(OneReviewTaskDetail_1.default, null)
+            // <></>
+            :
+                react_1.default.createElement("div", { className: 'code-review-project-info' },
+                    react_1.default.createElement(ProjectDetail_1.default, { Project: props.ProjectsList.find(function (x) { return x.Id == props.CurrentProjectId; }), Tasks: props.Tasks })));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, CodeReviewMainSetup_1.default)(CodeReviewMain);
@@ -49742,6 +49829,242 @@ exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToPr
 
 /***/ }),
 
+/***/ "./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetail.tsx":
+/*!***************************************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetail.tsx ***!
+  \***************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
+var OneReviewTaskComment_1 = __importDefault(__webpack_require__(/*! ../OneReviewTaskComment/OneReviewTaskComment */ "./src/Apps/CodeReviewApp/Components/OneReviewTaskComment/OneReviewTaskComment.tsx"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+var OneReviewTaskDetailSetup_1 = __importDefault(__webpack_require__(/*! ./OneReviewTaskDetailSetup */ "./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetailSetup.tsx"));
+__webpack_require__(/*! ./OneReviewTaskDetail.css */ "./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetail.css");
+var OneReviewTaskDetail = function (props) {
+    //   console.log(new Error().stack); // Check where this is being called from
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+    //         return <div>стоп для теста</div>
+    console.log(props);
+    var _l = (0, react_1.useState)(((_a = props.Task) === null || _a === void 0 ? void 0 : _a.Name) || ''), taskName = _l[0], setTaskName = _l[1];
+    var _m = (0, react_1.useState)(((_b = props.Task) === null || _b === void 0 ? void 0 : _b.Link) || ''), taskLink = _m[0], setTaskLink = _m[1];
+    var _o = (0, react_1.useState)(((_c = props.Task) === null || _c === void 0 ? void 0 : _c.StatusId) || -1), taskStatus = _o[0], setTaskStatus = _o[1];
+    var _p = (0, react_1.useState)(((_d = props.Task) === null || _d === void 0 ? void 0 : _d.ReviewerId) || -1), taskReviewer = _p[0], setTaskreviewer = _p[1];
+    var _q = (0, react_1.useState)(((_e = props.Task) === null || _e === void 0 ? void 0 : _e.CreatorId) || -1), taskCreator = _q[0], setTaskCreator = _q[1];
+    var _r = (0, react_1.useState)(''), newCommentName = _r[0], setNewCommentName = _r[1];
+    var navigate = (0, react_router_dom_1.useNavigate)();
+    (0, react_1.useEffect)(function () {
+        return function cleanUp() {
+            props.ClearCurrentTaskState();
+        };
+    }, []);
+    (0, react_1.useEffect)(function () {
+        var _a;
+        setTaskName(((_a = props.Task) === null || _a === void 0 ? void 0 : _a.Name) || '');
+    }, [(_f = props.Task) === null || _f === void 0 ? void 0 : _f.Name]);
+    (0, react_1.useEffect)(function () {
+        var _a;
+        setTaskLink(((_a = props.Task) === null || _a === void 0 ? void 0 : _a.Link) || '');
+    }, [(_g = props.Task) === null || _g === void 0 ? void 0 : _g.Link]);
+    (0, react_1.useEffect)(function () {
+        var _a;
+        setTaskStatus(((_a = props.Task) === null || _a === void 0 ? void 0 : _a.StatusId) || -1);
+    }, [(_h = props.Task) === null || _h === void 0 ? void 0 : _h.StatusId]);
+    (0, react_1.useEffect)(function () {
+        var _a;
+        setTaskreviewer(((_a = props.Task) === null || _a === void 0 ? void 0 : _a.ReviewerId) || -1);
+    }, [(_j = props.Task) === null || _j === void 0 ? void 0 : _j.ReviewerId]);
+    (0, react_1.useEffect)(function () {
+        var _a;
+        setTaskCreator((_a = props.Task) === null || _a === void 0 ? void 0 : _a.CreatorId);
+    }, [(_k = props.Task) === null || _k === void 0 ? void 0 : _k.CreatorId]);
+    var cancelTask = function () {
+        if (!confirm('Отменить изменения?')) {
+            return;
+        }
+        setTaskName(props.Task.Name || '');
+        setTaskLink(props.Task.Link || '');
+        setTaskStatus(props.Task.StatusId);
+        setTaskreviewer(props.Task.ReviewerId || -1);
+        setTaskCreator(props.Task.CreatorId);
+    };
+    var updateTask = function () {
+        if (!taskName) {
+            var alertFactory = new AlertData_1.AlertData();
+            var alert_1 = alertFactory.GetDefaultError("Необходимо заполнить название задачи");
+            window.G_AddAbsoluteAlertToState(alert_1);
+            return;
+        }
+        var forAdd = __assign({}, props.Task);
+        forAdd.Name = taskName;
+        forAdd.Link = taskLink;
+        forAdd.StatusId = taskStatus;
+        forAdd.ReviewerId = taskReviewer;
+        forAdd.CreatorId = taskCreator;
+        props.UpdateTask(forAdd);
+    };
+    var deleteTask = function () {
+        if (!confirm('Удалить задачу?')) {
+            return;
+        }
+        props.DeleteTask(props.Task.Id);
+    };
+    var addComment = function () {
+        // window.G_CodeReviewCommentController.AddComment(props.Task.Id, newCommentName, addComment);
+        props.AddComment(props.Task.Id, newCommentName);
+    };
+    var renderComments = function () {
+        return react_1.default.createElement("div", { className: 'one-review-task-comments-block' },
+            react_1.default.createElement("hr", null),
+            react_1.default.createElement("div", { className: 'one-review-task-comments-block-inner' },
+                "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438:",
+                props.Task.Comments.map(function (x) {
+                    return react_1.default.createElement(OneReviewTaskComment_1.default, { Comment: x, TaskId: props.Task.Id, key: x.Id });
+                }),
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("textarea", { className: 'form-input', value: newCommentName, onChange: function (e) { return setNewCommentName(e.target.value); } }),
+                    react_1.default.createElement("button", { className: 'button button-grey', onClick: function () { return addComment(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"))));
+    };
+    if (!props.Task) {
+        return react_1.default.createElement("div", null, "\u0417\u0430\u0433\u0440\u0443\u0436\u0430\u0435\u043C \u0434\u0430\u043D\u043D\u044B\u0435");
+    }
+    var taskHasChanges = taskName !== props.Task.Name ||
+        (taskLink !== props.Task.Link && (taskLink || props.Task.Link)) ||
+        taskStatus !== props.Task.StatusId ||
+        ((props.Task.ReviewerId || taskReviewer != -1) && taskReviewer !== props.Task.ReviewerId) ||
+        taskCreator !== props.Task.CreatorId;
+    var creator = props.ProjectUsers.find(function (x) { return x.Id === taskCreator; });
+    var creatorsList = props.ProjectUsers.filter(function (us) { return !us.Deactivated; });
+    if (creator && creator.Deactivated) {
+        creatorsList.push(creator);
+    }
+    var reviewer = props.ProjectUsers.find(function (x) { return x.Id === taskReviewer; });
+    var reviewerList = props.ProjectUsers.filter(function (us) { return !us.Deactivated; });
+    if (reviewer && reviewer.Deactivated) {
+        reviewerList.push(reviewer);
+    }
+    return react_1.default.createElement("div", { className: 'one-review-task-block' },
+        react_1.default.createElement("div", { className: 'one-review-task-block-flex' },
+            react_1.default.createElement("div", { className: 'one-review-task-content' },
+                react_1.default.createElement("textarea", { className: 'form-input review-task-name-input', value: taskName, onChange: function (e) { return setTaskName(e.target.value); } }),
+                react_1.default.createElement("input", { type: 'text', className: 'form-input persent-100-width', onChange: function (e) { return setTaskLink(e.target.value); }, value: taskLink, placeholder: '\u0421\u0441\u044B\u043B\u043A\u0430' }),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("span", null, "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C"),
+                react_1.default.createElement("select", { className: 'form-select', value: taskCreator, onChange: function (e) { return setTaskCreator(+e.target.value); } }, creatorsList.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
+                react_1.default.createElement("span", null, "\u0420\u0435\u0432\u044C\u044E\u0432\u0435\u0440"),
+                react_1.default.createElement("select", { className: 'form-select', value: taskReviewer, onChange: function (e) { return setTaskreviewer(+e.target.value); } },
+                    react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
+                    reviewerList.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
+                react_1.default.createElement("span", null, "\u0421\u0442\u0430\u0442\u0443\u0441"),
+                react_1.default.createElement("select", { className: 'form-select', onChange: function (e) { return setTaskStatus(+e.target.value); }, value: taskStatus },
+                    react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
+                    props.Statuses.map(function (status) { return react_1.default.createElement("option", { value: status.Id, key: status.Id }, status.Name); }))),
+            react_1.default.createElement("div", { className: 'one-review-task-buttons' },
+                taskHasChanges ?
+                    react_1.default.createElement(react_1.default.Fragment, null,
+                        react_1.default.createElement("div", { className: 'review-task-save-button', onClick: function () { return updateTask(); } },
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'save-icon.png', alt: "Save", title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C' })),
+                        react_1.default.createElement("div", { className: 'review-task-cancel-button', onClick: function () { return cancelTask(); } },
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' }))) : react_1.default.createElement(react_1.default.Fragment, null),
+                react_1.default.createElement("div", { className: 'review-task-delete-button', onClick: function () { return deleteTask(); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
+                react_1.default.createElement("div", { className: 'review-task-link-button', onClick: function () { return taskLink && window.open(taskLink); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'external-link.png', alt: "Comments", title: '\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443' })))),
+        renderComments());
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, OneReviewTaskDetailSetup_1.default)(OneReviewTaskDetail);
+
+
+/***/ }),
+
+/***/ "./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetailSetup.tsx":
+/*!********************************************************************************************!*\
+  !*** ./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetailSetup.tsx ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var TaskActions_1 = __webpack_require__(/*! ../../Models/Actions/TaskActions */ "./src/Apps/CodeReviewApp/Models/Actions/TaskActions.ts");
+var mapStateToProps = function (state, ownProps) {
+    var res = {};
+    res.ProjectUsers = state.CodeReviewApp.CurrentProjectUsers;
+    res.Statuses = state.CodeReviewApp.CurrentProjectStatuses;
+    res.Task = state.CodeReviewApp.CurrentTask;
+    res.CurrentProjectId = state.CodeReviewApp.CurrentProjectId;
+    //   console.log(new Error().stack); // Check where this is being called from
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    res.UpdateTask = function (forAdd) {
+        dispatch(window.G_CodeReviewTaskController.UpdateTaskRedux(forAdd));
+    };
+    res.DeleteTask = function (taskId) {
+        dispatch(window.G_CodeReviewTaskController.DeleteTaskRedux(taskId));
+    };
+    res.AddComment = function (taskId, text) {
+        dispatch(window.G_CodeReviewCommentController.AddCommentRedux(taskId, text));
+    };
+    res.LoadTaskComments = function (taskId) {
+        dispatch(window.G_CodeReviewCommentController.LoadCommentsRedux(taskId));
+    };
+    res.SetCurrentTask = function (taskId) {
+        dispatch((0, TaskActions_1.SetCurrentTaskIdActionCreator)(taskId));
+    };
+    res.ClearCurrentTaskState = function () {
+        dispatch((0, TaskActions_1.ClearCurrentTaskStateActionCreator)());
+    };
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
 /***/ "./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.tsx":
 /*!***************************************************************************!*\
   !*** ./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.tsx ***!
@@ -49897,7 +50220,7 @@ var OneReviewTask = function (props) {
         return react_1.default.createElement("div", { className: 'one-review-task-block' },
             react_1.default.createElement("div", { className: 'one-review-task-block-flex' },
                 react_1.default.createElement("div", { className: 'one-review-task-short-content' },
-                    react_1.default.createElement("a", { href: '', onClick: function (e) {
+                    react_1.default.createElement("a", { href: '/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id, onClick: function (e) {
                             e.preventDefault();
                             // navigate("/code-review/proj-" + props.CurrentProjectId+'/task-'+props.Task.Id);
                             props.SetCurrentTask(props.Task.Id);
@@ -52388,7 +52711,7 @@ function CodeReviewUserReducer(state, action) {
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 var users = action.payload;
-                newState.CodeReviewApp.CurrentProjectUsers = users;
+                newState.CodeReviewApp.CurrentProjectUsers = users || [];
                 return newState;
             }
         default:
