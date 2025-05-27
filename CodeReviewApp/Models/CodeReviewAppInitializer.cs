@@ -38,6 +38,7 @@ namespace CodeReviewApp.Models
             await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.EmptyTaskName, "Не указано название задачи", "CodeReviewApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.TaskWithStatusExists, "Существует задачи с указанным статусом", "CodeReviewApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists, "Переданный статус не существует", "CodeReviewApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.CodeReviewErrorConsts.TaskReviewEmptyStatusName, "Переданное название статуса не валидно", "CodeReviewApp", "Error");
 
             
 

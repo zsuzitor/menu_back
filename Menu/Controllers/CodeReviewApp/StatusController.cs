@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using System.Linq;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Menu.Controllers.CodeReviewApp
 {
@@ -50,6 +51,9 @@ namespace Menu.Controllers.CodeReviewApp
         [HttpPut]
         public async Task CreateStatus([FromForm] long projectId, [FromForm] string status)
         {
+
+            status = _apiHealper.StringValidator(status);
+
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
@@ -88,6 +92,7 @@ namespace Menu.Controllers.CodeReviewApp
         [HttpPatch]
         public async Task UpdateStatus([FromForm] long statusId, [FromForm] string status)
         {
+            status = _apiHealper.StringValidator(status);
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {

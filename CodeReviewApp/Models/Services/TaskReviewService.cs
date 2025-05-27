@@ -5,6 +5,7 @@ using CodeReviewApp.Models.DAL.Repositories.Interfaces;
 using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
 using Pipelines.Sockets.Unofficial.Arenas;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -129,8 +130,8 @@ namespace CodeReviewApp.Models.Services
 
             upTask.Status = task.Status;
             upTask.Name = task.Name;
-            upTask.Link = task.Link;
-            upTask.CreatorId = task.CreatorId;
+            upTask.LastUpdateDate = DateTime.Now;
+            //upTask.CreatorId = task.CreatorId;
             upTask.ReviewerId = task.ReviewerId;
             await _taskReviewRepository.UpdateAsync(upTask);
 
@@ -234,6 +235,10 @@ namespace CodeReviewApp.Models.Services
 
         public async Task<CommentReview> CreateCommentAsync(long taskId, string text, UserInfo userInfo)
         {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewEmptyStatusName);
+            }
             //todo много запросов что то получается
             var task = await GetByIdIfAccessAsync(taskId, userInfo);
             var projectUserId = await _projectUserService.GetIdByMainAppIdAsync(userInfo, task.ProjectId);

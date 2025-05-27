@@ -5,6 +5,7 @@ using CodeReviewApp.Models.DAL.Repositories.Interfaces;
 using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
 using Menu.Models.Services.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -110,16 +111,22 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyTaskName);
             }
 
-            if (!(await ExistIfAccessAsync(task.ProjectId, userInfo)).access)
+            var creator = await _projectUserService.GetAdminByMainAppIdAsync(userInfo, task.ProjectId);
+            if (creator == null)
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
             }
+            //if (!(await ExistIfAccessAsync(task.ProjectId, userInfo)).access)
+            //{
+            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+            //}
 
-            var creatorExist = await _projectUserService.ExistAsync(task.ProjectId, task.CreatorId);
-            if (!creatorExist)
-            {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
-            }
+            task.CreatorId = creator.Id;
+            //var creatorExist = await _projectUserService.ExistAsync(task.ProjectId, task.CreatorId);
+            //if (!creatorExist)
+            //{
+            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
+            //}
 
             if (task.ReviewerId != null)
             {
@@ -129,6 +136,8 @@ namespace CodeReviewApp.Models.Services
                     throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
                 }
             }
+
+
 
             var status = task.StatusId == null ? null : await _taskStatusRepository.GetAsync(task.StatusId.Value);
             if (status == null)
@@ -144,7 +153,8 @@ namespace CodeReviewApp.Models.Services
                 ProjectId = task.ProjectId,
                 ReviewerId = task.ReviewerId,
                 CreatorEntityId = userInfo.UserId,
-                Link = task.Link,
+                CreateDate = DateTime.Now,
+                LastUpdateDate = DateTime.Now,
                 StatusId = task.StatusId,
             };
 

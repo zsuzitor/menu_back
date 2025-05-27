@@ -23,6 +23,7 @@ namespace CodeReviewApp.Models.Services.Interfaces
         Task<ProjectUser> ChangeAsync(long userId, string name, string email, bool isAdmin, bool deactivated, UserInfo userInfo);
         Task<ProjectUser> DeleteAsync(long userId, UserInfo userInfo);
         Task<ProjectUser> GetByMainAppIdAsync(UserInfo userInfo, long projectId);
+        Task<ProjectUser> GetAdminByMainAppIdAsync(UserInfo userInfo, long projectId);
         Task<long?> GetIdByMainAppIdAsync(UserInfo userInfo, long projectId);
         Task<string> GetNotificationEmailAsync(long userId);
         Task<(string email, long? mainAppId)> GetNotificationEmailWithMainAppIdAsync(long userId);

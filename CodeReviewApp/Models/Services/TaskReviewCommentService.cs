@@ -77,6 +77,12 @@ namespace CodeReviewApp.Models.Services
             //{
             //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
             //}
+
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewEmptyStatusName);
+            }
+
             var comment = await _taskReviewCommentRepository.GetAsync(commentId);
             if (comment == null)
             {

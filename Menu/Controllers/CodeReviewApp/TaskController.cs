@@ -120,11 +120,13 @@ namespace Menu.Controllers.CodeReviewApp
 
         [Route("add-new-task")]
         [HttpPut]
-        public async Task AddNewTask([FromForm] string taskName, [FromForm] long taskCreatorId
-            , [FromForm] long? taskReviwerId, [FromForm] string taskLink, [FromForm] long projectId, [FromForm] long statusId)
+        public async Task AddNewTask([FromForm] string taskName
+            , [FromForm] long? taskReviwerId, [FromForm] string taskLink, [FromForm] long projectId, [FromForm] long statusId
+            , [FromForm] string description)
         {
             taskName = _apiHealper.StringValidator(taskName);
             taskLink = _apiHealper.StringValidator(taskLink);
+            description = _apiHealper.StringValidator(description);
 
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -139,11 +141,10 @@ namespace Menu.Controllers.CodeReviewApp
                     var res = await _projectService.CreateTaskAsync(new TaskReview()
                     {
                         Name = taskName,
-                        CreatorId = taskCreatorId,
                         ReviewerId = taskReviwerId,
-                        Link = taskLink,
                         ProjectId = projectId,
                         StatusId = statusId,
+                        Description = description,
                     }, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
@@ -153,7 +154,8 @@ namespace Menu.Controllers.CodeReviewApp
                             CreatorId = res.CreatorId,
                             ReviewerId = res.ReviewerId,
                             Status = new TaskReviewStatusReturn(res.Status),
-                            Link = res.Link,
+                            CreateDate = res.CreateDate.ToString(),
+                            LastUpdateDate = res.LastUpdateDate.ToString()
                         });
 
                 }, Response, _logger);
@@ -163,11 +165,11 @@ namespace Menu.Controllers.CodeReviewApp
         [Route("update-task")]
         [HttpPatch]
         public async Task UpdateTask([FromForm] long taskId, [FromForm] string name
-            , [FromForm] int statusId, [FromForm] long creatorId, [FromForm] long? reviewerId
-            , [FromForm] string taskLink)
+            , [FromForm] int statusId, [FromForm] long? reviewerId
+            , [FromForm] string description)
         {
             name = _apiHealper.StringValidator(name);
-            taskLink = _apiHealper.StringValidator(taskLink);
+            description = _apiHealper.StringValidator(description);
 
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -185,9 +187,9 @@ namespace Menu.Controllers.CodeReviewApp
                         Id = taskId,
                         Name = name,
                         StatusId = statusId,
-                        CreatorId = creatorId,
+                        //CreatorId = creatorId,
                         ReviewerId = reviewerId,
-                        Link = taskLink,
+                        Description = description,
                     }, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new

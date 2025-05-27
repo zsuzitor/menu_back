@@ -130,6 +130,18 @@ namespace CodeReviewApp.Models.Services
             return user;
         }
 
+
+        public async Task<ProjectUser> GetAdminByMainAppIdAsync(UserInfo userInfo, long projectId)
+        {
+            var user = await _projectUserRepository.GetByMainAppUserIdAsync(userInfo.UserId, projectId);
+            if (user.Deactivated || !user.IsAdmin)
+            {
+                return null;
+            }
+
+            return user;
+        }
+
         public async Task<long?> GetIdByMainAppIdAsync(UserInfo userInfo, long projectId)
         {
             return await _projectUserRepository.GetIdByMainAppIdAsync(userInfo.UserId, projectId);
