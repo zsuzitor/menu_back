@@ -18,7 +18,12 @@ namespace CodeReviewApp.Models.Services.Interfaces
         Task<long> GetTasksCountAsync(long projectId, string name, long? creatorId
             , long? reviewerId, long? statusId);
         Task<TaskReview> UpdateAsync(TaskReview task, UserInfo userInfo);
+        Task<TaskReview> UpdateNameAsync(long id, string name, UserInfo userInfo);
+        Task<TaskReview> UpdateDescriptionAsync(long id, string description, UserInfo userInfo);
+        Task<TaskReview> UpdateStatusAsync(long id, long statusId, UserInfo userInfo);
+        Task<TaskReview> UpdateExecutorAsync(long id, long executorId, UserInfo userInfo);
         Task<TaskReview> DeleteIfAccess(long id, UserInfo userInfo);
+        Task<TaskReview> GetIfEditAccess(long id, UserInfo userInfo);
         Task<List<CommentReview>> GetCommentsAsync(long taskId, UserInfo userInfo);
         Task<TaskReview> GetByIdIfAccessAsync(long id, UserInfo userInfo);
         Task<CommentReview> CreateCommentAsync(long taskId, string text, UserInfo userInfo);

@@ -2522,7 +2522,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n\r\n\r\n.task-review-status-create {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n\r\n}\r\n\r\n.task-review-status-create .status-create {}\r\n\r\n.task-review-status-create .status-input {\r\n    width: 200px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/CodeReviewApp/Components/EditProject/EditProject.css"],"names":[],"mappings":";;;AAGA;IACI,aAAa;IACb,2BAA2B;IAC3B,SAAS;;AAEb;;AAEA,2CAA2C;;AAE3C;IACI,YAAY;AAChB","sourcesContent":["\r\n\r\n\r\n.task-review-status-create {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n\r\n}\r\n\r\n.task-review-status-create .status-create {}\r\n\r\n.task-review-status-create .status-input {\r\n    width: 200px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".task-review-status-create {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n\r\n}\r\n\r\n.task-review-status-create .status-create {}\r\n\r\n.task-review-status-create .status-input {\r\n    width: 200px;\r\n}\r\n\r\n.edit-project .task-statuses {\r\n    background-color: white;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/CodeReviewApp/Components/EditProject/EditProject.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,2BAA2B;IAC3B,SAAS;;AAEb;;AAEA,2CAA2C;;AAE3C;IACI,YAAY;AAChB;;AAEA;IACI,uBAAuB;AAC3B","sourcesContent":[".task-review-status-create {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n\r\n}\r\n\r\n.task-review-status-create .status-create {}\r\n\r\n.task-review-status-create .status-input {\r\n    width: 200px;\r\n}\r\n\r\n.edit-project .task-statuses {\r\n    background-color: white;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2657,7 +2657,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".one-review-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-review-task-detail-comments-block {\r\n    padding: 5px;\r\n}\r\n\r\n.one-review-task-detail-body {\r\n    display: flex;\r\n    padding: 0.75rem;\r\n    gap: 0.5rem;\r\n    background-color: white;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n}\r\n\r\n.one-review-task-detail-right-content {\r\n    width: 300px;\r\n}\r\n\r\n.one-review-task-detail-content {\r\n    flex-grow: 2;\r\n}\r\n\r\n.one-review-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n}\r\n\r\n.one-review-task-detail-name {\r\n    padding-left: 15px;\r\n}\r\n\r\n.one-review-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-review-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-detail-header {\r\n    background-color: #fff;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetail.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,sBAAsB;IACtB,4CAA4C;IAC5C,oCAAoC;IACpC,gBAAgB;IAChB,WAAW;AACf;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,gBAAgB;IAChB,WAAW;IACX,uBAAuB;IACvB,gBAAgB;IAChB,SAAS;AACb;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,cAAc;IACd,iBAAiB;IACjB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,iBAAiB;IACjB,iBAAiB;IACjB,oBAAoB;IACpB,mBAAmB;AACvB;;AAEA;;IAEI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B","sourcesContent":[".one-review-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-review-task-detail-comments-block {\r\n    padding: 5px;\r\n}\r\n\r\n.one-review-task-detail-body {\r\n    display: flex;\r\n    padding: 0.75rem;\r\n    gap: 0.5rem;\r\n    background-color: white;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n}\r\n\r\n.one-review-task-detail-right-content {\r\n    width: 300px;\r\n}\r\n\r\n.one-review-task-detail-content {\r\n    flex-grow: 2;\r\n}\r\n\r\n.one-review-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n}\r\n\r\n.one-review-task-detail-name {\r\n    padding-left: 15px;\r\n}\r\n\r\n.one-review-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-review-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-detail-header {\r\n    background-color: #fff;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".one-review-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-review-task-detail-comments-block {\r\n    padding-left: 10px;\r\n\r\n    max-width: 610px;\r\n}\r\n\r\n.one-review-task-detail-body {\r\n    display: flex;\r\n    padding: 10px;\r\n    gap: 0.5rem;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.one-review-task-detail-content {\r\n    flex-grow: 2;\r\n    border-radius: 5px;\r\n    max-width: 600px;\r\n    background-color: white;\r\n    padding: 5px;\r\n}\r\n\r\n.one-review-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n    border-radius: 5px;\r\n    width: 300px;\r\n    display: flex;\r\n    background-color: white;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n}\r\n\r\n.one-review-task-detail-name {\r\n    padding-left: 30px;\r\n    padding-right: 15px;\r\n    padding-bottom: 15px;\r\n\r\n    font-size: 25px;\r\n\r\n}\r\n\r\n.one-review-task-detail-name:hover {\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.one-review-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-review-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-detail-header {\r\n    background-color: #fff;\r\n}\r\n\r\n.review-task-detail-description {\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.review-task-detail-description:hover {\r\n    /* background-color: #f5f5f5; */\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-detail-right-content .editable-by-click {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-detail-comments-block-inner .task-comments-add:hover {\r\n    cursor: pointer;\r\n    border: 1px solid #DFE1E6;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetail.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,sBAAsB;IACtB,4CAA4C;IAC5C,oCAAoC;IACpC,gBAAgB;IAChB,WAAW;AACf;;AAEA;IACI,kBAAkB;;IAElB,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,aAAa;IACb,WAAW;IACX,gBAAgB;IAChB,SAAS;IACT,eAAe;IACf,8BAA8B;AAClC;;;AAGA;IACI,YAAY;IACZ,kBAAkB;IAClB,gBAAgB;IAChB,uBAAuB;IACvB,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,cAAc;IACd,iBAAiB;IACjB,gBAAgB;IAChB,kBAAkB;IAClB,YAAY;IACZ,aAAa;IACb,uBAAuB;IACvB,sBAAsB;IACtB,YAAY;AAChB;;AAEA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,oBAAoB;;IAEpB,eAAe;;AAEnB;;AAEA;IACI,yBAAyB;IACzB,eAAe;;AAEnB;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,iBAAiB;IACjB,iBAAiB;IACjB,oBAAoB;IACpB,mBAAmB;AACvB;;AAEA;;IAEI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;IAClB,eAAe;;IAEf,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,eAAe;IACf,yBAAyB;AAC7B","sourcesContent":[".one-review-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-review-task-detail-comments-block {\r\n    padding-left: 10px;\r\n\r\n    max-width: 610px;\r\n}\r\n\r\n.one-review-task-detail-body {\r\n    display: flex;\r\n    padding: 10px;\r\n    gap: 0.5rem;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.one-review-task-detail-content {\r\n    flex-grow: 2;\r\n    border-radius: 5px;\r\n    max-width: 600px;\r\n    background-color: white;\r\n    padding: 5px;\r\n}\r\n\r\n.one-review-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n    border-radius: 5px;\r\n    width: 300px;\r\n    display: flex;\r\n    background-color: white;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n}\r\n\r\n.one-review-task-detail-name {\r\n    padding-left: 30px;\r\n    padding-right: 15px;\r\n    padding-bottom: 15px;\r\n\r\n    font-size: 25px;\r\n\r\n}\r\n\r\n.one-review-task-detail-name:hover {\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.one-review-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-review-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-detail-header {\r\n    background-color: #fff;\r\n}\r\n\r\n.review-task-detail-description {\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.review-task-detail-description:hover {\r\n    /* background-color: #f5f5f5; */\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-detail-right-content .editable-by-click {\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-detail-comments-block-inner .task-comments-add:hover {\r\n    cursor: pointer;\r\n    border: 1px solid #DFE1E6;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2684,7 +2684,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".one-review-task-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    width: 35px;\r\n    padding-left: 5px;\r\n    flex-direction: column;\r\n}\r\n\r\n.one-review-task-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    flex-grow: 2;\r\n    align-items: center;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.one-review-task-content>span+.form-select {\r\n    margin-right: 1rem;\r\n}\r\n\r\n.review-task-name-input {\r\n    height: 2.125rem;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 0.75rem;\r\n    gap: 0.5rem;\r\n    background-color: white;\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    background-color: #fff;\r\n}\r\n\r\n.one-review-task-comments-block hr {\r\n    margin: 0 0.75rem 0.5rem 0.75rem;\r\n}\r\n\r\n.one-review-task-comments-block-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    background-color: #fff;\r\n    white-space: pre-wrap;\r\n    padding: 0 0.75rem 0.75rem 0.75rem;\r\n    /* white-space: pre; */\r\n}\r\n\r\n.one-review-task-comments-block-inner>.form-input+.button {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n.review-task-show-full-button .task-rotate {\r\n    rotate: 180deg;\r\n}\r\n\r\n.one-review-task-short-content {\r\n    flex-grow: 2;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,sBAAsB;IACtB,4CAA4C;IAC5C,oCAAoC;IACpC,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,WAAW;IACX,iBAAiB;IACjB,sBAAsB;AAC1B;;AAEA;;IAEI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,YAAY;IACZ,mBAAmB;IACnB,WAAW;AACf;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,gBAAgB;IAChB,WAAW;IACX,uBAAuB;IACvB,gBAAgB;AACpB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;IACX,sBAAsB;IACtB,qBAAqB;IACrB,kCAAkC;IAClC,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,cAAc;AAClB;;AAEA;IACI,YAAY;AAChB","sourcesContent":[".one-review-task-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    width: 35px;\r\n    padding-left: 5px;\r\n    flex-direction: column;\r\n}\r\n\r\n.one-review-task-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    flex-grow: 2;\r\n    align-items: center;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.one-review-task-content>span+.form-select {\r\n    margin-right: 1rem;\r\n}\r\n\r\n.review-task-name-input {\r\n    height: 2.125rem;\r\n}\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 0.75rem;\r\n    gap: 0.5rem;\r\n    background-color: white;\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    background-color: #fff;\r\n}\r\n\r\n.one-review-task-comments-block hr {\r\n    margin: 0 0.75rem 0.5rem 0.75rem;\r\n}\r\n\r\n.one-review-task-comments-block-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    background-color: #fff;\r\n    white-space: pre-wrap;\r\n    padding: 0 0.75rem 0.75rem 0.75rem;\r\n    /* white-space: pre; */\r\n}\r\n\r\n.one-review-task-comments-block-inner>.form-input+.button {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n.review-task-show-full-button .task-rotate {\r\n    rotate: 180deg;\r\n}\r\n\r\n.one-review-task-short-content {\r\n    flex-grow: 2;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".one-review-task-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    width: 35px;\r\n    padding-left: 5px;\r\n    flex-direction: column;\r\n}\r\n\r\n.one-review-task-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    flex-grow: 2;\r\n    align-items: center;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.one-review-task-content>span+.form-select {\r\n    margin-right: 1rem;\r\n}\r\n\r\n/* .review-task-name-input {\r\n    height: 2.125rem;\r\n} */\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 0.75rem;\r\n    gap: 0.5rem;\r\n    background-color: white;\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    background-color: #fff;\r\n}\r\n\r\n.one-review-task-comments-block hr {\r\n    margin: 0 0.75rem 0.5rem 0.75rem;\r\n}\r\n\r\n.one-review-task-comments-block-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    background-color: #fff;\r\n    white-space: pre-wrap;\r\n    padding: 0 0.75rem 0.75rem 0.75rem;\r\n    /* white-space: pre; */\r\n}\r\n\r\n.one-review-task-comments-block-inner>.form-input+.button {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n.task-button .task-rotate {\r\n    rotate: 180deg;\r\n}\r\n\r\n.one-review-task-short-content {\r\n    flex-grow: 2;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/CodeReviewApp/Components/OneReviewTask/OneReviewTask.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,sBAAsB;IACtB,4CAA4C;IAC5C,oCAAoC;IACpC,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,WAAW;IACX,iBAAiB;IACjB,sBAAsB;AAC1B;;AAEA;;IAEI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,YAAY;IACZ,mBAAmB;IACnB,WAAW;AACf;;AAEA;IACI,kBAAkB;AACtB;;AAEA;;GAEG;;AAEH;IACI,aAAa;IACb,gBAAgB;IAChB,WAAW;IACX,uBAAuB;IACvB,gBAAgB;AACpB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,gCAAgC;AACpC;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,WAAW;IACX,sBAAsB;IACtB,qBAAqB;IACrB,kCAAkC;IAClC,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,cAAc;AAClB;;AAEA;IACI,YAAY;AAChB","sourcesContent":[".one-review-task-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    width: 35px;\r\n    padding-left: 5px;\r\n    flex-direction: column;\r\n}\r\n\r\n.one-review-task-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-review-task-content {\r\n    display: flex;\r\n    flex-direction: row;\r\n    flex-wrap: wrap;\r\n    flex-grow: 2;\r\n    align-items: center;\r\n    gap: 0.5rem;\r\n}\r\n\r\n.one-review-task-content>span+.form-select {\r\n    margin-right: 1rem;\r\n}\r\n\r\n/* .review-task-name-input {\r\n    height: 2.125rem;\r\n} */\r\n\r\n.one-review-task-block-flex {\r\n    display: flex;\r\n    padding: 0.75rem;\r\n    gap: 0.5rem;\r\n    background-color: white;\r\n    overflow: hidden;\r\n}\r\n\r\n.one-review-task-comments-block {\r\n    background-color: #fff;\r\n}\r\n\r\n.one-review-task-comments-block hr {\r\n    margin: 0 0.75rem 0.5rem 0.75rem;\r\n}\r\n\r\n.one-review-task-comments-block-inner {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    background-color: #fff;\r\n    white-space: pre-wrap;\r\n    padding: 0 0.75rem 0.75rem 0.75rem;\r\n    /* white-space: pre; */\r\n}\r\n\r\n.one-review-task-comments-block-inner>.form-input+.button {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n.task-button .task-rotate {\r\n    rotate: 180deg;\r\n}\r\n\r\n.one-review-task-short-content {\r\n    flex-grow: 2;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2711,7 +2711,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".review-project-detail-main {\r\n\r\n}\r\n\r\n.review-project-detail-main-header {\r\n    display: flex;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n    gap: 1rem;\r\n    margin-bottom: 0.6875rem;\r\n}\r\n\r\n.review-project-detail-main-header-buttons {\r\n    display: flex;\r\n    gap: 1rem;\r\n    margin-left: auto;\r\n}\r\n\r\n.review-project-detail-main h1 {\r\n    margin-bottom: 0;\r\n    margin-left: 2.5rem;\r\n}\r\n\r\n.review-project-detail-main h3 {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n/*.review-project-new-task-block {*/\r\n/*    !* border: 1px solid black; *!*/\r\n/*    padding-bottom: 15px;*/\r\n/*}*/\r\n\r\n.review-project-tasks-filters-block {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    padding: 1rem;\r\n    overflow: hidden;\r\n    background-color: white;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.review-project-tasks-filters-block h4 {\r\n    margin-top: -0.5rem;\r\n    margin-bottom: 0;\r\n}\r\n\r\n.review-project-tasks-filters-block-flex {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    gap: 0.5rem 1.5rem;\r\n}\r\n\r\n.review-project-tasks-filters-block-flex .form-input {\r\n    width: 15rem;\r\n}\r\n\r\n.review-project-tasks-filters-block-flex span {\r\n    margin-right: 0.5rem;\r\n}\r\n\r\n.review-project-tasks-filters-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.review-project-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-project-edit-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-project-tasks {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n.review-project-no-project {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    gap: 1rem;\r\n    margin: 120px auto 0 auto;\r\n    background-color: #fff;\r\n    border-radius: 0.75rem;\r\n    width: fit-content;\r\n    padding: 1rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.review-project-no-project img {\r\n    width: 3rem;\r\n    height: 3rem;\r\n}\r\n\r\n.review-project-no-project h2 {\r\n    font-size: 2rem;\r\n    margin-bottom: 0.25rem;\r\n}\r\n\r\n.review-project-tasks-no-tasks {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    gap: 1rem;\r\n    margin: 60px auto 0 auto;\r\n    background-color: #fff;\r\n    border-radius: 0.75rem;\r\n    width: fit-content;\r\n    padding: 1rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.review-project-tasks-no-tasks img {\r\n    width: 3rem;\r\n    height: 3rem;\r\n}\r\n\r\n.review-project-tasks-no-tasks h2 {\r\n    font-size: 2rem;\r\n    margin-bottom: 0.25rem;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/CodeReviewApp/Components/ProjectDetail/ProjectDetail.css"],"names":[],"mappings":"AAAA;;AAEA;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,SAAS;IACT,wBAAwB;AAC5B;;AAEA;IACI,aAAa;IACb,SAAS;IACT,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;AACtB;;AAEA,mCAAmC;AACnC,qCAAqC;AACrC,4BAA4B;AAC5B,IAAI;;AAEJ;IACI,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,WAAW;IACX,aAAa;IACb,gBAAgB;IAChB,uBAAuB;IACvB,sBAAsB;IACtB,4CAA4C;IAC5C,oCAAoC;AACxC;;AAEA;IACI,mBAAmB;IACnB,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,kBAAkB;AACtB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,SAAS;IACT,yBAAyB;IACzB,sBAAsB;IACtB,sBAAsB;IACtB,kBAAkB;IAClB,aAAa;IACb,4CAA4C;IAC5C,oCAAoC;AACxC;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,SAAS;IACT,wBAAwB;IACxB,sBAAsB;IACtB,sBAAsB;IACtB,kBAAkB;IAClB,aAAa;IACb,4CAA4C;IAC5C,oCAAoC;AACxC;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,eAAe;IACf,sBAAsB;AAC1B","sourcesContent":[".review-project-detail-main {\r\n\r\n}\r\n\r\n.review-project-detail-main-header {\r\n    display: flex;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n    gap: 1rem;\r\n    margin-bottom: 0.6875rem;\r\n}\r\n\r\n.review-project-detail-main-header-buttons {\r\n    display: flex;\r\n    gap: 1rem;\r\n    margin-left: auto;\r\n}\r\n\r\n.review-project-detail-main h1 {\r\n    margin-bottom: 0;\r\n    margin-left: 2.5rem;\r\n}\r\n\r\n.review-project-detail-main h3 {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n/*.review-project-new-task-block {*/\r\n/*    !* border: 1px solid black; *!*/\r\n/*    padding-bottom: 15px;*/\r\n/*}*/\r\n\r\n.review-project-tasks-filters-block {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    padding: 1rem;\r\n    overflow: hidden;\r\n    background-color: white;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.review-project-tasks-filters-block h4 {\r\n    margin-top: -0.5rem;\r\n    margin-bottom: 0;\r\n}\r\n\r\n.review-project-tasks-filters-block-flex {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    gap: 0.5rem 1.5rem;\r\n}\r\n\r\n.review-project-tasks-filters-block-flex .form-input {\r\n    width: 15rem;\r\n}\r\n\r\n.review-project-tasks-filters-block-flex span {\r\n    margin-right: 0.5rem;\r\n}\r\n\r\n.review-project-tasks-filters-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.review-project-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-project-edit-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-project-tasks {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n.review-project-no-project {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    gap: 1rem;\r\n    margin: 120px auto 0 auto;\r\n    background-color: #fff;\r\n    border-radius: 0.75rem;\r\n    width: fit-content;\r\n    padding: 1rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.review-project-no-project img {\r\n    width: 3rem;\r\n    height: 3rem;\r\n}\r\n\r\n.review-project-no-project h2 {\r\n    font-size: 2rem;\r\n    margin-bottom: 0.25rem;\r\n}\r\n\r\n.review-project-tasks-no-tasks {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    gap: 1rem;\r\n    margin: 60px auto 0 auto;\r\n    background-color: #fff;\r\n    border-radius: 0.75rem;\r\n    width: fit-content;\r\n    padding: 1rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.review-project-tasks-no-tasks img {\r\n    width: 3rem;\r\n    height: 3rem;\r\n}\r\n\r\n.review-project-tasks-no-tasks h2 {\r\n    font-size: 2rem;\r\n    margin-bottom: 0.25rem;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".review-project-detail-main {}\r\n\r\n.review-project-detail-main-header {\r\n    display: flex;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n    gap: 1rem;\r\n    margin-bottom: 0.6875rem;\r\n}\r\n\r\n.review-project-detail-main-header-buttons {\r\n    display: flex;\r\n    gap: 1rem;\r\n    margin-left: auto;\r\n}\r\n\r\n.review-project-detail-main h1 {\r\n    margin-bottom: 0;\r\n    margin-left: 2.5rem;\r\n}\r\n\r\n.review-project-detail-main h3 {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n/*.review-project-new-task-block {*/\r\n/*    !* border: 1px solid black; *!*/\r\n/*    padding-bottom: 15px;*/\r\n/*}*/\r\n\r\n/* .review-project-tasks-filters-block {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    padding: 1rem;\r\n    background-color: white;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.review-project-tasks-filters-block h4 {\r\n    margin-top: -0.5rem;\r\n    margin-bottom: 0;\r\n} */\r\n\r\n.review-project-tasks-filters-block-flex {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    gap: 3px 7px;\r\n    padding-bottom: 10px;\r\n}\r\n\r\n.review-project-tasks-filters-block-flex .form-input {\r\n    width: 15rem;\r\n}\r\n\r\n.review-project-tasks-filters-block-flex span {\r\n    margin-right: 0.5rem;\r\n}\r\n\r\n.review-project-tasks-filters-buttons {\r\n    display: flex;\r\n    /* justify-content: space-between; */\r\n    gap: 20px;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.review-project-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.filter-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-project-edit-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-project-tasks {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n.review-project-no-project {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    gap: 1rem;\r\n    margin: 120px auto 0 auto;\r\n    background-color: #fff;\r\n    border-radius: 0.75rem;\r\n    width: fit-content;\r\n    padding: 1rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.review-project-no-project img {\r\n    width: 3rem;\r\n    height: 3rem;\r\n}\r\n\r\n.review-project-no-project h2 {\r\n    font-size: 2rem;\r\n    margin-bottom: 0.25rem;\r\n}\r\n\r\n.review-project-tasks-no-tasks {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    gap: 1rem;\r\n    margin: 60px auto 0 auto;\r\n    background-color: #fff;\r\n    border-radius: 0.75rem;\r\n    width: fit-content;\r\n    padding: 1rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.review-project-tasks-no-tasks img {\r\n    width: 3rem;\r\n    height: 3rem;\r\n}\r\n\r\n.review-project-tasks-no-tasks h2 {\r\n    font-size: 2rem;\r\n    margin-bottom: 0.25rem;\r\n}\r\n\r\n.review-project-description {\r\n    height: 200px;\r\n    background-color: white;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n/* .filters-window-full {\r\n    display: flex;\r\n    gap: 30px;\r\n    flex-wrap: wrap;\r\n} */\r\n\r\n.project-paggination-block {\r\n\r\n    justify-content: center;\r\n    display: flex;\r\n}\r\n\r\n.filters-window {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    gap: 10px;\r\n}\r\n\r\n.filters-window .add-one-filter {\r\n    color: #4a6b8b;\r\n    font-weight: 500;\r\n    border: 1px solid #e1e5eb;\r\n    cursor: pointer;\r\n\r\n    border-radius: 5px;\r\n    padding: 2px;\r\n}\r\n\r\n.filter-container {\r\n    display: flex;\r\n    align-items: center;\r\n    /* gap: 10px; */\r\n    /* margin-bottom: 20px; */\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.filter-tag {\r\n    display: flex;\r\n    align-items: center;\r\n    background-color: white;\r\n    border-radius: 10px;\r\n    padding: 3px 4px;\r\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\r\n    border: 1px solid #e1e5eb;\r\n    font-size: 13px;\r\n}\r\n\r\n.filter-name {\r\n    margin-right: 8px;\r\n    color: #4a6b8b;\r\n    font-weight: 500;\r\n}\r\n\r\n.filter-input {\r\n    border: 1px solid #e1e5eb;\r\n    border-radius: 10px;\r\n    padding: 2px 9px;\r\n    font-size: 13px;\r\n    outline: none;\r\n    transition: border 0.3s;\r\n    background-color: white;\r\n}\r\n\r\n.filter-input:focus {\r\n    border-color: #a0c1e4;\r\n}\r\n\r\n.remove-filter {\r\n    background: none;\r\n    border: none;\r\n    color: #9ab0c7;\r\n    cursor: pointer;\r\n    font-size: 14px;\r\n    padding: 0;\r\n    display: flex;\r\n    align-items: center;\r\n    transition: color 0.2s;\r\n}\r\n\r\n.remove-filter:hover {\r\n    color: #6d8cb0;\r\n}\r\n\r\n.add-task-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-task-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n.add-filter-btn {\r\n    background-color: #e1f0ff;\r\n    color: #3a7bc8;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-filter-btn:hover {\r\n    background-color: #d0e4fa;\r\n}\r\n\r\n.del-filter-btn {\r\n    background-color: #ed7a8d;\r\n    color: #ffffff;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.del-filter-btn:hover {\r\n    background-color: #dc4861;\r\n}\r\n\r\n.cross-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n\r\n}\r\n\r\n\r\n.plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n\r\n.review-project-tasks .tasks-header {\r\n    display: flex;\r\n    gap: 10px;\r\n    padding-bottom: 10px;\r\n\r\n    align-items: baseline;\r\n}\r\n\r\n.review-project-tasks .tasks-header div {\r\n    flex: 1 1 100px;\r\n    max-width: 160px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/CodeReviewApp/Components/ProjectDetail/ProjectDetail.css"],"names":[],"mappings":"AAAA,6BAA6B;;AAE7B;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,SAAS;IACT,wBAAwB;AAC5B;;AAEA;IACI,aAAa;IACb,SAAS;IACT,iBAAiB;AACrB;;AAEA;IACI,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,kBAAkB;AACtB;;AAEA,mCAAmC;AACnC,qCAAqC;AACrC,4BAA4B;AAC5B,IAAI;;AAEJ;;;;;;;;;;;;;;;GAeG;;AAEH;IACI,aAAa;IACb,eAAe;IACf,YAAY;IACZ,oBAAoB;AACxB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,oBAAoB;AACxB;;AAEA;IACI,aAAa;IACb,oCAAoC;IACpC,SAAS;IACT,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,SAAS;IACT,yBAAyB;IACzB,sBAAsB;IACtB,sBAAsB;IACtB,kBAAkB;IAClB,aAAa;IACb,4CAA4C;IAC5C,oCAAoC;AACxC;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,uBAAuB;IACvB,mBAAmB;IACnB,SAAS;IACT,wBAAwB;IACxB,sBAAsB;IACtB,sBAAsB;IACtB,kBAAkB;IAClB,aAAa;IACb,4CAA4C;IAC5C,oCAAoC;AACxC;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,uBAAuB;IACvB,sBAAsB;IACtB,4CAA4C;IAC5C,oCAAoC;AACxC;;AAEA;;;;GAIG;;AAEH;;IAEI,uBAAuB;IACvB,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,eAAe;IACf,SAAS;AACb;;AAEA;IACI,cAAc;IACd,gBAAgB;IAChB,yBAAyB;IACzB,eAAe;;IAEf,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,uBAAuB;IACvB,mBAAmB;IACnB,gBAAgB;IAChB,yCAAyC;IACzC,yBAAyB;IACzB,eAAe;AACnB;;AAEA;IACI,iBAAiB;IACjB,cAAc;IACd,gBAAgB;AACpB;;AAEA;IACI,yBAAyB;IACzB,mBAAmB;IACnB,gBAAgB;IAChB,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,uBAAuB;AAC3B;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,gBAAgB;IAChB,YAAY;IACZ,cAAc;IACd,eAAe;IACf,eAAe;IACf,UAAU;IACV,aAAa;IACb,mBAAmB;IACnB,sBAAsB;AAC1B;;AAEA;IACI,cAAc;AAClB;;AAEA;;IAEI,yBAAyB;IACzB,YAAY;IACZ,YAAY;IACZ,mBAAmB;IACnB,iBAAiB;IACjB,eAAe;IACf,eAAe;IACf,aAAa;IACb,mBAAmB;IACnB,QAAQ;IACR,iCAAiC;AACrC;;;AAGA;IACI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;IACzB,cAAc;IACd,YAAY;IACZ,mBAAmB;IACnB,iBAAiB;IACjB,eAAe;IACf,eAAe;IACf,aAAa;IACb,mBAAmB;IACnB,QAAQ;IACR,iCAAiC;AACrC;;;AAGA;IACI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;IACzB,cAAc;IACd,YAAY;IACZ,mBAAmB;IACnB,iBAAiB;IACjB,eAAe;IACf,eAAe;IACf,aAAa;IACb,mBAAmB;IACnB,QAAQ;IACR,iCAAiC;AACrC;;;AAGA;IACI,yBAAyB;AAC7B;;AAEA;IACI,iBAAiB;IACjB,eAAe;;AAEnB;;;AAGA;IACI,iBAAiB;IACjB,eAAe;AACnB;;;AAGA;IACI,aAAa;IACb,SAAS;IACT,oBAAoB;;IAEpB,qBAAqB;AACzB;;AAEA;IACI,eAAe;IACf,gBAAgB;AACpB","sourcesContent":[".review-project-detail-main {}\r\n\r\n.review-project-detail-main-header {\r\n    display: flex;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n    gap: 1rem;\r\n    margin-bottom: 0.6875rem;\r\n}\r\n\r\n.review-project-detail-main-header-buttons {\r\n    display: flex;\r\n    gap: 1rem;\r\n    margin-left: auto;\r\n}\r\n\r\n.review-project-detail-main h1 {\r\n    margin-bottom: 0;\r\n    margin-left: 2.5rem;\r\n}\r\n\r\n.review-project-detail-main h3 {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n/*.review-project-new-task-block {*/\r\n/*    !* border: 1px solid black; *!*/\r\n/*    padding-bottom: 15px;*/\r\n/*}*/\r\n\r\n/* .review-project-tasks-filters-block {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 0.5rem;\r\n    padding: 1rem;\r\n    background-color: white;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.review-project-tasks-filters-block h4 {\r\n    margin-top: -0.5rem;\r\n    margin-bottom: 0;\r\n} */\r\n\r\n.review-project-tasks-filters-block-flex {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    gap: 3px 7px;\r\n    padding-bottom: 10px;\r\n}\r\n\r\n.review-project-tasks-filters-block-flex .form-input {\r\n    width: 15rem;\r\n}\r\n\r\n.review-project-tasks-filters-block-flex span {\r\n    margin-right: 0.5rem;\r\n}\r\n\r\n.review-project-tasks-filters-buttons {\r\n    display: flex;\r\n    /* justify-content: space-between; */\r\n    gap: 20px;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.review-project-delete-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.filter-cancel-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-project-edit-button {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.review-project-tasks {\r\n    margin-top: 0.5rem;\r\n}\r\n\r\n.review-project-no-project {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    gap: 1rem;\r\n    margin: 120px auto 0 auto;\r\n    background-color: #fff;\r\n    border-radius: 0.75rem;\r\n    width: fit-content;\r\n    padding: 1rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.review-project-no-project img {\r\n    width: 3rem;\r\n    height: 3rem;\r\n}\r\n\r\n.review-project-no-project h2 {\r\n    font-size: 2rem;\r\n    margin-bottom: 0.25rem;\r\n}\r\n\r\n.review-project-tasks-no-tasks {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    gap: 1rem;\r\n    margin: 60px auto 0 auto;\r\n    background-color: #fff;\r\n    border-radius: 0.75rem;\r\n    width: fit-content;\r\n    padding: 1rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n.review-project-tasks-no-tasks img {\r\n    width: 3rem;\r\n    height: 3rem;\r\n}\r\n\r\n.review-project-tasks-no-tasks h2 {\r\n    font-size: 2rem;\r\n    margin-bottom: 0.25rem;\r\n}\r\n\r\n.review-project-description {\r\n    height: 200px;\r\n    background-color: white;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n}\r\n\r\n/* .filters-window-full {\r\n    display: flex;\r\n    gap: 30px;\r\n    flex-wrap: wrap;\r\n} */\r\n\r\n.project-paggination-block {\r\n\r\n    justify-content: center;\r\n    display: flex;\r\n}\r\n\r\n.filters-window {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n    gap: 10px;\r\n}\r\n\r\n.filters-window .add-one-filter {\r\n    color: #4a6b8b;\r\n    font-weight: 500;\r\n    border: 1px solid #e1e5eb;\r\n    cursor: pointer;\r\n\r\n    border-radius: 5px;\r\n    padding: 2px;\r\n}\r\n\r\n.filter-container {\r\n    display: flex;\r\n    align-items: center;\r\n    /* gap: 10px; */\r\n    /* margin-bottom: 20px; */\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.filter-tag {\r\n    display: flex;\r\n    align-items: center;\r\n    background-color: white;\r\n    border-radius: 10px;\r\n    padding: 3px 4px;\r\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\r\n    border: 1px solid #e1e5eb;\r\n    font-size: 13px;\r\n}\r\n\r\n.filter-name {\r\n    margin-right: 8px;\r\n    color: #4a6b8b;\r\n    font-weight: 500;\r\n}\r\n\r\n.filter-input {\r\n    border: 1px solid #e1e5eb;\r\n    border-radius: 10px;\r\n    padding: 2px 9px;\r\n    font-size: 13px;\r\n    outline: none;\r\n    transition: border 0.3s;\r\n    background-color: white;\r\n}\r\n\r\n.filter-input:focus {\r\n    border-color: #a0c1e4;\r\n}\r\n\r\n.remove-filter {\r\n    background: none;\r\n    border: none;\r\n    color: #9ab0c7;\r\n    cursor: pointer;\r\n    font-size: 14px;\r\n    padding: 0;\r\n    display: flex;\r\n    align-items: center;\r\n    transition: color 0.2s;\r\n}\r\n\r\n.remove-filter:hover {\r\n    color: #6d8cb0;\r\n}\r\n\r\n.add-task-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-task-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n.add-filter-btn {\r\n    background-color: #e1f0ff;\r\n    color: #3a7bc8;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-filter-btn:hover {\r\n    background-color: #d0e4fa;\r\n}\r\n\r\n.del-filter-btn {\r\n    background-color: #ed7a8d;\r\n    color: #ffffff;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.del-filter-btn:hover {\r\n    background-color: #dc4861;\r\n}\r\n\r\n.cross-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n\r\n}\r\n\r\n\r\n.plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n\r\n.review-project-tasks .tasks-header {\r\n    display: flex;\r\n    gap: 10px;\r\n    padding-bottom: 10px;\r\n\r\n    align-items: baseline;\r\n}\r\n\r\n.review-project-tasks .tasks-header div {\r\n    flex: 1 1 100px;\r\n    max-width: 160px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3447,6 +3447,87 @@ ___CSS_LOADER_EXPORT___.push([module.id, "div.person-settings-outer {\r\n    pad
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/PopupWindow/PopupWindow.css":
+/*!***********************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/PopupWindow/PopupWindow.css ***!
+  \***********************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".popup-wrapper {\r\n    position: relative;\r\n    display: inline-block;\r\n}\r\n\r\n.popup-content {\r\n    background: white;\r\n    border: 1px solid #ddd;\r\n    border-radius: 4px;\r\n    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);\r\n    padding: 15px;\r\n    min-width: 200px;\r\n    z-index: 1000;\r\n    /* Решение для плавного появления */\r\n    /* opacity: 0; */\r\n    /* transform: translateY(-10px); */\r\n    transition: opacity 0.2s, transform 0.2s;\r\n}\r\n\r\n/* .popup-content.visible {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n} */", "",{"version":3,"sources":["webpack://./src/components/Body/PopupWindow/PopupWindow.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,qBAAqB;AACzB;;AAEA;IACI,iBAAiB;IACjB,sBAAsB;IACtB,kBAAkB;IAClB,yCAAyC;IACzC,aAAa;IACb,gBAAgB;IAChB,aAAa;IACb,mCAAmC;IACnC,gBAAgB;IAChB,kCAAkC;IAClC,wCAAwC;AAC5C;;AAEA;;;GAGG","sourcesContent":[".popup-wrapper {\r\n    position: relative;\r\n    display: inline-block;\r\n}\r\n\r\n.popup-content {\r\n    background: white;\r\n    border: 1px solid #ddd;\r\n    border-radius: 4px;\r\n    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);\r\n    padding: 15px;\r\n    min-width: 200px;\r\n    z-index: 1000;\r\n    /* Решение для плавного появления */\r\n    /* opacity: 0; */\r\n    /* transform: translateY(-10px); */\r\n    transition: opacity 0.2s, transform 0.2s;\r\n}\r\n\r\n/* .popup-content.visible {\r\n    opacity: 1;\r\n    transform: translateY(0);\r\n} */"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/SaveCancelInput/SaveCancelInput.css":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/SaveCancelInput/SaveCancelInput.css ***!
+  \*******************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".editable-input-container .editable-input {\r\n    border: none;\r\n    padding: 6px 10px;\r\n    font-size: inherit;\r\n    font-family: inherit;\r\n    color: inherit;\r\n    /* min-width: 200px; */\r\n    outline: none;\r\n    flex-grow: 1;\r\n}\r\n\r\n.editable-input-container {\r\n    display: flex;\r\n    align-items: center;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 3px;\r\n    padding-right: 5px;\r\n}\r\n\r\n.editable-input-container .action-buttons {\r\n    display: flex;\r\n    gap: 2px;\r\n}\r\n\r\n/* Общие стили для кнопок */\r\n.editable-input-container .action-buttons .save-button,\r\n.editable-input-container .action-buttons .cancel-button {\r\n    background: none;\r\n    border: none;\r\n    cursor: pointer;\r\n    padding: 6px;\r\n    border-radius: 3px;\r\n    color: #5E6C84;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.editable-input-container .action-buttons .save-button:hover {\r\n    background-color: #EBECF0;\r\n    color: #1B8559;\r\n}\r\n\r\n.editable-input-container .action-buttons .cancel-button:hover {\r\n    background-color: #EBECF0;\r\n    color: #DE350B;\r\n}\r\n\r\n/* Иконка галочки */\r\n.editable-input-container .action-buttons .save-button .save-icon {\r\n    display: inline-block;\r\n    width: 16px;\r\n    height: 16px;\r\n    position: relative;\r\n}\r\n\r\n.editable-input-container .action-buttons .save-button .save-icon::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    width: 10px;\r\n    height: 5px;\r\n    border-left: 2px solid currentColor;\r\n    border-bottom: 2px solid currentColor;\r\n    transform: translate(-50%, -60%) rotate(-45deg);\r\n}\r\n\r\n/* Иконка крестика */\r\n.editable-input-container .action-buttons .cancel-button .cancel-icon {\r\n    display: inline-block;\r\n    width: 16px;\r\n    height: 16px;\r\n    position: relative;\r\n}\r\n\r\n.editable-input-container .action-buttons .cancel-button .cancel-icon::before,\r\n.editable-input-container .action-buttons .cancel-button .cancel-icon::after {\r\n    content: '';\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    width: 16px;\r\n    height: 2px;\r\n    background-color: currentColor;\r\n}\r\n\r\n.editable-input-container .action-buttons .cancel-button .cancel-icon::before {\r\n    transform: translate(-50%, -50%) rotate(45deg);\r\n}\r\n\r\n.editable-input-container .action-buttons .cancel-button .cancel-icon::after {\r\n    transform: translate(-50%, -50%) rotate(-45deg);\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/SaveCancelInput/SaveCancelInput.css"],"names":[],"mappings":"AAAA;IACI,YAAY;IACZ,iBAAiB;IACjB,kBAAkB;IAClB,oBAAoB;IACpB,cAAc;IACd,sBAAsB;IACtB,aAAa;IACb,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,yBAAyB;IACzB,kBAAkB;IAClB,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,QAAQ;AACZ;;AAEA,2BAA2B;AAC3B;;IAEI,gBAAgB;IAChB,YAAY;IACZ,eAAe;IACf,YAAY;IACZ,kBAAkB;IAClB,cAAc;IACd,aAAa;IACb,mBAAmB;IACnB,uBAAuB;AAC3B;;AAEA;IACI,yBAAyB;IACzB,cAAc;AAClB;;AAEA;IACI,yBAAyB;IACzB,cAAc;AAClB;;AAEA,mBAAmB;AACnB;IACI,qBAAqB;IACrB,WAAW;IACX,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,WAAW;IACX,kBAAkB;IAClB,QAAQ;IACR,SAAS;IACT,WAAW;IACX,WAAW;IACX,mCAAmC;IACnC,qCAAqC;IACrC,+CAA+C;AACnD;;AAEA,oBAAoB;AACpB;IACI,qBAAqB;IACrB,WAAW;IACX,YAAY;IACZ,kBAAkB;AACtB;;AAEA;;IAEI,WAAW;IACX,kBAAkB;IAClB,QAAQ;IACR,SAAS;IACT,WAAW;IACX,WAAW;IACX,8BAA8B;AAClC;;AAEA;IACI,8CAA8C;AAClD;;AAEA;IACI,+CAA+C;AACnD","sourcesContent":[".editable-input-container .editable-input {\r\n    border: none;\r\n    padding: 6px 10px;\r\n    font-size: inherit;\r\n    font-family: inherit;\r\n    color: inherit;\r\n    /* min-width: 200px; */\r\n    outline: none;\r\n    flex-grow: 1;\r\n}\r\n\r\n.editable-input-container {\r\n    display: flex;\r\n    align-items: center;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 3px;\r\n    padding-right: 5px;\r\n}\r\n\r\n.editable-input-container .action-buttons {\r\n    display: flex;\r\n    gap: 2px;\r\n}\r\n\r\n/* Общие стили для кнопок */\r\n.editable-input-container .action-buttons .save-button,\r\n.editable-input-container .action-buttons .cancel-button {\r\n    background: none;\r\n    border: none;\r\n    cursor: pointer;\r\n    padding: 6px;\r\n    border-radius: 3px;\r\n    color: #5E6C84;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.editable-input-container .action-buttons .save-button:hover {\r\n    background-color: #EBECF0;\r\n    color: #1B8559;\r\n}\r\n\r\n.editable-input-container .action-buttons .cancel-button:hover {\r\n    background-color: #EBECF0;\r\n    color: #DE350B;\r\n}\r\n\r\n/* Иконка галочки */\r\n.editable-input-container .action-buttons .save-button .save-icon {\r\n    display: inline-block;\r\n    width: 16px;\r\n    height: 16px;\r\n    position: relative;\r\n}\r\n\r\n.editable-input-container .action-buttons .save-button .save-icon::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    width: 10px;\r\n    height: 5px;\r\n    border-left: 2px solid currentColor;\r\n    border-bottom: 2px solid currentColor;\r\n    transform: translate(-50%, -60%) rotate(-45deg);\r\n}\r\n\r\n/* Иконка крестика */\r\n.editable-input-container .action-buttons .cancel-button .cancel-icon {\r\n    display: inline-block;\r\n    width: 16px;\r\n    height: 16px;\r\n    position: relative;\r\n}\r\n\r\n.editable-input-container .action-buttons .cancel-button .cancel-icon::before,\r\n.editable-input-container .action-buttons .cancel-button .cancel-icon::after {\r\n    content: '';\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    width: 16px;\r\n    height: 2px;\r\n    background-color: currentColor;\r\n}\r\n\r\n.editable-input-container .action-buttons .cancel-button .cancel-icon::before {\r\n    transform: translate(-50%, -50%) rotate(45deg);\r\n}\r\n\r\n.editable-input-container .action-buttons .cancel-button .cancel-icon::after {\r\n    transform: translate(-50%, -50%) rotate(-45deg);\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/SaveCancelTextarea/SaveCancelTextarea.css":
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/SaveCancelTextarea/SaveCancelTextarea.css ***!
+  \*************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".editable-textarea-container .editable-textarea {\r\n    width: 100%;\r\n    border: none;\r\n    padding: 12px;\r\n    font-size: inherit;\r\n    font-family: inherit;\r\n    color: inherit;\r\n    min-height: 100px;\r\n    resize: vertical;\r\n    outline: none;\r\n    line-height: inherit;\r\n}\r\n\r\n.editable-textarea-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    background: white;\r\n    border: 2px solid #4C9AFF;\r\n    border-radius: 3px;\r\n    box-shadow: 0 1px 3px rgba(9, 30, 66, 0.15);\r\n    overflow: hidden;\r\n}\r\n\r\n.editable-textarea-container .editable-textarea {\r\n\r\n    border: none;\r\n    padding: 12px;\r\n    font-size: inherit;\r\n    font-family: inherit;\r\n    color: inherit;\r\n    min-height: 100px;\r\n    resize: vertical;\r\n    outline: none;\r\n    line-height: inherit;\r\n}\r\n\r\n.editable-textarea-container .input-editable-controls {\r\n    display: flex;\r\n    justify-content: flex-end;\r\n    gap: 8px;\r\n    padding: 8px;\r\n    background: #F4F5F7;\r\n    border-top: 1px solid #DFE1E6;\r\n}\r\n\r\n\r\n\r\n.editable-textarea-container .input-editable-controls .editable-button {\r\n    padding: 6px 12px;\r\n    border-radius: 3px;\r\n    font-weight: 500;\r\n    font-size: 14px;\r\n    cursor: pointer;\r\n    border: none;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.editable-textarea-container .input-editable-controls .cancel-button {\r\n    background: none;\r\n    color: #42526E;\r\n}\r\n\r\n\r\n.editable-textarea-container .input-editable-controls .cancel-button:hover {\r\n    background-color: #EBECF0;\r\n}\r\n\r\n.editable-textarea-container .input-editable-controls .save-button {\r\n    background-color: #0052CC;\r\n    color: white;\r\n}\r\n\r\n.editable-textarea-container .input-editable-controls .save-button:hover {\r\n    background-color: #0065FF;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/SaveCancelTextarea/SaveCancelTextarea.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,aAAa;IACb,kBAAkB;IAClB,oBAAoB;IACpB,cAAc;IACd,iBAAiB;IACjB,gBAAgB;IAChB,aAAa;IACb,oBAAoB;AACxB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,iBAAiB;IACjB,yBAAyB;IACzB,kBAAkB;IAClB,2CAA2C;IAC3C,gBAAgB;AACpB;;AAEA;;IAEI,YAAY;IACZ,aAAa;IACb,kBAAkB;IAClB,oBAAoB;IACpB,cAAc;IACd,iBAAiB;IACjB,gBAAgB;IAChB,aAAa;IACb,oBAAoB;AACxB;;AAEA;IACI,aAAa;IACb,yBAAyB;IACzB,QAAQ;IACR,YAAY;IACZ,mBAAmB;IACnB,6BAA6B;AACjC;;;;AAIA;IACI,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,eAAe;IACf,eAAe;IACf,YAAY;IACZ,iCAAiC;AACrC;;;AAGA;IACI,gBAAgB;IAChB,cAAc;AAClB;;;AAGA;IACI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;IACzB,YAAY;AAChB;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".editable-textarea-container .editable-textarea {\r\n    width: 100%;\r\n    border: none;\r\n    padding: 12px;\r\n    font-size: inherit;\r\n    font-family: inherit;\r\n    color: inherit;\r\n    min-height: 100px;\r\n    resize: vertical;\r\n    outline: none;\r\n    line-height: inherit;\r\n}\r\n\r\n.editable-textarea-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    background: white;\r\n    border: 2px solid #4C9AFF;\r\n    border-radius: 3px;\r\n    box-shadow: 0 1px 3px rgba(9, 30, 66, 0.15);\r\n    overflow: hidden;\r\n}\r\n\r\n.editable-textarea-container .editable-textarea {\r\n\r\n    border: none;\r\n    padding: 12px;\r\n    font-size: inherit;\r\n    font-family: inherit;\r\n    color: inherit;\r\n    min-height: 100px;\r\n    resize: vertical;\r\n    outline: none;\r\n    line-height: inherit;\r\n}\r\n\r\n.editable-textarea-container .input-editable-controls {\r\n    display: flex;\r\n    justify-content: flex-end;\r\n    gap: 8px;\r\n    padding: 8px;\r\n    background: #F4F5F7;\r\n    border-top: 1px solid #DFE1E6;\r\n}\r\n\r\n\r\n\r\n.editable-textarea-container .input-editable-controls .editable-button {\r\n    padding: 6px 12px;\r\n    border-radius: 3px;\r\n    font-weight: 500;\r\n    font-size: 14px;\r\n    cursor: pointer;\r\n    border: none;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.editable-textarea-container .input-editable-controls .cancel-button {\r\n    background: none;\r\n    color: #42526E;\r\n}\r\n\r\n\r\n.editable-textarea-container .input-editable-controls .cancel-button:hover {\r\n    background-color: #EBECF0;\r\n}\r\n\r\n.editable-textarea-container .input-editable-controls .save-button {\r\n    background-color: #0052CC;\r\n    color: white;\r\n}\r\n\r\n.editable-textarea-container .input-editable-controls .save-button:hover {\r\n    background-color: #0065FF;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Footer/FooterMain/FooterMain.css":
 /*!***********************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Footer/FooterMain/FooterMain.css ***!
@@ -3656,7 +3737,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".nopadding {\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.display_none {\r\n    display: none;\r\n}\r\n\r\n.visibility-hidden {\r\n    visibility: hidden;\r\n}\r\n\r\n.persent-100-width {\r\n    width: 100%;\r\n}\r\n\r\n.persent-100-width-height {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.padding-10-top {\r\n    padding-top: 10px;\r\n}\r\n\r\n.height-0 {\r\n    height: 0px;\r\n}\r\n\r\n.size-0 {\r\n    height: 0px;\r\n    width: 0px;\r\n}\r\n\r\n.form-control-b {\r\n    /* просто копия класса с бутстрапа */\r\n    /* display: block; */\r\n    /* width: 100%; */\r\n    height: calc(1.5em + 0.75rem + 2px);\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    font-weight: 400;\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: 0.25rem;\r\n    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-b {\r\n    display: inline-block;\r\n    font-weight: 400;\r\n    color: #212529;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    background-color: transparent;\r\n    border: 1px solid transparent;\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    line-height: 1.5;\r\n    border-radius: 0.25rem;\r\n    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-border {\r\n    border: 1px solid #686002;\r\n}\r\n\r\n.btn-b-light {\r\n    color: #212529;\r\n    background-color: #f8f9fa;\r\n    border-color: #f8f9fa;\r\n}\r\n\r\n.button,\r\na.button {\r\n    display: inline-block;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    padding: 0.375rem 0.75rem;\r\n    min-width: 80px;\r\n    max-width: max-content;\r\n    line-height: 1.5;\r\n    font-weight: 400;\r\n    font-size: 1rem;\r\n    color: #fff;\r\n    border: 1px solid transparent;\r\n    border-radius: 0.25rem;\r\n    transition: all .25s ease-in-out;\r\n    outline: none;\r\n    text-decoration: none;\r\n}\r\n\r\n.button:focus,\r\na.button:focus {\r\n    outline: none;\r\n}\r\n\r\n.button-grey {\r\n    background-color: #99a2ad;\r\n}\r\n\r\n.button-grey:hover,\r\n.button-grey:focus {\r\n    background-color: #6c757d;\r\n}\r\n\r\n.button-blue {\r\n    background-color: #337cca;\r\n}\r\n\r\n.button-blue:hover,\r\n.button-blue:focus {\r\n    background-color: #0561c8;\r\n}\r\n\r\n.form-input {\r\n    width: 100%;\r\n    padding: 5px 10px;\r\n    min-height: 2.125rem;\r\n    color: #495057;\r\n    background-color: #edeef0;\r\n    border: none;\r\n    border-radius: 0.25rem;\r\n    outline: none;\r\n}\r\n\r\n.form-input+.button {\r\n    margin-top: 1.5rem;\r\n}\r\n\r\n.form-select {\r\n    padding: 8px 10px;\r\n    color: #495057;\r\n    background-color: #edeef0;\r\n    border: none;\r\n    border-radius: 0.25rem;\r\n    cursor: pointer;\r\n    outline: none;\r\n}\r\n\r\n.c-flex {\r\n    display: flex;\r\n}\r\n\r\n/* \r\n color: red;\r\n    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, \r\n    from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */\r\n\r\n/* background: linear-gradient(transparent, gray); */", "",{"version":3,"sources":["webpack://./style/main.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;IACrB,oBAAoB;AACxB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,WAAW;IACX,UAAU;AACd;;AAEA;IACI,oCAAoC;IACpC,oBAAoB;IACpB,iBAAiB;IACjB,mCAAmC;IACnC,yBAAyB;IACzB,eAAe;IACf,gBAAgB;IAChB,gBAAgB;IAChB,cAAc;IACd,sBAAsB;IACtB,4BAA4B;IAC5B,yBAAyB;IACzB,sBAAsB;IACtB,sEAAsE;AAC1E;;AAEA;IACI,qBAAqB;IACrB,gBAAgB;IAChB,cAAc;IACd,kBAAkB;IAClB,sBAAsB;IACtB,yBAAyB;IACzB,sBAAsB;IACtB,qBAAqB;IACrB,iBAAiB;IACjB,6BAA6B;IAC7B,6BAA6B;IAC7B,yBAAyB;IACzB,eAAe;IACf,gBAAgB;IAChB,sBAAsB;IACtB,iIAAiI;AACrI;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,cAAc;IACd,yBAAyB;IACzB,qBAAqB;AACzB;;AAEA;;IAEI,qBAAqB;IACrB,kBAAkB;IAClB,sBAAsB;IACtB,yBAAyB;IACzB,eAAe;IACf,sBAAsB;IACtB,gBAAgB;IAChB,gBAAgB;IAChB,eAAe;IACf,WAAW;IACX,6BAA6B;IAC7B,sBAAsB;IACtB,gCAAgC;IAChC,aAAa;IACb,qBAAqB;AACzB;;AAEA;;IAEI,aAAa;AACjB;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;;IAEI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;;IAEI,yBAAyB;AAC7B;;AAEA;IACI,WAAW;IACX,iBAAiB;IACjB,oBAAoB;IACpB,cAAc;IACd,yBAAyB;IACzB,YAAY;IACZ,sBAAsB;IACtB,aAAa;AACjB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,iBAAiB;IACjB,cAAc;IACd,yBAAyB;IACzB,YAAY;IACZ,sBAAsB;IACtB,eAAe;IACf,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;;;8CAG8C;;AAE9C,oDAAoD","sourcesContent":[".nopadding {\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.display_none {\r\n    display: none;\r\n}\r\n\r\n.visibility-hidden {\r\n    visibility: hidden;\r\n}\r\n\r\n.persent-100-width {\r\n    width: 100%;\r\n}\r\n\r\n.persent-100-width-height {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.padding-10-top {\r\n    padding-top: 10px;\r\n}\r\n\r\n.height-0 {\r\n    height: 0px;\r\n}\r\n\r\n.size-0 {\r\n    height: 0px;\r\n    width: 0px;\r\n}\r\n\r\n.form-control-b {\r\n    /* просто копия класса с бутстрапа */\r\n    /* display: block; */\r\n    /* width: 100%; */\r\n    height: calc(1.5em + 0.75rem + 2px);\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    font-weight: 400;\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: 0.25rem;\r\n    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-b {\r\n    display: inline-block;\r\n    font-weight: 400;\r\n    color: #212529;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    background-color: transparent;\r\n    border: 1px solid transparent;\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    line-height: 1.5;\r\n    border-radius: 0.25rem;\r\n    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-border {\r\n    border: 1px solid #686002;\r\n}\r\n\r\n.btn-b-light {\r\n    color: #212529;\r\n    background-color: #f8f9fa;\r\n    border-color: #f8f9fa;\r\n}\r\n\r\n.button,\r\na.button {\r\n    display: inline-block;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    padding: 0.375rem 0.75rem;\r\n    min-width: 80px;\r\n    max-width: max-content;\r\n    line-height: 1.5;\r\n    font-weight: 400;\r\n    font-size: 1rem;\r\n    color: #fff;\r\n    border: 1px solid transparent;\r\n    border-radius: 0.25rem;\r\n    transition: all .25s ease-in-out;\r\n    outline: none;\r\n    text-decoration: none;\r\n}\r\n\r\n.button:focus,\r\na.button:focus {\r\n    outline: none;\r\n}\r\n\r\n.button-grey {\r\n    background-color: #99a2ad;\r\n}\r\n\r\n.button-grey:hover,\r\n.button-grey:focus {\r\n    background-color: #6c757d;\r\n}\r\n\r\n.button-blue {\r\n    background-color: #337cca;\r\n}\r\n\r\n.button-blue:hover,\r\n.button-blue:focus {\r\n    background-color: #0561c8;\r\n}\r\n\r\n.form-input {\r\n    width: 100%;\r\n    padding: 5px 10px;\r\n    min-height: 2.125rem;\r\n    color: #495057;\r\n    background-color: #edeef0;\r\n    border: none;\r\n    border-radius: 0.25rem;\r\n    outline: none;\r\n}\r\n\r\n.form-input+.button {\r\n    margin-top: 1.5rem;\r\n}\r\n\r\n.form-select {\r\n    padding: 8px 10px;\r\n    color: #495057;\r\n    background-color: #edeef0;\r\n    border: none;\r\n    border-radius: 0.25rem;\r\n    cursor: pointer;\r\n    outline: none;\r\n}\r\n\r\n.c-flex {\r\n    display: flex;\r\n}\r\n\r\n/* \r\n color: red;\r\n    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, \r\n    from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */\r\n\r\n/* background: linear-gradient(transparent, gray); */"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".nopadding {\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.display_none {\r\n    display: none;\r\n}\r\n\r\n.visibility-hidden {\r\n    visibility: hidden;\r\n}\r\n\r\n.persent-100-width {\r\n    width: 100%;\r\n}\r\n\r\n.persent-100-width-height {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.padding-10-top {\r\n    padding-top: 10px;\r\n}\r\n\r\n.height-0 {\r\n    height: 0px;\r\n}\r\n\r\n.size-0 {\r\n    height: 0px;\r\n    width: 0px;\r\n}\r\n\r\n.form-control-b {\r\n    /* просто копия класса с бутстрапа */\r\n    /* display: block; */\r\n    /* width: 100%; */\r\n    height: calc(1.5em + 0.75rem + 2px);\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    font-weight: 400;\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: 0.25rem;\r\n    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-b {\r\n    display: inline-block;\r\n    font-weight: 400;\r\n    color: #212529;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    background-color: transparent;\r\n    border: 1px solid transparent;\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    line-height: 1.5;\r\n    border-radius: 0.25rem;\r\n    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-border {\r\n    border: 1px solid #686002;\r\n}\r\n\r\n.btn-b-light {\r\n    color: #212529;\r\n    background-color: #f8f9fa;\r\n    border-color: #f8f9fa;\r\n}\r\n\r\n.button,\r\na.button {\r\n    display: inline-block;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    padding: 0.375rem 0.75rem;\r\n    min-width: 80px;\r\n    max-width: max-content;\r\n    line-height: 1.5;\r\n    font-weight: 400;\r\n    font-size: 1rem;\r\n    color: #fff;\r\n    border: 1px solid transparent;\r\n    border-radius: 0.25rem;\r\n    transition: all .25s ease-in-out;\r\n    outline: none;\r\n    text-decoration: none;\r\n}\r\n\r\n.button:focus,\r\na.button:focus {\r\n    outline: none;\r\n}\r\n\r\n.button-grey {\r\n    background-color: #99a2ad;\r\n}\r\n\r\n.button-grey:hover,\r\n.button-grey:focus {\r\n    background-color: #6c757d;\r\n}\r\n\r\n.button-blue {\r\n    background-color: #337cca;\r\n}\r\n\r\n.button-blue:hover,\r\n.button-blue:focus {\r\n    background-color: #0561c8;\r\n}\r\n\r\n.form-input {\r\n    width: 100%;\r\n    padding: 5px 10px;\r\n    min-height: 2.125rem;\r\n    color: #495057;\r\n    background-color: #edeef0;\r\n    border: none;\r\n    border-radius: 0.25rem;\r\n    outline: none;\r\n}\r\n\r\n.form-input-v2 {\r\n    width: 100%;\r\n    /* height: 27px; */\r\n    border: 1px solid #e1e5eb;\r\n    border-radius: 5px;\r\n    padding: 2px 9px;\r\n    font-size: 15px;\r\n    outline: none;\r\n    transition: border 0.3s;\r\n    background-color: white;\r\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\r\n}\r\n\r\n.form-select-v2 {\r\n    /* height: 27px; */\r\n    border: 1px solid #e1e5eb;\r\n    border-radius: 5px;\r\n    padding: 2px 9px;\r\n    font-size: 15px;\r\n    outline: none;\r\n    transition: border 0.3s;\r\n    background-color: white;\r\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\r\n}\r\n\r\n\r\n.form-input+.button {\r\n    margin-top: 1.5rem;\r\n}\r\n\r\n.form-select {\r\n    padding: 8px 10px;\r\n    color: #495057;\r\n    background-color: #edeef0;\r\n    border: none;\r\n    border-radius: 0.25rem;\r\n    cursor: pointer;\r\n    outline: none;\r\n}\r\n\r\n.c-flex {\r\n    display: flex;\r\n}\r\n\r\n/* \r\n color: red;\r\n    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, \r\n    from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */\r\n\r\n/* background: linear-gradient(transparent, gray); */", "",{"version":3,"sources":["webpack://./style/main.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;IACrB,oBAAoB;AACxB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,kBAAkB;AACtB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,WAAW;IACX,UAAU;AACd;;AAEA;IACI,oCAAoC;IACpC,oBAAoB;IACpB,iBAAiB;IACjB,mCAAmC;IACnC,yBAAyB;IACzB,eAAe;IACf,gBAAgB;IAChB,gBAAgB;IAChB,cAAc;IACd,sBAAsB;IACtB,4BAA4B;IAC5B,yBAAyB;IACzB,sBAAsB;IACtB,sEAAsE;AAC1E;;AAEA;IACI,qBAAqB;IACrB,gBAAgB;IAChB,cAAc;IACd,kBAAkB;IAClB,sBAAsB;IACtB,yBAAyB;IACzB,sBAAsB;IACtB,qBAAqB;IACrB,iBAAiB;IACjB,6BAA6B;IAC7B,6BAA6B;IAC7B,yBAAyB;IACzB,eAAe;IACf,gBAAgB;IAChB,sBAAsB;IACtB,iIAAiI;AACrI;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,cAAc;IACd,yBAAyB;IACzB,qBAAqB;AACzB;;AAEA;;IAEI,qBAAqB;IACrB,kBAAkB;IAClB,sBAAsB;IACtB,yBAAyB;IACzB,eAAe;IACf,sBAAsB;IACtB,gBAAgB;IAChB,gBAAgB;IAChB,eAAe;IACf,WAAW;IACX,6BAA6B;IAC7B,sBAAsB;IACtB,gCAAgC;IAChC,aAAa;IACb,qBAAqB;AACzB;;AAEA;;IAEI,aAAa;AACjB;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;;IAEI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;;IAEI,yBAAyB;AAC7B;;AAEA;IACI,WAAW;IACX,iBAAiB;IACjB,oBAAoB;IACpB,cAAc;IACd,yBAAyB;IACzB,YAAY;IACZ,sBAAsB;IACtB,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,kBAAkB;IAClB,yBAAyB;IACzB,kBAAkB;IAClB,gBAAgB;IAChB,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,uBAAuB;IACvB,yCAAyC;AAC7C;;AAEA;IACI,kBAAkB;IAClB,yBAAyB;IACzB,kBAAkB;IAClB,gBAAgB;IAChB,eAAe;IACf,aAAa;IACb,uBAAuB;IACvB,uBAAuB;IACvB,yCAAyC;AAC7C;;;AAGA;IACI,kBAAkB;AACtB;;AAEA;IACI,iBAAiB;IACjB,cAAc;IACd,yBAAyB;IACzB,YAAY;IACZ,sBAAsB;IACtB,eAAe;IACf,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;;;8CAG8C;;AAE9C,oDAAoD","sourcesContent":[".nopadding {\r\n    padding: 0 !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.display_none {\r\n    display: none;\r\n}\r\n\r\n.visibility-hidden {\r\n    visibility: hidden;\r\n}\r\n\r\n.persent-100-width {\r\n    width: 100%;\r\n}\r\n\r\n.persent-100-width-height {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.padding-10-top {\r\n    padding-top: 10px;\r\n}\r\n\r\n.height-0 {\r\n    height: 0px;\r\n}\r\n\r\n.size-0 {\r\n    height: 0px;\r\n    width: 0px;\r\n}\r\n\r\n.form-control-b {\r\n    /* просто копия класса с бутстрапа */\r\n    /* display: block; */\r\n    /* width: 100%; */\r\n    height: calc(1.5em + 0.75rem + 2px);\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    font-weight: 400;\r\n    line-height: 1.5;\r\n    color: #495057;\r\n    background-color: #fff;\r\n    background-clip: padding-box;\r\n    border: 1px solid #ced4da;\r\n    border-radius: 0.25rem;\r\n    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-b {\r\n    display: inline-block;\r\n    font-weight: 400;\r\n    color: #212529;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    -webkit-user-select: none;\r\n    -moz-user-select: none;\r\n    -ms-user-select: none;\r\n    user-select: none;\r\n    background-color: transparent;\r\n    border: 1px solid transparent;\r\n    padding: 0.375rem 0.75rem;\r\n    font-size: 1rem;\r\n    line-height: 1.5;\r\n    border-radius: 0.25rem;\r\n    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;\r\n}\r\n\r\n.btn-border {\r\n    border: 1px solid #686002;\r\n}\r\n\r\n.btn-b-light {\r\n    color: #212529;\r\n    background-color: #f8f9fa;\r\n    border-color: #f8f9fa;\r\n}\r\n\r\n.button,\r\na.button {\r\n    display: inline-block;\r\n    text-align: center;\r\n    vertical-align: middle;\r\n    padding: 0.375rem 0.75rem;\r\n    min-width: 80px;\r\n    max-width: max-content;\r\n    line-height: 1.5;\r\n    font-weight: 400;\r\n    font-size: 1rem;\r\n    color: #fff;\r\n    border: 1px solid transparent;\r\n    border-radius: 0.25rem;\r\n    transition: all .25s ease-in-out;\r\n    outline: none;\r\n    text-decoration: none;\r\n}\r\n\r\n.button:focus,\r\na.button:focus {\r\n    outline: none;\r\n}\r\n\r\n.button-grey {\r\n    background-color: #99a2ad;\r\n}\r\n\r\n.button-grey:hover,\r\n.button-grey:focus {\r\n    background-color: #6c757d;\r\n}\r\n\r\n.button-blue {\r\n    background-color: #337cca;\r\n}\r\n\r\n.button-blue:hover,\r\n.button-blue:focus {\r\n    background-color: #0561c8;\r\n}\r\n\r\n.form-input {\r\n    width: 100%;\r\n    padding: 5px 10px;\r\n    min-height: 2.125rem;\r\n    color: #495057;\r\n    background-color: #edeef0;\r\n    border: none;\r\n    border-radius: 0.25rem;\r\n    outline: none;\r\n}\r\n\r\n.form-input-v2 {\r\n    width: 100%;\r\n    /* height: 27px; */\r\n    border: 1px solid #e1e5eb;\r\n    border-radius: 5px;\r\n    padding: 2px 9px;\r\n    font-size: 15px;\r\n    outline: none;\r\n    transition: border 0.3s;\r\n    background-color: white;\r\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\r\n}\r\n\r\n.form-select-v2 {\r\n    /* height: 27px; */\r\n    border: 1px solid #e1e5eb;\r\n    border-radius: 5px;\r\n    padding: 2px 9px;\r\n    font-size: 15px;\r\n    outline: none;\r\n    transition: border 0.3s;\r\n    background-color: white;\r\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);\r\n}\r\n\r\n\r\n.form-input+.button {\r\n    margin-top: 1.5rem;\r\n}\r\n\r\n.form-select {\r\n    padding: 8px 10px;\r\n    color: #495057;\r\n    background-color: #edeef0;\r\n    border: none;\r\n    border-radius: 0.25rem;\r\n    cursor: pointer;\r\n    outline: none;\r\n}\r\n\r\n.c-flex {\r\n    display: flex;\r\n}\r\n\r\n/* \r\n color: red;\r\n    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, \r\n    from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */\r\n\r\n/* background: linear-gradient(transparent, gray); */"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -48107,6 +48188,171 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/components/Body/PopupWindow/PopupWindow.css":
+/*!*********************************************************!*\
+  !*** ./src/components/Body/PopupWindow/PopupWindow.css ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_PopupWindow_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js!./PopupWindow.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/PopupWindow/PopupWindow.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_PopupWindow_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_PopupWindow_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_PopupWindow_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_PopupWindow_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/components/Body/SaveCancelInput/SaveCancelInput.css":
+/*!*****************************************************************!*\
+  !*** ./src/components/Body/SaveCancelInput/SaveCancelInput.css ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_SaveCancelInput_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js!./SaveCancelInput.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/SaveCancelInput/SaveCancelInput.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_SaveCancelInput_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_SaveCancelInput_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_SaveCancelInput_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_SaveCancelInput_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/components/Body/SaveCancelTextarea/SaveCancelTextarea.css":
+/*!***********************************************************************!*\
+  !*** ./src/components/Body/SaveCancelTextarea/SaveCancelTextarea.css ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_SaveCancelTextarea_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js!./SaveCancelTextarea.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/SaveCancelTextarea/SaveCancelTextarea.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_SaveCancelTextarea_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_SaveCancelTextarea_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_SaveCancelTextarea_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_SaveCancelTextarea_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/components/Footer/FooterMain/FooterMain.css":
 /*!*********************************************************!*\
   !*** ./src/components/Footer/FooterMain/FooterMain.css ***!
@@ -49105,8 +49351,8 @@ var AddTask = function (props) {
         setNewTaskDescription('');
     };
     return react_1.default.createElement("div", null,
-        react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', onChange: function (e) { return setNewTaskName(e.target.value); }, value: newTaskName, placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435' }),
-        react_1.default.createElement("input", { type: 'text', className: 'form-control-b persent-100-width', onChange: function (e) { return setNewTaskDescription(e.target.value); }, value: newTaskDescription, placeholder: '\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435' }),
+        react_1.default.createElement("input", { type: 'text', className: 'form-control-b persent-100-width', onChange: function (e) { return setNewTaskName(e.target.value); }, value: newTaskName, placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435' }),
+        react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', onChange: function (e) { return setNewTaskDescription(e.target.value); }, value: newTaskDescription, placeholder: '\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435' }),
         react_1.default.createElement("label", null, "\u0410\u0432\u0442\u043E\u0440:"),
         react_1.default.createElement("select", { className: 'form-control-b', value: newTaskCreator, onChange: function (e) { return setNewTaskCreator(+e.target.value); } }, props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
         react_1.default.createElement("br", null),
@@ -49209,6 +49455,15 @@ var CodeReviewMain = function (props) {
         };
     }, []);
     (0, react_1.useEffect)(function () {
+        var matchProj = window.location.href.match(/proj-(\d+)/);
+        if (props.ProjectsLoaded &&
+            !props.ProjectsList.find(function (x) { return x.Id == props.CurrentProjectId; }) //выбранного проекта нет, удален?
+            && matchProj //при этом в урле он есть
+        ) {
+            navigate("/code-review/");
+        }
+    }, [props.ProjectsList.length, props.ProjectsLoaded]);
+    (0, react_1.useEffect)(function () {
         if (props.CurrentProjectId && props.CurrentProjectId > 0) {
             props.GetProjectInfo(props.CurrentProjectId);
         }
@@ -49218,36 +49473,53 @@ var CodeReviewMain = function (props) {
             props.GetTaskInfo(props.CurrentTaskId);
         }
     }, [props.CurrentTaskId]);
+    // useEffect(() => {
+    //     if (props.ProjectsList.length > 0//страница загружена уже, список проектов есть
+    //     ) {
+    //         if (props.CurrentProjectId && props.CurrentProjectId > 0) {
+    //             if (props.CurrentTaskId && props.CurrentTaskId > 0) {
+    //                 navigate("/code-review/proj-" + props.CurrentProjectId + '/task-' + props.CurrentTaskId);
+    //             }
+    //             else {
+    //                 navigate("/code-review/proj-" + props.CurrentProjectId);
+    //             }
+    //         }
+    //         else {
+    //             //никакой проект не выбран
+    //             const matchProj = window.location.href.match(/proj-(\d+)/);
+    //             if (matchProj) {
+    //                 const projIdInt = parseInt(matchProj[1], 10);
+    //                 props.SetCurrentProject(projIdInt);
+    //                 // console.log("SetCurrentProject" + projIdInt);
+    //             }
+    //             const matchTask = window.location.href.match(/task-(\d+)/);
+    //             if (matchTask) {
+    //                 const taskIdInt = parseInt(matchTask[1], 10);
+    //                 props.SetCurrentTask(taskIdInt);
+    //                 // console.log("SetCurrentProject" + projIdInt);
+    //             }
+    //         }
+    //     }
+    // }, [props.ProjectsList.length, props.CurrentProjectId, props.CurrentTaskId]);
     (0, react_1.useEffect)(function () {
-        if (props.ProjectsList.length > 0 //страница загружена уже, список проектов есть
-        ) {
-            if (props.CurrentProjectId && props.CurrentProjectId > 0) {
-                if (props.CurrentTaskId && props.CurrentTaskId > 0) {
-                    navigate("/code-review/proj-" + props.CurrentProjectId + '/task-' + props.CurrentTaskId);
-                }
-                else {
-                    navigate("/code-review/proj-" + props.CurrentProjectId);
-                }
-            }
-            else {
-                //никакой проект не выбран
-                var matchProj = window.location.href.match(/proj-(\d+)/);
-                if (matchProj) {
-                    var projIdInt = parseInt(matchProj[1], 10);
-                    props.SetCurrentProject(projIdInt);
-                    // console.log("SetCurrentProject" + projIdInt);
-                }
-                var matchTask = window.location.href.match(/task-(\d+)/);
-                if (matchTask) {
-                    var taskIdInt = parseInt(matchTask[1], 10);
-                    props.SetCurrentTask(taskIdInt);
-                    // console.log("SetCurrentProject" + projIdInt);
-                }
-            }
+        var matchProj = window.location.href.match(/proj-(\d+)/);
+        if (matchProj) {
+            var projIdInt = parseInt(matchProj[1], 10);
+            props.SetCurrentProject(projIdInt);
+            // console.log("SetCurrentProject-" + projIdInt);
         }
-    }, [props.ProjectsList.length, props.CurrentProjectId, props.CurrentTaskId]);
-    (0, react_1.useEffect)(function () {
-        console.log('changed' + window.location.href);
+        else {
+            props.SetCurrentProject(-1);
+        }
+        var matchTask = window.location.href.match(/task-(\d+)/);
+        if (matchTask) {
+            var taskIdInt = parseInt(matchTask[1], 10);
+            props.SetCurrentTask(taskIdInt);
+            // console.log("SetCurrentProject" + projIdInt);
+        }
+        else {
+            props.SetCurrentTask(-1);
+        }
     }, [window.location.href]);
     //
     var mainClass = ' code-review-projects-menu-main-hide';
@@ -49292,6 +49564,7 @@ var mapStateToProps = function (state, ownProps) {
     res.CurrentProjectUsers = state.CodeReviewApp.CurrentProjectUsers;
     res.ProjectsList = state.CodeReviewApp.ProjectsList;
     res.Tasks = state.CodeReviewApp.CurrentProjectTasks;
+    res.ProjectsLoaded = state.CodeReviewApp.ProjectsLoaded;
     // res.Test = state.TestMessage;
     // res.FilmData = state.Films.find(x => x.Id === ownProps.FilmId);
     return res;
@@ -49366,7 +49639,10 @@ var EditProject = function (props) {
     var _a = (0, react_1.useState)(''), newStatusName = _a[0], setNewStatusName = _a[1];
     return react_1.default.createElement("div", { className: 'edit-project' },
         react_1.default.createElement("div", { className: 'task-statuses' },
-            props.Statuses.map(function (status) { return react_1.default.createElement(EditTaskStatus_1.default, { key: status.Id, Status: status }); }),
+            react_1.default.createElement("span", null, "\u0421\u0442\u0430\u0442\u0443\u0441\u044B \u043F\u0440\u043E\u0435\u043A\u0442\u0430"),
+            props.Statuses.map(function (status) {
+                return react_1.default.createElement(EditTaskStatus_1.default, { key: status.Id, Status: status });
+            }),
             react_1.default.createElement("div", { className: 'task-review-status-create' },
                 react_1.default.createElement("div", { className: 'status-input' },
                     react_1.default.createElement("input", { className: 'form-input', value: newStatusName, placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043D\u043E\u0432\u043E\u0433\u043E \u0441\u0442\u0430\u0442\u0443\u0441\u0430', onChange: function (e) { return setNewStatusName(e.target.value); } })),
@@ -49528,16 +49804,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var OneProjectInListSetup_1 = __importDefault(__webpack_require__(/*! ./OneProjectInListSetup */ "./src/Apps/CodeReviewApp/Components/OneProjectInList/OneProjectInListSetup.tsx"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 __webpack_require__(/*! ./OneProjectInList.css */ "./src/Apps/CodeReviewApp/Components/OneProjectInList/OneProjectInList.css");
 var OneProjectInList = function (props) {
+    var navigate = (0, react_router_dom_1.useNavigate)();
     var projectClassName = 'review-project';
     if (props.CurrentProject) {
         projectClassName += ' selected-review-project';
     }
     return react_1.default.createElement("div", { key: props.Project.Id.toString(), className: projectClassName, onClick: function () {
-            if (!props.CurrentProject) {
-                props.SetCurrentProject(props.Project.Id);
-            }
+            // if (!props.CurrentProject) {
+            //     // props.SetCurrentProject(props.Project.Id)
+            // }
+            navigate("/code-review/proj-" + props.Project.Id);
         } }, props.Project.Name);
 };
 // and that function returns the connected, wrapper component:
@@ -49841,17 +50120,6 @@ exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToPr
 
 "use strict";
 
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -49884,73 +50152,78 @@ var AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */
 var OneReviewTaskComment_1 = __importDefault(__webpack_require__(/*! ../OneReviewTaskComment/OneReviewTaskComment */ "./src/Apps/CodeReviewApp/Components/OneReviewTaskComment/OneReviewTaskComment.tsx"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 var OneReviewTaskDetailSetup_1 = __importDefault(__webpack_require__(/*! ./OneReviewTaskDetailSetup */ "./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetailSetup.tsx"));
+var SaveCancelTextarea_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelTextarea/SaveCancelTextarea */ "./src/components/Body/SaveCancelTextarea/SaveCancelTextarea.tsx"));
+var SaveCancelInputText_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputText */ "./src/components/Body/SaveCancelInput/SaveCancelInputText.tsx"));
+var SaveCancelInputSelect_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputSelect */ "./src/components/Body/SaveCancelInput/SaveCancelInputSelect.tsx"));
 __webpack_require__(/*! ./OneReviewTaskDetail.css */ "./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetail.css");
 var OneReviewTaskDetail = function (props) {
     //   console.log(new Error().stack); // Check where this is being called from
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
     //         return <div>стоп для теста</div>
     // console.log(props);
-    var _m = (0, react_1.useState)(((_a = props.Task) === null || _a === void 0 ? void 0 : _a.Name) || ''), taskName = _m[0], setTaskName = _m[1];
-    var _o = (0, react_1.useState)(((_b = props.Task) === null || _b === void 0 ? void 0 : _b.Description) || ''), taskDescription = _o[0], setTaskDescription = _o[1];
+    // const [taskName, setTaskName] = useState(props.Task?.Name || '');
+    var _k = (0, react_1.useState)(false), taskDescriptionEditable = _k[0], setTaskDescriptionEditable = _k[1];
+    var _l = (0, react_1.useState)(false), taskNewCommentEditable = _l[0], setTaskNewCommentEditable = _l[1];
+    var _m = (0, react_1.useState)(false), taskNameEditable = _m[0], setTaskNameEditable = _m[1];
+    var _o = (0, react_1.useState)(false), taskStatusEditable = _o[0], setTaskStatusEditable = _o[1];
+    var _p = (0, react_1.useState)(false), taskExecutorEditable = _p[0], setTaskExecutorEditable = _p[1];
     // const [taskLink, setTaskLink] = useState(props.Task?.Link || '');
-    var _p = (0, react_1.useState)(((_c = props.Task) === null || _c === void 0 ? void 0 : _c.StatusId) || -1), taskStatus = _p[0], setTaskStatus = _p[1];
-    var _q = (0, react_1.useState)(((_d = props.Task) === null || _d === void 0 ? void 0 : _d.ReviewerId) || -1), taskReviewer = _q[0], setTaskreviewer = _q[1];
-    var _r = (0, react_1.useState)(((_e = props.Task) === null || _e === void 0 ? void 0 : _e.CreatorId) || -1), taskCreator = _r[0], setTaskCreator = _r[1];
-    var _s = (0, react_1.useState)(''), newCommentName = _s[0], setNewCommentName = _s[1];
+    var _q = (0, react_1.useState)(((_a = props.Task) === null || _a === void 0 ? void 0 : _a.StatusId) || -1), taskStatus = _q[0], setTaskStatus = _q[1];
+    var _r = (0, react_1.useState)(((_b = props.Task) === null || _b === void 0 ? void 0 : _b.ReviewerId) || -1), taskReviewer = _r[0], setTaskreviewer = _r[1];
+    var _s = (0, react_1.useState)(((_c = props.Task) === null || _c === void 0 ? void 0 : _c.CreatorId) || -1), taskCreator = _s[0], setTaskCreator = _s[1];
+    // const [newCommentName, setNewCommentName] = useState('');
     var navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(function () {
         return function cleanUp() {
             props.ClearCurrentTaskState();
         };
     }, []);
-    (0, react_1.useEffect)(function () {
-        var _a;
-        setTaskName(((_a = props.Task) === null || _a === void 0 ? void 0 : _a.Name) || '');
-    }, [(_f = props.Task) === null || _f === void 0 ? void 0 : _f.Name]);
-    (0, react_1.useEffect)(function () {
-        var _a;
-        setTaskDescription(((_a = props.Task) === null || _a === void 0 ? void 0 : _a.Description) || '');
-    }, [(_g = props.Task) === null || _g === void 0 ? void 0 : _g.Description]);
+    // useEffect(() => {
+    //     setTaskName(props.Task?.Name || '');
+    // }, [props.Task?.Name]);
+    // useEffect(() => {
+    //     setTaskDescription(props.Task?.Description || '');
+    // }, [props.Task?.Description]);
     // useEffect(() => {
     //     setTaskLink(props.Task?.Link || '');
     // }, [props.Task?.Link]);
     (0, react_1.useEffect)(function () {
         var _a;
         setTaskStatus(((_a = props.Task) === null || _a === void 0 ? void 0 : _a.StatusId) || -1);
-    }, [(_h = props.Task) === null || _h === void 0 ? void 0 : _h.StatusId]);
+    }, [(_d = props.Task) === null || _d === void 0 ? void 0 : _d.StatusId]);
     (0, react_1.useEffect)(function () {
         var _a;
         setTaskreviewer(((_a = props.Task) === null || _a === void 0 ? void 0 : _a.ReviewerId) || -1);
-    }, [(_j = props.Task) === null || _j === void 0 ? void 0 : _j.ReviewerId]);
+    }, [(_e = props.Task) === null || _e === void 0 ? void 0 : _e.ReviewerId]);
     (0, react_1.useEffect)(function () {
         var _a;
         setTaskCreator((_a = props.Task) === null || _a === void 0 ? void 0 : _a.CreatorId);
-    }, [(_k = props.Task) === null || _k === void 0 ? void 0 : _k.CreatorId]);
-    var cancelTask = function () {
-        if (!confirm('Отменить изменения?')) {
-            return;
-        }
-        setTaskName(props.Task.Name || '');
-        setTaskDescription(props.Task.Description || '');
-        // setTaskLink(props.Task.Link || '');
-        setTaskStatus(props.Task.StatusId || -1);
-        setTaskreviewer(props.Task.ReviewerId || -1);
-        setTaskCreator(props.Task.CreatorId);
-    };
+    }, [(_f = props.Task) === null || _f === void 0 ? void 0 : _f.CreatorId]);
+    // const cancelTask = () => {
+    //     if (!confirm('Отменить изменения?')) {
+    //         return;
+    //     }
+    //     // setTaskName(props.Task.Name || '');
+    //     // setTaskDescription(props.Task.Description || '');
+    //     // setTaskLink(props.Task.Link || '');
+    //     setTaskStatus(props.Task.StatusId || -1);
+    //     setTaskreviewer(props.Task.ReviewerId || -1);
+    //     setTaskCreator(props.Task.CreatorId);
+    // };
     var updateTask = function () {
-        if (!taskName) {
-            var alertFactory = new AlertData_1.AlertData();
-            var alert_1 = alertFactory.GetDefaultError("Необходимо заполнить название задачи");
-            window.G_AddAbsoluteAlertToState(alert_1);
-            return;
-        }
-        var forAdd = __assign({}, props.Task);
-        forAdd.Name = taskName;
-        // forAdd.Link = taskLink;
-        forAdd.StatusId = taskStatus;
-        forAdd.ReviewerId = taskReviewer;
-        forAdd.CreatorId = taskCreator;
-        props.UpdateTask(forAdd);
+        // if (!taskName) {
+        //     let alertFactory = new AlertData();
+        //     let alert = alertFactory.GetDefaultError("Необходимо заполнить название задачи");
+        //     window.G_AddAbsoluteAlertToState(alert);
+        //     return;
+        // }
+        // let forAdd = { ...props.Task } as OneTask;
+        // forAdd.Name = taskName;
+        // // forAdd.Link = taskLink;
+        // forAdd.StatusId = taskStatus;
+        // forAdd.ReviewerId = taskReviewer;
+        // forAdd.CreatorId = taskCreator;
+        // props.UpdateTask(forAdd);
     };
     var deleteTask = function () {
         if (!confirm('Удалить задачу?')) {
@@ -49958,31 +50231,34 @@ var OneReviewTaskDetail = function (props) {
         }
         props.DeleteTask(props.Task.Id);
     };
-    var addComment = function () {
+    var addComment = function (val) {
         // window.G_CodeReviewCommentController.AddComment(props.Task.Id, newCommentName, addComment);
-        props.AddComment(props.Task.Id, newCommentName);
+        props.AddComment(props.Task.Id, val);
     };
     var renderComments = function () {
         return react_1.default.createElement("div", { className: 'one-review-task-detail-comments-block' },
-            react_1.default.createElement("hr", null),
             react_1.default.createElement("div", { className: 'one-review-task-detail-comments-block-inner' },
                 "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0438:",
                 props.Task.Comments.map(function (x) {
                     return react_1.default.createElement(OneReviewTaskComment_1.default, { Comment: x, TaskId: props.Task.Id, key: x.Id });
                 }),
-                react_1.default.createElement("div", null,
-                    react_1.default.createElement("textarea", { className: 'form-input', value: newCommentName, onChange: function (e) { return setNewCommentName(e.target.value); } }),
-                    react_1.default.createElement("button", { className: 'button button-grey', onClick: function () { return addComment(); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"))));
+                !taskNewCommentEditable ? react_1.default.createElement("div", { className: 'task-comments-add', onClick: function () { return setTaskNewCommentEditable(true); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439")
+                    :
+                        react_1.default.createElement(SaveCancelTextarea_1.default, { CancelEvent: function () { return setTaskNewCommentEditable(false); }, SaveEvent: function (val) {
+                                addComment(val);
+                                return true;
+                            }, Text: '' })));
     };
     if (!props.Task) {
         return react_1.default.createElement("div", null, "\u0417\u0430\u0433\u0440\u0443\u0436\u0430\u0435\u043C \u0434\u0430\u043D\u043D\u044B\u0435");
     }
-    var taskHasChanges = taskName !== props.Task.Name ||
-        // (taskLink !== props.Task.Link && (taskLink || props.Task.Link)) ||
-        taskStatus !== props.Task.StatusId ||
-        (taskDescription !== props.Task.Description && (taskDescription || props.Task.Description)) ||
-        (taskReviewer !== props.Task.ReviewerId && (props.Task.ReviewerId || taskReviewer != -1)) ||
-        taskCreator !== props.Task.CreatorId;
+    // let taskHasChanges =
+    //     // taskName !== props.Task.Name ||
+    //     // (taskLink !== props.Task.Link && (taskLink || props.Task.Link)) ||
+    //     taskStatus !== props.Task.StatusId ||
+    //     // (taskDescription !== props.Task.Description && (taskDescription || props.Task.Description)) ||
+    //     (taskReviewer !== props.Task.ReviewerId && (props.Task.ReviewerId || taskReviewer != -1)) ||
+    //     taskCreator !== props.Task.CreatorId;
     var creator = props.ProjectUsers.find(function (x) { return x.Id === taskCreator; });
     var creatorsList = props.ProjectUsers.filter(function (us) { return !us.Deactivated; });
     if (creator && creator.Deactivated) {
@@ -49996,33 +50272,67 @@ var OneReviewTaskDetail = function (props) {
     return react_1.default.createElement("div", { className: 'one-review-task-detail-block' },
         react_1.default.createElement("div", { className: 'one-review-task-detail-header' },
             react_1.default.createElement("div", { className: 'one-review-task-detail-buttons' },
-                taskHasChanges ?
-                    react_1.default.createElement(react_1.default.Fragment, null,
-                        react_1.default.createElement("div", { className: 'task-button', onClick: function () { return updateTask(); } },
-                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'save-icon.png', alt: "Save", title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C' })),
-                        react_1.default.createElement("div", { className: 'task-button', onClick: function () { return cancelTask(); } },
-                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' }))) : react_1.default.createElement(react_1.default.Fragment, null),
                 react_1.default.createElement("div", { className: 'task-button', onClick: function () { return deleteTask(); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' }))),
-            react_1.default.createElement("div", { className: 'one-review-task-detail-name' },
-                react_1.default.createElement("input", { type: 'text', className: 'form-input review-task-name-input', value: taskName, onChange: function (e) { return setTaskName(e.target.value); } }))),
+            react_1.default.createElement("div", { className: 'one-review-task-detail-name' }, !taskNameEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskNameEditable(true); } }, props.Task.Name || '')
+                :
+                    react_1.default.createElement(SaveCancelInputText_1.default, { CancelEvent: function () { return setTaskNameEditable(false); }, SaveEvent: function (val) {
+                            if (!val) {
+                                var alertFactory = new AlertData_1.AlertData();
+                                var alert_1 = alertFactory.GetDefaultError("Необходимо заполнить название задачи");
+                                window.G_AddAbsoluteAlertToState(alert_1);
+                                return false;
+                            }
+                            alert('todo' + val);
+                        }, Text: props.Task.Name }))),
         react_1.default.createElement("div", { className: 'one-review-task-detail-body' },
-            react_1.default.createElement("div", { className: 'one-review-task-detail-content' },
-                react_1.default.createElement("textarea", { className: 'form-input review-task-detail-description-input', value: taskDescription, onChange: function (e) { return setTaskDescription(e.target.value); } })),
+            react_1.default.createElement("div", { className: 'one-review-task-detail-content' }, !taskDescriptionEditable ? react_1.default.createElement("div", { className: 'review-task-detail-description', onClick: function () { return setTaskDescriptionEditable(true); } }, props.Task.Description)
+                : react_1.default.createElement(SaveCancelTextarea_1.default, { CancelEvent: function () { return setTaskDescriptionEditable(false); }, SaveEvent: function (val) {
+                        alert('todo' + val);
+                        return true;
+                    }, Text: props.Task.Description })
+            // <div className="editable-textarea-container">
+            //     <textarea
+            //         value={taskDescription} onChange={e => setTaskDescription(e.target.value)}
+            //         className="editable-textarea"></textarea>
+            //     <div className="input-editable-controls">
+            //         <button type="button"
+            //             className="editable-button cancel-button"
+            //             onClick={() => setTaskDescriptionEditable(false)}
+            //         >Отмена</button>
+            //         <button type="button"
+            //             className="editable-button save-button"
+            //             onClick={() => alert('todo')}
+            //         >Сохранить</button>
+            //     </div>
+            // </div>
+            ),
             react_1.default.createElement("div", { className: 'one-review-task-detail-right-content' },
-                react_1.default.createElement("span", null, "\u0421\u0442\u0430\u0442\u0443\u0441:"),
-                react_1.default.createElement("select", { className: 'form-select', onChange: function (e) { return setTaskStatus(+e.target.value); }, value: taskStatus },
-                    react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                    props.Statuses.map(function (status) { return react_1.default.createElement("option", { value: status.Id, key: status.Id }, status.Name); })),
                 react_1.default.createElement("div", null,
-                    react_1.default.createElement("span", null, "\u0420\u0435\u0432\u044C\u044E\u0432\u0435\u0440:"),
-                    react_1.default.createElement("select", { className: 'form-select', value: taskReviewer, onChange: function (e) { return setTaskreviewer(+e.target.value); } },
-                        react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                        reviewerList.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); }))),
+                    react_1.default.createElement("span", { onClick: function () { return setTaskStatusEditable(true); }, className: 'editable-by-click' }, "\u0421\u0442\u0430\u0442\u0443\u0441: "),
+                    !taskStatusEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskStatusEditable(true); } }, ((_g = props.Statuses.find(function (x) { return x.Id == taskStatus; })) === null || _g === void 0 ? void 0 : _g.Name) || '')
+                        :
+                            react_1.default.createElement(SaveCancelInputSelect_1.default, { CancelEvent: function () { return setTaskStatusEditable(false); }, SaveEvent: function (id) {
+                                    alert(id);
+                                    return true;
+                                }, Selected: taskStatus, ValuesWithId: props.Statuses.map(function (x) {
+                                    return { Id: x.Id, Text: x.Name };
+                                }) })),
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("span", { onClick: function () { return setTaskExecutorEditable(true); }, className: 'editable-by-click' }, "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C: "),
+                    !taskExecutorEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskExecutorEditable(true); } }, ((_h = reviewerList.find(function (x) { return x.Id == taskReviewer; })) === null || _h === void 0 ? void 0 : _h.Name) || '')
+                        :
+                            react_1.default.createElement(SaveCancelInputSelect_1.default, { CancelEvent: function () { return setTaskExecutorEditable(false); }, SaveEvent: function (id) {
+                                    alert(id);
+                                    return true;
+                                }, Selected: taskReviewer, ValuesWithId: reviewerList.map(function (x) { return ({
+                                    Id: x.Id,
+                                    Text: x.Name
+                                }); }) })),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", null,
                         "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C: ",
-                        ((_l = creatorsList.find(function (x) { return x.Id == taskCreator; })) === null || _l === void 0 ? void 0 : _l.Name) || '')),
+                        ((_j = creatorsList.find(function (x) { return x.Id == taskCreator; })) === null || _j === void 0 ? void 0 : _j.Name) || '')),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("p", null,
                         "\u0414\u0430\u0442\u0430 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F: ",
@@ -50071,9 +50381,9 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     res.LoadTaskComments = function (taskId) {
         dispatch(window.G_CodeReviewCommentController.LoadCommentsRedux(taskId));
     };
-    res.SetCurrentTask = function (taskId) {
-        dispatch((0, TaskActions_1.SetCurrentTaskIdActionCreator)(taskId));
-    };
+    // res.SetCurrentTask = (taskId: number) => {
+    //     dispatch(SetCurrentTaskIdActionCreator(taskId))
+    // };
     res.ClearCurrentTaskState = function () {
         dispatch((0, TaskActions_1.ClearCurrentTaskStateActionCreator)());
     };
@@ -50204,30 +50514,6 @@ var OneReviewTask = function (props) {
         // window.G_CodeReviewCommentController.AddComment(props.Task.Id, newCommentName, addComment);
         props.AddComment(props.Task.Id, newCommentName);
     };
-    // const renderComments = () => {
-    //     if (!showComments) {
-    //         return <></>
-    //     }
-    //     return <div className='one-review-task-comments-block'>
-    //         <hr />
-    //         <div className='one-review-task-comments-block-inner'>
-    //             Комментарии:
-    //             {props.Comments.map(x => {
-    //                 return <OneReviewTaskComment
-    //                     Comment={x}
-    //                     TaskId={props.Task.Id}
-    //                     key={x.Id}
-    //                 ></OneReviewTaskComment>
-    //             })}
-    //             <div>
-    //                 <textarea className='form-input' value={newCommentName}
-    //                     onChange={e => setNewCommentName(e.target.value)}
-    //                 ></textarea>
-    //                 <button className='button button-grey' onClick={() => addComment()}>Добавить</button>
-    //             </div>
-    //         </div>
-    //     </div>
-    // }
     var taskHasChanges = taskName !== props.Task.Name ||
         // (taskLink !== props.Task.Link && (taskLink || props.Task.Link)) ||
         taskStatus !== props.Task.StatusId ||
@@ -50250,7 +50536,8 @@ var OneReviewTask = function (props) {
                     react_1.default.createElement("a", { href: '/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id, onClick: function (e) {
                             e.preventDefault();
                             // navigate("/code-review/proj-" + props.CurrentProjectId+'/task-'+props.Task.Id);
-                            props.SetCurrentTask(props.Task.Id);
+                            // props.SetCurrentTask(props.Task.Id);
+                            navigate("/code-review/proj-" + props.CurrentProjectId + '/task-' + props.Task.Id);
                         } }, props.Task.Name)),
                 react_1.default.createElement("div", { className: 'one-review-task-buttons' },
                     react_1.default.createElement("div", { className: 'task-button', onClick: function () { return setShowFullTask(true); } },
@@ -50259,20 +50546,24 @@ var OneReviewTask = function (props) {
     return react_1.default.createElement("div", { className: 'one-review-task-block' },
         react_1.default.createElement("div", { className: 'one-review-task-block-flex' },
             react_1.default.createElement("div", { className: 'one-review-task-content' },
-                react_1.default.createElement("textarea", { className: 'form-input review-task-name-input', value: taskName, onChange: function (e) { return setTaskName(e.target.value); } }),
+                react_1.default.createElement("input", { type: 'text', className: 'form-input-v2', value: taskName, onChange: function (e) { return setTaskName(e.target.value); } }),
                 react_1.default.createElement("br", null),
                 react_1.default.createElement("span", null,
                     "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C: ",
                     creatorsList.find(function (x) { return x.Id == taskCreator; }).Name),
-                react_1.default.createElement("span", null, "\u0420\u0435\u0432\u044C\u044E\u0432\u0435\u0440:"),
-                react_1.default.createElement("select", { className: 'form-select', value: taskReviewer, onChange: function (e) { return setTaskreviewer(+e.target.value); } },
-                    react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                    reviewerList.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
-                react_1.default.createElement("span", null, "\u0421\u0442\u0430\u0442\u0443\u0441:"),
-                react_1.default.createElement("select", { className: 'form-select', onChange: function (e) { return setTaskStatus(+e.target.value); }, value: taskStatus },
-                    react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                    props.Statuses.map(function (status) { return react_1.default.createElement("option", { value: status.Id, key: status.Id }, status.Name); }))),
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("span", null, "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C:"),
+                    react_1.default.createElement("select", { className: 'form-select-v2', value: taskReviewer, onChange: function (e) { return setTaskreviewer(+e.target.value); } },
+                        react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
+                        reviewerList.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); }))),
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("span", null, "\u0421\u0442\u0430\u0442\u0443\u0441:"),
+                    react_1.default.createElement("select", { className: 'form-select-v2', onChange: function (e) { return setTaskStatus(+e.target.value); }, value: taskStatus },
+                        react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
+                        props.Statuses.map(function (status) { return react_1.default.createElement("option", { value: status.Id, key: status.Id }, status.Name); })))),
             react_1.default.createElement("div", { className: 'one-review-task-buttons' },
+                react_1.default.createElement("div", { className: 'task-button', onClick: function () { return setShowFullTask(false); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height task-rotate', src: G_PathToBaseImages + 'arrow2.png', alt: "\u0421\u043A\u0440\u044B\u0442\u044C", title: '\u0421\u043A\u0440\u044B\u0442\u044C' })),
                 taskHasChanges ?
                     react_1.default.createElement(react_1.default.Fragment, null,
                         react_1.default.createElement("div", { className: 'task-button', onClick: function () { return updateTask(); } },
@@ -50282,16 +50573,9 @@ var OneReviewTask = function (props) {
                 react_1.default.createElement("div", { className: 'task-button', onClick: function () { return deleteTask(); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
                 react_1.default.createElement("div", { className: 'task-button', onClick: function () {
-                        // <a href={'/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id} onClick={(e) => {
-                        //     e.preventDefault();
-                        //     // navigate("/code-review/proj-" + props.CurrentProjectId+'/task-'+props.Task.Id);
-                        //     props.SetCurrentTask(props.Task.Id);
-                        // }}>{props.Task.Name}</a>
-                        return props.SetCurrentTask(props.Task.Id);
+                        return navigate("/code-review/proj-" + props.CurrentProjectId + '/task-' + props.Task.Id);
                     } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'external-link.png', alt: "Link", title: '\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443' })),
-                react_1.default.createElement("div", { className: 'task-button', onClick: function () { return setShowFullTask(false); } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height task-rotate', src: G_PathToBaseImages + 'arrow2.png', alt: "\u0421\u043A\u0440\u044B\u0442\u044C", title: '\u0421\u043A\u0440\u044B\u0442\u044C' })))));
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'external-link.png', alt: "Link", title: '\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443' })))));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, OneReviewTaskSetup_1.default)(OneReviewTask);
@@ -50392,6 +50676,7 @@ var Paggination_1 = __importDefault(__webpack_require__(/*! ../../../../componen
 var ProjectUsers_1 = __importDefault(__webpack_require__(/*! ../ProjectUsers/ProjectUsers */ "./src/Apps/CodeReviewApp/Components/ProjectUsers/ProjectUsers.tsx"));
 var ProjectDetailSetup_1 = __importDefault(__webpack_require__(/*! ./ProjectDetailSetup */ "./src/Apps/CodeReviewApp/Components/ProjectDetail/ProjectDetailSetup.tsx"));
 var EditProject_1 = __importDefault(__webpack_require__(/*! ../EditProject/EditProject */ "./src/Apps/CodeReviewApp/Components/EditProject/EditProject.tsx"));
+var PopupWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/PopupWindow/PopupWindow */ "./src/components/Body/PopupWindow/PopupWindow.tsx"));
 __webpack_require__(/*! ./ProjectDetail.css */ "./src/Apps/CodeReviewApp/Components/ProjectDetail/ProjectDetail.css");
 var ProjectDetail = function (props) {
     var _a, _b;
@@ -50400,6 +50685,10 @@ var ProjectDetail = function (props) {
     var _d = (0, react_1.useState)(false), showUserList = _d[0], setShowUserList = _d[1];
     var _e = (0, react_1.useState)(false), showEditProject = _e[0], setShowEditProject = _e[1];
     var _f = (0, react_1.useState)(false), showAddNewTaskForm = _f[0], setShowAddNewTaskForm = _f[1];
+    var _g = (0, react_1.useState)(false), filterVisibilityName = _g[0], setFilterVisibilityName = _g[1];
+    var _h = (0, react_1.useState)(false), filterVisibilityCreator = _h[0], setFilterVisibilityCreator = _h[1];
+    var _j = (0, react_1.useState)(false), filterVisibilityStatus = _j[0], setFilterVisibilityStatus = _j[1];
+    var _k = (0, react_1.useState)(false), filterVisibilityReviwer = _k[0], setFilterVisibilityReviwer = _k[1];
     (0, react_1.useEffect)(function () {
         return function () {
             props.ClearProjectState();
@@ -50449,7 +50738,8 @@ var ProjectDetail = function (props) {
         }, 1500);
         setLoadTasksTimerId(timerId);
     }, [(_b = props.Project) === null || _b === void 0 ? void 0 : _b.Id, props.TasksFilters.CreatorId, props.TasksFilters.ReviewerId,
-        props.TasksFilters.Status, props.TasksFilters.TaskName, props.TasksFilters.Page, props.TasksFilters.Retrigger]);
+        props.TasksFilters.Status, props.TasksFilters.TaskName,
+        props.TasksFilters.Page, props.TasksFilters.Retrigger]);
     var reloadTasks = function () {
         var filter = {
             Name: props.TasksFilters.TaskName, CreatorId: props.TasksFilters.CreatorId,
@@ -50464,10 +50754,14 @@ var ProjectDetail = function (props) {
     };
     var clearFilters = function () {
         props.ClearFilterTask();
+        setFilterVisibilityName(false);
+        setFilterVisibilityCreator(false);
+        setFilterVisibilityStatus(false);
+        setFilterVisibilityReviwer(false);
     };
     if (!props.Project) {
-        return react_1.default.createElement("div", { className: "review-project-no-project" },
-            react_1.default.createElement("img", { src: G_PathToBaseImages + 'exclamation.png', alt: "" }),
+        return react_1.default.createElement("div", { className: 'review-project-no-project' },
+            react_1.default.createElement("img", { src: G_PathToBaseImages + 'exclamation.png', alt: '' }),
             react_1.default.createElement("h2", null, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u043F\u0440\u043E\u0435\u043A\u0442"));
     }
     return react_1.default.createElement("div", { className: 'review-project-detail-main' },
@@ -50476,51 +50770,97 @@ var ProjectDetail = function (props) {
             react_1.default.createElement("div", { className: 'review-project-edit-button', onClick: function () {
                     setShowEditProject(true);
                 } },
-                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'edit-1.svg', alt: "Edit", title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043F\u0440\u043E\u0435\u043A\u0442' })),
+                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'edit-1.svg', alt: 'Edit', title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043F\u0440\u043E\u0435\u043A\u0442' })),
             react_1.default.createElement("div", { className: 'review-project-delete-button', onClick: function () {
                     if (confirm('Удалить проект?')) {
                         deleteProject();
                     }
                 } },
-                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043F\u0440\u043E\u0435\u043A\u0442' })),
+                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: 'Delete', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043F\u0440\u043E\u0435\u043A\u0442' })),
             showEditProject ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowEditProject(false); }, IsHeightWindow: true, Title: '\u0420\u0435\u0434\u0430\u043A\u0442\u043E\u0440\u0438\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u0430', InnerContent: function () { return react_1.default.createElement(EditProject_1.default, null); } }) : react_1.default.createElement(react_1.default.Fragment, null),
             react_1.default.createElement("br", null),
-            react_1.default.createElement("div", { className: "review-project-detail-main-header-buttons" },
+            react_1.default.createElement("div", { className: 'review-project-detail-main-header-buttons' },
                 react_1.default.createElement("button", { className: 'button button-grey', onClick: function () { return setShowUserList(function (e) { return true; }); } }, "\u041B\u044E\u0434\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"),
-                showUserList ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowUserList(false); }, IsHeightWindow: true, Title: '\u041B\u044E\u0434\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u0430', InnerContent: function () { return react_1.default.createElement(ProjectUsers_1.default, null); } }) : react_1.default.createElement(react_1.default.Fragment, null),
-                react_1.default.createElement("button", { className: 'button button-blue', onClick: function () { return setShowAddNewTaskForm(true); } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443"),
-                showAddNewTaskForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowAddNewTaskForm(false); }, IsHeightWindow: false, Title: '\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438', InnerContent: function () { return react_1.default.createElement(AddTask_1.default, { ProjectId: props.Project.Id, ProjectUsers: props.ProjectUsers.filter(function (us) { return !us.Deactivated; }) }); } }) : react_1.default.createElement(react_1.default.Fragment, null))),
-        react_1.default.createElement("div", { className: 'review-project-tasks-filters-block' },
-            react_1.default.createElement("h4", { className: 'persent-100-width' }, "\u0424\u0438\u043B\u044C\u0442\u0440\u044B"),
-            react_1.default.createElement("div", { className: 'review-project-tasks-filters-block-flex' },
-                react_1.default.createElement("input", { className: 'form-input', type: 'text', value: props.TasksFilters.TaskName, onChange: function (e) { return props.SetFilterTaskName(e.target.value); }, placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435' }),
+                showUserList ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowUserList(false); }, IsHeightWindow: true, Title: '\u041B\u044E\u0434\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u0430', InnerContent: function () { return react_1.default.createElement(ProjectUsers_1.default, null); } }) : react_1.default.createElement(react_1.default.Fragment, null))),
+        react_1.default.createElement("div", { className: 'review-project-description' }, "\u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435"),
+        react_1.default.createElement("div", { className: 'review-project-tasks' },
+            react_1.default.createElement("div", { className: 'tasks-header' },
                 react_1.default.createElement("div", null,
-                    react_1.default.createElement("span", null, "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C"),
-                    react_1.default.createElement("select", { className: 'form-select', value: props.TasksFilters.CreatorId, onChange: function (e) { return props.SetFilterTaskCreator(+e.target.value); } },
-                        react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                        props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); }))),
+                    react_1.default.createElement("h3", null, "\u0417\u0430\u0434\u0430\u0447\u0438")),
                 react_1.default.createElement("div", null,
-                    react_1.default.createElement("span", null, "\u0420\u0435\u0432\u044C\u044E\u0432\u0435\u0440"),
-                    react_1.default.createElement("select", { className: 'form-select', value: props.TasksFilters.ReviewerId, onChange: function (e) { return props.SetFilterTaskReviewer(+e.target.value); } },
-                        react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                        props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); }))),
+                    react_1.default.createElement("button", { className: 'add-task-btn', onClick: function () { return setShowAddNewTaskForm(true); } },
+                        react_1.default.createElement("span", { className: 'plus-icon' }, "+"),
+                        react_1.default.createElement("span", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443"))),
                 react_1.default.createElement("div", null,
-                    react_1.default.createElement("span", null, "\u0421\u0442\u0430\u0442\u0443\u0441"),
-                    react_1.default.createElement("select", { className: 'form-select', onChange: function (e) { return props.SetFilterTaskStatus(+e.target.value); }, value: props.TasksFilters.Status },
-                        react_1.default.createElement("option", { value: -1 }, "\u041B\u044E\u0431\u043E\u0439"),
-                        props.Statuses.map(function (status) { return react_1.default.createElement("option", { value: status.Id, key: status.Id }, status.Name); })))),
-            react_1.default.createElement("div", { className: "review-project-tasks-filters-buttons" },
-                react_1.default.createElement(Paggination_1.default, { ElementsCount: props.CurrentProjectTasksAllCount, PageNumber: props.TasksFilters.Page, ElementsOnPage: tasksOnPageCount, SetPageNumber: props.SetFilterTaskPage }),
-                react_1.default.createElement("button", { className: 'button button-grey', onClick: function () { return clearFilters(); } }, "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C"))),
-        react_1.default.createElement("div", { className: "review-project-tasks" },
-            react_1.default.createElement("h3", null, "\u0417\u0430\u0434\u0430\u0447\u0438"),
+                    react_1.default.createElement(PopupWindow_1.default, { ButtonContent: react_1.default.createElement("button", { className: 'add-filter-btn' },
+                            react_1.default.createElement("span", { className: 'plus-icon' }, "+"),
+                            react_1.default.createElement("span", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0444\u0438\u043B\u044C\u0442\u0440")), PopupContent: react_1.default.createElement("div", { className: 'filters-window' },
+                            react_1.default.createElement("div", { className: 'add-one-filter', onClick: function () { return setFilterVisibilityName(true); } }, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"),
+                            react_1.default.createElement("div", { className: 'add-one-filter', onClick: function () { return setFilterVisibilityCreator(true); } }, "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C"),
+                            react_1.default.createElement("div", { className: 'add-one-filter', onClick: function () { return setFilterVisibilityReviwer(true); } }, "\u0420\u0435\u0432\u044C\u044E\u0432\u0435\u0440"),
+                            react_1.default.createElement("div", { className: 'add-one-filter', onClick: function () { return setFilterVisibilityStatus(true); } }, "\u0421\u0442\u0430\u0442\u0443\u0441")) })),
+                ((filterVisibilityName
+                    || filterVisibilityCreator
+                    || filterVisibilityReviwer
+                    || filterVisibilityStatus)
+                    || (props.TasksFilters.CreatorId != -1
+                        || props.TasksFilters.ReviewerId != -1
+                        || props.TasksFilters.Status != -1
+                        || props.TasksFilters.TaskName != ''
+                        || props.TasksFilters.Page != 1))
+                    &&
+                        react_1.default.createElement("div", null,
+                            react_1.default.createElement("button", { className: 'del-filter-btn', onClick: function () { return clearFilters(); } },
+                                react_1.default.createElement("span", { className: 'cross-icon' }, "\u00D7"),
+                                react_1.default.createElement("span", null, "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C \u0444\u0438\u043B\u044C\u0442\u0440\u044B")))),
+            showAddNewTaskForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: function () { return setShowAddNewTaskForm(false); }, IsHeightWindow: false, Title: '\u0414\u043E\u0431\u0430\u0432\u043B\u0435\u043D\u0438\u0435 \u0437\u0430\u0434\u0430\u0447\u0438', InnerContent: function () { return react_1.default.createElement(AddTask_1.default, { ProjectId: props.Project.Id, ProjectUsers: props.ProjectUsers.filter(function (us) { return !us.Deactivated; }) }); } }) : react_1.default.createElement(react_1.default.Fragment, null),
+            react_1.default.createElement("div", { className: 'review-project-tasks-filters-buttons' },
+                react_1.default.createElement("div", { className: 'review-project-tasks-filters-block-flex' },
+                    filterVisibilityName && react_1.default.createElement("div", { className: 'filter-container' },
+                        react_1.default.createElement("div", { className: 'filter-tag' },
+                            react_1.default.createElement("span", { className: 'filter-name' }, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435:"),
+                            react_1.default.createElement("input", { type: 'text', className: 'filter-input', placeholder: '\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: props.TasksFilters.TaskName, onChange: function (e) { return props.SetFilterTaskName(e.target.value); } }),
+                            react_1.default.createElement("button", { className: 'remove-filter', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0444\u0438\u043B\u044C\u0442\u0440', onClick: function () {
+                                    props.SetFilterTaskName('');
+                                    setFilterVisibilityName(false);
+                                } }, "\u00D7"))),
+                    filterVisibilityCreator && react_1.default.createElement("div", { className: 'filter-container' },
+                        react_1.default.createElement("div", { className: 'filter-tag' },
+                            react_1.default.createElement("span", { className: 'filter-name' }, "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C:"),
+                            react_1.default.createElement("select", { className: 'filter-input', value: props.TasksFilters.CreatorId, onChange: function (e) { return props.SetFilterTaskCreator(+e.target.value); } },
+                                react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
+                                props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
+                            react_1.default.createElement("button", { className: 'remove-filter', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0444\u0438\u043B\u044C\u0442\u0440', onClick: function () {
+                                    props.SetFilterTaskCreator(-1);
+                                    setFilterVisibilityCreator(false);
+                                } }, "\u00D7"))),
+                    filterVisibilityReviwer && react_1.default.createElement("div", { className: 'filter-tag' },
+                        react_1.default.createElement("span", { className: 'filter-name' }, "\u0420\u0435\u0432\u044C\u044E\u0432\u0435\u0440:"),
+                        react_1.default.createElement("select", { className: 'filter-input', value: props.TasksFilters.ReviewerId, onChange: function (e) { return props.SetFilterTaskReviewer(+e.target.value); } },
+                            react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
+                            props.ProjectUsers.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); })),
+                        react_1.default.createElement("button", { className: 'remove-filter', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0444\u0438\u043B\u044C\u0442\u0440', onClick: function () {
+                                props.SetFilterTaskReviewer(-1);
+                                setFilterVisibilityReviwer(false);
+                            } }, "\u00D7")),
+                    filterVisibilityStatus && react_1.default.createElement("div", { className: 'filter-tag' },
+                        react_1.default.createElement("span", { className: 'filter-name' }, "\u0421\u0442\u0430\u0442\u0443\u0441:"),
+                        react_1.default.createElement("select", { className: 'filter-input', onChange: function (e) { return props.SetFilterTaskStatus(+e.target.value); }, value: props.TasksFilters.Status },
+                            react_1.default.createElement("option", { value: -1 }, "\u041B\u044E\u0431\u043E\u0439"),
+                            props.Statuses.map(function (status) { return react_1.default.createElement("option", { value: status.Id, key: status.Id }, status.Name); })),
+                        react_1.default.createElement("button", { className: 'remove-filter', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0444\u0438\u043B\u044C\u0442\u0440', onClick: function () {
+                                props.SetFilterTaskStatus(-1);
+                                setFilterVisibilityStatus(false);
+                            } }, "\u00D7")))),
             props.Tasks.length
                 ? props.Tasks.map(function (x) {
                     return react_1.default.createElement(OneReviewTask_1.default, { key: x.Id, Task: x, Comments: x.Comments, CurrentProjectId: props.Project.Id });
                 })
-                : react_1.default.createElement("div", { className: "review-project-tasks-no-tasks" },
-                    react_1.default.createElement("img", { src: G_PathToBaseImages + 'exclamation.png', alt: "" }),
-                    react_1.default.createElement("h2", null, "\u0417\u0430\u0434\u0430\u0447\u0438 \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u044B!"))));
+                : react_1.default.createElement("div", { className: 'review-project-tasks-no-tasks' },
+                    react_1.default.createElement("img", { src: G_PathToBaseImages + 'exclamation.png', alt: '' }),
+                    react_1.default.createElement("h2", null, "\u0417\u0430\u0434\u0430\u0447\u0438 \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u044B!")),
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("div", { className: 'project-paggination-block' }, props.CurrentProjectTasksAllCount > tasksOnPageCount && react_1.default.createElement(Paggination_1.default, { ElementsCount: props.CurrentProjectTasksAllCount, PageNumber: props.TasksFilters.Page, ElementsOnPage: tasksOnPageCount, SetPageNumber: props.SetFilterTaskPage })))));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, ProjectDetailSetup_1.default)(ProjectDetail);
@@ -51369,7 +51709,7 @@ var CodeReviewProjectController = /** @class */ (function () {
                         return;
                     }
                     if (data) {
-                        dispatch((0, ProjectActions_1.SetCurrentProjectIdActionCreator)(-1));
+                        // dispatch(SetCurrentProjectIdActionCreator(-1));
                         var dt = data.map(function (x) {
                             var pr = new OneProjectInList_1.OneProjectInList();
                             pr.FillByBackModel(x);
@@ -52091,6 +52431,7 @@ var CodeReviewAppState = /** @class */ (function () {
         this.CurrentProjectTasksFilters = new TasksFilter_1.TasksFilter();
         this.CurrentProjectStatuses = [];
         this.CurrentTask = null;
+        this.ProjectsLoaded = false;
     }
     return CodeReviewAppState;
 }());
@@ -52425,6 +52766,7 @@ function CodeReviewProjectReducer(state, action) {
                 var newState = (0, cloneDeep_1.default)(state);
                 var projects = action.payload;
                 newState.CodeReviewApp.ProjectsList = projects;
+                newState.CodeReviewApp.ProjectsLoaded = true;
                 return newState;
             }
         case ProjectActions_1.ClearProjectStateActionName:
@@ -52436,6 +52778,7 @@ function CodeReviewProjectReducer(state, action) {
                 newState.CodeReviewApp.CurrentProjectTasksAllCount = 0;
                 newState.CodeReviewApp.CurrentProjectTasks = [];
                 newState.CodeReviewApp.CurrentProjectStatuses = [];
+                newState.CodeReviewApp.ProjectsLoaded = false;
                 return newState;
             }
         default:
@@ -64049,6 +64392,297 @@ var mapDispatchToProps = function (dispatch, ownProps) {
 var connectToStore = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
 // and that function returns the connected, wrapper component:
 exports["default"] = connectToStore(PersonSettings);
+
+
+/***/ }),
+
+/***/ "./src/components/Body/PopupWindow/PopupWindow.tsx":
+/*!*********************************************************!*\
+  !*** ./src/components/Body/PopupWindow/PopupWindow.tsx ***!
+  \*********************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var PopupWindowSetup_1 = __importDefault(__webpack_require__(/*! ./PopupWindowSetup */ "./src/components/Body/PopupWindow/PopupWindowSetup.tsx"));
+__webpack_require__(/*! ./PopupWindow.css */ "./src/components/Body/PopupWindow/PopupWindow.css");
+var PopupWindow = function (props) {
+    var _a = (0, react_1.useState)(false), isOpen = _a[0], setIsOpen = _a[1];
+    var popupRef = (0, react_1.useRef)(null);
+    var buttonRef = (0, react_1.useRef)(null);
+    // Рассчёт позиции попапа
+    var calculatePosition = function () {
+        if (!buttonRef.current || !popupRef.current)
+            return;
+        // const buttonRect = buttonRef.current.getBoundingClientRect();
+        var popupRect = popupRef.current.getBoundingClientRect();
+        // console.log(buttonRect);
+        // console.log(popupRect);
+        // Позиционируем под кнопкой с центрированием
+        return {
+            // top: buttonRect.bottom + window.scrollY + 5,
+            // left: buttonRect.left + window.scrollX + (buttonRect.width - popupRect.width) / 2
+            //todo надо расчитывать так что бы не уходило за экран
+            top: -popupRect.height,
+            left: 0
+        };
+    };
+    // Закрытие при клике вне попапа
+    (0, react_1.useEffect)(function () {
+        if (!isOpen)
+            return;
+        var handleClickOutside = function (e) {
+            if (popupRef.current && !popupRef.current.contains(e.target)) {
+                setIsOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return function () { return document.removeEventListener("mousedown", handleClickOutside); };
+    }, [isOpen]);
+    var _b = (0, react_1.useState)({ top: 0, left: 0 }), coords = _b[0], setCoords = _b[1];
+    (0, react_1.useEffect)(function () {
+        if (isOpen) {
+            // Небольшая задержка для корректного расчёта размеров
+            requestAnimationFrame(function () {
+                setCoords(calculatePosition());
+            });
+        }
+    }, [isOpen]);
+    (0, react_1.useEffect)(function () {
+        if (isOpen) {
+            var handleResize_1 = function () { return setCoords(calculatePosition()); };
+            window.addEventListener("resize", handleResize_1);
+            return function () { return window.removeEventListener("resize", handleResize_1); };
+        }
+    }, [isOpen]);
+    return (react_1.default.createElement("div", { className: "popup-wrapper" },
+        react_1.default.createElement("div", { ref: buttonRef, onClick: function () { return setIsOpen(!isOpen); }, className: "popup-button" }, props.ButtonContent),
+        isOpen && (react_1.default.createElement("div", { ref: popupRef, className: "popup-content", style: {
+                position: "absolute",
+                top: "".concat(coords.top, "px"),
+                left: "".concat(coords.left, "px"),
+            } }, props.PopupContent))));
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, PopupWindowSetup_1.default)(PopupWindow);
+
+
+/***/ }),
+
+/***/ "./src/components/Body/PopupWindow/PopupWindowSetup.tsx":
+/*!**************************************************************!*\
+  !*** ./src/components/Body/PopupWindow/PopupWindowSetup.tsx ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var mapStateToProps = function (state, ownProps) {
+    var res = {};
+    return res;
+};
+var mapDispatchToProps = function (dispatch, ownProps) {
+    var res = {};
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
+/***/ "./src/components/Body/SaveCancelInput/SaveCancelInputSelect.tsx":
+/*!***********************************************************************!*\
+  !*** ./src/components/Body/SaveCancelInput/SaveCancelInputSelect.tsx ***!
+  \***********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+__webpack_require__(/*! ./SaveCancelInput.css */ "./src/components/Body/SaveCancelInput/SaveCancelInput.css");
+//: React.FC<ISaveCancelInputSelectProps> 
+var SaveCancelInputSelect = function (props) {
+    var _a = (0, react_1.useState)(-1), selected = _a[0], setSelected = _a[1];
+    (0, react_1.useEffect)(function () {
+        setSelected(props.Selected || -1);
+    }, [props.Selected]);
+    return react_1.default.createElement("div", { className: "editable-input-container" },
+        react_1.default.createElement("select", { className: 'editable-input', value: selected, onChange: function (e) { return setSelected(+e.target.value); } },
+            react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
+            props.ValuesWithId.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Text); })),
+        react_1.default.createElement("div", { className: "action-buttons" },
+            react_1.default.createElement("button", { type: "button", className: "save-button", title: "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C", onClick: function () { return props.SaveEvent(selected); } },
+                react_1.default.createElement("span", { className: "save-icon" })),
+            react_1.default.createElement("button", { type: "button", className: "cancel-button", title: "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C", onClick: function () {
+                    setSelected(props.Selected || -1);
+                    props.CancelEvent();
+                } },
+                react_1.default.createElement("span", { className: "cancel-icon" }))));
+};
+exports["default"] = SaveCancelInputSelect;
+
+
+/***/ }),
+
+/***/ "./src/components/Body/SaveCancelInput/SaveCancelInputText.tsx":
+/*!*********************************************************************!*\
+  !*** ./src/components/Body/SaveCancelInput/SaveCancelInputText.tsx ***!
+  \*********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+__webpack_require__(/*! ./SaveCancelInput.css */ "./src/components/Body/SaveCancelInput/SaveCancelInput.css");
+//: React.FC<ISaveCancelInputTextProps>
+var SaveCancelInputText = function (props) {
+    var _a = (0, react_1.useState)(''), text = _a[0], setText = _a[1];
+    (0, react_1.useEffect)(function () {
+        setText(props.Text || '');
+    }, [props.Text]);
+    return react_1.default.createElement("div", { className: "editable-input-container" },
+        react_1.default.createElement("input", { type: "text", className: "editable-input", value: text, onChange: function (e) { return setText(e.target.value); } }),
+        react_1.default.createElement("div", { className: "action-buttons" },
+            react_1.default.createElement("button", { type: "button", className: "save-button", title: "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C", onClick: function () { return props.SaveEvent(text); } },
+                react_1.default.createElement("span", { className: "save-icon" })),
+            react_1.default.createElement("button", { type: "button", className: "cancel-button", title: "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C", onClick: function () {
+                    setText(props.Text || '');
+                    props.CancelEvent();
+                } },
+                react_1.default.createElement("span", { className: "cancel-icon" }))));
+};
+exports["default"] = SaveCancelInputText;
+
+
+/***/ }),
+
+/***/ "./src/components/Body/SaveCancelTextarea/SaveCancelTextarea.tsx":
+/*!***********************************************************************!*\
+  !*** ./src/components/Body/SaveCancelTextarea/SaveCancelTextarea.tsx ***!
+  \***********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+__webpack_require__(/*! ./SaveCancelTextarea.css */ "./src/components/Body/SaveCancelTextarea/SaveCancelTextarea.css");
+var SaveCancelTextarea = function (props) {
+    var _a = (0, react_1.useState)(props.Text || ''), text = _a[0], setText = _a[1];
+    (0, react_1.useEffect)(function () {
+        setText(props.Text || '');
+    }, [props.Text]);
+    return react_1.default.createElement("div", { className: "editable-textarea-container" },
+        react_1.default.createElement("textarea", { value: text, onChange: function (e) { return setText(e.target.value); }, className: "editable-textarea" }),
+        react_1.default.createElement("div", { className: "input-editable-controls" },
+            react_1.default.createElement("button", { type: "button", className: "editable-button cancel-button", onClick: function () {
+                    setText(props.Text || '');
+                    props.CancelEvent();
+                } }, "\u041E\u0442\u043C\u0435\u043D\u0430"),
+            react_1.default.createElement("button", { type: "button", className: "editable-button save-button", onClick: function () { return props.SaveEvent(text); } }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C")));
+};
+exports["default"] = SaveCancelTextarea;
 
 
 /***/ }),

@@ -220,5 +220,100 @@ namespace Menu.Controllers.CodeReviewApp
                 }, Response, _logger);
 
         }
+
+
+        [Route("update-name")]
+        [HttpPatch]
+        public async Task UpdateTaskName([FromForm] long id, [FromForm] string name)
+        {
+            name = _apiHealper.StringValidator(name);
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+
+                    var res = await _taskReviewService.UpdateNameAsync(id,name, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response
+                        , new
+                        {
+                            result = res != null,
+                        });
+
+                }, Response, _logger);
+
+        }
+
+        [Route("update-description")]
+        [HttpPatch]
+        public async Task UpdateTaskDescription([FromForm] long id, [FromForm] string description)
+        {
+            description = _apiHealper.StringValidator(description);
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+
+                    var res = await _taskReviewService.UpdateDescriptionAsync(id, description, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response
+                        , new
+                        {
+                            result = res != null,
+                        });
+
+                }, Response, _logger);
+
+        }
+
+        [Route("update-status")]
+        [HttpPatch]
+        public async Task UpdateTaskStatus([FromForm] long id, [FromForm] long statusId)
+        {
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+
+                    var res = await _taskReviewService.UpdateStatusAsync(id, statusId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response
+                        , new
+                        {
+                            result = res != null,
+                        });
+
+                }, Response, _logger);
+
+        }
+
+        [Route("update-executor")]
+        [HttpPatch]
+        public async Task UpdateExecutorStatus([FromForm] long id, [FromForm] long personId)
+        {
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+
+                    var res = await _taskReviewService.UpdateExecutorAsync(id, personId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response
+                        , new
+                        {
+                            result = res != null,
+                        });
+
+                }, Response, _logger);
+
+        }
     }
 }
