@@ -1,5 +1,5 @@
-﻿using BO.Models.CodeReviewApp.DAL.Domain;
-using CodeReviewApp.Models.DAL.Repositories.Interfaces;
+﻿using BO.Models.TaskManagementApp.DAL.Domain;
+using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CodeReviewApp.Models.DAL.Repositories
+namespace TaskManagementApp.Models.DAL.Repositories
 {
     public sealed class TaskReviewRepository : GeneralRepository<TaskReview, long>, ITaskReviewRepository
     {

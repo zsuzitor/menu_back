@@ -1,7 +1,7 @@
-﻿using BO.Models.CodeReviewApp.DAL.Domain;
-using CodeReviewApp.Models;
-using CodeReviewApp.Models.Returns;
-using CodeReviewApp.Models.Services.Interfaces;
+﻿using BO.Models.TaskManagementApp.DAL.Domain;
+using TaskManagementApp.Models;
+using TaskManagementApp.Models.Returns;
+using TaskManagementApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -76,7 +76,7 @@ namespace Menu.Controllers.CodeReviewApp
                     var res = await _projectService.ExistIfAccessAsync(projectId, userInfo);
                     if (!res.access)
                     {
-                        throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFound);
+                        throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFound);
                     }
 
                     var tasks = await _taskReviewService.GetTasksAsync(projectId
@@ -101,11 +101,11 @@ namespace Menu.Controllers.CodeReviewApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var task = await _taskReviewService.GetTaskWithCommentsAsync(id) ?? throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskNotFound);
+                    var task = await _taskReviewService.GetTaskWithCommentsAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
                     var res = await _projectService.ExistIfAccessAsync(task.ProjectId, userInfo);
                     if (!res.access)
                     {
-                        throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFound);
+                        throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFound);
                     }
 
 

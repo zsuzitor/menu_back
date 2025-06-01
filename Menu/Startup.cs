@@ -26,7 +26,7 @@ using Hangfire.SqlServer;
 using PlanitPoker.Models;
 using MenuApp.Models;
 using WordsCardsApp;
-using CodeReviewApp.Models;
+using TaskManagementApp.Models;
 using BO.Models.Configs;
 using System.Collections.Generic;
 using Hangfire.MemoryStorage;
@@ -34,6 +34,7 @@ using VaultApp.Models;
 using BL.Models.Services.Cache;
 using Hangfire.Dashboard.BasicAuthorization;
 using Menu.Models;
+using TaskManagementApp.Models;
 
 namespace Menu
 {
@@ -51,7 +52,7 @@ namespace Menu
                 new MenuAppInitializer(),
                 new WordsCardsAppInitializer(),
                 new PlanitPokerInitializer(),
-                new CodeReviewAppInitializer(),
+                new TaskManagementAppInitializer(),
                 new VaultAppInitializer(),
             };
         }

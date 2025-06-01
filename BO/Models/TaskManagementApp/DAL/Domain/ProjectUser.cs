@@ -3,7 +3,7 @@ using BO.Models.DAL;
 using BO.Models.DAL.Domain;
 using System.Collections.Generic;
 
-namespace BO.Models.CodeReviewApp.DAL.Domain
+namespace BO.Models.TaskManagementApp.DAL.Domain
 {
     public sealed class ProjectUser : IDomainRecord<long>
     {

@@ -1,9 +1,9 @@
-﻿using BO.Models.CodeReviewApp.DAL.Domain;
+﻿using BO.Models.TaskManagementApp.DAL.Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CodeReviewApp.Models.Returns
+namespace TaskManagementApp.Models.Returns
 {
     public class TaskReviewStatusReturn
     {

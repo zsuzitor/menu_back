@@ -1,13 +1,13 @@
 ﻿using BO.Models.Auth;
-using BO.Models.CodeReviewApp.DAL.Domain;
+using BO.Models.TaskManagementApp.DAL.Domain;
 using BO.Models.DAL.Domain;
-using CodeReviewApp.Models.DAL.Repositories.Interfaces;
-using CodeReviewApp.Models.Services.Interfaces;
+using TaskManagementApp.Models.DAL.Repositories.Interfaces;
+using TaskManagementApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CodeReviewApp.Models.Services
+namespace TaskManagementApp.Models.Services
 {
     public sealed class ProjectUserService : IProjectUserService
     {
@@ -26,7 +26,7 @@ namespace CodeReviewApp.Models.Services
                 var exist = await _projectUserRepository.ExistByMainIdAsync(user.ProjectId, user.MainAppUserId.Value);
                 if (exist)
                 {
-                    throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserAlreadyAdded);
+                    throw new SomeCustomException(Consts.ErrorConsts.UserAlreadyAdded);
                 }
             }
 
@@ -56,13 +56,13 @@ namespace CodeReviewApp.Models.Services
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyUserName);
+                throw new SomeCustomException(Consts.ErrorConsts.EmptyUserName);
             }
 
             var user = await _projectUserRepository.GetAsync(userId);
             if (user == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectUserNotFound);
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectUserNotFound);
             }
 
             if(user.MainAppUserId == userInfo.UserId)
@@ -84,7 +84,7 @@ namespace CodeReviewApp.Models.Services
             //var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(userInfo.UserId, user.ProjectId);
             //if (userCurrent == null || !userCurrent.IsAdmin || userCurrent.Deactivated)
             //{
-            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject);
+            //    throw new SomeCustomException(Consts.ErrorConsts.HaveNoAccessToEditProject);
             //}
 
             user.UserName = name;
@@ -101,7 +101,7 @@ namespace CodeReviewApp.Models.Services
             var user = await _projectUserRepository.GetAsync(userId);
             if (user == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectUserNotFound);
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectUserNotFound);
             }
 
             if (user.Deactivated)
@@ -112,7 +112,7 @@ namespace CodeReviewApp.Models.Services
             //var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(userInfo.UserId, user.ProjectId);
             //if (userCurrent == null || !userCurrent.IsAdmin || userCurrent.Deactivated)
             //{
-            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject);
+            //    throw new SomeCustomException(Consts.ErrorConsts.HaveNoAccessToEditProject);
             //}
             await ThrowIfNotAccessToProject(userInfo.UserId, user.ProjectId, true);
 
@@ -166,11 +166,11 @@ namespace CodeReviewApp.Models.Services
             //var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(mainAppUserId, projectId);
             //if (userCurrent == null || !userCurrent.IsAdmin || userCurrent.Deactivated)
             //{
-            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.HaveNoAccessToEditProject);
+            //    throw new SomeCustomException(Consts.ErrorConsts.HaveNoAccessToEditProject);
             //}
             if (!res.access || (isAdmin && !res.isAdmin))
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
         }
 

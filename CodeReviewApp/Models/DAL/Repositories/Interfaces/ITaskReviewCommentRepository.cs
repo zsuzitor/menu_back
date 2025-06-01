@@ -1,9 +1,9 @@
 ﻿
-using BO.Models.CodeReviewApp.DAL.Domain;
+using BO.Models.TaskManagementApp.DAL.Domain;
 using DAL.Models.DAL.Repositories.Interfaces;
 using System.Threading.Tasks;
 
-namespace CodeReviewApp.Models.DAL.Repositories.Interfaces
+namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
 {
     public interface ITaskReviewCommentRepository : IGeneralRepository<CommentReview, long>
     {

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BO.Models.CodeReviewApp.DAL.Domain
+namespace BO.Models.TaskManagementApp.DAL.Domain
 {
     public class TaskReviewStatus : IDomainRecord<long>
     {

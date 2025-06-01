@@ -1,6 +1,6 @@
-﻿using BO.Models.CodeReviewApp.DAL.Domain;
-using CodeReviewApp.Models.Returns;
-using CodeReviewApp.Models.Services.Interfaces;
+﻿using BO.Models.TaskManagementApp.DAL.Domain;
+using TaskManagementApp.Models.Returns;
+using TaskManagementApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.Mvc;

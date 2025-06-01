@@ -1,4 +1,4 @@
-﻿using BO.Models.CodeReviewApp.DAL.Domain;
+﻿using BO.Models.TaskManagementApp.DAL.Domain;
 using BO.Models.DAL.Domain;
 using BO.Models.MenuApp.DAL.Domain;
 using BO.Models.PlaningPoker.DAL;

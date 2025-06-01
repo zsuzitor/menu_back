@@ -4,7 +4,7 @@ using jwtLib.JWTAuth.Interfaces;
 using System.Collections.Generic;
 using BO.Models.MenuApp.DAL.Domain;
 using BO.Models.WordsCardsApp.DAL.Domain;
-using BO.Models.CodeReviewApp.DAL.Domain;
+using BO.Models.TaskManagementApp.DAL.Domain;
 using BO.Models.VaultApp.Dal;
 
 namespace BO.Models.DAL.Domain

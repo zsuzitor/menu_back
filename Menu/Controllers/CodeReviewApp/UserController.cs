@@ -1,5 +1,5 @@
-﻿using CodeReviewApp.Models.Returns;
-using CodeReviewApp.Models.Services.Interfaces;
+﻿using TaskManagementApp.Models.Returns;
+using TaskManagementApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.Services.Interfaces;
@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
-using CodeReviewApp.Models;
+using TaskManagementApp.Models;
 
 namespace Menu.Controllers.CodeReviewApp
 {
@@ -58,7 +58,7 @@ namespace Menu.Controllers.CodeReviewApp
                         userIdForAdd = await _mainAppUserService.GetIdByEmailAsync(mainAppUserEmail);
                         if (userIdForAdd == null)
                         {
-                            throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserInMainAppNotFound);
+                            throw new SomeCustomException(Consts.ErrorConsts.UserInMainAppNotFound);
                         }
                     }
 

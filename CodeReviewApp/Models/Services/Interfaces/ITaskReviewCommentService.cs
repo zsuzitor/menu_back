@@ -1,10 +1,10 @@
 ﻿
 using BO.Models.Auth;
-using BO.Models.CodeReviewApp.DAL.Domain;
+using BO.Models.TaskManagementApp.DAL.Domain;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CodeReviewApp.Models.Services.Interfaces
+namespace TaskManagementApp.Models.Services.Interfaces
 {
     public interface ITaskReviewCommentService
     {

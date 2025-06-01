@@ -1,12 +1,12 @@
 ﻿
 using BO.Models.Auth;
-using BO.Models.CodeReviewApp.DAL.Domain;
-using CodeReviewApp.Models.DAL.Repositories.Interfaces;
-using CodeReviewApp.Models.Services.Interfaces;
+using BO.Models.TaskManagementApp.DAL.Domain;
+using TaskManagementApp.Models.DAL.Repositories.Interfaces;
+using TaskManagementApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
 using System.Threading.Tasks;
 
-namespace CodeReviewApp.Models.Services
+namespace TaskManagementApp.Models.Services
 {
     public sealed class TaskReviewCommentService : ITaskReviewCommentService
     {
@@ -36,25 +36,25 @@ namespace CodeReviewApp.Models.Services
             var comment = await _taskReviewCommentRepository.GetAsync(commentId);
             if (comment == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.CommentNotFound);
+                throw new SomeCustomException(Consts.ErrorConsts.CommentNotFound);
             }
 
             //var task = await _taskReviewService.GetByIdIfAccessAsync(comment.TaskId, userInfo);
             var task = await _taskReviewRepository.GetNoTrackAsync(comment.TaskId);
             //if (task == null)
             //{
-            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskNotFound);
+            //    throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
             //}
 
             var user = await _projectUserService.GetByMainAppIdAsync(userInfo, task.ProjectId);
             if (user == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
+                throw new SomeCustomException(Consts.ErrorConsts.UserNotFound);
             }
 
             if(comment.CreatorId != user.Id)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.CommentNotFoundOrNotAccess);
+                throw new SomeCustomException(Consts.ErrorConsts.CommentNotFoundOrNotAccess);
             }
 
             //var deleted = await _taskReviewCommentRepository.DeleteAsync(commentId, user.Id);
@@ -63,7 +63,7 @@ namespace CodeReviewApp.Models.Services
             //var deleted =  await _taskReviewCommentRepository.DeleteAsync(commentId, user.Id);
             //if (deleted == null)
             //{
-            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.CommentNotFoundOrNotAccess);
+            //    throw new SomeCustomException(Consts.ErrorConsts.CommentNotFoundOrNotAccess);
             //}
 
             return deleted;
@@ -75,18 +75,18 @@ namespace CodeReviewApp.Models.Services
             //var user = await _projectUserService.GetByMainAppIdAsync(userInfo);
             //if (user == null)
             //{
-            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
+            //    throw new SomeCustomException(Consts.ErrorConsts.UserNotFound);
             //}
 
             if (string.IsNullOrWhiteSpace(text))
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewEmptyStatusName);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskReviewEmptyStatusName);
             }
 
             var comment = await _taskReviewCommentRepository.GetAsync(commentId);
             if (comment == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.CommentNotFound);
+                throw new SomeCustomException(Consts.ErrorConsts.CommentNotFound);
             }
 
             //var task = await _taskReviewService.GetByIdIfAccessAsync(comment.TaskId, userInfo);
@@ -94,25 +94,25 @@ namespace CodeReviewApp.Models.Services
 
             //if (task == null)
             //{
-            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskNotFound);
+            //    throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
             //}
 
             var user = await _projectUserService.GetByMainAppIdAsync(userInfo, task.ProjectId);
             if (user == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
+                throw new SomeCustomException(Consts.ErrorConsts.UserNotFound);
             }
 
             if (comment.CreatorId != user.Id)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.CommentNotFoundOrNotAccess);
+                throw new SomeCustomException(Consts.ErrorConsts.CommentNotFoundOrNotAccess);
             }
 
             comment.Text = text;
             var updated = await _taskReviewCommentRepository.UpdateAsync(comment);
             if (updated == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.CommentNotFoundOrNotAccess);
+                throw new SomeCustomException(Consts.ErrorConsts.CommentNotFoundOrNotAccess);
             }
 
             return updated;

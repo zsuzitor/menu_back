@@ -1,4 +1,4 @@
-﻿using BO.Models.CodeReviewApp.DAL.Domain;
+﻿using BO.Models.TaskManagementApp.DAL.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

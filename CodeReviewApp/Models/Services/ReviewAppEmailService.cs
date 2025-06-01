@@ -1,13 +1,13 @@
 ﻿using BL.Models.Services;
 using BL.Models.Services.Interfaces;
 using BO.Models.Configs;
-using CodeReviewApp.Models.Services.Interfaces;
+using TaskManagementApp.Models.Services.Interfaces;
 using DAL.Models.DAL.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CodeReviewApp.Models.Services
+namespace TaskManagementApp.Models.Services
 {
 
 

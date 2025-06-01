@@ -1,5 +1,5 @@
-﻿using CodeReviewApp.Models.Returns;
-using CodeReviewApp.Models.Services.Interfaces;
+﻿using TaskManagementApp.Models.Returns;
+using TaskManagementApp.Models.Services.Interfaces;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

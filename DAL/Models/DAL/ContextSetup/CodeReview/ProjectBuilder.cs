@@ -1,5 +1,5 @@
-﻿using BO.Models.CodeReviewApp.DAL.Domain;
-using BO.Models.DAL.Domain;
+﻿using BO.Models.DAL.Domain;
+using BO.Models.TaskManagementApp.DAL.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Models.DAL.ContextSetup.CodeReview

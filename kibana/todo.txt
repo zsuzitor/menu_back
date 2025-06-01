@@ -1,0 +1,7 @@
+
+контракт таргета в нлог, тут прокидываются логопасы
+https://github.com/markmcdowell/NLog.Targets.ElasticSearch/wiki
+
+
+авторизация елк
+

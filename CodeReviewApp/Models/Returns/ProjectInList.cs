@@ -1,7 +1,7 @@
 ﻿
-using BO.Models.CodeReviewApp.DAL.Domain;
+using BO.Models.TaskManagementApp.DAL.Domain;
 
-namespace CodeReviewApp.Models.Returns
+namespace TaskManagementApp.Models.Returns
 {
     public sealed class ProjectInList
     {

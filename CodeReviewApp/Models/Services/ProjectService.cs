@@ -1,15 +1,15 @@
 ﻿using BO.Models.Auth;
-using BO.Models.CodeReviewApp.DAL.Domain;
-using CodeReviewApp.Models.DAL.Repositories;
-using CodeReviewApp.Models.DAL.Repositories.Interfaces;
-using CodeReviewApp.Models.Services.Interfaces;
+using BO.Models.TaskManagementApp.DAL.Domain;
+using TaskManagementApp.Models.DAL.Repositories;
+using TaskManagementApp.Models.DAL.Repositories.Interfaces;
+using TaskManagementApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
 using Menu.Models.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace CodeReviewApp.Models.Services
+namespace TaskManagementApp.Models.Services
 {
     public sealed class ProjectService : IProjectService
     {
@@ -32,7 +32,7 @@ namespace CodeReviewApp.Models.Services
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyProjectName);
+                throw new SomeCustomException(Consts.ErrorConsts.EmptyProjectName);
             }
             //конечно не очень красиво отходить от репозиториев, но ладно
             var mainAppUserInfo = await _mainAppUserService.GetShortInfoAsync(userInfo.UserId);
@@ -83,12 +83,12 @@ namespace CodeReviewApp.Models.Services
         {
             if (!await ExistIfAccessAdminAsync(projectId, userInfo))
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             if (string.IsNullOrWhiteSpace(userName))
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyUserName);
+                throw new SomeCustomException(Consts.ErrorConsts.EmptyUserName);
 
             }
 
@@ -108,24 +108,24 @@ namespace CodeReviewApp.Models.Services
         {
             if (string.IsNullOrWhiteSpace(task.Name))
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyTaskName);
+                throw new SomeCustomException(Consts.ErrorConsts.EmptyTaskName);
             }
 
             var creator = await _projectUserService.GetAdminByMainAppIdAsync(userInfo, task.ProjectId);
             if (creator == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
             //if (!(await ExistIfAccessAsync(task.ProjectId, userInfo)).access)
             //{
-            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+            //    throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             //}
 
             task.CreatorId = creator.Id;
             //var creatorExist = await _projectUserService.ExistAsync(task.ProjectId, task.CreatorId);
             //if (!creatorExist)
             //{
-            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
+            //    throw new SomeCustomException(Consts.ErrorConsts.UserNotFound);
             //}
 
             if (task.ReviewerId != null)
@@ -133,7 +133,7 @@ namespace CodeReviewApp.Models.Services
                 var reviewerExist = await _projectUserService.ExistAsync(task.ProjectId, task.ReviewerId.Value);
                 if (!reviewerExist)
                 {
-                    throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
+                    throw new SomeCustomException(Consts.ErrorConsts.UserNotFound);
                 }
             }
 
@@ -142,7 +142,7 @@ namespace CodeReviewApp.Models.Services
             var status = task.StatusId == null ? null : await _taskStatusRepository.GetAsync(task.StatusId.Value);
             if (status == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskReviewStatusNotExists);
 
             }
 
@@ -167,7 +167,7 @@ namespace CodeReviewApp.Models.Services
             var project = await _projectRepository.GetByIdIfAccessAdminAsync(projectId, userInfo.UserId);
             if (project == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
             await _projectRepository.DeleteAsync(project);
             //project.IsDeleted = true;
@@ -192,7 +192,7 @@ namespace CodeReviewApp.Models.Services
             var s = await ExistIfAccessAsync(projectId, userInfo);
             if (!s.access)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return await GetStatusesAsync(projectId, userInfo);
@@ -204,7 +204,7 @@ namespace CodeReviewApp.Models.Services
             var s = await ExistIfAccessAdminAsync(projectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return await _taskStatusRepository.AddAsync(new TaskReviewStatus() { Name = status, ProjectId = projectId });
@@ -215,19 +215,19 @@ namespace CodeReviewApp.Models.Services
             var status = await _taskStatusRepository.GetAsync(statusId);
             if (status == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskReviewStatusNotExists);
             }
 
             var s = await ExistIfAccessAdminAsync(status.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             var taskExists = await _taskReviewService.ExistAsync(status.ProjectId, statusId);
             if (taskExists)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskWithStatusExists);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskWithStatusExists);
 
             }
 
@@ -240,13 +240,13 @@ namespace CodeReviewApp.Models.Services
             var statusEntity = await _taskStatusRepository.GetAsync(statusId);
             if (statusEntity == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskReviewStatusNotExists);
             }
 
             var s = await ExistIfAccessAdminAsync(statusEntity.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             statusEntity.Name = status;

@@ -1,9 +1,9 @@
 ﻿
-namespace CodeReviewApp.Models
+namespace TaskManagementApp.Models
 {
     public static class Consts
     {
-        public static class CodeReviewErrorConsts
+        public static class ErrorConsts
         {
             
             public const string BadTaskReviewStatus = "code_review_bad_task_review_status";

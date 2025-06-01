@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using static BL.Models.Services.EmailServiceBase;
 
-namespace CodeReviewApp.Models.Services.Interfaces
+namespace TaskManagementApp.Models.Services.Interfaces
 {
     public interface IReviewAppEmailService : IEmailService
     {

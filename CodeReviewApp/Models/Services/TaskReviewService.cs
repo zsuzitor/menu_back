@@ -1,10 +1,10 @@
 ﻿
 using BL.Models.Services;
 using BO.Models.Auth;
-using BO.Models.CodeReviewApp.DAL.Domain;
+using BO.Models.TaskManagementApp.DAL.Domain;
 using BO.Models.DAL.Domain;
-using CodeReviewApp.Models.DAL.Repositories.Interfaces;
-using CodeReviewApp.Models.Services.Interfaces;
+using TaskManagementApp.Models.DAL.Repositories.Interfaces;
+using TaskManagementApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Pipelines.Sockets.Unofficial.Arenas;
@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CodeReviewApp.Models.Services
+namespace TaskManagementApp.Models.Services
 {
     public sealed class TaskReviewService : ITaskReviewService
     {
@@ -42,12 +42,12 @@ namespace CodeReviewApp.Models.Services
         {
             if (string.IsNullOrWhiteSpace(task.Name))
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyTaskName);
+                throw new SomeCustomException(Consts.ErrorConsts.EmptyTaskName);
             }
 
             if (task.StatusId == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskReviewStatusNotExists);
             }
 
 
@@ -92,12 +92,12 @@ namespace CodeReviewApp.Models.Services
         {
             if (string.IsNullOrWhiteSpace(task.Name))
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyTaskName);
+                throw new SomeCustomException(Consts.ErrorConsts.EmptyTaskName);
             }
 
             if (task.StatusId == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskReviewStatusNotExists);
             }
 
 
@@ -109,7 +109,7 @@ namespace CodeReviewApp.Models.Services
                 var status = task.StatusId == null ? null : await _taskStatusRepository.GetAsync(task.StatusId.Value);
                 if (status == null || status.ProjectId != upTask.ProjectId)
                 {
-                    throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists);
+                    throw new SomeCustomException(Consts.ErrorConsts.TaskReviewStatusNotExists);
                 }
             }
 
@@ -119,7 +119,7 @@ namespace CodeReviewApp.Models.Services
                 var reviewerExist = await _projectUserService.ExistAsync(upTask.ProjectId, task.ReviewerId.Value);
                 if (!reviewerExist)
                 {
-                    throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
+                    throw new SomeCustomException(Consts.ErrorConsts.UserNotFound);
                 }
             }
 
@@ -144,7 +144,7 @@ namespace CodeReviewApp.Models.Services
 
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyTaskName);
+                throw new SomeCustomException(Consts.ErrorConsts.EmptyTaskName);
             }
 
 
@@ -178,7 +178,7 @@ namespace CodeReviewApp.Models.Services
                 var status = await _taskStatusRepository.GetAsync(statusId);
                 if (status == null || status.ProjectId != upTask.ProjectId)
                 {
-                    throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists);
+                    throw new SomeCustomException(Consts.ErrorConsts.TaskReviewStatusNotExists);
                 }
                 upTask.StatusId = statusId;
                 await _taskReviewRepository.UpdateAsync(upTask);
@@ -199,7 +199,7 @@ namespace CodeReviewApp.Models.Services
             var reviewerExist = await _projectUserService.ExistAsync(upTask.ProjectId, executorId);
             if (!reviewerExist)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.UserNotFound);
+                throw new SomeCustomException(Consts.ErrorConsts.UserNotFound);
             }
 
             upTask.ReviewerId = executorId;
@@ -219,13 +219,13 @@ namespace CodeReviewApp.Models.Services
             var task = await _taskReviewRepository.GetTaskWithCommentsAsync(taskId);
             if (task == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskNotFound);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
             }
 
             var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
             if (!projectAccessed.access)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return task.Comments;
@@ -236,13 +236,13 @@ namespace CodeReviewApp.Models.Services
             var task = await _taskReviewRepository.GetNoTrackAsync(id);
             if (task == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskNotFound);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
             }
 
             var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
             if (!projectAccessed.access)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return task;
@@ -252,7 +252,7 @@ namespace CodeReviewApp.Models.Services
         {
             if (string.IsNullOrWhiteSpace(text))
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewEmptyStatusName);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskReviewEmptyStatusName);
             }
 
             //todo много запросов что то получается
@@ -261,7 +261,7 @@ namespace CodeReviewApp.Models.Services
             if (projectUserId == null)
             {
                 //по идеи не должно сюда заходить тк выше проверяем доступ GetByIdIfAccessAsync
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskHaveNoAccess);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskHaveNoAccess);
             }
 
             var newComment = new CommentReview() { CreatorId = projectUserId.Value, TaskId = taskId, Text = text };
@@ -292,19 +292,19 @@ namespace CodeReviewApp.Models.Services
             var task = await _taskReviewRepository.GetAsync(id);
             if (task == null)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskNotFound);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
             }
 
             var canAddToProject = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
             if (!canAddToProject.access)
             {
-                throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectHaveNoAccess);
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectHaveNoAccess);
             }
 
             //тк любой человек в проекте должен иметь возможноть поменять название или исполнителя, это убрал
             //if (task.CreatorEntityId != userInfo.UserId && !canAddToProject.isAdmin)
             //{
-            //    throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskHaveNoAccess);
+            //    throw new SomeCustomException(Consts.ErrorConsts.TaskHaveNoAccess);
             //}
 
             return task;

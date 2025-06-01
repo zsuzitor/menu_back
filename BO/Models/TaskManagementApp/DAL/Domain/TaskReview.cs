@@ -3,7 +3,7 @@ using BO.Models.DAL;
 using System;
 using System.Collections.Generic;
 
-namespace BO.Models.CodeReviewApp.DAL.Domain
+namespace BO.Models.TaskManagementApp.DAL.Domain
 {
     //public enum CodeReviewTaskStatus
     //{
