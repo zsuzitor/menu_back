@@ -50158,19 +50158,19 @@ var SaveCancelInputSelect_1 = __importDefault(__webpack_require__(/*! ../../../.
 __webpack_require__(/*! ./OneReviewTaskDetail.css */ "./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetail.css");
 var OneReviewTaskDetail = function (props) {
     //   console.log(new Error().stack); // Check where this is being called from
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
+    var _a, _b, _c, _d, _e, _f;
     //         return <div>стоп для теста</div>
     // console.log(props);
     // const [taskName, setTaskName] = useState(props.Task?.Name || '');
-    var _k = (0, react_1.useState)(false), taskDescriptionEditable = _k[0], setTaskDescriptionEditable = _k[1];
-    var _l = (0, react_1.useState)(false), taskNewCommentEditable = _l[0], setTaskNewCommentEditable = _l[1];
-    var _m = (0, react_1.useState)(false), taskNameEditable = _m[0], setTaskNameEditable = _m[1];
-    var _o = (0, react_1.useState)(false), taskStatusEditable = _o[0], setTaskStatusEditable = _o[1];
-    var _p = (0, react_1.useState)(false), taskExecutorEditable = _p[0], setTaskExecutorEditable = _p[1];
+    var _g = (0, react_1.useState)(false), taskDescriptionEditable = _g[0], setTaskDescriptionEditable = _g[1];
+    var _h = (0, react_1.useState)(false), taskNewCommentEditable = _h[0], setTaskNewCommentEditable = _h[1];
+    var _j = (0, react_1.useState)(false), taskNameEditable = _j[0], setTaskNameEditable = _j[1];
+    var _k = (0, react_1.useState)(false), taskStatusEditable = _k[0], setTaskStatusEditable = _k[1];
+    var _l = (0, react_1.useState)(false), taskExecutorEditable = _l[0], setTaskExecutorEditable = _l[1];
     // const [taskLink, setTaskLink] = useState(props.Task?.Link || '');
-    var _q = (0, react_1.useState)(((_a = props.Task) === null || _a === void 0 ? void 0 : _a.StatusId) || -1), taskStatus = _q[0], setTaskStatus = _q[1];
-    var _r = (0, react_1.useState)(((_b = props.Task) === null || _b === void 0 ? void 0 : _b.ReviewerId) || -1), taskReviewer = _r[0], setTaskreviewer = _r[1];
-    var _s = (0, react_1.useState)(((_c = props.Task) === null || _c === void 0 ? void 0 : _c.CreatorId) || -1), taskCreator = _s[0], setTaskCreator = _s[1];
+    // const [taskStatus, setTaskStatus] = useState(props.Task?.StatusId || -1);
+    // const [taskReviewer, setTaskreviewer] = useState(props.Task?.ReviewerId || -1);
+    // const [taskCreator, setTaskCreator] = useState(props.Task?.CreatorId || -1);
     // const [newCommentName, setNewCommentName] = useState('');
     var navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(function () {
@@ -50178,27 +50178,28 @@ var OneReviewTaskDetail = function (props) {
             props.ClearCurrentTaskState();
         };
     }, []);
-    // useEffect(() => {
-    //     setTaskName(props.Task?.Name || '');
-    // }, [props.Task?.Name]);
-    // useEffect(() => {
-    //     setTaskDescription(props.Task?.Description || '');
-    // }, [props.Task?.Description]);
+    (0, react_1.useEffect)(function () {
+        // setTaskName(props.Task?.Name || '');
+        setTaskNameEditable(false);
+    }, [(_a = props.Task) === null || _a === void 0 ? void 0 : _a.Name]);
+    (0, react_1.useEffect)(function () {
+        // setTaskDescription(props.Task?.Description || '');
+        setTaskDescriptionEditable(false);
+    }, [(_b = props.Task) === null || _b === void 0 ? void 0 : _b.Description]);
     // useEffect(() => {
     //     setTaskLink(props.Task?.Link || '');
     // }, [props.Task?.Link]);
+    // useEffect(() => {
+    //     setTaskStatus(props.Task?.StatusId || -1);
+    // }, [props.Task?.StatusId]);
     (0, react_1.useEffect)(function () {
-        var _a;
-        setTaskStatus(((_a = props.Task) === null || _a === void 0 ? void 0 : _a.StatusId) || -1);
-    }, [(_d = props.Task) === null || _d === void 0 ? void 0 : _d.StatusId]);
-    (0, react_1.useEffect)(function () {
-        var _a;
-        setTaskreviewer(((_a = props.Task) === null || _a === void 0 ? void 0 : _a.ReviewerId) || -1);
-    }, [(_e = props.Task) === null || _e === void 0 ? void 0 : _e.ReviewerId]);
-    (0, react_1.useEffect)(function () {
-        var _a;
-        setTaskCreator((_a = props.Task) === null || _a === void 0 ? void 0 : _a.CreatorId);
-    }, [(_f = props.Task) === null || _f === void 0 ? void 0 : _f.CreatorId]);
+        // setTaskreviewer(props.Task?.ReviewerId || -1);
+        setTaskExecutorEditable(false);
+        // console.log("setTaskExecutorEditable(false);");
+    }, [(_c = props.Task) === null || _c === void 0 ? void 0 : _c.ReviewerId]);
+    // useEffect(() => {
+    //     setTaskCreator(props.Task?.CreatorId);
+    // }, [props.Task?.CreatorId]);
     // const cancelTask = () => {
     //     if (!confirm('Отменить изменения?')) {
     //         return;
@@ -50259,21 +50260,18 @@ var OneReviewTaskDetail = function (props) {
     //     // (taskDescription !== props.Task.Description && (taskDescription || props.Task.Description)) ||
     //     (taskReviewer !== props.Task.ReviewerId && (props.Task.ReviewerId || taskReviewer != -1)) ||
     //     taskCreator !== props.Task.CreatorId;
-    var creator = props.ProjectUsers.find(function (x) { return x.Id === taskCreator; });
+    var creator = props.ProjectUsers.find(function (x) { return x.Id === props.Task.CreatorId; });
     var creatorsList = props.ProjectUsers.filter(function (us) { return !us.Deactivated; });
     if (creator && creator.Deactivated) {
         creatorsList.push(creator);
     }
-    var reviewer = props.ProjectUsers.find(function (x) { return x.Id === taskReviewer; });
+    var reviewer = props.ProjectUsers.find(function (x) { return x.Id === props.Task.ReviewerId; });
     var reviewerList = props.ProjectUsers.filter(function (us) { return !us.Deactivated; });
     if (reviewer && reviewer.Deactivated) {
         reviewerList.push(reviewer);
     }
     return react_1.default.createElement("div", { className: 'one-review-task-detail-block' },
         react_1.default.createElement("div", { className: 'one-review-task-detail-header' },
-            react_1.default.createElement("div", { className: 'one-review-task-detail-buttons' },
-                react_1.default.createElement("div", { className: 'task-button', onClick: function () { return deleteTask(); } },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' }))),
             react_1.default.createElement("div", { className: 'one-review-task-detail-name' }, !taskNameEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskNameEditable(true); } }, props.Task.Name || '')
                 :
                     react_1.default.createElement(SaveCancelInputText_1.default, { CancelEvent: function () { return setTaskNameEditable(false); }, SaveEvent: function (val) {
@@ -50283,12 +50281,15 @@ var OneReviewTaskDetail = function (props) {
                                 window.G_AddAbsoluteAlertToState(alert_1);
                                 return false;
                             }
-                            alert('todo' + val);
-                        }, Text: props.Task.Name }))),
+                            props.UpdateTaskName(props.Task.Id, val);
+                        }, Text: props.Task.Name })),
+            react_1.default.createElement("div", { className: 'one-review-task-detail-buttons' },
+                react_1.default.createElement("div", { className: 'task-button', onClick: function () { return deleteTask(); } },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })))),
         react_1.default.createElement("div", { className: 'one-review-task-detail-body' },
             react_1.default.createElement("div", { className: 'one-review-task-detail-content' }, !taskDescriptionEditable ? react_1.default.createElement("div", { className: 'review-task-detail-description', onClick: function () { return setTaskDescriptionEditable(true); } }, props.Task.Description)
                 : react_1.default.createElement(SaveCancelTextarea_1.default, { CancelEvent: function () { return setTaskDescriptionEditable(false); }, SaveEvent: function (val) {
-                        alert('todo' + val);
+                        props.UpdateTaskDescription(props.Task.Id, val);
                         return true;
                     }, Text: props.Task.Description })
             // <div className="editable-textarea-container">
@@ -50310,29 +50311,36 @@ var OneReviewTaskDetail = function (props) {
             react_1.default.createElement("div", { className: 'one-review-task-detail-right-content' },
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", { onClick: function () { return setTaskStatusEditable(true); }, className: 'editable-by-click' }, "\u0421\u0442\u0430\u0442\u0443\u0441: "),
-                    !taskStatusEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskStatusEditable(true); } }, ((_g = props.Statuses.find(function (x) { return x.Id == taskStatus; })) === null || _g === void 0 ? void 0 : _g.Name) || '')
+                    !taskStatusEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskStatusEditable(true); } }, ((_d = props.Statuses.find(function (x) { return x.Id == props.Task.StatusId; })) === null || _d === void 0 ? void 0 : _d.Name) || '')
                         :
                             react_1.default.createElement(SaveCancelInputSelect_1.default, { CancelEvent: function () { return setTaskStatusEditable(false); }, SaveEvent: function (id) {
-                                    alert(id);
+                                    props.UpdateTaskStatus(props.Task.Id, id);
                                     return true;
-                                }, Selected: taskStatus, ValuesWithId: props.Statuses.map(function (x) {
+                                }, Selected: props.Task.StatusId, ValuesWithId: props.Statuses.map(function (x) {
                                     return { Id: x.Id, Text: x.Name };
                                 }) })),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", { onClick: function () { return setTaskExecutorEditable(true); }, className: 'editable-by-click' }, "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C: "),
-                    !taskExecutorEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskExecutorEditable(true); } }, ((_h = reviewerList.find(function (x) { return x.Id == taskReviewer; })) === null || _h === void 0 ? void 0 : _h.Name) || '')
+                    !taskExecutorEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskExecutorEditable(true); } }, ((_e = reviewerList.find(function (x) { return x.Id == props.Task.ReviewerId; })) === null || _e === void 0 ? void 0 : _e.Name) || '')
                         :
                             react_1.default.createElement(SaveCancelInputSelect_1.default, { CancelEvent: function () { return setTaskExecutorEditable(false); }, SaveEvent: function (id) {
-                                    alert(id);
+                                    if (!id || id == -1) {
+                                        var alertFactory = new AlertData_1.AlertData();
+                                        var alert_2 = alertFactory.GetDefaultError("Необходимо выбрать исполнителя");
+                                        window.G_AddAbsoluteAlertToState(alert_2);
+                                        return false;
+                                    }
+                                    props.UpdateTaskExecutor(props.Task.Id, id);
                                     return true;
-                                }, Selected: taskReviewer, ValuesWithId: reviewerList.map(function (x) { return ({
+                                }, Selected: props.Task.ReviewerId, ValuesWithId: reviewerList.map(function (x) { return ({
                                     Id: x.Id,
                                     Text: x.Name
                                 }); }) })),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", null,
                         "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C: ",
-                        ((_j = creatorsList.find(function (x) { return x.Id == taskCreator; })) === null || _j === void 0 ? void 0 : _j.Name) || '')),
+                        ((_f = creatorsList
+                            .find(function (x) { return x.Id == props.Task.CreatorId; })) === null || _f === void 0 ? void 0 : _f.Name) || '')),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("p", null,
                         "\u0414\u0430\u0442\u0430 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F: ",
@@ -50369,9 +50377,9 @@ var mapStateToProps = function (state, ownProps) {
 };
 var mapDispatchToProps = function (dispatch, ownProps) {
     var res = {};
-    res.UpdateTask = function (forAdd) {
-        dispatch(window.G_CodeReviewTaskController.UpdateTaskRedux(forAdd));
-    };
+    // res.UpdateTask = (forAdd: OneTask) => {
+    //     dispatch(window.G_CodeReviewTaskController.UpdateTaskRedux(forAdd));
+    // };
     res.DeleteTask = function (taskId) {
         dispatch(window.G_CodeReviewTaskController.DeleteTaskRedux(taskId));
     };
@@ -50386,6 +50394,18 @@ var mapDispatchToProps = function (dispatch, ownProps) {
     // };
     res.ClearCurrentTaskState = function () {
         dispatch((0, TaskActions_1.ClearCurrentTaskStateActionCreator)());
+    };
+    res.UpdateTaskName = function (id, text) {
+        dispatch(window.G_CodeReviewTaskController.UpdateTaskNameRedux(id, text));
+    };
+    res.UpdateTaskDescription = function (id, text) {
+        dispatch(window.G_CodeReviewTaskController.UpdateTaskDescriptionRedux(id, text));
+    };
+    res.UpdateTaskStatus = function (id, idStatus) {
+        dispatch(window.G_CodeReviewTaskController.UpdateTaskStatusRedux(id, idStatus));
+    };
+    res.UpdateTaskExecutor = function (id, personId) {
+        dispatch(window.G_CodeReviewTaskController.UpdateTaskExecutorRedux(id, personId));
     };
     return res;
 };
@@ -51239,7 +51259,7 @@ exports.ClearProjectStateActionCreator = ClearProjectStateActionCreator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ClearCurrentTaskStateActionCreator = exports.ClearCurrentTaskStateActionName = exports.LoadTaskActionCreator = exports.LoadTaskActionName = exports.SetCurrentTaskIdActionCreator = exports.SetCurrentTaskIdActionName = exports.SetFilterTaskActionCreator = exports.SetFilterTaskActionName = exports.SetFilterTaskStatusActionCreator = exports.SetFilterTaskStatusActionName = exports.SetFilterTaskPageActionCreator = exports.SetFilterTaskPageActionName = exports.SetFilterTaskNameActionCreator = exports.SetFilterTaskNameActionName = exports.SetFilterTaskReviewerActionCreator = exports.SetFilterTaskReviewerName = exports.SetFilterTaskCreatorActionCreator = exports.SetFilterTaskCreatorActionName = exports.DeleteTaskActionCreator = exports.DeleteTaskActionName = exports.LoadTasksActionCreator = exports.LoadTasksActionName = exports.UpdateTaskActionCreator = exports.UpdateTaskActionName = exports.AddLoadTriggerActionCreator = exports.AddLoadTriggerActionName = exports.AddTaskToProjectActionCreator = exports.AddTaskToProjectActionName = void 0;
+exports.UpdateTaskExecutorActionCreator = exports.UpdateTaskExecutorActionName = exports.UpdateTaskExecutorActionParam = exports.UpdateTaskStatusActionCreator = exports.UpdateTaskStatusActionName = exports.UpdateTaskStatusActionParam = exports.UpdateTaskDescriptionActionCreator = exports.UpdateTaskDescriptionActionName = exports.UpdateTaskDescriptionActionParam = exports.UpdateTaskNameActionCreator = exports.UpdateTaskNameActionName = exports.UpdateTaskNameActionParam = exports.ClearCurrentTaskStateActionCreator = exports.ClearCurrentTaskStateActionName = exports.LoadTaskActionCreator = exports.LoadTaskActionName = exports.SetCurrentTaskIdActionCreator = exports.SetCurrentTaskIdActionName = exports.SetFilterTaskActionCreator = exports.SetFilterTaskActionName = exports.SetFilterTaskStatusActionCreator = exports.SetFilterTaskStatusActionName = exports.SetFilterTaskPageActionCreator = exports.SetFilterTaskPageActionName = exports.SetFilterTaskNameActionCreator = exports.SetFilterTaskNameActionName = exports.SetFilterTaskReviewerActionCreator = exports.SetFilterTaskReviewerName = exports.SetFilterTaskCreatorActionCreator = exports.SetFilterTaskCreatorActionName = exports.DeleteTaskActionCreator = exports.DeleteTaskActionName = exports.LoadTasksActionCreator = exports.LoadTasksActionName = exports.UpdateTaskActionCreator = exports.UpdateTaskActionName = exports.AddLoadTriggerActionCreator = exports.AddLoadTriggerActionName = exports.AddTaskToProjectActionCreator = exports.AddTaskToProjectActionName = void 0;
 exports.AddTaskToProjectActionName = 'AddTaskToProjectAction';
 function AddTaskToProjectActionCreator(data) {
     return { type: exports.AddTaskToProjectActionName, payload: data };
@@ -51323,6 +51343,54 @@ function ClearCurrentTaskStateActionCreator() {
     return { type: exports.ClearCurrentTaskStateActionName, payload: null };
 }
 exports.ClearCurrentTaskStateActionCreator = ClearCurrentTaskStateActionCreator;
+;
+var UpdateTaskNameActionParam = /** @class */ (function () {
+    function UpdateTaskNameActionParam() {
+    }
+    return UpdateTaskNameActionParam;
+}());
+exports.UpdateTaskNameActionParam = UpdateTaskNameActionParam;
+exports.UpdateTaskNameActionName = 'UpdateTaskNameAction';
+function UpdateTaskNameActionCreator(param) {
+    return { type: exports.UpdateTaskNameActionName, payload: param };
+}
+exports.UpdateTaskNameActionCreator = UpdateTaskNameActionCreator;
+;
+var UpdateTaskDescriptionActionParam = /** @class */ (function () {
+    function UpdateTaskDescriptionActionParam() {
+    }
+    return UpdateTaskDescriptionActionParam;
+}());
+exports.UpdateTaskDescriptionActionParam = UpdateTaskDescriptionActionParam;
+exports.UpdateTaskDescriptionActionName = 'UpdateTaskDescriptionAction';
+function UpdateTaskDescriptionActionCreator(param) {
+    return { type: exports.UpdateTaskDescriptionActionName, payload: param };
+}
+exports.UpdateTaskDescriptionActionCreator = UpdateTaskDescriptionActionCreator;
+;
+var UpdateTaskStatusActionParam = /** @class */ (function () {
+    function UpdateTaskStatusActionParam() {
+    }
+    return UpdateTaskStatusActionParam;
+}());
+exports.UpdateTaskStatusActionParam = UpdateTaskStatusActionParam;
+exports.UpdateTaskStatusActionName = 'UpdateTaskStatusAction';
+function UpdateTaskStatusActionCreator(param) {
+    return { type: exports.UpdateTaskStatusActionName, payload: param };
+}
+exports.UpdateTaskStatusActionCreator = UpdateTaskStatusActionCreator;
+;
+var UpdateTaskExecutorActionParam = /** @class */ (function () {
+    function UpdateTaskExecutorActionParam() {
+    }
+    return UpdateTaskExecutorActionParam;
+}());
+exports.UpdateTaskExecutorActionParam = UpdateTaskExecutorActionParam;
+exports.UpdateTaskExecutorActionName = 'UpdateTaskExecutorAction';
+function UpdateTaskExecutorActionCreator(param) {
+    return { type: exports.UpdateTaskExecutorActionName, payload: param };
+}
+exports.UpdateTaskExecutorActionCreator = UpdateTaskExecutorActionCreator;
 ;
 
 
@@ -51778,6 +51846,122 @@ var LoadReviewTasksResult_1 = __webpack_require__(/*! ../Entity/LoadReviewTasksR
 var CodeReviewTaskController = /** @class */ (function () {
     function CodeReviewTaskController() {
         var _this = this;
+        this.UpdateTaskNameRedux = function (id, text) {
+            return function (dispatch, getState) {
+                _this.preloader(true);
+                _this.UpdateTaskName(id, text, function (error, data) {
+                    _this.preloader(false);
+                    if (error) {
+                        return;
+                    }
+                    if (data === null || data === void 0 ? void 0 : data.result) {
+                        dispatch((0, TaskActions_1.UpdateTaskNameActionCreator)({ Id: id, Text: text }));
+                    }
+                });
+            };
+        };
+        this.UpdateTaskName = function (id, text, onSuccess) {
+            var data = {
+                "name": text,
+                "id": id,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/task/update-name'
+            });
+        };
+        this.UpdateTaskDescriptionRedux = function (id, text) {
+            return function (dispatch, getState) {
+                _this.preloader(true);
+                _this.UpdateTaskDescription(id, text, function (error, data) {
+                    _this.preloader(false);
+                    if (error) {
+                        return;
+                    }
+                    if (data === null || data === void 0 ? void 0 : data.result) {
+                        dispatch((0, TaskActions_1.UpdateTaskDescriptionActionCreator)({ Id: id, Text: text }));
+                    }
+                });
+            };
+        };
+        this.UpdateTaskDescription = function (id, text, onSuccess) {
+            var data = {
+                "description": text,
+                "id": id,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/task/update-description'
+            });
+        };
+        this.UpdateTaskStatusRedux = function (id, idStatus) {
+            return function (dispatch, getState) {
+                _this.preloader(true);
+                _this.UpdateTaskStatus(id, idStatus, function (error, data) {
+                    _this.preloader(false);
+                    if (error) {
+                        return;
+                    }
+                    if (data === null || data === void 0 ? void 0 : data.result) {
+                        dispatch((0, TaskActions_1.UpdateTaskStatusActionCreator)({ Id: id, IdStatus: idStatus }));
+                    }
+                });
+            };
+        };
+        this.UpdateTaskStatus = function (id, idStatus, onSuccess) {
+            var data = {
+                "statusId": idStatus,
+                "id": id,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/task/update-status'
+            });
+        };
+        this.UpdateTaskExecutorRedux = function (id, personId) {
+            return function (dispatch, getState) {
+                _this.preloader(true);
+                _this.UpdateTaskExecutor(id, personId, function (error, data) {
+                    _this.preloader(false);
+                    if (error) {
+                        return;
+                    }
+                    if (data === null || data === void 0 ? void 0 : data.result) {
+                        dispatch((0, TaskActions_1.UpdateTaskExecutorActionCreator)({ Id: id, PersonId: personId }));
+                    }
+                });
+            };
+        };
+        this.UpdateTaskExecutor = function (id, personId, onSuccess) {
+            var data = {
+                "personId": personId,
+                "id": id,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
+                FuncSuccess: function (xhr, status, jqXHR) {
+                    _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: function (xhr, status, error) { },
+                Url: G_PathToServer + 'api/codereview/task/update-executor'
+            });
+        };
         this.AddTaskToProjectRedux = function (task, projectId) {
             return function (dispatch, getState) {
                 _this.preloader(true);
@@ -51803,7 +51987,7 @@ var CodeReviewTaskController = /** @class */ (function () {
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "PUT",
+                Type: ControllerHelper_1.ControllerHelper.PutHttp,
                 FuncSuccess: function (xhr, status, jqXHR) {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
@@ -52607,70 +52791,71 @@ var AppState_1 = __webpack_require__(/*! ../../../../Models/Entity/State/AppStat
 var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
 var CommentActions_1 = __webpack_require__(/*! ../Actions/CommentActions */ "./src/Apps/CodeReviewApp/Models/Actions/CommentActions.ts");
 var OneTaskReviewComment_1 = __webpack_require__(/*! ../Entity/OneTaskReviewComment */ "./src/Apps/CodeReviewApp/Models/Entity/OneTaskReviewComment.ts");
-var GetTaskForCommentFromState = function (state, taskId) {
-    // console.log(state);
-    // console.log(taskId);
-    var taskfromProject = state.CodeReviewApp.CurrentProjectTasks.find(function (x) { return x.Id === taskId; });
-    if (taskfromProject) {
-        return taskfromProject;
-    }
-    if (state.CodeReviewApp.CurrentTask.Id == taskId) {
-        return state.CodeReviewApp.CurrentTask;
-    }
-    return null;
-};
+var Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
 function CodeReviewCommentReducer(state, action) {
     if (state === void 0) { state = new AppState_1.AppState(); }
     switch (action.type) {
         case CommentActions_1.UpdateCommentActionName:
             {
-                var newState = (0, cloneDeep_1.default)(state);
+                var helper = new Helper_1.Helper();
+                var newState_1 = (0, cloneDeep_1.default)(state);
                 var payload_1 = action.payload;
-                var task = GetTaskForCommentFromState(newState, payload_1.TaskId);
-                if (!task) {
-                    return newState;
+                var task = helper.GetTaskFromState(newState_1, payload_1.TaskId);
+                if (task.length == 0) {
+                    return newState_1;
                 }
-                var comm = task.Comments.find(function (x) { return x.Id === payload_1.Id; });
-                if (!comm) {
-                    return newState;
-                }
-                comm.Text = payload_1.Text;
-                return newState;
+                task.forEach(function (tsk) {
+                    var comm = tsk.Comments.find(function (x) { return x.Id === payload_1.Id; });
+                    if (!comm) {
+                        return newState_1;
+                    }
+                    comm.Text = payload_1.Text;
+                });
+                return newState_1;
             }
         case CommentActions_1.DeleteCommentActionName:
             {
+                var helper = new Helper_1.Helper();
                 var newState = (0, cloneDeep_1.default)(state);
                 var payload_2 = action.payload;
-                var task = GetTaskForCommentFromState(newState, payload_2.TaskId);
-                if (task) {
-                    task.Comments = task.Comments.filter(function (x) { return x.Id !== payload_2.Id; });
+                var task = helper.GetTaskFromState(newState, payload_2.TaskId);
+                if (task.length > 0) {
+                    task.forEach(function (tsk) {
+                        tsk.Comments = tsk.Comments.filter(function (x) { return x.Id !== payload_2.Id; });
+                    });
                     return newState;
                 }
                 return newState;
             }
         case CommentActions_1.AddCommentActionName:
             {
+                var helper = new Helper_1.Helper();
                 var newState = (0, cloneDeep_1.default)(state);
                 var payload = action.payload;
-                var comment = new OneTaskReviewComment_1.OneTaskReviewComment();
-                comment.Id = payload.Id;
-                comment.Text = payload.Text;
-                comment.CreateDate = payload.CreateDate;
-                comment.CreatorId = payload.CreatorId;
-                var task = GetTaskForCommentFromState(newState, payload.TaskId);
-                if (task) {
-                    task.Comments.push(comment);
+                var comment_1 = new OneTaskReviewComment_1.OneTaskReviewComment();
+                comment_1.Id = payload.Id;
+                comment_1.Text = payload.Text;
+                comment_1.CreateDate = payload.CreateDate;
+                comment_1.CreatorId = payload.CreatorId;
+                var task = helper.GetTaskFromState(newState, payload.TaskId);
+                if (task.length > 0) {
+                    task.forEach(function (tsk) {
+                        tsk.Comments.push(comment_1);
+                    });
                     return newState;
                 }
                 return newState;
             }
         case CommentActions_1.SetCommentsActionName:
             {
+                var helper = new Helper_1.Helper();
                 var newState = (0, cloneDeep_1.default)(state);
-                var payload = action.payload;
-                var task = GetTaskForCommentFromState(newState, payload.TaskId);
-                if (task) {
-                    task.Comments = payload.Comments;
+                var payload_3 = action.payload;
+                var task = helper.GetTaskFromState(newState, payload_3.TaskId);
+                if (task.length > 0) {
+                    task.forEach(function (tsk) {
+                        tsk.Comments = payload_3.Comments;
+                    });
                     return newState;
                 }
                 return newState;
@@ -52860,6 +53045,7 @@ var cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ ".
 var AppState_1 = __webpack_require__(/*! ../../../../Models/Entity/State/AppState */ "./src/Models/Entity/State/AppState.ts");
 var TaskActions_1 = __webpack_require__(/*! ../Actions/TaskActions */ "./src/Apps/CodeReviewApp/Models/Actions/TaskActions.ts");
 var OneTask_1 = __webpack_require__(/*! ../Entity/State/OneTask */ "./src/Apps/CodeReviewApp/Models/Entity/State/OneTask.ts");
+var Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
 function CodeReviewTaskReducer(state, action) {
     if (state === void 0) { state = new AppState_1.AppState(); }
     switch (action.type) {
@@ -52867,9 +53053,9 @@ function CodeReviewTaskReducer(state, action) {
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 var payload = action.payload;
-                var tsk_1 = new OneTask_1.OneTask();
-                tsk_1.FillByIProjectTaskDataBack(payload);
-                newState.CodeReviewApp.CurrentProjectTasks.push(tsk_1);
+                var tsk = new OneTask_1.OneTask();
+                tsk.FillByIProjectTaskDataBack(payload);
+                newState.CodeReviewApp.CurrentProjectTasks.push(tsk);
                 return newState;
             }
         case TaskActions_1.AddLoadTriggerActionName:
@@ -52882,14 +53068,17 @@ function CodeReviewTaskReducer(state, action) {
             {
                 var newState = (0, cloneDeep_1.default)(state);
                 var payload_1 = action.payload;
-                var tsk = newState.CodeReviewApp.CurrentProjectTasks.find(function (x) { return x.Id == payload_1.Id; });
-                tsk.Name = payload_1.Name;
-                tsk.StatusId = payload_1.StatusId;
-                tsk.ReviewerId = payload_1.ReviewerId;
-                tsk.CreatorId = payload_1.CreatorId;
-                tsk.CreateDate = payload_1.CreateDate;
-                tsk.LastUpdateDate = payload_1.LastUpdateDate;
-                tsk.Description = payload_1.Description;
+                var helper = new Helper_1.Helper();
+                var tasks = helper.GetTaskFromState(newState, payload_1.Id);
+                tasks.forEach(function (tsk) {
+                    tsk.Name = payload_1.Name;
+                    tsk.StatusId = payload_1.StatusId;
+                    tsk.ReviewerId = payload_1.ReviewerId;
+                    tsk.CreatorId = payload_1.CreatorId;
+                    tsk.CreateDate = payload_1.CreateDate;
+                    tsk.LastUpdateDate = payload_1.LastUpdateDate;
+                    tsk.Description = payload_1.Description;
+                });
                 return newState;
             }
         case TaskActions_1.LoadTasksActionName:
@@ -52973,6 +53162,50 @@ function CodeReviewTaskReducer(state, action) {
             newState.CodeReviewApp.CurrentTask = null;
             return newState;
         }
+        case TaskActions_1.UpdateTaskNameActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var payload_3 = action.payload;
+                var helper = new Helper_1.Helper();
+                var tasks = helper.GetTaskFromState(newState, payload_3.Id);
+                tasks.forEach(function (tsk) {
+                    tsk.Name = payload_3.Text;
+                });
+                return newState;
+            }
+        case TaskActions_1.UpdateTaskDescriptionActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var payload_4 = action.payload;
+                var helper = new Helper_1.Helper();
+                var tasks = helper.GetTaskFromState(newState, payload_4.Id);
+                tasks.forEach(function (tsk) {
+                    tsk.Description = payload_4.Text;
+                });
+                return newState;
+            }
+        case TaskActions_1.UpdateTaskStatusActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var payload_5 = action.payload;
+                var helper = new Helper_1.Helper();
+                var tasks = helper.GetTaskFromState(newState, payload_5.Id);
+                tasks.forEach(function (tsk) {
+                    tsk.StatusId = payload_5.IdStatus;
+                });
+                return newState;
+            }
+        case TaskActions_1.UpdateTaskExecutorActionName:
+            {
+                var newState = (0, cloneDeep_1.default)(state);
+                var payload_6 = action.payload;
+                var helper = new Helper_1.Helper();
+                var tasks = helper.GetTaskFromState(newState, payload_6.Id);
+                tasks.forEach(function (tsk) {
+                    tsk.ReviewerId = payload_6.PersonId;
+                });
+                return newState;
+            }
         default:
             return state;
     }
@@ -62813,6 +63046,21 @@ var Helper = /** @class */ (function () {
         }
         document.body.removeChild(textArea);
         return retult;
+    };
+    Helper.prototype.GetTaskFromState = function (state, taskId) {
+        var _a;
+        var res = [];
+        if (taskId < 1) {
+            return res;
+        }
+        var taskfromProject = state.CodeReviewApp.CurrentProjectTasks.find(function (x) { return x.Id === taskId; });
+        if (taskfromProject) {
+            res.push(taskfromProject);
+        }
+        if (((_a = state.CodeReviewApp.CurrentTask) === null || _a === void 0 ? void 0 : _a.Id) == taskId) {
+            res.push(state.CodeReviewApp.CurrentTask);
+        }
+        return res;
     };
     return Helper;
 }());

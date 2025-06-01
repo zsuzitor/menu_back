@@ -1,5 +1,6 @@
 ﻿using BO.Models.Auth;
 using BO.Models.CodeReviewApp.DAL.Domain;
+using BO.Models.DAL.Domain;
 using CodeReviewApp.Models.DAL.Repositories.Interfaces;
 using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
@@ -171,6 +172,11 @@ namespace CodeReviewApp.Models.Services
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.ProjectNotFoundOrNotAccesible);
             }
+        }
+
+        public async Task<List<ProjectUser>> GetProjectUserAsync(long projectId, List<long> usersId)
+        {
+            return await _projectUserRepository.GetProjectUserAsync(projectId, usersId);
         }
     }
 }

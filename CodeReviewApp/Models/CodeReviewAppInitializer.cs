@@ -74,9 +74,10 @@ namespace CodeReviewApp.Models
         public async Task ConfigurationInitialize(IServiceProvider services)
         {
             var configurationService = services.GetRequiredService<IConfigurationService>();
-            await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.AddedNewCommentInTask, "Добавлен новый комментарий в задачу {{taskName}}", "CodeReviewApp", "configuration");
-            await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.NewReviewerInTask, "Назначение ревьювером по задаче {{taskName}}", "CodeReviewApp", "configuration");
-            await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.StatusInTaskWasChanged, "Изменен статус на {{newStatus}} в задаче {{taskName}}", "CodeReviewApp", "configuration");
+            await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.AddedNewCommentInTask, "Добавлен новый комментарий в задачу {{taskName}}, {{taskUrl}}", "CodeReviewApp", "configuration");
+            await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.NewReviewerInTask, "Назначение ревьювером по задаче {{taskName}}, {{taskUrl}}", "CodeReviewApp", "configuration");
+            await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.StatusInTaskWasChanged, "Изменен статус на {{newStatus}} в задаче {{taskName}}, {{taskUrl}}", "CodeReviewApp", "configuration");
+            await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.TaskWasChanged, "Задача {{taskName}} была изменена, {{taskUrl}} \nПоля {{changedProp}}", "CodeReviewApp", "configuration");
 
             //
         }

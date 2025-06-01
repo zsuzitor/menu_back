@@ -1,12 +1,16 @@
 ﻿
+using BL.Models.Services;
 using BO.Models.Auth;
 using BO.Models.CodeReviewApp.DAL.Domain;
+using BO.Models.DAL.Domain;
 using CodeReviewApp.Models.DAL.Repositories.Interfaces;
 using CodeReviewApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
+using Microsoft.Extensions.Configuration;
 using Pipelines.Sockets.Unofficial.Arenas;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CodeReviewApp.Models.Services
@@ -19,9 +23,11 @@ namespace CodeReviewApp.Models.Services
         private readonly ITaskReviewCommentService _taskReviewCommentService;
         private readonly IReviewAppEmailService _reviewAppEmailService;
         private readonly ITaskStatusRepository _taskStatusRepository;
+        private readonly IConfiguration _configuration;
         public TaskReviewService(ITaskReviewRepository taskReviewRepository,
             IProjectRepository projectRepository, IProjectUserService projectUserService
-            , ITaskReviewCommentService taskReviewCommentService, IReviewAppEmailService reviewAppEmailService, ITaskStatusRepository taskStatusRepository)
+            , ITaskReviewCommentService taskReviewCommentService, IReviewAppEmailService reviewAppEmailService, ITaskStatusRepository taskStatusRepository
+            , IConfiguration configuration)
         {
             _taskReviewRepository = taskReviewRepository;
             _projectRepository = projectRepository;
@@ -29,19 +35,24 @@ namespace CodeReviewApp.Models.Services
             _taskReviewCommentService = taskReviewCommentService;
             _reviewAppEmailService = reviewAppEmailService;
             _taskStatusRepository = taskStatusRepository;
+            _configuration = configuration;
         }
 
         public async Task<TaskReview> CreateAsync(TaskReview task, UserInfo userInfo)
         {
-            var addedTask = await _taskReviewRepository.CreateAsync(task);
-            if (addedTask.ReviewerId != null)
+            if (string.IsNullOrWhiteSpace(task.Name))
             {
-                var us = await _projectUserService.GetNotificationEmailWithMainAppIdAsync(task.ReviewerId.Value);
-                if (!string.IsNullOrWhiteSpace(us.email) && us.mainAppId != userInfo.UserId)
-                {
-                    await _reviewAppEmailService.QueueReviewerInReviewTaskAsync(us.email, task.Name);
-                }
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyTaskName);
             }
+
+            if (task.StatusId == null)
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists);
+            }
+
+
+            var addedTask = await _taskReviewRepository.CreateAsync(task);
+            await TaskChangedNotifyAsync(null, addedTask, userInfo);
 
             return addedTask;
         }
@@ -84,7 +95,14 @@ namespace CodeReviewApp.Models.Services
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.EmptyTaskName);
             }
 
+            if (task.StatusId == null)
+            {
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists);
+            }
+
+
             var upTask = await GetIfEditAccess(task.Id, userInfo);
+            var prevTask = upTask.CopyPlaneProp();
 
             if (task.StatusId != upTask.StatusId)
             {
@@ -105,43 +123,16 @@ namespace CodeReviewApp.Models.Services
                 }
             }
 
-            bool needNotifyReviewer = false;
-            if (upTask.ReviewerId != task.ReviewerId && task.ReviewerId != null)
-            {
-                needNotifyReviewer = true;
-            }
-
-            bool statusWasChanged = upTask.Status != task.Status;
 
             upTask.Status = task.Status;
             upTask.Name = task.Name;
+            upTask.Description = task.Description;
             upTask.LastUpdateDate = DateTime.Now;
             //upTask.CreatorId = task.CreatorId;
             upTask.ReviewerId = task.ReviewerId;
             await _taskReviewRepository.UpdateAsync(upTask);
 
-            string reviewerEmailNotification = null;
-            long? reviewerMainAppUserId = null;
-            //if (needNotifyReviewer || statusWasChanged)
-            //{
-
-            //}
-
-            if (needNotifyReviewer)
-            {
-                var us = await _projectUserService.GetNotificationEmailWithMainAppIdAsync(upTask.ReviewerId.Value);
-                reviewerEmailNotification = us.email;
-                reviewerMainAppUserId = us.mainAppId;
-                if (!string.IsNullOrWhiteSpace(reviewerEmailNotification) && reviewerMainAppUserId != userInfo.UserId)
-                {
-                    await _reviewAppEmailService.QueueReviewerInReviewTaskAsync(reviewerEmailNotification, task.Name);
-                }
-            }
-
-            if (statusWasChanged)
-            {
-                await StatusChengedNotifyAsync(upTask);
-            }
+            await TaskChangedNotifyAsync(prevTask, upTask, userInfo);
 
             return upTask;
         }
@@ -158,9 +149,10 @@ namespace CodeReviewApp.Models.Services
 
 
             var upTask = await GetIfEditAccess(id, userInfo);
+            var oldTask = upTask.CopyPlaneProp();
             upTask.Name = name;
             await _taskReviewRepository.UpdateAsync(upTask);
-            //todo надо уведомление тоже? StatusChengedNotifyAsync
+            await TaskChangedNotifyAsync(oldTask, upTask, userInfo);
             return upTask;
 
         }
@@ -169,9 +161,10 @@ namespace CodeReviewApp.Models.Services
         {
 
             var upTask = await GetIfEditAccess(id, userInfo);
+            var oldTask = upTask.CopyPlaneProp();
             upTask.Description = description;
             await _taskReviewRepository.UpdateAsync(upTask);
-            //todo надо уведомление тоже? StatusChengedNotifyAsync
+            await TaskChangedNotifyAsync(oldTask, upTask, userInfo);
             return upTask;
         }
 
@@ -182,7 +175,7 @@ namespace CodeReviewApp.Models.Services
 
             if (statusId != upTask.StatusId)
             {
-                var status =  await _taskStatusRepository.GetAsync(statusId);
+                var status = await _taskStatusRepository.GetAsync(statusId);
                 if (status == null || status.ProjectId != upTask.ProjectId)
                 {
                     throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewStatusNotExists);
@@ -190,7 +183,7 @@ namespace CodeReviewApp.Models.Services
                 upTask.StatusId = statusId;
                 await _taskReviewRepository.UpdateAsync(upTask);
 
-                await StatusChengedNotifyAsync(upTask);
+                await StatusChangedNotifyAsync(upTask, userInfo);
 
                 return upTask;
             }
@@ -201,6 +194,7 @@ namespace CodeReviewApp.Models.Services
         public async Task<TaskReview> UpdateExecutorAsync(long id, long executorId, UserInfo userInfo)
         {
             var upTask = await GetIfEditAccess(id, userInfo);
+            var oldTask = upTask.CopyPlaneProp();
 
             var reviewerExist = await _projectUserService.ExistAsync(upTask.ProjectId, executorId);
             if (!reviewerExist)
@@ -210,6 +204,7 @@ namespace CodeReviewApp.Models.Services
 
             upTask.ReviewerId = executorId;
             await _taskReviewRepository.UpdateAsync(upTask);
+            await TaskChangedNotifyAsync(oldTask, upTask, userInfo);
             return upTask;
         }
 
@@ -259,25 +254,21 @@ namespace CodeReviewApp.Models.Services
             {
                 throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskReviewEmptyStatusName);
             }
+
             //todo много запросов что то получается
             var task = await GetByIdIfAccessAsync(taskId, userInfo);
             var projectUserId = await _projectUserService.GetIdByMainAppIdAsync(userInfo, task.ProjectId);
-            //projectUser - уже должен быть свалидирован по GetByIdIfAccessAsync
+            if (projectUserId == null)
+            {
+                //по идеи не должно сюда заходить тк выше проверяем доступ GetByIdIfAccessAsync
+                throw new SomeCustomException(Consts.CodeReviewErrorConsts.TaskHaveNoAccess);
+            }
+
             var newComment = new CommentReview() { CreatorId = projectUserId.Value, TaskId = taskId, Text = text };
             var comment = await _taskReviewCommentService.CreateAsync(newComment);
-            var emailForNotification = new List<string>();
-            if (task.ReviewerId != projectUserId && task.ReviewerId != null)
-            {
-                emailForNotification.Add(await _projectUserService.GetNotificationEmailAsync(task.ReviewerId.Value));
-            }
+            var emails = await GetTaskUsersForNotificationAsync(task, userInfo);
 
-            if (task.CreatorId != projectUserId)
-            {
-                emailForNotification.Add(await _projectUserService.GetNotificationEmailAsync(task.CreatorId));
-
-            }
-
-            await _reviewAppEmailService.QueueNewCommentInReviewTaskAsync(emailForNotification, task.Name);
+            await _reviewAppEmailService.QueueNewCommentInTaskAsync(emails, task.Name, GetTaskUrl(task));
             return comment;
         }
 
@@ -321,25 +312,138 @@ namespace CodeReviewApp.Models.Services
 
 
 
-        private async Task StatusChengedNotifyAsync(TaskReview upTask)
+        private async Task StatusChangedNotifyAsync(TaskReview upTask, UserInfo userInfo)
         {
-            if (upTask.ReviewerId != null && string.IsNullOrWhiteSpace(reviewerEmailNotification))
+            var users = await GetTaskUsersForNotificationAsync(upTask, userInfo);
+            var status = upTask.Status;
+            if (status == null && upTask.StatusId.HasValue)
+            {
+                status = await _taskStatusRepository.GetAsync(upTask.StatusId.Value);
+            }
+
+            if (status == null)
+            {
+                //todo по идеи такого не должно быть, какой то статус должен быть обязательно
+                return;
+            }
+
+            var taskUrl = GetTaskUrl(upTask);
+            await _reviewAppEmailService.QueueChangeStatusTaskAsync(users, upTask.Name, status.Name, taskUrl);
+
+        }
+
+        private async Task TaskChangedNotifyAsync(TaskReview prevTask, TaskReview upTask, UserInfo userInfo)
+        {
+            //todo тут потенциально одни и теже пользаки 2 раза грузятся GetTaskUsersForNotificationAsync, надо переписать
+            var usersPrev = await GetTaskUsersForNotificationAsync(prevTask, userInfo);
+            var usersNow = await GetTaskUsersForNotificationAsync(upTask, userInfo);
+            var users = new List<string>(usersPrev);
+            users.AddRange(usersNow);
+            users = users.Distinct().ToList();
+            var changes = new List<EmailServiceBase.Changes>();
+
+            if (prevTask?.Description != upTask.Description)
+            {
+                changes.Add(new EmailServiceBase.Changes() { PropName = "Описание", PropPrevValue = prevTask?.Description, PropNewValue = upTask.Description });
+            }
+
+            if (prevTask?.Name != upTask.Name)
+            {
+                changes.Add(new EmailServiceBase.Changes() { PropName = "Название", PropPrevValue = prevTask?.Name, PropNewValue = upTask.Name });
+            }
+
+            if (prevTask?.ReviewerId != upTask.ReviewerId)
+            {
+                var prevReviewer = prevTask?.Reviewer;
+                var newReviewer = upTask.Reviewer;
+                var reviewforLoad = new List<long>();
+                if (prevReviewer == null && prevTask?.ReviewerId != null)
+                {
+                    reviewforLoad.Add(prevTask.ReviewerId.Value);
+                }
+
+                if (newReviewer == null && upTask.ReviewerId.HasValue)
+                {
+                    reviewforLoad.Add(upTask.ReviewerId.Value);
+                }
+
+                var reviewers = await _projectUserService.GetProjectUserAsync(upTask.ProjectId, reviewforLoad);
+
+                prevReviewer = prevReviewer ?? reviewers.FirstOrDefault(x => x.Id == prevTask?.ReviewerId);
+                newReviewer = newReviewer ?? reviewers.FirstOrDefault(x => x.Id == upTask.ReviewerId);
+                changes.Add(new EmailServiceBase.Changes()
+                {
+                    PropName = "Исполнитель",
+                    PropPrevValue = prevReviewer?.NotifyEmail,//todo тут не уверен что эти почты надо брать
+                    PropNewValue = newReviewer?.NotifyEmail
+                });
+            }
+
+            if (prevTask?.StatusId != upTask.StatusId)
+            {
+                var newStatus = upTask.Status;
+                var oldStatus = prevTask?.Status;
+
+                if (oldStatus == null && prevTask?.StatusId != null)
+                {
+                    oldStatus = await _taskStatusRepository.GetAsync(prevTask.StatusId.Value);
+                }
+
+                if (newStatus == null && upTask.StatusId.HasValue)
+                {
+                    newStatus = await _taskStatusRepository.GetAsync(upTask.StatusId.Value);
+                }
+
+                changes.Add(new EmailServiceBase.Changes() { PropName = "Статус", PropPrevValue = oldStatus?.Name, PropNewValue = newStatus?.Name });
+            }
+
+
+            var taskUrl = GetTaskUrl(upTask);
+            await _reviewAppEmailService.QueueChangeTaskAsync(users, upTask.Name, changes, taskUrl);
+
+        }
+
+
+        private async Task<List<string>> GetTaskUsersForNotificationAsync(TaskReview upTask, UserInfo userInfo)
+        {
+            //todo я не понимаю почему у юзера в код ревью может быть пустым us.mainAppId, это ошибка?
+            var emails = new List<(long? id, string email)>();
+            if (upTask == null)
+            {
+                return emails.Select(x => x.email).ToList();
+            }
+
+            if (upTask.ReviewerId.HasValue)
             {
                 var us = await _projectUserService.GetNotificationEmailWithMainAppIdAsync(upTask.ReviewerId.Value);
-                reviewerEmailNotification = us.email;
-                reviewerMainAppUserId = us.mainAppId;
+                emails.Add((us.mainAppId, us.email));
             }
 
-            if (!string.IsNullOrWhiteSpace(reviewerEmailNotification) && reviewerMainAppUserId != userInfo.UserId)
+            if (upTask.CreatorId != upTask.ReviewerId)
             {
-                await _reviewAppEmailService.QueueChangeStatusTaskAsync(reviewerEmailNotification, task.Name, upTask.Status.ToString());
+                var us = await _projectUserService.GetNotificationEmailWithMainAppIdAsync(upTask.CreatorId);
+                emails.Add((us.mainAppId, us.email));
             }
 
-            var usc = await _projectUserService.GetNotificationEmailWithMainAppIdAsync(upTask.CreatorId);
-            if (!string.IsNullOrWhiteSpace(usc.email) && usc.mainAppId != userInfo.UserId)
+
+            //если юзер редачит таску то ему отправлять не надо
+            return emails.Where(x => x.id != userInfo.UserId && !string.IsNullOrEmpty(x.email))
+                .Select(x => x.email).Distinct().ToList();
+        }
+
+
+
+        private string GetTaskUrl(TaskReview task)
+        {
+            if (task == null)
             {
-                await _reviewAppEmailService.QueueChangeStatusTaskAsync(usc.email, task.Name, upTask.Status.ToString());
+                return "";
             }
+
+            var baseUrl = _configuration["SiteSettings:BaseUrl"];
+            var endpoint = $"code-review/proj-{task.ProjectId}/task-{task.Id}";
+            var fullUri = new Uri(new Uri(baseUrl), endpoint).ToString();
+            return fullUri;
         }
     }
 }

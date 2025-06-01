@@ -40,6 +40,7 @@ namespace CodeReviewApp.Models
             public const string AddedNewCommentInTask = "AddedNewCommentInTask";
             public const string NewReviewerInTask = "NewReviewerInTask";
             public const string StatusInTaskWasChanged = "StatusInTaskWasChanged";
+            public const string TaskWasChanged = "TaskWasChanged";
 
         }
     }

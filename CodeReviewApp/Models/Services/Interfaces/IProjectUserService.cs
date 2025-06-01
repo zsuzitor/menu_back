@@ -17,6 +17,13 @@ namespace CodeReviewApp.Models.Services.Interfaces
         /// <returns></returns>
         Task<List<ProjectUser>> GetProjectUsersAccessAsync(long projectId, UserInfo userInfo);
         Task<List<ProjectUser>> GetProjectUsersAsync(long projectId, UserInfo userInfo);
+        /// <summary>
+        /// не смотрит уровень доступа
+        /// </summary>
+        /// <param name="projectId"></param>
+        /// <param name="usersId"></param>
+        /// <returns></returns>
+        Task<List<ProjectUser>> GetProjectUserAsync(long projectId, List<long> usersId);
         Task<bool> ExistAsync(long projectId, long userId);
 
 

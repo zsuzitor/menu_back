@@ -13,6 +13,13 @@ namespace BL.Models.Services
     //todo избавиться от абстракции и переопределения?
     public abstract class EmailServiceBase : IEmailService
     {
+        public class Changes
+        {
+            public string PropName { get; set; }
+            public string PropPrevValue { get; set; }
+            public string PropNewValue { get; set; }
+        }
+
         //public abstract string ConfigurationKey { get; }
 
         //public abstract string DefaultSubject { get; }

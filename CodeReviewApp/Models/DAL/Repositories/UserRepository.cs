@@ -53,6 +53,11 @@ namespace CodeReviewApp.Models.DAL.Repositories
             return (res?.NotifyEmail, res?.MainAppUserId);
         }
 
+        public async Task<List<ProjectUser>> GetProjectUserAsync(long projectId, List<long> usersId)
+        {
+            return await (_db.ReviewProjectUsers.AsNoTracking().Where(x => x.ProjectId == projectId && usersId.Contains(x.Id)).ToListAsync());
+        }
+
         public override async Task<ProjectUser> DeleteAsync(ProjectUser user)
         {
             _db.ReviewProjectUsers.Attach(user);

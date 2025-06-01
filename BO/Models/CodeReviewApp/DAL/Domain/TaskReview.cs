@@ -51,5 +51,23 @@ namespace BO.Models.CodeReviewApp.DAL.Domain
             Comments = new List<CommentReview>();
         }
 
+        public TaskReview CopyPlaneProp()
+        {
+            var res = new TaskReview();
+            res.Id = this.Id;
+            res.Name = this.Name;
+            res.CreateDate = this.CreateDate;
+            res.LastUpdateDate = this.LastUpdateDate;
+            res.Description = this.Description;
+            res.CreatorEntityId = this.CreatorEntityId;
+            res.StatusId = this.StatusId;
+            res.ProjectId = this.ProjectId;
+            res.CreatorId = this.CreatorId;
+            res.ReviewerId = this.ReviewerId;
+
+
+            return res;
+        }
+
     }
 }
