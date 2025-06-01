@@ -28,8 +28,7 @@ namespace Menu.Controllers.TaskManagementApp
         public UserController(
              IJWTService jwtService, IApiHelper apiHealper
             , ILogger<ProjectController> logger, IProjectService projectService,
-             IProjectUserService projectUserService, ITaskReviewService taskReviewService,
-             ITaskReviewCommentService taskReviewCommentService, IUserService mainAppUserService)
+             IProjectUserService projectUserService, IUserService mainAppUserService)
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;

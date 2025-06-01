@@ -25,12 +25,12 @@ namespace Menu.Controllers.TaskManagementApp
         private readonly ILogger _logger;
 
         private readonly IProjectService _projectService;
-        private readonly ITaskReviewService _taskReviewService;
+        private readonly IWorkTaskService _workTaskService;
 
 
         public TaskController(
              IJWTService jwtService, IApiHelper apiHealper
-            , ILogger<ProjectController> logger, IProjectService projectService, ITaskReviewService taskReviewService
+            , ILogger<ProjectController> logger, IProjectService projectService, IWorkTaskService workTaskService
             )
         {
             _jwtService = jwtService;
@@ -38,14 +38,14 @@ namespace Menu.Controllers.TaskManagementApp
             _logger = logger;
 
             _projectService = projectService;
-            _taskReviewService = taskReviewService;
+            _workTaskService = workTaskService;
         }
 
 
         [Route("get-project-tasks")]
         [HttpGet]
         public async Task GetProjectTasks(long projectId, string nameLike
-            , long? creatorId, long? reviewerId, int? statusId, int pageNumber, int pageSize)
+            , long? creatorId, long? executorId, int? statusId, int pageNumber, int pageSize)
         {
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -60,9 +60,9 @@ namespace Menu.Controllers.TaskManagementApp
                         creatorId = null;
                     }
 
-                    if (reviewerId == -1)
+                    if (executorId == -1)
                     {
-                        reviewerId = null;
+                        executorId = null;
                     }
 
                     if (statusId == -1)
@@ -79,11 +79,11 @@ namespace Menu.Controllers.TaskManagementApp
                         throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFound);
                     }
 
-                    var tasks = await _taskReviewService.GetTasksAsync(projectId
-                        , nameLike, creatorId, reviewerId, statusId, pageNumber, pageSize);
-                    var tasksCount = await _taskReviewService.GetTasksCountAsync(projectId
-                        , nameLike, creatorId, reviewerId, statusId);
-                    var taskReturn = tasks.Select(x => new TaskReviewReturn(x));
+                    var tasks = await _workTaskService.GetTasksAsync(projectId
+                        , nameLike, creatorId, executorId, statusId, pageNumber, pageSize);
+                    var tasksCount = await _workTaskService.GetTasksCountAsync(projectId
+                        , nameLike, creatorId, executorId, statusId);
+                    var taskReturn = tasks.Select(x => new WorkTaskReturn(x));
 
                     await _apiHealper.WriteResponseAsync(Response,
                         new { Tasks = taskReturn, TasksCount = tasksCount });// new { Tasks = taskReturn });//"projectInfo_" + projectId
@@ -101,7 +101,7 @@ namespace Menu.Controllers.TaskManagementApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var task = await _taskReviewService.GetTaskWithCommentsAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
+                    var task = await _workTaskService.GetTaskWithCommentsAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
                     var res = await _projectService.ExistIfAccessAsync(task.ProjectId, userInfo);
                     if (!res.access)
                     {
@@ -109,7 +109,7 @@ namespace Menu.Controllers.TaskManagementApp
                     }
 
 
-                    var taskReturn = new TaskReviewReturn(task);
+                    var taskReturn = new WorkTaskReturn(task);
 
                     await _apiHealper.WriteResponseAsync(Response,
                         taskReturn);// new { Tasks = taskReturn });//"projectInfo_" + projectId
@@ -138,10 +138,10 @@ namespace Menu.Controllers.TaskManagementApp
 
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _projectService.CreateTaskAsync(new TaskReview()
+                    var res = await _projectService.CreateTaskAsync(new WorkTask()
                     {
                         Name = taskName,
-                        ReviewerId = taskReviwerId,
+                        ExecutorId = taskReviwerId,
                         ProjectId = projectId,
                         StatusId = statusId,
                         Description = description,
@@ -152,8 +152,8 @@ namespace Menu.Controllers.TaskManagementApp
                             Id = res.Id,
                             Name = res.Name,
                             CreatorId = res.CreatorId,
-                            ReviewerId = res.ReviewerId,
-                            Status = new TaskReviewStatusReturn(res.Status),
+                            ExecutorId = res.ExecutorId,
+                            Status = new WorkTaskStatusReturn(res.Status),
                             CreateDate = res.CreateDate.ToString(),
                             LastUpdateDate = res.LastUpdateDate.ToString()
                         });
@@ -165,7 +165,7 @@ namespace Menu.Controllers.TaskManagementApp
         [Route("update-task")]
         [HttpPatch]
         public async Task UpdateTask([FromForm] long taskId, [FromForm] string name
-            , [FromForm] int statusId, [FromForm] long? reviewerId
+            , [FromForm] int statusId, [FromForm] long? executorId
             , [FromForm] string description)
         {
             name = _apiHealper.StringValidator(name);
@@ -174,21 +174,21 @@ namespace Menu.Controllers.TaskManagementApp
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    if (reviewerId < 1)
+                    if (executorId < 1)
                     {
-                        reviewerId = null;
+                        executorId = null;
                     }
 
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     
 
-                    var res = await _taskReviewService.UpdateAsync(new TaskReview()
+                    var res = await _workTaskService.UpdateAsync(new WorkTask()
                     {
                         Id = taskId,
                         Name = name,
                         StatusId = statusId,
                         //CreatorId = creatorId,
-                        ReviewerId = reviewerId,
+                        ExecutorId = executorId,
                         Description = description,
                     }, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
@@ -210,7 +210,7 @@ namespace Menu.Controllers.TaskManagementApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _taskReviewService.DeleteIfAccess(taskId, userInfo);
+                    var res = await _workTaskService.DeleteIfAccess(taskId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
                         {
@@ -235,7 +235,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
 
-                    var res = await _taskReviewService.UpdateNameAsync(id,name, userInfo);
+                    var res = await _workTaskService.UpdateNameAsync(id,name, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
                         {
@@ -259,7 +259,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
 
-                    var res = await _taskReviewService.UpdateDescriptionAsync(id, description, userInfo);
+                    var res = await _workTaskService.UpdateDescriptionAsync(id, description, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
                         {
@@ -282,7 +282,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
 
-                    var res = await _taskReviewService.UpdateStatusAsync(id, statusId, userInfo);
+                    var res = await _workTaskService.UpdateStatusAsync(id, statusId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
                         {
@@ -305,7 +305,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
 
-                    var res = await _taskReviewService.UpdateExecutorAsync(id, personId, userInfo);
+                    var res = await _workTaskService.UpdateExecutorAsync(id, personId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
                         {

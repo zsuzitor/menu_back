@@ -41,7 +41,7 @@ namespace Menu.Controllers.TaskManagementApp
                     //throw new NotAuthException();
 
                     var res = await _projectService.GetStatusesAccessAsync(projectId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new TaskReviewStatusReturn(x)));
+                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new WorkTaskStatusReturn(x)));
 
                 }, Response, _logger);
 
@@ -61,7 +61,7 @@ namespace Menu.Controllers.TaskManagementApp
                     //throw new NotAuthException();
 
                     var res = await _projectService.CreateStatusAsync(status, projectId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new TaskReviewStatusReturn(res));
+                    await _apiHealper.WriteResponseAsync(Response, new WorkTaskStatusReturn(res));
 
                 }, Response, _logger);
 

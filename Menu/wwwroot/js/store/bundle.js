@@ -49343,7 +49343,7 @@ var AddTask = function (props) {
         var tsk = new OneTask_1.OneTask();
         tsk.Name = newTaskName;
         tsk.CreatorId = newTaskCreator;
-        tsk.ReviewerId = newTaskReviwer;
+        tsk.ExecutorId = newTaskReviwer;
         tsk.Description = newTaskDescription;
         tsk.StatusId = taskStatus;
         props.AddTaskToProject(tsk, props.ProjectId);
@@ -50197,7 +50197,7 @@ var OneReviewTaskDetail = function (props) {
         // setTaskreviewer(props.Task?.ReviewerId || -1);
         setTaskExecutorEditable(false);
         // console.log("setTaskExecutorEditable(false);");
-    }, [(_d = props.Task) === null || _d === void 0 ? void 0 : _d.ReviewerId]);
+    }, [(_d = props.Task) === null || _d === void 0 ? void 0 : _d.ExecutorId]);
     // useEffect(() => {
     //     setTaskCreator(props.Task?.CreatorId);
     // }, [props.Task?.CreatorId]);
@@ -50269,7 +50269,7 @@ var OneReviewTaskDetail = function (props) {
     if (creator && creator.Deactivated) {
         creatorsList.push(creator);
     }
-    var reviewer = props.ProjectUsers.find(function (x) { return x.Id === props.Task.ReviewerId; });
+    var reviewer = props.ProjectUsers.find(function (x) { return x.Id === props.Task.ExecutorId; });
     var reviewerList = props.ProjectUsers.filter(function (us) { return !us.Deactivated; });
     if (reviewer && reviewer.Deactivated) {
         reviewerList.push(reviewer);
@@ -50325,7 +50325,7 @@ var OneReviewTaskDetail = function (props) {
                                 }) })),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", { onClick: function () { return setTaskExecutorEditable(true); }, className: 'editable-by-click' }, "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C: "),
-                    !taskExecutorEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskExecutorEditable(true); } }, ((_h = reviewerList.find(function (x) { return x.Id == props.Task.ReviewerId; })) === null || _h === void 0 ? void 0 : _h.Name) || '')
+                    !taskExecutorEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskExecutorEditable(true); } }, ((_h = reviewerList.find(function (x) { return x.Id == props.Task.ExecutorId; })) === null || _h === void 0 ? void 0 : _h.Name) || '')
                         :
                             react_1.default.createElement(SaveCancelInputSelect_1.default, { CancelEvent: function () { return setTaskExecutorEditable(false); }, SaveEvent: function (id) {
                                     if (!id || id == -1) {
@@ -50336,7 +50336,7 @@ var OneReviewTaskDetail = function (props) {
                                     }
                                     props.UpdateTaskExecutor(props.Task.Id, id);
                                     return true;
-                                }, Selected: props.Task.ReviewerId, ValuesWithId: reviewerList.map(function (x) { return ({
+                                }, Selected: props.Task.ExecutorId, ValuesWithId: reviewerList.map(function (x) { return ({
                                     Id: x.Id,
                                     Text: x.Name
                                 }); }) })),
@@ -50472,8 +50472,9 @@ __webpack_require__(/*! ./OneReviewTask.css */ "./src/Apps/CodeReviewApp/Compone
 var OneReviewTask = function (props) {
     var _a = (0, react_1.useState)(props.Task.Name), taskName = _a[0], setTaskName = _a[1];
     // const [taskLink, setTaskLink] = useState(props.Task.Link || '');
+    console.log(props.Task);
     var _b = (0, react_1.useState)(props.Task.StatusId || -1), taskStatus = _b[0], setTaskStatus = _b[1];
-    var _c = (0, react_1.useState)(props.Task.ReviewerId || -1), taskReviewer = _c[0], setTaskreviewer = _c[1];
+    var _c = (0, react_1.useState)(props.Task.ExecutorId || -1), taskExecutorId = _c[0], setTaskExecutorId = _c[1];
     var _d = (0, react_1.useState)(props.Task.CreatorId), taskCreator = _d[0], setTaskCreator = _d[1];
     var _e = (0, react_1.useState)(''), newCommentName = _e[0], setNewCommentName = _e[1];
     // const [comments, setComments] = useState([] as IOneTaskReviewCommentDataBack[]);
@@ -50490,8 +50491,8 @@ var OneReviewTask = function (props) {
         setTaskStatus(props.Task.StatusId || -1);
     }, [props.Task.StatusId]);
     (0, react_1.useEffect)(function () {
-        setTaskreviewer(props.Task.ReviewerId || -1);
-    }, [props.Task.ReviewerId]);
+        setTaskExecutorId(props.Task.ExecutorId || -1);
+    }, [props.Task.ExecutorId]);
     (0, react_1.useEffect)(function () {
         setTaskCreator(props.Task.CreatorId);
     }, [props.Task.CreatorId]);
@@ -50510,7 +50511,7 @@ var OneReviewTask = function (props) {
         setTaskName(props.Task.Name);
         // setTaskLink(props.Task.Link || '');
         setTaskStatus(props.Task.StatusId);
-        setTaskreviewer(props.Task.ReviewerId || -1);
+        setTaskExecutorId(props.Task.ExecutorId || -1);
         setTaskCreator(props.Task.CreatorId);
     };
     var updateTask = function () {
@@ -50524,7 +50525,7 @@ var OneReviewTask = function (props) {
         forAdd.Name = taskName;
         // forAdd.Link = taskLink;
         forAdd.StatusId = taskStatus;
-        forAdd.ReviewerId = taskReviewer;
+        forAdd.ExecutorId = taskExecutorId;
         forAdd.CreatorId = taskCreator;
         props.UpdateTask(forAdd);
     };
@@ -50541,14 +50542,14 @@ var OneReviewTask = function (props) {
     var taskHasChanges = taskName !== props.Task.Name ||
         // (taskLink !== props.Task.Link && (taskLink || props.Task.Link)) ||
         taskStatus !== props.Task.StatusId ||
-        ((props.Task.ReviewerId || taskReviewer != -1) && taskReviewer !== props.Task.ReviewerId) ||
+        ((props.Task.ExecutorId || taskExecutorId != -1) && taskExecutorId !== props.Task.ExecutorId) ||
         taskCreator !== props.Task.CreatorId;
     var creator = props.ProjectUsers.find(function (x) { return x.Id === taskCreator; });
     var creatorsList = props.ProjectUsers.filter(function (us) { return !us.Deactivated; });
     if (creator && creator.Deactivated) {
         creatorsList.push(creator);
     }
-    var reviewer = props.ProjectUsers.find(function (x) { return x.Id === taskReviewer; });
+    var reviewer = props.ProjectUsers.find(function (x) { return x.Id === taskExecutorId; });
     var reviewerList = props.ProjectUsers.filter(function (us) { return !us.Deactivated; });
     if (reviewer && reviewer.Deactivated) {
         reviewerList.push(reviewer);
@@ -50577,7 +50578,7 @@ var OneReviewTask = function (props) {
                     creatorsList.find(function (x) { return x.Id == taskCreator; }).Name),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", null, "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C:"),
-                    react_1.default.createElement("select", { className: 'form-select-v2', value: taskReviewer, onChange: function (e) { return setTaskreviewer(+e.target.value); } },
+                    react_1.default.createElement("select", { className: 'form-select-v2', value: taskExecutorId, onChange: function (e) { return setTaskExecutorId(+e.target.value); } },
                         react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
                         reviewerList.map(function (x) { return react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name); }))),
                 react_1.default.createElement("div", null,
@@ -51984,7 +51985,7 @@ var CodeReviewTaskController = /** @class */ (function () {
             var data = {
                 "taskName": task.Name,
                 "taskCreatorId": task.CreatorId,
-                "taskReviwerId": task.ReviewerId,
+                "taskReviwerId": task.ExecutorId,
                 "description": task.Description,
                 "projectId": projectId,
                 "statusId": task.StatusId,
@@ -52019,7 +52020,7 @@ var CodeReviewTaskController = /** @class */ (function () {
                 "name": task.Name,
                 "statusId": task.StatusId,
                 "creatorId": task.CreatorId,
-                "reviewerId": task.ReviewerId,
+                "executorId": task.ExecutorId,
                 "description": task.Description,
             };
             G_AjaxHelper.GoAjaxRequest({
@@ -52053,7 +52054,7 @@ var CodeReviewTaskController = /** @class */ (function () {
                 "projectId": taskFilter.ProjectId,
                 "nameLike": taskFilter.Name,
                 "creatorId": taskFilter.CreatorId,
-                "reviewerId": taskFilter.ReviewerId,
+                "executorId": taskFilter.ReviewerId,
                 "statusId": taskFilter.StatusId,
                 "pageNumber": taskFilter.PageNumber,
                 "pageSize": taskFilter.PageSize,
@@ -52534,7 +52535,7 @@ var ProjectTaskData = /** @class */ (function () {
         this.Id = newData.Id;
         this.Name = newData.Name;
         this.CreatorId = newData.CreatorId;
-        this.ReviewerId = newData.ReviewerId;
+        this.ExecutorId = newData.ExecutorId;
         this.StatusId = newData.StatusId;
         this.LastUpdateDate = newData.LastUpdateDate;
         this.CreateDate = newData.CreateDate;
@@ -52671,7 +52672,7 @@ var OneTask = /** @class */ (function () {
         this.Id = data.Id;
         this.Name = data.Name;
         this.CreatorId = data.CreatorId;
-        this.ReviewerId = data.ReviewerId;
+        this.ExecutorId = data.ExecutorId;
         this.StatusId = data.StatusId;
         this.CreateDate = data.CreateDate;
         this.LastUpdateDate = data.LastUpdateDate;
@@ -52684,7 +52685,7 @@ var OneTask = /** @class */ (function () {
         this.Id = data.Id;
         this.Name = data.Name;
         this.CreatorId = data.CreatorId;
-        this.ReviewerId = data.ReviewerId;
+        this.ExecutorId = data.ExecutorId;
         this.StatusId = data.StatusId;
         this.CreateDate = data.CreateDate;
         this.LastUpdateDate = data.LastUpdateDate;
@@ -53077,7 +53078,7 @@ function CodeReviewTaskReducer(state, action) {
                 tasks.forEach(function (tsk) {
                     tsk.Name = payload_1.Name;
                     tsk.StatusId = payload_1.StatusId;
-                    tsk.ReviewerId = payload_1.ReviewerId;
+                    tsk.ExecutorId = payload_1.ExecutorId;
                     tsk.CreatorId = payload_1.CreatorId;
                     tsk.CreateDate = payload_1.CreateDate;
                     tsk.LastUpdateDate = payload_1.LastUpdateDate;
@@ -53206,7 +53207,7 @@ function CodeReviewTaskReducer(state, action) {
                 var helper = new Helper_1.Helper();
                 var tasks = helper.GetTaskFromState(newState, payload_6.Id);
                 tasks.forEach(function (tsk) {
-                    tsk.ReviewerId = payload_6.PersonId;
+                    tsk.ExecutorId = payload_6.PersonId;
                 });
                 return newState;
             }
@@ -65466,7 +65467,7 @@ var MainComponent = function (props) {
         new AppItem_1.AppItem({ Logo: G_EmptyImagePath, Name: "Dict", Path: "/words-cards-app" }),
         // new AppItem({ Logo: G_EmptyImagePath, Name: "TimeBooking", Path: "/menu-app" }),
         new AppItem_1.AppItem({ Logo: "/images/poker_logo.jpg", Name: "Planning Poker", Path: "/planing-poker" }),
-        new AppItem_1.AppItem({ Logo: "/images/code_review_logo.png", Name: "Code Review", Path: "/task-management/" }),
+        new AppItem_1.AppItem({ Logo: "/images/code_review_logo.png", Name: "Task Managment", Path: "/task-management/" }),
         new AppItem_1.AppItem({ Logo: "/images/vaultapp.png", Name: "Vault", Path: (G_VaultController.RouteUrlVaultApp + '/') }),
     ];
     (0, react_1.useEffect)(function () {

@@ -5,7 +5,7 @@ using BO.Models.PlaningPoker.DAL;
 using BO.Models.VaultApp.Dal;
 using BO.Models.WordsCardsApp.DAL.Domain;
 using DAL.Models.DAL.ContextSetup;
-using DAL.Models.DAL.ContextSetup.CodeReview;
+using DAL.Models.DAL.ContextSetup.TaskManagementApp;
 using DAL.Models.DAL.ContextSetup.MenuApp;
 using DAL.Models.DAL.ContextSetup.PlaningPoker;
 using DAL.Models.DAL.ContextSetup.VaultApp;
@@ -55,15 +55,16 @@ namespace DAL.Models.DAL
         #endregion PlaningPoker
 
 
-        #region codeReviewApp
-        public DbSet<Project> ReviewProject { get; set; }
-        public DbSet<ProjectUser> ReviewProjectUsers { get; set; }
-        public DbSet<TaskReview> ReviewTasks { get; set; }
-        public DbSet<CommentReview> ReviewComment { get; set; }
-        public DbSet<TaskReviewStatus> TaskReviewStatus { get; set; }
+        #region TaskManagementApp
+        public DbSet<Project> TaskManagementTaskProject { get; set; }
+        public DbSet<ProjectUser> TaskManagementProjectUsers { get; set; }
+        public DbSet<WorkTask> TaskManagementTasks { get; set; }
+        public DbSet<WorkTaskComment> TaskManagementTaskComment { get; set; }
+        public DbSet<WorkTaskStatus> TaskManagementTaskStatus { get; set; }
 
 
-        #endregion codeReviewApp
+
+        #endregion TaskManagementApp
 
         #region VaultApp
         public DbSet<Vault> Vaults { get; set; }
@@ -107,14 +108,14 @@ namespace DAL.Models.DAL
             #endregion planingPoker
 
 
-            #region codeReviewApp
+            #region TaskManagementApp
 
             //modelBuilder.Entity<ProjectUser>().has
             modelBuilder.ProjectBuild();
             modelBuilder.ProjectUserBuild();
-            modelBuilder.TaskReviewBuild();
+            modelBuilder.TaskManagementTaskBuild();
 
-            #endregion codeReviewApp
+            #endregion TaskManagementApp
 
 
             #region VaultApp

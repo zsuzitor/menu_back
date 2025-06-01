@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using System.Linq;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
+using TaskManagementApp.Models.Services;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -18,21 +19,21 @@ namespace Menu.Controllers.TaskManagementApp
         private readonly IApiHelper _apiHealper;
         private readonly ILogger _logger;
 
-        private readonly ITaskReviewService _taskReviewService;
-        private readonly ITaskReviewCommentService _taskReviewCommentService;
+        private readonly IWorkTaskService _workTaskService;
+        private readonly IWorkTaskCommentService _workTaskCommentService;
 
 
         public CommentController(
              IJWTService jwtService, IApiHelper apiHealper
-            , ILogger<ProjectController> logger, ITaskReviewService taskReviewService,
-             ITaskReviewCommentService taskReviewCommentService)
+            , ILogger<ProjectController> logger, IWorkTaskService workTaskService,
+             IWorkTaskCommentService workTaskCommentService)
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
             _logger = logger;
 
-            _taskReviewService = taskReviewService;
-            _taskReviewCommentService = taskReviewCommentService;
+            _workTaskService = workTaskService;
+            _workTaskCommentService = workTaskCommentService;
         }
 
 
@@ -47,8 +48,8 @@ namespace Menu.Controllers.TaskManagementApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _taskReviewService.CreateCommentAsync(taskId, text, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new CommentReviewReturn(res));
+                    var res = await _workTaskService.CreateCommentAsync(taskId, text, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, new WorkTaskCommentReturn(res));
 
                 }, Response, _logger);
 
@@ -63,7 +64,7 @@ namespace Menu.Controllers.TaskManagementApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _taskReviewCommentService.DeleteAsync(commentId, userInfo);
+                    var res = await _workTaskCommentService.DeleteAsync(commentId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
                         {
@@ -84,8 +85,8 @@ namespace Menu.Controllers.TaskManagementApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _taskReviewService.GetCommentsAsync(taskId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new CommentReviewReturn(x)));
+                    var res = await _workTaskService.GetCommentsAsync(taskId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new WorkTaskCommentReturn(x)));
 
                 }, Response, _logger);
 
@@ -102,7 +103,7 @@ namespace Menu.Controllers.TaskManagementApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _taskReviewCommentService.EditAsync(commentId, text, userInfo);
+                    var res = await _workTaskCommentService.EditAsync(commentId, text, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
                         {

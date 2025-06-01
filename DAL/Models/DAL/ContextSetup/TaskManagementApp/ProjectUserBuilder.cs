@@ -1,10 +1,7 @@
 ﻿using BO.Models.TaskManagementApp.DAL.Domain;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace DAL.Models.DAL.ContextSetup.CodeReview
+namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
 {
     internal static class ProjectUserBuilder
     {
@@ -17,9 +14,9 @@ namespace DAL.Models.DAL.ContextSetup.CodeReview
                     .HasForeignKey(x => x.CreatorId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasMany(x => x.CreateByUser).WithOne(x => x.Creator)
                     .HasForeignKey(x => x.CreatorId).OnDelete(DeleteBehavior.NoAction);
-                entity.HasMany(x => x.ReviewByUser).WithOne(x => x.Reviewer)
-                    .HasForeignKey(x => x.ReviewerId).OnDelete(DeleteBehavior.NoAction);
-                entity.ToTable("ReviewProjectUsers");
+                entity.HasMany(x => x.ExecuteByUser).WithOne(x => x.Executor)
+                    .HasForeignKey(x => x.ExecutorId).OnDelete(DeleteBehavior.NoAction);
+                entity.ToTable("TaskManagementProjectUsers");
 
                 entity.Property(p => p.RowVersion)
                     .IsRowVersion() // Автоматически обновляется SQL Server

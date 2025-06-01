@@ -13,16 +13,16 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
 
         public List<ProjectUser> Users { get; set; }
         //public List<string> LocalUsers { get; set; }
-        public List<TaskReview> Tasks { get; set; }
+        public List<WorkTask> Tasks { get; set; }
 
-        public List<TaskReviewStatus> TaskStatuses { get; set; }
+        public List<WorkTaskStatus> TaskStatuses { get; set; }
 
         public byte[] RowVersion { get; set; }
 
         public Project()
         {
             Users = new List<ProjectUser>();
-            Tasks = new List<TaskReview>();
+            Tasks = new List<WorkTask>();
         }
 
     }

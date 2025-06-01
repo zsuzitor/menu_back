@@ -23,7 +23,7 @@ namespace BO.Models.DAL.Domain
         public List<Article> Articles { get; set; }
         public List<WordCard> WordsCards { get; set; }
         public List<WordsList> WordsLists { get; set; }
-        public List<ProjectUser> CodeReviewProjects { get; set; }
+        public List<ProjectUser> TaskManagementProjects { get; set; }
         public List<VaultUserDal> Vaults { get; set; }
 
 
@@ -34,7 +34,7 @@ namespace BO.Models.DAL.Domain
             Articles = new List<Article>();
             WordsCards = new List<WordCard>();
             WordsLists = new List<WordsList>();
-            CodeReviewProjects = new List<ProjectUser>();
+            TaskManagementProjects = new List<ProjectUser>();
             Vaults = new List<VaultUserDal>();
         }
     }

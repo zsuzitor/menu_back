@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanitPoker", "PlanitPoker\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WEB.Common", "WEB.Common\WEB.Common.csproj", "{E9AA7DA6-9845-47C7-B975-8D86AB096553}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagementApp", "CodeReviewApp\TaskManagementApp.csproj", "{891D87AA-AAEE-42C3-AAE3-8F14ACFE6374}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManagementApp", "TaskManagementApp\TaskManagementApp.csproj", "{891D87AA-AAEE-42C3-AAE3-8F14ACFE6374}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VaultApp", "VaultApp\VaultApp.csproj", "{5D352F56-7661-4FB4-BE2A-2A1560448C46}"
 EndProject

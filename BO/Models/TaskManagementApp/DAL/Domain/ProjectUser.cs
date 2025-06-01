@@ -19,18 +19,18 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public long? MainAppUserId { get; set; }
         public User MainAppUser { get; set; }
 
-        public List<CommentReview> Comments { get; set; }
-        public List<TaskReview> CreateByUser { get; set; }
-        public List<TaskReview> ReviewByUser { get; set; }
+        public List<WorkTaskComment> Comments { get; set; }
+        public List<WorkTask> CreateByUser { get; set; }
+        public List<WorkTask> ExecuteByUser { get; set; }
 
 
         public byte[] RowVersion { get; set; }
 
         public ProjectUser()
         {
-            Comments = new List<CommentReview>();
-            CreateByUser = new List<TaskReview>();
-            ReviewByUser = new List<TaskReview>();
+            Comments = new List<WorkTaskComment>();
+            CreateByUser = new List<WorkTask>();
+            ExecuteByUser = new List<WorkTask>();
 
         }
     }
