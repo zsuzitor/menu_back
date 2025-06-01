@@ -31,6 +31,9 @@ testPass123!
 
 
 #db
+Add-Migration AddNotifications
+Remove-Migration
+
 выключить UseInMemoryDataProvider в appsettings
 основные таблицы можно сделать через миграцию в проекте DAL, а можно его просто запустить(поправить коннекшн стринг)
 также можно через запуск основного приложения смотри конфиг SetupAutoDBMigrate
@@ -69,6 +72,12 @@ appsettings(выключить UseInMemoryDataProvider в appsettings)
 2 накат миграций(||запуск DAL)
 3 скопировать файлы с заменой(убедиться что картинки\uploads были сохранены)
 
+
+
+
+
+wordscards
+сайт для запоминания слов
 
 
 

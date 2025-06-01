@@ -1,7 +1,10 @@
+#todo поменять на clusterip
 apiVersion: v1
 kind: Service
 metadata:
   name: menu-service-np
+  labels:
+    app: menu
 spec:
   ports:
   - name: http #ingress  dont work but service is

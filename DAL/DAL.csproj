@@ -12,6 +12,16 @@
     <Compile Remove="Migrations\20210808161528_nlog.Designer.cs" />
     <Compile Remove="Migrations\20210808162355_nlog.cs" />
     <Compile Remove="Migrations\20210808162355_nlog.Designer.cs" />
+    <Compile Remove="Migrations\20250523165409_taskReviewStatus.cs" />
+    <Compile Remove="Migrations\20250523165409_taskReviewStatus.Designer.cs" />
+    <Compile Remove="Migrations\20250523202826_RowVersion.cs" />
+    <Compile Remove="Migrations\20250523202826_RowVersion.Designer.cs" />
+    <Compile Remove="Migrations\20250523205318_status-no-cascade.cs" />
+    <Compile Remove="Migrations\20250523205318_status-no-cascade.Designer.cs" />
+    <Compile Remove="Migrations\20250523205829_status-no-action.cs" />
+    <Compile Remove="Migrations\20250523205829_status-no-action.Designer.cs" />
+    <Compile Remove="Migrations\20250523210627_RowVersion.cs" />
+    <Compile Remove="Migrations\20250523210627_RowVersion.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
