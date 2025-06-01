@@ -31,7 +31,7 @@ namespace Menu.Controllers
             return View("Index");
         }
 
-        public ActionResult CodeReviewApp()
+        public ActionResult TaskManagementApp()
         {
             return View("Index");
         }

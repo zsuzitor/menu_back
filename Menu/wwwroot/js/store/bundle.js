@@ -49460,7 +49460,7 @@ var CodeReviewMain = function (props) {
             !props.ProjectsList.find(function (x) { return x.Id == props.CurrentProjectId; }) //выбранного проекта нет, удален?
             && matchProj //при этом в урле он есть
         ) {
-            navigate("/code-review/");
+            navigate("/task-management/");
         }
     }, [props.ProjectsList.length, props.ProjectsLoaded]);
     (0, react_1.useEffect)(function () {
@@ -49816,7 +49816,7 @@ var OneProjectInList = function (props) {
             // if (!props.CurrentProject) {
             //     // props.SetCurrentProject(props.Project.Id)
             // }
-            navigate("/code-review/proj-" + props.Project.Id);
+            navigate("/task-management/proj-" + props.Project.Id);
         } }, props.Project.Name);
 };
 // and that function returns the connected, wrapper component:
@@ -50158,15 +50158,15 @@ var SaveCancelInputSelect_1 = __importDefault(__webpack_require__(/*! ../../../.
 __webpack_require__(/*! ./OneReviewTaskDetail.css */ "./src/Apps/CodeReviewApp/Components/OneReviewTaskDetail/OneReviewTaskDetail.css");
 var OneReviewTaskDetail = function (props) {
     //   console.log(new Error().stack); // Check where this is being called from
-    var _a, _b, _c, _d, _e, _f;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
     //         return <div>стоп для теста</div>
     // console.log(props);
     // const [taskName, setTaskName] = useState(props.Task?.Name || '');
-    var _g = (0, react_1.useState)(false), taskDescriptionEditable = _g[0], setTaskDescriptionEditable = _g[1];
-    var _h = (0, react_1.useState)(false), taskNewCommentEditable = _h[0], setTaskNewCommentEditable = _h[1];
-    var _j = (0, react_1.useState)(false), taskNameEditable = _j[0], setTaskNameEditable = _j[1];
-    var _k = (0, react_1.useState)(false), taskStatusEditable = _k[0], setTaskStatusEditable = _k[1];
-    var _l = (0, react_1.useState)(false), taskExecutorEditable = _l[0], setTaskExecutorEditable = _l[1];
+    var _k = (0, react_1.useState)(false), taskDescriptionEditable = _k[0], setTaskDescriptionEditable = _k[1];
+    var _l = (0, react_1.useState)(false), taskNewCommentEditable = _l[0], setTaskNewCommentEditable = _l[1];
+    var _m = (0, react_1.useState)(false), taskNameEditable = _m[0], setTaskNameEditable = _m[1];
+    var _o = (0, react_1.useState)(false), taskStatusEditable = _o[0], setTaskStatusEditable = _o[1];
+    var _p = (0, react_1.useState)(false), taskExecutorEditable = _p[0], setTaskExecutorEditable = _p[1];
     // const [taskLink, setTaskLink] = useState(props.Task?.Link || '');
     // const [taskStatus, setTaskStatus] = useState(props.Task?.StatusId || -1);
     // const [taskReviewer, setTaskreviewer] = useState(props.Task?.ReviewerId || -1);
@@ -50189,17 +50189,21 @@ var OneReviewTaskDetail = function (props) {
     // useEffect(() => {
     //     setTaskLink(props.Task?.Link || '');
     // }, [props.Task?.Link]);
-    // useEffect(() => {
-    //     setTaskStatus(props.Task?.StatusId || -1);
-    // }, [props.Task?.StatusId]);
+    (0, react_1.useEffect)(function () {
+        // setTaskStatus(props.Task?.StatusId || -1);
+        setTaskStatusEditable(false);
+    }, [(_c = props.Task) === null || _c === void 0 ? void 0 : _c.StatusId]);
     (0, react_1.useEffect)(function () {
         // setTaskreviewer(props.Task?.ReviewerId || -1);
         setTaskExecutorEditable(false);
         // console.log("setTaskExecutorEditable(false);");
-    }, [(_c = props.Task) === null || _c === void 0 ? void 0 : _c.ReviewerId]);
+    }, [(_d = props.Task) === null || _d === void 0 ? void 0 : _d.ReviewerId]);
     // useEffect(() => {
     //     setTaskCreator(props.Task?.CreatorId);
     // }, [props.Task?.CreatorId]);
+    (0, react_1.useEffect)(function () {
+        setTaskNewCommentEditable(false);
+    }, [(_f = (_e = props.Task) === null || _e === void 0 ? void 0 : _e.Comments) === null || _f === void 0 ? void 0 : _f.length]);
     // const cancelTask = () => {
     //     if (!confirm('Отменить изменения?')) {
     //         return;
@@ -50272,7 +50276,7 @@ var OneReviewTaskDetail = function (props) {
     }
     return react_1.default.createElement("div", { className: 'one-review-task-detail-block' },
         react_1.default.createElement("div", { className: 'one-review-task-detail-header' },
-            react_1.default.createElement("div", { className: 'one-review-task-detail-name' }, !taskNameEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskNameEditable(true); } }, props.Task.Name || '')
+            react_1.default.createElement("div", { className: 'one-review-task-detail-name', onClick: function () { return setTaskNameEditable(true); } }, !taskNameEditable ? react_1.default.createElement("span", { className: 'editable-by-click' }, props.Task.Name || '')
                 :
                     react_1.default.createElement(SaveCancelInputText_1.default, { CancelEvent: function () { return setTaskNameEditable(false); }, SaveEvent: function (val) {
                             if (!val) {
@@ -50311,7 +50315,7 @@ var OneReviewTaskDetail = function (props) {
             react_1.default.createElement("div", { className: 'one-review-task-detail-right-content' },
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", { onClick: function () { return setTaskStatusEditable(true); }, className: 'editable-by-click' }, "\u0421\u0442\u0430\u0442\u0443\u0441: "),
-                    !taskStatusEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskStatusEditable(true); } }, ((_d = props.Statuses.find(function (x) { return x.Id == props.Task.StatusId; })) === null || _d === void 0 ? void 0 : _d.Name) || '')
+                    !taskStatusEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskStatusEditable(true); } }, ((_g = props.Statuses.find(function (x) { return x.Id == props.Task.StatusId; })) === null || _g === void 0 ? void 0 : _g.Name) || '')
                         :
                             react_1.default.createElement(SaveCancelInputSelect_1.default, { CancelEvent: function () { return setTaskStatusEditable(false); }, SaveEvent: function (id) {
                                     props.UpdateTaskStatus(props.Task.Id, id);
@@ -50321,7 +50325,7 @@ var OneReviewTaskDetail = function (props) {
                                 }) })),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", { onClick: function () { return setTaskExecutorEditable(true); }, className: 'editable-by-click' }, "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C: "),
-                    !taskExecutorEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskExecutorEditable(true); } }, ((_e = reviewerList.find(function (x) { return x.Id == props.Task.ReviewerId; })) === null || _e === void 0 ? void 0 : _e.Name) || '')
+                    !taskExecutorEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: function () { return setTaskExecutorEditable(true); } }, ((_h = reviewerList.find(function (x) { return x.Id == props.Task.ReviewerId; })) === null || _h === void 0 ? void 0 : _h.Name) || '')
                         :
                             react_1.default.createElement(SaveCancelInputSelect_1.default, { CancelEvent: function () { return setTaskExecutorEditable(false); }, SaveEvent: function (id) {
                                     if (!id || id == -1) {
@@ -50339,8 +50343,8 @@ var OneReviewTaskDetail = function (props) {
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", null,
                         "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C: ",
-                        ((_f = creatorsList
-                            .find(function (x) { return x.Id == props.Task.CreatorId; })) === null || _f === void 0 ? void 0 : _f.Name) || '')),
+                        ((_j = creatorsList
+                            .find(function (x) { return x.Id == props.Task.CreatorId; })) === null || _j === void 0 ? void 0 : _j.Name) || '')),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("p", null,
                         "\u0414\u0430\u0442\u0430 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F: ",
@@ -50557,7 +50561,7 @@ var OneReviewTask = function (props) {
                             e.preventDefault();
                             // navigate("/code-review/proj-" + props.CurrentProjectId+'/task-'+props.Task.Id);
                             // props.SetCurrentTask(props.Task.Id);
-                            navigate("/code-review/proj-" + props.CurrentProjectId + '/task-' + props.Task.Id);
+                            navigate("/task-management/proj-" + props.CurrentProjectId + '/task-' + props.Task.Id);
                         } }, props.Task.Name)),
                 react_1.default.createElement("div", { className: 'one-review-task-buttons' },
                     react_1.default.createElement("div", { className: 'task-button', onClick: function () { return setShowFullTask(true); } },
@@ -50593,7 +50597,7 @@ var OneReviewTask = function (props) {
                 react_1.default.createElement("div", { className: 'task-button', onClick: function () { return deleteTask(); } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
                 react_1.default.createElement("div", { className: 'task-button', onClick: function () {
-                        return navigate("/code-review/proj-" + props.CurrentProjectId + '/task-' + props.Task.Id);
+                        return navigate("/task-management/proj-" + props.CurrentProjectId + '/task-' + props.Task.Id);
                     } },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'external-link.png', alt: "Link", title: '\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443' })))));
 };
@@ -51516,7 +51520,7 @@ var CodeReviewCommentController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/comment/edit-comment'
+                Url: G_PathToServer + 'api/taskmanagement/comment/edit-comment'
             });
         };
         this.DeleteCommentRedux = function (dataForDel) {
@@ -51544,7 +51548,7 @@ var CodeReviewCommentController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/comment/delete-comment'
+                Url: G_PathToServer + 'api/taskmanagement/comment/delete-comment'
             });
         };
         this.AddCommentRedux = function (taskId, text) {
@@ -51574,7 +51578,7 @@ var CodeReviewCommentController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/comment/create-comment'
+                Url: G_PathToServer + 'api/taskmanagement/comment/create-comment'
             });
         };
         this.LoadCommentsRedux = function (id) {
@@ -51609,7 +51613,7 @@ var CodeReviewCommentController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/comment/get-comments'
+                Url: G_PathToServer + 'api/taskmanagement/comment/get-comments'
             });
         };
     }
@@ -51696,7 +51700,7 @@ var CodeReviewProjectController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/delete-project'
+                Url: G_PathToServer + 'api/taskmanagement/project/delete-project'
             });
         };
         this.GetProjectInfoRedux = function (projectId) {
@@ -51735,7 +51739,7 @@ var CodeReviewProjectController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/get-project-info'
+                Url: G_PathToServer + 'api/taskmanagement/project/get-project-info'
             });
         };
         this.CreateNewProjectRedux = function (newProjectName) {
@@ -51765,7 +51769,7 @@ var CodeReviewProjectController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/add-new-project'
+                Url: G_PathToServer + 'api/taskmanagement/project/add-new-project'
             });
         };
         this.GetUserProjectsRedux = function () {
@@ -51796,7 +51800,7 @@ var CodeReviewProjectController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/project/get-projects',
+                Url: G_PathToServer + 'api/taskmanagement/project/get-projects',
             });
         };
     }
@@ -51872,7 +51876,7 @@ var CodeReviewTaskController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/task/update-name'
+                Url: G_PathToServer + 'api/taskmanagement/task/update-name'
             });
         };
         this.UpdateTaskDescriptionRedux = function (id, text) {
@@ -51901,7 +51905,7 @@ var CodeReviewTaskController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/task/update-description'
+                Url: G_PathToServer + 'api/taskmanagement/task/update-description'
             });
         };
         this.UpdateTaskStatusRedux = function (id, idStatus) {
@@ -51930,7 +51934,7 @@ var CodeReviewTaskController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/task/update-status'
+                Url: G_PathToServer + 'api/taskmanagement/task/update-status'
             });
         };
         this.UpdateTaskExecutorRedux = function (id, personId) {
@@ -51959,7 +51963,7 @@ var CodeReviewTaskController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/task/update-executor'
+                Url: G_PathToServer + 'api/taskmanagement/task/update-executor'
             });
         };
         this.AddTaskToProjectRedux = function (task, projectId) {
@@ -51992,7 +51996,7 @@ var CodeReviewTaskController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/task/add-new-task'
+                Url: G_PathToServer + 'api/taskmanagement/task/add-new-task'
             });
         };
         this.UpdateTaskRedux = function (task) {
@@ -52025,7 +52029,7 @@ var CodeReviewTaskController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/task/update-task'
+                Url: G_PathToServer + 'api/taskmanagement/task/update-task'
             });
         };
         this.LoadTasksRedux = function (taskFilter) {
@@ -52061,7 +52065,7 @@ var CodeReviewTaskController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/task/get-project-tasks'
+                Url: G_PathToServer + 'api/taskmanagement/task/get-project-tasks'
             });
         };
         this.LoadTaskRedux = function (taskId) {
@@ -52091,7 +52095,7 @@ var CodeReviewTaskController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/task/get-project-task'
+                Url: G_PathToServer + 'api/taskmanagement/task/get-project-task'
             });
         };
         this.DeleteTaskRedux = function (id) {
@@ -52119,7 +52123,7 @@ var CodeReviewTaskController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/task/delete-task'
+                Url: G_PathToServer + 'api/taskmanagement/task/delete-task'
             });
         };
     }
@@ -52193,7 +52197,7 @@ var CodeReviewTaskStatusController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/status/delete-status'
+                Url: G_PathToServer + 'api/taskmanagement/status/delete-status'
             });
         };
         this.CreateStatusRedux = function (name, projectId) {
@@ -52224,7 +52228,7 @@ var CodeReviewTaskStatusController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/status/create-status'
+                Url: G_PathToServer + 'api/taskmanagement/status/create-status'
             });
         };
         this.UpdateStatusRedux = function (statusId, status) {
@@ -52255,7 +52259,7 @@ var CodeReviewTaskStatusController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/status/update-status'
+                Url: G_PathToServer + 'api/taskmanagement/status/update-status'
             });
         };
     }
@@ -52329,7 +52333,7 @@ var CodeReviewUserController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/user/delete-user'
+                Url: G_PathToServer + 'api/taskmanagement/user/delete-user'
             });
         };
         this.AddUserToProjectRedux = function (newUserName, mainAppUserEmail, projectId) {
@@ -52361,7 +52365,7 @@ var CodeReviewUserController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/user/add-new-user'
+                Url: G_PathToServer + 'api/taskmanagement/user/add-new-user'
             });
         };
         this.ChangeProjectUserRedux = function (user) {
@@ -52393,7 +52397,7 @@ var CodeReviewUserController = /** @class */ (function () {
                     _this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: function (xhr, status, error) { },
-                Url: G_PathToServer + 'api/codereview/user/change-user'
+                Url: G_PathToServer + 'api/taskmanagement/user/change-user'
             });
         };
     }
@@ -63811,7 +63815,7 @@ var AppRouter = function (props) {
             React.createElement(react_router_dom_1.Route, { path: "/menu-app/*", element: React.createElement(MenuAppMain_1.MenuAppMain, null) }),
             React.createElement(react_router_dom_1.Route, { path: "/words-cards-app/*", element: React.createElement(WordsCardsAppMain_1.WordsCardsAppMain, null) }),
             React.createElement(react_router_dom_1.Route, { path: "/planing-poker/*", element: React.createElement(PlaningPokerMain_1.default, null) }),
-            React.createElement(react_router_dom_1.Route, { path: "/code-review/*", element: React.createElement(CodeReviewMain_1.default, null) }),
+            React.createElement(react_router_dom_1.Route, { path: "/task-management/*", element: React.createElement(CodeReviewMain_1.default, null) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/login/*", element: React.createElement(MainAuth_1.default, { LoginPage: true }) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/register/*", element: React.createElement(MainAuth_1.default, { LoginPage: false }) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/password-recovery/*", element: React.createElement(Recovery_1.default, null) }),
@@ -65462,7 +65466,7 @@ var MainComponent = function (props) {
         new AppItem_1.AppItem({ Logo: G_EmptyImagePath, Name: "Dict", Path: "/words-cards-app" }),
         // new AppItem({ Logo: G_EmptyImagePath, Name: "TimeBooking", Path: "/menu-app" }),
         new AppItem_1.AppItem({ Logo: "/images/poker_logo.jpg", Name: "Planning Poker", Path: "/planing-poker" }),
-        new AppItem_1.AppItem({ Logo: "/images/code_review_logo.png", Name: "Code Review", Path: "/code-review/" }),
+        new AppItem_1.AppItem({ Logo: "/images/code_review_logo.png", Name: "Code Review", Path: "/task-management/" }),
         new AppItem_1.AppItem({ Logo: "/images/vaultapp.png", Name: "Vault", Path: (G_VaultController.RouteUrlVaultApp + '/') }),
     ];
     (0, react_1.useEffect)(function () {

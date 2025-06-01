@@ -7,9 +7,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
 
-namespace Menu.Controllers.CodeReviewApp
+namespace Menu.Controllers.TaskManagementApp
 {
-    [Route("api/codereview/[controller]")]
+    [Route("api/taskmanagement/[controller]")]
 
     public class CommentController : ControllerBase
     {

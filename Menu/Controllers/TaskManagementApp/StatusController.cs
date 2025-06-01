@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace Menu.Controllers.CodeReviewApp
+namespace Menu.Controllers.TaskManagementApp
 {
 
-    [Route("api/codereview/[controller]")]
+    [Route("api/taskmanagement/[controller]")]
     public class StatusController : ControllerBase
     {
 

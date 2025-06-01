@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
 using TaskManagementApp.Models;
 
-namespace Menu.Controllers.CodeReviewApp
+namespace Menu.Controllers.TaskManagementApp
 {
-    [Route("api/codereview/[controller]")]
+    [Route("api/taskmanagement/[controller]")]
 
     public class UserController : ControllerBase
     {
