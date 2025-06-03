@@ -22,7 +22,9 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public List<WorkTaskComment> Comments { get; set; }
         public List<WorkTask> CreateByUser { get; set; }
         public List<WorkTask> ExecuteByUser { get; set; }
+        public List<WorkTimeLog> WorkTimeLogs { get; set; }
 
+        
 
         public byte[] RowVersion { get; set; }
 
@@ -31,6 +33,7 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
             Comments = new List<WorkTaskComment>();
             CreateByUser = new List<WorkTask>();
             ExecuteByUser = new List<WorkTask>();
+            WorkTimeLogs = new List<WorkTimeLog>();
 
         }
     }

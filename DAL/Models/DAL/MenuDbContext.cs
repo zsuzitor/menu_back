@@ -61,7 +61,9 @@ namespace DAL.Models.DAL
         public DbSet<WorkTask> TaskManagementTasks { get; set; }
         public DbSet<WorkTaskComment> TaskManagementTaskComment { get; set; }
         public DbSet<WorkTaskStatus> TaskManagementTaskStatus { get; set; }
+        public DbSet<WorkTimeLog> TaskManagementWorkTimeLog { get; set; }
 
+        
 
 
         #endregion TaskManagementApp
@@ -114,6 +116,7 @@ namespace DAL.Models.DAL
             modelBuilder.ProjectBuild();
             modelBuilder.ProjectUserBuild();
             modelBuilder.TaskManagementTaskBuild();
+            modelBuilder.WorkTimeLogBuild();
 
             #endregion TaskManagementApp
 
