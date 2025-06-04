@@ -124,7 +124,7 @@ namespace TaskManagementApp.Models.Services
 
         }
 
-        public async Task<List<WorkTimeLog>> GetTimeForProjectAsync(long projectId, DateTime startDate, DateTime endDate, UserInfo userInfo)
+        public async Task<List<WorkTimeLog>> GetTimeForProjectAsync(long projectId, DateTime startDate, DateTime endDate, UserInfo userInfo, long? userId)
         {
             var access = await _projectRepository.ExistIfAccessAsync(projectId, userInfo.UserId);
             if (!access.access)
@@ -133,7 +133,7 @@ namespace TaskManagementApp.Models.Services
 
             }
 
-            return await _workTimeLogRepository.GetTimeForProjectAsync(projectId, startDate, endDate);
+            return await _workTimeLogRepository.GetTimeForProjectAsync(projectId, startDate, endDate, userId);
         }
 
         public async Task<List<WorkTimeLog>> GetTimeForTaskAsync(long taskId, UserInfo userInfo)

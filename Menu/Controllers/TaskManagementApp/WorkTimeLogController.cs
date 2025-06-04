@@ -105,7 +105,7 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("project-time")]
         [HttpGet]
-        public async Task GetProjectTime([FromForm] long id, [FromForm] DateTime dateFrom, [FromForm] DateTime dateTo)
+        public async Task GetProjectTime(long id, DateTime dateFrom, DateTime dateTo, long? userId)
         {
 
             await _apiHealper.DoStandartSomething(
@@ -113,8 +113,8 @@ namespace Menu.Controllers.TaskManagementApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _workTimeLogService.GetTimeForProjectAsync(id, dateFrom, dateTo, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, res.Select(x=> new WorkTimeLogReturn(x)).ToList());
+                    var res = await _workTimeLogService.GetTimeForProjectAsync(id, dateFrom, dateTo, userInfo, userId);
+                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new WorkTimeLogReturn(x)).ToList());
 
                 }, Response, _logger);
 
@@ -122,7 +122,7 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("task-time")]
         [HttpGet]
-        public async Task GetTaskTime([FromForm] long id, [FromForm] DateTime dateFrom, [FromForm] DateTime dateTo)
+        public async Task GetTaskTime(long taskId)
         {
 
             await _apiHealper.DoStandartSomething(
@@ -130,7 +130,7 @@ namespace Menu.Controllers.TaskManagementApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _workTimeLogService.GetTimeForTaskAsync(id, userInfo);
+                    var res = await _workTimeLogService.GetTimeForTaskAsync(taskId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, res.Select(x => new WorkTimeLogReturn(x)).ToList());
 
                 }, Response, _logger);

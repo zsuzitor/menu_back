@@ -56,12 +56,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         }
 
-        public async Task<List<WorkTimeLog>> GetTimeForProjectAsync(long projectId, DateTime startDate, DateTime endDate)
+        public async Task<List<WorkTimeLog>> GetTimeForProjectAsync(long projectId, DateTime startDate, DateTime endDate, long? userId)
         {
 
             return await _db.TaskManagementWorkTimeLog.AsNoTracking()
-                .Include(x => x.WorkTask)
-                .Where(x => x.WorkTask.ProjectId == projectId
+                .Include(x => x.WorkTask).Include(x => x.ProjectUser)//.ThenInclude(x=>x.Project).ThenInclude(x=>x.Users)
+                .Where(x => x.WorkTask.ProjectId == projectId && (userId == null || x.ProjectUser.Id == userId)
                  && x.DayOfLog >= startDate && x.DayOfLog <= endDate).Select(x => x).ToListAsync();
         }
 
