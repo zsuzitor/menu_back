@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL.Migrations
 {
-    public partial class WorkTimeLog : Migration
+    public partial class timelog1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -28,14 +28,12 @@ namespace DAL.Migrations
                         name: "FK_TaskManagementWorkTimeLog_TaskManagementProjectUsers_ProjectUserId",
                         column: x => x.ProjectUserId,
                         principalTable: "TaskManagementProjectUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_TaskManagementWorkTimeLog_TaskManagementTasks_WorkTaskId",
                         column: x => x.WorkTaskId,
                         principalTable: "TaskManagementTasks",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(

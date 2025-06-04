@@ -21,7 +21,15 @@ namespace TaskManagementApp.Models.DAL.Repositories
         {
         }
 
-        public async Task<List<WorkTimeLog>> GetTimeForProjectAsync(long projectId, DateTime startDate, DateTime endDate, UserInfo userInfo)
+        public Task<WorkTimeLog> GetTimeAccessAsync(long id, UserInfo userInfo)
+        {
+            return _db.TaskManagementWorkTimeLog//.Include(x=>x.WorkTask).ThenInclude(x=>x.Project)
+                .Include(x => x.ProjectUser)
+                .Where(x => x.ProjectUser.MainAppUserId == userInfo.UserId && !x.ProjectUser.Deactivated)
+                .Select(x => x).FirstOrDefaultAsync();
+        }
+
+        public async Task<List<WorkTimeLog>> GetTimeForOneUserProjectAsync(long projectId, DateTime startDate, DateTime endDate, UserInfo userInfo)
         {
             //_db.TaskManagementProjectUsers.Where(u => u.ProjectId == projectId && u.MainAppUserId == userInfo.UserId).Include(x=>x.);
 
@@ -40,11 +48,27 @@ namespace TaskManagementApp.Models.DAL.Repositories
             //    , (x, y) => new { proj = x, tsk = y });
         }
 
-        public async Task<List<WorkTimeLog>> GetTimeForTaskAsync(long taskId, UserInfo userInfo)
+        public async Task<List<WorkTimeLog>> GetTimeForOneUserTaskAsync(long taskId, UserInfo userInfo)
         {
             return await _db.TaskManagementWorkTimeLog.AsNoTracking().Include(x => x.ProjectUser)
                 .Where(x => x.WorkTaskId == taskId
                 && x.ProjectUser.MainAppUserId == userInfo.UserId && !x.ProjectUser.Deactivated).Select(x => x).ToListAsync();
+
+        }
+
+        public async Task<List<WorkTimeLog>> GetTimeForProjectAsync(long projectId, DateTime startDate, DateTime endDate)
+        {
+
+            return await _db.TaskManagementWorkTimeLog.AsNoTracking()
+                .Include(x => x.WorkTask)
+                .Where(x => x.WorkTask.ProjectId == projectId
+                 && x.DayOfLog >= startDate && x.DayOfLog <= endDate).Select(x => x).ToListAsync();
+        }
+
+        public async Task<List<WorkTimeLog>> GetTimeForTaskAsync(long taskId)
+        {
+            return await _db.TaskManagementWorkTimeLog.AsNoTracking()
+                .Where(x => x.WorkTaskId == taskId).ToListAsync();
 
         }
 

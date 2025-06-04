@@ -111,7 +111,7 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomException(Consts.ErrorConsts.EmptyTaskName);
             }
 
-            var creator = await _projectUserService.GetAdminByMainAppIdAsync(userInfo, task.ProjectId);
+            var creator = await _projectUserService.GetByMainAppIdAsync(userInfo, task.ProjectId);
             if (creator == null)
             {
                 throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);

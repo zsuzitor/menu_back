@@ -73,5 +73,37 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 x.StatusId == statusId
                 && x.ProjectId == projectId);
         }
+
+        public async Task<bool> HaveAccessAsync(long taskId, long mainAppUserId)
+        {
+            return (await GetAccessedIQuer(taskId, mainAppUserId).Select(x => x.Id).FirstOrDefaultAsync()) > 0;
+            //return (await _db.TaskManagementTasks.AsNoTracking().Include(x => x.Project).ThenInclude(x => x.Users)
+            //    .Where(x => x.Id == taskId && x.Project.Users.Any(pu => pu.MainAppUserId == mainAppUserId))
+            //    .Select(x => x.Id).FirstOrDefaultAsync()) > 0;
+        }
+
+        public async Task<WorkTask> GetAccessAsync(long taskId, long mainAppUserId)
+        {
+            return (await GetAccessedIQuer(taskId, mainAppUserId).Select(x => x).FirstOrDefaultAsync());
+        }
+
+        private IQueryable<WorkTask> GetAccessedIQuer(long taskId, long mainAppUserId)
+        {
+            return _db.TaskManagementTasks.AsNoTracking().Include(x => x.Project).ThenInclude(x => x.Users)
+                .Where(x => x.Id == taskId && x.Project.Users.Any(pu => pu.MainAppUserId == mainAppUserId))
+                ;//.Select(x => x);
+        }
+
+        public async Task<long> GetUserIdAccessAsync(long taskId, long mainAppUserId)
+        {
+            var res = (await GetAccessedIQuer(taskId, mainAppUserId)
+                .Select(x => new { x.Id, User = x.Project.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId) }).FirstOrDefaultAsync());
+            if (res.Id > 0)
+            {
+                return res.User?.Id ?? 0;
+            }
+
+            return 0;
+        }
     }
 }

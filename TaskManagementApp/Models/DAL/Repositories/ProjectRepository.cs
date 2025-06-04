@@ -29,13 +29,18 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, long mainAppUserId)
         {
-            var user = await _db.TaskManagementTaskProject.AsNoTracking().Include(x => x.Users)
-                .Where(x => x.Id == id && !x.IsDeleted
-                    && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId && !u.Deactivated) != null)
-                .Select(x => x.Users.FirstOrDefault()).FirstOrDefaultAsync();
+            var user = await _db.TaskManagementProjectUsers.AsNoTracking().Include(x => x.Project)
+                .Where(u => u.MainAppUserId == mainAppUserId && !u.Deactivated
+                && u.Project.Id == id && !u.Project.IsDeleted)
+                .Select(x => new { x.Id, x.IsAdmin }).FirstOrDefaultAsync();
+
+            //var user = await _db.TaskManagementTaskProject.AsNoTracking().Include(x => x.Users)
+            //    .Where(x => x.Id == id && !x.IsDeleted
+            //        && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId && !u.Deactivated) != null)
+            //    .Select(x => x.Users.FirstOrDefault()).FirstOrDefaultAsync();
             //user.IsAdmin;
             //.FirstOrDefaultAsync() != null;
-            if (user == null)
+            if (user == null || user.Id == 0)
             {
                 return (false, false);
             }
@@ -45,27 +50,38 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async Task<Project> GetByIdIfAccessAsync(long id, long mainAppUserId)
         {
+
+            return await _db.TaskManagementProjectUsers.AsNoTracking().Include(x => x.Project)
+                .Where(u => u.MainAppUserId == mainAppUserId && !u.Deactivated
+                && u.Project.Id == id && !u.Project.IsDeleted)
+                .Select(x => x.Project).FirstOrDefaultAsync();
+
             //todo загрузит скорее всего с пользаками
-            return await _db.TaskManagementTaskProject.AsNoTracking().Include(x => x.Users)
-                            .Where(x => x.Id == id && !x.IsDeleted
-                                && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId && !u.Deactivated) != null).FirstOrDefaultAsync();
+            //return await _db.TaskManagementTaskProject.AsNoTracking().Include(x => x.Users)
+            //                .Where(x => x.Id == id && !x.IsDeleted
+            //                    && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId && !u.Deactivated) != null).FirstOrDefaultAsync();
         }
 
         public async Task<bool> ExistIfAccessAdminAsync(long id, long mainAppUserId)
         {
-            return await _db.TaskManagementTaskProject.AsNoTracking().Include(x => x.Users)
-                .Where(x => x.Id == id && !x.IsDeleted
-                    && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId
-                    && u.IsAdmin && !u.Deactivated) != null).Select(x => x.Name).FirstOrDefaultAsync() != null;
+            return (await ExistIfAccessAsync(id, mainAppUserId)).isAdmin;
+            //return await _db.TaskManagementTaskProject.AsNoTracking().Include(x => x.Users)
+            //    .Where(x => x.Id == id && !x.IsDeleted
+            //        && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId
+            //        && u.IsAdmin && !u.Deactivated) != null).Select(x => x.Name).FirstOrDefaultAsync() != null;
         }
 
         public async Task<Project> GetByIdIfAccessAdminAsync(long id, long mainAppUserId)
         {
+            return await _db.TaskManagementProjectUsers.AsNoTracking().Include(x => x.Project)
+                .Where(u => u.MainAppUserId == mainAppUserId && !u.Deactivated && u.IsAdmin
+                && u.Project.Id == id && !u.Project.IsDeleted)
+                .Select(x => x.Project).FirstOrDefaultAsync();
             //todo загрузит скорее всего с пользаками
-            return await _db.TaskManagementTaskProject.AsNoTracking().Include(x => x.Users)
-                            .Where(x => x.Id == id && !x.IsDeleted
-                                && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId
-                                && u.IsAdmin && !u.Deactivated) != null).FirstOrDefaultAsync();
+            //return await _db.TaskManagementTaskProject.AsNoTracking().Include(x => x.Users)
+            //                .Where(x => x.Id == id && !x.IsDeleted
+            //                    && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId
+            //                    && u.IsAdmin && !u.Deactivated) != null).FirstOrDefaultAsync();
         }
 
 

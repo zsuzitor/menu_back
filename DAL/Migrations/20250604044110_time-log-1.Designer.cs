@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(MenuDbContext))]
-    [Migration("20250603164514_WorkTimeLog")]
-    partial class WorkTimeLog
+    [Migration("20250604044110_time-log-1")]
+    partial class timelog1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -835,13 +835,13 @@ namespace DAL.Migrations
                     b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.ProjectUser", "ProjectUser")
                         .WithMany("WorkTimeLogs")
                         .HasForeignKey("ProjectUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.WorkTask", "WorkTask")
                         .WithMany("WorkTimeLogs")
                         .HasForeignKey("WorkTaskId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 

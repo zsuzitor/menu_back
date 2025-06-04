@@ -22,6 +22,7 @@ namespace TaskManagementApp.Models
             public const string HaveNoAccessToEditProject = "task_management_have_no_access_to_edit_project";
             public const string UserNotFound = "task_management_user_not_found";
             public const string TaskNotFound = "task_management_task_not_found";
+            public const string TaskLogTimeNotFound = "task_management_task_log_time_not_found";
             public const string ProjectHaveNoAccess = "task_management_project_have_no_access";
             public const string TaskHaveNoAccess = "task_management_task_have_no_access";
             public const string CommentNotFoundOrNotAccess = "task_management_comment_not_found_or_have_no_access";
@@ -31,6 +32,7 @@ namespace TaskManagementApp.Models
             public const string TaskWithStatusExists = "task_management_task_with_status_exist";
             public const string WorkTaskEmptyStatusName = "task_management_empty_status_name";
             public const string WorkTaskStatusNotExists = "task_management_work_task_status_not_exist";
+            public const string WorkTaskTimeLogWalidationError = "task_management_work_task_time_log_walidation_error";
 
 
         }

@@ -17,6 +17,9 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
         Task<List<WorkTask>> GetTasksByProjectIdAsync(long projectId);
         Task<WorkTask> GetTaskWithCommentsAsync(long id);
         Task<bool> ExistAsync(long projectId, long statusId);
+        Task<bool> HaveAccessAsync(long taskId, long mainAppUserId);
+        Task<long> GetUserIdAccessAsync(long taskId, long mainAppUserId);
+        Task<WorkTask> GetAccessAsync(long taskId, long mainAppUserId);
 
     }
 }

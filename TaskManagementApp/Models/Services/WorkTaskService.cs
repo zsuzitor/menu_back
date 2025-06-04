@@ -233,17 +233,18 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<WorkTask> GetByIdIfAccessAsync(long id, UserInfo userInfo)
         {
-            var task = await _workTaskRepository.GetNoTrackAsync(id);
+            var task = await _workTaskRepository.GetAccessAsync(id, userInfo.UserId);
+            //var task = await _workTaskRepository.GetNoTrackAsync(id);
             if (task == null)
             {
                 throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
             }
 
-            var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
-            if (!projectAccessed.access)
-            {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
-            }
+            //var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
+            //if (!projectAccessed.access)
+            //{
+            //    throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+            //}
 
             return task;
         }

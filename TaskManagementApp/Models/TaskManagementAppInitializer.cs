@@ -30,6 +30,7 @@ namespace TaskManagementApp.Models
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.HaveNoAccessToEditProject, "Нет прав на редактирование проекта", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.UserNotFound, "Пользователь не найден", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.TaskNotFound, "Задача не найдена", "TaskManagementApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.TaskLogTimeNotFound, "Логгирование не найдено", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.ProjectHaveNoAccess, "Нет доступа к проекту", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.CommentNotFoundOrNotAccess, "Комментарий не найден или нет доступа", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.CommentNotFound, "Комментарий не найден", "TaskManagementApp", "Error");
@@ -38,8 +39,10 @@ namespace TaskManagementApp.Models
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.TaskWithStatusExists, "Существует задачи с указанным статусом", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskStatusNotExists, "Переданный статус не существует", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskEmptyStatusName, "Переданное название статуса не валидно", "TaskManagementApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskTimeLogWalidationError, "Ошибка валидации, переданы неверные поля", "TaskManagementApp", "Error");
 
             
+
 
 
 
@@ -52,8 +55,11 @@ namespace TaskManagementApp.Models
             services.AddScoped<IProjectUserRepository, UserRepository>();
             services.AddScoped<IWorkTaskCommentRepository, WorkTaskCommentRepository>();
             services.AddScoped<ITaskStatusRepository, TaskStatusRepository>();
+            services.AddScoped<IWorkTimeLogRepository, WorkTimeLogRepository>();
 
             
+
+
 
 
         }
@@ -65,8 +71,11 @@ namespace TaskManagementApp.Models
             services.AddScoped<IProjectUserService, ProjectUserService>();
             services.AddScoped<IWorkTaskCommentService, WorkTaskCommentService>();
             services.AddScoped<ITaskManagementAppEmailService, TaskManagementAppEmailService>();
+            services.AddScoped<IWorkTimeLogService, WorkTimeLogService>();
 
             
+
+
             //services.AddScoped<IProjectService, >();
         }
 
