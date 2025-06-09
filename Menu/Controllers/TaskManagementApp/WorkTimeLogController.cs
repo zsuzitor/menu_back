@@ -136,5 +136,23 @@ namespace Menu.Controllers.TaskManagementApp
                 }, Response, _logger);
 
         }
+
+        [Route("user-time")]
+        [HttpGet]
+        public async Task GetUserTime(long? projectId, DateTime dateFrom, DateTime dateTo, long userId)
+        {
+            //todo projectId
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _workTimeLogService.GetTimeForUserAsync(userId, dateFrom, dateTo, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new WorkTimeLogReturn(x)).ToList());
+
+                }, Response, _logger);
+
+        }
     }
 }
