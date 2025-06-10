@@ -16,6 +16,7 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public List<WorkTask> Tasks { get; set; }
 
         public List<WorkTaskStatus> TaskStatuses { get; set; }
+        public List<WorkTaskSprint> Sprints { get; set; }
 
         public byte[] RowVersion { get; set; }
 

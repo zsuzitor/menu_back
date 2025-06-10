@@ -17,6 +17,8 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
                     .HasForeignKey(x => x.ProjectId).OnDelete(DeleteBehavior.Cascade);
                 entity.HasMany(x => x.TaskStatuses).WithOne(x => x.Project)
                     .HasForeignKey(x => x.ProjectId).OnDelete(DeleteBehavior.Cascade);
+                entity.HasMany(x => x.Sprints).WithOne(x => x.Project)
+                    .HasForeignKey(x => x.ProjectId).OnDelete(DeleteBehavior.Cascade);
                 entity.Property(p => p.RowVersion)
                     .IsRowVersion() // Автоматически обновляется SQL Server
                     .IsConcurrencyToken(); // Включает проверку на конфликты

@@ -56,10 +56,7 @@ namespace TaskManagementApp.Models
             services.AddScoped<IWorkTaskCommentRepository, WorkTaskCommentRepository>();
             services.AddScoped<ITaskStatusRepository, TaskStatusRepository>();
             services.AddScoped<IWorkTimeLogRepository, WorkTimeLogRepository>();
-
-            
-
-
+            services.AddScoped<ISprintRepository, SprintRepository>();
 
 
         }
@@ -72,8 +69,10 @@ namespace TaskManagementApp.Models
             services.AddScoped<IWorkTaskCommentService, WorkTaskCommentService>();
             services.AddScoped<ITaskManagementAppEmailService, TaskManagementAppEmailService>();
             services.AddScoped<IWorkTimeLogService, WorkTimeLogService>();
+            services.AddScoped<ISprintService, SprintService>();
 
             
+
 
 
             //services.AddScoped<IProjectService, >();

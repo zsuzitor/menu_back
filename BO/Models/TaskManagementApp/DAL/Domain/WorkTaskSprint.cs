@@ -1,11 +1,9 @@
 ﻿using BO.Models.DAL;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BO.Models.TaskManagementApp.DAL.Domain
 {
-    public class WorkTaskStatus : IDomainRecord<long>
+    public class WorkTaskSprint : IDomainRecord<long>
     {
         public long Id { get; set; }
         public string Name { get; set; }
@@ -14,10 +12,9 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public List<WorkTask> Tasks { get; set; }
         public byte[] RowVersion { get; set; }
 
-        public WorkTaskStatus()
+        public WorkTaskSprint()
         {
             Tasks = new List<WorkTask>();
         }
-
     }
 }
