@@ -97,7 +97,10 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
                     var res = await _workTimeLogService.DeleteAsync(id, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new WorkTimeLogReturn(res));
+                    await _apiHealper.WriteResponseAsync(Response, new
+                    {
+                        result = res != null,
+                    });
 
                 }, Response, _logger);
 
@@ -139,7 +142,7 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("user-time")]
         [HttpGet]
-        public async Task GetUserTime(long? projectId, DateTime dateFrom, DateTime dateTo, long userId)
+        public async Task GetUserTime(long? projectId, DateTime dateFrom, DateTime dateTo, long? userId)
         {
             //todo projectId
 

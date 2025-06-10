@@ -148,7 +148,7 @@ namespace TaskManagementApp.Models.Services
 
         }
 
-        public async Task<List<WorkTimeLog>> GetTimeForUserAsync(long userId, DateTime startDate, DateTime endDate, UserInfo userInfo)
+        public async Task<List<WorkTimeLog>> GetTimeForUserAsync(long? userId, DateTime startDate, DateTime endDate, UserInfo userInfo)
         {
 
             return await _workTimeLogRepository.GetTimeForUserAsync(userId, startDate, endDate, userInfo);

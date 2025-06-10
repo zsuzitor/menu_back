@@ -3042,6 +3042,33 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".task-management-main-container {\r\n 
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.css":
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.css ***!
+  \*************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".tempo-time-column {\r\n    display: flex;\r\n    flex-direction: column;\r\n    width: 110px;\r\n    gap: 5px;\r\n\r\n}\r\n\r\n.tempo-time-column-header {\r\n    width: 110px;\r\n}\r\n\r\n.tempo-time-column-one-content {\r\n    width: 110px;\r\n    height: 80px;\r\n    border: 1px solid black;\r\n    padding: 3px;\r\n\r\n}\r\n\r\n.tempo-time-column-one-content div {\r\n    overflow: hidden;\r\n}\r\n\r\n.tempo-time-page-main {\r\n    padding-top: 20px;\r\n    overflow-x: auto;\r\n}\r\n\r\n\r\n.tempo-time-block {\r\n    display: flex;\r\n}\r\n\r\n.tempo-time-column-add-btn {\r\n    text-align: center;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,sBAAsB;IACtB,YAAY;IACZ,QAAQ;;AAEZ;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,YAAY;IACZ,uBAAuB;IACvB,YAAY;;AAEhB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,iBAAiB;IACjB,gBAAgB;AACpB;;;AAGA;IACI,aAAa;AACjB;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".tempo-time-column {\r\n    display: flex;\r\n    flex-direction: column;\r\n    width: 110px;\r\n    gap: 5px;\r\n\r\n}\r\n\r\n.tempo-time-column-header {\r\n    width: 110px;\r\n}\r\n\r\n.tempo-time-column-one-content {\r\n    width: 110px;\r\n    height: 80px;\r\n    border: 1px solid black;\r\n    padding: 3px;\r\n\r\n}\r\n\r\n.tempo-time-column-one-content div {\r\n    overflow: hidden;\r\n}\r\n\r\n.tempo-time-page-main {\r\n    padding-top: 20px;\r\n    overflow-x: auto;\r\n}\r\n\r\n\r\n.tempo-time-block {\r\n    display: flex;\r\n}\r\n\r\n.tempo-time-column-add-btn {\r\n    text-align: center;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/Vault/Components/CreateSecret/CreateSecret.css":
 /*!*******************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/Vault/Components/CreateSecret/CreateSecret.css ***!
@@ -64656,6 +64683,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.css":
+/*!***********************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.css ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_TempoPage_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./TempoPage.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_TempoPage_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_TempoPage_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_TempoPage_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_TempoPage_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/Apps/Vault/Components/CreateSecret/CreateSecret.css":
 /*!*****************************************************************!*\
   !*** ./src/Apps/Vault/Components/CreateSecret/CreateSecret.css ***!
@@ -71396,16 +71478,20 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const AddWorkTimeLogSetup_1 = __importDefault(__webpack_require__(/*! ./AddWorkTimeLogSetup */ "./src/Apps/TaskManagementApp/Components/AddWorkTimeLog/AddWorkTimeLogSetup.tsx"));
 const AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
+const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
 __webpack_require__(/*! ./AddWorkTimeLog.css */ "./src/Apps/TaskManagementApp/Components/AddWorkTimeLog/AddWorkTimeLog.css");
 const AddWorkTimeLog = (props) => {
-    // const [taskId, setTaskId] = useState(props.TaskId || 0);
+    const [taskId, setTaskId] = (0, react_1.useState)(props.TaskId || 0);
     const [timeLogText, setTimeLogText] = (0, react_1.useState)('');
     const [timeLogMin, setTimeLogMin] = (0, react_1.useState)('');
-    const [timeLogDate, setTimeLogDate] = (0, react_1.useState)(new Date());
+    const [timeLogDate, setTimeLogDate] = (0, react_1.useState)(props.DefaultDate || new Date());
     // const [timeLogValide, setTimeLogValide] = useState(false);
-    // useEffect(() => {
-    //     setTaskId(props.TaskId);
-    // }, [props.TaskId]);
+    (0, react_1.useEffect)(() => {
+        setTaskId(props.TaskId || 0);
+    }, [props.TaskId]);
+    (0, react_1.useEffect)(() => {
+        setTimeLogDate(props.DefaultDate || new Date());
+    }, [props.DefaultDate]);
     function parseTime(input) {
         const regex = /^(?:(\d+)h\s*)?(?:(\d+)m\s*)?$/i;
         const match = input.match(regex);
@@ -71415,9 +71501,16 @@ const AddWorkTimeLog = (props) => {
         const minutes = match[2] ? parseInt(match[2], 10) : 0;
         return { hours, minutes };
     }
+    function formatDateToInput(date) {
+        const help = new Helper_1.Helper();
+        return help.FormatDateToInput(date);
+    }
     const parsedDate = parseTime(timeLogMin);
     const valideTime = parsedDate.hours > 0 || parsedDate.minutes > 0;
     return react_1.default.createElement("div", { className: 'add-work-time-window' },
+        props.TaskId || react_1.default.createElement("div", null,
+            react_1.default.createElement("span", null, "\u0417\u0430\u0434\u0430\u0447\u0430"),
+            react_1.default.createElement("input", { className: 'form-input-v2', type: 'number', onChange: (e) => setTaskId(+e.target.value), placeholder: '\u0417\u0430\u0434\u0430\u0447\u0430', value: taskId })),
         react_1.default.createElement("div", null,
             react_1.default.createElement("span", null, "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439"),
             react_1.default.createElement("input", { className: 'form-input-v2', type: 'text', value: timeLogText, placeholder: "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439", onChange: e => setTimeLogText(e.target.value) })),
@@ -71431,7 +71524,7 @@ const AddWorkTimeLog = (props) => {
                 // type="datetime-local"
                 type: "date", 
                 // value={timeLogDate.toISOString().slice(0, 16)}
-                value: timeLogDate.toISOString().split('T')[0], onChange: (e) => {
+                value: formatDateToInput(timeLogDate), onChange: (e) => {
                     if (e.target.value) {
                         setTimeLogDate(new Date(e.target.value));
                     }
@@ -71449,7 +71542,7 @@ const AddWorkTimeLog = (props) => {
                         window.G_AddAbsoluteAlertToState(alert);
                         return false;
                     }
-                    props.CreateTimeLog(props.TaskId, timeLogText, minutes, timeLogDate);
+                    props.CreateTimeLog(taskId, timeLogText, minutes, timeLogDate);
                 } }, "\u0420\u0430\u0431\u043E\u0442\u0430"),
             react_1.default.createElement("button", { className: 'button button-grey', onClick: () => props.Close() }, "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C")));
 };
@@ -71475,9 +71568,6 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
     let res = {};
-    res.CreateTimeLog = (taskId, text, minutes, dayOfLog) => {
-        dispatch(window.G_TaskManagementWorkTimeController.CreateTimeLogRedux(taskId, text, minutes, dayOfLog));
-    };
     return res;
 };
 exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -72103,7 +72193,7 @@ const OneWorkTaskDetail = (props) => {
     };
     const renderTime = () => {
         return react_1.default.createElement("div", { className: 'work-time-block' },
-            showAddWorkTimeNew ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowAddWorkTimeNew(false), IsHeightWindow: false, Title: '\u0420\u0430\u0431\u043E\u0442\u0430', InnerContent: () => react_1.default.createElement(AddWorkTimeLog_1.default, { Close: () => setShowAddWorkTimeNew(false), TaskId: props.Task.Id }) }) : react_1.default.createElement(react_1.default.Fragment, null),
+            showAddWorkTimeNew ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowAddWorkTimeNew(false), IsHeightWindow: false, Title: '\u0420\u0430\u0431\u043E\u0442\u0430', InnerContent: () => react_1.default.createElement(AddWorkTimeLog_1.default, { Close: () => setShowAddWorkTimeNew(false), TaskId: props.Task.Id, DefaultDate: null, CreateTimeLog: props.CreateTimeLog }) }) : react_1.default.createElement(react_1.default.Fragment, null),
             react_1.default.createElement("div", { className: 'add-time-log-header' },
                 react_1.default.createElement("div", { className: 'add-time-log-show-btn', onClick: () => setShowAddWorkTimeBlock(!showAddWorkTimeBlock) }, "\u0421\u043F\u0438\u0441\u0430\u043D\u0438\u044F:"),
                 react_1.default.createElement("div", null,
@@ -72272,6 +72362,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
     res.LoadTaskTimeLogs = (id) => {
         dispatch(window.G_TaskManagementWorkTimeController.LoadTimeLogsForTaskRedux(id));
+    };
+    res.CreateTimeLog = (taskId, text, minutes, dayOfLog) => {
+        dispatch(window.G_TaskManagementWorkTimeController.CreateTimeLogRedux(taskId, text, minutes, dayOfLog));
     };
     return res;
 };
@@ -72568,7 +72661,7 @@ const PersonTimePage = (props) => {
             });
             const helper = new Helper_1.Helper();
             let val = helper.MinutesToHours(minuteTotal);
-            return react_1.default.createElement("div", { className: 'project-time-one-cell', title: `${val}=${val}`, key: `${taskId}_${x.getTime()}` }, val);
+            return react_1.default.createElement("div", { className: 'project-time-one-cell', key: `${taskId}_${x.getTime()}` }, val);
         }));
         return react_1.default.createElement("div", null);
     };
@@ -72847,6 +72940,10 @@ const ProjectDetail = (props) => {
                             e.preventDefault();
                             navigate("/task-management/proj-" + props.Project.Id + '/time-log');
                         } }, "\u0420\u0430\u0431\u043E\u0442\u0430"),
+                    react_1.default.createElement("a", { href: '/task-management/proj-' + props.Project.Id + '/tempo', onClick: (e) => {
+                            e.preventDefault();
+                            navigate("/task-management/proj-" + props.Project.Id + '/tempo');
+                        } }, "\u0422\u0435\u043C\u043F\u043E"),
                     showUserList ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowUserList(false), IsHeightWindow: true, Title: '\u041B\u044E\u0434\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u0430', InnerContent: () => react_1.default.createElement(ProjectUsers_1.default, null) }) : react_1.default.createElement(react_1.default.Fragment, null))),
             react_1.default.createElement("div", { className: 'management-project-description' }, "\u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435"),
             react_1.default.createElement("div", { className: 'management-project-tasks' },
@@ -73436,6 +73533,7 @@ const OneWorkTaskDetail_1 = __importDefault(__webpack_require__(/*! ../OneWorkTa
 const Consts_1 = __webpack_require__(/*! ../../Models/Consts */ "./src/Apps/TaskManagementApp/Models/Consts.ts");
 const ProjectTimePage_1 = __importDefault(__webpack_require__(/*! ../ProjectTimePage/ProjectTimePage */ "./src/Apps/TaskManagementApp/Components/ProjectTimePage/ProjectTimePage.tsx"));
 const PersonTimePage_1 = __importDefault(__webpack_require__(/*! ../PersonTimePage/PersonTimePage */ "./src/Apps/TaskManagementApp/Components/PersonTimePage/PersonTimePage.tsx"));
+const TempoPage_1 = __importDefault(__webpack_require__(/*! ../TempoPage/TempoPage */ "./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.tsx"));
 __webpack_require__(/*! ./TaskManagementMain.css */ "./src/Apps/TaskManagementApp/Components/TaskManagementMain/TaskManagementMain.css");
 const TaskManagementMain = (props) => {
     const [visibleList, setVisibleList] = (0, react_1.useState)(true);
@@ -73537,7 +73635,8 @@ const TaskManagementMain = (props) => {
             react_1.default.createElement(react_router_dom_1.Route, { path: "proj-:projectId", element: react_1.default.createElement(ProjectDetail_1.default, { Project: props.ProjectsList.find(x => x.Id == props.CurrentProjectId), Tasks: props.Tasks }) }),
             react_1.default.createElement(react_router_dom_1.Route, { path: "proj-:projectId/task-:taskId", element: react_1.default.createElement(OneWorkTaskDetail_1.default, null) }),
             react_1.default.createElement(react_router_dom_1.Route, { path: "proj-:projectId/time-log", element: react_1.default.createElement(ProjectTimePage_1.default, null) }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "proj-:projectId/user-:userId/time-log", element: react_1.default.createElement(PersonTimePage_1.default, null) })));
+            react_1.default.createElement(react_router_dom_1.Route, { path: "proj-:projectId/user-:userId/time-log", element: react_1.default.createElement(PersonTimePage_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: "proj-:projectId/tempo", element: react_1.default.createElement(TempoPage_1.default, null) })));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, TaskManagementMainSetup_1.default)(TaskManagementMain);
@@ -73593,6 +73692,205 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
     res.GetTaskInfo = (taskId) => {
         dispatch(window.G_TaskManagementTaskController.LoadTaskRedux(taskId));
+    };
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
+/***/ "./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.tsx":
+/*!***********************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.tsx ***!
+  \***********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const TempoPageSetup_1 = __importDefault(__webpack_require__(/*! ./TempoPageSetup */ "./src/Apps/TaskManagementApp/Components/TempoPage/TempoPageSetup.tsx"));
+const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
+const AddWorkTimeLog_1 = __importDefault(__webpack_require__(/*! ../AddWorkTimeLog/AddWorkTimeLog */ "./src/Apps/TaskManagementApp/Components/AddWorkTimeLog/AddWorkTimeLog.tsx"));
+__webpack_require__(/*! ./TempoPage.css */ "./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.css");
+const TempoPage = (props) => {
+    const [showAddWorkTimeNew, setShowAddWorkTimeNew] = (0, react_1.useState)(false);
+    const [defaultDate, setDefaultDate] = (0, react_1.useState)(new Date());
+    const navigate = (0, react_router_dom_1.useNavigate)();
+    (0, react_1.useEffect)(() => {
+        return () => {
+            //todo очистить
+            props.ClearTimeState();
+        };
+    }, []);
+    (0, react_1.useEffect)(() => {
+        if (props.ProjectId > 0)
+            props.LoadTime(props.ProjectId, props.DateFrom, props.DateTo);
+    }, [props.DateFrom.getTime(), props.DateTo.getTime(), props.ProjectId]);
+    if (!props.WorkTimeLog) {
+        return react_1.default.createElement("div", null);
+    }
+    const setClearDate = (dt) => {
+        let newDt = new Date(dt);
+        newDt.setHours(0, 0, 0, 0);
+        return newDt;
+    };
+    const currentDate = setClearDate(props.DateFrom);
+    const lastDate = setClearDate(props.DateTo);
+    let datesForTable = [];
+    while (currentDate <= lastDate) {
+        datesForTable.push(new Date(currentDate));
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
+    function formatDateToInput(date) {
+        const help = new Helper_1.Helper();
+        return help.FormatDateToInput(date);
+    }
+    // console.log('to2-' + props.DateFrom);
+    return react_1.default.createElement("div", { className: 'tempo-time-page-main' },
+        react_1.default.createElement("div", null,
+            react_1.default.createElement("span", null, "\u0414\u0430\u0442\u0430 \u0421"),
+            react_1.default.createElement("input", { 
+                // type="datetime-local"
+                type: "date", 
+                // value={timeLogDate.toISOString().slice(0, 16)}
+                value: formatDateToInput(props.DateFrom), onChange: (e) => {
+                    if (e.target.value) {
+                        let dt = new Date(e.target.value);
+                        if (dt > props.DateTo)
+                            props.SetDateFrom(setClearDate(props.DateTo));
+                        else
+                            props.SetDateFrom(setClearDate(dt));
+                    }
+                    else {
+                        if (new Date() > props.DateTo)
+                            props.SetDateFrom(setClearDate(props.DateTo));
+                        else
+                            props.SetDateFrom(setClearDate(new Date()));
+                    }
+                } }),
+            react_1.default.createElement("span", null, "\u0414\u0430\u0442\u0430 \u0434\u043E"),
+            react_1.default.createElement("input", { 
+                // type="datetime-local"
+                type: "date", 
+                // value={timeLogDate.toISOString().slice(0, 16)}
+                value: formatDateToInput(props.DateTo), onChange: (e) => {
+                    if (e.target.value) {
+                        let dt = new Date(e.target.value);
+                        if (dt < props.DateFrom)
+                            props.SetDateTo(setClearDate(props.DateFrom));
+                        else
+                            props.SetDateTo(setClearDate(dt));
+                    }
+                    else {
+                        if (new Date() < props.DateFrom)
+                            props.SetDateTo(setClearDate(props.DateFrom));
+                        else
+                            props.SetDateTo(setClearDate(new Date()));
+                    }
+                } })),
+        react_1.default.createElement("div", { className: 'tempo-time-block' },
+            showAddWorkTimeNew ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowAddWorkTimeNew(false), IsHeightWindow: false, Title: '\u0420\u0430\u0431\u043E\u0442\u0430', InnerContent: () => react_1.default.createElement(AddWorkTimeLog_1.default, { Close: () => setShowAddWorkTimeNew(false), TaskId: null, DefaultDate: defaultDate, CreateTimeLog: props.CreateTimeLog }) }) : react_1.default.createElement(react_1.default.Fragment, null),
+            datesForTable.map(x => {
+                const helper = new Helper_1.Helper();
+                let val = helper.FormatDateToDM(x);
+                let works = props.WorkTimeLog.filter(w => setClearDate(w.DayOfLog).getTime() == setClearDate(x).getTime());
+                let minuteTotal = 0;
+                works.forEach(element => {
+                    minuteTotal += element.TimeMinutes;
+                });
+                return react_1.default.createElement("div", { key: `${x.getTime()}`, className: 'tempo-time-column' },
+                    react_1.default.createElement("div", { className: 'tempo-time-column-header' }, val),
+                    react_1.default.createElement("div", { className: 'tempo-time-column-tasks' }, works.map(w => react_1.default.createElement("div", { key: w.Id, className: 'tempo-time-column-one-content' },
+                        react_1.default.createElement("div", null,
+                            react_1.default.createElement("a", { href: '/task-management/proj-' + props.ProjectId + '/task-' + w.WorkTaskId, onClick: (e) => {
+                                    e.preventDefault();
+                                    navigate("/task-management/proj-" + props.ProjectId + '/task-' + w.WorkTaskId);
+                                } }, w.WorkTaskId)),
+                        react_1.default.createElement("div", null, w.Comment),
+                        react_1.default.createElement("div", null, new Helper_1.Helper().MinutesToHours(w.TimeMinutes)),
+                        react_1.default.createElement("div", null,
+                            react_1.default.createElement("button", { onClick: x => props.DeleteTime(w.Id) }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"))))),
+                    react_1.default.createElement("div", { className: 'tempo-time-column-add-btn' },
+                        react_1.default.createElement("button", { onClick: () => {
+                                setDefaultDate(x);
+                                setShowAddWorkTimeNew(true);
+                            } }, "\u0420\u0430\u0431\u043E\u0442\u0430")));
+            })));
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, TempoPageSetup_1.default)(TempoPage);
+
+
+/***/ }),
+
+/***/ "./src/Apps/TaskManagementApp/Components/TempoPage/TempoPageSetup.tsx":
+/*!****************************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/TempoPage/TempoPageSetup.tsx ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const TimeLogAction_1 = __webpack_require__(/*! ../../Models/Actions/TimeLogAction */ "./src/Apps/TaskManagementApp/Models/Actions/TimeLogAction.ts");
+const mapStateToProps = (state, ownProps) => {
+    let res = {};
+    res.WorkTimeLog = state.TaskManagementApp.TempoState.TimeLogs;
+    res.DateFrom = state.TaskManagementApp.TempoState.DateFrom;
+    res.DateTo = state.TaskManagementApp.TempoState.DateTo;
+    res.ProjectId = state.TaskManagementApp.CurrentProjectId;
+    return res;
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    let res = {};
+    res.SetDateFrom = (date) => {
+        dispatch((0, TimeLogAction_1.SetUserTempoTimeLogDateFromActionCreator)(date));
+    };
+    res.SetDateTo = (date) => {
+        dispatch((0, TimeLogAction_1.SetUserTempoTimeLogDateToActionCreator)(date));
+    };
+    res.LoadTime = (projectId, dateFrom, dateTo) => {
+        dispatch(window.G_TaskManagementWorkTimeController.LoadTimeLogsForUserTempoRedux(projectId, null, dateFrom, dateTo));
+    };
+    res.ClearTimeState = () => {
+        dispatch((0, TimeLogAction_1.ClearUserTempoTimeLogActionCreator)());
+    };
+    res.CreateTimeLog = (taskId, text, minutes, dayOfLog) => {
+        dispatch(window.G_TaskManagementWorkTimeController.CreateTimeTempoLogRedux(taskId, text, minutes, dayOfLog));
+    };
+    res.DeleteTime = (timeId) => {
+        dispatch(window.G_TaskManagementWorkTimeController.DeleteTimeTempoLogRedux(timeId));
     };
     return res;
 };
@@ -73884,12 +74182,24 @@ exports.UpdateCurrentProjectTaskStatusActionCreator = UpdateCurrentProjectTaskSt
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ClearUserTimeLogActionCreator = exports.ClearUserTimeLogActionName = exports.SetUserTimeLogDateToActionCreator = exports.SetUserTimeLogDateToActionName = exports.SetUserTimeLogDateFromActionCreator = exports.SetUserTimeLogDateFromActionName = exports.SetUserTimeLogDataActionCreator = exports.SetUserTimeLogDataActionName = exports.ClearProjectTimeLogActionCreator = exports.ClearProjectTimeLogActionName = exports.SetProjectTimeLogDateToActionCreator = exports.SetProjectTimeLogDateToActionName = exports.SetProjectTimeLogDateFromActionCreator = exports.SetProjectTimeLogDateFromActionName = exports.SetProjectTimeLogDataActionCreator = exports.SetProjectTimeLogDataActionName = exports.DeleteTimeLogActionCreator = exports.DeleteTimeLogActionName = exports.DeleteTimeLogActionParam = exports.SetTaskTimeLogActionCreator = exports.SetTaskTimeLogActionName = exports.SetTaskTimeLogActionParam = exports.UpdateTimeLogActionCreator = exports.UpdateTimeLogActionName = exports.AddNewTimeLogActionCreator = exports.AddNewTimeLogActionName = void 0;
-exports.AddNewTimeLogActionName = 'AddNewTimeLogAction';
-function AddNewTimeLogActionCreator(time) {
-    return { type: exports.AddNewTimeLogActionName, payload: time };
+exports.ClearUserTempoTimeLogActionCreator = exports.ClearUserTempoTimeLogActionName = exports.SetUserTempoTimeLogDateToActionCreator = exports.SetUserTempoTimeLogDateToActionName = exports.SetUserTempoTimeLogDateFromActionCreator = exports.SetUserTempoTimeLogDateFromActionName = exports.SetUserTempoTimeLogDataActionCreator = exports.SetUserTempoTimeLogDataActionName = exports.ClearUserTimeLogActionCreator = exports.ClearUserTimeLogActionName = exports.SetUserTimeLogDateToActionCreator = exports.SetUserTimeLogDateToActionName = exports.SetUserTimeLogDateFromActionCreator = exports.SetUserTimeLogDateFromActionName = exports.SetUserTimeLogDataActionCreator = exports.SetUserTimeLogDataActionName = exports.ClearProjectTimeLogActionCreator = exports.ClearProjectTimeLogActionName = exports.SetProjectTimeLogDateToActionCreator = exports.SetProjectTimeLogDateToActionName = exports.SetProjectTimeLogDateFromActionCreator = exports.SetProjectTimeLogDateFromActionName = exports.SetProjectTimeLogDataActionCreator = exports.SetProjectTimeLogDataActionName = exports.DeleteTimeLogActionCreator = exports.DeleteTimeLogActionName = exports.DeleteTimeLogActionParam = exports.SetTaskTimeLogActionCreator = exports.SetTaskTimeLogActionName = exports.SetTaskTimeLogActionParam = exports.UpdateTimeLogActionCreator = exports.UpdateTimeLogActionName = exports.DelTimeLogTempoActionCreator = exports.DelTimeLogTempoActionName = exports.AddNewTimeLogTempoActionCreator = exports.AddNewTimeLogTempoActionName = exports.AddNewTimeLogTaskActionCreator = exports.AddNewTimeLogTaskActionName = void 0;
+exports.AddNewTimeLogTaskActionName = 'AddNewTimeLogTaskAction';
+function AddNewTimeLogTaskActionCreator(time) {
+    return { type: exports.AddNewTimeLogTaskActionName, payload: time };
 }
-exports.AddNewTimeLogActionCreator = AddNewTimeLogActionCreator;
+exports.AddNewTimeLogTaskActionCreator = AddNewTimeLogTaskActionCreator;
+;
+exports.AddNewTimeLogTempoActionName = 'AddNewTimeLogTempoAction';
+function AddNewTimeLogTempoActionCreator(time) {
+    return { type: exports.AddNewTimeLogTempoActionName, payload: time };
+}
+exports.AddNewTimeLogTempoActionCreator = AddNewTimeLogTempoActionCreator;
+;
+exports.DelTimeLogTempoActionName = 'DelTimeLogTempoAction';
+function DelTimeLogTempoActionCreator(timeId) {
+    return { type: exports.DelTimeLogTempoActionName, payload: timeId };
+}
+exports.DelTimeLogTempoActionCreator = DelTimeLogTempoActionCreator;
 ;
 exports.UpdateTimeLogActionName = 'UpdateTimeLogLogAction';
 function UpdateTimeLogActionCreator(time) {
@@ -73962,6 +74272,30 @@ function ClearUserTimeLogActionCreator() {
     return { type: exports.ClearUserTimeLogActionName, payload: null };
 }
 exports.ClearUserTimeLogActionCreator = ClearUserTimeLogActionCreator;
+;
+exports.SetUserTempoTimeLogDataActionName = 'SetUserTempoTimeLogDataAction';
+function SetUserTempoTimeLogDataActionCreator(data) {
+    return { type: exports.SetUserTempoTimeLogDataActionName, payload: data };
+}
+exports.SetUserTempoTimeLogDataActionCreator = SetUserTempoTimeLogDataActionCreator;
+;
+exports.SetUserTempoTimeLogDateFromActionName = 'SetUserTempoTimeLogDateFromAction';
+function SetUserTempoTimeLogDateFromActionCreator(date) {
+    return { type: exports.SetUserTempoTimeLogDateFromActionName, payload: date };
+}
+exports.SetUserTempoTimeLogDateFromActionCreator = SetUserTempoTimeLogDateFromActionCreator;
+;
+exports.SetUserTempoTimeLogDateToActionName = 'SetUserTempoTimeLogDateToAction';
+function SetUserTempoTimeLogDateToActionCreator(date) {
+    return { type: exports.SetUserTempoTimeLogDateToActionName, payload: date };
+}
+exports.SetUserTempoTimeLogDateToActionCreator = SetUserTempoTimeLogDateToActionCreator;
+;
+exports.ClearUserTempoTimeLogActionName = 'ClearUserTempoTimeLogAction';
+function ClearUserTempoTimeLogActionCreator() {
+    return { type: exports.ClearUserTempoTimeLogActionName, payload: null };
+}
+exports.ClearUserTempoTimeLogActionCreator = ClearUserTempoTimeLogActionCreator;
 ;
 
 
@@ -74992,7 +75326,22 @@ class TaskManagementWorkTimeController {
                     }
                     if (data === null || data === void 0 ? void 0 : data.Id) {
                         let dt = new TimeLog_1.TimeLog().FillByBackModel(data);
-                        dispatch((0, TimeLogAction_1.AddNewTimeLogActionCreator)(dt));
+                        dispatch((0, TimeLogAction_1.AddNewTimeLogTaskActionCreator)(dt));
+                    }
+                });
+            };
+        };
+        this.CreateTimeTempoLogRedux = (taskId, text, minutes, dayOfLog) => {
+            return (dispatch, getState) => {
+                this.preloader(true);
+                this.CreateTimeLog(taskId, text, minutes, dayOfLog, (error, data) => {
+                    this.preloader(false);
+                    if (error) {
+                        return;
+                    }
+                    if (data === null || data === void 0 ? void 0 : data.Id) {
+                        let dt = new TimeLog_1.TimeLog().FillByBackModel(data);
+                        dispatch((0, TimeLogAction_1.AddNewTimeLogTempoActionCreator)(dt));
                     }
                 });
             };
@@ -75012,6 +75361,34 @@ class TaskManagementWorkTimeController {
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: G_PathToServer + 'api/taskmanagement/worktimelog/create'
+            });
+        };
+        this.DeleteTimeTempoLogRedux = (timeId) => {
+            return (dispatch, getState) => {
+                this.preloader(true);
+                this.DeleteTimeLog(timeId, (error, data) => {
+                    this.preloader(false);
+                    if (error) {
+                        return;
+                    }
+                    if (data === null || data === void 0 ? void 0 : data.result) {
+                        dispatch((0, TimeLogAction_1.DelTimeLogTempoActionCreator)(timeId));
+                    }
+                });
+            };
+        };
+        this.DeleteTimeLog = (timeId, onSuccess) => {
+            let data = {
+                "id": timeId,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: G_PathToServer + 'api/taskmanagement/worktimelog/delete'
             });
         };
         this.LoadTimeLogsForTaskRedux = (taskId) => {
@@ -75086,6 +75463,21 @@ class TaskManagementWorkTimeController {
                     if (data) {
                         let mapped = data.map(x => new TimeLog_1.TimeLog().FillByBackModel(x));
                         dispatch((0, TimeLogAction_1.SetUserTimeLogDataActionCreator)(mapped));
+                    }
+                });
+            };
+        };
+        this.LoadTimeLogsForUserTempoRedux = (projectId, userId, dateFrom, dateTo) => {
+            return (dispatch, getState) => {
+                this.preloader(true);
+                this.LoadTimeLogsForUser(projectId, userId, dateFrom, dateTo, (error, data) => {
+                    this.preloader(false);
+                    if (error) {
+                        return;
+                    }
+                    if (data) {
+                        let mapped = data.map(x => new TimeLog_1.TimeLog().FillByBackModel(x));
+                        dispatch((0, TimeLogAction_1.SetUserTempoTimeLogDataActionCreator)(mapped));
                     }
                 });
             };
@@ -75433,6 +75825,7 @@ class TaskManagementAppState {
         this.ProjectsLoaded = false;
         this.CurrentProjectTimes = new ProjectTimes_1.ProjectTimes();
         this.PersonTimes = new ProjectTimes_1.ProjectTimes();
+        this.TempoState = new ProjectTimes_1.ProjectTimes();
     }
 }
 exports.TaskManagementAppState = TaskManagementAppState;
@@ -76113,7 +76506,7 @@ const TimeLog_1 = __webpack_require__(/*! ../Entity/State/TimeLog */ "./src/Apps
 const ProjectTimes_1 = __webpack_require__(/*! ../Entity/State/ProjectTimes */ "./src/Apps/TaskManagementApp/Models/Entity/State/ProjectTimes.ts");
 function WorkTimeLogReducer(state = new AppState_1.AppState(), action) {
     switch (action.type) {
-        case TimeLogAction_1.AddNewTimeLogActionName:
+        case TimeLogAction_1.AddNewTimeLogTaskActionName:
             {
                 let helper = new Helper_1.Helper();
                 let newState = (0, lodash_1.cloneDeep)(state);
@@ -76122,6 +76515,24 @@ function WorkTimeLogReducer(state = new AppState_1.AppState(), action) {
                 tasks.forEach(tsk => {
                     tsk.TimeLogs.push(new TimeLog_1.TimeLog().Copy(payload));
                 });
+                return newState;
+            }
+        case TimeLogAction_1.AddNewTimeLogTempoActionName:
+            {
+                let newState = (0, lodash_1.cloneDeep)(state);
+                let payload = action.payload;
+                newState.TaskManagementApp.TempoState.TimeLogs.push(payload);
+                return newState;
+            }
+        case TimeLogAction_1.DelTimeLogTempoActionName:
+            {
+                let newState = (0, lodash_1.cloneDeep)(state);
+                let helper = new Helper_1.Helper();
+                let payload = action.payload;
+                let index = helper.GetIndexById(newState.TaskManagementApp.TempoState.TimeLogs, payload);
+                if (index >= 0) {
+                    newState.TaskManagementApp.TempoState.TimeLogs.splice(index, 1);
+                }
                 return newState;
             }
         case TimeLogAction_1.DeleteTimeLogActionName:
@@ -76217,6 +76628,34 @@ function WorkTimeLogReducer(state = new AppState_1.AppState(), action) {
                 let helper = new Helper_1.Helper();
                 let newState = (0, lodash_1.cloneDeep)(state);
                 newState.TaskManagementApp.PersonTimes = new ProjectTimes_1.ProjectTimes();
+                return newState;
+            }
+        case TimeLogAction_1.SetUserTempoTimeLogDataActionName:
+            {
+                let newState = (0, lodash_1.cloneDeep)(state);
+                let payload = action.payload;
+                newState.TaskManagementApp.TempoState.TimeLogs = payload;
+                return newState;
+            }
+        case TimeLogAction_1.SetUserTempoTimeLogDateFromActionName:
+            {
+                let newState = (0, lodash_1.cloneDeep)(state);
+                let payload = action.payload;
+                newState.TaskManagementApp.TempoState.DateFrom = payload;
+                return newState;
+            }
+        case TimeLogAction_1.SetUserTempoTimeLogDateToActionName:
+            {
+                let newState = (0, lodash_1.cloneDeep)(state);
+                let payload = action.payload;
+                newState.TaskManagementApp.TempoState.DateTo = payload;
+                return newState;
+            }
+        case TimeLogAction_1.ClearUserTempoTimeLogActionName:
+            {
+                let helper = new Helper_1.Helper();
+                let newState = (0, lodash_1.cloneDeep)(state);
+                newState.TaskManagementApp.TempoState = new ProjectTimes_1.ProjectTimes();
                 return newState;
             }
         default:

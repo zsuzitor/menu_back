@@ -16,6 +16,6 @@ namespace TaskManagementApp.Models.Services.Interfaces
 
         Task<List<WorkTimeLog>> GetTimeForTaskAsync(long taskId, UserInfo userInfo);
         Task<List<WorkTimeLog>> GetTimeForProjectAsync(long projectId, DateTime startDate, DateTime endDate, UserInfo userInfo, long? userId);
-        Task<List<WorkTimeLog>> GetTimeForUserAsync(long userId, DateTime startDate, DateTime endDate, UserInfo userInfo);
+        Task<List<WorkTimeLog>> GetTimeForUserAsync(long? userId, DateTime startDate, DateTime endDate, UserInfo userInfo);
     }
 }
