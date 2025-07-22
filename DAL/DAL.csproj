@@ -22,6 +22,8 @@
     <Compile Remove="Migrations\20250523205829_status-no-action.Designer.cs" />
     <Compile Remove="Migrations\20250523210627_RowVersion.cs" />
     <Compile Remove="Migrations\20250523210627_RowVersion.Designer.cs" />
+    <Compile Remove="Migrations\20250610191745_sprint.cs" />
+    <Compile Remove="Migrations\20250610191745_sprint.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

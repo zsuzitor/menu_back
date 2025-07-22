@@ -21,13 +21,15 @@ namespace Menu.Controllers.TaskManagementApp
         private readonly ILogger _logger;
 
         private readonly IProjectService _projectService;
+        private readonly IWorkTaskStatusService _statusService;
         private readonly IProjectUserService _projectUserService;
 
 
         public ProjectController(
              IJWTService jwtService, IApiHelper apiHealper
             , ILogger<ProjectController> logger, IProjectService projectService,
-             IProjectUserService projectUserService)
+             IProjectUserService projectUserService,
+             IWorkTaskStatusService statusService)
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
@@ -35,6 +37,7 @@ namespace Menu.Controllers.TaskManagementApp
 
             _projectService = projectService;
             _projectUserService = projectUserService;
+            _statusService = statusService;
         }
 
         [Route("get-projects")]
@@ -88,7 +91,7 @@ namespace Menu.Controllers.TaskManagementApp
                         throw new SomeCustomException("project_not_found");
                     }
 
-                    var statuses = (await _projectService.GetStatusesAsync(projectId, userInfo)).Select(x => new WorkTaskStatusReturn(x));
+                    var statuses = (await _statusService.GetStatusesAsync(projectId, userInfo)).Select(x => new WorkTaskStatusReturn(x));
 
                     var users = await _projectUserService.GetProjectUsersAsync(projectId, userInfo);
                     var usersReturn = users.Select(x => new ProjectUserReturn(x));

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BO.Models.TaskManagementApp.DAL.Domain
 {
-    public class WorkTaskSprint : IDomainRecord<long>
+    public class ProjectSprint : IDomainRecord<long>
     {
         public long Id { get; set; }
         public string Name { get; set; }
@@ -12,7 +12,7 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public List<WorkTask> Tasks { get; set; }
         public byte[] RowVersion { get; set; }
 
-        public WorkTaskSprint()
+        public ProjectSprint()
         {
             Tasks = new List<WorkTask>();
         }

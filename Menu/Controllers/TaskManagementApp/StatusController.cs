@@ -20,13 +20,16 @@ namespace Menu.Controllers.TaskManagementApp
         private readonly IApiHelper _apiHealper;
         private readonly ILogger _logger;
         private readonly IProjectService _projectService;
+        private readonly IWorkTaskStatusService _workTaskStatusService;
 
-        public StatusController(IProjectService projectService, IApiHelper apiHealper, IJWTService jwtService, ILogger<StatusController> logger)
+        public StatusController(IProjectService projectService, IApiHelper apiHealper, IJWTService jwtService, ILogger<StatusController> logger
+            , IWorkTaskStatusService workTaskStatusService)
         {
             _projectService = projectService;
             _apiHealper = apiHealper;
             _jwtService = jwtService;
             _logger = logger;
+            _workTaskStatusService = workTaskStatusService;
         }
 
 
@@ -40,7 +43,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     //throw new NotAuthException();
 
-                    var res = await _projectService.GetStatusesAccessAsync(projectId, userInfo);
+                    var res = await _workTaskStatusService.GetStatusesAccessAsync(projectId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, res.Select(x => new WorkTaskStatusReturn(x)));
 
                 }, Response, _logger);
@@ -60,7 +63,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     //throw new NotAuthException();
 
-                    var res = await _projectService.CreateStatusAsync(status, projectId, userInfo);
+                    var res = await _workTaskStatusService.CreateStatusAsync(status, projectId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new WorkTaskStatusReturn(res));
 
                 }, Response, _logger);
@@ -77,7 +80,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     //throw new NotAuthException();
 
-                    var res = await _projectService.DeleteStatusAsync(statusId, userInfo);
+                    var res = await _workTaskStatusService.DeleteStatusAsync(statusId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                          , new
                          {
@@ -99,7 +102,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     //throw new NotAuthException();
 
-                    var res = await _projectService.UpdateStatusAsync(statusId, status, userInfo);
+                    var res = await _workTaskStatusService.UpdateStatusAsync(statusId, status, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                          , new
                          {

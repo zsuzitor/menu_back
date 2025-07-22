@@ -33,6 +33,8 @@ namespace TaskManagementApp.Models
             public const string WorkTaskEmptyStatusName = "task_management_empty_status_name";
             public const string WorkTaskStatusNotExists = "task_management_work_task_status_not_exist";
             public const string WorkTaskTimeLogWalidationError = "task_management_work_task_time_log_walidation_error";
+            public const string SprintNotFound = "task_management_sprint_not_found";
+
 
 
         }

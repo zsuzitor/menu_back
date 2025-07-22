@@ -6,11 +6,11 @@ using System.Text;
 
 namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
 {
-    public static class WorkTaskSprintBuilder
+    public static class ProjectSprintBuilder
     {
-        public static void WorkTaskSprintBuild(this ModelBuilder modelBuilder)
+        public static void ProjectSprintBuild(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<WorkTaskSprint>(entity => {
+            modelBuilder.Entity<ProjectSprint>(entity => {
                 entity.HasKey(x => x.Id);
                 entity.ToTable("TaskManagementSprint");
 

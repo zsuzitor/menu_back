@@ -6,10 +6,12 @@ using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace TaskManagementApp.Models.DAL.Repositories
 {
-    public class SprintRepository : GeneralRepository<WorkTaskSprint, long>, ISprintRepository
+    public class SprintRepository : GeneralRepository<ProjectSprint, long>, ISprintRepository
     {
         public SprintRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
         {
         }
+
+
     }
 }

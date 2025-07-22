@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DAL.Migrations
 {
-    public partial class sprint : Migration
+    public partial class sprintfix : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -34,14 +34,19 @@ namespace DAL.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_TaskManagementTasks_SprintId",
+                table: "TaskManagementTasks",
+                column: "SprintId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_TaskManagementSprint_ProjectId",
                 table: "TaskManagementSprint",
                 column: "ProjectId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_TaskManagementTasks_TaskManagementSprint_StatusId",
+                name: "FK_TaskManagementTasks_TaskManagementSprint_SprintId",
                 table: "TaskManagementTasks",
-                column: "StatusId",
+                column: "SprintId",
                 principalTable: "TaskManagementSprint",
                 principalColumn: "Id");
         }
@@ -49,11 +54,15 @@ namespace DAL.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_TaskManagementTasks_TaskManagementSprint_StatusId",
+                name: "FK_TaskManagementTasks_TaskManagementSprint_SprintId",
                 table: "TaskManagementTasks");
 
             migrationBuilder.DropTable(
                 name: "TaskManagementSprint");
+
+            migrationBuilder.DropIndex(
+                name: "IX_TaskManagementTasks_SprintId",
+                table: "TaskManagementTasks");
 
             migrationBuilder.DropColumn(
                 name: "SprintId",

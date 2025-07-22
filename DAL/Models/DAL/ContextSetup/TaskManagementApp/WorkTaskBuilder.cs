@@ -14,7 +14,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
                 entity.HasOne(x => x.Status).WithMany(x => x.Tasks)
                     .HasForeignKey(x => x.StatusId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasOne(x => x.Sprint).WithMany(x => x.Tasks)
-                    .HasForeignKey(x => x.StatusId).OnDelete(DeleteBehavior.NoAction);
+                    .HasForeignKey(x => x.SprintId).OnDelete(DeleteBehavior.NoAction);
 
                 entity.ToTable("TaskManagementTasks");
 

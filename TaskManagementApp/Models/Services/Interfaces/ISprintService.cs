@@ -6,6 +6,9 @@ namespace TaskManagementApp.Models.Services.Interfaces
 {
     public interface ISprintService
     {
-        Task<WorkTaskSprint> Create(long projectId, string name, UserInfo userInfo);
+        Task<ProjectSprint> Create(long projectId, string name, UserInfo userInfo);
+        Task<ProjectSprint> Delete(long id, UserInfo userInfo);
+        Task<bool> AddTaskToSprint(long sprintId, long taskId, UserInfo userInfo);
+        Task<bool> DeleteTaskFromSprint(long sprintId, long taskId, UserInfo userInfo);
     }
 }

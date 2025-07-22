@@ -25,7 +25,7 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
 
 
         public long? SprintId { get; set; }
-        public WorkTaskSprint Sprint { get; set; }
+        public ProjectSprint Sprint { get; set; }
 
 
 

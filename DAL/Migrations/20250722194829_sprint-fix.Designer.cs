@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(MenuDbContext))]
-    [Migration("20250610191745_sprint")]
-    partial class sprint
+    [Migration("20250722194829_sprint-fix")]
+    partial class sprintfix
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -370,6 +370,31 @@ namespace DAL.Migrations
                     b.ToTable("TaskManagementProjects");
                 });
 
+            modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.ProjectSprint", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("ProjectId")
+                        .HasColumnType("bigint");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
+
+                    b.ToTable("TaskManagementSprint");
+                });
+
             modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.ProjectUser", b =>
                 {
                     b.Property<long>("Id")
@@ -459,6 +484,8 @@ namespace DAL.Migrations
 
                     b.HasIndex("ProjectId");
 
+                    b.HasIndex("SprintId");
+
                     b.HasIndex("StatusId");
 
                     b.ToTable("TaskManagementTasks");
@@ -490,31 +517,6 @@ namespace DAL.Migrations
                     b.HasIndex("TaskId");
 
                     b.ToTable("TaskManagementTaskComment");
-                });
-
-            modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.WorkTaskSprint", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("ProjectId")
-                        .HasColumnType("bigint");
-
-                    b.Property<byte[]>("RowVersion")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("rowversion");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProjectId");
-
-                    b.ToTable("TaskManagementSprint");
                 });
 
             modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.WorkTaskStatus", b =>
@@ -795,6 +797,15 @@ namespace DAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.ProjectSprint", b =>
+                {
+                    b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.Project", "Project")
+                        .WithMany("Sprints")
+                        .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.ProjectUser", b =>
                 {
                     b.HasOne("BO.Models.DAL.Domain.User", "MainAppUser")
@@ -828,9 +839,9 @@ namespace DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.WorkTaskSprint", "Sprint")
+                    b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.ProjectSprint", "Sprint")
                         .WithMany("Tasks")
-                        .HasForeignKey("StatusId")
+                        .HasForeignKey("SprintId")
                         .OnDelete(DeleteBehavior.NoAction);
 
                     b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.WorkTaskStatus", "Status")
@@ -850,15 +861,6 @@ namespace DAL.Migrations
                     b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.WorkTask", "Task")
                         .WithMany("Comments")
                         .HasForeignKey("TaskId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.WorkTaskSprint", b =>
-                {
-                    b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.Project", "Project")
-                        .WithMany("Sprints")
-                        .HasForeignKey("ProjectId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
