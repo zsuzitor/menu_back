@@ -1,9 +1,9 @@
 ﻿using Common.Models.Entity;
 using jwtLib.JWTAuth.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Nest;
+using System.Linq;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.Returns;
 using TaskManagementApp.Models.Services.Interfaces;
@@ -31,6 +31,59 @@ namespace Menu.Controllers.TaskManagementApp
             _sprintService = sprintService;
         }
 
+        [Route("get")]
+        [HttpGet]
+        public async Task GetSprint(long sprintId)
+        {
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    //throw new NotAuthException();
+
+                    var res = await _sprintService.Get(sprintId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, new ProjectSprintReturn(res));
+
+                }, Response, _logger);
+
+        }
+
+        [Route("get-for-project")]
+        [HttpGet]
+        public async Task GetSprintForProject(long projectId)
+        {
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    //throw new NotAuthException();
+
+                    var res = await _sprintService.GetForProject(projectId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new ProjectSprintReturn(x)));
+
+                }, Response, _logger);
+
+        }
+
+        [Route("get-tasks")]
+        [HttpGet]
+        public async Task GetSprintTasks(long sprintId)
+        {
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    //throw new NotAuthException();
+
+                    var res = await _sprintService.GetTasks(sprintId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new WorkTaskReturn(x)));
+
+                }, Response, _logger);
+
+        }
 
         [Route("create")]
         [HttpPut]

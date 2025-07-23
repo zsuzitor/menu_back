@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
 using static System.Net.Mime.MediaTypeNames;
+using Common.Models.Return;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -82,10 +83,7 @@ namespace Menu.Controllers.TaskManagementApp
 
                     var res = await _workTaskStatusService.DeleteStatusAsync(statusId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
-                         , new
-                         {
-                             result = res != null,
-                         });
+                         , new BoolResultReturn(res != null));
 
                 }, Response, _logger);
 
@@ -104,10 +102,7 @@ namespace Menu.Controllers.TaskManagementApp
 
                     var res = await _workTaskStatusService.UpdateStatusAsync(statusId, status, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
-                         , new
-                         {
-                             result = res != null,
-                         });
+                         , new BoolResultReturn(res != null));
 
                 }, Response, _logger);
 

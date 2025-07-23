@@ -1,4 +1,5 @@
 ﻿using BO.Models.TaskManagementApp.DAL.Domain;
+using DAL.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace TaskManagementApp.Models.Returns
         public long? StatusId { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime LastUpdateDate { get; set; }
+        public long? SprintId { get; set; }
+
         public List<WorkTaskCommentReturn> Comments { get; set; }
 
         public WorkTaskReturn(WorkTask task)
@@ -27,6 +30,7 @@ namespace TaskManagementApp.Models.Returns
             CreatorId = task.CreatorId;
             ExecutorId = task.ExecutorId;
             StatusId = task.StatusId;
+            SprintId = task.SprintId;
             Comments = (task.Comments ?? new List<WorkTaskComment>()).Select(x => new WorkTaskCommentReturn(x)).ToList();
         }
     }

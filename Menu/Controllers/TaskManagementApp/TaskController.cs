@@ -12,6 +12,8 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
+using Common.Models.Entity;
+using Common.Models.Return;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -192,10 +194,7 @@ namespace Menu.Controllers.TaskManagementApp
                         Description = description,
                     }, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
-                        , new
-                        {
-                            result = res != null,
-                        });
+                        , new BoolResultReturn(res != null));
 
                 }, Response, _logger);
 
@@ -212,10 +211,7 @@ namespace Menu.Controllers.TaskManagementApp
 
                     var res = await _workTaskService.DeleteIfAccess(taskId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
-                        , new
-                        {
-                            result = res != null,
-                        });
+                        , new BoolResultReturn(res != null));
 
                 }, Response, _logger);
 
@@ -237,10 +233,7 @@ namespace Menu.Controllers.TaskManagementApp
 
                     var res = await _workTaskService.UpdateNameAsync(id,name, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
-                        , new
-                        {
-                            result = res != null,
-                        });
+                        , new BoolResultReturn(res != null));
 
                 }, Response, _logger);
 
@@ -261,10 +254,7 @@ namespace Menu.Controllers.TaskManagementApp
 
                     var res = await _workTaskService.UpdateDescriptionAsync(id, description, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
-                        , new
-                        {
-                            result = res != null,
-                        });
+                        , new BoolResultReturn(res != null));
 
                 }, Response, _logger);
 
@@ -284,10 +274,7 @@ namespace Menu.Controllers.TaskManagementApp
 
                     var res = await _workTaskService.UpdateStatusAsync(id, statusId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
-                        , new
-                        {
-                            result = res != null,
-                        });
+                        , new BoolResultReturn(res != null));
 
                 }, Response, _logger);
 
@@ -307,10 +294,7 @@ namespace Menu.Controllers.TaskManagementApp
 
                     var res = await _workTaskService.UpdateExecutorAsync(id, personId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
-                        , new
-                        {
-                            result = res != null,
-                        });
+                        , new BoolResultReturn(res != null));
 
                 }, Response, _logger);
 

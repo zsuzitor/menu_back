@@ -9,6 +9,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
+using Common.Models.Return;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -117,10 +118,7 @@ namespace Menu.Controllers.TaskManagementApp
 
                     var res = await _projectService.DeleteAsync(projectId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
-                        , new
-                        {
-                            result = res,
-                        });
+                        , new BoolResultReturn(res));
 
                 }, Response, _logger);
 

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
 using TaskManagementApp.Models;
+using Common.Models.Return;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -85,10 +86,7 @@ namespace Menu.Controllers.TaskManagementApp
 
                     var res = await _projectUserService.ChangeAsync(userId, name, email, isAdmin, deactivated, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
-                        , new
-                        {
-                            result = res != null,
-                        });
+                        , new BoolResultReturn(res != null));
 
                 }, Response, _logger);
 
@@ -105,10 +103,7 @@ namespace Menu.Controllers.TaskManagementApp
 
                     var res = await _projectUserService.DeleteAsync(userId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
-                        , new
-                        {
-                            result = res != null,
-                        });
+                        , new BoolResultReturn(res != null));
 
                 }, Response, _logger);
 

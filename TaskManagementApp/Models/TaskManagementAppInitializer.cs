@@ -74,8 +74,11 @@ namespace TaskManagementApp.Models
             services.AddScoped<ITaskManagementAppEmailService, TaskManagementAppEmailService>();
             services.AddScoped<IWorkTimeLogService, WorkTimeLogService>();
             services.AddScoped<ISprintService, SprintService>();
+            services.AddScoped<IWorkTaskStatusService, WorkTaskStatusService>();
 
             
+
+
 
 
 

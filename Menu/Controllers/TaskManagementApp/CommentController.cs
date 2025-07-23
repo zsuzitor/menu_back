@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
 using TaskManagementApp.Models.Services;
+using Common.Models.Return;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -66,10 +67,7 @@ namespace Menu.Controllers.TaskManagementApp
 
                     var res = await _workTaskCommentService.DeleteAsync(commentId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
-                        , new
-                        {
-                            result = res != null,
-                        });
+                        , new BoolResultReturn(res != null));
 
                 }, Response, _logger);
 
@@ -105,10 +103,7 @@ namespace Menu.Controllers.TaskManagementApp
 
                     var res = await _workTaskCommentService.EditAsync(commentId, text, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
-                        , new
-                        {
-                            result = res != null,
-                        });
+                        , new BoolResultReturn(res != null));
 
                 }, Response, _logger);
 
