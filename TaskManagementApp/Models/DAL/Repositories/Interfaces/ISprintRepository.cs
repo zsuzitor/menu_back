@@ -11,5 +11,7 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
     {
         //Task AddTaskToSprint();
         //Task DeleteTaskFromSprint();
+        Task<ProjectSprint> GetWithTasks(long id);
+        Task<List<ProjectSprint>> GetForProject(long projectId);
     }
 }

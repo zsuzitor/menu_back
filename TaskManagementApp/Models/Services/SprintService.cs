@@ -2,6 +2,7 @@
 using BO.Models.TaskManagementApp.DAL.Domain;
 using Common.Models.Exceptions;
 using Pipelines.Sockets.Unofficial.Arenas;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.DAL.Repositories;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
@@ -24,11 +25,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<bool> AddTaskToSprint(long sprintId, long taskId, UserInfo userInfo)
         {
-            var sprint = await _sprintRepository.GetAsync(sprintId);
-            if (sprint == null)
-            {
-                throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
-            }
+            var sprint = await _sprintRepository.GetAsync(sprintId) ?? throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
 
             var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userInfo);
             if (!s)
@@ -57,11 +54,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<ProjectSprint> Delete(long id, UserInfo userInfo)
         {
-            var sprint = await _sprintRepository.GetAsync(id);
-            if (sprint == null)
-            {
-                throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
-            }
+            var sprint = await _sprintRepository.GetAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
 
             var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userInfo);
             if (!s)
@@ -73,14 +66,33 @@ namespace TaskManagementApp.Models.Services
             return sprint;
         }
 
-        public async Task<bool> DeleteTaskFromSprint(long sprintId, long taskId, UserInfo userInfo)
+        public async Task<bool> DeleteTaskFromSprint(long taskId, UserInfo userInfo)
         {
 
-            var sprint = await _sprintRepository.GetAsync(sprintId);
-            if (sprint == null)
+            //var sprint = await _sprintRepository.GetAsync(sprintId) ?? throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
+
+            //var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userInfo);
+            //if (!s)
+            //{
+            //    throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+            //}
+
+            var task = await _workTaskRepository.GetAsync(taskId);
+            var s = await ExistIfAccessAdminAsync(task.ProjectId, userInfo);
+            if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
+            task.SprintId = null;
+            await _workTaskRepository.UpdateAsync(task);
+
+            return true;
+        }
+
+        public async Task<ProjectSprint> Get(long sprintId, UserInfo userInfo)
+        {
+            var sprint = await _sprintRepository.GetNoTrackAsync(sprintId) ?? throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
+
 
             var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userInfo);
             if (!s)
@@ -88,11 +100,40 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
-            var task = await _workTaskRepository.GetAsync(taskId);
-            task.SprintId = null;
-            await _workTaskRepository.UpdateAsync(task);
+            return sprint;
+        }
 
-            return true;
+        public async Task<List<WorkTask>> GetTasks(long sprintId, UserInfo userInfo)
+        {
+
+            var sprint = await _sprintRepository.GetWithTasks(sprintId) ?? throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
+
+            var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userInfo);
+            if (!s)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+            }
+
+            return sprint.Tasks;
+        }
+
+        public async Task<List<ProjectSprint>> GetForProject(long projectId, UserInfo userInfo)
+        {
+
+            return await _sprintRepository.GetForProject(projectId);
+
+        }
+
+
+        public async Task<List<ProjectSprint>> GetForProjectWithRights(long projectId, UserInfo userInfo)
+        {
+            var s = await ExistIfAccessAdminAsync(projectId, userInfo);
+            if (!s)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+            }
+
+            return await _sprintRepository.GetForProject(projectId);
         }
 
         private async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, UserInfo userInfo)
@@ -104,5 +145,6 @@ namespace TaskManagementApp.Models.Services
         {
             return await _projectRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
         }
+
     }
 }

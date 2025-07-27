@@ -24,13 +24,14 @@ namespace Menu.Controllers.TaskManagementApp
         private readonly IProjectService _projectService;
         private readonly IWorkTaskStatusService _statusService;
         private readonly IProjectUserService _projectUserService;
+        private readonly ISprintService _sprintService;
 
 
         public ProjectController(
              IJWTService jwtService, IApiHelper apiHealper
             , ILogger<ProjectController> logger, IProjectService projectService,
              IProjectUserService projectUserService,
-             IWorkTaskStatusService statusService)
+             IWorkTaskStatusService statusService, ISprintService sprintService)
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
@@ -39,6 +40,7 @@ namespace Menu.Controllers.TaskManagementApp
             _projectService = projectService;
             _projectUserService = projectUserService;
             _statusService = statusService;
+            _sprintService = sprintService;
         }
 
         [Route("get-projects")]
@@ -93,12 +95,13 @@ namespace Menu.Controllers.TaskManagementApp
                     }
 
                     var statuses = (await _statusService.GetStatusesAsync(projectId, userInfo)).Select(x => new WorkTaskStatusReturn(x));
+                    var sprints = (await _sprintService.GetForProject(projectId, userInfo)).Select(x => new ProjectSprintReturn(x));
 
                     var users = await _projectUserService.GetProjectUsersAsync(projectId, userInfo);
                     var usersReturn = users.Select(x => new ProjectUserReturn(x));
 
                     await _apiHealper.WriteResponseAsync(Response,
-                        new { Users = usersReturn, Statuses = statuses });//, Tasks = taskReturn
+                        new { Users = usersReturn, Statuses = statuses, Sprints = sprints });//, Tasks = taskReturn
 
                 }, Response, _logger);
 

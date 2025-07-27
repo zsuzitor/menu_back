@@ -1,4 +1,5 @@
 ﻿using Common.Models.Entity;
+using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -60,7 +61,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     //throw new NotAuthException();
 
-                    var res = await _sprintService.GetForProject(projectId, userInfo);
+                    var res = await _sprintService.GetForProjectWithRights(projectId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, res.Select(x => new ProjectSprintReturn(x)));
 
                 }, Response, _logger);
@@ -117,7 +118,7 @@ namespace Menu.Controllers.TaskManagementApp
                     //throw new NotAuthException();
 
                     var res = await _sprintService.Delete(id, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new BoolResult(res != null));
+                    await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res != null));
 
                 }, Response, _logger);
 
@@ -135,7 +136,7 @@ namespace Menu.Controllers.TaskManagementApp
                     //throw new NotAuthException();
 
                     var res = await _sprintService.AddTaskToSprint(sprintId, taskId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new BoolResult(res));
+                    await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
 
                 }, Response, _logger);
 
@@ -143,7 +144,7 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("delete-task-from-sprint")]
         [HttpPost]
-        public async Task DeleteTaskFromSprint([FromForm] long sprintId, [FromForm] long taskId)
+        public async Task DeleteTaskFromSprint([FromForm] long taskId)
         {
 
             await _apiHealper.DoStandartSomething(
@@ -152,8 +153,8 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     //throw new NotAuthException();
 
-                    var res = await _sprintService.DeleteTaskFromSprint(sprintId, taskId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new BoolResult(res));
+                    var res = await _sprintService.DeleteTaskFromSprint(taskId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
 
                 }, Response, _logger);
 
