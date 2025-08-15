@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PlanitPoker.Models.Services;
 using System.Threading.Tasks;
-using Menu.Models.Returns.Types.PlanitPoker;
 using System.Linq;
 using PlanitPoker.Models.Returns;
 using Common.Models.Entity;
@@ -14,6 +13,8 @@ using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Common.Models.Error.services.Interfaces;
+using Menu.Models.PlanitPoker;
+using Menu.Models.PlanitPoker.Returns;
 
 namespace Menu.Controllers.PlanitPoker
 {

@@ -32,20 +32,22 @@ namespace TaskManagementApp.Models.Services
         {
             if (obj.DayOfLog == default)
             {
-
-                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogWalidationError);
+                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogValidationError);
 
             }
             if (obj.WorkTaskId <= 0)
             {
-
-                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogWalidationError);
+                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogValidationError);
             }
 
-            if (obj.TimeMinutes <= 0)
+            if (obj.TimeMinutes <= 0 && obj.RangeStartOfLog == null && obj.RangeEndOfLog == null)
             {
+                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogValidationError);
+            }
 
-                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogWalidationError);
+            if (obj.DayOfLog.Date != obj.RangeStartOfLog || obj.DayOfLog.Date != obj.RangeEndOfLog)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogIntervalValidationError);
             }
 
             var userId = await _workTaskRepository.GetUserIdAccessAsync(obj.WorkTaskId, userInfo.UserId);

@@ -1,12 +1,10 @@
-﻿
-
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.ComponentModel.DataAnnotations;
 using WordsCardsApp.BO.Input;
 
-namespace Menu.Models.InputModels.WordsCardsApp
+namespace Menu.Models.WordsCardsApp.Requests
 {
     public sealed class WordCardListInputModelApi
     {
@@ -17,7 +15,7 @@ namespace Menu.Models.InputModels.WordsCardsApp
         [Required]
         public string Title { get; set; }
 
-        
+
 
         public void Validate(Func<string, string> strValidator, ModelStateDictionary modelState)
         {
@@ -32,12 +30,12 @@ namespace Menu.Models.InputModels.WordsCardsApp
 
         }
 
-            public WordCardListInputModel GetModel()
+        public WordCardListInputModel GetModel()
         {
             return new WordCardListInputModel()
             {
-                Id = this.Id,
-                Title = this.Title,
+                Id = Id,
+                Title = Title,
             };
         }
     }

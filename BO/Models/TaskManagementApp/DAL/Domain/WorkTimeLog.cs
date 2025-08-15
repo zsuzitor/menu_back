@@ -10,6 +10,18 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public long Id { get; set; }
         public string Comment { get; set; }
         public long TimeMinutes { get; set; }
+
+        /// <summary>
+        /// начало работы для списаний диапазоном
+        /// 
+        /// </summary>
+        public DateTime? RangeStartOfLog { get; set; }
+        /// <summary>
+        /// конец работы для списаний диапазоном
+        /// </summary>
+        public DateTime? RangeEndOfLog { get; set; }
+
+
         /// <summary>
         /// день за которое списание
         /// </summary>

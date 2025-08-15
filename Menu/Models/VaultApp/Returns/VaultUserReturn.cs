@@ -2,7 +2,7 @@
 using System.Text.Json.Serialization;
 using VaultApp.Models.Entity;
 
-namespace Menu.Models.Returns.Types.VaultApp
+namespace Menu.Models.VaultApp.Returns
 {
     public class VaultUserReturn
     {

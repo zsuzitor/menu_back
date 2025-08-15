@@ -1,13 +1,11 @@
-﻿
-
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.ComponentModel.DataAnnotations;
 using WordsCardsApp.BO.Input;
 
-namespace Menu.Models.InputModels.WordsCardsApp
+namespace Menu.Models.WordsCardsApp.Requests
 {
     public sealed class WordCardInputModelApi
     {
@@ -46,7 +44,7 @@ namespace Menu.Models.InputModels.WordsCardsApp
                 Word = strValidator(Word.Trim());
             }
 
-            
+
             if (string.IsNullOrWhiteSpace(WordAnswer))
             {
                 WordAnswer = string.Empty;
@@ -55,7 +53,7 @@ namespace Menu.Models.InputModels.WordsCardsApp
             {
                 WordAnswer = strValidator(WordAnswer.Trim());
             }
-            
+
             if (string.IsNullOrWhiteSpace(Description))
             {
                 Description = string.Empty;
@@ -77,13 +75,13 @@ namespace Menu.Models.InputModels.WordsCardsApp
         {
             return new WordCardInputModel()
             {
-                Id = this.Id,
-                Word = this.Word,
-                WordAnswer = this.WordAnswer,
-                Description = this.Description,
-                MainImageNew = this.MainImageNew,
-                DeleteMainImage = this.DeleteMainImage,
-                ListId = this.ListId,
+                Id = Id,
+                Word = Word,
+                WordAnswer = WordAnswer,
+                Description = Description,
+                MainImageNew = MainImageNew,
+                DeleteMainImage = DeleteMainImage,
+                ListId = ListId,
             };
         }
     }

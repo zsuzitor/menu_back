@@ -39,11 +39,13 @@ namespace TaskManagementApp.Models
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.TaskWithStatusExists, "Существует задачи с указанным статусом", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskStatusNotExists, "Переданный статус не существует", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskEmptyStatusName, "Переданное название статуса не валидно", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskTimeLogWalidationError, "Ошибка валидации, переданы неверные поля", "TaskManagementApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskTimeLogValidationError, "Ошибка валидации, переданы неверные поля", "TaskManagementApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskTimeLogIntervalValidationError, "Ошибка валидации, передан неверный интервал", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.SprintNotFound, "Спринт не найден", "TaskManagementApp", "Error");
 
-
             
+
+
 
 
 

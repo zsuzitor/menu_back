@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Common.Models;
 
-namespace Menu.Models.Returns.Types.PlanitPoker
+namespace Menu.Models.PlanitPoker.Returns
 {
     public sealed class PlanitUserReturnFactory : IReturnObjectFactory
     {
@@ -32,5 +32,5 @@ namespace Menu.Models.Returns.Types.PlanitPoker
     }
 
 
-    
+
 }

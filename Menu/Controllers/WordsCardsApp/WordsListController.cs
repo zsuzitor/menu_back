@@ -3,13 +3,13 @@ using Common.Models.Exceptions;
 using Common.Models.Entity;
 using jwtLib.JWTAuth.Interfaces;
 using WEB.Common.Models.Helpers.Interfaces;
-using Menu.Models.InputModels.WordsCardsApp;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using Common.Models.Return;
-using Menu.Models.Returns.Types.WordsCardsApp;
 using WordsCardsApp.BL.Services.Interfaces;
+using Menu.Models.WordsCardsApp.Requests;
+using Menu.Models.WordsCardsApp.Returns;
 
 namespace Menu.Controllers.WordsCardsApp
 {

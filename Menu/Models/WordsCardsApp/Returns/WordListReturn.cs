@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.Json.Serialization;
 using Common.Models;
 
-namespace Menu.Models.Returns.Types.WordsCardsApp
+namespace Menu.Models.WordsCardsApp.Returns
 {
     public sealed class WordListReturnFactory : IReturnObjectFactory
     {
@@ -37,7 +37,7 @@ namespace Menu.Models.Returns.Types.WordsCardsApp
         [JsonPropertyName("title")]
         public string Title { get; set; }
 
-       
+
 
         public WordCardListReturn(WordsList obj)
         {

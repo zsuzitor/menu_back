@@ -71647,9 +71647,15 @@ __webpack_require__(/*! ./AddWorkTimeLog.css */ "./src/Apps/TaskManagementApp/Co
 const AddWorkTimeLog = (props) => {
     const [taskId, setTaskId] = (0, react_1.useState)(props.TaskId || 0);
     const [timeLogText, setTimeLogText] = (0, react_1.useState)('');
-    const [timeLogMin, setTimeLogMin] = (0, react_1.useState)('');
+    const [range, setRange] = (0, react_1.useState)(false);
+    const [timeLogVal, setTimeLogVal] = (0, react_1.useState)('');
     const [timeLogDate, setTimeLogDate] = (0, react_1.useState)(props.DefaultDate || new Date());
+    // const [rangeStart, setRangeStart] = useState<Date>(props.DefaultDate || new Date());
+    // const [rangeEnd, setRangeEnd] = useState<Date>(props.DefaultDate || new Date());
     // const [timeLogValide, setTimeLogValide] = useState(false);
+    const [startTime, setStartTime] = (0, react_1.useState)('09:00');
+    const [endTime, setEndTime] = (0, react_1.useState)('18:00');
+    const [duration, setDuration] = (0, react_1.useState)(0);
     (0, react_1.useEffect)(() => {
         setTaskId(props.TaskId || 0);
     }, [props.TaskId]);
@@ -71669,7 +71675,32 @@ const AddWorkTimeLog = (props) => {
         const help = new Helper_1.Helper();
         return help.FormatDateToInput(date);
     }
-    const parsedDate = parseTime(timeLogMin);
+    const calculateDuration = (start, end) => {
+        const [startHours, startMinutes] = start.split(':').map(Number);
+        const [endHours, endMinutes] = end.split(':').map(Number);
+        const startDate = new Date();
+        startDate.setHours(startHours, startMinutes, 0, 0);
+        const endDate = new Date();
+        endDate.setHours(endHours, endMinutes, 0, 0);
+        // const diffMs = endDate - startDate;
+        const diffMs = endDate.getTime() - startDate.getTime();
+        const diffMinutes = Math.floor(diffMs / 60000);
+        return diffMinutes > 0 ? diffMinutes : 0;
+    };
+    const handleStartTimeChange = (newStartTime) => {
+        setStartTime(newStartTime);
+        setDuration(calculateDuration(newStartTime, endTime));
+    };
+    const handleEndTimeChange = (newEndTime) => {
+        setEndTime(newEndTime);
+        setDuration(calculateDuration(startTime, newEndTime));
+    };
+    const getDateWithoutTime = (date) => {
+        const newDate = new Date(date);
+        newDate.setHours(0, 0, 0, 0);
+        return newDate;
+    };
+    const parsedDate = parseTime(timeLogVal);
     const valideTime = parsedDate.hours > 0 || parsedDate.minutes > 0;
     return react_1.default.createElement("div", { className: 'add-work-time-window' },
         props.TaskId || react_1.default.createElement("div", null,
@@ -71678,10 +71709,27 @@ const AddWorkTimeLog = (props) => {
         react_1.default.createElement("div", null,
             react_1.default.createElement("span", null, "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439"),
             react_1.default.createElement("input", { className: 'form-input-v2', type: 'text', value: timeLogText, placeholder: "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439", onChange: e => setTimeLogText(e.target.value) })),
-        react_1.default.createElement("div", null,
-            react_1.default.createElement("span", null, "\u041E\u0442\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043E"),
-            react_1.default.createElement("input", { className: 'form-input-v2', type: 'text', value: timeLogMin, placeholder: "x:h y:m", onChange: e => setTimeLogMin(e.target.value) }),
-            !valideTime && react_1.default.createElement("p", { className: 'add-work-time-error' }, "\u041D\u0435 \u0432\u0430\u043B\u0438\u0434\u043D\u044B\u0439 \u0444\u043E\u0440\u043C\u0430\u0442 \u0434\u0430\u0442\u044B, \u0432\u0435\u0440\u043D\u044B\u0439 x:h y:m")),
+        react_1.default.createElement("span", null, "\u0418\u043D\u0442\u0435\u0440\u0432\u0430\u043B:"),
+        react_1.default.createElement("input", { type: "checkbox", defaultChecked: range, onChange: () => setRange(!range) }),
+        range ?
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("span", null, "\u041D\u0430\u0447\u0430\u043B\u043E:"),
+                react_1.default.createElement("input", { type: "time", value: startTime, onChange: (e) => handleStartTimeChange(e.target.value) }),
+                react_1.default.createElement("span", null, "\u041E\u043A\u043E\u043D\u0447\u0430\u043D\u0438\u0435:"),
+                react_1.default.createElement("input", { type: "time", value: endTime, onChange: (e) => handleEndTimeChange(e.target.value) }),
+                react_1.default.createElement("p", null,
+                    "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C: ",
+                    duration,
+                    " \u043C\u0438\u043D\u0443\u0442 (",
+                    Math.floor(duration / 60),
+                    " \u0447. ",
+                    duration % 60,
+                    " \u043C\u0438\u043D.)"))
+            :
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("span", null, "\u041E\u0442\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043E"),
+                    react_1.default.createElement("input", { className: 'form-input-v2', type: 'text', value: timeLogVal, placeholder: "x:h y:m", onChange: e => setTimeLogVal(e.target.value) }),
+                    !valideTime && react_1.default.createElement("p", { className: 'add-work-time-error' }, "\u041D\u0435 \u0432\u0430\u043B\u0438\u0434\u043D\u044B\u0439 \u0444\u043E\u0440\u043C\u0430\u0442 \u0441\u043F\u0438\u0441\u0430\u043D\u0438\u044F, \u0432\u0435\u0440\u043D\u044B\u0439 x:h y:m")),
         react_1.default.createElement("div", null,
             react_1.default.createElement("span", null, "\u0414\u0430\u0442\u0430"),
             react_1.default.createElement("input", { 
@@ -71698,15 +71746,27 @@ const AddWorkTimeLog = (props) => {
                 } })),
         react_1.default.createElement("div", { className: 'buttons-block' },
             react_1.default.createElement("button", { className: 'button button-blue', onClick: () => {
-                    let time = parseTime(timeLogMin);
-                    let minutes = (time.hours * 60 + time.minutes);
-                    if (minutes == 0) {
-                        let alertFactory = new AlertData_1.AlertData();
-                        let alert = alertFactory.GetDefaultError("Не валидный формат даты, верный x:h y:m");
-                        window.G_AddAbsoluteAlertToState(alert);
-                        return false;
+                    let startRange = null;
+                    let endRange = null;
+                    let minutes = 0;
+                    if (range) {
+                        startRange =
+                            new Date(getDateWithoutTime(timeLogDate).setHours(parseInt(startTime.split(':')[0]), parseInt(startTime.split(':')[1])));
+                        endRange =
+                            new Date(getDateWithoutTime(timeLogDate).setHours(parseInt(endTime.split(':')[0]), parseInt(endTime.split(':')[1])));
                     }
-                    props.CreateTimeLog(taskId, timeLogText, minutes, timeLogDate);
+                    else {
+                        let time = parseTime(timeLogVal);
+                        minutes = (time.hours * 60 + time.minutes);
+                        if (minutes == 0) {
+                            let alertFactory = new AlertData_1.AlertData();
+                            let alert = alertFactory.GetDefaultError("Не валидный формат даты, верный x:h y:m");
+                            window.G_AddAbsoluteAlertToState(alert);
+                            return false;
+                        }
+                    }
+                    console.log(startRange);
+                    props.CreateTimeLog(taskId, timeLogText, minutes, timeLogDate, endRange, startRange);
                 } }, "\u0420\u0430\u0431\u043E\u0442\u0430"),
             react_1.default.createElement("button", { className: 'button button-grey', onClick: () => props.Close() }, "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C")));
 };
@@ -72474,7 +72534,7 @@ const OneWorkTaskDetail = (props) => {
                         props.Task.LastUpdateDate)),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", { onClick: () => setTaskSprintEditable(true), className: 'editable-by-click' }, "\u0421\u043F\u0440\u0438\u043D\u0442: "),
-                    !taskSprintEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskSprintEditable(true) }, ((_m = props.Sprints.find(x => x.Id == props.Task.SprintId)) === null || _m === void 0 ? void 0 : _m.Name) || '')
+                    !taskSprintEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskSprintEditable(true) }, ((_m = props.Sprints.find(x => x.Id == props.Task.SprintId)) === null || _m === void 0 ? void 0 : _m.Name) || 'Не привязана к спринту')
                         :
                             react_1.default.createElement(SaveCancelInputSelect_1.default, { CancelEvent: () => setTaskSprintEditable(false), SaveEvent: (id) => {
                                     props.UpdateTaskSprint(props.Task.Id, id);
@@ -72551,8 +72611,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     res.LoadTaskTimeLogs = (id) => {
         dispatch(window.G_TaskManagementWorkTimeController.LoadTimeLogsForTaskRedux(id));
     };
-    res.CreateTimeLog = (taskId, text, minutes, dayOfLog) => {
-        dispatch(window.G_TaskManagementWorkTimeController.CreateTimeLogRedux(taskId, text, minutes, dayOfLog));
+    res.CreateTimeLog = (taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog) => {
+        dispatch(window.G_TaskManagementWorkTimeController.CreateTimeLogRedux(taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog));
     };
     return res;
 };
@@ -74320,8 +74380,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     res.ClearTimeState = () => {
         dispatch((0, TimeLogAction_1.ClearUserTempoTimeLogActionCreator)());
     };
-    res.CreateTimeLog = (taskId, text, minutes, dayOfLog) => {
-        dispatch(window.G_TaskManagementWorkTimeController.CreateTimeTempoLogRedux(taskId, text, minutes, dayOfLog));
+    res.CreateTimeLog = (taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog) => {
+        dispatch(window.G_TaskManagementWorkTimeController.CreateTimeTempoLogRedux(taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog));
     };
     res.DeleteTime = (timeId) => {
         dispatch(window.G_TaskManagementWorkTimeController.DeleteTimeTempoLogRedux(timeId));
@@ -75946,10 +76006,10 @@ const Consts_1 = __webpack_require__(/*! ../Consts */ "./src/Apps/TaskManagement
 const TimeLog_1 = __webpack_require__(/*! ../Entity/State/TimeLog */ "./src/Apps/TaskManagementApp/Models/Entity/State/TimeLog.ts");
 class TaskManagementWorkTimeController {
     constructor() {
-        this.CreateTimeLogRedux = (taskId, text, minutes, dayOfLog) => {
+        this.CreateTimeLogRedux = (taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog) => {
             return (dispatch, getState) => {
                 this.preloader(true);
-                this.CreateTimeLog(taskId, text, minutes, dayOfLog, (error, data) => {
+                this.CreateTimeLog(taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog, (error, data) => {
                     this.preloader(false);
                     if (error) {
                         return;
@@ -75961,10 +76021,10 @@ class TaskManagementWorkTimeController {
                 });
             };
         };
-        this.CreateTimeTempoLogRedux = (taskId, text, minutes, dayOfLog) => {
+        this.CreateTimeTempoLogRedux = (taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog) => {
             return (dispatch, getState) => {
                 this.preloader(true);
-                this.CreateTimeLog(taskId, text, minutes, dayOfLog, (error, data) => {
+                this.CreateTimeLog(taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog, (error, data) => {
                     this.preloader(false);
                     if (error) {
                         return;
@@ -75976,12 +76036,14 @@ class TaskManagementWorkTimeController {
                 });
             };
         };
-        this.CreateTimeLog = (taskId, text, minutes, dayOfLog, onSuccess) => {
+        this.CreateTimeLog = (taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog, onSuccess) => {
             let data = {
                 "taskId": taskId,
                 "text": text,
                 "minutes": minutes,
                 "dayOfLog": dayOfLog.toISOString(),
+                "rangeEndOfLog": new ControllerHelper_1.ControllerHelper().ToZeroDate(rangeEndOfLog).toISOString(),
+                "rangeStartOfLog": new ControllerHelper_1.ControllerHelper().ToZeroDate(rangeStartOfLog).toISOString(),
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
@@ -75990,7 +76052,8 @@ class TaskManagementWorkTimeController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/worktimelog/create'
+                Url: G_PathToServer + 'api/taskmanagement/worktimelog/create',
+                ContentType: 'body'
             });
         };
         this.DeleteTimeTempoLogRedux = (timeId) => {
@@ -76538,6 +76601,8 @@ class TimeLog {
         this.Comment = newData.Comment;
         this.TimeMinutes = newData.TimeMinutes;
         this.DayOfLog = new Date(newData.DayOfLog);
+        this.RangeEndOfLog = new Date(newData.RangeEndOfLog);
+        this.RangeStartOfLog = new Date(newData.RangeStartOfLog);
         this.CreationTime = new Date(newData.CreationTime);
         this.WorkTaskId = newData.WorkTaskId;
         this.ProjectUserId = newData.ProjectUserId;
@@ -76551,6 +76616,8 @@ class TimeLog {
         this.CreationTime = newData.CreationTime;
         this.WorkTaskId = newData.WorkTaskId;
         this.ProjectUserId = newData.ProjectUserId;
+        this.RangeEndOfLog = newData.RangeEndOfLog;
+        this.RangeStartOfLog = newData.RangeStartOfLog;
         return this;
     }
 }
@@ -81475,19 +81542,31 @@ class FetchHelper {
                 });
             }
             else {
-                let formData = new FormData();
-                if (obj.Data instanceof FormData) {
-                    formData = obj.Data;
+                let body = null;
+                let headers = {};
+                if (!obj.ContentType || obj.ContentType === 'formdata') {
+                    let formData = new FormData();
+                    if (obj.Data instanceof FormData) {
+                        formData = obj.Data;
+                    }
+                    else {
+                        var dataKeys = Object.keys(obj.Data);
+                        dataKeys.forEach(x => {
+                            formData.append(x, obj.Data[x]);
+                        });
+                    }
+                    body = formData;
                 }
                 else {
-                    var dataKeys = Object.keys(obj.Data);
-                    dataKeys.forEach(x => {
-                        formData.append(x, obj.Data[x]);
-                    });
+                    body = JSON.stringify(obj.Data);
+                    headers = {
+                        'Content-Type': 'application/json' // Добавьте этот заголовок
+                    };
                 }
                 response = yield fetch(obj.Url, {
                     method: obj.Type,
-                    body: formData
+                    body: body,
+                    headers: headers,
                 });
             }
             let responseResult = yield response.json(); //todo а если тут что то другое? например файл\xml
@@ -82021,6 +82100,13 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.DataWithErrorBack = exports.ControllerHelper = void 0;
 // import { TaskManagementPreloader } from "../Consts";
 class ControllerHelper {
+    //из локального времени делает +0
+    ToZeroDate(localDate) {
+        // Получаем смещение в минутах и конвертируем в миллисекунды
+        const offsetMs = localDate.getTimezoneOffset() * 60000;
+        // Компенсируем смещение, чтобы получить "наивную" дату
+        return new Date(localDate.getTime() - offsetMs);
+    }
     Preloader(show, preloaderElementId, counter) {
         if (!counter) {
             counter = 0;
@@ -83542,7 +83628,6 @@ const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/re
 __webpack_require__(/*! ./SaveCancelInput.css */ "./src/components/Body/SaveCancelInput/SaveCancelInput.css");
 //: React.FC<ISaveCancelInputSelectProps> 
 const SaveCancelInputSelect = (props) => {
-    console.log(props.Selected);
     const [selected, setSelected] = (0, react_1.useState)(-1);
     (0, react_1.useEffect)(() => {
         setSelected(props.Selected || -1);

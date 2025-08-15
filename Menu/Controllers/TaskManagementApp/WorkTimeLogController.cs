@@ -1,4 +1,6 @@
 ﻿using jwtLib.JWTAuth.Interfaces;
+using Menu.Models.TaskManagementApp.Mappers;
+using Menu.Models.TaskManagementApp.Requests;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -37,24 +39,20 @@ namespace Menu.Controllers.TaskManagementApp
             _workTimeLogService = workTimeLogService;
         }
 
+
+
         [Route("create")]
         [HttpPut]
-        public async Task Create([FromForm] long taskId, [FromForm] string text, [FromForm] long minutes, [FromForm] DateTime dayOfLog)
+        public async Task Create([FromBody] WorkTimeLogCreateRequest request)
         {
-            text = _apiHealper.StringValidator(text);
+            request.Text = _apiHealper.StringValidator(request.Text);
 
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _workTimeLogService.CreateAsync(new BO.Models.TaskManagementApp.DAL.Domain.WorkTimeLog()
-                    {
-                        Comment = text,
-                        DayOfLog = dayOfLog,
-                        TimeMinutes = minutes,
-                        WorkTaskId = taskId
-                    }, userInfo);
+                    var res = await _workTimeLogService.CreateAsync(request.Map(), userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new WorkTimeLogReturn(res));
 
                 }, Response, _logger);

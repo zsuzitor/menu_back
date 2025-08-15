@@ -2,7 +2,7 @@
 using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models;
-using Menu.Models.Returns.Types.VaultApp;
+using Menu.Models.VaultApp.Returns;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;

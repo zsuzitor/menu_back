@@ -11,12 +11,12 @@ using Common.Models.Entity;
 using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
 using WEB.Common.Models.Helpers.Interfaces;
-using Menu.Models.InputModels.WordsCardsApp;
-using Menu.Models.Returns.Types.WordsCardsApp;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WordsCardsApp.BL.Services.Interfaces;
+using Menu.Models.WordsCardsApp.Requests;
+using Menu.Models.WordsCardsApp.Returns;
 
 namespace Menu.Controllers.WordsCardsApp
 {

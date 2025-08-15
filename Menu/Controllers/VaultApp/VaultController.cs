@@ -3,7 +3,7 @@ using Common.Models.Error.services.Interfaces;
 using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models;
-using Menu.Models.Returns.Types.VaultApp;
+using Menu.Models.VaultApp.Returns;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;

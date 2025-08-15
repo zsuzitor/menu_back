@@ -2,7 +2,7 @@
 using System;
 using System.Text.Json.Serialization;
 
-namespace Menu.Models.Returns.Types.VaultApp
+namespace Menu.Models.VaultApp.Returns
 {
     public class SecretReturn
     {

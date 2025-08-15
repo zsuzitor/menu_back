@@ -19,6 +19,16 @@ namespace TaskManagementApp.Models.Returns
         public DateTime DayOfLog { get; set; }
         public DateTime CreationTime { get; set; }
 
+        /// <summary>
+        /// начало работы для списаний диапазоном
+        /// 
+        /// </summary>
+        public DateTime? RangeStartOfLog { get; set; }
+        /// <summary>
+        /// конец работы для списаний диапазоном
+        /// </summary>
+        public DateTime? RangeEndOfLog { get; set; }
+
 
         public long WorkTaskId { get; set; }
 
@@ -35,6 +45,8 @@ namespace TaskManagementApp.Models.Returns
             CreationTime = obj.CreationTime;
             WorkTaskId = obj.WorkTaskId;
             ProjectUserId = obj.ProjectUserId;
+            RangeEndOfLog = obj.RangeEndOfLog;
+            RangeStartOfLog = obj.RangeStartOfLog;
 
         }
     }
