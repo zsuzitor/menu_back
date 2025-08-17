@@ -31,7 +31,6 @@ namespace Menu.Controllers.PlanitPoker
         private readonly IJWTService _jwtService;
 
         private readonly IErrorService _errorService;
-        //private readonly IHubContext<PlanitPokerHub> _hubContext;
 
 
 
@@ -155,7 +154,6 @@ namespace Menu.Controllers.PlanitPoker
                 {
                     var res = await _planitPokerService.ChangeRoomPasswordAsync(roomname, userConnectionId, oldPassword, newPassword);
                     await _apiHealper.WriteResponseAsync(Response, new BoolResultFactory().GetObjectReturn(new BoolResult(res)));
-                    //await _planitPokerService.ClearOldRoomsAsync();
                 }, Response, _logger);
         }
 

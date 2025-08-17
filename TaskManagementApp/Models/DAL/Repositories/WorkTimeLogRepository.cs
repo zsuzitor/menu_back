@@ -37,7 +37,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 .Include(x => x.WorkTask)
                 .Where(x => x.WorkTask.ProjectId == projectId
                 && x.ProjectUser.MainAppUserId == userInfo.UserId && !x.ProjectUser.Deactivated
-                && x.DayOfLog >= startDate && x.DayOfLog <= endDate).Select(x => x).ToListAsync();
+                && x.DayOfLog.Date >= startDate.Date && x.DayOfLog.Date <= endDate.Date).Select(x => x).ToListAsync();
 
             //_db.TaskManagementWorkTimeLog
             //_db.TaskManagementTasks
@@ -61,7 +61,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return await _db.TaskManagementWorkTimeLog.AsNoTracking()
                 .Include(x => x.WorkTask).Include(x => x.ProjectUser)//.ThenInclude(x=>x.Project).ThenInclude(x=>x.Users)
                 .Where(x => x.WorkTask.ProjectId == projectId && (userId == null || x.ProjectUser.Id == userId)
-                 && x.DayOfLog >= startDate && x.DayOfLog <= endDate).Select(x => x).ToListAsync();
+                 && x.DayOfLog.Date >= startDate.Date && x.DayOfLog.Date <= endDate.Date).Select(x => x).ToListAsync();
         }
 
         public async Task<List<WorkTimeLog>> GetTimeForTaskAsync(long taskId)
@@ -78,7 +78,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 .Where(x =>
                  ((userId != null && x.ProjectUserId == userId) || (userId == null && x.ProjectUser.MainAppUserId == userInfo.UserId))
                     && !x.ProjectUser.Deactivated
-                && x.DayOfLog >= startDate && x.DayOfLog <= endDate).Select(x => x).ToListAsync();
+                && x.DayOfLog.Date >= startDate.Date && x.DayOfLog.Date <= endDate.Date).Select(x => x).ToListAsync();
 
         }
     }

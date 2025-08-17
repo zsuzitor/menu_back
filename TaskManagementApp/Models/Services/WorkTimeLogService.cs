@@ -30,32 +30,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<WorkTimeLog> CreateAsync(WorkTimeLog obj, UserInfo userInfo)
         {
-            if (obj.DayOfLog == default)
-            {
-                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogValidationError);
-
-            }
-            if (obj.WorkTaskId <= 0)
-            {
-                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogValidationError);
-            }
-
-            if (obj.TimeMinutes <= 0 && (obj.RangeStartOfLog == null || obj.RangeEndOfLog == null))
-            {
-                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogValidationError);
-            }
-
-            if (obj.DayOfLog.Date != obj.RangeStartOfLog.Value.Date || obj.DayOfLog.Date != obj.RangeEndOfLog.Value.Date)
-            {
-                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogIntervalValidationError);
-            }
-
-            if (obj.RangeEndOfLog.HasValue || obj.RangeStartOfLog.HasValue)
-            {
-                var time = obj.RangeEndOfLog.Value - obj.RangeStartOfLog.Value;
-                obj.TimeMinutes = (int)time.TotalMinutes;
-            }
-
+            ValidateTimeLog(obj);
 
             var userId = await _workTaskRepository.GetUserIdAccessAsync(obj.WorkTaskId, userInfo.UserId);
             if (userId == 0)
@@ -91,12 +66,15 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<WorkTimeLog> EditAsync(WorkTimeLog obj, UserInfo userInfo)
         {
+            ValidateTimeLog(obj);
+
             var time = await _workTimeLogRepository.GetTimeAccessAsync(obj.Id, userInfo);
             //var time = await _workTimeLogRepository.GetAsync(obj.Id);
             if (time == null)
             {
                 throw new SomeCustomException(Consts.ErrorConsts.TaskLogTimeNotFound);
             }
+
 
             //var access = await _workTaskRepository.HaveAccessAsync(time.WorkTaskId, userInfo.UserId);
             //if (!access)
@@ -108,6 +86,8 @@ namespace TaskManagementApp.Models.Services
             time.DayOfLog = obj.DayOfLog;
             time.TimeMinutes = obj.TimeMinutes;
             time.Comment = obj.Comment;
+            time.RangeStartOfLog = obj.RangeStartOfLog;
+            time.RangeEndOfLog = obj.RangeEndOfLog;
 
             return await _workTimeLogRepository.UpdateAsync(time);
 
@@ -139,7 +119,6 @@ namespace TaskManagementApp.Models.Services
             if (!access.access)
             {
                 throw new SomeCustomException(Consts.ErrorConsts.ProjectHaveNoAccess);
-
             }
 
             return await _workTimeLogRepository.GetTimeForProjectAsync(projectId, startDate, endDate, userId);
@@ -159,8 +138,37 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<List<WorkTimeLog>> GetTimeForUserAsync(long? userId, DateTime startDate, DateTime endDate, UserInfo userInfo)
         {
-
             return await _workTimeLogRepository.GetTimeForUserAsync(userId, startDate, endDate, userInfo);
+        }
+
+
+        private void ValidateTimeLog(WorkTimeLog obj)
+        {
+            if (obj.DayOfLog == default)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogValidationError);
+            }
+
+            if (obj.WorkTaskId <= 0)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogValidationError);
+            }
+
+            if (obj.TimeMinutes <= 0 && (obj.RangeStartOfLog == null || obj.RangeEndOfLog == null))
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogValidationError);
+            }
+
+            if (obj.RangeEndOfLog.HasValue || obj.RangeStartOfLog.HasValue)
+            {
+                if (obj.DayOfLog.Date != obj.RangeStartOfLog.Value.Date || obj.DayOfLog.Date != obj.RangeEndOfLog.Value.Date)
+                {
+                    throw new SomeCustomException(Consts.ErrorConsts.WorkTaskTimeLogIntervalValidationError);
+                }
+
+                var timeMinutes = obj.RangeEndOfLog.Value - obj.RangeStartOfLog.Value;
+                obj.TimeMinutes = (int)timeMinutes.TotalMinutes;
+            }
         }
     }
 }

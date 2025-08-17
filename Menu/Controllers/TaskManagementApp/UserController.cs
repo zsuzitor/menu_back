@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
 using TaskManagementApp.Models;
 using Common.Models.Return;
+using Menu.Models.TaskManagementApp.Requests;
+using Nest;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -43,27 +45,27 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("add-new-user")]
         [HttpPut]
-        public async Task AddNewUser([FromForm] string userName, [FromForm] string mainAppUserEmail, [FromForm] long projectId)
+        public async Task AddNewUser([FromBody] AddNewUserRequest request)
         {
-            userName = _apiHealper.StringValidator(userName);
-            mainAppUserEmail = _apiHealper.StringValidator(mainAppUserEmail);
+            request.UserName = _apiHealper.StringValidator(request.UserName);
+            request.MainAppUserEmail = _apiHealper.StringValidator(request.MainAppUserEmail);
 
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     long? userIdForAdd = null;
-                    if (!string.IsNullOrWhiteSpace(mainAppUserEmail))
+                    if (!string.IsNullOrWhiteSpace(request.MainAppUserEmail))
                     {
-                        userIdForAdd = await _mainAppUserService.GetIdByEmailAsync(mainAppUserEmail);
+                        userIdForAdd = await _mainAppUserService.GetIdByEmailAsync(request.MainAppUserEmail);
                         if (userIdForAdd == null)
                         {
                             throw new SomeCustomException(Consts.ErrorConsts.UserInMainAppNotFound);
                         }
                     }
 
-                    var res = await _projectService.CreateUserAsync(projectId, userName
-                        , mainAppUserEmail, userIdForAdd, userInfo);
+                    var res = await _projectService.CreateUserAsync(request.ProjectId, request.UserName
+                        , request.MainAppUserEmail, userIdForAdd, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new ProjectUserReturn(res));
 
                 }, Response, _logger);
@@ -72,11 +74,10 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("change-user")]
         [HttpPatch]
-        public async Task ChangeUser([FromForm] long userId, [FromForm] string name
-            , [FromForm] string email, [FromForm] bool deactivated, [FromForm] bool isAdmin = false)
+        public async Task ChangeUser([FromBody] ChangeUserRequest request)
         {
-            name = _apiHealper.StringValidator(name);
-            email = _apiHealper.StringValidator(email);
+            request.Name = _apiHealper.StringValidator(request.Name);
+            request.Email = _apiHealper.StringValidator(request.Email);
 
 
             await _apiHealper.DoStandartSomething(
@@ -84,7 +85,7 @@ namespace Menu.Controllers.TaskManagementApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _projectUserService.ChangeAsync(userId, name, email, isAdmin, deactivated, userInfo);
+                    var res = await _projectUserService.ChangeAsync(request.UserId, request.Name, request.Email, request.IsAdmin, request.Deactivated, userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new BoolResultReturn(res != null));
 

@@ -3116,7 +3116,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".tempo-time-column {\r\n    display: flex;\r\n    flex-direction: column;\r\n    width: 110px;\r\n    gap: 5px;\r\n    border-right: 1px solid black;\r\n    background-color: lightsteelblue;\r\n\r\n}\r\n\r\n.tempo-time-column-header {\r\n    width: 110px;\r\n    text-align: center;\r\n}\r\n\r\n.tempo-time-column-one-content {\r\n    width: 110px;\r\n    height: 110px;\r\n    border: 1px solid black;\r\n    padding: 3px;\r\n\r\n}\r\n\r\n.tempo-time-column-one-content div {\r\n    overflow: hidden;\r\n}\r\n\r\n.tempo-time-page-main {\r\n    padding-top: 20px;\r\n    overflow-x: auto;\r\n}\r\n\r\n\r\n.tempo-time-block {\r\n    display: flex;\r\n}\r\n\r\n.tempo-time-column-add-btn {\r\n    text-align: center;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,sBAAsB;IACtB,YAAY;IACZ,QAAQ;IACR,6BAA6B;IAC7B,gCAAgC;;AAEpC;;AAEA;IACI,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,uBAAuB;IACvB,YAAY;;AAEhB;;AAEA;IACI,gBAAgB;AACpB;;AAEA;IACI,iBAAiB;IACjB,gBAAgB;AACpB;;;AAGA;IACI,aAAa;AACjB;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".tempo-time-column {\r\n    display: flex;\r\n    flex-direction: column;\r\n    width: 110px;\r\n    gap: 5px;\r\n    border-right: 1px solid black;\r\n    background-color: lightsteelblue;\r\n\r\n}\r\n\r\n.tempo-time-column-header {\r\n    width: 110px;\r\n    text-align: center;\r\n}\r\n\r\n.tempo-time-column-one-content {\r\n    width: 110px;\r\n    height: 110px;\r\n    border: 1px solid black;\r\n    padding: 3px;\r\n\r\n}\r\n\r\n.tempo-time-column-one-content div {\r\n    overflow: hidden;\r\n}\r\n\r\n.tempo-time-page-main {\r\n    padding-top: 20px;\r\n    overflow-x: auto;\r\n}\r\n\r\n\r\n.tempo-time-block {\r\n    display: flex;\r\n}\r\n\r\n.tempo-time-column-add-btn {\r\n    text-align: center;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".tempo-time-column {\r\n    display: flex;\r\n    flex-direction: column;\r\n    width: 110px;\r\n    gap: 5px;\r\n    /* border-right: 1px solid black; */\r\n    /* background-color: lightsteelblue; */\r\n\r\n}\r\n\r\n.tempo-time-column-header {\r\n    width: 110px;\r\n    text-align: center;\r\n    display: flex;\r\n    flex-direction: column;\r\n    border-radius: 7px 7px 0 0;\r\n    background-color: white;\r\n}\r\n\r\n.tempo-time-column-tasks {\r\n    border-radius: 0px 0px 7px 7px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 2px;\r\n}\r\n\r\n.tempo-time-column-one-content {\r\n    width: 110px;\r\n    height: 90px;\r\n    /* border: 1px solid black; */\r\n    padding: 3px;\r\n    background-color: white;\r\n    display: flex;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.tempo-time-column-one-content .head {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.tempo-time-column-one-content .more-buttons {\r\n    display: none;\r\n    /* position: absolute; */\r\n    width: 10px;\r\n    height: 10px;\r\n    /* top: -30px;\r\n    right: -100px; */\r\n    cursor: pointer;\r\n    /* border-radius: 50%;\r\n    border: 2px solid #2d85e4;\r\n    height: 14px;\r\n    width: 14px; */\r\n}\r\n\r\n.tempo-time-column-one-content:hover .more-buttons {\r\n    display: flex;\r\n    justify-content: right;\r\n}\r\n\r\n.tempo-time-column-one-content .task-info {\r\n    font-weight: bold;\r\n    display: flex;\r\n    flex-grow: 2;\r\n}\r\n\r\n.tempo-time-column-one-content .time-more-block {\r\n\r\n    /* line-height: 0; */\r\n    display: flex;\r\n}\r\n\r\n.tempo-time-column-one-content .task-info a {\r\n    height: 16px;\r\n    width: 100%;\r\n}\r\n\r\n.tempo-time-column-one-content .comment {\r\n    height: 18px;\r\n    line-height: 1;\r\n    overflow: hidden;\r\n}\r\n\r\n.tempo-time-column-one-content .time {\r\n    font-size: 10px;\r\n    font-weight: bold;\r\n    text-align: right;\r\n}\r\n\r\n.tempo-time-column-one-content div {\r\n    /* overflow: hidden; */\r\n}\r\n\r\n.tempo-time-page-main {\r\n    padding-top: 20px;\r\n    overflow-x: auto;\r\n}\r\n\r\n\r\n.tempo-time-block {\r\n    display: flex;\r\n    padding-top: 30px;\r\n    gap: 2px;\r\n}\r\n\r\n.tempo-time-column-add-btn {\r\n    text-align: center;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,sBAAsB;IACtB,YAAY;IACZ,QAAQ;IACR,mCAAmC;IACnC,sCAAsC;;AAE1C;;AAEA;IACI,YAAY;IACZ,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,0BAA0B;IAC1B,uBAAuB;AAC3B;;AAEA;IACI,8BAA8B;IAC9B,aAAa;IACb,sBAAsB;IACtB,QAAQ;AACZ;;AAEA;IACI,YAAY;IACZ,YAAY;IACZ,6BAA6B;IAC7B,YAAY;IACZ,uBAAuB;IACvB,aAAa;IACb,sBAAsB;IACtB,kBAAkB;AACtB;;AAEA;;IAEI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,aAAa;IACb,wBAAwB;IACxB,WAAW;IACX,YAAY;IACZ;oBACgB;IAChB,eAAe;IACf;;;kBAGc;AAClB;;AAEA;IACI,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,iBAAiB;IACjB,aAAa;IACb,YAAY;AAChB;;AAEA;;IAEI,oBAAoB;IACpB,aAAa;AACjB;;AAEA;IACI,YAAY;IACZ,WAAW;AACf;;AAEA;IACI,YAAY;IACZ,cAAc;IACd,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,iBAAiB;IACjB,iBAAiB;AACrB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,iBAAiB;IACjB,gBAAgB;AACpB;;;AAGA;IACI,aAAa;IACb,iBAAiB;IACjB,QAAQ;AACZ;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".tempo-time-column {\r\n    display: flex;\r\n    flex-direction: column;\r\n    width: 110px;\r\n    gap: 5px;\r\n    /* border-right: 1px solid black; */\r\n    /* background-color: lightsteelblue; */\r\n\r\n}\r\n\r\n.tempo-time-column-header {\r\n    width: 110px;\r\n    text-align: center;\r\n    display: flex;\r\n    flex-direction: column;\r\n    border-radius: 7px 7px 0 0;\r\n    background-color: white;\r\n}\r\n\r\n.tempo-time-column-tasks {\r\n    border-radius: 0px 0px 7px 7px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 2px;\r\n}\r\n\r\n.tempo-time-column-one-content {\r\n    width: 110px;\r\n    height: 90px;\r\n    /* border: 1px solid black; */\r\n    padding: 3px;\r\n    background-color: white;\r\n    display: flex;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.tempo-time-column-one-content .head {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.tempo-time-column-one-content .more-buttons {\r\n    display: none;\r\n    /* position: absolute; */\r\n    width: 10px;\r\n    height: 10px;\r\n    /* top: -30px;\r\n    right: -100px; */\r\n    cursor: pointer;\r\n    /* border-radius: 50%;\r\n    border: 2px solid #2d85e4;\r\n    height: 14px;\r\n    width: 14px; */\r\n}\r\n\r\n.tempo-time-column-one-content:hover .more-buttons {\r\n    display: flex;\r\n    justify-content: right;\r\n}\r\n\r\n.tempo-time-column-one-content .task-info {\r\n    font-weight: bold;\r\n    display: flex;\r\n    flex-grow: 2;\r\n}\r\n\r\n.tempo-time-column-one-content .time-more-block {\r\n\r\n    /* line-height: 0; */\r\n    display: flex;\r\n}\r\n\r\n.tempo-time-column-one-content .task-info a {\r\n    height: 16px;\r\n    width: 100%;\r\n}\r\n\r\n.tempo-time-column-one-content .comment {\r\n    height: 18px;\r\n    line-height: 1;\r\n    overflow: hidden;\r\n}\r\n\r\n.tempo-time-column-one-content .time {\r\n    font-size: 10px;\r\n    font-weight: bold;\r\n    text-align: right;\r\n}\r\n\r\n.tempo-time-column-one-content div {\r\n    /* overflow: hidden; */\r\n}\r\n\r\n.tempo-time-page-main {\r\n    padding-top: 20px;\r\n    overflow-x: auto;\r\n}\r\n\r\n\r\n.tempo-time-block {\r\n    display: flex;\r\n    padding-top: 30px;\r\n    gap: 2px;\r\n}\r\n\r\n.tempo-time-column-add-btn {\r\n    text-align: center;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71645,23 +71645,46 @@ const AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData 
 const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
 __webpack_require__(/*! ./AddWorkTimeLog.css */ "./src/Apps/TaskManagementApp/Components/AddWorkTimeLog/AddWorkTimeLog.css");
 const AddWorkTimeLog = (props) => {
-    const [taskId, setTaskId] = (0, react_1.useState)(props.TaskId || 0);
-    const [timeLogText, setTimeLogText] = (0, react_1.useState)('');
-    const [range, setRange] = (0, react_1.useState)(false);
-    const [timeLogVal, setTimeLogVal] = (0, react_1.useState)('');
-    const [timeLogDate, setTimeLogDate] = (0, react_1.useState)(props.DefaultDate || new Date());
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+    let helper = new Helper_1.Helper();
+    const [taskId, setTaskId] = (0, react_1.useState)(props.TaskId || ((_a = props.TimeLog) === null || _a === void 0 ? void 0 : _a.WorkTaskId) || 0);
+    const [timeLogText, setTimeLogText] = (0, react_1.useState)(((_b = props.TimeLog) === null || _b === void 0 ? void 0 : _b.Comment) || '');
+    const [range, setRange] = (0, react_1.useState)(((_c = props.TimeLog) === null || _c === void 0 ? void 0 : _c.RangeStartOfLog) ? true : false);
+    const [timeLogVal, setTimeLogVal] = (0, react_1.useState)(((_d = props.TimeLog) === null || _d === void 0 ? void 0 : _d.TimeMinutes) ? helper.MinutesToHours2(props.TimeLog.TimeMinutes) : '');
+    const [timeLogDate, setTimeLogDate] = (0, react_1.useState)(((_e = props.TimeLog) === null || _e === void 0 ? void 0 : _e.DayOfLog) || props.DefaultDate || new Date());
     // const [rangeStart, setRangeStart] = useState<Date>(props.DefaultDate || new Date());
     // const [rangeEnd, setRangeEnd] = useState<Date>(props.DefaultDate || new Date());
     // const [timeLogValide, setTimeLogValide] = useState(false);
-    const [startTime, setStartTime] = (0, react_1.useState)('09:00');
-    const [endTime, setEndTime] = (0, react_1.useState)('18:00');
-    const [duration, setDuration] = (0, react_1.useState)(0);
+    const [startTime, setStartTime] = (0, react_1.useState)(helper.DateToGetHMInput((_f = props.TimeLog) === null || _f === void 0 ? void 0 : _f.RangeStartOfLog) || '09:00');
+    const [endTime, setEndTime] = (0, react_1.useState)(helper.DateToGetHMInput((_g = props.TimeLog) === null || _g === void 0 ? void 0 : _g.RangeEndOfLog) || '18:00');
     (0, react_1.useEffect)(() => {
-        setTaskId(props.TaskId || 0);
-    }, [props.TaskId]);
+        var _a;
+        setTimeLogText(((_a = props.TimeLog) === null || _a === void 0 ? void 0 : _a.Comment) || '');
+    }, [(_h = props.TimeLog) === null || _h === void 0 ? void 0 : _h.Comment]);
     (0, react_1.useEffect)(() => {
-        setTimeLogDate(props.DefaultDate || new Date());
-    }, [props.DefaultDate]);
+        var _a;
+        setRange(((_a = props.TimeLog) === null || _a === void 0 ? void 0 : _a.RangeStartOfLog) ? true : false);
+    }, [(_j = props.TimeLog) === null || _j === void 0 ? void 0 : _j.RangeStartOfLog]);
+    (0, react_1.useEffect)(() => {
+        var _a;
+        setTimeLogVal(((_a = props.TimeLog) === null || _a === void 0 ? void 0 : _a.TimeMinutes) ? helper.MinutesToHours2(props.TimeLog.TimeMinutes) : '');
+    }, [(_k = props.TimeLog) === null || _k === void 0 ? void 0 : _k.TimeMinutes]);
+    (0, react_1.useEffect)(() => {
+        var _a;
+        setStartTime(helper.DateToGetHMInput((_a = props.TimeLog) === null || _a === void 0 ? void 0 : _a.RangeStartOfLog) || '09:00');
+    }, [(_l = props.TimeLog) === null || _l === void 0 ? void 0 : _l.RangeStartOfLog]);
+    (0, react_1.useEffect)(() => {
+        var _a;
+        setEndTime(helper.DateToGetHMInput((_a = props.TimeLog) === null || _a === void 0 ? void 0 : _a.RangeEndOfLog) || '18:00');
+    }, [(_m = props.TimeLog) === null || _m === void 0 ? void 0 : _m.RangeEndOfLog]);
+    (0, react_1.useEffect)(() => {
+        var _a;
+        setTaskId(props.TaskId || ((_a = props.TimeLog) === null || _a === void 0 ? void 0 : _a.WorkTaskId) || 0);
+    }, [props.TaskId, (_o = props.TimeLog) === null || _o === void 0 ? void 0 : _o.WorkTaskId]);
+    (0, react_1.useEffect)(() => {
+        var _a;
+        setTimeLogDate(((_a = props.TimeLog) === null || _a === void 0 ? void 0 : _a.DayOfLog) || props.DefaultDate || new Date());
+    }, [props.DefaultDate, (_p = props.TimeLog) === null || _p === void 0 ? void 0 : _p.DayOfLog]);
     function parseTime(input) {
         const regex = /^(?:(\d+)h\s*)?(?:(\d+)m\s*)?$/i;
         const match = input.match(regex);
@@ -71670,6 +71693,10 @@ const AddWorkTimeLog = (props) => {
         const hours = match[1] ? parseInt(match[1], 10) : 0;
         const minutes = match[2] ? parseInt(match[2], 10) : 0;
         return { hours, minutes };
+    }
+    function parseTimeWithMin(input) {
+        var time = parseTime(input);
+        return (time.hours * 60 + time.minutes);
     }
     function formatDateToInput(date) {
         const help = new Helper_1.Helper();
@@ -71689,17 +71716,35 @@ const AddWorkTimeLog = (props) => {
     };
     const handleStartTimeChange = (newStartTime) => {
         setStartTime(newStartTime);
-        setDuration(calculateDuration(newStartTime, endTime));
+        var hStart = parseInt(newStartTime.split(':')[0]);
+        var mStart = parseInt(newStartTime.split(':')[1]);
+        let minutesStart = hStart * 60 + mStart;
+        var hEnd = parseInt(endTime.split(':')[0]);
+        var mEnd = parseInt(endTime.split(':')[1]);
+        let minutesEnd = hEnd * 60 + mEnd;
+        let m = minutesEnd - minutesStart;
+        var t = helper.MinutesToHours1(m);
+        setTimeLogVal(`${t.h}h ${t.m}m`);
     };
     const handleEndTimeChange = (newEndTime) => {
         setEndTime(newEndTime);
-        setDuration(calculateDuration(startTime, newEndTime));
+        var hStart = parseInt(startTime.split(':')[0]);
+        var mStart = parseInt(startTime.split(':')[1]);
+        let minutesStart = hStart * 60 + mStart;
+        var hEnd = parseInt(newEndTime.split(':')[0]);
+        var mEnd = parseInt(newEndTime.split(':')[1]);
+        let minutesEnd = hEnd * 60 + mEnd;
+        let m = minutesEnd - minutesStart;
+        var t = helper.MinutesToHours1(m);
+        setTimeLogVal(`${t.h}h ${t.m}m`);
     };
     const getDateWithoutTime = (date) => {
         return (new Helper_1.Helper).GetDateWithoutTime(date);
     };
     const parsedDate = parseTime(timeLogVal);
     const valideTime = parsedDate.hours > 0 || parsedDate.minutes > 0;
+    console.log(timeLogDate);
+    console.log(formatDateToInput(timeLogDate));
     return react_1.default.createElement("div", { className: 'add-work-time-window' },
         props.TaskId || react_1.default.createElement("div", null,
             react_1.default.createElement("span", null, "\u0417\u0430\u0434\u0430\u0447\u0430"),
@@ -71714,20 +71759,13 @@ const AddWorkTimeLog = (props) => {
                 react_1.default.createElement("span", null, "\u041D\u0430\u0447\u0430\u043B\u043E:"),
                 react_1.default.createElement("input", { type: "time", value: startTime, onChange: (e) => handleStartTimeChange(e.target.value) }),
                 react_1.default.createElement("span", null, "\u041E\u043A\u043E\u043D\u0447\u0430\u043D\u0438\u0435:"),
-                react_1.default.createElement("input", { type: "time", value: endTime, onChange: (e) => handleEndTimeChange(e.target.value) }),
-                react_1.default.createElement("p", null,
-                    "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C: ",
-                    duration,
-                    " \u043C\u0438\u043D\u0443\u0442 (",
-                    Math.floor(duration / 60),
-                    " \u0447. ",
-                    duration % 60,
-                    " \u043C\u0438\u043D.)"))
+                react_1.default.createElement("input", { type: "time", value: endTime, onChange: (e) => handleEndTimeChange(e.target.value) }))
             :
-                react_1.default.createElement("div", null,
-                    react_1.default.createElement("span", null, "\u041E\u0442\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043E"),
-                    react_1.default.createElement("input", { className: 'form-input-v2', type: 'text', value: timeLogVal, placeholder: "x:h y:m", onChange: e => setTimeLogVal(e.target.value) }),
-                    !valideTime && react_1.default.createElement("p", { className: 'add-work-time-error' }, "\u041D\u0435 \u0432\u0430\u043B\u0438\u0434\u043D\u044B\u0439 \u0444\u043E\u0440\u043C\u0430\u0442 \u0441\u043F\u0438\u0441\u0430\u043D\u0438\u044F, \u0432\u0435\u0440\u043D\u044B\u0439 x:h y:m")),
+                react_1.default.createElement(react_1.default.Fragment, null),
+        react_1.default.createElement("div", null,
+            react_1.default.createElement("span", null, "\u041E\u0442\u0440\u0430\u0431\u043E\u0442\u0430\u043D\u043E"),
+            react_1.default.createElement("input", { readOnly: range, className: 'form-input-v2', type: 'text', value: timeLogVal, placeholder: "x:h y:m", onChange: e => setTimeLogVal(e.target.value) }),
+            !valideTime && react_1.default.createElement("p", { className: 'add-work-time-error' }, "\u041D\u0435 \u0432\u0430\u043B\u0438\u0434\u043D\u044B\u0439 \u0444\u043E\u0440\u043C\u0430\u0442 \u0441\u043F\u0438\u0441\u0430\u043D\u0438\u044F, \u0432\u0435\u0440\u043D\u044B\u0439 x:h y:m")),
         react_1.default.createElement("div", null,
             react_1.default.createElement("span", null, "\u0414\u0430\u0442\u0430"),
             react_1.default.createElement("input", { 
@@ -71744,6 +71782,7 @@ const AddWorkTimeLog = (props) => {
                 } })),
         react_1.default.createElement("div", { className: 'buttons-block' },
             react_1.default.createElement("button", { className: 'button button-blue', onClick: () => {
+                    var _a;
                     let startRange = null;
                     let endRange = null;
                     let minutes = 0;
@@ -71754,8 +71793,7 @@ const AddWorkTimeLog = (props) => {
                             new Date(getDateWithoutTime(timeLogDate).setHours(parseInt(endTime.split(':')[0]), parseInt(endTime.split(':')[1])));
                     }
                     else {
-                        let time = parseTime(timeLogVal);
-                        minutes = (time.hours * 60 + time.minutes);
+                        minutes = parseTimeWithMin(timeLogVal);
                         if (minutes == 0) {
                             let alertFactory = new AlertData_1.AlertData();
                             let alert = alertFactory.GetDefaultError("Не валидный формат даты, верный x:h y:m");
@@ -71763,7 +71801,12 @@ const AddWorkTimeLog = (props) => {
                             return false;
                         }
                     }
-                    props.CreateTimeLog(taskId, timeLogText, minutes, timeLogDate, endRange, startRange);
+                    if ((_a = props.TimeLog) === null || _a === void 0 ? void 0 : _a.Id) {
+                        props.UpdateTimeLog(props.TimeLog.Id, taskId, timeLogText, minutes, timeLogDate, endRange, startRange);
+                    }
+                    else {
+                        props.CreateTimeLog(taskId, timeLogText, minutes, timeLogDate, endRange, startRange);
+                    }
                 } }, "\u0420\u0430\u0431\u043E\u0442\u0430"),
             react_1.default.createElement("button", { className: 'button button-grey', onClick: () => props.Close() }, "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C")));
 };
@@ -74119,7 +74162,7 @@ const TaskManagementMain = (props) => {
             react_1.default.createElement("div", { onClick: () => setVisibleList(v => !v), className: "hide-management-projects-menu-button" }, visibleList ? '<' : '>'),
             react_1.default.createElement("div", { className: 'menu-main-inner' },
                 react_1.default.createElement(ProjectsList_1.default, { Projects: props.ProjectsList, CurrentProjectId: props.CurrentProjectId }),
-                props.CurrentProjectId && react_1.default.createElement("div", { className: 'links' },
+                props.CurrentProjectId > 0 && react_1.default.createElement("div", { className: 'links' },
                     react_1.default.createElement("a", { href: '/task-management/proj-' + props.CurrentProjectId + '/time-log', onClick: (e) => {
                             e.preventDefault();
                             navigate("/task-management/proj-" + props.CurrentProjectId + '/time-log');
@@ -74251,7 +74294,7 @@ const AddWorkTimeLog_1 = __importDefault(__webpack_require__(/*! ../AddWorkTimeL
 const PopupWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/PopupWindow/PopupWindow */ "./src/components/Body/PopupWindow/PopupWindow.tsx"));
 __webpack_require__(/*! ./TempoPage.css */ "./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.css");
 const TempoPage = (props) => {
-    const [showAddWorkTimeNew, setShowAddWorkTimeNew] = (0, react_1.useState)(false);
+    const [showAddWorkTimeNew, setShowAddWorkTimeNew] = (0, react_1.useState)(-1); //-1 не показывать, 0 создание, >0 id лога для редактирования
     // const [rageStart, setRageStart] = useState(7);
     // const [rageEnd, setRageEnd] = useState(19);
     const [defaultDate, setDefaultDate] = (0, react_1.useState)(new Date());
@@ -74269,9 +74312,7 @@ const TempoPage = (props) => {
         return react_1.default.createElement("div", null);
     }
     const setClearDate = (dt) => {
-        let newDt = new Date(dt);
-        newDt.setHours(0, 0, 0, 0);
-        return newDt;
+        return new Helper_1.Helper().GetDateWithoutTime(dt);
     };
     const currentDate = setClearDate(props.DateFrom);
     const lastDate = setClearDate(props.DateTo);
@@ -74328,7 +74369,7 @@ const TempoPage = (props) => {
                     }
                 } })),
         react_1.default.createElement("div", { className: 'tempo-time-block' },
-            showAddWorkTimeNew ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowAddWorkTimeNew(false), IsHeightWindow: false, Title: '\u0420\u0430\u0431\u043E\u0442\u0430', InnerContent: () => react_1.default.createElement(AddWorkTimeLog_1.default, { Close: () => setShowAddWorkTimeNew(false), TaskId: null, DefaultDate: defaultDate, CreateTimeLog: props.CreateTimeLog }) }) : react_1.default.createElement(react_1.default.Fragment, null),
+            showAddWorkTimeNew != -1 ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowAddWorkTimeNew(-1), IsHeightWindow: false, Title: '\u0420\u0430\u0431\u043E\u0442\u0430', InnerContent: () => react_1.default.createElement(AddWorkTimeLog_1.default, { Close: () => setShowAddWorkTimeNew(-1), TaskId: null, DefaultDate: defaultDate, CreateTimeLog: props.CreateTimeLog, TimeLog: showAddWorkTimeNew ? props.WorkTimeLog.find(x => x.Id == showAddWorkTimeNew) : null, UpdateTimeLog: props.UpdateTimeLog }) }) : react_1.default.createElement(react_1.default.Fragment, null),
             datesForTable.map(x => {
                 const helper = new Helper_1.Helper();
                 let val = helper.FormatDateToDM(x);
@@ -74338,26 +74379,31 @@ const TempoPage = (props) => {
                     minuteTotal += element.TimeMinutes;
                 });
                 return react_1.default.createElement("div", { key: `${x.getTime()}`, className: 'tempo-time-column' },
-                    react_1.default.createElement("div", { className: 'tempo-time-column-header' }, val),
+                    react_1.default.createElement("div", { className: 'tempo-time-column-header' },
+                        react_1.default.createElement("div", null, val),
+                        react_1.default.createElement("div", null, new Helper_1.Helper().MinutesToHours(works.reduce((sum, item) => sum + item.TimeMinutes, 0)))),
                     react_1.default.createElement("div", { className: 'tempo-time-column-tasks' }, works.map(w => react_1.default.createElement("div", { key: w.Id, className: 'tempo-time-column-one-content' },
-                        react_1.default.createElement("div", null,
-                            react_1.default.createElement(PopupWindow_1.default, { ButtonContent: react_1.default.createElement("button", null, "..."), PopupContent: react_1.default.createElement("div", { className: 'filters-window' },
-                                    react_1.default.createElement("div", null,
-                                        react_1.default.createElement("button", { onClick: x => props.DeleteTime(w.Id) }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")),
-                                    react_1.default.createElement("div", null,
-                                        react_1.default.createElement("button", { onClick: x => alert('todo') }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C"))) })),
-                        react_1.default.createElement("div", null,
-                            react_1.default.createElement("a", { href: '/task-management/proj-' + props.ProjectId + '/task-' + w.WorkTaskId, onClick: (e) => {
-                                    e.preventDefault();
-                                    navigate("/task-management/proj-" + props.ProjectId + '/task-' + w.WorkTaskId);
-                                } }, w.WorkTaskId)),
-                        react_1.default.createElement("div", null, w.Comment),
-                        react_1.default.createElement("div", null, new Helper_1.Helper().MinutesToHours(w.TimeMinutes)),
-                        w.RangeStartOfLog && react_1.default.createElement("div", null, `С ${(new Helper_1.Helper().DateToGetHM(w.RangeStartOfLog))} ПО ${(new Helper_1.Helper().DateToGetHM(w.RangeEndOfLog))}`)))),
+                        react_1.default.createElement("div", { className: 'head' },
+                            react_1.default.createElement("div", { className: 'task-info' },
+                                react_1.default.createElement("a", { href: '/task-management/proj-' + props.ProjectId + '/task-' + w.WorkTaskId, onClick: (e) => {
+                                        e.preventDefault();
+                                        navigate("/task-management/proj-" + props.ProjectId + '/task-' + w.WorkTaskId);
+                                    } }, w.WorkTaskId)),
+                            react_1.default.createElement("div", { className: 'time-more-block' },
+                                react_1.default.createElement(PopupWindow_1.default, { ButtonContent: react_1.default.createElement("div", { className: 'more-buttons' }, "..."), PopupContent: react_1.default.createElement("div", { className: 'filters-window' },
+                                        react_1.default.createElement("div", null,
+                                            react_1.default.createElement("button", { onClick: x => props.DeleteTime(w.Id) }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")),
+                                        react_1.default.createElement("div", null,
+                                            react_1.default.createElement("button", { onClick: x => setShowAddWorkTimeNew(w.Id) }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C")),
+                                        react_1.default.createElement("div", null,
+                                            react_1.default.createElement("button", { onClick: x => props.CopyTime(w.Id) }, "\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C"))) }))),
+                        react_1.default.createElement("div", { className: 'comment', title: w.Comment }, w.Comment),
+                        react_1.default.createElement("div", { className: 'time' }, new Helper_1.Helper().MinutesToHours(w.TimeMinutes)),
+                        w.RangeStartOfLog && react_1.default.createElement("div", { className: 'time' }, `С ${(new Helper_1.Helper().DateToGetHM(w.RangeStartOfLog))} ПО ${(new Helper_1.Helper().DateToGetHM(w.RangeEndOfLog))}`)))),
                     react_1.default.createElement("div", { className: 'tempo-time-column-add-btn' },
-                        react_1.default.createElement("button", { onClick: () => {
+                        react_1.default.createElement("button", { className: 'button button-blue', onClick: () => {
                                 setDefaultDate(x);
-                                setShowAddWorkTimeNew(true);
+                                setShowAddWorkTimeNew(0);
                             } }, "\u0420\u0430\u0431\u043E\u0442\u0430")));
             })));
 };
@@ -74405,6 +74451,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
     res.DeleteTime = (timeId) => {
         dispatch(window.G_TaskManagementWorkTimeController.DeleteTimeTempoLogRedux(timeId));
+    };
+    res.CopyTime = (timeId) => {
+        dispatch(window.G_TaskManagementWorkTimeController.CopyTimeTempoLogRedux(timeId));
+    };
+    res.UpdateTimeLog = (id, taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog) => {
+        dispatch(window.G_TaskManagementWorkTimeController.UpdateTimeTempoLogRedux(id, taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog));
     };
     return res;
 };
@@ -74760,7 +74812,7 @@ exports.UpdateCurrentProjectTaskStatusActionCreator = UpdateCurrentProjectTaskSt
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ClearUserTempoTimeLogActionCreator = exports.ClearUserTempoTimeLogActionName = exports.SetUserTempoTimeLogDateToActionCreator = exports.SetUserTempoTimeLogDateToActionName = exports.SetUserTempoTimeLogDateFromActionCreator = exports.SetUserTempoTimeLogDateFromActionName = exports.SetUserTempoTimeLogDataActionCreator = exports.SetUserTempoTimeLogDataActionName = exports.ClearUserTimeLogActionCreator = exports.ClearUserTimeLogActionName = exports.SetUserTimeLogDateToActionCreator = exports.SetUserTimeLogDateToActionName = exports.SetUserTimeLogDateFromActionCreator = exports.SetUserTimeLogDateFromActionName = exports.SetUserTimeLogDataActionCreator = exports.SetUserTimeLogDataActionName = exports.ClearProjectTimeLogActionCreator = exports.ClearProjectTimeLogActionName = exports.SetProjectTimeLogDateToActionCreator = exports.SetProjectTimeLogDateToActionName = exports.SetProjectTimeLogDateFromActionCreator = exports.SetProjectTimeLogDateFromActionName = exports.SetProjectTimeLogDataActionCreator = exports.SetProjectTimeLogDataActionName = exports.DeleteTimeLogActionCreator = exports.DeleteTimeLogActionName = exports.DeleteTimeLogActionParam = exports.SetTaskTimeLogActionCreator = exports.SetTaskTimeLogActionName = exports.SetTaskTimeLogActionParam = exports.UpdateTimeLogActionCreator = exports.UpdateTimeLogActionName = exports.DelTimeLogTempoActionCreator = exports.DelTimeLogTempoActionName = exports.AddNewTimeLogTempoActionCreator = exports.AddNewTimeLogTempoActionName = exports.AddNewTimeLogTaskActionCreator = exports.AddNewTimeLogTaskActionName = void 0;
+exports.ClearUserTempoTimeLogActionCreator = exports.ClearUserTempoTimeLogActionName = exports.SetUserTempoTimeLogDateToActionCreator = exports.SetUserTempoTimeLogDateToActionName = exports.SetUserTempoTimeLogDateFromActionCreator = exports.SetUserTempoTimeLogDateFromActionName = exports.SetUserTempoTimeLogDataActionCreator = exports.SetUserTempoTimeLogDataActionName = exports.ClearUserTimeLogActionCreator = exports.ClearUserTimeLogActionName = exports.SetUserTimeLogDateToActionCreator = exports.SetUserTimeLogDateToActionName = exports.SetUserTimeLogDateFromActionCreator = exports.SetUserTimeLogDateFromActionName = exports.SetUserTimeLogDataActionCreator = exports.SetUserTimeLogDataActionName = exports.ClearProjectTimeLogActionCreator = exports.ClearProjectTimeLogActionName = exports.SetProjectTimeLogDateToActionCreator = exports.SetProjectTimeLogDateToActionName = exports.SetProjectTimeLogDateFromActionCreator = exports.SetProjectTimeLogDateFromActionName = exports.SetProjectTimeLogDataActionCreator = exports.SetProjectTimeLogDataActionName = exports.DeleteTimeLogActionCreator = exports.DeleteTimeLogActionName = exports.DeleteTimeLogActionParam = exports.SetTaskTimeLogActionCreator = exports.SetTaskTimeLogActionName = exports.SetTaskTimeLogActionParam = exports.UpdateTimeLogActionCreator = exports.UpdateTimeLogActionName = exports.DelTimeLogTempoActionCreator = exports.DelTimeLogTempoActionName = exports.UpdateTimeLogTempoActionCreator = exports.UpdateTimeLogTempoActionName = exports.AddNewTimeLogTempoActionCreator = exports.AddNewTimeLogTempoActionName = exports.AddNewTimeLogTaskActionCreator = exports.AddNewTimeLogTaskActionName = void 0;
 exports.AddNewTimeLogTaskActionName = 'AddNewTimeLogTaskAction';
 function AddNewTimeLogTaskActionCreator(time) {
     return { type: exports.AddNewTimeLogTaskActionName, payload: time };
@@ -74772,6 +74824,12 @@ function AddNewTimeLogTempoActionCreator(time) {
     return { type: exports.AddNewTimeLogTempoActionName, payload: time };
 }
 exports.AddNewTimeLogTempoActionCreator = AddNewTimeLogTempoActionCreator;
+;
+exports.UpdateTimeLogTempoActionName = 'UpdateTimeLogTempoAction';
+function UpdateTimeLogTempoActionCreator(time) {
+    return { type: exports.UpdateTimeLogTempoActionName, payload: time };
+}
+exports.UpdateTimeLogTempoActionCreator = UpdateTimeLogTempoActionCreator;
 ;
 exports.DelTimeLogTempoActionName = 'DelTimeLogTempoAction';
 function DelTimeLogTempoActionCreator(timeId) {
@@ -75624,7 +75682,8 @@ class TaskManagementTaskController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/task/add-new-task'
+                Url: G_PathToServer + 'api/taskmanagement/task/add-new-task',
+                ContentType: 'body'
             });
         };
         this.UpdateTaskRedux = (task) => {
@@ -75657,7 +75716,8 @@ class TaskManagementTaskController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/task/update-task'
+                Url: G_PathToServer + 'api/taskmanagement/task/update-task',
+                ContentType: 'body'
             });
         };
         this.LoadTasksRedux = (taskFilter) => {
@@ -75956,12 +76016,13 @@ class TaskManagementUserController {
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "PUT",
+                Type: ControllerHelper_1.ControllerHelper.PutHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/user/add-new-user'
+                Url: G_PathToServer + 'api/taskmanagement/user/add-new-user',
+                ContentType: 'body'
             });
         };
         this.ChangeProjectUserRedux = (user) => {
@@ -75993,7 +76054,8 @@ class TaskManagementUserController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/user/change-user'
+                Url: G_PathToServer + 'api/taskmanagement/user/change-user',
+                ContentType: 'body'
             });
         };
     }
@@ -76061,9 +76123,9 @@ class TaskManagementWorkTimeController {
                 "taskId": taskId,
                 "text": text,
                 "minutes": minutes,
-                "dayOfLog": dayOfLog.toISOString(),
-                "rangeEndOfLog": new ControllerHelper_1.ControllerHelper().ToZeroDate(rangeEndOfLog).toISOString(),
-                "rangeStartOfLog": new ControllerHelper_1.ControllerHelper().ToZeroDate(rangeStartOfLog).toISOString(),
+                "dayOfLog": new ControllerHelper_1.ControllerHelper().ToZeroDate(dayOfLog).toISOString(),
+                "rangeEndOfLog": rangeEndOfLog ? new ControllerHelper_1.ControllerHelper().ToZeroDate(rangeEndOfLog).toISOString() : null,
+                "rangeStartOfLog": rangeStartOfLog ? new ControllerHelper_1.ControllerHelper().ToZeroDate(rangeStartOfLog).toISOString() : null,
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
@@ -76073,6 +76135,42 @@ class TaskManagementWorkTimeController {
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: G_PathToServer + 'api/taskmanagement/worktimelog/create',
+                ContentType: 'body'
+            });
+        };
+        this.UpdateTimeTempoLogRedux = (id, taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog) => {
+            return (dispatch, getState) => {
+                this.preloader(true);
+                this.UpdateTimeLog(id, taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog, (error, data) => {
+                    this.preloader(false);
+                    if (error) {
+                        return;
+                    }
+                    if (data === null || data === void 0 ? void 0 : data.Id) {
+                        let dt = new TimeLog_1.TimeLog().FillByBackModel(data);
+                        dispatch((0, TimeLogAction_1.UpdateTimeLogTempoActionCreator)(dt));
+                    }
+                });
+            };
+        };
+        this.UpdateTimeLog = (id, taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog, onSuccess) => {
+            let data = {
+                "id": id,
+                "taskId": taskId,
+                "text": text,
+                "minutes": minutes,
+                "dayOfLog": new ControllerHelper_1.ControllerHelper().ToZeroDate(dayOfLog).toISOString(),
+                "rangeEndOfLog": rangeEndOfLog ? new ControllerHelper_1.ControllerHelper().ToZeroDate(rangeEndOfLog).toISOString() : null,
+                "rangeStartOfLog": rangeStartOfLog ? new ControllerHelper_1.ControllerHelper().ToZeroDate(rangeStartOfLog).toISOString() : null,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: G_PathToServer + 'api/taskmanagement/worktimelog/update',
                 ContentType: 'body'
             });
         };
@@ -76088,6 +76186,27 @@ class TaskManagementWorkTimeController {
                         dispatch((0, TimeLogAction_1.DelTimeLogTempoActionCreator)(timeId));
                     }
                 });
+            };
+        };
+        this.CopyTimeTempoLogRedux = (timeId) => {
+            return (dispatch, getState) => {
+                this.preloader(true);
+                let state = getState();
+                var oldTime = state.TaskManagementApp.TempoState.TimeLogs.find(x => x.Id == timeId);
+                if (oldTime) {
+                    // let newTime = new TimeLog();
+                    // newTime.Copy(oldTime);
+                    this.CreateTimeLog(oldTime.WorkTaskId, oldTime.Comment, oldTime.TimeMinutes, oldTime.DayOfLog, oldTime.RangeEndOfLog, oldTime.RangeStartOfLog, (error, data) => {
+                        this.preloader(false);
+                        if (error) {
+                            return;
+                        }
+                        if (data === null || data === void 0 ? void 0 : data.Id) {
+                            let dt = new TimeLog_1.TimeLog().FillByBackModel(data);
+                            dispatch((0, TimeLogAction_1.AddNewTimeLogTempoActionCreator)(dt));
+                        }
+                    });
+                }
             };
         };
         this.DeleteTimeLog = (timeId, onSuccess) => {
@@ -76151,8 +76270,8 @@ class TaskManagementWorkTimeController {
         this.LoadTimeLogsForProject = (projectId, userId, dateFrom, dateTo, onSuccess) => {
             let data = {
                 "id": projectId,
-                "dateFrom": dateFrom.toISOString(),
-                "dateTo": dateTo.toISOString(),
+                "dateFrom": new ControllerHelper_1.ControllerHelper().ToZeroDate(dateFrom).toISOString(),
+                "dateTo": new ControllerHelper_1.ControllerHelper().ToZeroDate(dateTo).toISOString(),
                 "userId": userId || null
             };
             G_AjaxHelper.GoAjaxRequest({
@@ -76198,8 +76317,8 @@ class TaskManagementWorkTimeController {
         this.LoadTimeLogsForUser = (projectId, userId, dateFrom, dateTo, onSuccess) => {
             let data = {
                 "projectId": projectId || null,
-                "dateFrom": dateFrom.toISOString(),
-                "dateTo": dateTo.toISOString(),
+                "dateFrom": new ControllerHelper_1.ControllerHelper().ToZeroDate(dateFrom).toISOString(),
+                "dateTo": new ControllerHelper_1.ControllerHelper().ToZeroDate(dateTo).toISOString(),
                 "userId": userId
             };
             G_AjaxHelper.GoAjaxRequest({
@@ -77379,6 +77498,16 @@ function TaskManagementWorkTimeLogReducer(state = new AppState_1.AppState(), act
                 let newState = (0, lodash_1.cloneDeep)(state);
                 let payload = action.payload;
                 newState.TaskManagementApp.TempoState.TimeLogs.push(payload);
+                return newState;
+            }
+        case TimeLogAction_1.UpdateTimeLogTempoActionName:
+            {
+                let newState = (0, lodash_1.cloneDeep)(state);
+                let payload = action.payload;
+                var log = newState.TaskManagementApp.TempoState.TimeLogs.find(x => x.Id === payload.Id);
+                if (log) {
+                    log.Copy(payload);
+                }
                 return newState;
             }
         case TimeLogAction_1.DelTimeLogTempoActionName:
@@ -81877,8 +82006,41 @@ class Helper {
         return date.getMinutes();
     }
     DateToGetHM(date) {
+        if (!date) {
+            return null;
+        }
         return `${this.GetHours(date)}:${this.GetMinutes(date)}`;
     }
+    DateToGetHMInput(date) {
+        if (!date) {
+            return null;
+        }
+        return `${String(this.GetHours(date)).padStart(2, '0')}:${String(this.GetMinutes(date)).padStart(2, '0')}`;
+    }
+    MinutesToHours1(minutes) {
+        const hours = Math.floor(minutes / 60);
+        const remainingMinutes = minutes % 60;
+        return {
+            h: hours,
+            m: remainingMinutes
+        };
+    }
+    // 60h 4m
+    MinutesToHours2(minutes) {
+        const hours = Math.floor(minutes / 60);
+        const remainingMinutes = minutes % 60;
+        let result = '';
+        if (hours > 0) {
+            result += `${hours}h`;
+        }
+        if (remainingMinutes > 0) {
+            if (result)
+                result += ' ';
+            result += `${remainingMinutes}m`;
+        }
+        return result || '0';
+    }
+    //60:h 4:m
     MinutesToHours(minutes) {
         const hours = Math.floor(minutes / 60);
         const remainingMinutes = minutes % 60;

@@ -5,15 +5,14 @@ using TaskManagementApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis;
 using Microsoft.Extensions.Logging;
-using Nest;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
-using Common.Models.Entity;
 using Common.Models.Return;
+using Menu.Models.TaskManagementApp.Requests;
+using Menu.Models.TaskManagementApp.Mappers;
+using Nest;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -122,32 +121,23 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("add-new-task")]
         [HttpPut]
-        public async Task AddNewTask([FromForm] string taskName
-            , [FromForm] long? taskReviwerId, [FromForm] string taskLink, [FromForm] long projectId, [FromForm] long statusId
-            , [FromForm] string description)
+        public async Task AddNewTask([FromBody] AddNewTaskRequest request)
         {
-            taskName = _apiHealper.StringValidator(taskName);
-            taskLink = _apiHealper.StringValidator(taskLink);
-            description = _apiHealper.StringValidator(description);
+            request.TaskName = _apiHealper.StringValidator(request.TaskName);
+            request.TaskLink = _apiHealper.StringValidator(request.TaskLink);
+            request.Description = _apiHealper.StringValidator(request.Description);
 
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    if (taskReviwerId < 1)
+                    if (request.TaskReviwerId < 1)
                     {
-                        taskReviwerId = null;
+                        request.TaskReviwerId = null;
                     }
 
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _projectService.CreateTaskAsync(new WorkTask()
-                    {
-                        Name = taskName,
-                        ExecutorId = taskReviwerId,
-                        ProjectId = projectId,
-                        StatusId = statusId,
-                        Description = description,
-                    }, userInfo);
+                    var res = await _projectService.CreateTaskAsync(request.Map(), userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new
                         {
@@ -166,33 +156,22 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("update-task")]
         [HttpPatch]
-        public async Task UpdateTask([FromForm] long taskId, [FromForm] string name
-            , [FromForm] int statusId, [FromForm] long? executorId
-            , [FromForm] string description)
+        public async Task UpdateTask(UpdateTaskRequest request)
         {
-            name = _apiHealper.StringValidator(name);
-            description = _apiHealper.StringValidator(description);
+            request.Name = _apiHealper.StringValidator(request.Name);
+            request.Description = _apiHealper.StringValidator(request.Description);
 
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
-                    if (executorId < 1)
+                    if (request.ExecutorId < 1)
                     {
-                        executorId = null;
+                        request.ExecutorId = null;
                     }
 
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                    
 
-                    var res = await _workTaskService.UpdateAsync(new WorkTask()
-                    {
-                        Id = taskId,
-                        Name = name,
-                        StatusId = statusId,
-                        //CreatorId = creatorId,
-                        ExecutorId = executorId,
-                        Description = description,
-                    }, userInfo);
+                    var res = await _workTaskService.UpdateAsync(request.Map(), userInfo);
                     await _apiHealper.WriteResponseAsync(Response
                         , new BoolResultReturn(res != null));
 

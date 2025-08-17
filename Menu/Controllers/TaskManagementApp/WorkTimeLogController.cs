@@ -61,23 +61,16 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("update")]
         [HttpPatch]
-        public async Task Update([FromForm] long id, [FromForm] long taskId, [FromForm] string text, [FromForm] long minutes, [FromForm] DateTime dayOfLog)
+        public async Task Update([FromBody] WorkTimeLogUpdateRequest request)
         {
-            text = _apiHealper.StringValidator(text);
+            request.Text = _apiHealper.StringValidator(request.Text);
 
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _workTimeLogService.EditAsync(new BO.Models.TaskManagementApp.DAL.Domain.WorkTimeLog()
-                    {
-                        Id = id,
-                        Comment = text,
-                        DayOfLog = dayOfLog,
-                        TimeMinutes = minutes,
-                        WorkTaskId = taskId
-                    }, userInfo);
+                    var res = await _workTimeLogService.EditAsync(request.Map(), userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new WorkTimeLogReturn(res));
 
                 }, Response, _logger);
