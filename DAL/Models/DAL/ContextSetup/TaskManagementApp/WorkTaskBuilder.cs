@@ -7,7 +7,8 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
     {
         public static void TaskManagementTaskBuild(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<WorkTask>(entity => {
+            modelBuilder.Entity<WorkTask>(entity =>
+            {
                 entity.HasKey(x => x.Id);
                 entity.HasMany(x => x.Comments).WithOne(x => x.Task)
                     .HasForeignKey(x => x.TaskId).OnDelete(DeleteBehavior.Cascade);
@@ -15,6 +16,8 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
                     .HasForeignKey(x => x.StatusId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasOne(x => x.Sprint).WithMany(x => x.Tasks)
                     .HasForeignKey(x => x.SprintId).OnDelete(DeleteBehavior.NoAction);
+                entity.HasMany(x => x.Labels).WithOne(x => x.Task)
+                    .HasForeignKey(x => x.TaskId).OnDelete(DeleteBehavior.NoAction);
 
                 entity.ToTable("TaskManagementTasks");
 

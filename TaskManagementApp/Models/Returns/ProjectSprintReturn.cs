@@ -10,6 +10,8 @@ namespace TaskManagementApp.Models.Returns
         public long Id { get; set; }
         public string Name { get; set; }
         public long ProjectId { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
 
 
         public ProjectSprintReturn(ProjectSprint obj)
@@ -17,6 +19,8 @@ namespace TaskManagementApp.Models.Returns
             Id = obj.Id;
             Name = obj.Name;
             ProjectId = obj.ProjectId;
+            StartDate = obj.StartDate;
+            EndDate = obj.EndDate;
         }
     }
 }

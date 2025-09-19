@@ -42,6 +42,7 @@ namespace TaskManagementApp.Models
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskTimeLogValidationError, "Ошибка валидации, переданы неверные поля", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskTimeLogIntervalValidationError, "Ошибка валидации, передан неверный интервал", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.SprintNotFound, "Спринт не найден", "TaskManagementApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.LabelNotFound, "Метка не найдена", "TaskManagementApp", "Error");
 
             
 
@@ -63,13 +64,15 @@ namespace TaskManagementApp.Models
             services.AddScoped<ITaskStatusRepository, TaskStatusRepository>();
             services.AddScoped<IWorkTimeLogRepository, WorkTimeLogRepository>();
             services.AddScoped<ISprintRepository, SprintRepository>();
-
+            services.AddScoped<IWorkTaskLabelRepository, WorkTaskLabelRepository>();
+            
 
         }
 
         public void ServicesInitialize(IServiceCollection services)
         {
             services.AddScoped<IProjectService, ProjectService>();
+            services.AddScoped<ILabelService, LabelService>();
             services.AddScoped<IWorkTaskService, WorkTaskService>();
             services.AddScoped<IProjectUserService, ProjectUserService>();
             services.AddScoped<IWorkTaskCommentService, WorkTaskCommentService>();

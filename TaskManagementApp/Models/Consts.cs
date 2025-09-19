@@ -35,6 +35,7 @@ namespace TaskManagementApp.Models
             public const string WorkTaskTimeLogValidationError = "task_management_work_task_time_log_validation_error";
             public const string WorkTaskTimeLogIntervalValidationError = "task_management_work_task_time_log_interval_validation_error";
             public const string SprintNotFound = "task_management_sprint_not_found";
+            public const string LabelNotFound = "task_management_label_not_found";
 
 
 

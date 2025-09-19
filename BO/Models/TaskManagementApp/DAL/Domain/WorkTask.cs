@@ -43,12 +43,15 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public List<WorkTimeLog> WorkTimeLogs { get; set; }
 
 
+        public List<WorkTaskLabelTask> Labels { get; set; }
+
         public byte[] RowVersion { get; set; }
 
         public WorkTask()
         {
             Comments = new List<WorkTaskComment>();
             WorkTimeLogs = new List<WorkTimeLog>();
+            Labels = new List<WorkTaskLabelTask>();
         }
 
         public WorkTask CopyPlaneProp()

@@ -1,6 +1,7 @@
-﻿using Common.Models.Entity;
-using Common.Models.Return;
+﻿using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
+using Menu.Models.TaskManagementApp.Mappers;
+using Menu.Models.TaskManagementApp.Requests;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Nest;
@@ -88,10 +89,10 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("create")]
         [HttpPut]
-        public async Task CreateSprint([FromForm] long projectId, [FromForm] string name)
+        public async Task CreateSprint([FromBody] AddNewSprintRequest request)
         {
 
-            name = _apiHealper.StringValidator(name);
+            request.Name = _apiHealper.StringValidator(request.Name);
 
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -99,7 +100,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     //throw new NotAuthException();
 
-                    var res = await _sprintService.Create(projectId, name, userInfo);
+                    var res = await _sprintService.Create(request.Map(), userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new ProjectSprintReturn(res));
 
                 }, Response, _logger);

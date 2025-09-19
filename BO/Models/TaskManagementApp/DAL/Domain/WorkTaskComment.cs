@@ -16,6 +16,9 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public long CreatorId { get; set; }
         public ProjectUser Creator { get; set; }
 
+
+        public byte[] RowVersion { get; set; }
+
         public WorkTaskComment()
         {
             CreateDate = DateTime.Now;

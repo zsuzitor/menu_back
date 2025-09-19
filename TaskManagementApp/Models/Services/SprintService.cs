@@ -40,16 +40,22 @@ namespace TaskManagementApp.Models.Services
 
         }
 
-        public async Task<ProjectSprint> Create(long projectId, string name, UserInfo userInfo)
+        public async Task<ProjectSprint> Create(ProjectSprint req, UserInfo userInfo)
         {
 
-            var s = await ExistIfAccessAdminAsync(projectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(req.ProjectId, userInfo);
             if (!s)
             {
                 throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
-            return await _sprintRepository.AddAsync(new ProjectSprint() { Name = name, ProjectId = projectId });
+            return await _sprintRepository.AddAsync(new ProjectSprint()
+            {
+                Name = req.Name,
+                ProjectId = req.ProjectId,
+                StartDate = req.StartDate,
+                EndDate = req.EndDate
+            });
         }
 
         public async Task<ProjectSprint> Delete(long id, UserInfo userInfo)
