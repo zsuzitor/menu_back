@@ -446,5 +446,10 @@ namespace TaskManagementApp.Models.Services
             var fullUri = new Uri(new Uri(baseUrl), endpoint).ToString();
             return fullUri;
         }
+
+        public async Task<WorkTask> GetTaskFullAsync(long id)
+        {
+            return await _workTaskRepository.GetTaskFullAsync(id);
+        }
     }
 }

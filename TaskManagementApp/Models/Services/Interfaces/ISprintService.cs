@@ -14,6 +14,7 @@ namespace TaskManagementApp.Models.Services.Interfaces
         Task<List<ProjectSprint>> GetForProjectWithRights(long projectId, UserInfo userInfo);
         Task<ProjectSprint> Delete(long id, UserInfo userInfo);
         Task<bool> AddTaskToSprint(long sprintId, long taskId, UserInfo userInfo);
-        Task<bool> DeleteTaskFromSprint(long taskId, UserInfo userInfo);
+        Task<bool> UpdateTaskSprints(List<long> sprintId, long taskId, UserInfo userInfo);
+        Task<bool> DeleteTaskFromSprint(long sprintId, long taskId, UserInfo userInfo);
     }
 }

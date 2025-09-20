@@ -5,7 +5,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
 {
     internal static class ProjectUserBuilder
     {
-        public static void ProjectUserBuild(this ModelBuilder modelBuilder)
+        public static ModelBuilder ProjectUserBuild(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<ProjectUser>(entity =>
             {
@@ -25,6 +25,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
 
             });
 
+            return modelBuilder;
         }
     }
 }

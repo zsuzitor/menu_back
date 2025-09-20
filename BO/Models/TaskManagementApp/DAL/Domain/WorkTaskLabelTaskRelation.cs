@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BO.Models.TaskManagementApp.DAL.Domain
 {
-    public class WorkTaskLabelTask : IDomainRecord<long>
+    public class WorkTaskLabelTaskRelation : IDomainRecord<long>
     {
         public long Id { get; set; }
 

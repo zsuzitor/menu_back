@@ -24,8 +24,7 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public WorkTaskStatus Status { get; set; }
 
 
-        public long? SprintId { get; set; }
-        public ProjectSprint Sprint { get; set; }
+        public List<WorkTaskSprintRelation> Sprints { get; set; }
 
 
 
@@ -43,7 +42,7 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public List<WorkTimeLog> WorkTimeLogs { get; set; }
 
 
-        public List<WorkTaskLabelTask> Labels { get; set; }
+        public List<WorkTaskLabelTaskRelation> Labels { get; set; }
 
         public byte[] RowVersion { get; set; }
 
@@ -51,7 +50,8 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         {
             Comments = new List<WorkTaskComment>();
             WorkTimeLogs = new List<WorkTimeLog>();
-            Labels = new List<WorkTaskLabelTask>();
+            Labels = new List<WorkTaskLabelTaskRelation>();
+            Sprints = new List<WorkTaskSprintRelation>();
         }
 
         public WorkTask CopyPlaneProp()

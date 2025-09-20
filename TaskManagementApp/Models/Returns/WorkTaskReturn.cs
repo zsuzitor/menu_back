@@ -16,7 +16,7 @@ namespace TaskManagementApp.Models.Returns
         public long? StatusId { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime LastUpdateDate { get; set; }
-        public long? SprintId { get; set; }
+        public List<long> SprintId { get; set; }
 
         public List<WorkTaskCommentReturn> Comments { get; set; }
 
@@ -30,7 +30,7 @@ namespace TaskManagementApp.Models.Returns
             CreatorId = task.CreatorId;
             ExecutorId = task.ExecutorId;
             StatusId = task.StatusId;
-            SprintId = task.SprintId;
+            SprintId = (task.Sprints ?? new List<WorkTaskSprintRelation>()).Select(x => x.SprintId).ToList();
             Comments = (task.Comments ?? new List<WorkTaskComment>()).Select(x => new WorkTaskCommentReturn(x)).ToList();
         }
     }

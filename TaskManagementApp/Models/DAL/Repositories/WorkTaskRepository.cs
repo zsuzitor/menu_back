@@ -105,5 +105,20 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
             return 0;
         }
+
+        public async Task<WorkTask> GetTaskFullAsync(long id)
+        {
+            return await _db.TaskManagementTasks.AsNoTracking().Include(x => x.Comments).Include(x=>x.Sprints).FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        public async Task<WorkTask> GetWithSprintRelationAsync(long id)
+        {
+            return await _db.TaskManagementTasks.Where(x=>x.Id==id).Include(x => x.Sprints).FirstOrDefaultAsync();
+        }
+
+        public async Task<WorkTask> GetWithLabelRelationAsync(long id)
+        {
+            return await _db.TaskManagementTasks.Where(x => x.Id == id).Include(x => x.Labels).FirstOrDefaultAsync();
+        }
     }
 }

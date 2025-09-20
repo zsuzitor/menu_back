@@ -4,6 +4,7 @@ using Menu.Models.TaskManagementApp.Mappers;
 using Menu.Models.TaskManagementApp.Requests;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.Returns;
@@ -85,6 +86,25 @@ namespace Menu.Controllers.TaskManagementApp
                     //throw new NotAuthException();
 
                     var res = await _labelService.Delete(id, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
+
+                }, Response, _logger);
+
+        }
+
+
+        [Route("update-task-labels")]
+        [HttpPost]
+        public async Task UpdateTaskLabels([FromBody] List<long> labelId, [FromBody] long taskId)
+        {
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    //throw new NotAuthException();
+
+                    var res = await _labelService.UpdateTaskLabels(labelId, taskId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
 
                 }, Response, _logger);

@@ -8,7 +8,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
 {
     internal static class WorkTaskLabelBuilder
     {
-        public static void WorkTaskLabelBuild(this ModelBuilder modelBuilder)
+        public static ModelBuilder WorkTaskLabelBuild(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<WorkTaskLabel>(entity => {
                 entity.HasKey(x => x.Id);
@@ -23,6 +23,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
                     .IsConcurrencyToken(); // Включает проверку на конфликты
             });
 
+            return modelBuilder;
         }
     }
 }

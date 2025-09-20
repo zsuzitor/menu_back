@@ -25,7 +25,44 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public async Task<ProjectSprint> GetWithTasks(long id)
         {
             return await _db.TaskManagementWorkTaskSprint
-                .Where(x => x.Id == id).Include(x => x.Tasks).FirstOrDefaultAsync();
+                .Where(x => x.Id == id).Include(x => x.Tasks).ThenInclude(x => x.Task).FirstOrDefaultAsync();
+        }
+
+        public override async Task<ProjectSprint> DeleteAsync(ProjectSprint record)
+        {
+            using (await _db.Database.BeginTransactionAsync())
+            {
+                _db.RemoveRange(_db.TaskManagementWorkTaskSprintRelation.Where(x => x.SprintId == record.Id));
+                _db.Remove(record);
+                await _db.SaveChangesAsync();
+                return record;
+            }
+        }
+
+        public async Task<bool> ExistsAsync(long sprintId, long taskId)
+        {
+            return await _db.TaskManagementWorkTaskSprintRelation.Where(x => x.TaskId == taskId && x.SprintId == sprintId).AnyAsync();
+        }
+
+        public async Task<WorkTaskSprintRelation> CreateAsync(WorkTaskSprintRelation obj)
+        {
+            _db.Add(obj);
+            await _db.SaveChangesAsync();
+            return obj;
+        }
+
+        public async Task<bool> RemoveFromTaskIdExistAsync(long sprintId, long taskId)
+        {
+            var obj = await _db.TaskManagementWorkTaskSprintRelation.Where(x => x.TaskId == taskId && x.SprintId == sprintId).FirstOrDefaultAsync();
+            if (obj == null)
+            {
+                return false;
+            }
+
+            _db.Remove(obj);
+            await _db.SaveChangesAsync();
+            return true;
+
         }
     }
 }

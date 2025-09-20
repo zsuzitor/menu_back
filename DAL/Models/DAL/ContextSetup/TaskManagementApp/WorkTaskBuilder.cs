@@ -5,7 +5,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
 {
     internal static class WorkTaskBuilder
     {
-        public static void TaskManagementTaskBuild(this ModelBuilder modelBuilder)
+        public static ModelBuilder TaskManagementTaskBuild(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<WorkTask>(entity =>
             {
@@ -14,8 +14,8 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
                     .HasForeignKey(x => x.TaskId).OnDelete(DeleteBehavior.Cascade);
                 entity.HasOne(x => x.Status).WithMany(x => x.Tasks)
                     .HasForeignKey(x => x.StatusId).OnDelete(DeleteBehavior.NoAction);
-                entity.HasOne(x => x.Sprint).WithMany(x => x.Tasks)
-                    .HasForeignKey(x => x.SprintId).OnDelete(DeleteBehavior.NoAction);
+                entity.HasMany(x => x.Sprints).WithOne(x => x.Task)
+                    .HasForeignKey(x => x.TaskId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasMany(x => x.Labels).WithOne(x => x.Task)
                     .HasForeignKey(x => x.TaskId).OnDelete(DeleteBehavior.NoAction);
 
@@ -27,6 +27,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
 
             });
 
+            return modelBuilder;
 
         }
     }

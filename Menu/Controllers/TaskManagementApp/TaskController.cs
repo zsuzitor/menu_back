@@ -102,7 +102,7 @@ namespace Menu.Controllers.TaskManagementApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var task = await _workTaskService.GetTaskWithCommentsAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
+                    var task = await _workTaskService.GetTaskFullAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
                     var res = await _projectService.ExistIfAccessAsync(task.ProjectId, userInfo);
                     if (!res.access)
                     {

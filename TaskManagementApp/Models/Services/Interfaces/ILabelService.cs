@@ -14,5 +14,6 @@ namespace TaskManagementApp.Models.Services.Interfaces
         Task<bool> Delete(long id, UserInfo userInfo);
         Task<bool> AddToTask(long labelId, long taskId, UserInfo userInfo);
         Task<bool> RemoveFromTask(long labelId, long taskId, UserInfo userInfo);
+        Task<bool> UpdateTaskLabels(List<long> labelId, long taskId, UserInfo userInfo);
     }
 }

@@ -6,7 +6,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
 {
     internal static class ProjectBuilder
     {
-        public static void ProjectBuild(this ModelBuilder modelBuilder)
+        public static ModelBuilder ProjectBuild(this ModelBuilder modelBuilder)
         {
 
             modelBuilder.Entity<Project>(entity => {
@@ -30,6 +30,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
             modelBuilder.Entity<User>().HasMany(x => x.TaskManagementProjects).WithOne(x => x.MainAppUser)
                 .HasForeignKey(x => x.MainAppUserId).OnDelete(DeleteBehavior.NoAction);
 
+            return modelBuilder;
         }
     }
 }

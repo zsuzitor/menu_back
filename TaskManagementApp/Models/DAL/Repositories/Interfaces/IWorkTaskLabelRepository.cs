@@ -9,7 +9,7 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
 {
     public interface IWorkTaskLabelRepository : IGeneralRepository<WorkTaskLabel, long>
     {
-        Task<WorkTaskLabelTask> CreateAsync(WorkTaskLabelTask obj);
+        Task<WorkTaskLabelTaskRelation> CreateAsync(WorkTaskLabelTaskRelation obj);
         Task<bool> ExistsAsync(long labelId, long taskId);
         Task<bool> RemoveFromTaskIdExistAsync(long labelId, long taskId);
         Task<List<WorkTaskLabel>> GetForTaskAsync(long taskId);

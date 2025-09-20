@@ -18,7 +18,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         {
         }
 
-        public async Task<WorkTaskLabelTask> CreateAsync(WorkTaskLabelTask obj)
+        public async Task<WorkTaskLabelTaskRelation> CreateAsync(WorkTaskLabelTaskRelation obj)
         {
             _db.Add(obj);
             await _db.SaveChangesAsync();
@@ -27,7 +27,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async Task<bool> ExistsAsync(long labelId, long taskId)
         {
-            return await _db.TaskManagementWorkTaskLabelTask.Where(x => x.TaskId == taskId && x.LabelId == labelId).AnyAsync();
+            return await _db.TaskManagementWorkTaskLabelTaskRelation.Where(x => x.TaskId == taskId && x.LabelId == labelId).AnyAsync();
 
         }
 
@@ -38,21 +38,32 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async Task<List<WorkTaskLabel>> GetForTaskAsync(long taskId)
         {
-            return await _db.TaskManagementWorkTaskLabelTask.Include(x => x.Label).Where(x => x.TaskId == taskId).Select(x => x.Label).ToListAsync();
+            return await _db.TaskManagementWorkTaskLabelTaskRelation.Include(x => x.Label).Where(x => x.TaskId == taskId).Select(x => x.Label).ToListAsync();
         }
 
         public async Task<bool> RemoveFromTaskIdExistAsync(long labelId, long taskId)
         {
-            var obj =  await _db.TaskManagementWorkTaskLabelTask.Where(x => x.TaskId == taskId && x.LabelId == labelId).FirstOrDefaultAsync();
+            var obj =  await _db.TaskManagementWorkTaskLabelTaskRelation.Where(x => x.TaskId == taskId && x.LabelId == labelId).FirstOrDefaultAsync();
             if (obj == null)
             {
                 return false;
             }
 
-            _db.TaskManagementWorkTaskLabelTask.Remove(obj);
+            _db.Remove(obj);
             await _db.SaveChangesAsync();
             return true;
 
+        }
+
+        public override async Task<WorkTaskLabel> DeleteAsync(WorkTaskLabel record)
+        {
+            using (await _db.Database.BeginTransactionAsync())
+            {
+                _db.RemoveRange(_db.TaskManagementWorkTaskLabelTaskRelation.Where(x => x.LabelId == record.Id));
+                _db.Remove(record);
+                await _db.SaveChangesAsync();
+                return record;
+            }
         }
     }
 }

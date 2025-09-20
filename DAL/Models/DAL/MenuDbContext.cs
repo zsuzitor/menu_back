@@ -64,7 +64,8 @@ namespace DAL.Models.DAL
         public DbSet<WorkTimeLog> TaskManagementWorkTimeLog { get; set; }
         public DbSet<ProjectSprint> TaskManagementWorkTaskSprint { get; set; }
         public DbSet<WorkTaskLabel> TaskManagementWorkTaskLabel { get; set; }
-        public DbSet<WorkTaskLabelTask> TaskManagementWorkTaskLabelTask { get; set; }
+        public DbSet<WorkTaskLabelTaskRelation> TaskManagementWorkTaskLabelTaskRelation { get; set; }
+        public DbSet<WorkTaskSprintRelation> TaskManagementWorkTaskSprintRelation { get; set; }
 
 
 
@@ -117,15 +118,16 @@ namespace DAL.Models.DAL
             #region TaskManagementApp
 
             //modelBuilder.Entity<ProjectUser>().has
-            modelBuilder.ProjectBuild();
-            modelBuilder.ProjectUserBuild();
-            modelBuilder.TaskManagementTaskBuild();
-            modelBuilder.WorkTimeLogBuild();
-            modelBuilder.ProjectSprintBuild();
-            modelBuilder.WorkTaskCommentBuild();
-            modelBuilder.WorkTaskLabelBuild();
-            modelBuilder.WorkTaskLabelTaskBuild();
-
+            modelBuilder
+                .ProjectBuild()
+                .ProjectUserBuild()
+                .TaskManagementTaskBuild()
+                .WorkTimeLogBuild()
+                .ProjectSprintBuild()
+                .WorkTaskCommentBuild()
+                .WorkTaskLabelBuild()
+                .WorkTaskLabelTaskRelationBuild()
+                .WorkTaskSprintRelationBuild();
 
             #endregion TaskManagementApp
 

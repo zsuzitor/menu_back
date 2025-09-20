@@ -9,7 +9,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
     public static class WorkTimeLogBuilder
     {
 
-        public static void WorkTimeLogBuild(this ModelBuilder modelBuilder)
+        public static ModelBuilder WorkTimeLogBuild(this ModelBuilder modelBuilder)
         {
 
             modelBuilder.Entity<WorkTimeLog>(entity =>
@@ -27,6 +27,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
                     .IsConcurrencyToken(); // Включает проверку на конфликты
             });
 
+            return modelBuilder;
         }
 
     }

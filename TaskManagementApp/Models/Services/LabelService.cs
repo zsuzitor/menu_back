@@ -5,6 +5,7 @@ using DAL.Migrations;
 using Org.BouncyCastle.Ocsp;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.DAL.Repositories;
@@ -46,7 +47,7 @@ namespace TaskManagementApp.Models.Services
             var exists = await _labelRepository.ExistsAsync(labelId, taskId);
             if (!exists)
             {
-                var relation = await _labelRepository.CreateAsync(new WorkTaskLabelTask() { LabelId = labelId, TaskId = taskId });
+                var relation = await _labelRepository.CreateAsync(new WorkTaskLabelTaskRelation() { LabelId = labelId, TaskId = taskId });
                 return true;
             }
 
@@ -109,6 +110,54 @@ namespace TaskManagementApp.Models.Services
             
         }
 
+        public async Task<bool> UpdateTaskLabels(List<long> labelId, long taskId, UserInfo userInfo)
+        {
+
+            var labels = await _labelRepository.GetNoTrackAsync(labelId) ?? throw new SomeCustomException(Consts.ErrorConsts.LabelNotFound);
+            var projIds = labels.Select(x => x.ProjectId).Distinct().ToList();
+            if (projIds.Count > 1)
+            {
+                //намешали лейблов из разных проектов
+                throw new SomeCustomException(Consts.ErrorConsts.LabelNotFound);
+            }
+
+            var task = await _workTaskRepository.GetWithLabelRelationAsync(taskId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
+
+            var s = await ExistIfAccessAdminAsync(task.ProjectId, userInfo);
+            if (!s)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+            }
+
+            if (projIds.Count != 0 && task.ProjectId != projIds.First())
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+            }
+
+            foreach (var label in task.Labels.ToList())
+            {
+                //удаляем те что не переданы
+                var sp = labelId.FirstOrDefault(x => x == label.LabelId);
+                if (sp == default)
+                {
+                    task.Labels.Remove(label);
+                }
+            }
+
+            foreach (var label in labelId)
+            {
+                //добавляем те что переданы
+                var sp = task.Labels.FirstOrDefault(x => x.LabelId == label);
+                if (sp == null)
+                {
+                    task.Labels.Add(new WorkTaskLabelTaskRelation() { LabelId = label, TaskId = task.Id });
+                }
+            }
+
+            await _workTaskRepository.UpdateAsync(task);
+
+            return true;
+        }
 
         private async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)
         {

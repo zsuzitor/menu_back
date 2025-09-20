@@ -13,5 +13,8 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
         //Task DeleteTaskFromSprint();
         Task<ProjectSprint> GetWithTasks(long id);
         Task<List<ProjectSprint>> GetForProject(long projectId);
+        Task<bool> ExistsAsync(long sprintId, long taskId);
+        Task<WorkTaskSprintRelation> CreateAsync(WorkTaskSprintRelation obj);
+        Task<bool> RemoveFromTaskIdExistAsync(long sprintId, long taskId);
     }
 }

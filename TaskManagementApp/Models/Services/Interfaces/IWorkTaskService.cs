@@ -12,6 +12,7 @@ namespace TaskManagementApp.Models.Services.Interfaces
         Task<List<WorkTask>> GetTasksAsync(long projectId);
         Task<WorkTask> GetTaskAsync(long id);
         Task<WorkTask> GetTaskWithCommentsAsync(long id);
+        Task<WorkTask> GetTaskFullAsync(long id);
         Task<bool> ExistAsync(long projectId, long statusId);
         Task<List<WorkTask>> GetTasksAsync(long projectId, string name, long? creatorId
             , long? executorId, long? statusId, int pageNumber, int pageSize);

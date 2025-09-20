@@ -9,6 +9,8 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
     public interface IWorkTaskRepository : IGeneralRepository<WorkTask, long>
     {
         Task<WorkTask> GetAsync(long id, long projectId);
+        Task<WorkTask> GetWithSprintRelationAsync(long id);
+        Task<WorkTask> GetWithLabelRelationAsync(long id);
         Task<WorkTask> CreateAsync(WorkTask task);
         Task<List<WorkTask>> GetTasksAsync(long projectId, string name, long? creatorId
             , long? executorId, long? statusId, int pageNumber, int pageSize);
@@ -16,6 +18,7 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
             , long? executorId, long? statusId);
         Task<List<WorkTask>> GetTasksByProjectIdAsync(long projectId);
         Task<WorkTask> GetTaskWithCommentsAsync(long id);
+        Task<WorkTask> GetTaskFullAsync(long id);
         Task<bool> ExistAsync(long projectId, long statusId);
         Task<bool> HaveAccessAsync(long taskId, long mainAppUserId);
         Task<long> GetUserIdAccessAsync(long taskId, long mainAppUserId);

@@ -9,18 +9,18 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public long Id { get; set; }
         public string Name { get; set; }
         public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         public long ProjectId { get; set; }
         public Project Project { get; set; }
 
-        public List<WorkTask> Tasks { get; set; }
+        public List<WorkTaskSprintRelation> Tasks { get; set; }
 
         public byte[] RowVersion { get; set; }
 
         public ProjectSprint()
         {
-            Tasks = new List<WorkTask>();
+            Tasks = new List<WorkTaskSprintRelation>();
         }
     }
 }

@@ -12,12 +12,12 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public long ProjectId { get; set; }
 
 
-        public List<WorkTaskLabelTask> Tasks { get; set; }
+        public List<WorkTaskLabelTaskRelation> Tasks { get; set; }
         public byte[] RowVersion { get; set; }
 
         public WorkTaskLabel()
         {
-            Tasks = new List<WorkTaskLabelTask>();
+            Tasks = new List<WorkTaskLabelTaskRelation>();
         }
     }
 }

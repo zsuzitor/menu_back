@@ -5,6 +5,7 @@ using Menu.Models.TaskManagementApp.Requests;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Nest;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.Returns;
@@ -125,6 +126,24 @@ namespace Menu.Controllers.TaskManagementApp
 
         }
 
+        [Route("update-task-sprints")]
+        [HttpPost]
+        public async Task UpdateTaskSprints([FromBody] List<long> sprintId, [FromBody] long taskId)
+        {
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    //throw new NotAuthException();
+
+                    var res = await _sprintService.UpdateTaskSprints(sprintId, taskId, userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
+
+                }, Response, _logger);
+
+        }
+
         [Route("add-task-to-sprint")]
         [HttpPost]
         public async Task AddTaskToSprint([FromForm] long sprintId, [FromForm] long taskId)
@@ -145,7 +164,7 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("delete-task-from-sprint")]
         [HttpPost]
-        public async Task DeleteTaskFromSprint([FromForm] long taskId)
+        public async Task DeleteTaskFromSprint([FromForm] long taskId, [FromForm] long sprintId)
         {
 
             await _apiHealper.DoStandartSomething(
@@ -154,7 +173,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     //throw new NotAuthException();
 
-                    var res = await _sprintService.DeleteTaskFromSprint(taskId, userInfo);
+                    var res = await _sprintService.DeleteTaskFromSprint(sprintId, taskId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
 
                 }, Response, _logger);

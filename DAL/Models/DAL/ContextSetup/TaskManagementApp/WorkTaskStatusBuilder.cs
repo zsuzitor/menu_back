@@ -9,7 +9,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
 {
     public static class WorkTaskStatusBuilder
     {
-        public static void TaskStatusBuild(this ModelBuilder modelBuilder)
+        public static ModelBuilder TaskStatusBuild(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<WorkTaskStatus>(entity => {
                 entity.HasKey(x => x.Id);
@@ -21,6 +21,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
                     .IsConcurrencyToken(); // Включает проверку на конфликты
             });
 
+            return modelBuilder;
         }
     }
 }
