@@ -125,6 +125,7 @@ namespace DAL.Models.DAL
                 .WorkTimeLogBuild()
                 .ProjectSprintBuild()
                 .WorkTaskCommentBuild()
+                .TaskStatusBuild()
                 .WorkTaskLabelBuild()
                 .WorkTaskLabelTaskRelationBuild()
                 .WorkTaskSprintRelationBuild();

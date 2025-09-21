@@ -95,7 +95,7 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("update-task-labels")]
         [HttpPost]
-        public async Task UpdateTaskLabels([FromBody] List<long> labelId, [FromBody] long taskId)
+        public async Task UpdateTaskLabels([FromBody] UpdateTaskLabels req)
         {
 
             await _apiHealper.DoStandartSomething(
@@ -104,7 +104,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     //throw new NotAuthException();
 
-                    var res = await _labelService.UpdateTaskLabels(labelId, taskId, userInfo);
+                    var res = await _labelService.UpdateTaskLabels(req.LabelId, req.TaskId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
 
                 }, Response, _logger);
@@ -113,7 +113,7 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("add-to-task")]
         [HttpPost]
-        public async Task Add([FromBody] long labelId, [FromBody] long taskId)
+        public async Task Add([FromBody] AddLabelToTask req)
         {
 
             await _apiHealper.DoStandartSomething(
@@ -122,7 +122,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     //throw new NotAuthException();
 
-                    var res = await _labelService.AddToTask(labelId, taskId, userInfo);
+                    var res = await _labelService.AddToTask(req.LabelId, req.TaskId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
 
                 }, Response, _logger);
@@ -131,7 +131,7 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("delete-from-task")]
         [HttpPost]
-        public async Task Remove([FromBody] long labelId, [FromBody] long taskId)
+        public async Task Remove([FromBody] RemoveLabelFromTask req)
         {
 
             await _apiHealper.DoStandartSomething(
@@ -140,7 +140,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     //throw new NotAuthException();
 
-                    var res = await _labelService.RemoveFromTask(labelId, taskId, userInfo);
+                    var res = await _labelService.RemoveFromTask(req.LabelId, req.TaskId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
 
                 }, Response, _logger);

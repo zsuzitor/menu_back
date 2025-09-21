@@ -108,6 +108,28 @@ namespace Menu.Controllers.TaskManagementApp
 
         }
 
+        [Route("update")]
+        [HttpPatch]
+        public async Task UpdateSprint([FromBody] UpdateSprintRequest request)
+        {
+
+            request.Name = _apiHealper.StringValidator(request.Name);
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                    //throw new NotAuthException();
+
+                    var res = await _sprintService.Update(request.Map(), userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, new ProjectSprintReturn(res));
+
+                }, Response, _logger);
+
+        }
+
+
+
         [Route("delete")]
         [HttpDelete]
         public async Task DeleteSprint([FromForm] long id)
@@ -128,7 +150,7 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("update-task-sprints")]
         [HttpPost]
-        public async Task UpdateTaskSprints([FromBody] List<long> sprintId, [FromBody] long taskId)
+        public async Task UpdateTaskSprints([FromBody] UpdateTaskSprints req)
         {
 
             await _apiHealper.DoStandartSomething(
@@ -137,7 +159,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     //throw new NotAuthException();
 
-                    var res = await _sprintService.UpdateTaskSprints(sprintId, taskId, userInfo);
+                    var res = await _sprintService.UpdateTaskSprints(req.SprintId, req.TaskId, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
 
                 }, Response, _logger);

@@ -71,6 +71,20 @@ namespace Menu.Models.TaskManagementApp.Mappers
             };
         }
 
+        public static ProjectSprint Map(this UpdateSprintRequest obj)
+        {
+            return new ProjectSprint()
+            {
+                Name = obj.Name,
+                Id = obj.Id,
+                StartDate = obj.StartDate,
+                EndDate = obj.EndDate,
+
+            };
+        }
+
+        
+
         public static WorkTaskLabel Map(this AddNewLabelRequest obj)
         {
             return new WorkTaskLabel()

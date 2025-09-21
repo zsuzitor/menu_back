@@ -3,6 +3,7 @@ using BO.Models.Auth;
 using BO.Models.TaskManagementApp.DAL.Domain;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TaskManagementApp.Models.DTO;
 
 namespace TaskManagementApp.Models.Services.Interfaces
 {
@@ -14,10 +15,8 @@ namespace TaskManagementApp.Models.Services.Interfaces
         Task<WorkTask> GetTaskWithCommentsAsync(long id);
         Task<WorkTask> GetTaskFullAsync(long id);
         Task<bool> ExistAsync(long projectId, long statusId);
-        Task<List<WorkTask>> GetTasksAsync(long projectId, string name, long? creatorId
-            , long? executorId, long? statusId, int pageNumber, int pageSize);
-        Task<long> GetTasksCountAsync(long projectId, string name, long? creatorId
-            , long? executorId, long? statusId);
+        Task<List<WorkTask>> GetTasksAsync(GetTasksByFilter filters);
+        Task<long> GetTasksCountAsync(GetTasksCountByFilter filters);
         Task<WorkTask> UpdateAsync(WorkTask task, UserInfo userInfo);
         Task<WorkTask> UpdateNameAsync(long id, string name, UserInfo userInfo);
         Task<WorkTask> UpdateDescriptionAsync(long id, string description, UserInfo userInfo);

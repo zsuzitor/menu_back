@@ -1,9 +1,5 @@
 ﻿using BO.Models.TaskManagementApp.DAL.Domain;
-using BO.Models.DAL.Domain;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
 {
@@ -13,7 +9,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
         {
             modelBuilder.Entity<WorkTaskStatus>(entity => {
                 entity.HasKey(x => x.Id);
-                entity.ToTable("TaskManagementStatus");
+                entity.ToTable("TaskManagementTaskStatus");
 
 
                 entity.Property(p => p.RowVersion)

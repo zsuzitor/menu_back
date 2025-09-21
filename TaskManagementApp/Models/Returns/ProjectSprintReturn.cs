@@ -11,7 +11,7 @@ namespace TaskManagementApp.Models.Returns
         public string Name { get; set; }
         public long ProjectId { get; set; }
         public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
 
         public ProjectSprintReturn(ProjectSprint obj)

@@ -1,8 +1,5 @@
 ﻿using BO.Models.TaskManagementApp.DAL.Domain;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
 {
@@ -11,9 +8,9 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
 
         public static ModelBuilder WorkTaskCommentBuild(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<WorkTaskStatus>(entity => {
+            modelBuilder.Entity<WorkTaskComment>(entity => {
                 entity.HasKey(x => x.Id);
-                entity.ToTable("TaskManagementComment");
+                entity.ToTable("TaskManagementTaskComment");
 
 
                 entity.Property(p => p.RowVersion)

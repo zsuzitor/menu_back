@@ -24,6 +24,18 @@
     <Compile Remove="Migrations\20250523210627_RowVersion.Designer.cs" />
     <Compile Remove="Migrations\20250610191745_sprint.cs" />
     <Compile Remove="Migrations\20250610191745_sprint.Designer.cs" />
+    <Compile Remove="Migrations\20250921103825_sprintsmore.cs" />
+    <Compile Remove="Migrations\20250921103825_sprintsmore.Designer.cs" />
+    <Compile Remove="Migrations\20250921104408_sprintsmore_fix1.cs" />
+    <Compile Remove="Migrations\20250921104408_sprintsmore_fix1.Designer.cs" />
+    <Compile Remove="Migrations\20250921104948_sprintsmore_fix2.cs" />
+    <Compile Remove="Migrations\20250921104948_sprintsmore_fix2.Designer.cs" />
+    <Compile Remove="Migrations\20250921112251_sprintsmore_fix3.cs" />
+    <Compile Remove="Migrations\20250921112251_sprintsmore_fix3.Designer.cs" />
+    <Compile Remove="Migrations\20250921112718_sprintsmore_fix4.cs" />
+    <Compile Remove="Migrations\20250921112718_sprintsmore_fix4.Designer.cs" />
+    <Compile Remove="Migrations\20250921112934_sprintsmore_fix5.cs" />
+    <Compile Remove="Migrations\20250921112934_sprintsmore_fix5.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

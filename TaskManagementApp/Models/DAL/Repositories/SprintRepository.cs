@@ -30,11 +30,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public override async Task<ProjectSprint> DeleteAsync(ProjectSprint record)
         {
-            using (await _db.Database.BeginTransactionAsync())
+            using (var t = await _db.Database.BeginTransactionAsync())
             {
                 _db.RemoveRange(_db.TaskManagementWorkTaskSprintRelation.Where(x => x.SprintId == record.Id));
                 _db.Remove(record);
                 await _db.SaveChangesAsync();
+                await t.CommitAsync();
                 return record;
             }
         }

@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TaskManagementApp.Models.DTO;
 
 namespace TaskManagementApp.Models.Services
 {
@@ -74,18 +75,14 @@ namespace TaskManagementApp.Models.Services
         /// <param name="pageNumber"></param>
         /// <param name="pageSize"></param>
         /// <returns></returns>
-        public async Task<List<WorkTask>> GetTasksAsync(long projectId, string name, long? creatorId
-            , long? executorId, long? statusId, int pageNumber, int pageSize)
+        public async Task<List<WorkTask>> GetTasksAsync(GetTasksByFilter filters)
         {
-            return await _workTaskRepository.GetTasksAsync(projectId, name
-                , creatorId, executorId, statusId, pageNumber, pageSize);
+            return await _workTaskRepository.GetTasksAsync(filters);
         }
 
-        public async Task<long> GetTasksCountAsync(long projectId, string name, long? creatorId
-            , long? executorId, long? statusId)
+        public async Task<long> GetTasksCountAsync(GetTasksCountByFilter filters)
         {
-            return await _workTaskRepository.GetTasksCountAsync(projectId, name
-                , creatorId, executorId, statusId);
+            return await _workTaskRepository.GetTasksCountAsync(filters);
         }
 
         public async Task<WorkTask> UpdateAsync(WorkTask task, UserInfo userInfo)

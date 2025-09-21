@@ -3,6 +3,7 @@ using BO.Models.TaskManagementApp.DAL.Domain;
 using DAL.Models.DAL.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TaskManagementApp.Models.DTO;
 
 namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
 {
@@ -12,10 +13,8 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
         Task<WorkTask> GetWithSprintRelationAsync(long id);
         Task<WorkTask> GetWithLabelRelationAsync(long id);
         Task<WorkTask> CreateAsync(WorkTask task);
-        Task<List<WorkTask>> GetTasksAsync(long projectId, string name, long? creatorId
-            , long? executorId, long? statusId, int pageNumber, int pageSize);
-        Task<long> GetTasksCountAsync(long projectId, string name, long? creatorId
-            , long? executorId, long? statusId);
+        Task<List<WorkTask>> GetTasksAsync(GetTasksByFilter filters);
+        Task<long> GetTasksCountAsync(GetTasksCountByFilter filters);
         Task<List<WorkTask>> GetTasksByProjectIdAsync(long projectId);
         Task<WorkTask> GetTaskWithCommentsAsync(long id);
         Task<WorkTask> GetTaskFullAsync(long id);

@@ -69,6 +69,23 @@ namespace TaskManagementApp.Models.Services
             });
         }
 
+        public async Task<ProjectSprint> Update(ProjectSprint req, UserInfo userInfo)
+        {
+            var sprint = await _sprintRepository.GetAsync(req.Id) ?? throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
+            var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userInfo);
+            if (!s)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+            }
+
+            sprint.StartDate = req.StartDate;
+            sprint.EndDate = req.EndDate;
+            sprint.Name = req.Name;
+
+            return await _sprintRepository.UpdateAsync(sprint);
+        }
+
+
         public async Task<ProjectSprint> Delete(long id, UserInfo userInfo)
         {
             var sprint = await _sprintRepository.GetAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
@@ -147,6 +164,10 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<bool> UpdateTaskSprints(List<long> sprintId, long taskId, UserInfo userInfo)
         {
+            if (sprintId == null)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
+            }
 
             var sprints = await _sprintRepository.GetNoTrackAsync(sprintId) ?? throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
             var projIds = sprints.Select(x=>x.ProjectId).Distinct().ToList();
@@ -206,6 +227,6 @@ namespace TaskManagementApp.Models.Services
             return await _projectRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
         }
 
-
+ 
     }
 }

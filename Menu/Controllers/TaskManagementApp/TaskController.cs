@@ -13,6 +13,7 @@ using Common.Models.Return;
 using Menu.Models.TaskManagementApp.Requests;
 using Menu.Models.TaskManagementApp.Mappers;
 using Nest;
+using TaskManagementApp.Models.DTO;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -46,11 +47,13 @@ namespace Menu.Controllers.TaskManagementApp
         [Route("get-project-tasks")]
         [HttpGet]
         public async Task GetProjectTasks(long projectId, string nameLike
-            , long? creatorId, long? executorId, int? statusId, int pageNumber, int pageSize)
+            , long? creatorId, long? executorId, int? statusId, int pageNumber, int pageSize, long? sprintId)
         {
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
+
+                    nameLike = _apiHealper.StringValidator(nameLike);
                     if (string.IsNullOrWhiteSpace(nameLike))
                     {
                         nameLike = null;
@@ -70,6 +73,10 @@ namespace Menu.Controllers.TaskManagementApp
                     {
                         statusId = null;
                     }
+                    if (sprintId == -1)
+                    {
+                        sprintId = null;
+                    }
 
 
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
@@ -80,10 +87,25 @@ namespace Menu.Controllers.TaskManagementApp
                         throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFound);
                     }
 
-                    var tasks = await _workTaskService.GetTasksAsync(projectId
-                        , nameLike, creatorId, executorId, statusId, pageNumber, pageSize);
-                    var tasksCount = await _workTaskService.GetTasksCountAsync(projectId
-                        , nameLike, creatorId, executorId, statusId);
+                    var tasks = await _workTaskService.GetTasksAsync(new GetTasksByFilter()
+                    {
+                        CreatorId = creatorId,
+                        ExecutorId = executorId,
+                        StatusId = statusId,
+                        PageNumber = pageNumber,
+                        PageSize = pageSize,
+                        Name = nameLike,
+                        ProjectId = projectId,
+                        SprintId = sprintId,
+                    });
+                    var tasksCount = await _workTaskService.GetTasksCountAsync(new GetTasksCountByFilter() {
+                        CreatorId = creatorId,
+                        ExecutorId = executorId,
+                        StatusId = statusId,
+                        Name = nameLike,
+                        ProjectId = projectId,
+                        SprintId = sprintId,
+                    });
                     var taskReturn = tasks.Select(x => new WorkTaskReturn(x));
 
                     await _apiHealper.WriteResponseAsync(Response,

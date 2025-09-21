@@ -8,6 +8,7 @@ namespace TaskManagementApp.Models.Services.Interfaces
     public interface ISprintService
     {
         Task<ProjectSprint> Create(ProjectSprint req, UserInfo userInfo);
+        Task<ProjectSprint> Update(ProjectSprint req, UserInfo userInfo);
         Task<ProjectSprint> Get(long sprintId, UserInfo userInfo);
         Task<List<WorkTask>> GetTasks(long sprintId, UserInfo userInfo);
         Task<List<ProjectSprint>> GetForProject(long projectId, UserInfo userInfo);
