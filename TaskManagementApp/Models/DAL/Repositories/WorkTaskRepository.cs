@@ -35,11 +35,11 @@ namespace TaskManagementApp.Models.DAL.Repositories
             }
 
             var skipCount = filters.PageNumber * filters.PageSize;
-            return await _db.TaskManagementTasks.AsNoTracking().Include(x=>x.Sprints).Where(x => x.ProjectId == filters.ProjectId
+            return await _db.TaskManagementTasks.AsNoTracking().Include(x => x.Sprints).Where(x => x.ProjectId == filters.ProjectId
                 && (filters.CreatorId == null || x.CreatorId == filters.CreatorId)
                 && (filters.ExecutorId == null || x.ExecutorId == filters.ExecutorId)
                 && (filters.StatusId == null || x.StatusId == filters.StatusId)
-                && (filters.SprintId == null || x.Sprints.Any(s=>s.SprintId == filters.SprintId))
+                && (filters.SprintId == null || x.Sprints.Any(s => s.SprintId == filters.SprintId))
             //&& (string.IsNullOrWhiteSpace(filters.Name) || EF.Functions.Like(x.Name, $"%{filters.Name}%"))).OrderBy(x => x.Id)
                 && (string.IsNullOrWhiteSpace(filters.Name) || x.Name.Contains(filters.Name))).OrderBy(x => x.Id)
                 .Skip(skipCount).Take(filters.PageSize).ToListAsync();
@@ -117,12 +117,14 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async Task<WorkTask> GetTaskFullAsync(long id)
         {
-            return await _db.TaskManagementTasks.AsNoTracking().Include(x => x.Comments).Include(x=>x.Sprints).FirstOrDefaultAsync(x => x.Id == id);
+            return await _db.TaskManagementTasks.AsNoTracking()
+                .Include(x => x.Comments).Include(x => x.Sprints).Include(x => x.Labels)
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<WorkTask> GetWithSprintRelationAsync(long id)
         {
-            return await _db.TaskManagementTasks.Where(x=>x.Id==id).Include(x => x.Sprints).FirstOrDefaultAsync();
+            return await _db.TaskManagementTasks.Where(x => x.Id == id).Include(x => x.Sprints).FirstOrDefaultAsync();
         }
 
         public async Task<WorkTask> GetWithLabelRelationAsync(long id)

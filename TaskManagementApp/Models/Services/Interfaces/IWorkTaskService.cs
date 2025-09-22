@@ -14,6 +14,7 @@ namespace TaskManagementApp.Models.Services.Interfaces
         Task<WorkTask> GetTaskAsync(long id);
         Task<WorkTask> GetTaskWithCommentsAsync(long id);
         Task<WorkTask> GetTaskFullAsync(long id);
+        Task<WorkTask> CopyAsync(long id, UserInfo userInfo);
         Task<bool> ExistAsync(long projectId, long statusId);
         Task<List<WorkTask>> GetTasksAsync(GetTasksByFilter filters);
         Task<long> GetTasksCountAsync(GetTasksCountByFilter filters);

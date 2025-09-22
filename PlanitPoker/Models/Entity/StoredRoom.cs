@@ -33,7 +33,6 @@ namespace PlanitPoker.Models.Entity
             Status = RoomSatus.CloseVote;
             Users = new List<PlanitUser>();
             Stories = new List<Story>();
-            DieDate = DateTime.Now.AddHours(Constants.DefaultHourRoomAlive); //DateTime.Now.AddMinutes(2);//
             CurrentStoryId = string.Empty;
             Cards = new List<string>();
             EndVoteInfo = new EndVoteInfo();
@@ -43,6 +42,11 @@ namespace PlanitPoker.Models.Entity
         {
             Name = name;
             Password = password;
+        }
+
+        public void SetDieDate(DateTime dt)
+        {
+            DieDate = dt.AddHours(Constants.DefaultHourRoomAlive);
         }
 
 

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DAL.Models.DAL.Repositories.Interfaces;
+using BL.Models.Services.Interfaces;
 
 namespace Menu.Models.Services
 {
@@ -17,12 +18,14 @@ namespace Menu.Models.Services
 
         private readonly IImageRepository _imageRepository;
         private readonly IImageDataStorage _imageDataStorage;
+        private readonly IDateTimeProvider _dateTimeProvider;
 
 
-        public ImageService(IImageRepository imgRep, IImageDataStorage imageDataStorage)
+        public ImageService(IImageRepository imgRep, IImageDataStorage imageDataStorage, IDateTimeProvider dateTimeProvider)
         {
             _imageRepository = imgRep;
             _imageDataStorage = imageDataStorage;
+            _dateTimeProvider = dateTimeProvider;
         }
 
         public  async Task<CustomImage> Upload(IFormFile image, Action<CustomImage> beforeCreate)
@@ -102,7 +105,7 @@ namespace Menu.Models.Services
             }
 
             string uniqueFileName = Guid.NewGuid().ToString() + "-"
-                + DateTime.Now.Ticks + "." + image.FileName.Split('.').Last();//TODO имя тут неправильно так передавать
+                + _dateTimeProvider.CurrentDateTime().Ticks + "." + image.FileName.Split('.').Last();//TODO имя тут неправильно так передавать
             return await _imageDataStorage.CreateAsync(image.OpenReadStream(), uniqueFileName);
         }
 
@@ -115,7 +118,7 @@ namespace Menu.Models.Services
 
 
             string uniqueFileName = Guid.NewGuid().ToString() + "-"
-                + DateTime.Now.Ticks + "." + image.FileName.Split('.').Last();//TODO имя тут неправильно так передавать
+                + _dateTimeProvider.CurrentDateTime().Ticks + "." + image.FileName.Split('.').Last();//TODO имя тут неправильно так передавать
             return await _imageDataStorage.CreateUploadAsync(image.OpenReadStream(), uniqueFileName);
         }
 

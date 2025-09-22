@@ -19,6 +19,7 @@ using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 using Menu.Models.Services.Interfaces;
 using BL.Models.Services.Interfaces;
+using BL.Models.Services;
 
 namespace PlanitPoker.Models.Services
 {
@@ -38,6 +39,7 @@ namespace PlanitPoker.Models.Services
         private readonly IConfigurationService _configurationService;
         private readonly IHasher _hasher;
         private readonly IImageService _imageService;
+        private readonly IDateTimeProvider _dateTimeProvider;
 
 
 
@@ -58,7 +60,8 @@ namespace PlanitPoker.Models.Services
                  IHasher hasher,
                 IDBHelper dbHelper, MenuDbContext db,
                 IPlaningUserRepository planingUserRepository,
-                IImageService imageService
+                IImageService imageService,
+                IDateTimeProvider dateTimeProvider
             )
         {
             _multiThreadHelper = multiThreadHelper;
@@ -72,6 +75,7 @@ namespace PlanitPoker.Models.Services
             _hasher = hasher;
             _dbHelper = dbHelper;
             _db = db;
+            _dateTimeProvider = dateTimeProvider;
         }
 
         public async Task<List<PlanitUser>> GetAllUsersWithRight(Room room, string userConnectionId)
@@ -268,7 +272,7 @@ namespace PlanitPoker.Models.Services
             await room.SetConcurentValue(_multiThreadHelper,
                 rm =>
                 {
-                    res = DateTime.Now.AddHours(Constants.DefaultHourRoomAlive);
+                    res = _dateTimeProvider.CurrentDateTime().AddHours(Constants.DefaultHourRoomAlive);
                     rm.StoredRoom.DieDate = res;
                 });
 
@@ -300,7 +304,7 @@ namespace PlanitPoker.Models.Services
             string oldConnectionId = null;
             var success = await room.SetConcurentValueAsync(_multiThreadHelper, rm =>
             {
-                var nowPlus = DateTime.Now.AddMinutes(5);
+                var nowPlus = _dateTimeProvider.CurrentDateTime().AddMinutes(5);
                 if (rm.StoredRoom.DieDate < nowPlus)
                 {
                     //это нужно на случай если таймер уже закончился, но рума не очищена,
@@ -445,6 +449,7 @@ namespace PlanitPoker.Models.Services
             }
 
             var roomData = new StoredRoom(roomName, password);
+            roomData.SetDieDate(_dateTimeProvider.CurrentDateTime());
             var room = new Room(roomData);
             roomData.Cards = DefaultCards.Select(x => x).ToList();
 
@@ -865,7 +870,7 @@ namespace PlanitPoker.Models.Services
 
                 story.Completed = true;
                 story.Vote = voteInfo?.Average ?? 0;
-                story.Date = DateTime.Now;
+                story.Date = _dateTimeProvider.CurrentDateTime();
                 oldId = story.Id;
 
                 if (story.IdDb != null)
@@ -1132,7 +1137,7 @@ namespace PlanitPoker.Models.Services
                 var curRoom = Rooms[roomName];
                 var dieDateCurRoom = await curRoom.GetConcurentValue(_multiThreadHelper,
                     rm => rm.StoredRoom.DieDate);
-                if (dieDateCurRoom.res < DateTime.Now || force)//(DateTime.Now.AddHours(Consts.DefaultHourRoomAlive)))
+                if (dieDateCurRoom.res < _dateTimeProvider.CurrentDateTime() || force)//(DateTime.Now.AddHours(Consts.DefaultHourRoomAlive)))
                 {
                     await curRoom.SetConcurentValueAsync(_multiThreadHelper, async rm =>
                     {
@@ -1546,6 +1551,7 @@ namespace PlanitPoker.Models.Services
                 ImagePath = roomDb.ImagePath,
                 //roomDb.Cards?.Split(";", StringSplitOptions.RemoveEmptyEntries).ToList() ?? new List<string>()
             };
+            storedRoom.SetDieDate(_dateTimeProvider.CurrentDateTime());
 
             await _roomRepository.LoadUsersAsync(roomDb);
             storedRoom.Users = //(await _planingUserRepository.GetForRoom(roomDb.Id))

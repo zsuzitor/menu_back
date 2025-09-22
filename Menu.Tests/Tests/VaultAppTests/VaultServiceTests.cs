@@ -1,4 +1,5 @@
-﻿using BL.Models.Services.Cache;
+﻿using BL.Models.Services;
+using BL.Models.Services.Cache;
 using BL.Models.Services.Interfaces;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
@@ -48,7 +49,7 @@ namespace Menu.Tests.Tests.VaultAppTests
             var service = new VaultService(new VaultRepository(db, new GeneralRepositoryStrategy(db)), dbHelperMoq, db
                 , new UserRepository(db)
                 , new CacheService(new FakeCacheAccessor())
-                , hasherMoq, coder, new SecretRepository(db, new GeneralRepositoryStrategy(db)));
+                , hasherMoq, coder, new SecretRepository(db, new GeneralRepositoryStrategy(db), new DateTimeProvider()));
             return (db, dbHelperMoq, hasherMoq, coder, service);
         }
     }

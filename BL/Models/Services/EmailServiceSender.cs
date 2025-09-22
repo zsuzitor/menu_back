@@ -16,9 +16,12 @@ namespace BL.Models.Services
     public class EmailServiceSender : IEmailServiceSender
     {
         private readonly ILogger _logger;
-        public EmailServiceSender(ILogger<EmailServiceSender> logger)
+        protected readonly IDateTimeProvider _dateTimeProvider;
+        public EmailServiceSender(ILogger<EmailServiceSender> logger, IDateTimeProvider dateTimeProvider)
         {
             _logger = logger;
+            _dateTimeProvider = dateTimeProvider;
+
         }
 
         //https://github.com/myloveCc/NETCore.MailKit
@@ -93,9 +96,8 @@ namespace BL.Models.Services
 
     public class EmailServiceSenderMock : EmailServiceSender
     {
-        public EmailServiceSenderMock(ILogger<EmailServiceSender> logger) : base(logger)
+        public EmailServiceSenderMock(ILogger<EmailServiceSender> logger, IDateTimeProvider dateTimeProvider) : base(logger, dateTimeProvider)
         {
-            
         }
 
         public override async Task SendEmailAsync(List<OneMail> mails, MailSendingInstanceConfig config)
@@ -107,7 +109,7 @@ namespace BL.Models.Services
             //}
 
             File.AppendAllLines(resultFilePath, mails.Select(x =>
-            $@"{DateTime.Now}-from:{config.EmailFrom}-to:{x.Email}-subject:{x.Subject}-message:{x.Message}"));
+            $@"{_dateTimeProvider.CurrentDateTime()}-from:{config.EmailFrom}-to:{x.Email}-subject:{x.Subject}-message:{x.Message}"));
         }
     }
 }

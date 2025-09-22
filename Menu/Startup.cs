@@ -34,7 +34,6 @@ using VaultApp.Models;
 using BL.Models.Services.Cache;
 using Hangfire.Dashboard.BasicAuthorization;
 using Menu.Models;
-using TaskManagementApp.Models;
 
 namespace Menu
 {

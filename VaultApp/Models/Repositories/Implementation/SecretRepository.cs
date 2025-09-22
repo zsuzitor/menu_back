@@ -1,4 +1,5 @@
-﻿using BO.Models.VaultApp.Dal;
+﻿using BL.Models.Services.Interfaces;
+using BO.Models.VaultApp.Dal;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
@@ -13,14 +14,16 @@ namespace VaultApp.Models.Repositories.Implementation
 {
     public sealed class SecretRepository : GeneralRepository<Secret, long>, ISecretRepository
     {
-        public SecretRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
-        {
+        private readonly IDateTimeProvider _dateTimeProvider;
 
+        public SecretRepository(MenuDbContext db, IGeneralRepositoryStrategy repo, IDateTimeProvider dateTimeProvider) : base(db, repo)
+        {
+            _dateTimeProvider = dateTimeProvider;
         }
 
         public async Task DeleteExpiredSecrets()
         {
-            _db.Secrets.RemoveRange(_db.Secrets.Where(x => x.DieDate != null && x.DieDate < DateTime.Now));
+            _db.Secrets.RemoveRange(_db.Secrets.Where(x => x.DieDate != null && x.DieDate < _dateTimeProvider.CurrentDateTime()));
             await _db.SaveChangesAsync();
         }
 

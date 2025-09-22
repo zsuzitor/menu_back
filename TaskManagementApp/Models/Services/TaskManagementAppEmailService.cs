@@ -26,8 +26,8 @@ namespace TaskManagementApp.Models.Services
 
         public TaskManagementAppEmailService(
             IEmailServiceSender emailService, INotificationRepository notificationRepository,
-            IConfigurationService configurationService, MailSendingConfig config)
-            : base(emailService, notificationRepository)
+            IConfigurationService configurationService, IDateTimeProvider dateTimeProvider, MailSendingConfig config)
+            : base(emailService, notificationRepository, dateTimeProvider)
         {
             __config = config.Values[ConfigurationKey];
             _configurationService = configurationService;

@@ -1,4 +1,5 @@
-﻿using BO.Models.Auth;
+﻿using BL.Models.Services.Interfaces;
+using BO.Models.Auth;
 using BO.Models.TaskManagementApp.DAL.Domain;
 using Common.Models.Exceptions;
 using Pipelines.Sockets.Unofficial.Arenas;
@@ -17,15 +18,17 @@ namespace TaskManagementApp.Models.Services
         private readonly IProjectRepository _projectRepository;
         private readonly IWorkTaskRepository _workTaskRepository;
         private readonly IProjectUserRepository _projectUserRepository;
+        private readonly IDateTimeProvider _dateTimeProvider;
 
 
         public WorkTimeLogService(IWorkTimeLogRepository workTimeLogRepository, IProjectRepository projectRepository
-            , IWorkTaskRepository workTaskRepository, IProjectUserRepository projectUserRepository)
+            , IWorkTaskRepository workTaskRepository, IProjectUserRepository projectUserRepository, IDateTimeProvider dateTimeProvider)
         {
             _workTimeLogRepository = workTimeLogRepository;
             _projectRepository = projectRepository;
             _workTaskRepository = workTaskRepository;
             _projectUserRepository = projectUserRepository;
+            _dateTimeProvider = dateTimeProvider;
         }
 
         public async Task<WorkTimeLog> CreateAsync(WorkTimeLog obj, UserInfo userInfo)
@@ -39,7 +42,7 @@ namespace TaskManagementApp.Models.Services
             }
 
             obj.ProjectUserId = userId;
-            obj.CreationTime = DateTime.Now;
+            obj.CreationTime = _dateTimeProvider.CurrentDateTime();
 
             return await _workTimeLogRepository.AddAsync(obj);
         }

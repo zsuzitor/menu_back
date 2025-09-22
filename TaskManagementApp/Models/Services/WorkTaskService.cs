@@ -13,6 +13,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.DTO;
+using System.Drawing;
+using BL.Models.Services.Interfaces;
+using Org.BouncyCastle.Ocsp;
 
 namespace TaskManagementApp.Models.Services
 {
@@ -20,15 +23,19 @@ namespace TaskManagementApp.Models.Services
     {
         private readonly IWorkTaskRepository _workTaskRepository;
         private readonly IProjectRepository _projectRepository;
+        private readonly ISprintRepository _sprintRepository;
+        private readonly IWorkTaskLabelRepository _labelRepository;
         private readonly IProjectUserService _projectUserService;
         private readonly IWorkTaskCommentService _workTaskCommentService;
         private readonly ITaskManagementAppEmailService _taskManagementAppEmailService;
         private readonly ITaskStatusRepository _taskStatusRepository;
         private readonly IConfiguration _configuration;
+        private readonly IDateTimeProvider _dateTimeProvider;
+
         public WorkTaskService(IWorkTaskRepository workTaskRepository,
             IProjectRepository projectRepository, IProjectUserService projectUserService
             , IWorkTaskCommentService workTaskCommentService, ITaskManagementAppEmailService taskManagementAppEmailService, ITaskStatusRepository taskStatusRepository
-            , IConfiguration configuration)
+            , IConfiguration configuration, IDateTimeProvider dateTimeProvider, ISprintRepository sprintRepository, IWorkTaskLabelRepository labelRepository)
         {
             _workTaskRepository = workTaskRepository;
             _projectRepository = projectRepository;
@@ -37,6 +44,10 @@ namespace TaskManagementApp.Models.Services
             _taskManagementAppEmailService = taskManagementAppEmailService;
             _taskStatusRepository = taskStatusRepository;
             _configuration = configuration;
+            _dateTimeProvider = dateTimeProvider;
+            _sprintRepository = sprintRepository;
+            _labelRepository = labelRepository;
+
         }
 
         public async Task<WorkTask> CreateAsync(WorkTask task, UserInfo userInfo)
@@ -124,7 +135,7 @@ namespace TaskManagementApp.Models.Services
             upTask.Status = task.Status;
             upTask.Name = task.Name;
             upTask.Description = task.Description;
-            upTask.LastUpdateDate = DateTime.Now;
+            upTask.LastUpdateDate = _dateTimeProvider.CurrentDateTime();
             //upTask.CreatorId = task.CreatorId;
             upTask.ExecutorId = task.ExecutorId;
             await _workTaskRepository.UpdateAsync(upTask);
@@ -177,6 +188,7 @@ namespace TaskManagementApp.Models.Services
                 {
                     throw new SomeCustomException(Consts.ErrorConsts.WorkTaskStatusNotExists);
                 }
+
                 upTask.StatusId = statusId;
                 await _workTaskRepository.UpdateAsync(upTask);
 
@@ -213,11 +225,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<List<WorkTaskComment>> GetCommentsAsync(long taskId, UserInfo userInfo)
         {
-            var task = await _workTaskRepository.GetTaskWithCommentsAsync(taskId);
-            if (task == null)
-            {
-                throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
-            }
+            var task = await _workTaskRepository.GetTaskWithCommentsAsync(taskId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
 
             var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
             if (!projectAccessed.access)
@@ -230,12 +238,8 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<WorkTask> GetByIdIfAccessAsync(long id, UserInfo userInfo)
         {
-            var task = await _workTaskRepository.GetAccessAsync(id, userInfo.UserId);
+            var task = await _workTaskRepository.GetAccessAsync(id, userInfo.UserId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
             //var task = await _workTaskRepository.GetNoTrackAsync(id);
-            if (task == null)
-            {
-                throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
-            }
 
             //var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
             //if (!projectAccessed.access)
@@ -255,14 +259,9 @@ namespace TaskManagementApp.Models.Services
 
             //todo много запросов что то получается
             var task = await GetByIdIfAccessAsync(taskId, userInfo);
-            var projectUserId = await _projectUserService.GetIdByMainAppIdAsync(userInfo, task.ProjectId);
-            if (projectUserId == null)
-            {
-                //по идеи не должно сюда заходить тк выше проверяем доступ GetByIdIfAccessAsync
-                throw new SomeCustomException(Consts.ErrorConsts.TaskHaveNoAccess);
-            }
+            var projectUserId = await _projectUserService.GetIdByMainAppIdAsync(userInfo, task.ProjectId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskHaveNoAccess);
 
-            var newComment = new WorkTaskComment() { CreatorId = projectUserId.Value, TaskId = taskId, Text = text };
+            var newComment = new WorkTaskComment() { CreatorId = projectUserId, TaskId = taskId, Text = text, CreateDate = _dateTimeProvider.CurrentDateTime() };
             var comment = await _workTaskCommentService.CreateAsync(newComment);
             var emails = await GetTaskUsersForNotificationAsync(task, userInfo);
 
@@ -287,11 +286,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<WorkTask> GetIfEditAccess(long id, UserInfo userInfo)
         {
-            var task = await _workTaskRepository.GetAsync(id);
-            if (task == null)
-            {
-                throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
-            }
+            var task = await _workTaskRepository.GetAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
 
             var canAddToProject = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
             if (!canAddToProject.access)
@@ -309,7 +304,44 @@ namespace TaskManagementApp.Models.Services
         }
 
 
+        public async Task<WorkTask> GetTaskFullAsync(long id)
+        {
+            return await _workTaskRepository.GetTaskFullAsync(id);
+        }
 
+        public async Task<WorkTask> CopyAsync(long id, UserInfo userInfo)
+        {
+            var task = await _workTaskRepository.GetTaskFullAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
+            var s = await ExistIfAccessAdminAsync(task.ProjectId, userInfo);
+            if (!s)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+            }
+
+            var projUser = await _projectUserService.GetIdByMainAppIdAsync(userInfo,task.ProjectId);
+            var newTask = new WorkTask()
+            {
+                CreateDate = _dateTimeProvider.CurrentDateTime(),
+                CreatorEntityId = userInfo.UserId,
+                CreatorId = projUser.Value,
+                Description = task.Description,
+                ExecutorId = task.ExecutorId,
+                LastUpdateDate = _dateTimeProvider.CurrentDateTime(),
+                Name = task.Name,
+                ProjectId = task.ProjectId,
+                StatusId = task.StatusId,
+            };
+
+            await _workTaskRepository.AddAsync(newTask);
+
+            newTask.Labels = task.Labels.Select(x => new WorkTaskLabelTaskRelation() { LabelId = x.LabelId, TaskId = newTask.Id }).ToList();
+            newTask.Sprints = task.Sprints.Select(x => new WorkTaskSprintRelation() { SprintId = x.SprintId, TaskId = newTask.Id }).ToList();
+            await _workTaskRepository.UpdateAsync(newTask);
+            return newTask;
+        }
+
+
+        #region вспомогательные методы
         private async Task StatusChangedNotifyAsync(WorkTask upTask, UserInfo userInfo)
         {
             var users = await GetTaskUsersForNotificationAsync(upTask, userInfo);
@@ -444,9 +476,14 @@ namespace TaskManagementApp.Models.Services
             return fullUri;
         }
 
-        public async Task<WorkTask> GetTaskFullAsync(long id)
+        private async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)
         {
-            return await _workTaskRepository.GetTaskFullAsync(id);
+            return await _projectRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
         }
+        #endregion вспомогательные методы
+
+
+
+
     }
 }

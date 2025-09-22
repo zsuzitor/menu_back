@@ -54,6 +54,9 @@ namespace Menu.Models
             services.AddSingleton<ICacheService, CacheService>();
             services.AddSingleton<ICoder, AesCoder1>();
             services.AddSingleton<IHasher, Hasher>();
+            services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
+
+            
         }
 
         public void WorkersInitialize(IServiceProvider serviceProvider)

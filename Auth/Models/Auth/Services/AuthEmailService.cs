@@ -15,8 +15,8 @@ namespace Auth.Models.Auth.Services
 
 
         public AuthEmailService(
-            IEmailServiceSender emailService, INotificationRepository notificationRepository, MailSendingConfig config)
-            : base(emailService, notificationRepository)
+            IEmailServiceSender emailService, INotificationRepository notificationRepository, MailSendingConfig config, IDateTimeProvider dateTimeProvider)
+            : base(emailService, notificationRepository, dateTimeProvider)
         {
             __config = config.Values[ConfigurationKey];
         }

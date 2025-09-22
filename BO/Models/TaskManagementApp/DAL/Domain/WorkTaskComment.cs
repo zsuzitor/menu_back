@@ -21,7 +21,6 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
 
         public WorkTaskComment()
         {
-            CreateDate = DateTime.Now;
         }
     }
 }

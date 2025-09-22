@@ -5,7 +5,6 @@ using Pipelines.Sockets.Unofficial.Arenas;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TaskManagementApp.Models.DAL.Repositories;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TaskManagementApp.Models.Services.Interfaces;
 

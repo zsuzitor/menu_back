@@ -141,6 +141,26 @@ namespace Menu.Controllers.TaskManagementApp
 
         }
 
+        [Route("copy-project-task")]
+        [HttpPut]
+        public async Task CopyProjectTask(long id)
+        {
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var task = await _workTaskService.CopyAsync(id);
+
+                    var taskReturn = new WorkTaskReturn(task);
+
+                    await _apiHealper.WriteResponseAsync(Response,
+                        taskReturn);// new { Tasks = taskReturn });//"projectInfo_" + projectId
+
+                }, Response, _logger);
+
+        }
+
         [Route("add-new-task")]
         [HttpPut]
         public async Task AddNewTask([FromBody] AddNewTaskRequest request)

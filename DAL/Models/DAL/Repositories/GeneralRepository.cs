@@ -1,9 +1,6 @@
 ﻿using BO.Models.DAL;
 using DAL.Models.DAL.Repositories.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace DAL.Models.DAL.Repositories

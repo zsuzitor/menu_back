@@ -26,16 +26,18 @@ namespace BL.Models.Services
 
         protected readonly IEmailServiceSender _emailService;
         protected readonly INotificationRepository _notificationRepository;
+        private readonly IDateTimeProvider _dateTimeProvider;
         protected abstract MailSendingInstanceConfig _config { get; }
         protected abstract string Group { get; }
 
 
 
-        public EmailServiceBase(IEmailServiceSender emailService, INotificationRepository notificationRepository)
+        public EmailServiceBase(IEmailServiceSender emailService, INotificationRepository notificationRepository, IDateTimeProvider dateTimeProvider)
         //IConfiguration configuration)
         {
             _emailService = emailService;
             _notificationRepository = notificationRepository;
+            _dateTimeProvider = dateTimeProvider;
         }
 
         public virtual async Task SendEmailAsync(string email, string subject, string message)
@@ -48,7 +50,7 @@ namespace BL.Models.Services
 
             var rec = await _notificationRepository.AddAsync(new BO.Models.DAL.Domain.Notification()
             {
-                CreatedDate = System.DateTime.Now,
+                CreatedDate = _dateTimeProvider.CurrentDateTime(),
                 Email = email,
                 Message = message,
                 Subject = subject,
@@ -58,7 +60,7 @@ namespace BL.Models.Services
 
             await _emailService.SendEmailAsync(email, subject, message, _config);
 
-            rec.SendedDate = System.DateTime.Now;
+            rec.SendedDate = _dateTimeProvider.CurrentDateTime();
             await _notificationRepository.UpdateAsync(rec);
         }
 
@@ -71,7 +73,7 @@ namespace BL.Models.Services
 
             await _notificationRepository.AddAsync(new BO.Models.DAL.Domain.Notification()
             {
-                CreatedDate = System.DateTime.Now,
+                CreatedDate = _dateTimeProvider.CurrentDateTime(),
                 Email = email,
                 Message = message,
                 Subject = subject,
@@ -85,7 +87,7 @@ namespace BL.Models.Services
             var mails = email.Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => 
             new BO.Models.DAL.Domain.Notification()
             {
-                CreatedDate = System.DateTime.Now,
+                CreatedDate = _dateTimeProvider.CurrentDateTime(),
                 Email = x,
                 Message = message,
                 Subject = subject,
@@ -125,7 +127,7 @@ namespace BL.Models.Services
             }
 
             await _emailService.SendEmailAsync(combinedForSend, _config);
-            localForSend.ForEach(x => x.SendedDate = System.DateTime.Now);
+            localForSend.ForEach(x => x.SendedDate = _dateTimeProvider.CurrentDateTime());
             await _notificationRepository.UpdateAsync(localForSend);
         }
     }

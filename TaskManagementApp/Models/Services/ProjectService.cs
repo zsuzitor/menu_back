@@ -8,6 +8,7 @@ using Menu.Models.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BL.Models.Services.Interfaces;
 
 namespace TaskManagementApp.Models.Services
 {
@@ -18,14 +19,16 @@ namespace TaskManagementApp.Models.Services
         private readonly IProjectUserService _projectUserService;
         private readonly IWorkTaskService _workTaskService;
         private readonly IUserService _mainAppUserService;
+        private readonly IDateTimeProvider _dateTimeProvider;
         public ProjectService(IProjectRepository projectRepository, IProjectUserService userService,
-            IWorkTaskService workTaskService, IUserService mainAppUserService, ITaskStatusRepository taskStatusRepository)
+            IWorkTaskService workTaskService, IUserService mainAppUserService, ITaskStatusRepository taskStatusRepository, IDateTimeProvider dateTimeProvider)
         {
             _projectRepository = projectRepository;
             _projectUserService = userService;
             _workTaskService = workTaskService;
             _mainAppUserService = mainAppUserService;
             _taskStatusRepository = taskStatusRepository;
+            _dateTimeProvider = dateTimeProvider;
         }
 
         public async Task<Project> CreateAsync(string name, UserInfo userInfo)
@@ -153,8 +156,8 @@ namespace TaskManagementApp.Models.Services
                 ProjectId = task.ProjectId,
                 ExecutorId = task.ExecutorId,
                 CreatorEntityId = userInfo.UserId,
-                CreateDate = DateTime.Now,
-                LastUpdateDate = DateTime.Now,
+                CreateDate = _dateTimeProvider.CurrentDateTime(),
+                LastUpdateDate = _dateTimeProvider.CurrentDateTime(),
                 StatusId = task.StatusId,
             };
 
