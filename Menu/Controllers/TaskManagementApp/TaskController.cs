@@ -150,7 +150,7 @@ namespace Menu.Controllers.TaskManagementApp
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var task = await _workTaskService.CopyAsync(id);
+                    var task = await _workTaskService.CopyAsync(id, userInfo);
 
                     var taskReturn = new WorkTaskReturn(task);
 

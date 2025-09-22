@@ -5,7 +5,6 @@ using Common.Models.Exceptions;
 using jwtLib.JWTAuth.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
@@ -25,13 +24,14 @@ namespace Menu.Controllers.TaskManagementApp
         private readonly IWorkTaskStatusService _statusService;
         private readonly IProjectUserService _projectUserService;
         private readonly ISprintService _sprintService;
+        private readonly ILabelService _labelService;
 
 
         public ProjectController(
              IJWTService jwtService, IApiHelper apiHealper
             , ILogger<ProjectController> logger, IProjectService projectService,
              IProjectUserService projectUserService,
-             IWorkTaskStatusService statusService, ISprintService sprintService)
+             IWorkTaskStatusService statusService, ISprintService sprintService, ILabelService labelService)
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
@@ -41,6 +41,7 @@ namespace Menu.Controllers.TaskManagementApp
             _projectUserService = projectUserService;
             _statusService = statusService;
             _sprintService = sprintService;
+            _labelService = labelService;
         }
 
         [Route("get-projects")]
@@ -94,14 +95,18 @@ namespace Menu.Controllers.TaskManagementApp
                         throw new SomeCustomException("project_not_found");
                     }
 
-                    var statuses = (await _statusService.GetStatusesAsync(projectId, userInfo)).Select(x => new WorkTaskStatusReturn(x));
-                    var sprints = (await _sprintService.GetForProject(projectId, userInfo)).Select(x => new ProjectSprintReturn(x));
+
+                    //todo много запросов
+                    var statuses = (await _statusService.GetStatusesAsync(projectId, userInfo)).Select(x => new WorkTaskStatusReturn(x)).ToList();
+                    var sprints = (await _sprintService.GetForProject(projectId, userInfo)).Select(x => new ProjectSprintReturn(x)).ToList();
+                    var labels = (await _labelService.Get(projectId, userInfo)).Select(x => new ProjectLabelReturn(x)).ToList();
 
                     var users = await _projectUserService.GetProjectUsersAsync(projectId, userInfo);
-                    var usersReturn = users.Select(x => new ProjectUserReturn(x));
+                    var usersReturn = users.Select(x => new ProjectUserReturn(x)).ToList();
 
-                    await _apiHealper.WriteResponseAsync(Response,
-                        new { Users = usersReturn, Statuses = statuses, Sprints = sprints });//, Tasks = taskReturn
+                    await _apiHealper.WriteResponseAsync(Response, new ProjectFullInfoReturn()
+                        { Users = usersReturn, Statuses = statuses, Sprints = sprints, Labels = labels }
+                        );
 
                 }, Response, _logger);
 

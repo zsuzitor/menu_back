@@ -1,7 +1,5 @@
 ﻿using BO.Models.TaskManagementApp.DAL.Domain;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TaskManagementApp.Models.Returns
 {
