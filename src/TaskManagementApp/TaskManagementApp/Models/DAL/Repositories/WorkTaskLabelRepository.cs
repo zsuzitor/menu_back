@@ -31,6 +31,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         }
 
+        public async Task<bool> ExistsAsync(string name, long projectId)
+        {
+            return await _db.TaskManagementWorkTaskLabel.Where(x => x.ProjectId == projectId && x.Name == name).AnyAsync();
+
+        }
+
         public async Task<List<WorkTaskLabel>> GetForProjectAsync(long projectId)
         {
             return await _db.TaskManagementWorkTaskLabel.Where(x => x.ProjectId == projectId).ToListAsync();

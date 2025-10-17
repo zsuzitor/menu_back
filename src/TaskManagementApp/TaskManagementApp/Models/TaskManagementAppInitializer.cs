@@ -43,8 +43,11 @@ namespace TaskManagementApp.Models
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskTimeLogIntervalValidationError, "Ошибка валидации, передан неверный интервал", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.SprintNotFound, "Спринт не найден", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.LabelNotFound, "Метка не найдена", "TaskManagementApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.LabelExists, "Метка уже создана", "TaskManagementApp", "Error");
 
             
+
+
 
 
 

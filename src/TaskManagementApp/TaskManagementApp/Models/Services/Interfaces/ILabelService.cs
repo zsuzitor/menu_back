@@ -10,6 +10,7 @@ namespace TaskManagementApp.Models.Services.Interfaces
     public interface ILabelService
     {
         Task<WorkTaskLabel> Create(WorkTaskLabel req, UserInfo userInfo);
+        Task<WorkTaskLabel> Update(WorkTaskLabel req, UserInfo userInfo);
         Task<List<WorkTaskLabel>> Get(long projectId, UserInfo userInfo);
         Task<bool> Delete(long id, UserInfo userInfo);
         Task<bool> AddToTask(long labelId, long taskId, UserInfo userInfo);

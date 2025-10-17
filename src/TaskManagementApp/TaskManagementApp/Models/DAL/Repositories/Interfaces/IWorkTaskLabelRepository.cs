@@ -14,5 +14,6 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
         Task<bool> RemoveFromTaskIdExistAsync(long labelId, long taskId);
         Task<List<WorkTaskLabel>> GetForTaskAsync(long taskId);
         Task<List<WorkTaskLabel>> GetForProjectAsync(long projectId);
+        Task<bool> ExistsAsync(string name, long projectId);
     }
 }

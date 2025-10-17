@@ -2772,6 +2772,33 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".task-status-elem {\r\n    display: fl
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/Labels/Labels.css":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/Labels/Labels.css ***!
+  \*******************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".labels-page-main {\r\n    padding-top: 60px;\r\n    width: 100%;\r\n}\r\n\r\n.labels-page-main .label-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.labels-page-main .one-label {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.labels-page-main .one-label-info {\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n}\r\n\r\n.labels-page-main .label-buttons {\r\n    display: flex;\r\n}\r\n\r\n.labels-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/Labels/Labels.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,QAAQ;AACZ;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,SAAS;IACT,gBAAgB;IAChB,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB","sourcesContent":[".labels-page-main {\r\n    padding-top: 60px;\r\n    width: 100%;\r\n}\r\n\r\n.labels-page-main .label-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.labels-page-main .one-label {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.labels-page-main .one-label-info {\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n}\r\n\r\n.labels-page-main .label-buttons {\r\n    display: flex;\r\n}\r\n\r\n.labels-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/OneProjectInList/OneProjectInList.css":
 /*!***************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/OneProjectInList/OneProjectInList.css ***!
@@ -64214,6 +64241,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/Apps/TaskManagementApp/Components/Labels/Labels.css":
+/*!*****************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/Labels/Labels.css ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_Labels_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./Labels.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/Labels/Labels.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_Labels_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_Labels_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_Labels_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_Labels_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/Apps/TaskManagementApp/Components/OneProjectInList/OneProjectInList.css":
 /*!*************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Components/OneProjectInList/OneProjectInList.css ***!
@@ -71947,8 +72029,8 @@ const AddWorkTimeLog = (props) => {
     };
     const parsedDate = parseTime(timeLogVal);
     const valideTime = parsedDate.hours > 0 || parsedDate.minutes > 0;
-    console.log(timeLogDate);
-    console.log(formatDateToInput(timeLogDate));
+    // console.log(timeLogDate);
+    // console.log(formatDateToInput(timeLogDate));
     return react_1.default.createElement("div", { className: 'add-work-time-window' },
         props.TaskId || react_1.default.createElement("div", null,
             react_1.default.createElement("span", null, "\u0417\u0430\u0434\u0430\u0447\u0430"),
@@ -72234,6 +72316,143 @@ exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToPr
 
 /***/ }),
 
+/***/ "./src/Apps/TaskManagementApp/Components/Labels/Labels.tsx":
+/*!*****************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/Labels/Labels.tsx ***!
+  \*****************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const LabelsSetup_1 = __importDefault(__webpack_require__(/*! ./LabelsSetup */ "./src/Apps/TaskManagementApp/Components/Labels/LabelsSetup.tsx"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+__webpack_require__(/*! ./Labels.css */ "./src/Apps/TaskManagementApp/Components/Labels/Labels.css");
+const Labels = (props) => {
+    const [editLabelId, setEditLabelId] = (0, react_1.useState)(0);
+    const [editLabelText, setEditLabelText] = (0, react_1.useState)('');
+    const navigate = (0, react_router_dom_1.useNavigate)();
+    (0, react_1.useEffect)(() => {
+        return () => {
+            // props.ClearLabels(props.ProjectId);//тянутся лейблы которые на данный момент должны храниться в проекте
+            //при уходе с страницы они должны сохраняться
+        };
+    }, []);
+    (0, react_1.useEffect)(() => {
+        if (props.ProjectId && props.ProjectId > 0)
+            props.LoadLabels(props.ProjectId);
+    }, [props.ProjectId, props.Labels.length]);
+    if (!props.Labels) {
+        return react_1.default.createElement(react_1.default.Fragment, null);
+    }
+    // let editSprint = props.Labels.find(x => x.Id == editLabelId);
+    return react_1.default.createElement("div", { className: 'labels-page-main' },
+        react_1.default.createElement("div", { className: 'label-block' }, props.Labels.map(x => {
+            return react_1.default.createElement("div", { className: 'one-label', key: x.Id },
+                react_1.default.createElement("div", { className: 'one-label-info', onClick: () => {
+                        setEditLabelId(x.Id);
+                        setEditLabelText(x.Name);
+                    } },
+                    react_1.default.createElement("div", null, x.Id),
+                    editLabelId == x.Id ? react_1.default.createElement("input", { type: 'text', onChange: (e) => setEditLabelText(e.target.value) }) : react_1.default.createElement("div", null, x.Name)),
+                react_1.default.createElement("div", { className: 'label-buttons' },
+                    react_1.default.createElement("div", { className: 'action-btn', onClick: (e) => {
+                            if (!confirm('Удалить лейбл' + x.Name + '?')) {
+                                return;
+                            }
+                            e.preventDefault();
+                            props.DeleteLabel(x.Id);
+                        }, title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043B\u0435\u0439\u0431\u043B' },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })),
+                    editLabelId ? react_1.default.createElement(react_1.default.Fragment, null,
+                        react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
+                                setEditLabelId(0);
+                            }, title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435' },
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/cancel.png" })),
+                        react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
+                                setEditLabelId(0);
+                                props.UpdateLabel(x.Id, editLabelText);
+                            }, title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' },
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/save-icon.png" }))) : react_1.default.createElement(react_1.default.Fragment, null)));
+        })));
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, LabelsSetup_1.default)(Labels);
+
+
+/***/ }),
+
+/***/ "./src/Apps/TaskManagementApp/Components/Labels/LabelsSetup.tsx":
+/*!**********************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/Labels/LabelsSetup.tsx ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const LabelActions_1 = __webpack_require__(/*! ../../Models/Actions/LabelActions */ "./src/Apps/TaskManagementApp/Models/Actions/LabelActions.ts");
+const mapStateToProps = (state, ownProps) => {
+    let res = {};
+    res.ProjectId = state.TaskManagementApp.CurrentProjectId;
+    res.Labels = state.TaskManagementApp.CurrentProjectLabels;
+    return res;
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    let res = {};
+    res.LoadLabels = (projectId) => {
+        dispatch(window.G_TaskManagementLabelController.GetForProjectRedux(projectId));
+    };
+    // res.LoadSprints = (projectId: number) => {
+    //     dispatch(window.G_TaskManagementSprintController.GetForProjectRedux(projectId));
+    // };
+    res.ClearLabels = (projectId) => {
+        dispatch((0, LabelActions_1.GetProjectLabelsActionCreator)([]));
+    };
+    res.CreateLabel = (projectId, labelName) => {
+        dispatch(window.G_TaskManagementLabelController.CreateLabelRedux(projectId, labelName));
+    };
+    res.UpdateLabel = (projectId, labelName) => {
+        dispatch(window.G_TaskManagementLabelController.UpdateLabelRedux(projectId, labelName));
+    };
+    res.DeleteLabel = (labelId) => {
+        dispatch(window.G_TaskManagementLabelController.DeleteLabelRedux(labelId));
+    };
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
 /***/ "./src/Apps/TaskManagementApp/Components/OneProjectInList/OneProjectInList.tsx":
 /*!*************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Components/OneProjectInList/OneProjectInList.tsx ***!
@@ -72249,6 +72468,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const OneProjectInListSetup_1 = __importDefault(__webpack_require__(/*! ./OneProjectInListSetup */ "./src/Apps/TaskManagementApp/Components/OneProjectInList/OneProjectInListSetup.tsx"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
 __webpack_require__(/*! ./OneProjectInList.css */ "./src/Apps/TaskManagementApp/Components/OneProjectInList/OneProjectInList.css");
 const OneProjectInList = (props) => {
     const navigate = (0, react_router_dom_1.useNavigate)();
@@ -72256,10 +72476,11 @@ const OneProjectInList = (props) => {
     if (props.CurrentProject) {
         projectClassName += ' selected-management-project';
     }
+    const projectUrl = new RouteBuilder_1.default().ProjectUrl(props.Project.Id);
     return react_1.default.createElement("div", { key: props.Project.Id.toString(), className: projectClassName },
-        react_1.default.createElement("a", { href: '/task-management/proj-' + props.Project.Id, onClick: (e) => {
+        react_1.default.createElement("a", { href: projectUrl, onClick: (e) => {
                 e.preventDefault();
-                navigate("/task-management/proj-" + props.Project.Id);
+                navigate(projectUrl);
             } }, props.Project.Name));
 };
 // and that function returns the connected, wrapper component:
@@ -72906,6 +73127,7 @@ const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/re
 const AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 const OneWorkTaskSetup_1 = __importDefault(__webpack_require__(/*! ./OneWorkTaskSetup */ "./src/Apps/TaskManagementApp/Components/OneWorkTask/OneWorkTaskSetup.tsx"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
 __webpack_require__(/*! ./OneWorkTask.css */ "./src/Apps/TaskManagementApp/Components/OneWorkTask/OneWorkTask.css");
 const OneWorkTask = (props) => {
     const [taskName, setTaskName] = (0, react_1.useState)(props.Task.Name);
@@ -72982,13 +73204,14 @@ const OneWorkTask = (props) => {
     if (executor && executor.Deactivated) {
         executorList.push(executor);
     }
+    const taskUrl = new RouteBuilder_1.default().TaskUrl(props.CurrentProjectId, props.Task.Id);
     if (!showFullTask) {
         return react_1.default.createElement("div", { className: 'one-work-task-block' },
             react_1.default.createElement("div", { className: 'one-work-task-block-flex' },
                 react_1.default.createElement("div", { className: 'one-work-task-short-content' },
-                    react_1.default.createElement("a", { href: '/task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id, onClick: (e) => {
+                    react_1.default.createElement("a", { href: taskUrl, onClick: (e) => {
                             e.preventDefault();
-                            navigate("/task-management/proj-" + props.CurrentProjectId + '/task-' + props.Task.Id);
+                            navigate(taskUrl);
                         } }, props.Task.Name)),
                 react_1.default.createElement("div", { className: 'one-work-task-buttons' },
                     react_1.default.createElement("div", { className: 'task-button', onClick: () => setShowFullTask(true) },
@@ -73023,7 +73246,7 @@ const OneWorkTask = (props) => {
                             react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'cancel.png', alt: "Cancel", title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' }))) : react_1.default.createElement(react_1.default.Fragment, null),
                 react_1.default.createElement("div", { className: 'task-button', onClick: () => deleteTask() },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
-                react_1.default.createElement("div", { className: 'task-button', onClick: () => navigate("/task-management/proj-" + props.CurrentProjectId + '/task-' + props.Task.Id) },
+                react_1.default.createElement("div", { className: 'task-button', onClick: () => navigate(taskUrl) },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'external-link.png', alt: "Link", title: '\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0441\u0441\u044B\u043B\u043A\u0443' })))));
 };
 // and that function returns the connected, wrapper component:
@@ -73117,6 +73340,7 @@ const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/re
 const PersonTimePageSetup_1 = __importDefault(__webpack_require__(/*! ./PersonTimePageSetup */ "./src/Apps/TaskManagementApp/Components/PersonTimePage/PersonTimePageSetup.tsx"));
 const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
 __webpack_require__(/*! ./PersonTimePage.css */ "./src/Apps/TaskManagementApp/Components/PersonTimePage/PersonTimePage.css");
 const PersonTimePage = (props) => {
     const navigate = (0, react_router_dom_1.useNavigate)();
@@ -73218,15 +73442,16 @@ const PersonTimePage = (props) => {
                     }
                 } })),
         react_1.default.createElement("div", { className: 'user-time-time-block' }, uniqueTaskIds.length == 0 ? react_1.default.createElement(react_1.default.Fragment, null,
-            react_1.default.createElement("h1", null, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0434\u0440\u0443\u0433\u043E\u0439 \u043F\u0435\u0440\u0438\u0443\u0434"))
+            react_1.default.createElement("h1", null, "\u0412\u044B\u0431\u0435\u0440\u0438\u0442\u0435 \u0434\u0440\u0443\u0433\u043E\u0439 \u043F\u0435\u0440\u0438\u043E\u0434"))
             : react_1.default.createElement(react_1.default.Fragment, null,
                 renderHeadLine(),
                 uniqueTaskIds.map(x => {
+                    const taskUrl = new RouteBuilder_1.default().TaskUrl(props.CurrentProjectId, x);
                     return react_1.default.createElement("div", { className: 'user-time-one-line', key: x },
                         react_1.default.createElement("div", { className: 'user-time-line-header' },
-                            react_1.default.createElement("a", { href: '/task-management/proj-' + props.CurrentProjectId + '/task-' + x, onClick: (e) => {
+                            react_1.default.createElement("a", { href: taskUrl, onClick: (e) => {
                                     e.preventDefault();
-                                    navigate("/task-management/proj-" + props.CurrentProjectId + '/task-' + x);
+                                    navigate(taskUrl);
                                 } }, 'Task-' + x)),
                         renderOneLine(x));
                 }))));
@@ -73626,6 +73851,7 @@ const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/re
 const ProjectTimePageSetup_1 = __importDefault(__webpack_require__(/*! ./ProjectTimePageSetup */ "./src/Apps/TaskManagementApp/Components/ProjectTimePage/ProjectTimePageSetup.tsx"));
 const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
 __webpack_require__(/*! ./ProjectTimePage.css */ "./src/Apps/TaskManagementApp/Components/ProjectTimePage/ProjectTimePage.css");
 const ProjectTimePage = (props) => {
     const navigate = (0, react_router_dom_1.useNavigate)();
@@ -73731,11 +73957,12 @@ const ProjectTimePage = (props) => {
         react_1.default.createElement("div", { className: 'project-time-time-block' },
             renderHeadLine(),
             props.ProjectUsers.map(x => {
+                const timeLogUrl = new RouteBuilder_1.default().TimeLogUserUrl(props.ProjectId, x.Id);
                 return react_1.default.createElement("div", { className: 'project-time-one-line', key: x.Id },
                     react_1.default.createElement("div", { className: 'one-line-person' },
-                        react_1.default.createElement("a", { href: "/task-management/proj-" + props.ProjectId + "/user-" + x.Id + "/time-log", onClick: (e) => {
+                        react_1.default.createElement("a", { href: timeLogUrl, onClick: (e) => {
                                 e.preventDefault();
-                                navigate("/task-management/proj-" + props.ProjectId + "/user-" + x.Id + "/time-log");
+                                navigate(timeLogUrl);
                             } }, x.Email)),
                     renderOneLine(x.Id));
             })));
@@ -73927,6 +74154,7 @@ const OneProjectInList_1 = __importDefault(__webpack_require__(/*! ../OneProject
 const AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 const ProjectsListSetup_1 = __importDefault(__webpack_require__(/*! ./ProjectsListSetup */ "./src/Apps/TaskManagementApp/Components/ProjectsList/ProjectsListSetup.tsx"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
 __webpack_require__(/*! ./ProjectsList.css */ "./src/Apps/TaskManagementApp/Components/ProjectsList/ProjectsList.css");
 const ProjectsList = (props) => {
     const [newProjectName, setNewProjectName] = (0, react_1.useState)('');
@@ -73947,6 +74175,7 @@ const ProjectsList = (props) => {
     if (props.Projects && props.CurrentProjectId) {
         currentProject = props.Projects.find(x => x.Id == props.CurrentProjectId);
     }
+    const projectUrl = new RouteBuilder_1.default().ProjectUrl(props.CurrentProjectId);
     return react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement("div", { className: 'code-management-projects-menu' }, (showProjectList || !currentProject) ? react_1.default.createElement(react_1.default.Fragment, null,
             react_1.default.createElement("div", { className: 'management-project-new-block' },
@@ -73968,9 +74197,9 @@ const ProjectsList = (props) => {
             : react_1.default.createElement(react_1.default.Fragment, null,
                 react_1.default.createElement("button", { className: 'button button-grey', onClick: x => setShowProjectList(true) }, "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C"),
                 react_1.default.createElement("div", { className: 'selected-main-management-project' },
-                    react_1.default.createElement("a", { href: '/task-management/proj-' + props.CurrentProjectId, onClick: (e) => {
+                    react_1.default.createElement("a", { href: projectUrl, onClick: (e) => {
                             e.preventDefault();
-                            navigate("/task-management/proj-" + props.CurrentProjectId);
+                            navigate(projectUrl);
                         } }, currentProject.Name)))));
 };
 // and that function returns the connected, wrapper component:
@@ -74043,6 +74272,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const SprintSetup_1 = __importDefault(__webpack_require__(/*! ./SprintSetup */ "./src/Apps/TaskManagementApp/Components/Sprint/SprintSetup.ts"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
 __webpack_require__(/*! ./Sprint.css */ "./src/Apps/TaskManagementApp/Components/Sprint/Sprint.css");
 const Sprint = (props) => {
     // const [showAddWorkTimeNew, setShowAddWorkTimeNew] = useState(false);
@@ -74060,15 +74290,23 @@ const Sprint = (props) => {
     }, [props.SprintId]);
     if (!props.SprintId || !props.Tasks)
         return react_1.default.createElement(react_1.default.Fragment, null);
+    const timeLogUrl = new RouteBuilder_1.default().SprintsUrl(props.ProjectId);
     return react_1.default.createElement("div", { className: 'one-sprint-block' },
+        react_1.default.createElement("a", { href: timeLogUrl, onClick: (e) => {
+                e.preventDefault();
+                navigate(timeLogUrl);
+            } }, "\u0421\u043F\u0438\u0441\u043E\u043A \u0441\u043F\u0440\u0438\u043D\u0442\u043E\u0432"),
         react_1.default.createElement("div", null,
             props.Tasks.length == 0 && react_1.default.createElement("h1", null, "\u041D\u0435\u0442 \u0437\u0430\u0434\u0430\u0447 \u0432 \u0441\u043F\u0440\u0438\u043D\u0442\u0435"),
-            props.Tasks.map(x => react_1.default.createElement("div", { key: x.Id },
-                react_1.default.createElement("div", null,
-                    react_1.default.createElement("a", { href: '/task-management/proj-' + props.ProjectId + '/task-' + x.Id, onClick: (e) => {
-                            e.preventDefault();
-                            navigate("/task-management/proj-" + props.ProjectId + '/task-' + x.Id);
-                        } }, x.Name))))));
+            props.Tasks.map(x => {
+                const taskUrl = new RouteBuilder_1.default().TaskUrl(props.ProjectId, x.Id);
+                return react_1.default.createElement("div", { key: x.Id },
+                    react_1.default.createElement("div", null,
+                        react_1.default.createElement("a", { href: taskUrl, onClick: (e) => {
+                                e.preventDefault();
+                                navigate(taskUrl);
+                            } }, x.Name)));
+            })));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, SprintSetup_1.default)(Sprint);
@@ -74150,6 +74388,7 @@ const SprintsSetup_1 = __importDefault(__webpack_require__(/*! ./SprintsSetup */
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 const AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
 const AddEditSprint_1 = __importDefault(__webpack_require__(/*! ../AddEditSprint/AddEditSprint */ "./src/Apps/TaskManagementApp/Components/AddEditSprint/AddEditSprint.tsx"));
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
 __webpack_require__(/*! ./Sprints.css */ "./src/Apps/TaskManagementApp/Components/Sprints/Sprints.css");
 const Sprints = (props) => {
     const [showForm, setShowForm] = (0, react_1.useState)(false);
@@ -74172,24 +74411,30 @@ const Sprints = (props) => {
     return react_1.default.createElement("div", { className: 'sprints-page-main' },
         react_1.default.createElement("div", null,
             react_1.default.createElement("button", { className: 'button button-grey', onClick: () => setShowForm(true) }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"),
-            showForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowForm(false), IsHeightWindow: true, Title: '\u041B\u044E\u0434\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u0430', InnerContent: () => react_1.default.createElement(AddEditSprint_1.default, { Id: editSprintId, Name: (editSprint === null || editSprint === void 0 ? void 0 : editSprint.Name) || '', ProjectId: (editSprint === null || editSprint === void 0 ? void 0 : editSprint.ProjectId) || props.ProjectId, StartDate: (editSprint === null || editSprint === void 0 ? void 0 : editSprint.StartDate) || new Date(), EndDate: (editSprint === null || editSprint === void 0 ? void 0 : editSprint.EndDate) || new Date(), CreateSprint: props.CreateSprint, UpdateSprint: props.UpdateSprint }) }) : react_1.default.createElement(react_1.default.Fragment, null)),
-        react_1.default.createElement("div", { className: 'sprints-block' }, props.Sprints.map(x => react_1.default.createElement("div", { className: 'one-sprint', key: x.Id },
-            react_1.default.createElement("div", { className: 'one-sprint-info', onClick: () => {
-                    navigate("/task-management/proj-" + props.ProjectId + '/sprint-' + x.Id);
-                } },
-                react_1.default.createElement("div", null, x.Id),
-                react_1.default.createElement("div", null, x.Name)),
-            react_1.default.createElement("div", { className: 'sprint-buttons' },
-                react_1.default.createElement("div", { className: 'action-btn', onClick: (e) => {
-                        e.preventDefault();
-                        props.DeleteSprint(x.Id);
-                    }, title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0441\u043F\u0440\u0438\u043D\u0442' },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })),
-                react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
-                        setEditSprintId(x.Id);
-                        setShowForm(true);
-                    }, title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0441\u043F\u0440\u0438\u043D\u0442' },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/pencil-edit.png" })))))));
+            showForm ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => {
+                    setShowForm(false);
+                    setEditSprintId(0);
+                }, IsHeightWindow: true, Title: '\u0421\u043F\u0440\u0438\u043D\u0442', InnerContent: () => react_1.default.createElement(AddEditSprint_1.default, { Id: editSprintId, Name: (editSprint === null || editSprint === void 0 ? void 0 : editSprint.Name) || '', ProjectId: (editSprint === null || editSprint === void 0 ? void 0 : editSprint.ProjectId) || props.ProjectId, StartDate: (editSprint === null || editSprint === void 0 ? void 0 : editSprint.StartDate) || new Date(), EndDate: (editSprint === null || editSprint === void 0 ? void 0 : editSprint.EndDate) || new Date(), CreateSprint: props.CreateSprint, UpdateSprint: props.UpdateSprint }) }) : react_1.default.createElement(react_1.default.Fragment, null)),
+        react_1.default.createElement("div", { className: 'sprints-block' }, props.Sprints.map(x => {
+            const sprintUrl = new RouteBuilder_1.default().SprintUrl(props.ProjectId, x.Id);
+            return react_1.default.createElement("div", { className: 'one-sprint', key: x.Id },
+                react_1.default.createElement("div", { className: 'one-sprint-info', onClick: () => {
+                        navigate(sprintUrl);
+                    } },
+                    react_1.default.createElement("div", null, x.Id),
+                    react_1.default.createElement("div", null, x.Name)),
+                react_1.default.createElement("div", { className: 'sprint-buttons' },
+                    react_1.default.createElement("div", { className: 'action-btn', onClick: (e) => {
+                            e.preventDefault();
+                            props.DeleteSprint(x.Id);
+                        }, title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0441\u043F\u0440\u0438\u043D\u0442' },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })),
+                    react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
+                            setEditSprintId(x.Id);
+                            setShowForm(true);
+                        }, title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0441\u043F\u0440\u0438\u043D\u0442' },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/pencil-edit.png" }))));
+        })));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, SprintsSetup_1.default)(Sprints);
@@ -74221,7 +74466,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
     res.ClearSprints = (projectId) => {
         let dt = new SprintActions_1.GetProjectSprintsActionType();
-        dt.projectId = projectId;
+        // dt.projectId = projectId;
         dt.data = [];
         dispatch((0, SprintActions_1.GetProjectSprintsActionCreator)(dt));
     };
@@ -74295,6 +74540,8 @@ const PersonTimePage_1 = __importDefault(__webpack_require__(/*! ../PersonTimePa
 const TempoPage_1 = __importDefault(__webpack_require__(/*! ../TempoPage/TempoPage */ "./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.tsx"));
 const Sprints_1 = __importDefault(__webpack_require__(/*! ../Sprints/Sprints */ "./src/Apps/TaskManagementApp/Components/Sprints/Sprints.tsx"));
 const Sprint_1 = __importDefault(__webpack_require__(/*! ../Sprint/Sprint */ "./src/Apps/TaskManagementApp/Components/Sprint/Sprint.tsx"));
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
+const Labels_1 = __importDefault(__webpack_require__(/*! ../Labels/Labels */ "./src/Apps/TaskManagementApp/Components/Labels/Labels.tsx"));
 __webpack_require__(/*! ./TaskManagementMain.css */ "./src/Apps/TaskManagementApp/Components/TaskManagementMain/TaskManagementMain.css");
 const TaskManagementMain = (props) => {
     const [visibleList, setVisibleList] = (0, react_1.useState)(true);
@@ -74311,7 +74558,8 @@ const TaskManagementMain = (props) => {
             !props.ProjectsList.find(x => x.Id == props.CurrentProjectId) //выбранного проекта нет, удален?
             && matchProj //при этом в урле он есть
         ) {
-            navigate("/task-management/");
+            const url = new RouteBuilder_1.default().AppUrl();
+            navigate(url);
         }
     }, [props.ProjectsList.length, props.ProjectsLoaded]);
     (0, react_1.useEffect)(() => {
@@ -74396,6 +74644,10 @@ const TaskManagementMain = (props) => {
     if (visibleList) {
         mainClass = ' code-management-projects-menu-main-visible';
     }
+    const timeLogUrl = new RouteBuilder_1.default().TimeLogUrl(props.CurrentProjectId);
+    const tempoUrl = new RouteBuilder_1.default().TempoUrl(props.CurrentProjectId);
+    const sprintsUrl = new RouteBuilder_1.default().SprintsUrl(props.CurrentProjectId);
+    const labelsUrl = new RouteBuilder_1.default().LabelsUrl(props.CurrentProjectId);
     return react_1.default.createElement("div", { className: 'task-management-main-container' },
         react_1.default.createElement("div", { className: 'preloader', id: Consts_1.TaskManagementPreloader }),
         react_1.default.createElement("div", { className: 'code-management-projects-menu-main' + mainClass },
@@ -74403,26 +74655,31 @@ const TaskManagementMain = (props) => {
             react_1.default.createElement("div", { className: 'menu-main-inner' },
                 react_1.default.createElement(ProjectsList_1.default, { Projects: props.ProjectsList, CurrentProjectId: props.CurrentProjectId }),
                 props.CurrentProjectId > 0 && react_1.default.createElement("div", { className: 'links' },
-                    react_1.default.createElement("a", { href: '/task-management/proj-' + props.CurrentProjectId + '/time-log', onClick: (e) => {
+                    react_1.default.createElement("a", { href: timeLogUrl, onClick: (e) => {
                             e.preventDefault();
-                            navigate("/task-management/proj-" + props.CurrentProjectId + '/time-log');
+                            navigate(timeLogUrl);
                         } }, "\u0420\u0430\u0431\u043E\u0442\u0430"),
-                    react_1.default.createElement("a", { href: '/task-management/proj-' + props.CurrentProjectId + '/tempo', onClick: (e) => {
+                    react_1.default.createElement("a", { href: tempoUrl, onClick: (e) => {
                             e.preventDefault();
-                            navigate("/task-management/proj-" + props.CurrentProjectId + '/tempo');
+                            navigate(tempoUrl);
                         } }, "\u0422\u0435\u043C\u043F\u043E"),
-                    react_1.default.createElement("a", { href: '/task-management/proj-' + props.CurrentProjectId + '/sprints', onClick: (e) => {
+                    react_1.default.createElement("a", { href: sprintsUrl, onClick: (e) => {
                             e.preventDefault();
-                            navigate("/task-management/proj-" + props.CurrentProjectId + '/sprints');
-                        } }, "\u0421\u043F\u0440\u0438\u043D\u0442\u044B")))),
+                            navigate(sprintsUrl);
+                        } }, "\u0421\u043F\u0440\u0438\u043D\u0442\u044B"),
+                    react_1.default.createElement("a", { href: labelsUrl, onClick: (e) => {
+                            e.preventDefault();
+                            navigate(labelsUrl);
+                        } }, "\u041B\u0435\u0439\u0431\u043B\u044B")))),
         react_1.default.createElement(react_router_dom_1.Routes, null,
-            react_1.default.createElement(react_router_dom_1.Route, { path: "proj-:projectId", element: react_1.default.createElement(ProjectDetail_1.default, { Project: props.ProjectsList.find(x => x.Id == props.CurrentProjectId), Tasks: props.Tasks }) }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "proj-:projectId/task-:taskId", element: react_1.default.createElement(OneWorkTaskDetail_1.default, null) }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "proj-:projectId/time-log", element: react_1.default.createElement(ProjectTimePage_1.default, null) }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "proj-:projectId/user-:userId/time-log", element: react_1.default.createElement(PersonTimePage_1.default, null) }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "proj-:projectId/tempo", element: react_1.default.createElement(TempoPage_1.default, null) }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "proj-:projectId/sprints", element: react_1.default.createElement(Sprints_1.default, null) }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: "proj-:projectId/sprint-:sprintId", element: react_1.default.createElement(Sprint_1.default, null) })));
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId`, element: react_1.default.createElement(ProjectDetail_1.default, { Project: props.ProjectsList.find(x => x.Id == props.CurrentProjectId), Tasks: props.Tasks }) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementTaskRoute}:taskId`, element: react_1.default.createElement(OneWorkTaskDetail_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementTimeLogRoute}`, element: react_1.default.createElement(ProjectTimePage_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementUserRoute}:userId/${Consts_1.TaskManagementTimeLogRoute}`, element: react_1.default.createElement(PersonTimePage_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementTempoRoute}`, element: react_1.default.createElement(TempoPage_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementSprintRoute}`, element: react_1.default.createElement(Sprints_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementLabelsRoute}`, element: react_1.default.createElement(Labels_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementSprintRoute}:sprintId`, element: react_1.default.createElement(Sprint_1.default, null) })));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, TaskManagementMainSetup_1.default)(TaskManagementMain);
@@ -74532,6 +74789,7 @@ const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_m
 const AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
 const AddWorkTimeLog_1 = __importDefault(__webpack_require__(/*! ../AddWorkTimeLog/AddWorkTimeLog */ "./src/Apps/TaskManagementApp/Components/AddWorkTimeLog/AddWorkTimeLog.tsx"));
 const PopupWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/PopupWindow/PopupWindow */ "./src/components/Body/PopupWindow/PopupWindow.tsx"));
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
 __webpack_require__(/*! ./TempoPage.css */ "./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.css");
 const TempoPage = (props) => {
     const [showAddWorkTimeNew, setShowAddWorkTimeNew] = (0, react_1.useState)(-1); //-1 не показывать, 0 создание, >0 id лога для редактирования
@@ -74622,24 +74880,27 @@ const TempoPage = (props) => {
                     react_1.default.createElement("div", { className: 'tempo-time-column-header' },
                         react_1.default.createElement("div", null, val),
                         react_1.default.createElement("div", null, new Helper_1.Helper().MinutesToHours(works.reduce((sum, item) => sum + item.TimeMinutes, 0)))),
-                    react_1.default.createElement("div", { className: 'tempo-time-column-tasks' }, works.map(w => react_1.default.createElement("div", { key: w.Id, className: 'tempo-time-column-one-content' },
-                        react_1.default.createElement("div", { className: 'head' },
-                            react_1.default.createElement("div", { className: 'task-info' },
-                                react_1.default.createElement("a", { href: '/task-management/proj-' + props.ProjectId + '/task-' + w.WorkTaskId, onClick: (e) => {
-                                        e.preventDefault();
-                                        navigate("/task-management/proj-" + props.ProjectId + '/task-' + w.WorkTaskId);
-                                    } }, w.WorkTaskId)),
-                            react_1.default.createElement("div", { className: 'time-more-block' },
-                                react_1.default.createElement(PopupWindow_1.default, { ButtonContent: react_1.default.createElement("div", { className: 'more-buttons' }, "..."), PopupContent: react_1.default.createElement("div", { className: 'filters-window' },
-                                        react_1.default.createElement("div", null,
-                                            react_1.default.createElement("button", { className: 'button button-grey', onClick: x => props.DeleteTime(w.Id) }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")),
-                                        react_1.default.createElement("div", null,
-                                            react_1.default.createElement("button", { className: 'button button-grey', onClick: x => setShowAddWorkTimeNew(w.Id) }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C")),
-                                        react_1.default.createElement("div", null,
-                                            react_1.default.createElement("button", { className: 'button button-grey', onClick: x => props.CopyTime(w.Id) }, "\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C"))) }))),
-                        react_1.default.createElement("div", { className: 'comment', title: w.Comment }, w.Comment),
-                        react_1.default.createElement("div", { className: 'time' }, new Helper_1.Helper().MinutesToHours(w.TimeMinutes)),
-                        w.RangeStartOfLog && react_1.default.createElement("div", { className: 'time' }, `С ${(new Helper_1.Helper().DateToGetHM(w.RangeStartOfLog))} ПО ${(new Helper_1.Helper().DateToGetHM(w.RangeEndOfLog))}`)))),
+                    react_1.default.createElement("div", { className: 'tempo-time-column-tasks' }, works.map(w => {
+                        const taskUrl = new RouteBuilder_1.default().TaskUrl(props.ProjectId, w.WorkTaskId);
+                        return react_1.default.createElement("div", { key: w.Id, className: 'tempo-time-column-one-content' },
+                            react_1.default.createElement("div", { className: 'head' },
+                                react_1.default.createElement("div", { className: 'task-info' },
+                                    react_1.default.createElement("a", { href: taskUrl, onClick: (e) => {
+                                            e.preventDefault();
+                                            navigate(taskUrl);
+                                        } }, w.WorkTaskId)),
+                                react_1.default.createElement("div", { className: 'time-more-block' },
+                                    react_1.default.createElement(PopupWindow_1.default, { ButtonContent: react_1.default.createElement("div", { className: 'more-buttons' }, "..."), PopupContent: react_1.default.createElement("div", { className: 'filters-window' },
+                                            react_1.default.createElement("div", null,
+                                                react_1.default.createElement("button", { className: 'button button-grey', onClick: x => props.DeleteTime(w.Id) }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")),
+                                            react_1.default.createElement("div", null,
+                                                react_1.default.createElement("button", { className: 'button button-grey', onClick: x => setShowAddWorkTimeNew(w.Id) }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C")),
+                                            react_1.default.createElement("div", null,
+                                                react_1.default.createElement("button", { className: 'button button-grey', onClick: x => props.CopyTime(w.Id) }, "\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C"))) }))),
+                            react_1.default.createElement("div", { className: 'comment', title: w.Comment }, w.Comment),
+                            react_1.default.createElement("div", { className: 'time' }, new Helper_1.Helper().MinutesToHours(w.TimeMinutes)),
+                            w.RangeStartOfLog && react_1.default.createElement("div", { className: 'time' }, `С ${(new Helper_1.Helper().DateToGetHM(w.RangeStartOfLog))} ПО ${(new Helper_1.Helper().DateToGetHM(w.RangeEndOfLog))}`));
+                    })),
                     react_1.default.createElement("div", { className: 'tempo-time-column-add-btn' },
                         react_1.default.createElement("button", { className: 'button button-blue', onClick: () => {
                                 setDefaultDate(x);
@@ -74758,6 +75019,77 @@ function SetCommentsActionCreator(data) {
     return { type: exports.SetCommentsActionName, payload: data };
 }
 exports.SetCommentsActionCreator = SetCommentsActionCreator;
+;
+
+
+/***/ }),
+
+/***/ "./src/Apps/TaskManagementApp/Models/Actions/LabelActions.ts":
+/*!*******************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Models/Actions/LabelActions.ts ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.DeleteLabelFromTaskActionCreator = exports.DeleteLabelFromTaskActionDataType = exports.DeleteLabelFromTaskActionName = exports.AddLabelToTaskActionCreator = exports.UpdateTaskLabelActionDataType = exports.AddLabelToTaskActionName = exports.UpdateTaskLabelsActionCreator = exports.UpdateTaskLabelsActionDataType = exports.UpdateTaskLabelsActionName = exports.DeleteProjectLabelActionCreator = exports.DeleteProjectLabelActionName = exports.UpdateProjectLabelActionCreator = exports.UpdateProjectLabelActionName = exports.CreateProjectLabelActionCreator = exports.CreateProjectLabelActionName = exports.GetProjectLabelsActionCreator = exports.GetProjectLabelsActionName = exports.GetTaskLabelsActionCreator = exports.GetTaskLabelsActionName = void 0;
+exports.GetTaskLabelsActionName = 'GetTaskLabelsAction';
+function GetTaskLabelsActionCreator(data) {
+    return { type: exports.GetTaskLabelsActionName, payload: data };
+}
+exports.GetTaskLabelsActionCreator = GetTaskLabelsActionCreator;
+;
+exports.GetProjectLabelsActionName = 'GetProjectLabelsAction';
+function GetProjectLabelsActionCreator(data) {
+    return { type: exports.GetProjectLabelsActionName, payload: data };
+}
+exports.GetProjectLabelsActionCreator = GetProjectLabelsActionCreator;
+;
+exports.CreateProjectLabelActionName = 'CreateProjectLabelAction';
+function CreateProjectLabelActionCreator(data) {
+    return { type: exports.CreateProjectLabelActionName, payload: data };
+}
+exports.CreateProjectLabelActionCreator = CreateProjectLabelActionCreator;
+;
+exports.UpdateProjectLabelActionName = 'UpdateProjectLabelAction';
+function UpdateProjectLabelActionCreator(data) {
+    return { type: exports.UpdateProjectLabelActionName, payload: data };
+}
+exports.UpdateProjectLabelActionCreator = UpdateProjectLabelActionCreator;
+;
+exports.DeleteProjectLabelActionName = 'DeleteProjectLabelAction';
+function DeleteProjectLabelActionCreator(data) {
+    return { type: exports.DeleteProjectLabelActionName, payload: data };
+}
+exports.DeleteProjectLabelActionCreator = DeleteProjectLabelActionCreator;
+;
+exports.UpdateTaskLabelsActionName = 'UpdateTaskLabelsAction';
+class UpdateTaskLabelsActionDataType {
+}
+exports.UpdateTaskLabelsActionDataType = UpdateTaskLabelsActionDataType;
+function UpdateTaskLabelsActionCreator(data) {
+    return { type: exports.UpdateTaskLabelsActionName, payload: data };
+}
+exports.UpdateTaskLabelsActionCreator = UpdateTaskLabelsActionCreator;
+;
+exports.AddLabelToTaskActionName = 'AddLabelToTaskAction';
+class UpdateTaskLabelActionDataType {
+}
+exports.UpdateTaskLabelActionDataType = UpdateTaskLabelActionDataType;
+function AddLabelToTaskActionCreator(data) {
+    return { type: exports.AddLabelToTaskActionName, payload: data };
+}
+exports.AddLabelToTaskActionCreator = AddLabelToTaskActionCreator;
+;
+exports.DeleteLabelFromTaskActionName = 'DeleteLabelFromTaskAction';
+class DeleteLabelFromTaskActionDataType {
+}
+exports.DeleteLabelFromTaskActionDataType = DeleteLabelFromTaskActionDataType;
+function DeleteLabelFromTaskActionCreator(data) {
+    return { type: exports.DeleteLabelFromTaskActionName, payload: data };
+}
+exports.DeleteLabelFromTaskActionCreator = DeleteLabelFromTaskActionCreator;
 ;
 
 
@@ -75243,6 +75575,58 @@ exports.SetCurrentUserIdActionCreator = SetCurrentUserIdActionCreator;
 
 /***/ }),
 
+/***/ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts":
+/*!**************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const Consts_1 = __webpack_require__(/*! ../Consts */ "./src/Apps/TaskManagementApp/Models/Consts.ts");
+class RouteBuilder {
+    //можно сделать полноценный билдер через withApproute.withProject но как будто смысла особо нет
+    AppUrl() {
+        return `/${Consts_1.TaskManagementAppRute}/`;
+    }
+    ProjectUrl(projectId) {
+        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}`;
+    }
+    TaskUrl(projectId, taskId) {
+        ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
+        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementTaskRoute}${taskId}`;
+    }
+    TimeLogUserUrl(projectId, userId) {
+        // "/task-management/proj-" + props.ProjectId + "/user-" + x.Id + "/time-log"
+        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementUserRoute}${userId}/${Consts_1.TaskManagementTimeLogRoute}`;
+    }
+    TimeLogUrl(projectId) {
+        // '/task-management/proj-' + props.CurrentProjectId + '/time-log'
+        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementTimeLogRoute}`;
+    }
+    SprintsUrl(projectId) {
+        ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
+        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementSprintsRoute}`;
+    }
+    LabelsUrl(projectId) {
+        ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
+        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementLabelsRoute}`;
+    }
+    SprintUrl(projectId, sprintId) {
+        ///"/task-management/proj-" + props.ProjectId + '/sprint-' + x.Id
+        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementSprintRoute}${sprintId}`;
+    }
+    TempoUrl(projectId) {
+        ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
+        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementTempoRoute}`;
+    }
+}
+exports["default"] = RouteBuilder;
+
+
+/***/ }),
+
 /***/ "./src/Apps/TaskManagementApp/Models/Consts.ts":
 /*!*****************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Models/Consts.ts ***!
@@ -75252,8 +75636,18 @@ exports.SetCurrentUserIdActionCreator = SetCurrentUserIdActionCreator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.TaskManagementPreloader = void 0;
+exports.TaskManagementTempoRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRute = exports.TaskManagementPreloader = void 0;
 exports.TaskManagementPreloader = 'task_management_preloader';
+exports.TaskManagementAppRute = 'task-management';
+exports.TaskManagementProjectRoute = 'proj-';
+exports.TaskManagementTaskRoute = 'task-';
+exports.TaskManagementUserRoute = 'user-';
+exports.TaskManagementTimeLogRoute = 'time-log';
+exports.TaskManagementSprintsRoute = 'sprints';
+exports.TaskManagementLabelsRoute = 'labels';
+exports.TaskManagementSprintRoute = 'sprint-';
+exports.TaskManagementTempoRoute = 'tempo';
+///user-" + x.Id + "/time-log
 
 
 /***/ }),
@@ -75412,6 +75806,235 @@ exports.TaskManagementCommentController = TaskManagementCommentController;
 
 /***/ }),
 
+/***/ "./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementLabelController.ts":
+/*!****************************************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementLabelController.ts ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TaskManagementLabelController = void 0;
+const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
+const LabelActions_1 = __webpack_require__(/*! ../Actions/LabelActions */ "./src/Apps/TaskManagementApp/Models/Actions/LabelActions.ts");
+const Consts_1 = __webpack_require__(/*! ../Consts */ "./src/Apps/TaskManagementApp/Models/Consts.ts");
+const TaskLabel_1 = __webpack_require__(/*! ../Entity/State/TaskLabel */ "./src/Apps/TaskManagementApp/Models/Entity/State/TaskLabel.ts");
+class TaskManagementLabelController {
+    constructor() {
+        this.GetForProjectRedux = (projectId) => {
+            return (dispatch, getState) => {
+                this.preloader(true);
+                this.GetForProject(projectId, (error, data) => {
+                    this.preloader(false);
+                    if (data) {
+                        // dt.projectId = projectId;
+                        let dt = data.map(x => new TaskLabel_1.TaskLabel().FillByIProjectLabelDataBack(x));
+                        dispatch((0, LabelActions_1.GetProjectLabelsActionCreator)(dt));
+                    }
+                });
+            };
+        };
+        this.GetForProject = (projectId, onSuccess) => {
+            let data = {
+                "projectId": projectId,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: G_PathToServer + 'api/taskmanagement/label/get-all'
+            });
+        };
+        this.CreateLabelRedux = (projectId, labelName) => {
+            return (dispatch, getState) => {
+                this.preloader(true);
+                this.CreateLabel(projectId, labelName, (error, data) => {
+                    this.preloader(false);
+                    if (data === null || data === void 0 ? void 0 : data.Id) {
+                        let dt = new TaskLabel_1.TaskLabel().FillByIProjectLabelDataBack(data);
+                        dispatch((0, LabelActions_1.CreateProjectLabelActionCreator)(dt));
+                    }
+                });
+            };
+        };
+        this.CreateLabel = (projectId, labelName, onSuccess) => {
+            let data = {
+                "ProjectId": projectId,
+                "Name": labelName,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PutHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: G_PathToServer + 'api/taskmanagement/label/create',
+                ContentType: 'body'
+            });
+        };
+        this.UpdateLabelRedux = (id, labelName) => {
+            return (dispatch, getState) => {
+                this.preloader(true);
+                this.UpdateLabel(id, labelName, (error, data) => {
+                    this.preloader(false);
+                    if (data === null || data === void 0 ? void 0 : data.Id) {
+                        let dt = new TaskLabel_1.TaskLabel().FillByIProjectLabelDataBack(data);
+                        dispatch((0, LabelActions_1.UpdateProjectLabelActionCreator)(dt));
+                    }
+                });
+            };
+        };
+        this.UpdateLabel = (id, labelName, onSuccess) => {
+            let data = {
+                "Id": id,
+                "Name": labelName,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: G_PathToServer + 'api/taskmanagement/label/update',
+                ContentType: 'body'
+            });
+        };
+        this.DeleteLabelRedux = (id) => {
+            return (dispatch, getState) => {
+                this.preloader(true);
+                this.DeleteLabel(id, (error, data) => {
+                    this.preloader(false);
+                    if (data === null || data === void 0 ? void 0 : data.result) {
+                        dispatch((0, LabelActions_1.DeleteProjectLabelActionCreator)(id));
+                    }
+                });
+            };
+        };
+        this.DeleteLabel = (id, onSuccess) => {
+            let data = {
+                "Id": id,
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: G_PathToServer + 'api/taskmanagement/label/delete',
+                ContentType: 'body'
+            });
+        };
+        this.UpdateTaskLabelsRedux = (taskId, labelId) => {
+            return (dispatch, getState) => {
+                this.preloader(true);
+                this.UpdateTaskLabels(taskId, labelId, (error, data) => {
+                    this.preloader(false);
+                    if (data === null || data === void 0 ? void 0 : data.result) {
+                        let dt = new LabelActions_1.UpdateTaskLabelsActionDataType();
+                        dt.LabelId = labelId;
+                        dt.TaskId = taskId;
+                        dispatch((0, LabelActions_1.UpdateTaskLabelsActionCreator)(dt));
+                    }
+                });
+            };
+        };
+        this.UpdateTaskLabels = (taskId, labelId, onSuccess) => {
+            let data = {
+                "TaskId": taskId,
+                "LabelId": labelId
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PostHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: G_PathToServer + 'api/taskmanagement/label/update-task-labels',
+                ContentType: 'body'
+            });
+        };
+        this.AddLabelToTaskRedux = (taskId, labelId) => {
+            return (dispatch, getState) => {
+                this.preloader(true);
+                this.AddLabelToTask(taskId, labelId, (error, data) => {
+                    this.preloader(false);
+                    if (data === null || data === void 0 ? void 0 : data.result) {
+                        let dt = new LabelActions_1.UpdateTaskLabelActionDataType();
+                        dt.LabelId = labelId;
+                        dt.TaskId = taskId;
+                        dispatch((0, LabelActions_1.AddLabelToTaskActionCreator)(dt));
+                    }
+                });
+            };
+        };
+        this.AddLabelToTask = (taskId, labelId, onSuccess) => {
+            let data = {
+                "LabelId": taskId,
+                "TaskId": labelId
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PostHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: G_PathToServer + 'api/taskmanagement/label/add-to-task',
+                ContentType: 'body'
+            });
+        };
+        this.DeleteLabelFromTaskRedux = (taskId, labelId) => {
+            return (dispatch, getState) => {
+                this.preloader(true);
+                this.DeleteLabelFromTask(taskId, labelId, (error, data) => {
+                    this.preloader(false);
+                    if (data === null || data === void 0 ? void 0 : data.result) {
+                        let dt = new LabelActions_1.DeleteLabelFromTaskActionDataType();
+                        dt.LabelId = labelId;
+                        dt.TaskId = taskId;
+                        dispatch((0, LabelActions_1.DeleteLabelFromTaskActionCreator)(dt));
+                    }
+                });
+            };
+        };
+        this.DeleteLabelFromTask = (taskId, labelId, onSuccess) => {
+            let data = {
+                "LabelId": taskId,
+                "TaskId": labelId
+            };
+            G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PostHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: G_PathToServer + 'api/taskmanagement/label/delete-from-task',
+                ContentType: 'body'
+            });
+        };
+    }
+    mapWithResult(onSuccess) {
+        return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
+    }
+    preloader(show) {
+        window.TaskManagementCounter = new ControllerHelper_1.ControllerHelper()
+            .Preloader(show, Consts_1.TaskManagementPreloader, window.TaskManagementCounter);
+    }
+}
+exports.TaskManagementLabelController = TaskManagementLabelController;
+
+
+/***/ }),
+
 /***/ "./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementProjectController.ts":
 /*!******************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementProjectController.ts ***!
@@ -75423,6 +76046,7 @@ exports.TaskManagementCommentController = TaskManagementCommentController;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TaskManagementProjectController = void 0;
 const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
+const LabelActions_1 = __webpack_require__(/*! ../Actions/LabelActions */ "./src/Apps/TaskManagementApp/Models/Actions/LabelActions.ts");
 const ProjectActions_1 = __webpack_require__(/*! ../Actions/ProjectActions */ "./src/Apps/TaskManagementApp/Models/Actions/ProjectActions.ts");
 const SprintActions_1 = __webpack_require__(/*! ../Actions/SprintActions */ "./src/Apps/TaskManagementApp/Models/Actions/SprintActions.ts");
 const TaskStatusActions_1 = __webpack_require__(/*! ../Actions/TaskStatusActions */ "./src/Apps/TaskManagementApp/Models/Actions/TaskStatusActions.ts");
@@ -75431,6 +76055,7 @@ const Consts_1 = __webpack_require__(/*! ../Consts */ "./src/Apps/TaskManagement
 const OneProjectInList_1 = __webpack_require__(/*! ../Entity/State/OneProjectInList */ "./src/Apps/TaskManagementApp/Models/Entity/State/OneProjectInList.ts");
 const ProjectSprint_1 = __webpack_require__(/*! ../Entity/State/ProjectSprint */ "./src/Apps/TaskManagementApp/Models/Entity/State/ProjectSprint.ts");
 const ProjectUser_1 = __webpack_require__(/*! ../Entity/State/ProjectUser */ "./src/Apps/TaskManagementApp/Models/Entity/State/ProjectUser.ts");
+const TaskLabel_1 = __webpack_require__(/*! ../Entity/State/TaskLabel */ "./src/Apps/TaskManagementApp/Models/Entity/State/TaskLabel.ts");
 const WorkTaskStatus_1 = __webpack_require__(/*! ../Entity/State/WorkTaskStatus */ "./src/Apps/TaskManagementApp/Models/Entity/State/WorkTaskStatus.ts");
 class TaskManagementProjectController {
     constructor() {
@@ -75486,12 +76111,18 @@ class TaskManagementProjectController {
                             u.FillByIProjectSprintDataBack(x);
                             return u;
                         });
+                        let dtLabels = data.Labels.map(x => {
+                            let u = new TaskLabel_1.TaskLabel();
+                            u.FillByIProjectLabelDataBack(x);
+                            return u;
+                        });
                         dispatch((0, UserActions_1.SetCurrentProjectUsersActionCreator)(dtUsers));
                         dispatch((0, TaskStatusActions_1.SetCurrentProjectStatusesActionCreator)(dtStatuses));
                         let spr = new SprintActions_1.GetProjectSprintsActionType();
-                        spr.projectId = projectId;
+                        // spr.projectId = projectId;
                         spr.data = dtSprints;
                         dispatch((0, SprintActions_1.GetProjectSprintsActionCreator)(spr));
+                        dispatch((0, LabelActions_1.GetTaskLabelsActionCreator)(dtLabels));
                     }
                 });
             };
@@ -75610,7 +76241,7 @@ class TaskManagementSprintController {
                     this.preloader(false);
                     if (data) {
                         let dt = new SprintActions_1.GetProjectSprintsActionType();
-                        dt.projectId = projectId;
+                        // dt.projectId = projectId;
                         dt.data = data.map(x => new ProjectSprint_1.ProjectSprint().FillByIProjectSprintDataBack(x));
                         dispatch((0, SprintActions_1.GetProjectSprintsActionCreator)(dt));
                     }
@@ -76993,6 +77624,29 @@ exports.SprintInfo = SprintInfo;
 
 /***/ }),
 
+/***/ "./src/Apps/TaskManagementApp/Models/Entity/State/TaskLabel.ts":
+/*!*********************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Models/Entity/State/TaskLabel.ts ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TaskLabel = void 0;
+class TaskLabel {
+    FillByIProjectLabelDataBack(data) {
+        this.Id = data.Id;
+        this.Name = data.Name;
+        this.ProjectId = data.ProjectId;
+        return this;
+    }
+}
+exports.TaskLabel = TaskLabel;
+
+
+/***/ }),
+
 /***/ "./src/Apps/TaskManagementApp/Models/Entity/State/TaskManagementAppState.ts":
 /*!**********************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Models/Entity/State/TaskManagementAppState.ts ***!
@@ -77017,6 +77671,7 @@ class TaskManagementAppState {
         this.CurrentProjectTasksFilters = new TasksFilter_1.TasksFilter();
         this.CurrentProjectSprints = [];
         this.CurrentProjectStatuses = [];
+        this.CurrentProjectLabels = [];
         this.CurrentTask = null;
         this.ProjectsLoaded = false;
         this.CurrentProjectTimes = new ProjectTimes_1.ProjectTimes();
@@ -77219,6 +77874,38 @@ exports.TaskManagementCommentReducer = TaskManagementCommentReducer;
 
 /***/ }),
 
+/***/ "./src/Apps/TaskManagementApp/Models/Reducers/LabelReducer.ts":
+/*!********************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Models/Reducers/LabelReducer.ts ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TaskManagementLabelReducer = void 0;
+const lodash_1 = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+const AppState_1 = __webpack_require__(/*! ../../../../Models/Entity/State/AppState */ "./src/Models/Entity/State/AppState.ts");
+const LabelActions_1 = __webpack_require__(/*! ../Actions/LabelActions */ "./src/Apps/TaskManagementApp/Models/Actions/LabelActions.ts");
+function TaskManagementLabelReducer(state = new AppState_1.AppState(), action) {
+    switch (action.type) {
+        case LabelActions_1.GetTaskLabelsActionName:
+            {
+                let newState = (0, lodash_1.cloneDeep)(state);
+                let data = action.payload;
+                newState.TaskManagementApp.CurrentProjectLabels = data;
+                return newState;
+            }
+        default:
+            return state;
+    }
+    return state;
+}
+exports.TaskManagementLabelReducer = TaskManagementLabelReducer;
+
+
+/***/ }),
+
 /***/ "./src/Apps/TaskManagementApp/Models/Reducers/ProjectReducer.ts":
 /*!**********************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Models/Reducers/ProjectReducer.ts ***!
@@ -77307,6 +77994,7 @@ function TaskManagementProjectReducer(state = new AppState_1.AppState(), action)
                 newState.TaskManagementApp.CurrentProjectTasks = [];
                 newState.TaskManagementApp.CurrentProjectStatuses = [];
                 newState.TaskManagementApp.CurrentProjectSprints = [];
+                newState.TaskManagementApp.CurrentProjectLabels = [];
                 newState.TaskManagementApp.ProjectsLoaded = false;
                 return newState;
             }
@@ -77343,7 +78031,8 @@ const TaskManagementAppState_1 = __webpack_require__(/*! ../Entity/State/TaskMan
 const CommentReducer_1 = __webpack_require__(/*! ./CommentReducer */ "./src/Apps/TaskManagementApp/Models/Reducers/CommentReducer.ts");
 const TaskStatusReducer_1 = __webpack_require__(/*! ./TaskStatusReducer */ "./src/Apps/TaskManagementApp/Models/Reducers/TaskStatusReducer.ts");
 const WorkTimeLogReducer_1 = __webpack_require__(/*! ./WorkTimeLogReducer */ "./src/Apps/TaskManagementApp/Models/Reducers/WorkTimeLogReducer.ts");
-const SprintReduser_1 = __webpack_require__(/*! ./SprintReduser */ "./src/Apps/TaskManagementApp/Models/Reducers/SprintReduser.ts");
+const SprintReducer_1 = __webpack_require__(/*! ./SprintReducer */ "./src/Apps/TaskManagementApp/Models/Reducers/SprintReducer.ts");
+const LabelReducer_1 = __webpack_require__(/*! ./LabelReducer */ "./src/Apps/TaskManagementApp/Models/Reducers/LabelReducer.ts");
 function TaskManagementAppReducer(state = new AppState_1.AppState(), action) {
     let st = (0, ProjectReducer_1.TaskManagementProjectReducer)(state, action);
     st = (0, UserReducer_1.TaskManagementUserReducer)(st, action);
@@ -77351,7 +78040,8 @@ function TaskManagementAppReducer(state = new AppState_1.AppState(), action) {
     st = (0, TaskReducer_1.TaskManagementTaskReducer)(st, action);
     st = (0, TaskStatusReducer_1.TaskManagementTaskStatusReducer)(st, action);
     st = (0, WorkTimeLogReducer_1.TaskManagementWorkTimeLogReducer)(st, action);
-    st = (0, SprintReduser_1.TaskManagementSprintReducer)(st, action);
+    st = (0, SprintReducer_1.TaskManagementSprintReducer)(st, action);
+    st = (0, LabelReducer_1.TaskManagementLabelReducer)(st, action);
     switch (action.type) {
         case Actions_1.ClearTaskManagementStateActionName:
             {
@@ -77375,9 +78065,9 @@ exports.TaskManagementAppReducer = TaskManagementAppReducer;
 
 /***/ }),
 
-/***/ "./src/Apps/TaskManagementApp/Models/Reducers/SprintReduser.ts":
+/***/ "./src/Apps/TaskManagementApp/Models/Reducers/SprintReducer.ts":
 /*!*********************************************************************!*\
-  !*** ./src/Apps/TaskManagementApp/Models/Reducers/SprintReduser.ts ***!
+  !*** ./src/Apps/TaskManagementApp/Models/Reducers/SprintReducer.ts ***!
   \*********************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -83232,6 +83922,7 @@ const MenuAppMain_1 = __webpack_require__(/*! ../../Apps/MenuApp/Components/Menu
 const WordsCardsAppMain_1 = __webpack_require__(/*! ../../Apps/WordsCardsApp/Components/WordsCardsAppMain */ "./src/Apps/WordsCardsApp/Components/WordsCardsAppMain.tsx");
 const PlaningPokerMain_1 = __importDefault(__webpack_require__(/*! ../../Apps/PlaningPoker/Components/PlaningPokerMain */ "./src/Apps/PlaningPoker/Components/PlaningPokerMain.tsx"));
 const VaultMain_1 = __importDefault(__webpack_require__(/*! ../../Apps/Vault/Components/VaultMain/VaultMain */ "./src/Apps/Vault/Components/VaultMain/VaultMain.tsx"));
+const Consts_1 = __webpack_require__(/*! ../../Apps/TaskManagementApp/Models/Consts */ "./src/Apps/TaskManagementApp/Models/Consts.ts");
 __webpack_require__(/*! ./AppRouter.css */ "./src/components/AppRouter/AppRouter.css");
 class AppRouterProps {
 }
@@ -83242,7 +83933,7 @@ const AppRouter = (props) => {
             React.createElement(react_router_dom_1.Route, { path: "/menu-app/*", element: React.createElement(MenuAppMain_1.MenuAppMain, null) }),
             React.createElement(react_router_dom_1.Route, { path: "/words-cards-app/*", element: React.createElement(WordsCardsAppMain_1.WordsCardsAppMain, null) }),
             React.createElement(react_router_dom_1.Route, { path: "/planing-poker/*", element: React.createElement(PlaningPokerMain_1.default, null) }),
-            React.createElement(react_router_dom_1.Route, { path: "/task-management/*", element: React.createElement(TaskManagementMain_1.default, null) }),
+            React.createElement(react_router_dom_1.Route, { path: `/${Consts_1.TaskManagementAppRute}/*`, element: React.createElement(TaskManagementMain_1.default, null) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/login/*", element: React.createElement(MainAuth_1.default, { LoginPage: true }) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/register/*", element: React.createElement(MainAuth_1.default, { LoginPage: false }) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/password-recovery/*", element: React.createElement(Recovery_1.default, null) }),
@@ -84923,6 +85614,7 @@ const AlertData_1 = __webpack_require__(/*! ../Models/Entity/AlertData */ "./src
 const AppRouter_1 = __importDefault(__webpack_require__(/*! ./AppRouter/AppRouter */ "./src/components/AppRouter/AppRouter.tsx"));
 const AppItem_1 = __webpack_require__(/*! ../Models/Entity/AppItem */ "./src/Models/Entity/AppItem.ts");
 const Actions_1 = __webpack_require__(/*! ../Models/Actions/App/Actions */ "./src/Models/Actions/App/Actions.ts");
+const Consts_1 = __webpack_require__(/*! ../Apps/TaskManagementApp/Models/Consts */ "./src/Apps/TaskManagementApp/Models/Consts.ts");
 let MainComponent = (props) => {
     let initState = {
         AbsoluteAlerts: [],
@@ -84935,7 +85627,7 @@ let MainComponent = (props) => {
         new AppItem_1.AppItem({ Logo: G_EmptyImagePath, Name: "Dict", Path: "/words-cards-app" }),
         // new AppItem({ Logo: G_EmptyImagePath, Name: "TimeBooking", Path: "/menu-app" }),
         new AppItem_1.AppItem({ Logo: "/images/poker_logo.jpg", Name: "Planning Poker", Path: "/planing-poker" }),
-        new AppItem_1.AppItem({ Logo: "/images/code_review_logo.png", Name: "Task Managment", Path: "/task-management/" }),
+        new AppItem_1.AppItem({ Logo: "/images/code_review_logo.png", Name: "Task Managment", Path: `/${Consts_1.TaskManagementAppRute}/` }),
         new AppItem_1.AppItem({ Logo: "/images/vaultapp.png", Name: "Vault", Path: (G_VaultController.RouteUrlVaultApp + '/') }),
     ];
     (0, react_1.useEffect)(() => {
@@ -85114,6 +85806,7 @@ const ErrorHandleLogic_1 = __webpack_require__(/*! ./Models/BL/ErrorHandleLogic 
 const TaskManagementTaskStatusController_1 = __webpack_require__(/*! ./Apps/TaskManagementApp/Models/Controllers/TaskManagementTaskStatusController */ "./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementTaskStatusController.ts");
 const TaskManagementWorkTimeController_1 = __webpack_require__(/*! ./Apps/TaskManagementApp/Models/Controllers/TaskManagementWorkTimeController */ "./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementWorkTimeController.ts");
 const TaskManagementSprintController_1 = __webpack_require__(/*! ./Apps/TaskManagementApp/Models/Controllers/TaskManagementSprintController */ "./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementSprintController.ts");
+const TaskManagementLabelController_1 = __webpack_require__(/*! ./Apps/TaskManagementApp/Models/Controllers/TaskManagementLabelController */ "./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementLabelController.ts");
 __webpack_require__(/*! ../style/main.css */ "./style/main.css");
 __webpack_require__(/*! ../style/body.css */ "./style/body.css");
 __webpack_require__(/*! ../style/alerts.css */ "./style/alerts.css");
@@ -85147,6 +85840,7 @@ window.G_TaskManagementTaskStatusController = new TaskManagementTaskStatusContro
 window.G_TaskManagementCommentController = new TaskManagementCommentController_1.TaskManagementCommentController();
 window.G_TaskManagementSprintController = new TaskManagementSprintController_1.TaskManagementSprintController();
 window.G_VaultController = new VaultController_1.VaultController();
+window.G_TaskManagementLabelController = new TaskManagementLabelController_1.TaskManagementLabelController();
 let configureStore = (initialState) => {
     const store = (0, redux_1.createStore)(ReducerCombiner_1.ReducerCombiner, initialState, (0, redux_1.applyMiddleware)(redux_thunk_1.default)); //подключаем thunk
     return store;

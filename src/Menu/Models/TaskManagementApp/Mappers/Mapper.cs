@@ -90,8 +90,18 @@ namespace Menu.Models.TaskManagementApp.Mappers
             return new WorkTaskLabel()
             {
                 Name = obj.Name,
+                ProjectId = obj.ProjectId,
             };
         }
-        
+
+        public static WorkTaskLabel Map(this UpdateLabelRequest obj)
+        {
+            return new WorkTaskLabel()
+            {
+                Name = obj.Name,
+                Id = obj.Id,
+            };
+        }
+
     }
 }

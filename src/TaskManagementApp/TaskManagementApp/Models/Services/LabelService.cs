@@ -1,14 +1,9 @@
 ﻿using BO.Models.Auth;
 using BO.Models.TaskManagementApp.DAL.Domain;
 using Common.Models.Exceptions;
-using DAL.Migrations;
-using Org.BouncyCastle.Ocsp;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using TaskManagementApp.Models.DAL.Repositories;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TaskManagementApp.Models.Services.Interfaces;
 
@@ -62,6 +57,12 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
+            var exists = await _labelRepository.ExistsAsync(req.Name, req.ProjectId);
+            if (exists)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.LabelExists);
+
+            }
             return await _labelRepository.AddAsync(new WorkTaskLabel()
             {
                 Name = req.Name,
@@ -108,6 +109,26 @@ namespace TaskManagementApp.Models.Services
 
             return await _labelRepository.RemoveFromTaskIdExistAsync(labelId, taskId);
             
+        }
+
+        public async Task<WorkTaskLabel> Update(WorkTaskLabel req, UserInfo userInfo)
+        {
+            var old = await _labelRepository.GetAsync(req.Id);
+
+            var s = await ExistIfAccessAdminAsync(old.ProjectId, userInfo);
+            if (!s)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+            }
+
+            var exists = await _labelRepository.ExistsAsync(req.Name, old.ProjectId);
+            if (exists)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.LabelExists);
+
+            }
+            old.Name = req.Name;
+            return await _labelRepository.UpdateAsync(old);
         }
 
         public async Task<bool> UpdateTaskLabels(List<long> labelId, long taskId, UserInfo userInfo)

@@ -74,6 +74,25 @@ namespace Menu.Controllers.TaskManagementApp
 
         }
 
+        [Route("update")]
+        [HttpPatch]
+        public async Task UpdateLabel([FromBody] UpdateLabelRequest request)
+        {
+
+            request.Name = _apiHealper.StringValidator(request.Name);
+
+            await _apiHealper.DoStandartSomething(
+                async () =>
+                {
+                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
+                    var res = await _labelService.Update(request.Map(), userInfo);
+                    await _apiHealper.WriteResponseAsync(Response, new WorkTaskLabelReturn(res));
+
+                }, Response, _logger);
+
+        }
+
         [Route("delete")]
         [HttpDelete]
         public async Task DeleteLabel([FromBody] long id)
