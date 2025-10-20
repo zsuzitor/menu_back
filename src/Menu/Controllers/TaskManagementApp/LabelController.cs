@@ -26,9 +26,9 @@ namespace Menu.Controllers.TaskManagementApp
 
 
         public LabelController(
-     IJWTService jwtService, IApiHelper apiHealper
-    , ILogger<ProjectController> logger, ILabelService labelService)
-        {
+             IJWTService jwtService, IApiHelper apiHealper
+            , ILogger<ProjectController> logger, ILabelService labelService)
+         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
             _logger = logger;
@@ -39,9 +39,8 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("get-all")]
         [HttpGet]
-        public async Task CreateLabel([FromBody] long projectId)
+        public async Task GetLabels(long projectId)
         {
-
 
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -95,7 +94,7 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("delete")]
         [HttpDelete]
-        public async Task DeleteLabel([FromBody] long id)
+        public async Task DeleteLabel([FromBody] DeleteTaskLabels req)
         {
 
             await _apiHealper.DoStandartSomething(
@@ -104,7 +103,7 @@ namespace Menu.Controllers.TaskManagementApp
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
                     //throw new NotAuthException();
 
-                    var res = await _labelService.Delete(id, userInfo);
+                    var res = await _labelService.Delete(req.Id, userInfo);
                     await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
 
                 }, Response, _logger);

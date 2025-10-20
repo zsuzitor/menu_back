@@ -2792,7 +2792,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".labels-page-main {\r\n    padding-top: 60px;\r\n    width: 100%;\r\n}\r\n\r\n.labels-page-main .label-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.labels-page-main .one-label {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.labels-page-main .one-label-info {\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n}\r\n\r\n.labels-page-main .label-buttons {\r\n    display: flex;\r\n}\r\n\r\n.labels-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/Labels/Labels.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,QAAQ;AACZ;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,SAAS;IACT,gBAAgB;IAChB,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB","sourcesContent":[".labels-page-main {\r\n    padding-top: 60px;\r\n    width: 100%;\r\n}\r\n\r\n.labels-page-main .label-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.labels-page-main .one-label {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.labels-page-main .one-label-info {\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n}\r\n\r\n.labels-page-main .label-buttons {\r\n    display: flex;\r\n}\r\n\r\n.labels-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".labels-page-main {\r\n    padding-top: 60px;\r\n    width: 100%;\r\n}\r\n\r\n.labels-page-main .label-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.labels-page-main .one-label {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.labels-page-main .one-label-info {\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n    flex-grow: 1;\r\n}\r\n\r\n.labels-page-main .label-buttons {\r\n    display: flex;\r\n    flex-grow: 0;\r\n}\r\n\r\n.labels-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.one-label-info .new-name {\r\n\r\n    width: 100%;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/Labels/Labels.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,QAAQ;AACZ;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,SAAS;IACT,gBAAgB;IAChB,eAAe;IACf,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;;IAEI,WAAW;AACf","sourcesContent":[".labels-page-main {\r\n    padding-top: 60px;\r\n    width: 100%;\r\n}\r\n\r\n.labels-page-main .label-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.labels-page-main .one-label {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.labels-page-main .one-label-info {\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n    flex-grow: 1;\r\n}\r\n\r\n.labels-page-main .label-buttons {\r\n    display: flex;\r\n    flex-grow: 0;\r\n}\r\n\r\n.labels-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.one-label-info .new-name {\r\n\r\n    width: 100%;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72358,6 +72358,7 @@ __webpack_require__(/*! ./Labels.css */ "./src/Apps/TaskManagementApp/Components
 const Labels = (props) => {
     const [editLabelId, setEditLabelId] = (0, react_1.useState)(0);
     const [editLabelText, setEditLabelText] = (0, react_1.useState)('');
+    const [newLabelText, setNewLabelText] = (0, react_1.useState)('');
     const navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(() => {
         return () => {
@@ -72374,34 +72375,44 @@ const Labels = (props) => {
     }
     // let editSprint = props.Labels.find(x => x.Id == editLabelId);
     return react_1.default.createElement("div", { className: 'labels-page-main' },
-        react_1.default.createElement("div", { className: 'label-block' }, props.Labels.map(x => {
-            return react_1.default.createElement("div", { className: 'one-label', key: x.Id },
-                react_1.default.createElement("div", { className: 'one-label-info', onClick: () => {
-                        setEditLabelId(x.Id);
-                        setEditLabelText(x.Name);
-                    } },
-                    react_1.default.createElement("div", null, x.Id),
-                    editLabelId == x.Id ? react_1.default.createElement("input", { type: 'text', onChange: (e) => setEditLabelText(e.target.value) }) : react_1.default.createElement("div", null, x.Name)),
+        react_1.default.createElement("div", { className: 'label-block' },
+            react_1.default.createElement("div", { className: 'one-label' },
+                react_1.default.createElement("div", { className: 'one-label-info' },
+                    react_1.default.createElement("input", { type: 'text', className: 'new-name', onChange: (e) => setNewLabelText(e.target.value) })),
                 react_1.default.createElement("div", { className: 'label-buttons' },
-                    react_1.default.createElement("div", { className: 'action-btn', onClick: (e) => {
-                            if (!confirm('Удалить лейбл' + x.Name + '?')) {
-                                return;
-                            }
-                            e.preventDefault();
-                            props.DeleteLabel(x.Id);
-                        }, title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043B\u0435\u0439\u0431\u043B' },
-                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })),
-                    editLabelId ? react_1.default.createElement(react_1.default.Fragment, null,
-                        react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
-                                setEditLabelId(0);
-                            }, title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435' },
-                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/cancel.png" })),
-                        react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
-                                setEditLabelId(0);
-                                props.UpdateLabel(x.Id, editLabelText);
-                            }, title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' },
-                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/save-icon.png" }))) : react_1.default.createElement(react_1.default.Fragment, null)));
-        })));
+                    react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
+                            setEditLabelId(0);
+                            props.CreateLabel(props.ProjectId, newLabelText);
+                        }, title: '\u0421\u043E\u0437\u0434\u0430\u0442\u044C' },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/save-icon.png" })))),
+            props.Labels.map(x => {
+                return react_1.default.createElement("div", { className: 'one-label', key: x.Id },
+                    react_1.default.createElement("div", { className: 'one-label-info', onClick: () => {
+                            setEditLabelId(x.Id);
+                            setEditLabelText(x.Name);
+                        } },
+                        react_1.default.createElement("div", null, x.Id),
+                        editLabelId == x.Id ? react_1.default.createElement("input", { type: 'text', value: editLabelText, onChange: (e) => setEditLabelText(e.target.value) }) : react_1.default.createElement("div", null, x.Name)),
+                    react_1.default.createElement("div", { className: 'label-buttons' },
+                        react_1.default.createElement("div", { className: 'action-btn', onClick: (e) => {
+                                if (!confirm('Удалить лейбл' + x.Name + '?')) {
+                                    return;
+                                }
+                                e.preventDefault();
+                                props.DeleteLabel(x.Id);
+                            }, title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043B\u0435\u0439\u0431\u043B' },
+                            react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })),
+                        editLabelId == x.Id ? react_1.default.createElement(react_1.default.Fragment, null,
+                            react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
+                                    setEditLabelId(0);
+                                }, title: '\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C \u0440\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435' },
+                                react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/cancel.png" })),
+                            react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
+                                    setEditLabelId(0);
+                                    props.UpdateLabel(x.Id, editLabelText);
+                                }, title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F' },
+                                react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/save-icon.png" }))) : react_1.default.createElement(react_1.default.Fragment, null)));
+            })));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, LabelsSetup_1.default)(Labels);
@@ -72435,7 +72446,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     //     dispatch(window.G_TaskManagementSprintController.GetForProjectRedux(projectId));
     // };
     res.ClearLabels = (projectId) => {
-        dispatch((0, LabelActions_1.GetProjectLabelsActionCreator)([]));
+        dispatch((0, LabelActions_1.GetTaskLabelsActionCreator)([]));
     };
     res.CreateLabel = (projectId, labelName) => {
         dispatch(window.G_TaskManagementLabelController.CreateLabelRedux(projectId, labelName));
@@ -72823,12 +72834,13 @@ const SaveCancelInputText_1 = __importDefault(__webpack_require__(/*! ../../../.
 const SaveCancelInputSelect_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputSelect */ "./src/components/Body/SaveCancelInput/SaveCancelInputSelect.tsx"));
 __webpack_require__(/*! ./OneWorkTaskDetail.css */ "./src/Apps/TaskManagementApp/Components/OneWorkTaskDetail/OneWorkTaskDetail.css");
 const OneWorkTaskDetail = (props) => {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
     const [taskDescriptionEditable, setTaskDescriptionEditable] = (0, react_1.useState)(false);
     const [taskNewCommentEditable, setTaskNewCommentEditable] = (0, react_1.useState)(false);
     const [taskNameEditable, setTaskNameEditable] = (0, react_1.useState)(false);
     const [taskStatusEditable, setTaskStatusEditable] = (0, react_1.useState)(false);
     const [taskSprintEditable, setTaskSprintEditable] = (0, react_1.useState)(false);
+    const [taskLabelEditable, setTaskLabelEditable] = (0, react_1.useState)(false);
     const [taskExecutorEditable, setTaskExecutorEditable] = (0, react_1.useState)(false);
     const [showAddWorkTimeNew, setShowAddWorkTimeNew] = (0, react_1.useState)(false);
     const [showAddWorkTimeBlock, setShowAddWorkTimeBlock] = (0, react_1.useState)(false);
@@ -72853,19 +72865,23 @@ const OneWorkTaskDetail = (props) => {
         setTaskSprintEditable(false);
     }, [(_c = props.Task) === null || _c === void 0 ? void 0 : _c.SprintId]);
     (0, react_1.useEffect)(() => {
+        // setTaskName(props.Task?.Name || '');
+        setTaskLabelEditable(false);
+    }, [(_d = props.Task) === null || _d === void 0 ? void 0 : _d.LabelId]);
+    (0, react_1.useEffect)(() => {
         // setTaskDescription(props.Task?.Description || '');
         setTaskDescriptionEditable(false);
-    }, [(_d = props.Task) === null || _d === void 0 ? void 0 : _d.Description]);
+    }, [(_e = props.Task) === null || _e === void 0 ? void 0 : _e.Description]);
     (0, react_1.useEffect)(() => {
         // setTaskStatus(props.Task?.StatusId || -1);
         setTaskStatusEditable(false);
-    }, [(_e = props.Task) === null || _e === void 0 ? void 0 : _e.StatusId]);
+    }, [(_f = props.Task) === null || _f === void 0 ? void 0 : _f.StatusId]);
     (0, react_1.useEffect)(() => {
         setTaskExecutorEditable(false);
-    }, [(_f = props.Task) === null || _f === void 0 ? void 0 : _f.ExecutorId]);
+    }, [(_g = props.Task) === null || _g === void 0 ? void 0 : _g.ExecutorId]);
     (0, react_1.useEffect)(() => {
         setTaskNewCommentEditable(false);
-    }, [(_h = (_g = props.Task) === null || _g === void 0 ? void 0 : _g.Comments) === null || _h === void 0 ? void 0 : _h.length]);
+    }, [(_j = (_h = props.Task) === null || _h === void 0 ? void 0 : _h.Comments) === null || _j === void 0 ? void 0 : _j.length]);
     const deleteTask = () => {
         if (!confirm('Удалить задачу?')) {
             return;
@@ -72960,7 +72976,7 @@ const OneWorkTaskDetail = (props) => {
             react_1.default.createElement("div", { className: 'one-work-task-detail-right-content' },
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", { onClick: () => setTaskStatusEditable(true), className: 'editable-by-click' }, "\u0421\u0442\u0430\u0442\u0443\u0441: "),
-                    !taskStatusEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskStatusEditable(true) }, ((_j = props.Statuses.find(x => x.Id == props.Task.StatusId)) === null || _j === void 0 ? void 0 : _j.Name) || '')
+                    !taskStatusEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskStatusEditable(true) }, ((_k = props.Statuses.find(x => x.Id == props.Task.StatusId)) === null || _k === void 0 ? void 0 : _k.Name) || '')
                         :
                             react_1.default.createElement(SaveCancelInputSelect_1.default, { CancelEvent: () => setTaskStatusEditable(false), SaveEvent: (id) => {
                                     props.UpdateTaskStatus(props.Task.Id, id);
@@ -72970,7 +72986,7 @@ const OneWorkTaskDetail = (props) => {
                                 }) })),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", { onClick: () => setTaskExecutorEditable(true), className: 'editable-by-click' }, "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C: "),
-                    !taskExecutorEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskExecutorEditable(true) }, ((_k = executorList.find(x => x.Id == props.Task.ExecutorId)) === null || _k === void 0 ? void 0 : _k.Name) || '')
+                    !taskExecutorEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskExecutorEditable(true) }, ((_l = executorList.find(x => x.Id == props.Task.ExecutorId)) === null || _l === void 0 ? void 0 : _l.Name) || '')
                         :
                             react_1.default.createElement(SaveCancelInputSelect_1.default, { CancelEvent: () => setTaskExecutorEditable(false), SaveEvent: (id) => {
                                     if (!id || id == -1) {
@@ -72988,8 +73004,8 @@ const OneWorkTaskDetail = (props) => {
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", null,
                         "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C: ",
-                        ((_l = creatorsList
-                            .find(x => x.Id == props.Task.CreatorId)) === null || _l === void 0 ? void 0 : _l.Name) || '')),
+                        ((_m = creatorsList
+                            .find(x => x.Id == props.Task.CreatorId)) === null || _m === void 0 ? void 0 : _m.Name) || '')),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("p", null,
                         "\u0414\u0430\u0442\u0430 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F: ",
@@ -73006,6 +73022,17 @@ const OneWorkTaskDetail = (props) => {
                                     props.UpdateTaskSprints(props.Task.Id, id);
                                     return true;
                                 }, Selected: props.Task.SprintId, ValuesWithId: props.Sprints.map(x => {
+                                    return { Id: x.Id, Text: x.Name };
+                                }) })),
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("span", { onClick: () => setTaskLabelEditable(true), className: 'editable-by-click' }, "\u041B\u0435\u0439\u0431\u043B\u044B: "),
+                    !taskLabelEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskLabelEditable(true) }, props.Labels.filter(x => props.Task.LabelId.find(y => y == x.Id)).map(x => x.Name)
+                        .join(',') || 'Не привязана к спринту')
+                        :
+                            react_1.default.createElement(SaveCancelInputMultiSelect_1.default, { CancelEvent: () => setTaskLabelEditable(false), SaveEvent: (id) => {
+                                    props.UpdateTaskLabels(props.Task.Id, id);
+                                    return true;
+                                }, Selected: props.Task.LabelId, ValuesWithId: props.Labels.map(x => {
                                     return { Id: x.Id, Text: x.Name };
                                 }) })))),
         react_1.default.createElement("div", null, renderTime()),
@@ -73035,6 +73062,7 @@ const mapStateToProps = (state, ownProps) => {
     res.Task = state.TaskManagementApp.CurrentTask;
     res.CurrentProjectId = state.TaskManagementApp.CurrentProjectId;
     res.Sprints = state.TaskManagementApp.CurrentProjectSprints;
+    res.Labels = state.TaskManagementApp.CurrentProjectLabels;
     return res;
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -73063,14 +73091,17 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     res.UpdateTaskStatus = (id, idStatus) => {
         dispatch(window.G_TaskManagementTaskController.UpdateTaskStatusRedux(id, idStatus));
     };
-    res.AddTaskSprint = (id, idSprint) => {
-        dispatch(window.G_TaskManagementSprintController.AddTaskToSprintRedux(idSprint, id));
-    };
-    res.DeleteTaskSprint = (id, idSprint) => {
-        dispatch(window.G_TaskManagementSprintController.DeleteTaskFromSprintRedux(id, idSprint));
-    };
+    // res.AddTaskSprint = (id: number, idSprint: number) => {
+    //     dispatch(window.G_TaskManagementSprintController.AddTaskToSprintRedux(idSprint, id))
+    // };
+    // res.DeleteTaskSprint = (id: number, idSprint: number) => {
+    //     dispatch(window.G_TaskManagementSprintController.DeleteTaskFromSprintRedux(id, idSprint))
+    // };
     res.UpdateTaskSprints = (id, idSprint) => {
         dispatch(window.G_TaskManagementSprintController.UpdateTaskFromSprintRedux(id, idSprint));
+    };
+    res.UpdateTaskLabels = (id, idLabel) => {
+        dispatch(window.G_TaskManagementLabelController.UpdateTaskLabelsRedux(id, idLabel));
     };
     res.UpdateTaskExecutor = (id, personId) => {
         dispatch(window.G_TaskManagementTaskController.UpdateTaskExecutorRedux(id, personId));
@@ -75033,19 +75064,17 @@ exports.SetCommentsActionCreator = SetCommentsActionCreator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.DeleteLabelFromTaskActionCreator = exports.DeleteLabelFromTaskActionDataType = exports.DeleteLabelFromTaskActionName = exports.AddLabelToTaskActionCreator = exports.UpdateTaskLabelActionDataType = exports.AddLabelToTaskActionName = exports.UpdateTaskLabelsActionCreator = exports.UpdateTaskLabelsActionDataType = exports.UpdateTaskLabelsActionName = exports.DeleteProjectLabelActionCreator = exports.DeleteProjectLabelActionName = exports.UpdateProjectLabelActionCreator = exports.UpdateProjectLabelActionName = exports.CreateProjectLabelActionCreator = exports.CreateProjectLabelActionName = exports.GetProjectLabelsActionCreator = exports.GetProjectLabelsActionName = exports.GetTaskLabelsActionCreator = exports.GetTaskLabelsActionName = void 0;
+exports.DeleteLabelFromTaskActionCreator = exports.DeleteLabelFromTaskActionDataType = exports.DeleteLabelFromTaskActionName = exports.AddLabelToTaskActionCreator = exports.UpdateTaskLabelActionDataType = exports.AddLabelToTaskActionName = exports.UpdateTaskLabelsActionCreator = exports.UpdateTaskLabelsActionDataType = exports.UpdateTaskLabelsActionName = exports.DeleteProjectLabelActionCreator = exports.DeleteProjectLabelActionName = exports.UpdateProjectLabelActionCreator = exports.UpdateProjectLabelActionName = exports.CreateProjectLabelActionCreator = exports.CreateProjectLabelActionName = exports.GetTaskLabelsActionCreator = exports.GetTaskLabelsActionName = void 0;
 exports.GetTaskLabelsActionName = 'GetTaskLabelsAction';
 function GetTaskLabelsActionCreator(data) {
     return { type: exports.GetTaskLabelsActionName, payload: data };
 }
 exports.GetTaskLabelsActionCreator = GetTaskLabelsActionCreator;
 ;
-exports.GetProjectLabelsActionName = 'GetProjectLabelsAction';
-function GetProjectLabelsActionCreator(data) {
-    return { type: exports.GetProjectLabelsActionName, payload: data };
-}
-exports.GetProjectLabelsActionCreator = GetProjectLabelsActionCreator;
-;
+// export const GetProjectLabelsActionName: string = 'GetProjectLabelsAction';
+// export function GetProjectLabelsActionCreator(data: TaskLabel[]): AppAction<TaskLabel[]> {
+//     return { type: GetProjectLabelsActionName, payload: data };
+// };
 exports.CreateProjectLabelActionName = 'CreateProjectLabelAction';
 function CreateProjectLabelActionCreator(data) {
     return { type: exports.CreateProjectLabelActionName, payload: data };
@@ -75830,7 +75859,7 @@ class TaskManagementLabelController {
                     if (data) {
                         // dt.projectId = projectId;
                         let dt = data.map(x => new TaskLabel_1.TaskLabel().FillByIProjectLabelDataBack(x));
-                        dispatch((0, LabelActions_1.GetProjectLabelsActionCreator)(dt));
+                        dispatch((0, LabelActions_1.GetTaskLabelsActionCreator)(dt));
                     }
                 });
             };
@@ -77406,6 +77435,7 @@ class ProjectTaskData {
         this.Description = newData.Description;
         this.Comments = newData.Comments.map(x => new OneTaskWorkComment_1.OneWorkTaskComment().FillByBackModel(x));
         this.SprintId = newData.SprintId;
+        this.LabelId = newData.LabelsId;
         return this;
     }
 }
@@ -77493,6 +77523,8 @@ class OneTask {
     constructor() {
         this.Comments = [];
         this.TimeLogs = [];
+        this.SprintId = [];
+        this.LabelId = [];
     }
     FillByProjectTaskData(data) {
         this.Id = data.Id;
@@ -77506,6 +77538,7 @@ class OneTask {
         this.Comments = data.Comments
             .map(x => new OneTaskWorkComment_1.OneWorkTaskComment().FillByOneWorkTaskComment(x));
         this.SprintId = data.SprintId;
+        this.LabelId = data.LabelId;
         return this;
     }
     FillByIProjectTaskDataBack(data) {
@@ -77520,6 +77553,7 @@ class OneTask {
         this.Comments = data.Comments.
             map(x => new OneTaskWorkComment_1.OneWorkTaskComment().FillByBackModel(x));
         this.SprintId = data.SprintId;
+        this.LabelId = data.LabelsId;
         return this;
     }
 }
@@ -77887,6 +77921,7 @@ exports.TaskManagementLabelReducer = void 0;
 const lodash_1 = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 const AppState_1 = __webpack_require__(/*! ../../../../Models/Entity/State/AppState */ "./src/Models/Entity/State/AppState.ts");
 const LabelActions_1 = __webpack_require__(/*! ../Actions/LabelActions */ "./src/Apps/TaskManagementApp/Models/Actions/LabelActions.ts");
+const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
 function TaskManagementLabelReducer(state = new AppState_1.AppState(), action) {
     switch (action.type) {
         case LabelActions_1.GetTaskLabelsActionName:
@@ -77894,6 +77929,64 @@ function TaskManagementLabelReducer(state = new AppState_1.AppState(), action) {
                 let newState = (0, lodash_1.cloneDeep)(state);
                 let data = action.payload;
                 newState.TaskManagementApp.CurrentProjectLabels = data;
+                return newState;
+            }
+        case LabelActions_1.CreateProjectLabelActionName:
+            {
+                let newState = (0, lodash_1.cloneDeep)(state);
+                let data = action.payload;
+                newState.TaskManagementApp.CurrentProjectLabels = [...newState.TaskManagementApp.CurrentProjectLabels, data];
+                return newState;
+            }
+        case LabelActions_1.UpdateProjectLabelActionName:
+            {
+                let newState = (0, lodash_1.cloneDeep)(state);
+                let data = action.payload;
+                let prev = newState.TaskManagementApp.CurrentProjectLabels.find(x => x.Id === data.Id);
+                prev.Name = data.Name;
+                prev.ProjectId = data.ProjectId;
+                return newState;
+            }
+        case LabelActions_1.DeleteProjectLabelActionName:
+            {
+                let newState = (0, lodash_1.cloneDeep)(state);
+                let data = action.payload;
+                newState.TaskManagementApp.CurrentProjectLabels
+                    = newState.TaskManagementApp.CurrentProjectLabels.filter(x => x.Id != data);
+                return newState;
+            }
+        case LabelActions_1.UpdateTaskLabelsActionName:
+            {
+                let newState = (0, lodash_1.cloneDeep)(state);
+                let data = action.payload;
+                let helper = new Helper_1.Helper();
+                var tasks = helper.GetTaskFromState(newState, data.TaskId);
+                tasks.forEach(tsk => {
+                    tsk.LabelId = data.LabelId;
+                });
+                return newState;
+            }
+        case LabelActions_1.AddLabelToTaskActionName:
+            {
+                let newState = (0, lodash_1.cloneDeep)(state);
+                let data = action.payload;
+                let helper = new Helper_1.Helper();
+                var tasks = helper.GetTaskFromState(newState, data.TaskId);
+                tasks.forEach(tsk => {
+                    if (!tsk.LabelId.find(x => x == data.LabelId))
+                        tsk.LabelId = [...tsk.LabelId, data.LabelId];
+                });
+                return newState;
+            }
+        case LabelActions_1.DeleteLabelFromTaskActionName:
+            {
+                let newState = (0, lodash_1.cloneDeep)(state);
+                let data = action.payload;
+                let helper = new Helper_1.Helper();
+                var tasks = helper.GetTaskFromState(newState, data.TaskId);
+                tasks.forEach(tsk => {
+                    tsk.LabelId = tsk.LabelId.filter(x => x != data.LabelId);
+                });
                 return newState;
             }
         default:
@@ -78241,7 +78334,7 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
                 let tsk = new OneTask_1.OneTask();
-                tsk.FillByIProjectTaskDataBack(payload);
+                tsk.FillByProjectTaskData(payload);
                 newState.TaskManagementApp.CurrentProjectTasks.push(tsk);
                 return newState;
             }
@@ -78274,7 +78367,7 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 let payload = action.payload;
                 newState.TaskManagementApp.CurrentProjectTasks = payload.Tasks.map(x => {
                     let tsk = new OneTask_1.OneTask();
-                    tsk.FillByIProjectTaskDataBack(x);
+                    tsk.FillByProjectTaskData(x);
                     return tsk;
                 });
                 newState.TaskManagementApp.CurrentProjectTasksAllCount = payload.TasksCount;
