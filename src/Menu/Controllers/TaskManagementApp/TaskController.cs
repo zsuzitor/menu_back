@@ -47,7 +47,7 @@ namespace Menu.Controllers.TaskManagementApp
         [Route("get-project-tasks")]
         [HttpGet]
         public async Task GetProjectTasks(long projectId, string nameLike
-            , long? creatorId, long? executorId, int? statusId, int pageNumber, int pageSize, long? sprintId)
+            , long? creatorId, long? executorId, int? statusId, int pageNumber, int pageSize, long? sprintId, long? labelId)
         {
             await _apiHealper.DoStandartSomething(
                 async () =>
@@ -59,23 +59,27 @@ namespace Menu.Controllers.TaskManagementApp
                         nameLike = null;
                     }
 
-                    if (creatorId == -1)
+                    if (creatorId < 1)
                     {
                         creatorId = null;
                     }
 
-                    if (executorId == -1)
+                    if (executorId < 1)
                     {
                         executorId = null;
                     }
 
-                    if (statusId == -1)
+                    if (statusId < 1)
                     {
                         statusId = null;
                     }
-                    if (sprintId == -1)
+                    if (sprintId < 1)
                     {
                         sprintId = null;
+                    }
+                    if (labelId < 1)
+                    {
+                        labelId = null;
                     }
 
 
@@ -97,6 +101,7 @@ namespace Menu.Controllers.TaskManagementApp
                         Name = nameLike,
                         ProjectId = projectId,
                         SprintId = sprintId,
+                        LabelId = labelId,
                     });
                     var tasksCount = await _workTaskService.GetTasksCountAsync(new GetTasksCountByFilter() {
                         CreatorId = creatorId,
@@ -105,6 +110,7 @@ namespace Menu.Controllers.TaskManagementApp
                         Name = nameLike,
                         ProjectId = projectId,
                         SprintId = sprintId,
+                        LabelId = labelId,
                     });
                     var taskReturn = tasks.Select(x => new WorkTaskReturn(x));
 

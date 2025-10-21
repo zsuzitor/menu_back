@@ -2792,7 +2792,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".labels-page-main {\r\n    padding-top: 60px;\r\n    width: 100%;\r\n}\r\n\r\n.labels-page-main .label-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.labels-page-main .one-label {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.labels-page-main .one-label-info {\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n    flex-grow: 1;\r\n}\r\n\r\n.labels-page-main .label-buttons {\r\n    display: flex;\r\n    flex-grow: 0;\r\n}\r\n\r\n.labels-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.one-label-info .new-name {\r\n\r\n    width: 100%;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/Labels/Labels.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,QAAQ;AACZ;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,SAAS;IACT,gBAAgB;IAChB,eAAe;IACf,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;;IAEI,WAAW;AACf","sourcesContent":[".labels-page-main {\r\n    padding-top: 60px;\r\n    width: 100%;\r\n}\r\n\r\n.labels-page-main .label-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.labels-page-main .one-label {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.labels-page-main .one-label-info {\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n    flex-grow: 1;\r\n}\r\n\r\n.labels-page-main .label-buttons {\r\n    display: flex;\r\n    flex-grow: 0;\r\n}\r\n\r\n.labels-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.one-label-info .new-name {\r\n\r\n    width: 100%;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".labels-page-main {\r\n    padding-top: 60px;\r\n    width: 100%;\r\n}\r\n\r\n.labels-page-main .label-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.labels-page-main .one-label {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.labels-page-main .one-label-info {\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n    flex-grow: 1;\r\n}\r\n\r\n.labels-page-main .one-label-info input {\r\n    flex-grow: 1;\r\n}\r\n\r\n.labels-page-main .label-buttons {\r\n    display: flex;\r\n    flex-grow: 0;\r\n}\r\n\r\n.labels-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.one-label-info .new-name {\r\n\r\n    width: 100%;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/Labels/Labels.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,QAAQ;AACZ;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,SAAS;IACT,gBAAgB;IAChB,eAAe;IACf,YAAY;AAChB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;;IAEI,WAAW;AACf","sourcesContent":[".labels-page-main {\r\n    padding-top: 60px;\r\n    width: 100%;\r\n}\r\n\r\n.labels-page-main .label-block {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.labels-page-main .one-label {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.labels-page-main .one-label-info {\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n    flex-grow: 1;\r\n}\r\n\r\n.labels-page-main .one-label-info input {\r\n    flex-grow: 1;\r\n}\r\n\r\n.labels-page-main .label-buttons {\r\n    display: flex;\r\n    flex-grow: 0;\r\n}\r\n\r\n.labels-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.one-label-info .new-name {\r\n\r\n    width: 100%;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3710,7 +3710,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".editable-input-container .editable-input {\r\n    border: none;\r\n    padding: 2px 2px;\r\n    font-size: inherit;\r\n    font-family: inherit;\r\n    color: inherit;\r\n    /* min-width: 200px; */\r\n    outline: none;\r\n    flex-grow: 1;\r\n}\r\n\r\n.editable-input-container {\r\n    display: flex;\r\n    align-items: center;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 3px;\r\n    padding-right: 5px;\r\n}\r\n\r\n.save-cancel-input .action-buttons {\r\n    display: flex;\r\n    gap: 2px;\r\n}\r\n\r\n/* Общие стили для кнопок */\r\n.save-cancel-input .action-buttons .save-button,\r\n.save-cancel-input .action-buttons .cancel-button {\r\n    background: none;\r\n    border: none;\r\n    cursor: pointer;\r\n    padding: 6px;\r\n    border-radius: 3px;\r\n    color: #5E6C84;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.save-cancel-input .action-buttons .save-button:hover {\r\n    background-color: #EBECF0;\r\n    color: #1B8559;\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button:hover {\r\n    background-color: #EBECF0;\r\n    color: #DE350B;\r\n}\r\n\r\n/* Иконка галочки */\r\n.save-cancel-input .action-buttons .save-button .save-icon {\r\n    display: inline-block;\r\n    width: 16px;\r\n    height: 16px;\r\n    position: relative;\r\n}\r\n\r\n.save-cancel-input .action-buttons .save-button .save-icon::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    width: 10px;\r\n    height: 5px;\r\n    border-left: 2px solid currentColor;\r\n    border-bottom: 2px solid currentColor;\r\n    transform: translate(-50%, -60%) rotate(-45deg);\r\n}\r\n\r\n/* Иконка крестика */\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon {\r\n    display: inline-block;\r\n    width: 16px;\r\n    height: 16px;\r\n    position: relative;\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::before,\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::after {\r\n    content: '';\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    width: 16px;\r\n    height: 2px;\r\n    background-color: currentColor;\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::before {\r\n    transform: translate(-50%, -50%) rotate(45deg);\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::after {\r\n    transform: translate(-50%, -50%) rotate(-45deg);\r\n}\r\n\r\n\r\n\r\n\r\n.editable-multiselect-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 10px;\r\n    padding: 8px;\r\n    border: 1px solid #ddd;\r\n    border-radius: 4px;\r\n    background-color: white;\r\n}\r\n\r\n.save-cancel-input .multiselect-options {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 8px;\r\n    max-height: 200px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.save-cancel-input .multiselect-option {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 8px;\r\n    padding: 4px;\r\n    cursor: pointer;\r\n    border-radius: 3px;\r\n}\r\n\r\n.save-cancel-input .multiselect-option:hover {\r\n    background-color: #f5f5f5;\r\n}\r\n\r\n.save-cancel-input .multiselect-checkbox {\r\n    margin: 0;\r\n}\r\n\r\n.save-cancel-input .multiselect-text {\r\n    font-size: 14px;\r\n}\r\n\r\n/* .action-buttons {\r\n    display: flex;\r\n    gap: 8px;\r\n    justify-content: flex-end;\r\n    padding-top: 8px;\r\n    border-top: 1px solid #eee;\r\n} */\r\n\r\n/* .save-button, .cancel-button {\r\n    padding: 6px 12px;\r\n    border: none;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n    font-size: 12px;\r\n} */\r\n\r\n/* .save-button {\r\n    background-color: #4CAF50;\r\n    color: white;\r\n}\r\n\r\n.save-button:hover {\r\n    background-color: #45a049;\r\n}\r\n\r\n.cancel-button {\r\n    background-color: #f44336;\r\n    color: white;\r\n}\r\n\r\n.cancel-button:hover {\r\n    background-color: #da190b;\r\n} */\r\n\r\n/* .save-icon::before {\r\n    content: \"✓\";\r\n}\r\n\r\n.cancel-icon::before {\r\n    content: \"✕\";\r\n} */", "",{"version":3,"sources":["webpack://./src/components/Body/SaveCancelInput/SaveCancelInput.css"],"names":[],"mappings":"AAAA;IACI,YAAY;IACZ,gBAAgB;IAChB,kBAAkB;IAClB,oBAAoB;IACpB,cAAc;IACd,sBAAsB;IACtB,aAAa;IACb,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,yBAAyB;IACzB,kBAAkB;IAClB,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,QAAQ;AACZ;;AAEA,2BAA2B;AAC3B;;IAEI,gBAAgB;IAChB,YAAY;IACZ,eAAe;IACf,YAAY;IACZ,kBAAkB;IAClB,cAAc;IACd,aAAa;IACb,mBAAmB;IACnB,uBAAuB;AAC3B;;AAEA;IACI,yBAAyB;IACzB,cAAc;AAClB;;AAEA;IACI,yBAAyB;IACzB,cAAc;AAClB;;AAEA,mBAAmB;AACnB;IACI,qBAAqB;IACrB,WAAW;IACX,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,WAAW;IACX,kBAAkB;IAClB,QAAQ;IACR,SAAS;IACT,WAAW;IACX,WAAW;IACX,mCAAmC;IACnC,qCAAqC;IACrC,+CAA+C;AACnD;;AAEA,oBAAoB;AACpB;IACI,qBAAqB;IACrB,WAAW;IACX,YAAY;IACZ,kBAAkB;AACtB;;AAEA;;IAEI,WAAW;IACX,kBAAkB;IAClB,QAAQ;IACR,SAAS;IACT,WAAW;IACX,WAAW;IACX,8BAA8B;AAClC;;AAEA;IACI,8CAA8C;AAClD;;AAEA;IACI,+CAA+C;AACnD;;;;;AAKA;IACI,aAAa;IACb,sBAAsB;IACtB,SAAS;IACT,YAAY;IACZ,sBAAsB;IACtB,kBAAkB;IAClB,uBAAuB;AAC3B;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,QAAQ;IACR,iBAAiB;IACjB,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,QAAQ;IACR,YAAY;IACZ,eAAe;IACf,kBAAkB;AACtB;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,SAAS;AACb;;AAEA;IACI,eAAe;AACnB;;AAEA;;;;;;GAMG;;AAEH;;;;;;GAMG;;AAEH;;;;;;;;;;;;;;;;GAgBG;;AAEH;;;;;;GAMG","sourcesContent":[".editable-input-container .editable-input {\r\n    border: none;\r\n    padding: 2px 2px;\r\n    font-size: inherit;\r\n    font-family: inherit;\r\n    color: inherit;\r\n    /* min-width: 200px; */\r\n    outline: none;\r\n    flex-grow: 1;\r\n}\r\n\r\n.editable-input-container {\r\n    display: flex;\r\n    align-items: center;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 3px;\r\n    padding-right: 5px;\r\n}\r\n\r\n.save-cancel-input .action-buttons {\r\n    display: flex;\r\n    gap: 2px;\r\n}\r\n\r\n/* Общие стили для кнопок */\r\n.save-cancel-input .action-buttons .save-button,\r\n.save-cancel-input .action-buttons .cancel-button {\r\n    background: none;\r\n    border: none;\r\n    cursor: pointer;\r\n    padding: 6px;\r\n    border-radius: 3px;\r\n    color: #5E6C84;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.save-cancel-input .action-buttons .save-button:hover {\r\n    background-color: #EBECF0;\r\n    color: #1B8559;\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button:hover {\r\n    background-color: #EBECF0;\r\n    color: #DE350B;\r\n}\r\n\r\n/* Иконка галочки */\r\n.save-cancel-input .action-buttons .save-button .save-icon {\r\n    display: inline-block;\r\n    width: 16px;\r\n    height: 16px;\r\n    position: relative;\r\n}\r\n\r\n.save-cancel-input .action-buttons .save-button .save-icon::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    width: 10px;\r\n    height: 5px;\r\n    border-left: 2px solid currentColor;\r\n    border-bottom: 2px solid currentColor;\r\n    transform: translate(-50%, -60%) rotate(-45deg);\r\n}\r\n\r\n/* Иконка крестика */\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon {\r\n    display: inline-block;\r\n    width: 16px;\r\n    height: 16px;\r\n    position: relative;\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::before,\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::after {\r\n    content: '';\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    width: 16px;\r\n    height: 2px;\r\n    background-color: currentColor;\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::before {\r\n    transform: translate(-50%, -50%) rotate(45deg);\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::after {\r\n    transform: translate(-50%, -50%) rotate(-45deg);\r\n}\r\n\r\n\r\n\r\n\r\n.editable-multiselect-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 10px;\r\n    padding: 8px;\r\n    border: 1px solid #ddd;\r\n    border-radius: 4px;\r\n    background-color: white;\r\n}\r\n\r\n.save-cancel-input .multiselect-options {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 8px;\r\n    max-height: 200px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.save-cancel-input .multiselect-option {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 8px;\r\n    padding: 4px;\r\n    cursor: pointer;\r\n    border-radius: 3px;\r\n}\r\n\r\n.save-cancel-input .multiselect-option:hover {\r\n    background-color: #f5f5f5;\r\n}\r\n\r\n.save-cancel-input .multiselect-checkbox {\r\n    margin: 0;\r\n}\r\n\r\n.save-cancel-input .multiselect-text {\r\n    font-size: 14px;\r\n}\r\n\r\n/* .action-buttons {\r\n    display: flex;\r\n    gap: 8px;\r\n    justify-content: flex-end;\r\n    padding-top: 8px;\r\n    border-top: 1px solid #eee;\r\n} */\r\n\r\n/* .save-button, .cancel-button {\r\n    padding: 6px 12px;\r\n    border: none;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n    font-size: 12px;\r\n} */\r\n\r\n/* .save-button {\r\n    background-color: #4CAF50;\r\n    color: white;\r\n}\r\n\r\n.save-button:hover {\r\n    background-color: #45a049;\r\n}\r\n\r\n.cancel-button {\r\n    background-color: #f44336;\r\n    color: white;\r\n}\r\n\r\n.cancel-button:hover {\r\n    background-color: #da190b;\r\n} */\r\n\r\n/* .save-icon::before {\r\n    content: \"✓\";\r\n}\r\n\r\n.cancel-icon::before {\r\n    content: \"✕\";\r\n} */"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".editable-input-container .editable-input {\r\n    border: none;\r\n    padding: 2px 2px;\r\n    font-size: inherit;\r\n    font-family: inherit;\r\n    color: inherit;\r\n    /* min-width: 200px; */\r\n    outline: none;\r\n    flex-grow: 1;\r\n}\r\n\r\n.editable-input-container {\r\n    display: flex;\r\n    align-items: center;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 3px;\r\n    padding-right: 5px;\r\n}\r\n\r\n.save-cancel-input .action-buttons {\r\n    display: flex;\r\n    gap: 2px;\r\n}\r\n\r\n/* Общие стили для кнопок */\r\n.save-cancel-input .action-buttons .save-button,\r\n.save-cancel-input .action-buttons .cancel-button {\r\n    background: none;\r\n    border: none;\r\n    cursor: pointer;\r\n    padding: 6px;\r\n    border-radius: 3px;\r\n    color: #5E6C84;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.save-cancel-input .action-buttons .save-button:hover {\r\n    background-color: #EBECF0;\r\n    color: #1B8559;\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button:hover {\r\n    background-color: #EBECF0;\r\n    color: #DE350B;\r\n}\r\n\r\n/* Иконка галочки */\r\n.save-cancel-input .action-buttons .save-button .save-icon {\r\n    display: inline-block;\r\n    width: 16px;\r\n    height: 16px;\r\n    position: relative;\r\n}\r\n\r\n.save-cancel-input .action-buttons .save-button .save-icon::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    width: 10px;\r\n    height: 5px;\r\n    border-left: 2px solid currentColor;\r\n    border-bottom: 2px solid currentColor;\r\n    transform: translate(-50%, -60%) rotate(-45deg);\r\n}\r\n\r\n/* Иконка крестика */\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon {\r\n    display: inline-block;\r\n    width: 16px;\r\n    height: 16px;\r\n    position: relative;\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::before,\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::after {\r\n    content: '';\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    width: 16px;\r\n    height: 2px;\r\n    background-color: currentColor;\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::before {\r\n    transform: translate(-50%, -50%) rotate(45deg);\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::after {\r\n    transform: translate(-50%, -50%) rotate(-45deg);\r\n}\r\n\r\n\r\n\r\n\r\n.editable-multiselect-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 10px;\r\n    padding: 8px;\r\n    border: 1px solid #ddd;\r\n    border-radius: 4px;\r\n    background-color: white;\r\n}\r\n\r\n.save-cancel-input .multiselect-options {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 8px;\r\n    max-height: 200px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.save-cancel-input .multiselect-option {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 8px;\r\n    padding: 4px;\r\n    cursor: pointer;\r\n    border-radius: 3px;\r\n}\r\n\r\n.save-cancel-input .multiselect-option:hover {\r\n    background-color: #f5f5f5;\r\n}\r\n\r\n.save-cancel-input .multiselect-checkbox {\r\n    margin: 0;\r\n}\r\n\r\n.save-cancel-input .multiselect-text {\r\n    font-size: 14px;\r\n}\r\n\r\n/* .action-buttons {\r\n    display: flex;\r\n    gap: 8px;\r\n    justify-content: flex-end;\r\n    padding-top: 8px;\r\n    border-top: 1px solid #eee;\r\n} */\r\n\r\n/* .save-button, .cancel-button {\r\n    padding: 6px 12px;\r\n    border: none;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n    font-size: 12px;\r\n} */\r\n\r\n/* .save-button {\r\n    background-color: #4CAF50;\r\n    color: white;\r\n}\r\n\r\n.save-button:hover {\r\n    background-color: #45a049;\r\n}\r\n\r\n.cancel-button {\r\n    background-color: #f44336;\r\n    color: white;\r\n}\r\n\r\n.cancel-button:hover {\r\n    background-color: #da190b;\r\n} */\r\n\r\n/* .save-icon::before {\r\n    content: \"✓\";\r\n}\r\n\r\n.cancel-icon::before {\r\n    content: \"✕\";\r\n} */\r\n\r\n\r\n.multiselect-no-results {\r\n    padding: 10px;\r\n    text-align: center;\r\n    color: #999;\r\n    font-style: italic;\r\n}\r\n\r\n.multiselect-options {\r\n    max-height: 200px;\r\n    overflow-y: auto;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.multiselect-search-clear:hover {\r\n    color: #666;\r\n    background-color: #f5f5f5;\r\n    border-radius: 50%;\r\n}\r\n\r\n.multiselect-search-clear {\r\n    position: absolute;\r\n    right: 15px;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n    background: none;\r\n    border: none;\r\n    font-size: 18px;\r\n    cursor: pointer;\r\n    color: #999;\r\n    padding: 0;\r\n    width: 20px;\r\n    height: 20px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.multiselect-search-input {\r\n    width: 100%;\r\n    padding: 8px 30px 8px 12px;\r\n    border: 1px solid #ddd;\r\n    border-radius: 4px;\r\n    font-size: 14px;\r\n    box-sizing: border-box;\r\n}\r\n\r\n.multiselect-search-input:focus {\r\n    outline: none;\r\n    border-color: #007bff;\r\n    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);\r\n}\r\n\r\n.multiselect-search-container {\r\n    position: relative;\r\n    margin-bottom: 10px;\r\n    padding: 0 10px;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/SaveCancelInput/SaveCancelInput.css"],"names":[],"mappings":"AAAA;IACI,YAAY;IACZ,gBAAgB;IAChB,kBAAkB;IAClB,oBAAoB;IACpB,cAAc;IACd,sBAAsB;IACtB,aAAa;IACb,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,yBAAyB;IACzB,kBAAkB;IAClB,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,QAAQ;AACZ;;AAEA,2BAA2B;AAC3B;;IAEI,gBAAgB;IAChB,YAAY;IACZ,eAAe;IACf,YAAY;IACZ,kBAAkB;IAClB,cAAc;IACd,aAAa;IACb,mBAAmB;IACnB,uBAAuB;AAC3B;;AAEA;IACI,yBAAyB;IACzB,cAAc;AAClB;;AAEA;IACI,yBAAyB;IACzB,cAAc;AAClB;;AAEA,mBAAmB;AACnB;IACI,qBAAqB;IACrB,WAAW;IACX,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,WAAW;IACX,kBAAkB;IAClB,QAAQ;IACR,SAAS;IACT,WAAW;IACX,WAAW;IACX,mCAAmC;IACnC,qCAAqC;IACrC,+CAA+C;AACnD;;AAEA,oBAAoB;AACpB;IACI,qBAAqB;IACrB,WAAW;IACX,YAAY;IACZ,kBAAkB;AACtB;;AAEA;;IAEI,WAAW;IACX,kBAAkB;IAClB,QAAQ;IACR,SAAS;IACT,WAAW;IACX,WAAW;IACX,8BAA8B;AAClC;;AAEA;IACI,8CAA8C;AAClD;;AAEA;IACI,+CAA+C;AACnD;;;;;AAKA;IACI,aAAa;IACb,sBAAsB;IACtB,SAAS;IACT,YAAY;IACZ,sBAAsB;IACtB,kBAAkB;IAClB,uBAAuB;AAC3B;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,QAAQ;IACR,iBAAiB;IACjB,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,QAAQ;IACR,YAAY;IACZ,eAAe;IACf,kBAAkB;AACtB;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,SAAS;AACb;;AAEA;IACI,eAAe;AACnB;;AAEA;;;;;;GAMG;;AAEH;;;;;;GAMG;;AAEH;;;;;;;;;;;;;;;;GAgBG;;AAEH;;;;;;GAMG;;;AAGH;IACI,aAAa;IACb,kBAAkB;IAClB,WAAW;IACX,kBAAkB;AACtB;;AAEA;IACI,iBAAiB;IACjB,gBAAgB;IAChB,mBAAmB;AACvB;;AAEA;IACI,WAAW;IACX,yBAAyB;IACzB,kBAAkB;AACtB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,QAAQ;IACR,2BAA2B;IAC3B,gBAAgB;IAChB,YAAY;IACZ,eAAe;IACf,eAAe;IACf,WAAW;IACX,UAAU;IACV,WAAW;IACX,YAAY;IACZ,aAAa;IACb,mBAAmB;IACnB,uBAAuB;AAC3B;;AAEA;IACI,WAAW;IACX,0BAA0B;IAC1B,sBAAsB;IACtB,kBAAkB;IAClB,eAAe;IACf,sBAAsB;AAC1B;;AAEA;IACI,aAAa;IACb,qBAAqB;IACrB,6CAA6C;AACjD;;AAEA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,eAAe;AACnB","sourcesContent":[".editable-input-container .editable-input {\r\n    border: none;\r\n    padding: 2px 2px;\r\n    font-size: inherit;\r\n    font-family: inherit;\r\n    color: inherit;\r\n    /* min-width: 200px; */\r\n    outline: none;\r\n    flex-grow: 1;\r\n}\r\n\r\n.editable-input-container {\r\n    display: flex;\r\n    align-items: center;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 3px;\r\n    padding-right: 5px;\r\n}\r\n\r\n.save-cancel-input .action-buttons {\r\n    display: flex;\r\n    gap: 2px;\r\n}\r\n\r\n/* Общие стили для кнопок */\r\n.save-cancel-input .action-buttons .save-button,\r\n.save-cancel-input .action-buttons .cancel-button {\r\n    background: none;\r\n    border: none;\r\n    cursor: pointer;\r\n    padding: 6px;\r\n    border-radius: 3px;\r\n    color: #5E6C84;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.save-cancel-input .action-buttons .save-button:hover {\r\n    background-color: #EBECF0;\r\n    color: #1B8559;\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button:hover {\r\n    background-color: #EBECF0;\r\n    color: #DE350B;\r\n}\r\n\r\n/* Иконка галочки */\r\n.save-cancel-input .action-buttons .save-button .save-icon {\r\n    display: inline-block;\r\n    width: 16px;\r\n    height: 16px;\r\n    position: relative;\r\n}\r\n\r\n.save-cancel-input .action-buttons .save-button .save-icon::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    width: 10px;\r\n    height: 5px;\r\n    border-left: 2px solid currentColor;\r\n    border-bottom: 2px solid currentColor;\r\n    transform: translate(-50%, -60%) rotate(-45deg);\r\n}\r\n\r\n/* Иконка крестика */\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon {\r\n    display: inline-block;\r\n    width: 16px;\r\n    height: 16px;\r\n    position: relative;\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::before,\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::after {\r\n    content: '';\r\n    position: absolute;\r\n    top: 50%;\r\n    left: 50%;\r\n    width: 16px;\r\n    height: 2px;\r\n    background-color: currentColor;\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::before {\r\n    transform: translate(-50%, -50%) rotate(45deg);\r\n}\r\n\r\n.save-cancel-input .action-buttons .cancel-button .cancel-icon::after {\r\n    transform: translate(-50%, -50%) rotate(-45deg);\r\n}\r\n\r\n\r\n\r\n\r\n.editable-multiselect-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 10px;\r\n    padding: 8px;\r\n    border: 1px solid #ddd;\r\n    border-radius: 4px;\r\n    background-color: white;\r\n}\r\n\r\n.save-cancel-input .multiselect-options {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 8px;\r\n    max-height: 200px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.save-cancel-input .multiselect-option {\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 8px;\r\n    padding: 4px;\r\n    cursor: pointer;\r\n    border-radius: 3px;\r\n}\r\n\r\n.save-cancel-input .multiselect-option:hover {\r\n    background-color: #f5f5f5;\r\n}\r\n\r\n.save-cancel-input .multiselect-checkbox {\r\n    margin: 0;\r\n}\r\n\r\n.save-cancel-input .multiselect-text {\r\n    font-size: 14px;\r\n}\r\n\r\n/* .action-buttons {\r\n    display: flex;\r\n    gap: 8px;\r\n    justify-content: flex-end;\r\n    padding-top: 8px;\r\n    border-top: 1px solid #eee;\r\n} */\r\n\r\n/* .save-button, .cancel-button {\r\n    padding: 6px 12px;\r\n    border: none;\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n    font-size: 12px;\r\n} */\r\n\r\n/* .save-button {\r\n    background-color: #4CAF50;\r\n    color: white;\r\n}\r\n\r\n.save-button:hover {\r\n    background-color: #45a049;\r\n}\r\n\r\n.cancel-button {\r\n    background-color: #f44336;\r\n    color: white;\r\n}\r\n\r\n.cancel-button:hover {\r\n    background-color: #da190b;\r\n} */\r\n\r\n/* .save-icon::before {\r\n    content: \"✓\";\r\n}\r\n\r\n.cancel-icon::before {\r\n    content: \"✕\";\r\n} */\r\n\r\n\r\n.multiselect-no-results {\r\n    padding: 10px;\r\n    text-align: center;\r\n    color: #999;\r\n    font-style: italic;\r\n}\r\n\r\n.multiselect-options {\r\n    max-height: 200px;\r\n    overflow-y: auto;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n.multiselect-search-clear:hover {\r\n    color: #666;\r\n    background-color: #f5f5f5;\r\n    border-radius: 50%;\r\n}\r\n\r\n.multiselect-search-clear {\r\n    position: absolute;\r\n    right: 15px;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n    background: none;\r\n    border: none;\r\n    font-size: 18px;\r\n    cursor: pointer;\r\n    color: #999;\r\n    padding: 0;\r\n    width: 20px;\r\n    height: 20px;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n}\r\n\r\n.multiselect-search-input {\r\n    width: 100%;\r\n    padding: 8px 30px 8px 12px;\r\n    border: 1px solid #ddd;\r\n    border-radius: 4px;\r\n    font-size: 14px;\r\n    box-sizing: border-box;\r\n}\r\n\r\n.multiselect-search-input:focus {\r\n    outline: none;\r\n    border-color: #007bff;\r\n    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);\r\n}\r\n\r\n.multiselect-search-container {\r\n    position: relative;\r\n    margin-bottom: 10px;\r\n    padding: 0 10px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72829,9 +72829,9 @@ const SaveCancelTextarea_1 = __importDefault(__webpack_require__(/*! ../../../..
 const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
 const AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
 const AddWorkTimeLog_1 = __importDefault(__webpack_require__(/*! ../AddWorkTimeLog/AddWorkTimeLog */ "./src/Apps/TaskManagementApp/Components/AddWorkTimeLog/AddWorkTimeLog.tsx"));
-const SaveCancelInputMultiSelect_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputMultiSelect */ "./src/components/Body/SaveCancelInput/SaveCancelInputMultiSelect.tsx"));
 const SaveCancelInputText_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputText */ "./src/components/Body/SaveCancelInput/SaveCancelInputText.tsx"));
 const SaveCancelInputSelect_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputSelect */ "./src/components/Body/SaveCancelInput/SaveCancelInputSelect.tsx"));
+const SaveCancelInputMultiSelectWithSearch_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputMultiSelectWithSearch */ "./src/components/Body/SaveCancelInput/SaveCancelInputMultiSelectWithSearch.tsx"));
 __webpack_require__(/*! ./OneWorkTaskDetail.css */ "./src/Apps/TaskManagementApp/Components/OneWorkTaskDetail/OneWorkTaskDetail.css");
 const OneWorkTaskDetail = (props) => {
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
@@ -73018,7 +73018,7 @@ const OneWorkTaskDetail = (props) => {
                     !taskSprintEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskSprintEditable(true) }, props.Sprints.filter(x => props.Task.SprintId.find(y => y == x.Id)).map(x => x.Name)
                         .join(',') || 'Не привязана к спринту')
                         :
-                            react_1.default.createElement(SaveCancelInputMultiSelect_1.default, { CancelEvent: () => setTaskSprintEditable(false), SaveEvent: (id) => {
+                            react_1.default.createElement(SaveCancelInputMultiSelectWithSearch_1.default, { CancelEvent: () => setTaskSprintEditable(false), SaveEvent: (id) => {
                                     props.UpdateTaskSprints(props.Task.Id, id);
                                     return true;
                                 }, Selected: props.Task.SprintId, ValuesWithId: props.Sprints.map(x => {
@@ -73027,9 +73027,9 @@ const OneWorkTaskDetail = (props) => {
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", { onClick: () => setTaskLabelEditable(true), className: 'editable-by-click' }, "\u041B\u0435\u0439\u0431\u043B\u044B: "),
                     !taskLabelEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskLabelEditable(true) }, props.Labels.filter(x => props.Task.LabelId.find(y => y == x.Id)).map(x => x.Name)
-                        .join(',') || 'Не привязана к спринту')
+                        .join(',') || '-')
                         :
-                            react_1.default.createElement(SaveCancelInputMultiSelect_1.default, { CancelEvent: () => setTaskLabelEditable(false), SaveEvent: (id) => {
+                            react_1.default.createElement(SaveCancelInputMultiSelectWithSearch_1.default, { CancelEvent: () => setTaskLabelEditable(false), SaveEvent: (id) => {
                                     props.UpdateTaskLabels(props.Task.Id, id);
                                     return true;
                                 }, Selected: props.Task.LabelId, ValuesWithId: props.Labels.map(x => {
@@ -73592,6 +73592,7 @@ const ProjectDetail = (props) => {
     const [filterVisibilityCreator, setFilterVisibilityCreator] = (0, react_1.useState)(false);
     const [filterVisibilityStatus, setFilterVisibilityStatus] = (0, react_1.useState)(false);
     const [filterVisibilitySprint, setFilterVisibilitySprint] = (0, react_1.useState)(false);
+    const [filterVisibilityLabel, setFilterVisibilityLabel] = (0, react_1.useState)(false);
     const [filterVisibilityReviwer, setFilterVisibilityReviwer] = (0, react_1.useState)(false);
     const navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(() => {
@@ -73644,13 +73645,14 @@ const ProjectDetail = (props) => {
         setLoadTasksTimerId(timerId);
     }, [(_b = props.Project) === null || _b === void 0 ? void 0 : _b.Id, props.TasksFilters.CreatorId, props.TasksFilters.ExecutorId,
         props.TasksFilters.Status, props.TasksFilters.TaskName,
-        props.TasksFilters.Page, props.TasksFilters.Retrigger, props.TasksFilters.Sprint]);
+        props.TasksFilters.Page, props.TasksFilters.Retrigger, props.TasksFilters.Sprint, props.TasksFilters.Label]);
     const reloadTasks = () => {
         let filter = {
             Name: props.TasksFilters.TaskName, CreatorId: props.TasksFilters.CreatorId,
             PageNumber: props.TasksFilters.Page, PageSize: tasksOnPageCount,
             ProjectId: props.Project.Id, ExecutorId: props.TasksFilters.ExecutorId,
-            StatusId: props.TasksFilters.Status, SprintId: props.TasksFilters.Sprint
+            StatusId: props.TasksFilters.Status, SprintId: props.TasksFilters.Sprint,
+            LabelId: props.TasksFilters.Label
         };
         props.ReloadTasks(filter);
     };
@@ -73664,6 +73666,7 @@ const ProjectDetail = (props) => {
         setFilterVisibilityStatus(false);
         setFilterVisibilityReviwer(false);
         setFilterVisibilitySprint(false);
+        setFilterVisibilityLabel(false);
     };
     if (!props.Project) {
         return react_1.default.createElement("div", { className: 'management-project-no-project' },
@@ -73706,14 +73709,19 @@ const ProjectDetail = (props) => {
                                 react_1.default.createElement("div", { className: 'add-one-filter', onClick: () => setFilterVisibilityCreator(true) }, "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C"),
                                 react_1.default.createElement("div", { className: 'add-one-filter', onClick: () => setFilterVisibilityReviwer(true) }, "\u0420\u0435\u0432\u044C\u044E\u0432\u0435\u0440"),
                                 react_1.default.createElement("div", { className: 'add-one-filter', onClick: () => setFilterVisibilityStatus(true) }, "\u0421\u0442\u0430\u0442\u0443\u0441"),
-                                react_1.default.createElement("div", { className: 'add-one-filter', onClick: () => setFilterVisibilitySprint(true) }, "\u0421\u043F\u0440\u0438\u043D\u0442")) })),
+                                react_1.default.createElement("div", { className: 'add-one-filter', onClick: () => setFilterVisibilitySprint(true) }, "\u0421\u043F\u0440\u0438\u043D\u0442"),
+                                react_1.default.createElement("div", { className: 'add-one-filter', onClick: () => setFilterVisibilityLabel(true) }, "\u041B\u0435\u0439\u0431\u043B")) })),
                     ((filterVisibilityName
                         || filterVisibilityCreator
                         || filterVisibilityReviwer
-                        || filterVisibilityStatus)
+                        || filterVisibilityStatus
+                        || filterVisibilitySprint
+                        || filterVisibilityLabel)
                         || (props.TasksFilters.CreatorId != -1
                             || props.TasksFilters.ExecutorId != -1
                             || props.TasksFilters.Status != -1
+                            || props.TasksFilters.Sprint != -1
+                            || props.TasksFilters.Label != -1
                             || props.TasksFilters.TaskName != ''
                             || props.TasksFilters.Page != 1))
                         &&
@@ -73768,6 +73776,15 @@ const ProjectDetail = (props) => {
                             react_1.default.createElement("button", { className: 'remove-filter', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0444\u0438\u043B\u044C\u0442\u0440', onClick: () => {
                                     props.SetFilterTaskSprint(-1);
                                     setFilterVisibilitySprint(false);
+                                } }, "\u00D7")),
+                        filterVisibilityLabel && react_1.default.createElement("div", { className: 'filter-tag' },
+                            react_1.default.createElement("span", { className: 'filter-name' }, "\u041B\u0435\u0439\u0431\u043B:"),
+                            react_1.default.createElement("select", { className: 'filter-input', onChange: e => props.SetFilterTaskLabel(+e.target.value), value: props.TasksFilters.Label },
+                                react_1.default.createElement("option", { value: -1 }, "\u041B\u044E\u0431\u043E\u0439"),
+                                props.Labels.map(label => react_1.default.createElement("option", { value: label.Id, key: label.Id }, label.Name))),
+                            react_1.default.createElement("button", { className: 'remove-filter', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0444\u0438\u043B\u044C\u0442\u0440', onClick: () => {
+                                    props.SetFilterTaskLabel(-1);
+                                    setFilterVisibilityLabel(false);
                                 } }, "\u00D7")))),
                 props.Tasks.length
                     ? props.Tasks.map(x => react_1.default.createElement(OneWorkTask_1.default, { key: x.Id, Task: x, Comments: x.Comments, CurrentProjectId: props.Project.Id }))
@@ -73802,6 +73819,7 @@ const mapStateToProps = (state, ownProps) => {
     res.CurrentProjectTasksAllCount = state.TaskManagementApp.CurrentProjectTasksAllCount;
     res.Statuses = state.TaskManagementApp.CurrentProjectStatuses;
     res.Sprints = state.TaskManagementApp.CurrentProjectSprints;
+    res.Labels = state.TaskManagementApp.CurrentProjectLabels;
     return res;
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -73823,6 +73841,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
     res.SetFilterTaskSprint = (sprint) => {
         dispatch((0, TaskActions_1.SetFilterTaskSprintActionCreator)(sprint));
+    };
+    res.SetFilterTaskLabel = (label) => {
+        dispatch((0, TaskActions_1.SetFilterTaskLabelActionCreator)(label));
     };
     res.ReloadTasks = (filter) => {
         dispatch(window.G_TaskManagementTaskController.LoadTasksRedux(filter));
@@ -74435,9 +74456,10 @@ const Sprints = (props) => {
         if (props.ProjectId && props.ProjectId > 0)
             props.LoadSprints(props.ProjectId);
     }, [props.ProjectId, props.Sprints.length]);
-    if (!props.Sprints) {
-        return react_1.default.createElement(react_1.default.Fragment, null);
-    }
+    // if (!props.Sprints) {
+    //     return <></>
+    // }
+    // console.log(props.Sprints);
     let editSprint = props.Sprints.find(x => x.Id == editSprintId);
     return react_1.default.createElement("div", { className: 'sprints-page-main' },
         react_1.default.createElement("div", null,
@@ -74708,7 +74730,7 @@ const TaskManagementMain = (props) => {
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementTimeLogRoute}`, element: react_1.default.createElement(ProjectTimePage_1.default, null) }),
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementUserRoute}:userId/${Consts_1.TaskManagementTimeLogRoute}`, element: react_1.default.createElement(PersonTimePage_1.default, null) }),
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementTempoRoute}`, element: react_1.default.createElement(TempoPage_1.default, null) }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementSprintRoute}`, element: react_1.default.createElement(Sprints_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementSprintsRoute}`, element: react_1.default.createElement(Sprints_1.default, null) }),
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementLabelsRoute}`, element: react_1.default.createElement(Labels_1.default, null) }),
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementSprintRoute}:sprintId`, element: react_1.default.createElement(Sprint_1.default, null) })));
 };
@@ -75257,7 +75279,7 @@ exports.UpdateTaskSprintActionCreator = UpdateTaskSprintActionCreator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.UpdateTaskExecutorActionCreator = exports.UpdateTaskExecutorActionName = exports.UpdateTaskExecutorActionParam = exports.UpdateTaskStatusActionCreator = exports.UpdateTaskStatusActionName = exports.UpdateTaskStatusActionParam = exports.UpdateTaskDescriptionActionCreator = exports.UpdateTaskDescriptionActionName = exports.UpdateTaskDescriptionActionParam = exports.UpdateTaskNameActionCreator = exports.UpdateTaskNameActionName = exports.UpdateTaskNameActionParam = exports.ClearCurrentTaskStateActionCreator = exports.ClearCurrentTaskStateActionName = exports.LoadTaskActionCreator = exports.LoadTaskActionName = exports.SetCurrentTaskIdActionCreator = exports.SetCurrentTaskIdActionName = exports.SetFilterTaskActionCreator = exports.SetFilterTaskActionName = exports.SetFilterTaskSprintActionCreator = exports.SetFilterTaskSprintActionName = exports.SetFilterTaskStatusActionCreator = exports.SetFilterTaskStatusActionName = exports.SetFilterTaskPageActionCreator = exports.SetFilterTaskPageActionName = exports.SetFilterTaskNameActionCreator = exports.SetFilterTaskNameActionName = exports.SetFilterTaskExecutorActionCreator = exports.SetFilterTaskExecutorActionName = exports.SetFilterTaskCreatorActionCreator = exports.SetFilterTaskCreatorActionName = exports.DeleteTaskActionCreator = exports.DeleteTaskActionName = exports.LoadTasksActionCreator = exports.LoadTasksActionName = exports.UpdateTaskActionCreator = exports.UpdateTaskActionName = exports.AddLoadTriggerActionCreator = exports.AddLoadTriggerActionName = exports.AddTaskToProjectActionCreator = exports.AddTaskToProjectActionName = void 0;
+exports.UpdateTaskExecutorActionCreator = exports.UpdateTaskExecutorActionName = exports.UpdateTaskExecutorActionParam = exports.UpdateTaskStatusActionCreator = exports.UpdateTaskStatusActionName = exports.UpdateTaskStatusActionParam = exports.UpdateTaskDescriptionActionCreator = exports.UpdateTaskDescriptionActionName = exports.UpdateTaskDescriptionActionParam = exports.UpdateTaskNameActionCreator = exports.UpdateTaskNameActionName = exports.UpdateTaskNameActionParam = exports.ClearCurrentTaskStateActionCreator = exports.ClearCurrentTaskStateActionName = exports.LoadTaskActionCreator = exports.LoadTaskActionName = exports.SetCurrentTaskIdActionCreator = exports.SetCurrentTaskIdActionName = exports.SetFilterTaskActionCreator = exports.SetFilterTaskActionName = exports.SetFilterTaskLabelActionCreator = exports.SetFilterTaskLabelActionName = exports.SetFilterTaskSprintActionCreator = exports.SetFilterTaskSprintActionName = exports.SetFilterTaskStatusActionCreator = exports.SetFilterTaskStatusActionName = exports.SetFilterTaskPageActionCreator = exports.SetFilterTaskPageActionName = exports.SetFilterTaskNameActionCreator = exports.SetFilterTaskNameActionName = exports.SetFilterTaskExecutorActionCreator = exports.SetFilterTaskExecutorActionName = exports.SetFilterTaskCreatorActionCreator = exports.SetFilterTaskCreatorActionName = exports.DeleteTaskActionCreator = exports.DeleteTaskActionName = exports.LoadTasksActionCreator = exports.LoadTasksActionName = exports.UpdateTaskActionCreator = exports.UpdateTaskActionName = exports.AddLoadTriggerActionCreator = exports.AddLoadTriggerActionName = exports.AddTaskToProjectActionCreator = exports.AddTaskToProjectActionName = void 0;
 exports.AddTaskToProjectActionName = 'AddTaskToProjectAction';
 function AddTaskToProjectActionCreator(data) {
     return { type: exports.AddTaskToProjectActionName, payload: data };
@@ -75323,6 +75345,12 @@ function SetFilterTaskSprintActionCreator(num) {
     return { type: exports.SetFilterTaskSprintActionName, payload: num };
 }
 exports.SetFilterTaskSprintActionCreator = SetFilterTaskSprintActionCreator;
+;
+exports.SetFilterTaskLabelActionName = 'SetFilterTaskLabelAction';
+function SetFilterTaskLabelActionCreator(num) {
+    return { type: exports.SetFilterTaskLabelActionName, payload: num };
+}
+exports.SetFilterTaskLabelActionCreator = SetFilterTaskLabelActionCreator;
 ;
 exports.SetFilterTaskActionName = 'SetFilterTaskAction';
 function SetFilterTaskActionCreator(data) {
@@ -75665,8 +75693,9 @@ exports["default"] = RouteBuilder;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.TaskManagementTempoRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRute = exports.TaskManagementPreloader = void 0;
+exports.TaskManagementApiWorkTimeUrl = exports.TaskManagementApiUserUrl = exports.TaskManagementApiStatusUrl = exports.TaskManagementApiSprintUrl = exports.TaskManagementApiProjectUrl = exports.TaskManagementApiLabelUrl = exports.TaskManagementApiCommentUrl = exports.TaskManagementApiTaskUrl = exports.TaskManagementApiUrl = exports.TaskManagementTaskDeleteUrl = exports.TaskManagementTaskGetUrl = exports.TaskManagementTasksGetUrl = exports.TaskManagementTaskUpdateUrl = exports.TaskManagementTaskAddNewUrl = exports.TaskManagementTaskUpdateExecutorUrl = exports.TaskManagementTaskUpdateStatusUrl = exports.TaskManagementTaskUpdateDescriptionUrl = exports.TaskManagementTaskUpdateNameUrl = exports.TaskManagementWorkTimeLogControllerUrl = exports.TaskManagementUserControllerUrl = exports.TaskManagementStatusControllerUrl = exports.TaskManagementSprintControllerUrl = exports.TaskManagementProjectControllerUrl = exports.TaskManagementLabelControllerUrl = exports.TaskManagementCommentControllerUrl = exports.TaskManagementTaskControllerUrl = exports.TaskManagementAppUrl = exports.TaskManagementApiPrefUrl = exports.TaskManagementTempoRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRute = exports.TaskManagementPreloader = void 0;
 exports.TaskManagementPreloader = 'task_management_preloader';
+//Routes
 exports.TaskManagementAppRute = 'task-management';
 exports.TaskManagementProjectRoute = 'proj-';
 exports.TaskManagementTaskRoute = 'task-';
@@ -75676,7 +75705,39 @@ exports.TaskManagementSprintsRoute = 'sprints';
 exports.TaskManagementLabelsRoute = 'labels';
 exports.TaskManagementSprintRoute = 'sprint-';
 exports.TaskManagementTempoRoute = 'tempo';
-///user-" + x.Id + "/time-log
+//Routes
+//Api
+exports.TaskManagementApiPrefUrl = 'api';
+exports.TaskManagementAppUrl = 'taskmanagement';
+exports.TaskManagementTaskControllerUrl = 'task';
+exports.TaskManagementCommentControllerUrl = 'comment';
+exports.TaskManagementLabelControllerUrl = 'label';
+exports.TaskManagementProjectControllerUrl = 'project';
+exports.TaskManagementSprintControllerUrl = 'sprint';
+exports.TaskManagementStatusControllerUrl = 'status';
+exports.TaskManagementUserControllerUrl = 'user';
+exports.TaskManagementWorkTimeLogControllerUrl = 'worktimelog';
+//task
+exports.TaskManagementTaskUpdateNameUrl = 'update-name';
+exports.TaskManagementTaskUpdateDescriptionUrl = 'update-description';
+exports.TaskManagementTaskUpdateStatusUrl = 'update-status';
+exports.TaskManagementTaskUpdateExecutorUrl = 'update-executor';
+exports.TaskManagementTaskAddNewUrl = 'add-new-task';
+exports.TaskManagementTaskUpdateUrl = 'update-task';
+exports.TaskManagementTasksGetUrl = 'get-project-tasks';
+exports.TaskManagementTaskGetUrl = 'get-project-task';
+exports.TaskManagementTaskDeleteUrl = 'delete-task';
+//task
+exports.TaskManagementApiUrl = `${exports.TaskManagementApiPrefUrl}/${exports.TaskManagementAppUrl}`;
+exports.TaskManagementApiTaskUrl = `${exports.TaskManagementApiUrl}/${exports.TaskManagementTaskControllerUrl}`;
+exports.TaskManagementApiCommentUrl = `${exports.TaskManagementApiUrl}/${exports.TaskManagementCommentControllerUrl}`;
+exports.TaskManagementApiLabelUrl = `${exports.TaskManagementApiUrl}/${exports.TaskManagementLabelControllerUrl}`;
+exports.TaskManagementApiProjectUrl = `${exports.TaskManagementApiUrl}/${exports.TaskManagementProjectControllerUrl}`;
+exports.TaskManagementApiSprintUrl = `${exports.TaskManagementApiUrl}/${exports.TaskManagementSprintControllerUrl}`;
+exports.TaskManagementApiStatusUrl = `${exports.TaskManagementApiUrl}/${exports.TaskManagementStatusControllerUrl}`;
+exports.TaskManagementApiUserUrl = `${exports.TaskManagementApiUrl}/${exports.TaskManagementUserControllerUrl}`;
+exports.TaskManagementApiWorkTimeUrl = `${exports.TaskManagementApiUrl}/${exports.TaskManagementWorkTimeLogControllerUrl}`;
+//Api
 
 
 /***/ }),
@@ -75725,7 +75786,7 @@ class TaskManagementCommentController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/comment/edit-comment'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiCommentUrl}/edit-comment`
             });
         };
         this.DeleteCommentRedux = (dataForDel) => {
@@ -75753,7 +75814,7 @@ class TaskManagementCommentController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/comment/delete-comment'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiCommentUrl}/delete-comment`
             });
         };
         this.AddCommentRedux = (taskId, text) => {
@@ -75783,7 +75844,7 @@ class TaskManagementCommentController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/comment/create-comment'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiCommentUrl}/create-comment`
             });
         };
         this.LoadCommentsRedux = (id) => {
@@ -75818,7 +75879,7 @@ class TaskManagementCommentController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/comment/get-comments'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiCommentUrl}/get-comments`
             });
         };
     }
@@ -75875,7 +75936,7 @@ class TaskManagementLabelController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/label/get-all'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiLabelUrl}/get-all`
             });
         };
         this.CreateLabelRedux = (projectId, labelName) => {
@@ -75902,7 +75963,7 @@ class TaskManagementLabelController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/label/create',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiLabelUrl}/create`,
                 ContentType: 'body'
             });
         };
@@ -75930,7 +75991,7 @@ class TaskManagementLabelController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/label/update',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiLabelUrl}/update`,
                 ContentType: 'body'
             });
         };
@@ -75956,7 +76017,7 @@ class TaskManagementLabelController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/label/delete',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiLabelUrl}/delete`,
                 ContentType: 'body'
             });
         };
@@ -75986,7 +76047,7 @@ class TaskManagementLabelController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/label/update-task-labels',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiLabelUrl}/update-task-labels`,
                 ContentType: 'body'
             });
         };
@@ -76016,7 +76077,7 @@ class TaskManagementLabelController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/label/add-to-task',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiLabelUrl}/add-to-task`,
                 ContentType: 'body'
             });
         };
@@ -76046,7 +76107,7 @@ class TaskManagementLabelController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/label/delete-from-task',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiLabelUrl}/delete-from-task`,
                 ContentType: 'body'
             });
         };
@@ -76113,7 +76174,7 @@ class TaskManagementProjectController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/project/delete-project'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiProjectUrl}/delete-project`
             });
         };
         this.GetProjectInfoRedux = (projectId) => {
@@ -76167,7 +76228,7 @@ class TaskManagementProjectController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/project/get-project-info'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiProjectUrl}/get-project-info`
             });
         };
         this.CreateNewProjectRedux = (newProjectName) => {
@@ -76197,7 +76258,7 @@ class TaskManagementProjectController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/project/add-new-project'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiProjectUrl}/add-new-project`
             });
         };
         this.GetUserProjectsRedux = () => {
@@ -76228,7 +76289,7 @@ class TaskManagementProjectController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/project/get-projects',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiProjectUrl}/get-projects`,
             });
         };
     }
@@ -76288,7 +76349,7 @@ class TaskManagementSprintController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/sprint/get-for-project'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/get-for-project`
             });
         };
         this.GetTasksRedux = (sprintId) => {
@@ -76314,7 +76375,7 @@ class TaskManagementSprintController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/sprint/get-tasks'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/get-tasks`
             });
         };
         this.CreateSprintRedux = (req) => {
@@ -76344,7 +76405,7 @@ class TaskManagementSprintController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/sprint/create',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/create`,
                 ContentType: 'body'
             });
         };
@@ -76375,7 +76436,7 @@ class TaskManagementSprintController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/sprint/update',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/update`,
                 ContentType: 'body'
             });
         };
@@ -76401,7 +76462,7 @@ class TaskManagementSprintController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/sprint/delete'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/delete`
             });
         };
         this.AddTaskToSprintRedux = (sprintId, taskId) => {
@@ -76430,7 +76491,7 @@ class TaskManagementSprintController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/sprint/add-task-to-sprint'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/add-task-to-sprint`
             });
         };
         this.DeleteTaskFromSprintRedux = (taskId, sprintId) => {
@@ -76460,7 +76521,7 @@ class TaskManagementSprintController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/sprint/delete-task-from-sprint'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/delete-task-from-sprint`
             });
         };
         this.UpdateTaskFromSprintRedux = (taskId, sprintId) => {
@@ -76490,7 +76551,7 @@ class TaskManagementSprintController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/sprint/update-task-sprints',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/update-task-sprints`,
                 ContentType: 'body'
             });
         };
@@ -76550,7 +76611,7 @@ class TaskManagementTaskController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/task/update-name'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskUpdateNameUrl}`
             });
         };
         this.UpdateTaskDescriptionRedux = (id, text) => {
@@ -76579,7 +76640,7 @@ class TaskManagementTaskController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/task/update-description'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskUpdateDescriptionUrl}`
             });
         };
         this.UpdateTaskStatusRedux = (id, idStatus) => {
@@ -76608,7 +76669,7 @@ class TaskManagementTaskController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/task/update-status'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskUpdateStatusUrl}`
             });
         };
         this.UpdateTaskExecutorRedux = (id, personId) => {
@@ -76637,7 +76698,7 @@ class TaskManagementTaskController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/task/update-executor'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskUpdateExecutorUrl}`
             });
         };
         this.AddTaskToProjectRedux = (task, projectId) => {
@@ -76670,7 +76731,7 @@ class TaskManagementTaskController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/task/add-new-task',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskAddNewUrl}`,
                 ContentType: 'body'
             });
         };
@@ -76704,7 +76765,7 @@ class TaskManagementTaskController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/task/update-task',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskUpdateUrl}`,
                 ContentType: 'body'
             });
         };
@@ -76734,6 +76795,7 @@ class TaskManagementTaskController {
                 "pageNumber": taskFilter.PageNumber,
                 "pageSize": taskFilter.PageSize,
                 "sprintId": taskFilter.SprintId,
+                "labelId": taskFilter.LabelId,
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
@@ -76742,7 +76804,7 @@ class TaskManagementTaskController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/task/get-project-tasks'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTasksGetUrl}`
             });
         };
         this.LoadTaskRedux = (taskId) => {
@@ -76772,7 +76834,7 @@ class TaskManagementTaskController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/task/get-project-task'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskGetUrl}`
             });
         };
         this.DeleteTaskRedux = (id) => {
@@ -76800,7 +76862,7 @@ class TaskManagementTaskController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/task/delete-task'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskDeleteUrl}`
             });
         };
     }
@@ -76858,7 +76920,7 @@ class TaskManagementTaskStatusController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/status/delete-status'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiStatusUrl}/delete-status`
             });
         };
         this.CreateStatusRedux = (name, projectId) => {
@@ -76889,7 +76951,7 @@ class TaskManagementTaskStatusController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/status/create-status'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiStatusUrl}/create-status`
             });
         };
         this.UpdateStatusRedux = (statusId, status) => {
@@ -76920,7 +76982,7 @@ class TaskManagementTaskStatusController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/status/update-status'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiStatusUrl}/update-status`
             });
         };
     }
@@ -76978,7 +77040,7 @@ class TaskManagementUserController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/user/delete-user'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiUserUrl}/delete-user`
             });
         };
         this.AddUserToProjectRedux = (newUserName, mainAppUserEmail, projectId) => {
@@ -77010,7 +77072,7 @@ class TaskManagementUserController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/user/add-new-user',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiUserUrl}/add-new-user`,
                 ContentType: 'body'
             });
         };
@@ -77043,7 +77105,7 @@ class TaskManagementUserController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/user/change-user',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiUserUrl}/change-user`,
                 ContentType: 'body'
             });
         };
@@ -77123,7 +77185,7 @@ class TaskManagementWorkTimeController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/worktimelog/create',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiWorkTimeUrl}/create`,
                 ContentType: 'body'
             });
         };
@@ -77159,7 +77221,7 @@ class TaskManagementWorkTimeController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/worktimelog/update',
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiWorkTimeUrl}/update`,
                 ContentType: 'body'
             });
         };
@@ -77209,7 +77271,7 @@ class TaskManagementWorkTimeController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/worktimelog/delete'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiWorkTimeUrl}/delete`
             });
         };
         this.LoadTimeLogsForTaskRedux = (taskId) => {
@@ -77238,7 +77300,7 @@ class TaskManagementWorkTimeController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/worktimelog/task-time'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiWorkTimeUrl}/task-time`
             });
         };
         this.LoadTimeLogsForProjectRedux = (projectId, dateFrom, dateTo) => {
@@ -77270,7 +77332,7 @@ class TaskManagementWorkTimeController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/worktimelog/project-time'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiWorkTimeUrl}/project-time`
             });
         };
         this.LoadTimeLogsForUserRedux = (projectId, userId, dateFrom, dateTo) => {
@@ -77317,7 +77379,7 @@ class TaskManagementWorkTimeController {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: G_PathToServer + 'api/taskmanagement/worktimelog/user-time'
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiWorkTimeUrl}/user-time`
             });
         };
     }
@@ -77737,6 +77799,7 @@ class TasksFilter {
         this.Page = 1;
         this.Retrigger = 0;
         this.Sprint = -1;
+        this.Label = -1;
     }
 }
 exports.TasksFilter = TasksFilter;
@@ -78421,6 +78484,13 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
                 newState.TaskManagementApp.CurrentProjectTasksFilters.Sprint = payload;
+                return newState;
+            }
+        case TaskActions_1.SetFilterTaskLabelActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.TaskManagementApp.CurrentProjectTasksFilters.Label = payload;
                 return newState;
             }
         case TaskActions_1.SetFilterTaskActionName:
@@ -84965,10 +85035,10 @@ exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToPr
 
 /***/ }),
 
-/***/ "./src/components/Body/SaveCancelInput/SaveCancelInputMultiSelect.tsx":
-/*!****************************************************************************!*\
-  !*** ./src/components/Body/SaveCancelInput/SaveCancelInputMultiSelect.tsx ***!
-  \****************************************************************************/
+/***/ "./src/components/Body/SaveCancelInput/SaveCancelInputMultiSelectWithSearch.tsx":
+/*!**************************************************************************************!*\
+  !*** ./src/components/Body/SaveCancelInput/SaveCancelInputMultiSelectWithSearch.tsx ***!
+  \**************************************************************************************/
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -84999,13 +85069,20 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 __webpack_require__(/*! ./SaveCancelInput.css */ "./src/components/Body/SaveCancelInput/SaveCancelInput.css");
-const SaveCancelInputMultiSelect = (props) => {
-    // console.log(props.ValuesWithId);
-    // console.log(props.Selected);
+const SaveCancelInputMultiSelectWithSearch = (props) => {
     const [selected, setSelected] = (0, react_1.useState)([]);
+    const [searchTerm, setSearchTerm] = (0, react_1.useState)('');
     (0, react_1.useEffect)(() => {
         setSelected(props.Selected || []);
     }, [props.Selected]);
+    // Фильтрация элементов по поисковому запросу
+    const filteredItems = (0, react_1.useMemo)(() => {
+        if (!searchTerm.trim()) {
+            return props.ValuesWithId;
+        }
+        const term = searchTerm.toLowerCase();
+        return props.ValuesWithId.filter(item => item.Text.toLowerCase().includes(term));
+    }, [props.ValuesWithId, searchTerm]);
     const handleSelectionChange = (id) => {
         setSelected(prev => {
             if (prev.includes(id)) {
@@ -85016,11 +85093,20 @@ const SaveCancelInputMultiSelect = (props) => {
             }
         });
     };
+    const clearSearch = () => {
+        setSearchTerm('');
+    };
+    const handleSearchChange = (e) => {
+        setSearchTerm(e.target.value);
+    };
     const isSelected = (id) => selected.includes(id);
     return (react_1.default.createElement("div", { className: "save-cancel-input editable-multiselect-container" },
-        react_1.default.createElement("div", { className: "multiselect-options" }, props.ValuesWithId.map(item => (react_1.default.createElement("label", { key: item.Id, className: "multiselect-option" },
+        react_1.default.createElement("div", { className: "multiselect-search-container" },
+            react_1.default.createElement("input", { type: "text", placeholder: "\u041F\u043E\u0438\u0441\u043A...", value: searchTerm, onChange: handleSearchChange, className: "multiselect-search-input" }),
+            searchTerm && (react_1.default.createElement("button", { type: "button", className: "multiselect-search-clear", onClick: clearSearch, title: "\u041E\u0447\u0438\u0441\u0442\u0438\u0442\u044C \u043F\u043E\u0438\u0441\u043A" }, "\u00D7"))),
+        react_1.default.createElement("div", { className: "multiselect-options" }, filteredItems.length > 0 ? (filteredItems.map(item => (react_1.default.createElement("label", { key: item.Id, className: "multiselect-option" },
             react_1.default.createElement("input", { type: "checkbox", checked: isSelected(item.Id), onChange: () => handleSelectionChange(item.Id), className: "multiselect-checkbox" }),
-            react_1.default.createElement("span", { className: "multiselect-text" }, item.Text))))),
+            react_1.default.createElement("span", { className: "multiselect-text" }, item.Text))))) : (react_1.default.createElement("div", { className: "multiselect-no-results" }, "\u041D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u043E"))),
         react_1.default.createElement("div", { className: "action-buttons" },
             react_1.default.createElement("button", { type: "button", className: "save-button", title: "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C", onClick: () => {
                     // Сравниваем массивы, игнорируя порядок элементов
@@ -85041,7 +85127,7 @@ const SaveCancelInputMultiSelect = (props) => {
                 } },
                 react_1.default.createElement("span", { className: "cancel-icon" })))));
 };
-exports["default"] = SaveCancelInputMultiSelect;
+exports["default"] = SaveCancelInputMultiSelectWithSearch;
 
 
 /***/ }),

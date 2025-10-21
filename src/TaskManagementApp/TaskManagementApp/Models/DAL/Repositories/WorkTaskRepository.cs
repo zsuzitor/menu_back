@@ -35,11 +35,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
             }
 
             var skipCount = filters.PageNumber * filters.PageSize;
-            return await _db.TaskManagementTasks.AsNoTracking().Include(x => x.Sprints).Where(x => x.ProjectId == filters.ProjectId
+            return await _db.TaskManagementTasks.AsNoTracking().Include(x => x.Sprints).Include(x => x.Labels).Where(x => x.ProjectId == filters.ProjectId
                 && (filters.CreatorId == null || x.CreatorId == filters.CreatorId)
                 && (filters.ExecutorId == null || x.ExecutorId == filters.ExecutorId)
                 && (filters.StatusId == null || x.StatusId == filters.StatusId)
                 && (filters.SprintId == null || x.Sprints.Any(s => s.SprintId == filters.SprintId))
+                && (filters.LabelId == null || x.Labels.Any(s => s.LabelId == filters.LabelId))
             //&& (string.IsNullOrWhiteSpace(filters.Name) || EF.Functions.Like(x.Name, $"%{filters.Name}%"))).OrderBy(x => x.Id)
                 && (string.IsNullOrWhiteSpace(filters.Name) || x.Name.Contains(filters.Name))).OrderBy(x => x.Id)
                 .Skip(skipCount).Take(filters.PageSize).ToListAsync();
@@ -52,6 +53,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 && (filters.ExecutorId == null || x.ExecutorId == filters.ExecutorId)
                 && (filters.StatusId == null || x.StatusId == filters.StatusId)
                 && (filters.SprintId == null || x.Sprints.Any(s => s.SprintId == filters.SprintId))
+                && (filters.LabelId == null || x.Labels.Any(s => s.LabelId == filters.LabelId))
                 //&& (string.IsNullOrWhiteSpace(filters.Name) || EF.Functions.Like(x.Name, $"%{filters.Name}%"))
                 && (string.IsNullOrWhiteSpace(filters.Name) || x.Name.Contains(filters.Name))
                 ).CountAsync();
