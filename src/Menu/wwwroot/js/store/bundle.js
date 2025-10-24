@@ -72735,7 +72735,7 @@ const OneWorkTaskComment = (props) => {
             react_1.default.createElement("span", null, props.Comment.Text)),
         react_1.default.createElement("div", { className: 'one-work-task-comment-block-buttons' }, commentOwner ? react_1.default.createElement(react_1.default.Fragment, null,
             react_1.default.createElement("div", { className: 'work-task-comment-delete-button', onClick: () => deleteComment() },
-                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0443\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
+                react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439' })),
             react_1.default.createElement("div", { className: 'work-task-comment-edit-button', onClick: () => setEditMode(st => true) },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'edit-1.svg', alt: "Edit", title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C' }))) : react_1.default.createElement(react_1.default.Fragment, null)));
 };
@@ -72816,6 +72816,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -72832,6 +72841,7 @@ const AddWorkTimeLog_1 = __importDefault(__webpack_require__(/*! ../AddWorkTimeL
 const SaveCancelInputText_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputText */ "./src/components/Body/SaveCancelInput/SaveCancelInputText.tsx"));
 const SaveCancelInputSelect_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputSelect */ "./src/components/Body/SaveCancelInput/SaveCancelInputSelect.tsx"));
 const SaveCancelInputMultiSelectWithSearch_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputMultiSelectWithSearch */ "./src/components/Body/SaveCancelInput/SaveCancelInputMultiSelectWithSearch.tsx"));
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
 __webpack_require__(/*! ./OneWorkTaskDetail.css */ "./src/Apps/TaskManagementApp/Components/OneWorkTaskDetail/OneWorkTaskDetail.css");
 const OneWorkTaskDetail = (props) => {
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
@@ -72888,6 +72898,11 @@ const OneWorkTaskDetail = (props) => {
         }
         props.DeleteTask(props.Task.Id);
     };
+    const copyTask = () => __awaiter(void 0, void 0, void 0, function* () {
+        let newTaskId = yield props.CopyTask(props.Task.Id);
+        const taskUrl = new RouteBuilder_1.default().TaskUrl(props.CurrentProjectId, newTaskId);
+        navigate(taskUrl);
+    });
     const addComment = (val) => {
         props.AddComment(props.Task.Id, val);
     };
@@ -72965,6 +72980,8 @@ const OneWorkTaskDetail = (props) => {
                             props.UpdateTaskName(props.Task.Id, val);
                         }, Text: props.Task.Name })),
             react_1.default.createElement("div", { className: 'one-work-task-detail-buttons' },
+                react_1.default.createElement("div", { className: 'task-button', onClick: () => copyTask() },
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'copy.png', alt: "Delete", title: '\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
                 react_1.default.createElement("div", { className: 'task-button', onClick: () => deleteTask() },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })))),
         react_1.default.createElement("div", { className: 'one-work-task-detail-body' },
@@ -73048,10 +73065,19 @@ exports["default"] = (0, OneWorkTaskDetailSetup_1.default)(OneWorkTaskDetail);
 /*!********************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Components/OneWorkTaskDetail/OneWorkTaskDetailSetup.tsx ***!
   \********************************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 const TaskActions_1 = __webpack_require__(/*! ../../Models/Actions/TaskActions */ "./src/Apps/TaskManagementApp/Models/Actions/TaskActions.ts");
@@ -73070,6 +73096,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     res.DeleteTask = (taskId) => {
         dispatch(window.G_TaskManagementTaskController.DeleteTaskRedux(taskId));
     };
+    res.CopyTask = (taskId) => __awaiter(void 0, void 0, void 0, function* () {
+        return yield window.G_TaskManagementTaskController.CopyTaskUI(taskId);
+    });
     res.AddComment = (taskId, text) => {
         dispatch(window.G_TaskManagementCommentController.AddCommentRedux(taskId, text));
     };
@@ -74515,7 +74544,8 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     let res = {};
     res.LoadSprints = (projectId) => {
-        dispatch(window.G_TaskManagementSprintController.GetForProjectRedux(projectId));
+        // dispatch(window.G_TaskManagementSprintController.GetForProjectRedux(projectId));
+        window.G_TaskManagementSprintController.GetForProjectRedux(projectId, dispatch);
     };
     res.ClearSprints = (projectId) => {
         let dt = new SprintActions_1.GetProjectSprintsActionType();
@@ -75693,7 +75723,7 @@ exports["default"] = RouteBuilder;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.TaskManagementApiWorkTimeUrl = exports.TaskManagementApiUserUrl = exports.TaskManagementApiStatusUrl = exports.TaskManagementApiSprintUrl = exports.TaskManagementApiProjectUrl = exports.TaskManagementApiLabelUrl = exports.TaskManagementApiCommentUrl = exports.TaskManagementApiTaskUrl = exports.TaskManagementApiUrl = exports.TaskManagementTaskDeleteUrl = exports.TaskManagementTaskGetUrl = exports.TaskManagementTasksGetUrl = exports.TaskManagementTaskUpdateUrl = exports.TaskManagementTaskAddNewUrl = exports.TaskManagementTaskUpdateExecutorUrl = exports.TaskManagementTaskUpdateStatusUrl = exports.TaskManagementTaskUpdateDescriptionUrl = exports.TaskManagementTaskUpdateNameUrl = exports.TaskManagementWorkTimeLogControllerUrl = exports.TaskManagementUserControllerUrl = exports.TaskManagementStatusControllerUrl = exports.TaskManagementSprintControllerUrl = exports.TaskManagementProjectControllerUrl = exports.TaskManagementLabelControllerUrl = exports.TaskManagementCommentControllerUrl = exports.TaskManagementTaskControllerUrl = exports.TaskManagementAppUrl = exports.TaskManagementApiPrefUrl = exports.TaskManagementTempoRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRute = exports.TaskManagementPreloader = void 0;
+exports.TaskManagementApiWorkTimeUrl = exports.TaskManagementApiUserUrl = exports.TaskManagementApiStatusUrl = exports.TaskManagementApiSprintUrl = exports.TaskManagementApiProjectUrl = exports.TaskManagementApiLabelUrl = exports.TaskManagementApiCommentUrl = exports.TaskManagementApiTaskUrl = exports.TaskManagementApiUrl = exports.TaskManagementTaskCopyUrl = exports.TaskManagementTaskDeleteUrl = exports.TaskManagementTaskGetUrl = exports.TaskManagementTasksGetUrl = exports.TaskManagementTaskUpdateUrl = exports.TaskManagementTaskAddNewUrl = exports.TaskManagementTaskUpdateExecutorUrl = exports.TaskManagementTaskUpdateStatusUrl = exports.TaskManagementTaskUpdateDescriptionUrl = exports.TaskManagementTaskUpdateNameUrl = exports.TaskManagementWorkTimeLogControllerUrl = exports.TaskManagementUserControllerUrl = exports.TaskManagementStatusControllerUrl = exports.TaskManagementSprintControllerUrl = exports.TaskManagementProjectControllerUrl = exports.TaskManagementLabelControllerUrl = exports.TaskManagementCommentControllerUrl = exports.TaskManagementTaskControllerUrl = exports.TaskManagementAppUrl = exports.TaskManagementApiPrefUrl = exports.TaskManagementTempoRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRute = exports.TaskManagementPreloader = void 0;
 exports.TaskManagementPreloader = 'task_management_preloader';
 //Routes
 exports.TaskManagementAppRute = 'task-management';
@@ -75727,6 +75757,7 @@ exports.TaskManagementTaskUpdateUrl = 'update-task';
 exports.TaskManagementTasksGetUrl = 'get-project-tasks';
 exports.TaskManagementTaskGetUrl = 'get-project-task';
 exports.TaskManagementTaskDeleteUrl = 'delete-task';
+exports.TaskManagementTaskCopyUrl = 'copy-project-task';
 //task
 exports.TaskManagementApiUrl = `${exports.TaskManagementApiPrefUrl}/${exports.TaskManagementAppUrl}`;
 exports.TaskManagementApiTaskUrl = `${exports.TaskManagementApiUrl}/${exports.TaskManagementTaskControllerUrl}`;
@@ -76311,10 +76342,19 @@ exports.TaskManagementProjectController = TaskManagementProjectController;
 /*!*****************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementSprintController.ts ***!
   \*****************************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TaskManagementSprintController = void 0;
 const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
@@ -76324,34 +76364,59 @@ const SprintActions_1 = __webpack_require__(/*! ../Actions/SprintActions */ "./s
 const OneTask_1 = __webpack_require__(/*! ../Entity/State/OneTask */ "./src/Apps/TaskManagementApp/Models/Entity/State/OneTask.ts");
 class TaskManagementSprintController {
     constructor() {
-        this.GetForProjectRedux = (projectId) => {
-            return (dispatch, getState) => {
-                this.preloader(true);
-                this.GetForProject(projectId, (error, data) => {
-                    this.preloader(false);
-                    if (data) {
-                        let dt = new SprintActions_1.GetProjectSprintsActionType();
-                        // dt.projectId = projectId;
-                        dt.data = data.map(x => new ProjectSprint_1.ProjectSprint().FillByIProjectSprintDataBack(x));
-                        dispatch((0, SprintActions_1.GetProjectSprintsActionCreator)(dt));
-                    }
-                });
-            };
-        };
-        this.GetForProject = (projectId, onSuccess) => {
+        this.GetForProjectRedux = (projectId, dispatch) => __awaiter(this, void 0, void 0, function* () {
+            this.preloader(true);
+            let backResult = yield this.GetForProject(projectId);
+            this.preloader(false);
+            if (backResult) {
+                let dt = new SprintActions_1.GetProjectSprintsActionType();
+                // dt.projectId = projectId;
+                dt.data = backResult.map(x => new ProjectSprint_1.ProjectSprint().FillByIProjectSprintDataBack(x));
+                dispatch((0, SprintActions_1.GetProjectSprintsActionCreator)(dt));
+            }
+        });
+        this.GetForProject = (projectId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "projectId": projectId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            let res = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/get-for-project`
             });
-        };
+            return res.Data;
+        });
+        // GetForProjectRedux = (projectId: number) => {
+        //     return (dispatch: any, getState: any) => {
+        //         this.preloader(true);
+        //         this.GetForProject(projectId, (error: MainErrorObjectBack, data: IProjectSprintDataBack[]) => {
+        //             this.preloader(false);
+        //             if (data) {
+        //                 let dt = new GetProjectSprintsActionType();
+        //                 // dt.projectId = projectId;
+        //                 dt.data = data.map(x => new ProjectSprint().FillByIProjectSprintDataBack(x));
+        //                 dispatch(GetProjectSprintsActionCreator(dt));
+        //             }
+        //         });
+        //     };
+        // }
+        // GetForProject = (projectId: number, onSuccess: GetSprints) => {
+        //     let data = {
+        //         "projectId": projectId,
+        //     };
+        //     G_AjaxHelper.GoAjaxRequest({
+        //         Data: data,
+        //         Type: ControllerHelper.GetHttp,
+        //         FuncSuccess: (xhr, status, jqXHR) => {
+        //             this.mapWithResult(onSuccess)(xhr, status, jqXHR);
+        //         },
+        //         FuncError: (xhr, status, error) => { },
+        //         Url: `${G_PathToServer}${TaskManagementApiSprintUrl}/get-for-project`
+        //     });
+        // };
         this.GetTasksRedux = (sprintId) => {
             return (dispatch, getState) => {
                 this.preloader(true);
@@ -76573,10 +76638,19 @@ exports.TaskManagementSprintController = TaskManagementSprintController;
 /*!***************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementTaskController.ts ***!
   \***************************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TaskManagementTaskController = void 0;
 const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
@@ -76865,6 +76939,25 @@ class TaskManagementTaskController {
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskDeleteUrl}`
             });
         };
+        this.CopyTaskUI = (id) => __awaiter(this, void 0, void 0, function* () {
+            this.preloader(true);
+            let backResult = yield this.CopyTaskAsync(id);
+            this.preloader(false);
+            return backResult.Id;
+        });
+        this.CopyTaskAsync = (id) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "id": id,
+            };
+            let backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PutHttp,
+                FuncSuccess: (xhr, status, jqXHR) => { },
+                FuncError: (xhr, status, error) => { },
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskCopyUrl}`
+            });
+            return backResult;
+        });
     }
     mapWithResult(onSuccess) {
         return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
@@ -82948,7 +83041,7 @@ class FetchHelper {
                 else {
                     body = JSON.stringify(obj.Data);
                     headers = {
-                        'Content-Type': 'application/json' // Добавьте этот заголовок
+                        'Content-Type': 'application/json'
                     };
                 }
                 response = yield fetch(obj.Url, {
@@ -82988,11 +83081,15 @@ class FetchHelper {
             if (successFromInner) {
                 return resultFromInner;
             }
-            else if (response.ok) {
-                obj.FuncSuccess(responseResult, null, null);
-                return responseResult; //todo возможно надо отдавать всегда
+            if (response.ok) {
+                obj.FuncSuccess && obj.FuncSuccess(responseResult, null, null);
+                return { Data: responseResult };
             }
-            return null;
+            else {
+                obj.FuncError && obj.FuncError(responseResult, null, null);
+                return { Error: responseResult };
+            }
+            return responseResult;
         });
     }
     TrySend(ajaxObj) {

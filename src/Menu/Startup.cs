@@ -34,6 +34,8 @@ using VaultApp.Models;
 using BL.Models.Services.Cache;
 using Hangfire.Dashboard.BasicAuthorization;
 using Menu.Models;
+using Menu.Middleware;
+using Common.Models.Error.services.Interfaces;
 
 namespace Menu
 {
@@ -288,6 +290,7 @@ namespace Menu
             #endregion planitPoker
 
 
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
 
             app.UseMvc(routes =>
             {

@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using Nest;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.Returns;
 using TaskManagementApp.Models.Services.Interfaces;
@@ -15,6 +16,8 @@ using WEB.Common.Models.Helpers.Interfaces;
 namespace Menu.Controllers.TaskManagementApp
 {
     [Route("api/taskmanagement/[controller]")]
+    [Produces("application/json")]
+    [ApiController]
     public class SprintController : ControllerBase
     {
 
@@ -36,39 +39,50 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("get")]
         [HttpGet]
-        public async Task GetSprint(long sprintId)
+        [ProducesResponseType(typeof(ProjectSprintReturn), 200)]
+        public async Task<ActionResult<ProjectSprintReturn>> GetSprint(long sprintId)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _sprintService.Get(sprintId, userInfo);
+            return new ProjectSprintReturn(res);
 
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                    //throw new NotAuthException();
+            //await _apiHealper.DoStandartSomething(
+            //    async () =>
+            //    {
+            //        var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            //        //throw new NotAuthException();
 
-                    var res = await _sprintService.Get(sprintId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new ProjectSprintReturn(res));
+            //        var res = await _sprintService.Get(sprintId, userInfo);
+            //        await _apiHealper.WriteResponseAsync(Response, new ProjectSprintReturn(res));
 
-                }, Response, _logger);
+            //    }, Response, _logger);
 
         }
 
         [Route("get-for-project")]
         [HttpGet]
-        public async Task GetSprintForProject(long projectId)
+        [ProducesResponseType(typeof(List<ProjectSprintReturn>), 200)]
+        public async Task<ActionResult<List<ProjectSprintReturn>>> GetSprintForProject(long projectId)
         {
 
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                    //throw new NotAuthException();
+                var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                //throw new NotAuthException();
 
-                    var res = await _sprintService.GetForProjectWithRights(projectId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new ProjectSprintReturn(x)));
+                var res = await _sprintService.GetForProjectWithRights(projectId, userInfo);
+                return new JsonResult(res.Select(x => new ProjectSprintReturn(x)).ToList(), GetJsonOptions());
 
-                }, Response, _logger);
+                //await _apiHealper.DoStandartSomething(
+                //    async () =>
+                //    {
+                //        var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+                //        //throw new NotAuthException();
 
-        }
+                //        var res = await _sprintService.GetForProjectWithRights(projectId, userInfo);
+                //        await _apiHealper.WriteResponseAsync(Response, res.Select(x => new ProjectSprintReturn(x)).ToList());
+
+                //    }, Response, _logger);
+
+            }
 
         [Route("get-tasks")]
         [HttpGet]
@@ -200,6 +214,16 @@ namespace Menu.Controllers.TaskManagementApp
 
                 }, Response, _logger);
 
+        }
+
+
+        private JsonSerializerOptions GetJsonOptions()
+        {
+           return new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = null, // PascalCase
+                WriteIndented = true
+            };
         }
 
 
