@@ -21,8 +21,12 @@ namespace TaskManagementApp.Models.Returns
 
         public List<WorkTaskCommentReturn> Comments { get; set; }
 
+        public List<WorkTaskRelationReturn> Relations { get; set; }
+
         public WorkTaskReturn(WorkTask task)
         {
+            var relation = (task.MainWorkTasksRelation ?? new List<TaskRelation>()).ToList();
+            relation.AddRange((task.SubWorkTasksRelation ?? new List<TaskRelation>()).ToList());
             Id = task.Id;
             Name = task.Name;
             Description = task.Description;
@@ -34,6 +38,7 @@ namespace TaskManagementApp.Models.Returns
             SprintId = (task.Sprints ?? new List<WorkTaskSprintRelation>()).Select(x => x.SprintId).ToList();
             LabelsId = (task.Labels ?? new List<WorkTaskLabelTaskRelation>()).Select(x => x.LabelId).ToList();
             Comments = (task.Comments ?? new List<WorkTaskComment>()).Select(x => new WorkTaskCommentReturn(x)).ToList();
+            Relations = relation.Select(x => new WorkTaskRelationReturn(x)).ToList();
         }
     }
 }

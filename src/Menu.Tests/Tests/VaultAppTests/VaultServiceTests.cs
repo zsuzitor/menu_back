@@ -8,6 +8,7 @@ using Menu.Tests.Models.Fake;
 using Moq;
 using System.Linq;
 using System.Threading.Tasks;
+using VaultApp.Models.Entity.Input;
 using VaultApp.Models.Repositories.Implementation;
 using VaultApp.Models.Services;
 using VaultApp.Models.Services.Implementation;
@@ -24,7 +25,7 @@ namespace Menu.Tests.Tests.VaultAppTests
             var (db, _, hasherMoq, _, service) = SetupVaultService();
             using (db)
             {
-                var vaultForCreate = new VaultApp.Models.Entity.Input.CreateVault()
+                var vaultForCreate = new CreateVault()
                 { Name = "name1", Password = "pwd1", IsPublic = true };
                 var createdVault = await service.CreateVaultAsync(
                      vaultForCreate

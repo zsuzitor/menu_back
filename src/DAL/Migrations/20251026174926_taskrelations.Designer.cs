@@ -4,14 +4,16 @@ using DAL.Models.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
     [DbContext(typeof(MenuDbContext))]
-    partial class MenuDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251026174926_taskrelations")]
+    partial class taskrelations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -932,13 +934,13 @@ namespace DAL.Migrations
             modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.TaskRelation", b =>
                 {
                     b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.WorkTask", "MainWorkTask")
-                        .WithMany("MainWorkTasksRelation")
+                        .WithMany("MainWorkTasks")
                         .HasForeignKey("MainWorkTaskId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.WorkTask", "SubWorkTask")
-                        .WithMany("SubWorkTasksRelation")
+                        .WithMany("SubWorkTasks")
                         .HasForeignKey("SubWorkTaskId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();

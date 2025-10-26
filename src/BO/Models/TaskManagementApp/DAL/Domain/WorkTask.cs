@@ -25,6 +25,8 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
 
 
         public List<WorkTaskSprintRelation> Sprints { get; set; }
+        public List<TaskRelation> MainWorkTasksRelation { get; set; }
+        public List<TaskRelation> SubWorkTasksRelation { get; set; }
 
 
 
@@ -52,6 +54,8 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
             WorkTimeLogs = new List<WorkTimeLog>();
             Labels = new List<WorkTaskLabelTaskRelation>();
             Sprints = new List<WorkTaskSprintRelation>();
+            MainWorkTasksRelation = new List<TaskRelation>();
+            SubWorkTasksRelation = new List<TaskRelation>();
         }
 
         public WorkTask CopyPlaneProp()

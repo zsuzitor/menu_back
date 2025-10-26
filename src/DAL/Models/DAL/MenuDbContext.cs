@@ -128,7 +128,9 @@ namespace DAL.Models.DAL
                 .TaskStatusBuild()
                 .WorkTaskLabelBuild()
                 .WorkTaskLabelTaskRelationBuild()
-                .WorkTaskSprintRelationBuild();
+                .WorkTaskSprintRelationBuild()
+                .TaskRelatioBuild()
+                ;
 
             #endregion TaskManagementApp
 

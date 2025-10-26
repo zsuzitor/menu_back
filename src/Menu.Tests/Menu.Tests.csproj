@@ -26,6 +26,7 @@
     <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\DAL\DAL.csproj" />
     <ProjectReference Include="..\VaultApp\VaultApp.csproj" />
+    <ProjectReference Include="..\VaultApp\VaultApp\VaultApp.csproj" />
   </ItemGroup>
 
 </Project>
