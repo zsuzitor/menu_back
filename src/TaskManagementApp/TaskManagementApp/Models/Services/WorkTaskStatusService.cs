@@ -42,7 +42,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAsync(projectId, userInfo);
             if (!s.access)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return await GetStatusesAsync(projectId, userInfo);
@@ -54,7 +54,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(projectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return await _taskStatusRepository.AddAsync(new WorkTaskStatus() { Name = status, ProjectId = projectId });
@@ -65,13 +65,13 @@ namespace TaskManagementApp.Models.Services
             var status = await _taskStatusRepository.GetAsync(statusId);
             if (status == null)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskStatusNotExists);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.WorkTaskStatusNotExists);
             }
 
             var s = await ExistIfAccessAdminAsync(status.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             var taskExists = await _workTaskRepository.ExistAsync(status.ProjectId, statusId);
@@ -90,13 +90,13 @@ namespace TaskManagementApp.Models.Services
             var statusEntity = await _taskStatusRepository.GetAsync(statusId);
             if (statusEntity == null)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskStatusNotExists);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.WorkTaskStatusNotExists);
             }
 
             var s = await ExistIfAccessAdminAsync(statusEntity.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             statusEntity.Name = status;

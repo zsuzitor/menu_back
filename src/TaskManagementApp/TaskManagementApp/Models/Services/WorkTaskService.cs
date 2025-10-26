@@ -59,7 +59,7 @@ namespace TaskManagementApp.Models.Services
 
             if (task.StatusId == null)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskStatusNotExists);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.WorkTaskStatusNotExists);
             }
 
 
@@ -127,7 +127,7 @@ namespace TaskManagementApp.Models.Services
                 var executorExist = await _projectUserService.ExistAsync(upTask.ProjectId, task.ExecutorId.Value);
                 if (!executorExist)
                 {
-                    throw new SomeCustomException(Consts.ErrorConsts.UserNotFound);
+                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.UserNotFound);
                 }
             }
 
@@ -186,7 +186,7 @@ namespace TaskManagementApp.Models.Services
                 var status = await _taskStatusRepository.GetAsync(statusId);
                 if (status == null || status.ProjectId != upTask.ProjectId)
                 {
-                    throw new SomeCustomException(Consts.ErrorConsts.WorkTaskStatusNotExists);
+                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.WorkTaskStatusNotExists);
                 }
 
                 upTask.StatusId = statusId;
@@ -230,7 +230,7 @@ namespace TaskManagementApp.Models.Services
             var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
             if (!projectAccessed.access)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return task.Comments;
@@ -291,7 +291,7 @@ namespace TaskManagementApp.Models.Services
             var canAddToProject = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
             if (!canAddToProject.access)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectHaveNoAccess);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectHaveNoAccess);
             }
 
             //тк любой человек в проекте должен иметь возможноть поменять название или исполнителя, это убрал
@@ -315,7 +315,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(task.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             var projUser = await _projectUserService.GetIdByMainAppIdAsync(userInfo,task.ProjectId);

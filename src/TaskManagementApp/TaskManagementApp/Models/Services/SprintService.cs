@@ -30,7 +30,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             var task = await _workTaskRepository.GetNoTrackAsync(taskId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
@@ -56,7 +56,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(req.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return await _sprintRepository.AddAsync(new ProjectSprint()
@@ -74,7 +74,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             sprint.StartDate = req.StartDate;
@@ -92,7 +92,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             await _sprintRepository.DeleteAsync(sprint);
@@ -107,7 +107,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return await _sprintRepository.RemoveFromTaskIdExistAsync(sprintId, taskId);
@@ -122,7 +122,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return sprint;
@@ -136,7 +136,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return sprint.Tasks.Select(x => x.Task).ToList();
@@ -155,7 +155,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(projectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return await _sprintRepository.GetForProject(projectId);
@@ -181,7 +181,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(task.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             if (projIds.Count != 0 && task.ProjectId != projIds.First())

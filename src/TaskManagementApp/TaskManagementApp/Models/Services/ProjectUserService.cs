@@ -62,7 +62,7 @@ namespace TaskManagementApp.Models.Services
             var user = await _projectUserRepository.GetAsync(userId);
             if (user == null)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectUserNotFound);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectUserNotFound);
             }
 
             if(user.MainAppUserId == userInfo.UserId)
@@ -101,7 +101,7 @@ namespace TaskManagementApp.Models.Services
             var user = await _projectUserRepository.GetAsync(userId);
             if (user == null)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectUserNotFound);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectUserNotFound);
             }
 
             if (user.Deactivated)
@@ -170,7 +170,7 @@ namespace TaskManagementApp.Models.Services
             //}
             if (!res.access || (isAdmin && !res.isAdmin))
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
         }
 

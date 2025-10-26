@@ -38,7 +38,7 @@ namespace TaskManagementApp.Models.Services
             var userId = await _workTaskRepository.GetUserIdAccessAsync(obj.WorkTaskId, userInfo.UserId);
             if (userId == 0)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.TaskNotFound);
             }
 
             obj.ProjectUserId = userId;
@@ -53,7 +53,7 @@ namespace TaskManagementApp.Models.Services
             //var time = await _workTimeLogRepository.GetAsync(id);
             if (time == null)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.TaskLogTimeNotFound);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.TaskLogTimeNotFound);
             }
 
             //var access = await _workTaskRepository.HaveAccessAsync(time.WorkTaskId, userInfo.UserId);
@@ -75,7 +75,7 @@ namespace TaskManagementApp.Models.Services
             //var time = await _workTimeLogRepository.GetAsync(obj.Id);
             if (time == null)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.TaskLogTimeNotFound);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.TaskLogTimeNotFound);
             }
 
 
@@ -102,7 +102,7 @@ namespace TaskManagementApp.Models.Services
             //var time = await _workTimeLogRepository.GetAsync(id);
             if (time == null)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.TaskLogTimeNotFound);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.TaskLogTimeNotFound);
             }
 
             //var access = await _workTaskRepository.HaveAccessAsync(time.WorkTaskId, userInfo.UserId);
@@ -121,7 +121,7 @@ namespace TaskManagementApp.Models.Services
             var access = await _projectRepository.ExistIfAccessAsync(projectId, userInfo.UserId);
             if (!access.access)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectHaveNoAccess);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectHaveNoAccess);
             }
 
             return await _workTimeLogRepository.GetTimeForProjectAsync(projectId, startDate, endDate, userId);
@@ -132,7 +132,7 @@ namespace TaskManagementApp.Models.Services
             var access = await _workTaskRepository.HaveAccessAsync(taskId, userInfo.UserId);
             if (!access)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectHaveNoAccess);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectHaveNoAccess);
             }
 
             return await _workTimeLogRepository.GetTimeForTaskAsync(taskId);

@@ -86,7 +86,7 @@ namespace TaskManagementApp.Models.Services
         {
             if (!await ExistIfAccessAdminAsync(projectId, userInfo))
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             if (string.IsNullOrWhiteSpace(userName))
@@ -117,7 +117,7 @@ namespace TaskManagementApp.Models.Services
             var creator = await _projectUserService.GetByMainAppIdAsync(userInfo, task.ProjectId);
             if (creator == null)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
             //if (!(await ExistIfAccessAsync(task.ProjectId, userInfo)).access)
             //{
@@ -136,7 +136,7 @@ namespace TaskManagementApp.Models.Services
                 var executorExist = await _projectUserService.ExistAsync(task.ProjectId, task.ExecutorId.Value);
                 if (!executorExist)
                 {
-                    throw new SomeCustomException(Consts.ErrorConsts.UserNotFound);
+                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.UserNotFound);
                 }
             }
 
@@ -170,7 +170,7 @@ namespace TaskManagementApp.Models.Services
             var project = await _projectRepository.GetByIdIfAccessAdminAsync(projectId, userInfo.UserId);
             if (project == null)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
             await _projectRepository.DeleteAsync(project);
             //project.IsDeleted = true;

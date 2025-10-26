@@ -29,7 +29,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(label.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
 
@@ -54,7 +54,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(req.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             var exists = await _labelRepository.ExistsAsync(req.Name, req.ProjectId);
@@ -79,7 +79,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(label.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             await _labelRepository.DeleteAsync(label);
@@ -91,7 +91,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(projectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
             return await _labelRepository.GetForProjectAsync(projectId);
         }
@@ -104,7 +104,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(label.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return await _labelRepository.RemoveFromTaskIdExistAsync(labelId, taskId);
@@ -118,7 +118,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(old.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             var exists = await _labelRepository.ExistsAsync(req.Name, old.ProjectId);
@@ -147,7 +147,7 @@ namespace TaskManagementApp.Models.Services
             var s = await ExistIfAccessAdminAsync(task.ProjectId, userInfo);
             if (!s)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             if (projIds.Count != 0 && task.ProjectId != projIds.First())
