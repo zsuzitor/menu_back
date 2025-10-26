@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
 using static System.Net.Mime.MediaTypeNames;
 using Common.Models.Return;
+using System.Text.Json;
+using System.Collections.Generic;
 
 namespace Menu.Controllers.TaskManagementApp
 {
 
     [Route("api/taskmanagement/[controller]")]
+    [ApiController]
+    [Produces("application/json")]
     public class StatusController : ControllerBase
     {
 
@@ -36,76 +40,54 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("get-statuses")]
         [HttpGet]
-        public async Task GetStatus(long projectId)
+        public async Task<ActionResult<List<WorkTaskStatusReturn>>> GetStatus(long projectId)
         {
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                    //throw new NotAuthException();
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _workTaskStatusService.GetStatusesAccessAsync(projectId, userInfo);
 
-                    var res = await _workTaskStatusService.GetStatusesAccessAsync(projectId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new WorkTaskStatusReturn(x)));
-
-                }, Response, _logger);
+            return new JsonResult(res.Select(x => new WorkTaskStatusReturn(x)), GetJsonOptions());
 
         }
 
         [Route("create-status")]
         [HttpPut]
-        public async Task CreateStatus([FromForm] long projectId, [FromForm] string status)
+        public async Task<ActionResult<WorkTaskStatusReturn>> CreateStatus([FromForm] long projectId, [FromForm] string status)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
             status = _apiHealper.StringValidator(status);
+            var res = await _workTaskStatusService.CreateStatusAsync(status, projectId, userInfo);
 
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                    //throw new NotAuthException();
-
-                    var res = await _workTaskStatusService.CreateStatusAsync(status, projectId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new WorkTaskStatusReturn(res));
-
-                }, Response, _logger);
+            return new JsonResult(new WorkTaskStatusReturn(res), GetJsonOptions());
 
         }
 
         [Route("delete-status")]
         [HttpDelete]
-        public async Task DeleteStatus([FromForm] long statusId)
+        public async Task<ActionResult<ProjectSprintReturn>> DeleteStatus([FromForm] long statusId)
         {
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                    //throw new NotAuthException();
-
-                    var res = await _workTaskStatusService.DeleteStatusAsync(statusId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response
-                         , new BoolResultReturn(res != null));
-
-                }, Response, _logger);
-
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _workTaskStatusService.DeleteStatusAsync(statusId, userInfo);
+            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
         }
 
         [Route("update-status")]
         [HttpPatch]
-        public async Task UpdateStatus([FromForm] long statusId, [FromForm] string status)
+        public async Task<ActionResult<BoolResultReturn>> UpdateStatus([FromForm] long statusId, [FromForm] string status)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             status = _apiHealper.StringValidator(status);
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                    //throw new NotAuthException();
+            var res = await _workTaskStatusService.UpdateStatusAsync(statusId, status, userInfo);
+            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+        }
 
-                    var res = await _workTaskStatusService.UpdateStatusAsync(statusId, status, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response
-                         , new BoolResultReturn(res != null));
-
-                }, Response, _logger);
-
+        private JsonSerializerOptions GetJsonOptions()
+        {
+            return new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = null, // PascalCase
+                WriteIndented = true
+            };
         }
     }
 }

@@ -1,11 +1,14 @@
-﻿using jwtLib.JWTAuth.Interfaces;
+﻿using Common.Models.Return;
+using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.TaskManagementApp.Mappers;
 using Menu.Models.TaskManagementApp.Requests;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.Returns;
 using TaskManagementApp.Models.Services.Interfaces;
@@ -14,6 +17,8 @@ using WEB.Common.Models.Helpers.Interfaces;
 namespace Menu.Controllers.TaskManagementApp
 {
     [Route("api/taskmanagement/[controller]")]
+    [ApiController]
+    [Produces("application/json")]
     public class WorkTimeLogController : ControllerBase
     {
 
@@ -43,110 +48,73 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("create")]
         [HttpPut]
-        public async Task Create([FromBody] WorkTimeLogCreateRequest request)
+        public async Task<ActionResult<WorkTimeLogReturn>> Create([FromBody] WorkTimeLogCreateRequest request)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
             request.Text = _apiHealper.StringValidator(request.Text);
+            var res = await _workTimeLogService.CreateAsync(request.Map(), userInfo);
 
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-                    var res = await _workTimeLogService.CreateAsync(request.Map(), userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new WorkTimeLogReturn(res));
-
-                }, Response, _logger);
-
+            return new JsonResult(new WorkTimeLogReturn(res), GetJsonOptions());
         }
 
         [Route("update")]
         [HttpPatch]
-        public async Task Update([FromBody] WorkTimeLogUpdateRequest request)
+        public async Task<ActionResult<WorkTimeLogReturn>> Update([FromBody] WorkTimeLogUpdateRequest request)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             request.Text = _apiHealper.StringValidator(request.Text);
-
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-                    var res = await _workTimeLogService.EditAsync(request.Map(), userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new WorkTimeLogReturn(res));
-
-                }, Response, _logger);
+            var res = await _workTimeLogService.EditAsync(request.Map(), userInfo);
+            return new JsonResult(new WorkTimeLogReturn(res), GetJsonOptions());
 
         }
 
         [Route("delete")]
         [HttpDelete]
-        public async Task Delete([FromForm] long id)
+        public async Task<ActionResult<BoolResultReturn>> Delete([FromForm] long id)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _workTimeLogService.DeleteAsync(id, userInfo);
 
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-                    var res = await _workTimeLogService.DeleteAsync(id, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new
-                    {
-                        result = res != null,
-                    });
-
-                }, Response, _logger);
-
+            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
         }
 
         [Route("project-time")]
         [HttpGet]
-        public async Task GetProjectTime(long id, DateTime dateFrom, DateTime dateTo, long? userId)
+        public async Task<ActionResult<List<WorkTimeLogReturn>>> GetProjectTime(long id, DateTime dateFrom, DateTime dateTo, long? userId)
         {
-
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-                    var res = await _workTimeLogService.GetTimeForProjectAsync(id, dateFrom, dateTo, userInfo, userId);
-                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new WorkTimeLogReturn(x)).ToList());
-
-                }, Response, _logger);
-
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _workTimeLogService.GetTimeForProjectAsync(id, dateFrom, dateTo, userInfo, userId);
+            return new JsonResult(res.Select(x => new WorkTimeLogReturn(x)), GetJsonOptions());
         }
 
         [Route("task-time")]
         [HttpGet]
-        public async Task GetTaskTime(long taskId)
+        public async Task<ActionResult<WorkTimeLogReturn>> GetTaskTime(long taskId)
         {
-
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-                    var res = await _workTimeLogService.GetTimeForTaskAsync(taskId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new WorkTimeLogReturn(x)).ToList());
-
-                }, Response, _logger);
-
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _workTimeLogService.GetTimeForTaskAsync(taskId, userInfo);
+            return new JsonResult(res.Select(x => new WorkTimeLogReturn(x)), GetJsonOptions());
         }
 
         [Route("user-time")]
         [HttpGet]
-        public async Task GetUserTime(long? projectId, DateTime dateFrom, DateTime dateTo, long? userId)
+        public async Task<ActionResult<WorkTimeLogReturn>> GetUserTime(long? projectId, DateTime dateFrom, DateTime dateTo, long? userId)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _workTimeLogService.GetTimeForUserAsync(userId, dateFrom, dateTo, userInfo);
+            return new JsonResult(res.Select(x => new WorkTimeLogReturn(x)), GetJsonOptions());
             //todo projectId
 
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+        }
 
-                    var res = await _workTimeLogService.GetTimeForUserAsync(userId, dateFrom, dateTo, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, res.Select(x => new WorkTimeLogReturn(x)).ToList());
-
-                }, Response, _logger);
-
+        private JsonSerializerOptions GetJsonOptions()
+        {
+            return new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = null, // PascalCase
+                WriteIndented = true
+            };
         }
     }
 }

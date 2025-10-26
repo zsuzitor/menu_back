@@ -11,6 +11,8 @@ using Azure;
 using Nest;
 using System.Text.Json;
 using Common.Models.Error.services;
+using Menu.Controllers.TaskManagementApp;
+using Microsoft.Extensions.Logging;
 
 namespace Menu.Middleware
 {
@@ -30,7 +32,8 @@ namespace Menu.Middleware
 
  
         //public async Task InvokeAsync(HttpContext context, RequestDelegate next)
-        public async Task InvokeAsync(HttpContext context, IErrorService errorService, IConfigurationService configurationService)
+        public async Task InvokeAsync(HttpContext context, IErrorService errorService, IConfigurationService configurationService
+            , ILogger<ExceptionHandlingMiddleware> logger)
         {
             try
             {
@@ -38,11 +41,12 @@ namespace Menu.Middleware
             }
             catch (Exception ex)
             {
-                await HandleExceptionAsync(context, ex, errorService, configurationService);
+                await HandleExceptionAsync(context, ex, errorService, configurationService, logger);
             }
         }
 
-        private async Task HandleExceptionAsync(HttpContext context, Exception exception, IErrorService errorService, IConfigurationService configurationService)
+        private async Task HandleExceptionAsync(HttpContext context, Exception exception, IErrorService errorService
+            , IConfigurationService configurationService, ILogger logger)
         {
 
             switch(exception)
@@ -77,7 +81,7 @@ namespace Menu.Middleware
                         context.Response.StatusCode = 500;
                         var error = await configurationService.GetAsync(ErrorConsts.SomeError);
                         errorService.AddError(ErrorConsts.SomeError, error.Value);
-                        //logger?.LogError(e, ErrorConsts.SomeError);//todo
+                        logger?.LogError(exception, ErrorConsts.SomeError);
                         break;
                     }
             }

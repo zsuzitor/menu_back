@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.Returns;
 using TaskManagementApp.Models.Services;
@@ -16,6 +17,8 @@ namespace Menu.Controllers.TaskManagementApp
 {
 
     [Route("api/taskmanagement/[controller]")]
+    [ApiController]
+    [Produces("application/json")]
     public class LabelController : ControllerBase
     {
 
@@ -28,7 +31,7 @@ namespace Menu.Controllers.TaskManagementApp
         public LabelController(
              IJWTService jwtService, IApiHelper apiHealper
             , ILogger<ProjectController> logger, ILabelService labelService)
-         {
+        {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
             _logger = logger;
@@ -39,130 +42,79 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("get-all")]
         [HttpGet]
-        public async Task GetLabels(long projectId)
+        public async Task<ActionResult<List<WorkTaskLabelReturn>>> GetLabels(long projectId)
         {
-
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-                    var res = await _labelService.Get(projectId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, res.Select(x=> new WorkTaskLabelReturn(x)));
-
-                }, Response, _logger);
-
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _labelService.Get(projectId, userInfo);
+            return new JsonResult(res.Select(x => new WorkTaskLabelReturn(x)).ToList(), GetJsonOptions());
         }
 
         [Route("create")]
         [HttpPut]
-        public async Task CreateLabel([FromBody] AddNewLabelRequest request)
+        public async Task<ActionResult<WorkTaskLabelReturn>> CreateLabel([FromBody] AddNewLabelRequest request)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
             request.Name = _apiHealper.StringValidator(request.Name);
-
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-                    var res = await _labelService.Create(request.Map(), userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new WorkTaskLabelReturn(res));
-
-                }, Response, _logger);
-
+            var res = await _labelService.Create(request.Map(), userInfo);
+            return new JsonResult(new WorkTaskLabelReturn(res), GetJsonOptions());
         }
 
         [Route("update")]
         [HttpPatch]
-        public async Task UpdateLabel([FromBody] UpdateLabelRequest request)
+        public async Task<ActionResult<WorkTaskLabelReturn>> UpdateLabel([FromBody] UpdateLabelRequest request)
         {
 
             request.Name = _apiHealper.StringValidator(request.Name);
-
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-                    var res = await _labelService.Update(request.Map(), userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new WorkTaskLabelReturn(res));
-
-                }, Response, _logger);
-
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _labelService.Update(request.Map(), userInfo);
+            return new JsonResult(new WorkTaskLabelReturn(res), GetJsonOptions());
         }
 
         [Route("delete")]
         [HttpDelete]
-        public async Task DeleteLabel([FromBody] DeleteTaskLabels req)
+        public async Task<ActionResult<BoolResultReturn>> DeleteLabel([FromBody] DeleteTaskLabels req)
         {
-
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                    //throw new NotAuthException();
-
-                    var res = await _labelService.Delete(req.Id, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
-
-                }, Response, _logger);
-
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _labelService.Delete(req.Id, userInfo);
+            return new JsonResult(new BoolResultReturn(res), GetJsonOptions());
         }
 
 
         [Route("update-task-labels")]
         [HttpPost]
-        public async Task UpdateTaskLabels([FromBody] UpdateTaskLabels req)
+        public async Task<ActionResult<BoolResultReturn>> UpdateTaskLabels([FromBody] UpdateTaskLabels req)
         {
-
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                    //throw new NotAuthException();
-
-                    var res = await _labelService.UpdateTaskLabels(req.LabelId, req.TaskId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
-
-                }, Response, _logger);
-
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _labelService.UpdateTaskLabels(req.LabelId, req.TaskId, userInfo);
+            return new JsonResult(new BoolResultReturn(res), GetJsonOptions());
         }
 
         [Route("add-to-task")]
         [HttpPost]
-        public async Task Add([FromBody] AddLabelToTask req)
+        public async Task<ActionResult<BoolResultReturn>> Add([FromBody] AddLabelToTask req)
         {
-
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                    //throw new NotAuthException();
-
-                    var res = await _labelService.AddToTask(req.LabelId, req.TaskId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
-
-                }, Response, _logger);
-
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _labelService.AddToTask(req.LabelId, req.TaskId, userInfo);
+            return new JsonResult(new BoolResultReturn(res), GetJsonOptions());
         }
 
         [Route("delete-from-task")]
         [HttpPost]
-        public async Task Remove([FromBody] RemoveLabelFromTask req)
+        public async Task<ActionResult<BoolResultReturn>> Remove([FromBody] RemoveLabelFromTask req)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _labelService.RemoveFromTask(req.LabelId, req.TaskId, userInfo);
+            return new JsonResult(new BoolResultReturn(res), GetJsonOptions());
+        }
 
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                    //throw new NotAuthException();
-
-                    var res = await _labelService.RemoveFromTask(req.LabelId, req.TaskId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
-
-                }, Response, _logger);
-
+        private JsonSerializerOptions GetJsonOptions()
+        {
+            return new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = null, // PascalCase
+                WriteIndented = true
+            };
         }
 
     }

@@ -75799,7 +75799,7 @@ class TaskManagementCommentController {
                     if (error) {
                         return;
                     }
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         dispatch((0, CommentActions_1.UpdateCommentActionCreator)(comment));
                     }
                 });
@@ -75828,7 +75828,7 @@ class TaskManagementCommentController {
                     if (error) {
                         return;
                     }
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         dispatch((0, CommentActions_1.DeleteCommentActionCreator)(dataForDel));
                     }
                 });
@@ -76031,7 +76031,7 @@ class TaskManagementLabelController {
                 this.preloader(true);
                 this.DeleteLabel(id, (error, data) => {
                     this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         dispatch((0, LabelActions_1.DeleteProjectLabelActionCreator)(id));
                     }
                 });
@@ -76057,7 +76057,7 @@ class TaskManagementLabelController {
                 this.preloader(true);
                 this.UpdateTaskLabels(taskId, labelId, (error, data) => {
                     this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         let dt = new LabelActions_1.UpdateTaskLabelsActionDataType();
                         dt.LabelId = labelId;
                         dt.TaskId = taskId;
@@ -76087,7 +76087,7 @@ class TaskManagementLabelController {
                 this.preloader(true);
                 this.AddLabelToTask(taskId, labelId, (error, data) => {
                     this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         let dt = new LabelActions_1.UpdateTaskLabelActionDataType();
                         dt.LabelId = labelId;
                         dt.TaskId = taskId;
@@ -76117,7 +76117,7 @@ class TaskManagementLabelController {
                 this.preloader(true);
                 this.DeleteLabelFromTask(taskId, labelId, (error, data) => {
                     this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         let dt = new LabelActions_1.DeleteLabelFromTaskActionDataType();
                         dt.LabelId = labelId;
                         dt.TaskId = taskId;
@@ -76188,7 +76188,7 @@ class TaskManagementProjectController {
                     if (error) {
                         return;
                     }
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         dispatch((0, ProjectActions_1.DeleteProjectActionCreator)(projectId));
                     }
                 });
@@ -76510,7 +76510,7 @@ class TaskManagementSprintController {
                 this.preloader(true);
                 this.DeleteSprint(id, (error, data) => {
                     this.preloader(false);
-                    if (data.result) {
+                    if (data.Result) {
                         dispatch((0, SprintActions_1.DeleteSprintActionCreator)(id));
                     }
                 });
@@ -76535,7 +76535,7 @@ class TaskManagementSprintController {
                 this.preloader(true);
                 this.AddTaskToSprint(sprintId, taskId, (error, data) => {
                     this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         let dt = new SprintActions_1.TaskIdWithSprintIdActionType();
                         dt.sprintId = sprintId;
                         dt.taskId = taskId;
@@ -76564,7 +76564,7 @@ class TaskManagementSprintController {
                 this.preloader(true);
                 this.DeleteTaskFromSprint(taskId, sprintId, (error, data) => {
                     this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         let dt = new SprintActions_1.TaskIdWithSprintIdActionType();
                         dt.sprintId = null;
                         dt.taskId = taskId;
@@ -76594,7 +76594,7 @@ class TaskManagementSprintController {
                 this.preloader(true);
                 this.UpdateTaskFromSprint(taskId, sprintId, (error, data) => {
                     this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         let dt = new SprintActions_1.TaskIdWithSprintIdsActionType();
                         dt.sprintId = sprintId;
                         dt.taskId = taskId;
@@ -76667,7 +76667,7 @@ class TaskManagementTaskController {
                     if (error) {
                         return;
                     }
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         dispatch((0, TaskActions_1.UpdateTaskNameActionCreator)({ Id: id, Text: text }));
                     }
                 });
@@ -76696,7 +76696,7 @@ class TaskManagementTaskController {
                     if (error) {
                         return;
                     }
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         dispatch((0, TaskActions_1.UpdateTaskDescriptionActionCreator)({ Id: id, Text: text }));
                     }
                 });
@@ -76725,7 +76725,7 @@ class TaskManagementTaskController {
                     if (error) {
                         return;
                     }
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         dispatch((0, TaskActions_1.UpdateTaskStatusActionCreator)({ Id: id, IdStatus: idStatus }));
                     }
                 });
@@ -76754,7 +76754,7 @@ class TaskManagementTaskController {
                     if (error) {
                         return;
                     }
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         dispatch((0, TaskActions_1.UpdateTaskExecutorActionCreator)({ Id: id, PersonId: personId }));
                     }
                 });
@@ -76817,7 +76817,7 @@ class TaskManagementTaskController {
                     if (error) {
                         return;
                     }
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         dispatch((0, TaskActions_1.UpdateTaskActionCreator)(task));
                     }
                 });
@@ -76919,7 +76919,7 @@ class TaskManagementTaskController {
                     if (error) {
                         return;
                     }
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         dispatch((0, TaskActions_1.DeleteTaskActionCreator)(id));
                     }
                 });
@@ -76996,7 +76996,7 @@ class TaskManagementTaskStatusController {
                     if (error) {
                         return;
                     }
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         dispatch((0, TaskStatusActions_1.DeleteCurrentProjectTaskStatusActionCreator)(statusId));
                     }
                 });
@@ -77116,7 +77116,7 @@ class TaskManagementUserController {
                     if (error) {
                         return;
                     }
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         dispatch((0, UserActions_1.DeleteProjectUserActionCreator)(id));
                     }
                 });
@@ -77177,7 +77177,7 @@ class TaskManagementUserController {
                     if (error) {
                         return;
                     }
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         dispatch((0, UserActions_1.ChangeProjectUserActionCreator)(user));
                     }
                 });
@@ -77326,7 +77326,7 @@ class TaskManagementWorkTimeController {
                     if (error) {
                         return;
                     }
-                    if (data === null || data === void 0 ? void 0 : data.result) {
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
                         dispatch((0, TimeLogAction_1.DelTimeLogTempoActionCreator)(timeId));
                     }
                 });

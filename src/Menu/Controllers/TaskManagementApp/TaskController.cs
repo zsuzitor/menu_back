@@ -14,10 +14,13 @@ using Menu.Models.TaskManagementApp.Requests;
 using Menu.Models.TaskManagementApp.Mappers;
 using Nest;
 using TaskManagementApp.Models.DTO;
+using System.Text.Json;
 
 namespace Menu.Controllers.TaskManagementApp
 {
     [Route("api/taskmanagement/[controller]")]
+    [ApiController]
+    [Produces("application/json")]
 
     public class TaskController : ControllerBase
     {
@@ -46,285 +49,196 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("get-project-tasks")]
         [HttpGet]
-        public async Task GetProjectTasks(long projectId, string nameLike
+        public async Task<ActionResult<GetProjectTasksReturn>> GetProjectTasks(long projectId, string nameLike
             , long? creatorId, long? executorId, int? statusId, int pageNumber, int pageSize, long? sprintId, long? labelId)
         {
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
+            nameLike = _apiHealper.StringValidator(nameLike);
+            if (string.IsNullOrWhiteSpace(nameLike))
+            {
+                nameLike = null;
+            }
 
-                    nameLike = _apiHealper.StringValidator(nameLike);
-                    if (string.IsNullOrWhiteSpace(nameLike))
-                    {
-                        nameLike = null;
-                    }
+            if (creatorId < 1)
+            {
+                creatorId = null;
+            }
 
-                    if (creatorId < 1)
-                    {
-                        creatorId = null;
-                    }
+            if (executorId < 1)
+            {
+                executorId = null;
+            }
 
-                    if (executorId < 1)
-                    {
-                        executorId = null;
-                    }
+            if (statusId < 1)
+            {
+                statusId = null;
+            }
+            if (sprintId < 1)
+            {
+                sprintId = null;
+            }
+            if (labelId < 1)
+            {
+                labelId = null;
+            }
 
-                    if (statusId < 1)
-                    {
-                        statusId = null;
-                    }
-                    if (sprintId < 1)
-                    {
-                        sprintId = null;
-                    }
-                    if (labelId < 1)
-                    {
-                        labelId = null;
-                    }
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
+            var res = await _projectService.ExistIfAccessAsync(projectId, userInfo);
+            if (!res.access)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFound);
+            }
 
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var tasks = await _workTaskService.GetTasksAsync(new GetTasksByFilter()
+            {
+                CreatorId = creatorId,
+                ExecutorId = executorId,
+                StatusId = statusId,
+                PageNumber = pageNumber,
+                PageSize = pageSize,
+                Name = nameLike,
+                ProjectId = projectId,
+                SprintId = sprintId,
+                LabelId = labelId,
+            });
+            var tasksCount = await _workTaskService.GetTasksCountAsync(new GetTasksCountByFilter()
+            {
+                CreatorId = creatorId,
+                ExecutorId = executorId,
+                StatusId = statusId,
+                Name = nameLike,
+                ProjectId = projectId,
+                SprintId = sprintId,
+                LabelId = labelId,
+            });
+            var taskReturn = tasks.Select(x => new WorkTaskReturn(x)).ToList();
 
-                    var res = await _projectService.ExistIfAccessAsync(projectId, userInfo);
-                    if (!res.access)
-                    {
-                        throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFound);
-                    }
-
-                    var tasks = await _workTaskService.GetTasksAsync(new GetTasksByFilter()
-                    {
-                        CreatorId = creatorId,
-                        ExecutorId = executorId,
-                        StatusId = statusId,
-                        PageNumber = pageNumber,
-                        PageSize = pageSize,
-                        Name = nameLike,
-                        ProjectId = projectId,
-                        SprintId = sprintId,
-                        LabelId = labelId,
-                    });
-                    var tasksCount = await _workTaskService.GetTasksCountAsync(new GetTasksCountByFilter() {
-                        CreatorId = creatorId,
-                        ExecutorId = executorId,
-                        StatusId = statusId,
-                        Name = nameLike,
-                        ProjectId = projectId,
-                        SprintId = sprintId,
-                        LabelId = labelId,
-                    });
-                    var taskReturn = tasks.Select(x => new WorkTaskReturn(x));
-
-                    await _apiHealper.WriteResponseAsync(Response,
-                        new { Tasks = taskReturn, TasksCount = tasksCount });// new { Tasks = taskReturn });//"projectInfo_" + projectId
-
-                }, Response, _logger);
+            return new JsonResult(new GetProjectTasksReturn() { Tasks = taskReturn, TasksCount = tasksCount }, GetJsonOptions());
 
         }
 
         [Route("get-project-task")]
         [HttpGet]
-        public async Task GetProjectTask(long id)
+        public async Task<ActionResult<WorkTaskReturn>> GetProjectTask(long id)
         {
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var task = await _workTaskService.GetTaskFullAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
-                    var res = await _projectService.ExistIfAccessAsync(task.ProjectId, userInfo);
-                    if (!res.access)
-                    {
-                        throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFound);
-                    }
+            var task = await _workTaskService.GetTaskFullAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
+            var res = await _projectService.ExistIfAccessAsync(task.ProjectId, userInfo);
+            if (!res.access)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFound);
+            }
 
-
-                    var taskReturn = new WorkTaskReturn(task);
-
-                    await _apiHealper.WriteResponseAsync(Response,
-                        taskReturn);// new { Tasks = taskReturn });//"projectInfo_" + projectId
-
-                }, Response, _logger);
+            var taskReturn = new WorkTaskReturn(task);
+            return new JsonResult(taskReturn, GetJsonOptions());
 
         }
 
         [Route("copy-project-task")]
         [HttpPut]
-        public async Task CopyProjectTask(long id)
+        public async Task<ActionResult<WorkTaskReturn>> CopyProjectTask(long id)
         {
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-                    var task = await _workTaskService.CopyAsync(id, userInfo);
-
-                    var taskReturn = new WorkTaskReturn(task);
-
-                    await _apiHealper.WriteResponseAsync(Response,
-                        taskReturn);// new { Tasks = taskReturn });//"projectInfo_" + projectId
-
-                }, Response, _logger);
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var task = await _workTaskService.CopyAsync(id, userInfo);
+            var taskReturn = new WorkTaskReturn(task);
+            return new JsonResult(taskReturn, GetJsonOptions());
 
         }
 
         [Route("add-new-task")]
         [HttpPut]
-        public async Task AddNewTask([FromBody] AddNewTaskRequest request)
+        public async Task<ActionResult<AddNewTaskReturn>> AddNewTask([FromBody] AddNewTaskRequest request)
         {
+            if (request.TaskReviwerId < 1)
+            {
+                request.TaskReviwerId = null;
+            }
+
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             request.TaskName = _apiHealper.StringValidator(request.TaskName);
             request.TaskLink = _apiHealper.StringValidator(request.TaskLink);
             request.Description = _apiHealper.StringValidator(request.Description);
-
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    if (request.TaskReviwerId < 1)
-                    {
-                        request.TaskReviwerId = null;
-                    }
-
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-                    var res = await _projectService.CreateTaskAsync(request.Map(), userInfo);
-                    await _apiHealper.WriteResponseAsync(Response
-                        , new
-                        {
-                            Id = res.Id,
-                            Name = res.Name,
-                            CreatorId = res.CreatorId,
-                            ExecutorId = res.ExecutorId,
-                            Status = new WorkTaskStatusReturn(res.Status),
-                            CreateDate = res.CreateDate.ToString(),
-                            LastUpdateDate = res.LastUpdateDate.ToString()
-                        });
-
-                }, Response, _logger);
+            var res = await _projectService.CreateTaskAsync(request.Map(), userInfo);
+            return new JsonResult(new AddNewTaskReturn(res), GetJsonOptions());
 
         }
 
         [Route("update-task")]
         [HttpPatch]
-        public async Task UpdateTask(UpdateTaskRequest request)
+        public async Task<ActionResult<BoolResultReturn>> UpdateTask(UpdateTaskRequest request)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
             request.Name = _apiHealper.StringValidator(request.Name);
             request.Description = _apiHealper.StringValidator(request.Description);
+            if (request.ExecutorId < 1)
+            {
+                request.ExecutorId = null;
+            }
 
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    if (request.ExecutorId < 1)
-                    {
-                        request.ExecutorId = null;
-                    }
 
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-                    var res = await _workTaskService.UpdateAsync(request.Map(), userInfo);
-                    await _apiHealper.WriteResponseAsync(Response
-                        , new BoolResultReturn(res != null));
-
-                }, Response, _logger);
-
+            var res = await _workTaskService.UpdateAsync(request.Map(), userInfo);
+            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
         }
 
         [Route("delete-task")]
         [HttpDelete]
-        public async Task DeleteTask([FromForm] long taskId)
+        public async Task<ActionResult<BoolResultReturn>> DeleteTask([FromForm] long taskId)
         {
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _workTaskService.DeleteIfAccess(taskId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response
-                        , new BoolResultReturn(res != null));
-
-                }, Response, _logger);
-
+            var res = await _workTaskService.DeleteIfAccess(taskId, userInfo);
+            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
         }
 
 
         [Route("update-name")]
         [HttpPatch]
-        public async Task UpdateTaskName([FromForm] long id, [FromForm] string name)
+        public async Task<ActionResult<BoolResultReturn>> UpdateTaskName([FromForm] long id, [FromForm] string name)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             name = _apiHealper.StringValidator(name);
-
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-
-                    var res = await _workTaskService.UpdateNameAsync(id,name, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response
-                        , new BoolResultReturn(res != null));
-
-                }, Response, _logger);
-
+            var res = await _workTaskService.UpdateNameAsync(id, name, userInfo);
+            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
         }
 
         [Route("update-description")]
         [HttpPatch]
-        public async Task UpdateTaskDescription([FromForm] long id, [FromForm] string description)
+        public async Task<ActionResult<BoolResultReturn>> UpdateTaskDescription([FromForm] long id, [FromForm] string description)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             description = _apiHealper.StringValidator(description);
-
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-
-                    var res = await _workTaskService.UpdateDescriptionAsync(id, description, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response
-                        , new BoolResultReturn(res != null));
-
-                }, Response, _logger);
-
+            var res = await _workTaskService.UpdateDescriptionAsync(id, description, userInfo);
+            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
         }
 
         [Route("update-status")]
         [HttpPatch]
-        public async Task UpdateTaskStatus([FromForm] long id, [FromForm] long statusId)
+        public async Task<ActionResult<BoolResultReturn>> UpdateTaskStatus([FromForm] long id, [FromForm] long statusId)
         {
-
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-
-                    var res = await _workTaskService.UpdateStatusAsync(id, statusId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response
-                        , new BoolResultReturn(res != null));
-
-                }, Response, _logger);
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _workTaskService.UpdateStatusAsync(id, statusId, userInfo);
+            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
 
         }
 
         [Route("update-executor")]
         [HttpPatch]
-        public async Task UpdateExecutorStatus([FromForm] long id, [FromForm] long personId)
+        public async Task<ActionResult<BoolResultReturn>> UpdateExecutorStatus([FromForm] long id, [FromForm] long personId)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _workTaskService.UpdateExecutorAsync(id, personId, userInfo);
+            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+        }
 
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-
-                    var res = await _workTaskService.UpdateExecutorAsync(id, personId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response
-                        , new BoolResultReturn(res != null));
-
-                }, Response, _logger);
-
+        private JsonSerializerOptions GetJsonOptions()
+        {
+            return new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = null, // PascalCase
+                WriteIndented = true
+            };
         }
     }
 }

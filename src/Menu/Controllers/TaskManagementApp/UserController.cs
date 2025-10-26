@@ -11,10 +11,13 @@ using TaskManagementApp.Models;
 using Common.Models.Return;
 using Menu.Models.TaskManagementApp.Requests;
 using Nest;
+using System.Text.Json;
 
 namespace Menu.Controllers.TaskManagementApp
 {
     [Route("api/taskmanagement/[controller]")]
+    [ApiController]
+    [Produces("application/json")]
 
     public class UserController : ControllerBase
     {
@@ -45,69 +48,60 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("add-new-user")]
         [HttpPut]
-        public async Task AddNewUser([FromBody] AddNewUserRequest request)
+        public async Task<ActionResult<ProjectUserReturn>> AddNewUser([FromBody] AddNewUserRequest request)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             request.UserName = _apiHealper.StringValidator(request.UserName);
             request.MainAppUserEmail = _apiHealper.StringValidator(request.MainAppUserEmail);
 
-            await _apiHealper.DoStandartSomething(
-                async () =>
+            long? userIdForAdd = null;
+            if (!string.IsNullOrWhiteSpace(request.MainAppUserEmail))
+            {
+                userIdForAdd = await _mainAppUserService.GetIdByEmailAsync(request.MainAppUserEmail);
+                if (userIdForAdd == null)
                 {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                    long? userIdForAdd = null;
-                    if (!string.IsNullOrWhiteSpace(request.MainAppUserEmail))
-                    {
-                        userIdForAdd = await _mainAppUserService.GetIdByEmailAsync(request.MainAppUserEmail);
-                        if (userIdForAdd == null)
-                        {
-                            throw new SomeCustomException(Consts.ErrorConsts.UserInMainAppNotFound);
-                        }
-                    }
+                    throw new SomeCustomException(Consts.ErrorConsts.UserInMainAppNotFound);
+                }
+            }
 
-                    var res = await _projectService.CreateUserAsync(request.ProjectId, request.UserName
-                        , request.MainAppUserEmail, userIdForAdd, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new ProjectUserReturn(res));
+            var res = await _projectService.CreateUserAsync(request.ProjectId, request.UserName
+                , request.MainAppUserEmail, userIdForAdd, userInfo);
 
-                }, Response, _logger);
+
+            return new JsonResult(new ProjectUserReturn(res ), GetJsonOptions());
 
         }
 
         [Route("change-user")]
         [HttpPatch]
-        public async Task ChangeUser([FromBody] ChangeUserRequest request)
+        public async Task<ActionResult<BoolResultReturn>> ChangeUser([FromBody] ChangeUserRequest request)
         {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+
             request.Name = _apiHealper.StringValidator(request.Name);
             request.Email = _apiHealper.StringValidator(request.Email);
+            var res = await _projectUserService.ChangeAsync(request.UserId, request.Name, request.Email, request.IsAdmin, request.Deactivated, userInfo);
 
-
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-
-                    var res = await _projectUserService.ChangeAsync(request.UserId, request.Name, request.Email, request.IsAdmin, request.Deactivated, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response
-                        , new BoolResultReturn(res != null));
-
-                }, Response, _logger);
-
+            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
         }
 
         [Route("delete-user")]
         [HttpDelete]
-        public async Task DeleteUser([FromForm] long userId)
+        public async Task<ActionResult<BoolResultReturn>> DeleteUser([FromForm] long userId)
         {
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _projectUserService.DeleteAsync(userId, userInfo);
+            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
 
-                    var res = await _projectUserService.DeleteAsync(userId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response
-                        , new BoolResultReturn(res != null));
+        }
 
-                }, Response, _logger);
-
+        private JsonSerializerOptions GetJsonOptions()
+        {
+            return new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = null, // PascalCase
+                WriteIndented = true
+            };
         }
     }
 }
