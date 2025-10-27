@@ -44,8 +44,11 @@ namespace TaskManagementApp.Models
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.SprintNotFound, "Спринт не найден", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.LabelNotFound, "Метка не найдена", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.LabelExists, "Метка уже создана", "TaskManagementApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.BadRelationType, "Неверный тип связи", "TaskManagementApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.RelationNotFound, "Связь не найдена", "TaskManagementApp", "Error");
 
             
+
 
 
 

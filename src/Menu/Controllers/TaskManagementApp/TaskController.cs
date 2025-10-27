@@ -146,6 +146,28 @@ namespace Menu.Controllers.TaskManagementApp
 
         }
 
+        [Route("add-task-relation")]
+        [HttpPut]
+        public async Task<ActionResult<WorkTaskRelationReturn>> AddTaskRelation([FromBody] AddNewTaskRelationRequest request)
+        {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var relation = await _workTaskService.CreateRelationAsync(request.Map(), userInfo);
+            var r = new WorkTaskRelationReturn(relation);
+            return new JsonResult(r, GetJsonOptions());
+
+        }
+
+        [Route("delete-task-relation")]
+        [HttpDelete]
+        public async Task<ActionResult<BoolResultReturn>> DeleteTaskRelation(long id)
+        {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var relation = await _workTaskService.DeleteRelationAsync(id, userInfo);
+            var r = new WorkTaskRelationReturn(relation);
+            return new JsonResult(new BoolResultReturn(r!=null), GetJsonOptions());
+
+        }
+
         [Route("add-new-task")]
         [HttpPut]
         public async Task<ActionResult<AddNewTaskReturn>> AddNewTask([FromBody] AddNewTaskRequest request)

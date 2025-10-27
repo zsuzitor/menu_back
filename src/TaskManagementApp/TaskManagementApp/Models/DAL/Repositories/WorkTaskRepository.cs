@@ -133,5 +133,24 @@ namespace TaskManagementApp.Models.DAL.Repositories
         {
             return await _db.TaskManagementTasks.Where(x => x.Id == id).Include(x => x.Labels).FirstOrDefaultAsync();
         }
+
+        public async Task<TaskRelation> CreateRelationAsync(TaskRelation relation)
+        {
+            _db.Add(relation);
+            await _db.SaveChangesAsync();
+            return relation;
+        }
+
+        public async Task<TaskRelation> DeleteRelationAsync(TaskRelation relation)
+        {
+            _db.Remove(relation);
+            await _db.SaveChangesAsync();
+            return relation;
+        }
+
+        public async Task<TaskRelation> GetRelationAsync(long relationId)
+        {
+            return await _db.TaskManagementTaskRelation.Where(x => x.Id == relationId).FirstOrDefaultAsync();
+        }
     }
 }

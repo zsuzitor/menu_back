@@ -2664,6 +2664,33 @@ ___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelation.css":
+/*!*************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelation.css ***!
+  \*************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/AddTask/AddTask.css":
 /*!*********************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/AddTask/AddTask.css ***!
@@ -2900,7 +2927,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".one-work-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-work-task-detail-comments-block {\r\n    padding-left: 10px;\r\n\r\n    max-width: 610px;\r\n}\r\n\r\n.one-work-task-detail-body {\r\n    display: flex;\r\n    padding: 10px;\r\n    gap: 0.5rem;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.one-work-task-detail-content {\r\n    flex-grow: 2;\r\n    border-radius: 5px;\r\n    max-width: 600px;\r\n    background-color: white;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n    border-radius: 5px;\r\n    width: 300px;\r\n    display: flex;\r\n    background-color: white;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-name-full {\r\n    padding-left: 30px;\r\n    padding-right: 15px;\r\n    padding-bottom: 15px;\r\n\r\n    font-size: 25px;\r\n\r\n}\r\n\r\n.one-work-task-detail-name {\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n.one-work-task-detail-name:hover {\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.one-work-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-work-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-header {\r\n    background-color: #fff;\r\n}\r\n\r\n.work-task-detail-description {\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.work-task-detail-description:hover {\r\n    /* background-color: #f5f5f5; */\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-right-content .editable-by-click {\r\n    cursor: pointer;\r\n}\r\n\r\n.task-comments-add {\r\n    padding-top: 15px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img {\r\n    width: 25px;\r\n    height: 25px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img img {\r\n    /* красит в салатовый */\r\n    filter: brightness(0) saturate(100%) invert(50%) sepia(100%) hue-rotate(30deg);\r\n}\r\n\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn {\r\n    width: 255px;\r\n    display: flex;\r\n    gap: 10px;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 5px;\r\n    padding-left: 10px;\r\n    height: 35px;\r\n    padding-top: 3px;\r\n}\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn:hover {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n}\r\n\r\n.add-time-log-header {\r\n    display: flex;\r\n    gap: 20px;\r\n    align-items: center;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.work-time-block {\r\n    padding: 10px;\r\n}\r\n\r\n.work-time-block .one-work-time-block {\r\n    display: flex;\r\n}\r\n\r\n.add-time-log-show-btn {\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.add-time-log-show-btn:hover {\r\n\r\n    cursor: pointer;\r\n    border: 1px solid #DFE1E6;\r\n}\r\n\r\n.work-time-block-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 3px;\r\n    max-height: 400px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.one-work-time-block .time-block-left {\r\n    border-radius: 10px 0px 0px 10px;\r\n    padding: 3px;\r\n    border-left: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 250px;\r\n}\r\n\r\n.one-work-time-block .time-block-center {\r\n    padding: 3px;\r\n    border: 1px solid black;\r\n    width: 160px;\r\n\r\n}\r\n\r\n.one-work-time-block .time-block-right {\r\n    border-radius: 0px 10px 10px 0px;\r\n    padding: 3px;\r\n    border-right: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 90px;\r\n\r\n}\r\n\r\n\r\n.add-time-log-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-time-log-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n\r\n.add-time-log-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/OneWorkTaskDetail/OneWorkTaskDetail.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,sBAAsB;IACtB,4CAA4C;IAC5C,oCAAoC;IACpC,gBAAgB;IAChB,WAAW;AACf;;AAEA;IACI,kBAAkB;;IAElB,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,aAAa;IACb,WAAW;IACX,gBAAgB;IAChB,SAAS;IACT,eAAe;IACf,8BAA8B;AAClC;;;AAGA;IACI,YAAY;IACZ,kBAAkB;IAClB,gBAAgB;IAChB,uBAAuB;IACvB,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,cAAc;IACd,iBAAiB;IACjB,gBAAgB;IAChB,kBAAkB;IAClB,YAAY;IACZ,aAAa;IACb,uBAAuB;IACvB,sBAAsB;IACtB,YAAY;AAChB;;AAEA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,oBAAoB;;IAEpB,eAAe;;AAEnB;;AAEA;IACI,kBAAkB;AACtB;;;AAGA;IACI,yBAAyB;IACzB,eAAe;;AAEnB;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,iBAAiB;IACjB,iBAAiB;IACjB,oBAAoB;IACpB,mBAAmB;AACvB;;AAEA;;IAEI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;IAClB,eAAe;;IAEf,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,uBAAuB;IACvB,8EAA8E;AAClF;;;AAGA;IACI,YAAY;IACZ,aAAa;IACb,SAAS;IACT,yBAAyB;IACzB,kBAAkB;IAClB,kBAAkB;IAClB,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,uBAAuB;AAC3B;;AAEA;IACI,aAAa;IACb,SAAS;IACT,mBAAmB;IACnB,mBAAmB;AACvB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;;IAEI,eAAe;IACf,yBAAyB;AAC7B;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,QAAQ;IACR,iBAAiB;IACjB,gBAAgB;AACpB;;AAEA;IACI,gCAAgC;IAChC,YAAY;IACZ,4BAA4B;IAC5B,2BAA2B;IAC3B,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,uBAAuB;IACvB,YAAY;;AAEhB;;AAEA;IACI,gCAAgC;IAChC,YAAY;IACZ,6BAA6B;IAC7B,2BAA2B;IAC3B,8BAA8B;IAC9B,WAAW;;AAEf;;;AAGA;;IAEI,yBAAyB;IACzB,YAAY;IACZ,YAAY;IACZ,mBAAmB;IACnB,iBAAiB;IACjB,eAAe;IACf,eAAe;IACf,aAAa;IACb,mBAAmB;IACnB,QAAQ;IACR,iCAAiC;AACrC;;;AAGA;IACI,yBAAyB;AAC7B;;;AAGA;IACI,iBAAiB;IACjB,eAAe;AACnB","sourcesContent":[".one-work-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-work-task-detail-comments-block {\r\n    padding-left: 10px;\r\n\r\n    max-width: 610px;\r\n}\r\n\r\n.one-work-task-detail-body {\r\n    display: flex;\r\n    padding: 10px;\r\n    gap: 0.5rem;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.one-work-task-detail-content {\r\n    flex-grow: 2;\r\n    border-radius: 5px;\r\n    max-width: 600px;\r\n    background-color: white;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n    border-radius: 5px;\r\n    width: 300px;\r\n    display: flex;\r\n    background-color: white;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-name-full {\r\n    padding-left: 30px;\r\n    padding-right: 15px;\r\n    padding-bottom: 15px;\r\n\r\n    font-size: 25px;\r\n\r\n}\r\n\r\n.one-work-task-detail-name {\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n.one-work-task-detail-name:hover {\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.one-work-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-work-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-header {\r\n    background-color: #fff;\r\n}\r\n\r\n.work-task-detail-description {\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.work-task-detail-description:hover {\r\n    /* background-color: #f5f5f5; */\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-right-content .editable-by-click {\r\n    cursor: pointer;\r\n}\r\n\r\n.task-comments-add {\r\n    padding-top: 15px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img {\r\n    width: 25px;\r\n    height: 25px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img img {\r\n    /* красит в салатовый */\r\n    filter: brightness(0) saturate(100%) invert(50%) sepia(100%) hue-rotate(30deg);\r\n}\r\n\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn {\r\n    width: 255px;\r\n    display: flex;\r\n    gap: 10px;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 5px;\r\n    padding-left: 10px;\r\n    height: 35px;\r\n    padding-top: 3px;\r\n}\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn:hover {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n}\r\n\r\n.add-time-log-header {\r\n    display: flex;\r\n    gap: 20px;\r\n    align-items: center;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.work-time-block {\r\n    padding: 10px;\r\n}\r\n\r\n.work-time-block .one-work-time-block {\r\n    display: flex;\r\n}\r\n\r\n.add-time-log-show-btn {\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.add-time-log-show-btn:hover {\r\n\r\n    cursor: pointer;\r\n    border: 1px solid #DFE1E6;\r\n}\r\n\r\n.work-time-block-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 3px;\r\n    max-height: 400px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.one-work-time-block .time-block-left {\r\n    border-radius: 10px 0px 0px 10px;\r\n    padding: 3px;\r\n    border-left: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 250px;\r\n}\r\n\r\n.one-work-time-block .time-block-center {\r\n    padding: 3px;\r\n    border: 1px solid black;\r\n    width: 160px;\r\n\r\n}\r\n\r\n.one-work-time-block .time-block-right {\r\n    border-radius: 0px 10px 10px 0px;\r\n    padding: 3px;\r\n    border-right: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 90px;\r\n\r\n}\r\n\r\n\r\n.add-time-log-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-time-log-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n\r\n.add-time-log-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".one-work-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-work-task-detail-comments-block {\r\n    padding-left: 10px;\r\n\r\n    max-width: 610px;\r\n}\r\n\r\n.one-work-task-detail-body {\r\n    display: flex;\r\n    padding: 10px;\r\n    gap: 0.5rem;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.one-work-task-detail-content {\r\n    flex-grow: 2;\r\n    border-radius: 5px;\r\n    max-width: 600px;\r\n    background-color: white;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n    border-radius: 5px;\r\n    width: 300px;\r\n    display: flex;\r\n    background-color: white;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-name-full {\r\n    padding-left: 30px;\r\n    padding-right: 15px;\r\n    padding-bottom: 15px;\r\n\r\n    font-size: 25px;\r\n\r\n}\r\n\r\n.one-work-task-detail-name {\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n.one-work-task-detail-name:hover {\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.one-work-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-work-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-header {\r\n    background-color: #fff;\r\n}\r\n\r\n.work-task-detail-description {\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.work-task-detail-description:hover {\r\n    /* background-color: #f5f5f5; */\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-right-content .editable-by-click {\r\n    cursor: pointer;\r\n}\r\n\r\n.task-comments-add {\r\n    padding-top: 15px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img {\r\n    width: 25px;\r\n    height: 25px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img img {\r\n    /* красит в салатовый */\r\n    filter: brightness(0) saturate(100%) invert(50%) sepia(100%) hue-rotate(30deg);\r\n}\r\n\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn {\r\n    width: 255px;\r\n    display: flex;\r\n    gap: 10px;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 5px;\r\n    padding-left: 10px;\r\n    height: 35px;\r\n    padding-top: 3px;\r\n}\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn:hover {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n}\r\n\r\n.add-time-log-header {\r\n    display: flex;\r\n    gap: 20px;\r\n    align-items: center;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.work-time-block {\r\n    padding: 10px;\r\n}\r\n\r\n.work-time-block .one-work-time-block {\r\n    display: flex;\r\n}\r\n\r\n.add-time-log-show-btn {\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.add-time-log-show-btn:hover {\r\n\r\n    cursor: pointer;\r\n    border: 1px solid #DFE1E6;\r\n}\r\n\r\n.work-time-block-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 3px;\r\n    max-height: 400px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.one-work-time-block .time-block-left {\r\n    border-radius: 10px 0px 0px 10px;\r\n    padding: 3px;\r\n    border-left: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 250px;\r\n}\r\n\r\n.one-work-time-block .time-block-center {\r\n    padding: 3px;\r\n    border: 1px solid black;\r\n    width: 160px;\r\n\r\n}\r\n\r\n.one-work-time-block .time-block-right {\r\n    border-radius: 0px 10px 10px 0px;\r\n    padding: 3px;\r\n    border-right: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 90px;\r\n\r\n}\r\n\r\n\r\n.add-time-log-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-time-log-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n\r\n.add-time-log-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-relation-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n.one-work-task-detail-relations-block {}\r\n\r\n.one-work-task-detail-relations-block .one-relation {}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/OneWorkTaskDetail/OneWorkTaskDetail.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,sBAAsB;IACtB,4CAA4C;IAC5C,oCAAoC;IACpC,gBAAgB;IAChB,WAAW;AACf;;AAEA;IACI,kBAAkB;;IAElB,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,aAAa;IACb,WAAW;IACX,gBAAgB;IAChB,SAAS;IACT,eAAe;IACf,8BAA8B;AAClC;;;AAGA;IACI,YAAY;IACZ,kBAAkB;IAClB,gBAAgB;IAChB,uBAAuB;IACvB,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,cAAc;IACd,iBAAiB;IACjB,gBAAgB;IAChB,kBAAkB;IAClB,YAAY;IACZ,aAAa;IACb,uBAAuB;IACvB,sBAAsB;IACtB,YAAY;AAChB;;AAEA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,oBAAoB;;IAEpB,eAAe;;AAEnB;;AAEA;IACI,kBAAkB;AACtB;;;AAGA;IACI,yBAAyB;IACzB,eAAe;;AAEnB;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,iBAAiB;IACjB,iBAAiB;IACjB,oBAAoB;IACpB,mBAAmB;AACvB;;AAEA;;IAEI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;IAClB,eAAe;;IAEf,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,uBAAuB;IACvB,8EAA8E;AAClF;;;AAGA;IACI,YAAY;IACZ,aAAa;IACb,SAAS;IACT,yBAAyB;IACzB,kBAAkB;IAClB,kBAAkB;IAClB,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,uBAAuB;AAC3B;;AAEA;IACI,aAAa;IACb,SAAS;IACT,mBAAmB;IACnB,mBAAmB;AACvB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;;IAEI,eAAe;IACf,yBAAyB;AAC7B;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,QAAQ;IACR,iBAAiB;IACjB,gBAAgB;AACpB;;AAEA;IACI,gCAAgC;IAChC,YAAY;IACZ,4BAA4B;IAC5B,2BAA2B;IAC3B,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,uBAAuB;IACvB,YAAY;;AAEhB;;AAEA;IACI,gCAAgC;IAChC,YAAY;IACZ,6BAA6B;IAC7B,2BAA2B;IAC3B,8BAA8B;IAC9B,WAAW;;AAEf;;;AAGA;;IAEI,yBAAyB;IACzB,YAAY;IACZ,YAAY;IACZ,mBAAmB;IACnB,iBAAiB;IACjB,eAAe;IACf,eAAe;IACf,aAAa;IACb,mBAAmB;IACnB,QAAQ;IACR,iCAAiC;AACrC;;;AAGA;IACI,yBAAyB;AAC7B;;;AAGA;IACI,iBAAiB;IACjB,eAAe;AACnB;;AAEA;IACI,iBAAiB;IACjB,eAAe;AACnB;;AAEA;;IAEI,yBAAyB;IACzB,YAAY;IACZ,YAAY;IACZ,mBAAmB;IACnB,iBAAiB;IACjB,eAAe;IACf,eAAe;IACf,aAAa;IACb,mBAAmB;IACnB,QAAQ;IACR,iCAAiC;AACrC;;;AAGA;IACI,yBAAyB;AAC7B;;AAEA,uCAAuC;;AAEvC,qDAAqD","sourcesContent":[".one-work-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-work-task-detail-comments-block {\r\n    padding-left: 10px;\r\n\r\n    max-width: 610px;\r\n}\r\n\r\n.one-work-task-detail-body {\r\n    display: flex;\r\n    padding: 10px;\r\n    gap: 0.5rem;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.one-work-task-detail-content {\r\n    flex-grow: 2;\r\n    border-radius: 5px;\r\n    max-width: 600px;\r\n    background-color: white;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n    border-radius: 5px;\r\n    width: 300px;\r\n    display: flex;\r\n    background-color: white;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-name-full {\r\n    padding-left: 30px;\r\n    padding-right: 15px;\r\n    padding-bottom: 15px;\r\n\r\n    font-size: 25px;\r\n\r\n}\r\n\r\n.one-work-task-detail-name {\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n.one-work-task-detail-name:hover {\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.one-work-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-work-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-header {\r\n    background-color: #fff;\r\n}\r\n\r\n.work-task-detail-description {\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.work-task-detail-description:hover {\r\n    /* background-color: #f5f5f5; */\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-right-content .editable-by-click {\r\n    cursor: pointer;\r\n}\r\n\r\n.task-comments-add {\r\n    padding-top: 15px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img {\r\n    width: 25px;\r\n    height: 25px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img img {\r\n    /* красит в салатовый */\r\n    filter: brightness(0) saturate(100%) invert(50%) sepia(100%) hue-rotate(30deg);\r\n}\r\n\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn {\r\n    width: 255px;\r\n    display: flex;\r\n    gap: 10px;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 5px;\r\n    padding-left: 10px;\r\n    height: 35px;\r\n    padding-top: 3px;\r\n}\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn:hover {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n}\r\n\r\n.add-time-log-header {\r\n    display: flex;\r\n    gap: 20px;\r\n    align-items: center;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.work-time-block {\r\n    padding: 10px;\r\n}\r\n\r\n.work-time-block .one-work-time-block {\r\n    display: flex;\r\n}\r\n\r\n.add-time-log-show-btn {\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.add-time-log-show-btn:hover {\r\n\r\n    cursor: pointer;\r\n    border: 1px solid #DFE1E6;\r\n}\r\n\r\n.work-time-block-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 3px;\r\n    max-height: 400px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.one-work-time-block .time-block-left {\r\n    border-radius: 10px 0px 0px 10px;\r\n    padding: 3px;\r\n    border-left: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 250px;\r\n}\r\n\r\n.one-work-time-block .time-block-center {\r\n    padding: 3px;\r\n    border: 1px solid black;\r\n    width: 160px;\r\n\r\n}\r\n\r\n.one-work-time-block .time-block-right {\r\n    border-radius: 0px 10px 10px 0px;\r\n    padding: 3px;\r\n    border-right: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 90px;\r\n\r\n}\r\n\r\n\r\n.add-time-log-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-time-log-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n\r\n.add-time-log-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-relation-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n.one-work-task-detail-relations-block {}\r\n\r\n.one-work-task-detail-relations-block .one-relation {}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -64021,6 +64048,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelation.css":
+/*!***********************************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelation.css ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_AddTaskRelation_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./AddTaskRelation.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelation.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_AddTaskRelation_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_AddTaskRelation_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_AddTaskRelation_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_AddTaskRelation_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/Apps/TaskManagementApp/Components/AddTask/AddTask.css":
 /*!*******************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Components/AddTask/AddTask.css ***!
@@ -71758,6 +71840,107 @@ exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToPr
 
 /***/ }),
 
+/***/ "./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelation.tsx":
+/*!***********************************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelation.tsx ***!
+  \***********************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const AddTaskRelationSetup_1 = __importDefault(__webpack_require__(/*! ./AddTaskRelationSetup */ "./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelationSetup.tsx"));
+const TaskRelation_1 = __webpack_require__(/*! ../../Models/Entity/State/TaskRelation */ "./src/Apps/TaskManagementApp/Models/Entity/State/TaskRelation.ts");
+__webpack_require__(/*! ./AddTaskRelation.css */ "./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelation.css");
+const AddTaskRelation = (props) => {
+    const [mainTaskId, setMainTaskId] = (0, react_1.useState)(props.TaskId || 0);
+    const [subTaskId, setSubTaskId] = (0, react_1.useState)(0);
+    const [type, setType] = (0, react_1.useState)(0);
+    (0, react_1.useEffect)(() => {
+        setMainTaskId(props.TaskId || 0);
+    }, [props.TaskId]);
+    return react_1.default.createElement("div", { className: 'add-task-relation' },
+        react_1.default.createElement("span", null, "\u0417\u0430\u0434\u0430\u0447\u0430"),
+        react_1.default.createElement("input", { className: 'form-input-v2', type: 'number', onChange: (e) => setMainTaskId(+e.target.value), placeholder: '\u0417\u0430\u0434\u0430\u0447\u0430', value: mainTaskId }),
+        react_1.default.createElement("select", { className: "form-control", value: type, onChange: (e) => {
+                setType(prevState => {
+                    return +e.target.value;
+                });
+            } },
+            react_1.default.createElement("option", { value: "-" }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
+            react_1.default.createElement("option", { value: TaskRelation_1.TaskRelationType.SubTask }, "\u0413\u043B\u0430\u0432\u043D\u0430\u044F \u0434\u043B\u044F"),
+            react_1.default.createElement("option", { value: TaskRelation_1.TaskRelationType.Link }, "\u0421\u0432\u044F\u0437\u0430\u043D\u0430 \u0441")),
+        react_1.default.createElement("span", null, "\u0417\u0430\u0434\u0430\u0447\u0430"),
+        react_1.default.createElement("input", { className: 'form-input-v2', type: 'number', onChange: (e) => setSubTaskId(+e.target.value), placeholder: '\u0417\u0430\u0434\u0430\u0447\u0430', value: subTaskId }));
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, AddTaskRelationSetup_1.default)(AddTaskRelation);
+
+
+/***/ }),
+
+/***/ "./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelationSetup.tsx":
+/*!****************************************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelationSetup.tsx ***!
+  \****************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const mapStateToProps = (state, ownProps) => {
+    let res = {};
+    return res;
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    let res = {};
+    res.Create = (mainTaskid, subTaskid, type) => __awaiter(void 0, void 0, void 0, function* () {
+        yield window.G_TaskManagementTaskController.AddTaskRelationRedux(mainTaskid, subTaskid, type, dispatch);
+    });
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
 /***/ "./src/Apps/TaskManagementApp/Components/AddTask/AddTask.tsx":
 /*!*******************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Components/AddTask/AddTask.tsx ***!
@@ -72842,6 +73025,7 @@ const SaveCancelInputText_1 = __importDefault(__webpack_require__(/*! ../../../.
 const SaveCancelInputSelect_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputSelect */ "./src/components/Body/SaveCancelInput/SaveCancelInputSelect.tsx"));
 const SaveCancelInputMultiSelectWithSearch_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputMultiSelectWithSearch */ "./src/components/Body/SaveCancelInput/SaveCancelInputMultiSelectWithSearch.tsx"));
 const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
+const AddTaskRelation_1 = __importDefault(__webpack_require__(/*! ../AddTaskRelation/AddTaskRelation */ "./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelation.tsx"));
 __webpack_require__(/*! ./OneWorkTaskDetail.css */ "./src/Apps/TaskManagementApp/Components/OneWorkTaskDetail/OneWorkTaskDetail.css");
 const OneWorkTaskDetail = (props) => {
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
@@ -72853,6 +73037,7 @@ const OneWorkTaskDetail = (props) => {
     const [taskLabelEditable, setTaskLabelEditable] = (0, react_1.useState)(false);
     const [taskExecutorEditable, setTaskExecutorEditable] = (0, react_1.useState)(false);
     const [showAddWorkTimeNew, setShowAddWorkTimeNew] = (0, react_1.useState)(false);
+    const [showAddRelationNew, setShowAddRelationNew] = (0, react_1.useState)(false);
     const [showAddWorkTimeBlock, setShowAddWorkTimeBlock] = (0, react_1.useState)(false);
     const navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(() => {
@@ -72950,6 +73135,45 @@ const OneWorkTaskDetail = (props) => {
                                 return true;
                             }, Text: '' }))));
     };
+    const GetRelationAnotherId = (relation) => {
+        if (relation.MainWorkTaskId == props.Task.Id) {
+            return relation.SubWorkTaskId;
+        }
+        return relation.MainWorkTaskId;
+    };
+    const GetRelationWord = (relation) => {
+        if (relation.RelationType == 1) {
+            if (relation.MainWorkTaskId == props.Task.Id) {
+                return 'Главная для ' + GetRelationAnotherId(relation);
+            }
+            else {
+                return 'Зависимая для ' + GetRelationAnotherId(relation);
+            }
+        }
+        if (relation.RelationType == 2) {
+            return 'Связана с ' + GetRelationAnotherId(relation);
+        }
+        return 'Связана с ' + GetRelationAnotherId(relation);
+    };
+    const renderRelations = () => {
+        return react_1.default.createElement("div", { className: 'one-work-task-detail-relations-block' },
+            showAddRelationNew ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowAddRelationNew(false), IsHeightWindow: false, Title: '\u0421\u0432\u044F\u0437\u044C', InnerContent: () => react_1.default.createElement(AddTaskRelation_1.default, { Close: () => setShowAddRelationNew(false), TaskId: props.Task.Id }) }) : react_1.default.createElement(react_1.default.Fragment, null),
+            react_1.default.createElement("p", null, "\u0417\u0430\u0432\u0438\u0441\u0438\u043C\u043E\u0441\u0442\u0438"),
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("button", { className: 'add-relation-btn', onClick: () => setShowAddRelationNew(true) },
+                    react_1.default.createElement("span", { className: 'add-relation-plus-icon' }, "+"),
+                    react_1.default.createElement("span", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u0432\u044F\u0437\u044C"))),
+            props.Task.Relations.map(x => {
+                const taskUrl = new RouteBuilder_1.default().TaskUrl(props.CurrentProjectId, GetRelationAnotherId(x));
+                return react_1.default.createElement("div", { key: x.Id, className: 'one-relation' },
+                    react_1.default.createElement("a", { href: taskUrl, onClick: (e) => {
+                            e.preventDefault();
+                            navigate(taskUrl);
+                        } }, GetRelationWord(x)),
+                    react_1.default.createElement("div", { className: 'task-button', onClick: () => deleteTask() },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0421\u0432\u044F\u0437\u044C' })));
+            }));
+    };
     if (!props.Task) {
         return react_1.default.createElement("div", null, "\u0417\u0430\u0433\u0440\u0443\u0436\u0430\u0435\u043C \u0434\u0430\u043D\u043D\u044B\u0435");
     }
@@ -72981,7 +73205,7 @@ const OneWorkTaskDetail = (props) => {
                         }, Text: props.Task.Name })),
             react_1.default.createElement("div", { className: 'one-work-task-detail-buttons' },
                 react_1.default.createElement("div", { className: 'task-button', onClick: () => copyTask() },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'copy.png', alt: "Delete", title: '\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
+                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'copy.png', alt: "Copy", title: '\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })),
                 react_1.default.createElement("div", { className: 'task-button', onClick: () => deleteTask() },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0437\u0430\u0434\u0430\u0447\u0443' })))),
         react_1.default.createElement("div", { className: 'one-work-task-detail-body' },
@@ -73052,7 +73276,9 @@ const OneWorkTaskDetail = (props) => {
                                 }, Selected: props.Task.LabelId, ValuesWithId: props.Labels.map(x => {
                                     return { Id: x.Id, Text: x.Name };
                                 }) })))),
-        react_1.default.createElement("div", null, renderTime()),
+        react_1.default.createElement("div", null,
+            renderTime(),
+            renderRelations()),
         renderComments());
 };
 // and that function returns the connected, wrapper component:
@@ -75309,7 +75535,7 @@ exports.UpdateTaskSprintActionCreator = UpdateTaskSprintActionCreator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.UpdateTaskExecutorActionCreator = exports.UpdateTaskExecutorActionName = exports.UpdateTaskExecutorActionParam = exports.UpdateTaskStatusActionCreator = exports.UpdateTaskStatusActionName = exports.UpdateTaskStatusActionParam = exports.UpdateTaskDescriptionActionCreator = exports.UpdateTaskDescriptionActionName = exports.UpdateTaskDescriptionActionParam = exports.UpdateTaskNameActionCreator = exports.UpdateTaskNameActionName = exports.UpdateTaskNameActionParam = exports.ClearCurrentTaskStateActionCreator = exports.ClearCurrentTaskStateActionName = exports.LoadTaskActionCreator = exports.LoadTaskActionName = exports.SetCurrentTaskIdActionCreator = exports.SetCurrentTaskIdActionName = exports.SetFilterTaskActionCreator = exports.SetFilterTaskActionName = exports.SetFilterTaskLabelActionCreator = exports.SetFilterTaskLabelActionName = exports.SetFilterTaskSprintActionCreator = exports.SetFilterTaskSprintActionName = exports.SetFilterTaskStatusActionCreator = exports.SetFilterTaskStatusActionName = exports.SetFilterTaskPageActionCreator = exports.SetFilterTaskPageActionName = exports.SetFilterTaskNameActionCreator = exports.SetFilterTaskNameActionName = exports.SetFilterTaskExecutorActionCreator = exports.SetFilterTaskExecutorActionName = exports.SetFilterTaskCreatorActionCreator = exports.SetFilterTaskCreatorActionName = exports.DeleteTaskActionCreator = exports.DeleteTaskActionName = exports.LoadTasksActionCreator = exports.LoadTasksActionName = exports.UpdateTaskActionCreator = exports.UpdateTaskActionName = exports.AddLoadTriggerActionCreator = exports.AddLoadTriggerActionName = exports.AddTaskToProjectActionCreator = exports.AddTaskToProjectActionName = void 0;
+exports.UpdateTaskExecutorActionCreator = exports.UpdateTaskExecutorActionName = exports.UpdateTaskExecutorActionParam = exports.UpdateTaskStatusActionCreator = exports.UpdateTaskStatusActionName = exports.UpdateTaskStatusActionParam = exports.UpdateTaskDescriptionActionCreator = exports.UpdateTaskDescriptionActionName = exports.UpdateTaskDescriptionActionParam = exports.UpdateTaskNameActionCreator = exports.UpdateTaskNameActionName = exports.UpdateTaskNameActionParam = exports.DeleteTaskRelationStateActionCreator = exports.DeleteTaskRelationStateActionName = exports.AddTaskRelationStateActionCreator = exports.AddTaskRelationStateActionName = exports.ClearCurrentTaskStateActionCreator = exports.ClearCurrentTaskStateActionName = exports.LoadTaskActionCreator = exports.LoadTaskActionName = exports.SetCurrentTaskIdActionCreator = exports.SetCurrentTaskIdActionName = exports.SetFilterTaskActionCreator = exports.SetFilterTaskActionName = exports.SetFilterTaskLabelActionCreator = exports.SetFilterTaskLabelActionName = exports.SetFilterTaskSprintActionCreator = exports.SetFilterTaskSprintActionName = exports.SetFilterTaskStatusActionCreator = exports.SetFilterTaskStatusActionName = exports.SetFilterTaskPageActionCreator = exports.SetFilterTaskPageActionName = exports.SetFilterTaskNameActionCreator = exports.SetFilterTaskNameActionName = exports.SetFilterTaskExecutorActionCreator = exports.SetFilterTaskExecutorActionName = exports.SetFilterTaskCreatorActionCreator = exports.SetFilterTaskCreatorActionName = exports.DeleteTaskActionCreator = exports.DeleteTaskActionName = exports.LoadTasksActionCreator = exports.LoadTasksActionName = exports.UpdateTaskActionCreator = exports.UpdateTaskActionName = exports.AddLoadTriggerActionCreator = exports.AddLoadTriggerActionName = exports.AddTaskToProjectActionCreator = exports.AddTaskToProjectActionName = void 0;
 exports.AddTaskToProjectActionName = 'AddTaskToProjectAction';
 function AddTaskToProjectActionCreator(data) {
     return { type: exports.AddTaskToProjectActionName, payload: data };
@@ -75405,6 +75631,22 @@ function ClearCurrentTaskStateActionCreator() {
     return { type: exports.ClearCurrentTaskStateActionName, payload: null };
 }
 exports.ClearCurrentTaskStateActionCreator = ClearCurrentTaskStateActionCreator;
+;
+exports.AddTaskRelationStateActionName = 'AddTaskRelationStateAction';
+function AddTaskRelationStateActionCreator(data) {
+    return { type: exports.AddTaskRelationStateActionName, payload: data };
+}
+exports.AddTaskRelationStateActionCreator = AddTaskRelationStateActionCreator;
+;
+// export const DeleteTaskRelationStateActionName: string = 'DeleteTaskRelationStateAction';
+// export function DeleteTaskRelationStateActionCreator(taskId: number, id: number): AppAction<{ taskId: number, id: number }> {
+//     return { type: DeleteTaskRelationStateActionName, payload: { taskId: taskId, id: id } };
+// };
+exports.DeleteTaskRelationStateActionName = 'DeleteTaskRelationStateAction';
+function DeleteTaskRelationStateActionCreator(id) {
+    return { type: exports.DeleteTaskRelationStateActionName, payload: id };
+}
+exports.DeleteTaskRelationStateActionCreator = DeleteTaskRelationStateActionCreator;
 ;
 class UpdateTaskNameActionParam {
 }
@@ -75723,7 +75965,7 @@ exports["default"] = RouteBuilder;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.TaskManagementApiWorkTimeUrl = exports.TaskManagementApiUserUrl = exports.TaskManagementApiStatusUrl = exports.TaskManagementApiSprintUrl = exports.TaskManagementApiProjectUrl = exports.TaskManagementApiLabelUrl = exports.TaskManagementApiCommentUrl = exports.TaskManagementApiTaskUrl = exports.TaskManagementApiUrl = exports.TaskManagementTaskCopyUrl = exports.TaskManagementTaskDeleteUrl = exports.TaskManagementTaskGetUrl = exports.TaskManagementTasksGetUrl = exports.TaskManagementTaskUpdateUrl = exports.TaskManagementTaskAddNewUrl = exports.TaskManagementTaskUpdateExecutorUrl = exports.TaskManagementTaskUpdateStatusUrl = exports.TaskManagementTaskUpdateDescriptionUrl = exports.TaskManagementTaskUpdateNameUrl = exports.TaskManagementWorkTimeLogControllerUrl = exports.TaskManagementUserControllerUrl = exports.TaskManagementStatusControllerUrl = exports.TaskManagementSprintControllerUrl = exports.TaskManagementProjectControllerUrl = exports.TaskManagementLabelControllerUrl = exports.TaskManagementCommentControllerUrl = exports.TaskManagementTaskControllerUrl = exports.TaskManagementAppUrl = exports.TaskManagementApiPrefUrl = exports.TaskManagementTempoRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRute = exports.TaskManagementPreloader = void 0;
+exports.TaskManagementApiWorkTimeUrl = exports.TaskManagementApiUserUrl = exports.TaskManagementApiStatusUrl = exports.TaskManagementApiSprintUrl = exports.TaskManagementApiProjectUrl = exports.TaskManagementApiLabelUrl = exports.TaskManagementApiCommentUrl = exports.TaskManagementApiTaskUrl = exports.TaskManagementApiUrl = exports.TaskManagementDeleteTaskRelationUrl = exports.TaskManagementAddTaskRelationUrl = exports.TaskManagementTaskCopyUrl = exports.TaskManagementTaskDeleteUrl = exports.TaskManagementTaskGetUrl = exports.TaskManagementTasksGetUrl = exports.TaskManagementTaskUpdateUrl = exports.TaskManagementTaskAddNewUrl = exports.TaskManagementTaskUpdateExecutorUrl = exports.TaskManagementTaskUpdateStatusUrl = exports.TaskManagementTaskUpdateDescriptionUrl = exports.TaskManagementTaskUpdateNameUrl = exports.TaskManagementWorkTimeLogControllerUrl = exports.TaskManagementUserControllerUrl = exports.TaskManagementStatusControllerUrl = exports.TaskManagementSprintControllerUrl = exports.TaskManagementProjectControllerUrl = exports.TaskManagementLabelControllerUrl = exports.TaskManagementCommentControllerUrl = exports.TaskManagementTaskControllerUrl = exports.TaskManagementAppUrl = exports.TaskManagementApiPrefUrl = exports.TaskManagementTempoRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRute = exports.TaskManagementPreloader = void 0;
 exports.TaskManagementPreloader = 'task_management_preloader';
 //Routes
 exports.TaskManagementAppRute = 'task-management';
@@ -75758,6 +76000,8 @@ exports.TaskManagementTasksGetUrl = 'get-project-tasks';
 exports.TaskManagementTaskGetUrl = 'get-project-task';
 exports.TaskManagementTaskDeleteUrl = 'delete-task';
 exports.TaskManagementTaskCopyUrl = 'copy-project-task';
+exports.TaskManagementAddTaskRelationUrl = 'add-task-relation';
+exports.TaskManagementDeleteTaskRelationUrl = 'delete-task-relation';
 //task
 exports.TaskManagementApiUrl = `${exports.TaskManagementApiPrefUrl}/${exports.TaskManagementAppUrl}`;
 exports.TaskManagementApiTaskUrl = `${exports.TaskManagementApiUrl}/${exports.TaskManagementTaskControllerUrl}`;
@@ -76657,8 +76901,50 @@ const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controller
 const TaskActions_1 = __webpack_require__(/*! ../Actions/TaskActions */ "./src/Apps/TaskManagementApp/Models/Actions/TaskActions.ts");
 const Consts_1 = __webpack_require__(/*! ../Consts */ "./src/Apps/TaskManagementApp/Models/Consts.ts");
 const LoadWorkTasksResult_1 = __webpack_require__(/*! ../Entity/LoadWorkTasksResult */ "./src/Apps/TaskManagementApp/Models/Entity/LoadWorkTasksResult.ts");
+const OneTask_1 = __webpack_require__(/*! ../Entity/State/OneTask */ "./src/Apps/TaskManagementApp/Models/Entity/State/OneTask.ts");
+const TaskRelation_1 = __webpack_require__(/*! ../Entity/State/TaskRelation */ "./src/Apps/TaskManagementApp/Models/Entity/State/TaskRelation.ts");
 class TaskManagementTaskController {
     constructor() {
+        this.AddTaskRelationRedux = (mainTaskid, subTaskid, type, dispatch) => __awaiter(this, void 0, void 0, function* () {
+            let res = yield this.AddTaskRelation(mainTaskid, subTaskid, type);
+            var result = new TaskRelation_1.TaskRelation().FillByDataBack(res);
+            dispatch((0, TaskActions_1.AddTaskRelationStateActionCreator)(result));
+            return result;
+        });
+        this.AddTaskRelation = (mainTaskid, subTaskid, type) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "mainTaskid": mainTaskid,
+                "subTaskid": subTaskid,
+                "type": type
+            };
+            let backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PutHttp,
+                FuncSuccess: (xhr, status, jqXHR) => { },
+                FuncError: (xhr, status, error) => { },
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementAddTaskRelationUrl}`
+            });
+            return backResult;
+        });
+        this.DeleteTaskRelationRedux = (id, dispatch) => __awaiter(this, void 0, void 0, function* () {
+            let res = yield this.DeleteTaskRelation(id);
+            if (res.Result)
+                dispatch((0, TaskActions_1.DeleteTaskRelationStateActionCreator)(id));
+            return res.Result;
+        });
+        this.DeleteTaskRelation = (id) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "id": id
+            };
+            let backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
+                FuncSuccess: (xhr, status, jqXHR) => { },
+                FuncError: (xhr, status, error) => { },
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementDeleteTaskRelationUrl}`
+            });
+            return backResult;
+        });
         this.UpdateTaskNameRedux = (id, text) => {
             return (dispatch, getState) => {
                 this.preloader(true);
@@ -76890,8 +77176,8 @@ class TaskManagementTaskController {
                         return;
                     }
                     if (data) {
-                        let dt = new LoadWorkTasksResult_1.ProjectTaskData();
-                        dt.FillByBackModel(data);
+                        let dt = new OneTask_1.OneTask();
+                        dt.FillByIProjectTaskDataBack(data);
                         dispatch((0, TaskActions_1.LoadTaskActionCreator)(dt));
                     }
                 });
@@ -77576,31 +77862,42 @@ exports.CommentUpdate = CommentUpdate;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.LoadWorkTasksResult = exports.ProjectTaskData = void 0;
-const OneTaskWorkComment_1 = __webpack_require__(/*! ./OneTaskWorkComment */ "./src/Apps/TaskManagementApp/Models/Entity/OneTaskWorkComment.ts");
-class ProjectTaskData {
-    FillByBackModel(newData) {
-        this.Id = newData.Id;
-        this.Name = newData.Name;
-        this.CreatorId = newData.CreatorId;
-        this.ExecutorId = newData.ExecutorId;
-        this.StatusId = newData.StatusId;
-        this.LastUpdateDate = newData.LastUpdateDate;
-        this.CreateDate = newData.CreateDate;
-        this.Description = newData.Description;
-        this.Comments = newData.Comments.map(x => new OneTaskWorkComment_1.OneWorkTaskComment().FillByBackModel(x));
-        this.SprintId = newData.SprintId;
-        this.LabelId = newData.LabelsId;
-        return this;
-    }
-}
-exports.ProjectTaskData = ProjectTaskData;
+exports.LoadWorkTasksResult = void 0;
+const OneTask_1 = __webpack_require__(/*! ./State/OneTask */ "./src/Apps/TaskManagementApp/Models/Entity/State/OneTask.ts");
+// export class ProjectTaskData implements MappedWithBack<IProjectTaskDataBack> {
+//     //todo надо посмотреть с OneTask мб одно и тоже
+//     Id: number;
+//     Name: string;
+//     CreatorId: number;
+//     ExecutorId?: number;
+//     StatusId: number;
+//     CreateDate: string;
+//     LastUpdateDate: string;
+//     SprintId: number[];
+//     LabelId: number[];
+//     Description: string;
+//     Comments: OneWorkTaskComment[];
+//     FillByBackModel(newData: IProjectTaskDataBack): ProjectTaskData {
+//         this.Id = newData.Id;
+//         this.Name = newData.Name;
+//         this.CreatorId = newData.CreatorId;
+//         this.ExecutorId = newData.ExecutorId;
+//         this.StatusId = newData.StatusId;
+//         this.LastUpdateDate = newData.LastUpdateDate;
+//         this.CreateDate = newData.CreateDate;
+//         this.Description = newData.Description;
+//         this.Comments = newData.Comments.map(x => new OneWorkTaskComment().FillByBackModel(x));
+//         this.SprintId = newData.SprintId;
+//         this.LabelId = newData.LabelsId;
+//         return this;
+//     }
+// }
 class LoadWorkTasksResult {
     FillByBackModel(newData) {
         this.TasksCount = newData.TasksCount;
         this.Tasks = newData.Tasks.map(x => {
-            let y = new ProjectTaskData();
-            y.FillByBackModel(x);
+            let y = new OneTask_1.OneTask();
+            y.FillByIProjectTaskDataBack(x);
             return y;
         });
     }
@@ -77674,6 +77971,7 @@ exports.OneProjectInList = OneProjectInList;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OneTask = void 0;
 const OneTaskWorkComment_1 = __webpack_require__(/*! ../OneTaskWorkComment */ "./src/Apps/TaskManagementApp/Models/Entity/OneTaskWorkComment.ts");
+const TaskRelation_1 = __webpack_require__(/*! ./TaskRelation */ "./src/Apps/TaskManagementApp/Models/Entity/State/TaskRelation.ts");
 class OneTask {
     constructor() {
         this.Comments = [];
@@ -77681,21 +77979,22 @@ class OneTask {
         this.SprintId = [];
         this.LabelId = [];
     }
-    FillByProjectTaskData(data) {
-        this.Id = data.Id;
-        this.Name = data.Name;
-        this.CreatorId = data.CreatorId;
-        this.ExecutorId = data.ExecutorId;
-        this.StatusId = data.StatusId;
-        this.CreateDate = data.CreateDate;
-        this.LastUpdateDate = data.LastUpdateDate;
-        this.Description = data.Description;
-        this.Comments = data.Comments
-            .map(x => new OneTaskWorkComment_1.OneWorkTaskComment().FillByOneWorkTaskComment(x));
-        this.SprintId = data.SprintId;
-        this.LabelId = data.LabelId;
-        return this;
-    }
+    // FillByProjectTaskData(data: ProjectTaskData): OneTask {
+    //     this.Id = data.Id;
+    //     this.Name = data.Name;
+    //     this.CreatorId = data.CreatorId;
+    //     this.ExecutorId = data.ExecutorId;
+    //     this.StatusId = data.StatusId;
+    //     this.CreateDate = data.CreateDate;
+    //     this.LastUpdateDate = data.LastUpdateDate;
+    //     this.Description = data.Description;
+    //     this.Comments = data.Comments
+    //         .map(x => new OneWorkTaskComment().FillByOneWorkTaskComment(x));
+    //     this.SprintId = data.SprintId;
+    //     this.LabelId = data.LabelId;
+    //     this.Relations = data.Relations;
+    //     return this;
+    // }
     FillByIProjectTaskDataBack(data) {
         this.Id = data.Id;
         this.Name = data.Name;
@@ -77709,6 +78008,8 @@ class OneTask {
             map(x => new OneTaskWorkComment_1.OneWorkTaskComment().FillByBackModel(x));
         this.SprintId = data.SprintId;
         this.LabelId = data.LabelsId;
+        this.Relations = data.Relations.
+            map(x => new TaskRelation_1.TaskRelation().FillByDataBack(x));
         return this;
     }
 }
@@ -77869,6 +78170,36 @@ class TaskManagementAppState {
     }
 }
 exports.TaskManagementAppState = TaskManagementAppState;
+
+
+/***/ }),
+
+/***/ "./src/Apps/TaskManagementApp/Models/Entity/State/TaskRelation.ts":
+/*!************************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Models/Entity/State/TaskRelation.ts ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.TaskRelation = exports.TaskRelationType = void 0;
+var TaskRelationType;
+(function (TaskRelationType) {
+    TaskRelationType[TaskRelationType["SubTask"] = 1] = "SubTask";
+    TaskRelationType[TaskRelationType["Link"] = 2] = "Link";
+})(TaskRelationType = exports.TaskRelationType || (exports.TaskRelationType = {}));
+;
+class TaskRelation {
+    FillByDataBack(data) {
+        this.Id = data.Id;
+        this.SubWorkTaskId = data.SubWorkTaskId;
+        this.MainWorkTaskId = data.MainWorkTaskId;
+        this.RelationType = data.RelationType;
+        return this;
+    }
+}
+exports.TaskRelation = TaskRelation;
 
 
 /***/ }),
@@ -78481,7 +78812,6 @@ exports.TaskManagementTaskReducer = void 0;
 const cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
 const AppState_1 = __webpack_require__(/*! ../../../../Models/Entity/State/AppState */ "./src/Models/Entity/State/AppState.ts");
 const TaskActions_1 = __webpack_require__(/*! ../Actions/TaskActions */ "./src/Apps/TaskManagementApp/Models/Actions/TaskActions.ts");
-const OneTask_1 = __webpack_require__(/*! ../Entity/State/OneTask */ "./src/Apps/TaskManagementApp/Models/Entity/State/OneTask.ts");
 const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
 function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
     switch (action.type) {
@@ -78489,9 +78819,7 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                let tsk = new OneTask_1.OneTask();
-                tsk.FillByProjectTaskData(payload);
-                newState.TaskManagementApp.CurrentProjectTasks.push(tsk);
+                newState.TaskManagementApp.CurrentProjectTasks.push(payload);
                 return newState;
             }
         case TaskActions_1.AddLoadTriggerActionName:
@@ -78521,11 +78849,7 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                newState.TaskManagementApp.CurrentProjectTasks = payload.Tasks.map(x => {
-                    let tsk = new OneTask_1.OneTask();
-                    tsk.FillByProjectTaskData(x);
-                    return tsk;
-                });
+                newState.TaskManagementApp.CurrentProjectTasks = payload.Tasks;
                 newState.TaskManagementApp.CurrentProjectTasksAllCount = payload.TasksCount;
                 return newState;
             }
@@ -78603,7 +78927,7 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
         case TaskActions_1.LoadTaskActionName: {
             let newState = (0, cloneDeep_1.default)(state);
             let payload = action.payload;
-            newState.TaskManagementApp.CurrentTask = new OneTask_1.OneTask().FillByProjectTaskData(payload);
+            newState.TaskManagementApp.CurrentTask = payload;
             return newState;
         }
         case TaskActions_1.ClearCurrentTaskStateActionName: {
@@ -78653,6 +78977,32 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 var tasks = helper.GetTaskFromState(newState, payload.Id);
                 tasks.forEach(tsk => {
                     tsk.ExecutorId = payload.PersonId;
+                });
+                return newState;
+            }
+        case TaskActions_1.AddTaskRelationStateActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                let helper = new Helper_1.Helper();
+                var tasks = helper.GetTaskFromState(newState, payload.MainWorkTaskId);
+                tasks.forEach(tsk => {
+                    tsk.Relations = [...tsk.Relations, payload];
+                });
+                tasks = helper.GetTaskFromState(newState, payload.SubWorkTaskId);
+                tasks.forEach(tsk => {
+                    tsk.Relations = [...tsk.Relations, payload];
+                });
+                return newState;
+            }
+        case TaskActions_1.DeleteTaskRelationStateActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                let helper = new Helper_1.Helper();
+                var tasks = helper.GetAllTaskFromState(newState);
+                tasks.forEach(tsk => {
+                    tsk.Relations = tsk.Relations.filter(x => x.Id != payload);
                 });
                 return newState;
             }
@@ -83456,21 +83806,19 @@ class Helper {
         document.body.removeChild(textArea);
         return retult;
     }
-    GetTaskFromState(state, taskId) {
-        var _a;
+    GetAllTaskFromState(state) {
         //todo куда то вынести
-        let res = [];
-        if (taskId < 1) {
-            return res;
-        }
-        let taskfromProject = state.TaskManagementApp.CurrentProjectTasks.find(x => x.Id === taskId);
-        if (taskfromProject) {
-            res.push(taskfromProject);
-        }
-        if (((_a = state.TaskManagementApp.CurrentTask) === null || _a === void 0 ? void 0 : _a.Id) == taskId) {
+        let res = [...state.TaskManagementApp.CurrentProjectTasks];
+        if (state.TaskManagementApp.CurrentTask)
             res.push(state.TaskManagementApp.CurrentTask);
-        }
         return res;
+    }
+    GetTaskFromState(state, taskId) {
+        //todo куда то вынести
+        if (taskId < 1) {
+            return [];
+        }
+        return this.GetAllTaskFromState(state).filter(x => x.Id === taskId);
     }
     GetIndexById1(arr, f) {
         return arr.findIndex(f);

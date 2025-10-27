@@ -1,6 +1,10 @@
-﻿using BO.Models.TaskManagementApp.DAL.Domain;
+﻿using BO.Models.TaskManagementApp.DAL;
+using BO.Models.TaskManagementApp.DAL.Domain;
+using Common.Models.Exceptions;
 using Menu.Models.TaskManagementApp.Requests;
 using Nest;
+using System;
+using TaskManagementApp.Models;
 
 namespace Menu.Models.TaskManagementApp.Mappers
 {
@@ -43,6 +47,21 @@ namespace Menu.Models.TaskManagementApp.Mappers
                 ProjectId = obj.ProjectId,
                 StatusId = obj.StatusId,
                 Description = obj.Description,
+            };
+        }
+
+        public static TaskRelation Map(this AddNewTaskRelationRequest obj)
+        {
+            if (!Enum.IsDefined(typeof(TaskRelationTypeEnum), obj.Type))
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.BadRelationType);
+            }
+
+            return new TaskRelation()
+            {
+                MainWorkTaskId = obj.MainTaskid,
+                RelationType = (TaskRelationTypeEnum)obj.Type,
+                SubWorkTaskId = obj.SubTaskid,
             };
         }
 

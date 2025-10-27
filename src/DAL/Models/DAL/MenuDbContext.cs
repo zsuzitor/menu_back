@@ -66,6 +66,7 @@ namespace DAL.Models.DAL
         public DbSet<WorkTaskLabel> TaskManagementWorkTaskLabel { get; set; }
         public DbSet<WorkTaskLabelTaskRelation> TaskManagementWorkTaskLabelTaskRelation { get; set; }
         public DbSet<WorkTaskSprintRelation> TaskManagementWorkTaskSprintRelation { get; set; }
+        public DbSet<TaskRelation> TaskManagementTaskRelation { get; set; }
 
 
 

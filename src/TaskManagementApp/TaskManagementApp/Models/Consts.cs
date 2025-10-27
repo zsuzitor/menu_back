@@ -37,6 +37,8 @@ namespace TaskManagementApp.Models
             public const string SprintNotFound = "task_management_sprint_not_found";
             public const string LabelNotFound = "task_management_label_not_found";
             public const string LabelExists = "task_management_label_exists";
+            public const string BadRelationType = "task_management_bad_relation";
+            public const string RelationNotFound = "task_management_relation_not_found";
 
 
 

@@ -341,6 +341,33 @@ namespace TaskManagementApp.Models.Services
         }
 
 
+        public async Task<TaskRelation> CreateRelationAsync(TaskRelation req, UserInfo userInfo)
+        {
+            var mainTask = await GetIfEditAccess(req.MainWorkTaskId, userInfo);
+            var subTask = await GetIfEditAccess(req.SubWorkTaskId, userInfo);
+            if (mainTask.ProjectId != subTask.ProjectId)
+            {
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);//todo лучше другой текст
+            }
+
+            return await _workTaskRepository.CreateRelationAsync(req);
+
+        }
+
+        public async Task<TaskRelation> DeleteRelationAsync(long relationId, UserInfo userInfo)
+        {
+            var relation = await _workTaskRepository.GetRelationAsync(relationId);
+            if(relation == null)
+            {
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.RelationNotFound);
+
+            }
+            _ = await GetIfEditAccess(relation.MainWorkTaskId, userInfo);
+
+            return await _workTaskRepository.DeleteRelationAsync(relation);
+        }
+
+
         #region вспомогательные методы
         private async Task StatusChangedNotifyAsync(WorkTask upTask, UserInfo userInfo)
         {
@@ -480,6 +507,8 @@ namespace TaskManagementApp.Models.Services
         {
             return await _projectRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
         }
+
+
         #endregion вспомогательные методы
 
 
