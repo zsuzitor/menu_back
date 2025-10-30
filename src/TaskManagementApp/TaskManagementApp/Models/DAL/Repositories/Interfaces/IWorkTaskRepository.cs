@@ -22,7 +22,9 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
         Task<bool> HaveAccessAsync(long taskId, long mainAppUserId);
         Task<long> GetUserIdAccessAsync(long taskId, long mainAppUserId);
         Task<WorkTask> GetAccessAsync(long taskId, long mainAppUserId);
+        Task<WorkTask> GetAccessRelationsAsync(long taskId, long mainAppUserId);
         Task<TaskRelation> CreateRelationAsync(TaskRelation relation);
+        Task<bool> ExistsRelationAsync(long task1Id, long task2Id);
         Task<TaskRelation> DeleteRelationAsync(TaskRelation relation);
         Task<TaskRelation> GetRelationAsync(long relationId);
 

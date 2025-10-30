@@ -39,6 +39,7 @@ namespace TaskManagementApp.Models
             public const string LabelExists = "task_management_label_exists";
             public const string BadRelationType = "task_management_bad_relation";
             public const string RelationNotFound = "task_management_relation_not_found";
+            public const string RelationError = "task_management_relation_error";
 
 
 

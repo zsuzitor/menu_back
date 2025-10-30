@@ -46,6 +46,7 @@ namespace TaskManagementApp.Models
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.LabelExists, "Метка уже создана", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.BadRelationType, "Неверный тип связи", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.RelationNotFound, "Связь не найдена", "TaskManagementApp", "Error");
+            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.RelationError, "Ошибка при создании связи", "TaskManagementApp", "Error");
 
             
 

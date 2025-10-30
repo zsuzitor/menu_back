@@ -4,6 +4,6 @@
     {
         public long MainTaskid { get; set; }
         public long SubTaskid { get; set; }
-        public long Type { get; set; }
+        public int Type { get; set; }
     }
 }

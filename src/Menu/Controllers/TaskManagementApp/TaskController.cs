@@ -15,6 +15,7 @@ using Menu.Models.TaskManagementApp.Mappers;
 using Nest;
 using TaskManagementApp.Models.DTO;
 using System.Text.Json;
+using TaskManagementApp.Models.Services;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -153,13 +154,14 @@ namespace Menu.Controllers.TaskManagementApp
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var relation = await _workTaskService.CreateRelationAsync(request.Map(), userInfo);
             var r = new WorkTaskRelationReturn(relation);
+
             return new JsonResult(r, GetJsonOptions());
 
         }
 
         [Route("delete-task-relation")]
         [HttpDelete]
-        public async Task<ActionResult<BoolResultReturn>> DeleteTaskRelation(long id)
+        public async Task<ActionResult<BoolResultReturn>> DeleteTaskRelation([FromForm] long id)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var relation = await _workTaskService.DeleteRelationAsync(id, userInfo);
@@ -252,6 +254,15 @@ namespace Menu.Controllers.TaskManagementApp
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _workTaskService.UpdateExecutorAsync(id, personId, userInfo);
             return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+        }
+
+        [Route("task-relations")]
+        [HttpGet]
+        public async Task<ActionResult<WorkTaskRelationReturn>> GetTaskRelations(long taskId)
+        {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _workTaskService.GetRelationsAsync(taskId, userInfo);
+            return new JsonResult(res.Select(x => new WorkTaskRelationReturn(x)), GetJsonOptions());
         }
 
         private JsonSerializerOptions GetJsonOptions()

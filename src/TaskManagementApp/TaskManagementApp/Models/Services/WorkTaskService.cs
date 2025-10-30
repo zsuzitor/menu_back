@@ -2,7 +2,6 @@
 using BL.Models.Services;
 using BO.Models.Auth;
 using BO.Models.TaskManagementApp.DAL.Domain;
-using BO.Models.DAL.Domain;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TaskManagementApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
@@ -13,9 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.DTO;
-using System.Drawing;
 using BL.Models.Services.Interfaces;
-using Org.BouncyCastle.Ocsp;
 
 namespace TaskManagementApp.Models.Services
 {
@@ -343,11 +340,21 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<TaskRelation> CreateRelationAsync(TaskRelation req, UserInfo userInfo)
         {
+            if (req.MainWorkTaskId == req.SubWorkTaskId)
+            {
+                throw new SomeCustomBadRequestException(Consts.ErrorConsts.RelationError);
+            }
             var mainTask = await GetIfEditAccess(req.MainWorkTaskId, userInfo);
             var subTask = await GetIfEditAccess(req.SubWorkTaskId, userInfo);
             if (mainTask.ProjectId != subTask.ProjectId)
             {
-                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);//todo лучше другой текст
+                throw new SomeCustomBadRequestException(Consts.ErrorConsts.RelationError);
+            }
+
+            if (await _workTaskRepository.ExistsRelationAsync(req.MainWorkTaskId, req.SubWorkTaskId))
+            {
+                throw new SomeCustomBadRequestException(Consts.ErrorConsts.RelationError);
+
             }
 
             return await _workTaskRepository.CreateRelationAsync(req);
@@ -365,6 +372,16 @@ namespace TaskManagementApp.Models.Services
             _ = await GetIfEditAccess(relation.MainWorkTaskId, userInfo);
 
             return await _workTaskRepository.DeleteRelationAsync(relation);
+        }
+
+
+        public async Task<List<TaskRelation>> GetRelationsAsync(long taskId, UserInfo userInfo)
+        {
+            var task = await _workTaskRepository.GetAccessRelationsAsync(taskId, userInfo.UserId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
+            var res = new List<TaskRelation>();
+            res.AddRange(task.MainWorkTasksRelation);
+            res.AddRange(task.SubWorkTasksRelation);
+            return res;
         }
 
 
@@ -507,6 +524,8 @@ namespace TaskManagementApp.Models.Services
         {
             return await _projectRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
         }
+
+ 
 
 
         #endregion вспомогательные методы

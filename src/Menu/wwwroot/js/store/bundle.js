@@ -2927,7 +2927,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".one-work-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-work-task-detail-comments-block {\r\n    padding-left: 10px;\r\n\r\n    max-width: 610px;\r\n}\r\n\r\n.one-work-task-detail-body {\r\n    display: flex;\r\n    padding: 10px;\r\n    gap: 0.5rem;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.one-work-task-detail-content {\r\n    flex-grow: 2;\r\n    border-radius: 5px;\r\n    max-width: 600px;\r\n    background-color: white;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n    border-radius: 5px;\r\n    width: 300px;\r\n    display: flex;\r\n    background-color: white;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-name-full {\r\n    padding-left: 30px;\r\n    padding-right: 15px;\r\n    padding-bottom: 15px;\r\n\r\n    font-size: 25px;\r\n\r\n}\r\n\r\n.one-work-task-detail-name {\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n.one-work-task-detail-name:hover {\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.one-work-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-work-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-header {\r\n    background-color: #fff;\r\n}\r\n\r\n.work-task-detail-description {\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.work-task-detail-description:hover {\r\n    /* background-color: #f5f5f5; */\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-right-content .editable-by-click {\r\n    cursor: pointer;\r\n}\r\n\r\n.task-comments-add {\r\n    padding-top: 15px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img {\r\n    width: 25px;\r\n    height: 25px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img img {\r\n    /* красит в салатовый */\r\n    filter: brightness(0) saturate(100%) invert(50%) sepia(100%) hue-rotate(30deg);\r\n}\r\n\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn {\r\n    width: 255px;\r\n    display: flex;\r\n    gap: 10px;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 5px;\r\n    padding-left: 10px;\r\n    height: 35px;\r\n    padding-top: 3px;\r\n}\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn:hover {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n}\r\n\r\n.add-time-log-header {\r\n    display: flex;\r\n    gap: 20px;\r\n    align-items: center;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.work-time-block {\r\n    padding: 10px;\r\n}\r\n\r\n.work-time-block .one-work-time-block {\r\n    display: flex;\r\n}\r\n\r\n.add-time-log-show-btn {\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.add-time-log-show-btn:hover {\r\n\r\n    cursor: pointer;\r\n    border: 1px solid #DFE1E6;\r\n}\r\n\r\n.work-time-block-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 3px;\r\n    max-height: 400px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.one-work-time-block .time-block-left {\r\n    border-radius: 10px 0px 0px 10px;\r\n    padding: 3px;\r\n    border-left: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 250px;\r\n}\r\n\r\n.one-work-time-block .time-block-center {\r\n    padding: 3px;\r\n    border: 1px solid black;\r\n    width: 160px;\r\n\r\n}\r\n\r\n.one-work-time-block .time-block-right {\r\n    border-radius: 0px 10px 10px 0px;\r\n    padding: 3px;\r\n    border-right: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 90px;\r\n\r\n}\r\n\r\n\r\n.add-time-log-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-time-log-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n\r\n.add-time-log-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-relation-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n.one-work-task-detail-relations-block {}\r\n\r\n.one-work-task-detail-relations-block .one-relation {}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/OneWorkTaskDetail/OneWorkTaskDetail.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,sBAAsB;IACtB,4CAA4C;IAC5C,oCAAoC;IACpC,gBAAgB;IAChB,WAAW;AACf;;AAEA;IACI,kBAAkB;;IAElB,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,aAAa;IACb,WAAW;IACX,gBAAgB;IAChB,SAAS;IACT,eAAe;IACf,8BAA8B;AAClC;;;AAGA;IACI,YAAY;IACZ,kBAAkB;IAClB,gBAAgB;IAChB,uBAAuB;IACvB,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,cAAc;IACd,iBAAiB;IACjB,gBAAgB;IAChB,kBAAkB;IAClB,YAAY;IACZ,aAAa;IACb,uBAAuB;IACvB,sBAAsB;IACtB,YAAY;AAChB;;AAEA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,oBAAoB;;IAEpB,eAAe;;AAEnB;;AAEA;IACI,kBAAkB;AACtB;;;AAGA;IACI,yBAAyB;IACzB,eAAe;;AAEnB;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,iBAAiB;IACjB,iBAAiB;IACjB,oBAAoB;IACpB,mBAAmB;AACvB;;AAEA;;IAEI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;IAClB,eAAe;;IAEf,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,uBAAuB;IACvB,8EAA8E;AAClF;;;AAGA;IACI,YAAY;IACZ,aAAa;IACb,SAAS;IACT,yBAAyB;IACzB,kBAAkB;IAClB,kBAAkB;IAClB,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,uBAAuB;AAC3B;;AAEA;IACI,aAAa;IACb,SAAS;IACT,mBAAmB;IACnB,mBAAmB;AACvB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;;IAEI,eAAe;IACf,yBAAyB;AAC7B;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,QAAQ;IACR,iBAAiB;IACjB,gBAAgB;AACpB;;AAEA;IACI,gCAAgC;IAChC,YAAY;IACZ,4BAA4B;IAC5B,2BAA2B;IAC3B,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,uBAAuB;IACvB,YAAY;;AAEhB;;AAEA;IACI,gCAAgC;IAChC,YAAY;IACZ,6BAA6B;IAC7B,2BAA2B;IAC3B,8BAA8B;IAC9B,WAAW;;AAEf;;;AAGA;;IAEI,yBAAyB;IACzB,YAAY;IACZ,YAAY;IACZ,mBAAmB;IACnB,iBAAiB;IACjB,eAAe;IACf,eAAe;IACf,aAAa;IACb,mBAAmB;IACnB,QAAQ;IACR,iCAAiC;AACrC;;;AAGA;IACI,yBAAyB;AAC7B;;;AAGA;IACI,iBAAiB;IACjB,eAAe;AACnB;;AAEA;IACI,iBAAiB;IACjB,eAAe;AACnB;;AAEA;;IAEI,yBAAyB;IACzB,YAAY;IACZ,YAAY;IACZ,mBAAmB;IACnB,iBAAiB;IACjB,eAAe;IACf,eAAe;IACf,aAAa;IACb,mBAAmB;IACnB,QAAQ;IACR,iCAAiC;AACrC;;;AAGA;IACI,yBAAyB;AAC7B;;AAEA,uCAAuC;;AAEvC,qDAAqD","sourcesContent":[".one-work-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-work-task-detail-comments-block {\r\n    padding-left: 10px;\r\n\r\n    max-width: 610px;\r\n}\r\n\r\n.one-work-task-detail-body {\r\n    display: flex;\r\n    padding: 10px;\r\n    gap: 0.5rem;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.one-work-task-detail-content {\r\n    flex-grow: 2;\r\n    border-radius: 5px;\r\n    max-width: 600px;\r\n    background-color: white;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n    border-radius: 5px;\r\n    width: 300px;\r\n    display: flex;\r\n    background-color: white;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-name-full {\r\n    padding-left: 30px;\r\n    padding-right: 15px;\r\n    padding-bottom: 15px;\r\n\r\n    font-size: 25px;\r\n\r\n}\r\n\r\n.one-work-task-detail-name {\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n.one-work-task-detail-name:hover {\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.one-work-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-work-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-header {\r\n    background-color: #fff;\r\n}\r\n\r\n.work-task-detail-description {\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.work-task-detail-description:hover {\r\n    /* background-color: #f5f5f5; */\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-right-content .editable-by-click {\r\n    cursor: pointer;\r\n}\r\n\r\n.task-comments-add {\r\n    padding-top: 15px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img {\r\n    width: 25px;\r\n    height: 25px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img img {\r\n    /* красит в салатовый */\r\n    filter: brightness(0) saturate(100%) invert(50%) sepia(100%) hue-rotate(30deg);\r\n}\r\n\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn {\r\n    width: 255px;\r\n    display: flex;\r\n    gap: 10px;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 5px;\r\n    padding-left: 10px;\r\n    height: 35px;\r\n    padding-top: 3px;\r\n}\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn:hover {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n}\r\n\r\n.add-time-log-header {\r\n    display: flex;\r\n    gap: 20px;\r\n    align-items: center;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.work-time-block {\r\n    padding: 10px;\r\n}\r\n\r\n.work-time-block .one-work-time-block {\r\n    display: flex;\r\n}\r\n\r\n.add-time-log-show-btn {\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.add-time-log-show-btn:hover {\r\n\r\n    cursor: pointer;\r\n    border: 1px solid #DFE1E6;\r\n}\r\n\r\n.work-time-block-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 3px;\r\n    max-height: 400px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.one-work-time-block .time-block-left {\r\n    border-radius: 10px 0px 0px 10px;\r\n    padding: 3px;\r\n    border-left: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 250px;\r\n}\r\n\r\n.one-work-time-block .time-block-center {\r\n    padding: 3px;\r\n    border: 1px solid black;\r\n    width: 160px;\r\n\r\n}\r\n\r\n.one-work-time-block .time-block-right {\r\n    border-radius: 0px 10px 10px 0px;\r\n    padding: 3px;\r\n    border-right: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 90px;\r\n\r\n}\r\n\r\n\r\n.add-time-log-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-time-log-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n\r\n.add-time-log-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-relation-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n.one-work-task-detail-relations-block {}\r\n\r\n.one-work-task-detail-relations-block .one-relation {}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".one-work-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-work-task-detail-comments-block {\r\n    padding-left: 10px;\r\n\r\n    max-width: 610px;\r\n}\r\n\r\n.one-work-task-detail-body {\r\n    display: flex;\r\n    padding: 10px;\r\n    gap: 0.5rem;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.one-work-task-detail-content {\r\n    flex-grow: 2;\r\n    border-radius: 5px;\r\n    max-width: 600px;\r\n    background-color: white;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n    border-radius: 5px;\r\n    width: 300px;\r\n    display: flex;\r\n    background-color: white;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-name-full {\r\n    padding-left: 30px;\r\n    padding-right: 15px;\r\n    padding-bottom: 15px;\r\n\r\n    font-size: 25px;\r\n\r\n}\r\n\r\n.one-work-task-detail-name {\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n.one-work-task-detail-name:hover {\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.one-work-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-work-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-relations-block .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-header {\r\n    background-color: #fff;\r\n}\r\n\r\n.work-task-detail-description {\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.work-task-detail-description:hover {\r\n    /* background-color: #f5f5f5; */\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-right-content .editable-by-click {\r\n    cursor: pointer;\r\n}\r\n\r\n.task-comments-add {\r\n    padding-top: 15px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img {\r\n    width: 25px;\r\n    height: 25px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img img {\r\n    /* красит в салатовый */\r\n    filter: brightness(0) saturate(100%) invert(50%) sepia(100%) hue-rotate(30deg);\r\n}\r\n\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn {\r\n    width: 255px;\r\n    display: flex;\r\n    gap: 10px;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 5px;\r\n    padding-left: 10px;\r\n    height: 35px;\r\n    padding-top: 3px;\r\n}\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn:hover {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n}\r\n\r\n.add-time-log-header {\r\n    display: flex;\r\n    gap: 20px;\r\n    align-items: center;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.work-time-block {\r\n    padding: 10px;\r\n    background-color: white;\r\n}\r\n\r\n.work-time-block .one-work-time-block {\r\n    display: flex;\r\n}\r\n\r\n.add-time-log-show-btn {\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.add-time-log-show-btn:hover {\r\n\r\n    cursor: pointer;\r\n    border: 1px solid #DFE1E6;\r\n}\r\n\r\n.work-time-block-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 3px;\r\n    max-height: 400px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.one-work-time-block .time-block-left {\r\n    border-radius: 10px 0px 0px 10px;\r\n    padding: 3px;\r\n    border-left: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 250px;\r\n}\r\n\r\n.one-work-time-block .time-block-center {\r\n    padding: 3px;\r\n    border: 1px solid black;\r\n    width: 160px;\r\n\r\n}\r\n\r\n.one-work-time-block .time-block-right {\r\n    border-radius: 0px 10px 10px 0px;\r\n    padding: 3px;\r\n    border-right: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 90px;\r\n\r\n}\r\n\r\n\r\n.add-time-log-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-time-log-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n\r\n.add-time-log-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-relation-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n.one-work-task-detail-relations-block {\r\n    padding: 10px;\r\n    background-color: white;\r\n}\r\n\r\n.one-work-task-detail-relations-block .one-relation {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding-top: 3px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n/* var1 */\r\n/* .one-work-task-detail-block .radio-check-block {\r\n    display: flex;\r\n    gap: 10px;\r\n    padding: 10px;\r\n    border-bottom: 1px solid #e0e0e0;\r\n    background-color: #f8f9fa;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block .button-c {\r\n    padding: 12px 24px;\r\n    cursor: pointer;\r\n    border: none;\r\n    background: transparent;\r\n    color: #666;\r\n    font-weight: 500;\r\n    transition: all 0.3s ease;\r\n    position: relative;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active {\r\n    color: #333;\r\n    background-color: #fff;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active::after {\r\n    content: '';\r\n    position: absolute;\r\n    bottom: -1px;\r\n    left: 0;\r\n    right: 0;\r\n    height: 2px;\r\n    background-color: #333;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div:hover:not(.active) {\r\n    background-color: #f0f0f0;\r\n    color: #333;\r\n} */\r\n\r\n\r\n\r\n\r\n\r\n\r\n/* var2 */\r\n\r\n.one-work-task-detail-block .radio-check-block {\r\n    display: flex;\r\n    background-color: #f5f5f5;\r\n    border-radius: 8px 8px 0 0;\r\n    padding: 4px;\r\n    gap: 2px;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div {\r\n    padding: 12px 24px;\r\n    cursor: pointer;\r\n    border: none;\r\n    background: transparent;\r\n    color: #757575;\r\n    font-weight: 500;\r\n    transition: all 0.3s ease;\r\n    border-radius: 6px 6px 0 0;\r\n    position: relative;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active {\r\n    color: #424242;\r\n    background-color: #fff;\r\n    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);\r\n}\r\n\r\n/* .radio-check-block div.active::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: -4px;\r\n    left: -2px;\r\n    right: -2px;\r\n    height: 4px;\r\n    background-color: #fff;\r\n    border-radius: 4px 4px 0 0;\r\n} */\r\n\r\n.one-work-task-detail-block .radio-check-block div:hover:not(.active) {\r\n    background-color: #eeeeee;\r\n    color: #424242;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/OneWorkTaskDetail/OneWorkTaskDetail.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,sBAAsB;IACtB,4CAA4C;IAC5C,oCAAoC;IACpC,gBAAgB;IAChB,WAAW;AACf;;AAEA;IACI,kBAAkB;;IAElB,gBAAgB;AACpB;;AAEA;IACI,aAAa;IACb,aAAa;IACb,WAAW;IACX,gBAAgB;IAChB,SAAS;IACT,eAAe;IACf,8BAA8B;AAClC;;;AAGA;IACI,YAAY;IACZ,kBAAkB;IAClB,gBAAgB;IAChB,uBAAuB;IACvB,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,cAAc;IACd,iBAAiB;IACjB,gBAAgB;IAChB,kBAAkB;IAClB,YAAY;IACZ,aAAa;IACb,uBAAuB;IACvB,sBAAsB;IACtB,YAAY;AAChB;;AAEA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,oBAAoB;;IAEpB,eAAe;;AAEnB;;AAEA;IACI,kBAAkB;AACtB;;;AAGA;IACI,yBAAyB;IACzB,eAAe;;AAEnB;;AAEA;IACI,aAAa;IACb,YAAY;IACZ,iBAAiB;IACjB,iBAAiB;IACjB,oBAAoB;IACpB,mBAAmB;AACvB;;AAEA;;IAEI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;;IAEI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;IAClB,eAAe;;IAEf,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,+BAA+B;IAC/B,yBAAyB;IACzB,eAAe;AACnB;;AAEA;IACI,eAAe;AACnB;;AAEA;IACI,iBAAiB;AACrB;;AAEA;IACI,WAAW;IACX,YAAY;AAChB;;AAEA;IACI,uBAAuB;IACvB,8EAA8E;AAClF;;;AAGA;IACI,YAAY;IACZ,aAAa;IACb,SAAS;IACT,yBAAyB;IACzB,kBAAkB;IAClB,kBAAkB;IAClB,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,uBAAuB;AAC3B;;AAEA;IACI,aAAa;IACb,SAAS;IACT,mBAAmB;IACnB,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,uBAAuB;AAC3B;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;;IAEI,eAAe;IACf,yBAAyB;AAC7B;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,QAAQ;IACR,iBAAiB;IACjB,gBAAgB;AACpB;;AAEA;IACI,gCAAgC;IAChC,YAAY;IACZ,4BAA4B;IAC5B,2BAA2B;IAC3B,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,uBAAuB;IACvB,YAAY;;AAEhB;;AAEA;IACI,gCAAgC;IAChC,YAAY;IACZ,6BAA6B;IAC7B,2BAA2B;IAC3B,8BAA8B;IAC9B,WAAW;;AAEf;;;AAGA;;IAEI,yBAAyB;IACzB,YAAY;IACZ,YAAY;IACZ,mBAAmB;IACnB,iBAAiB;IACjB,eAAe;IACf,eAAe;IACf,aAAa;IACb,mBAAmB;IACnB,QAAQ;IACR,iCAAiC;AACrC;;;AAGA;IACI,yBAAyB;AAC7B;;;AAGA;IACI,iBAAiB;IACjB,eAAe;AACnB;;AAEA;IACI,iBAAiB;IACjB,eAAe;AACnB;;AAEA;;IAEI,yBAAyB;IACzB,YAAY;IACZ,YAAY;IACZ,mBAAmB;IACnB,iBAAiB;IACjB,eAAe;IACf,eAAe;IACf,aAAa;IACb,mBAAmB;IACnB,QAAQ;IACR,iCAAiC;AACrC;;;AAGA;IACI,yBAAyB;AAC7B;;AAEA;IACI,aAAa;IACb,uBAAuB;AAC3B;;AAEA;;IAEI,aAAa;IACb,8BAA8B;IAC9B,gBAAgB;AACpB;;;;;;AAMA,SAAS;AACT;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GAqCG;;;;;;;AAOH,SAAS;;AAET;IACI,aAAa;IACb,yBAAyB;IACzB,0BAA0B;IAC1B,YAAY;IACZ,QAAQ;AACZ;;AAEA;IACI,kBAAkB;IAClB,eAAe;IACf,YAAY;IACZ,uBAAuB;IACvB,cAAc;IACd,gBAAgB;IAChB,yBAAyB;IACzB,0BAA0B;IAC1B,kBAAkB;AACtB;;AAEA;IACI,cAAc;IACd,sBAAsB;IACtB,sCAAsC;AAC1C;;AAEA;;;;;;;;;GASG;;AAEH;IACI,yBAAyB;IACzB,cAAc;AAClB","sourcesContent":[".one-work-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-work-task-detail-comments-block {\r\n    padding-left: 10px;\r\n\r\n    max-width: 610px;\r\n}\r\n\r\n.one-work-task-detail-body {\r\n    display: flex;\r\n    padding: 10px;\r\n    gap: 0.5rem;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.one-work-task-detail-content {\r\n    flex-grow: 2;\r\n    border-radius: 5px;\r\n    max-width: 600px;\r\n    background-color: white;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n    border-radius: 5px;\r\n    width: 300px;\r\n    display: flex;\r\n    background-color: white;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-name-full {\r\n    padding-left: 30px;\r\n    padding-right: 15px;\r\n    padding-bottom: 15px;\r\n\r\n    font-size: 25px;\r\n\r\n}\r\n\r\n.one-work-task-detail-name {\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n.one-work-task-detail-name:hover {\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.one-work-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-work-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-relations-block .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-header {\r\n    background-color: #fff;\r\n}\r\n\r\n.work-task-detail-description {\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.work-task-detail-description:hover {\r\n    /* background-color: #f5f5f5; */\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-right-content .editable-by-click {\r\n    cursor: pointer;\r\n}\r\n\r\n.task-comments-add {\r\n    padding-top: 15px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img {\r\n    width: 25px;\r\n    height: 25px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img img {\r\n    /* красит в салатовый */\r\n    filter: brightness(0) saturate(100%) invert(50%) sepia(100%) hue-rotate(30deg);\r\n}\r\n\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn {\r\n    width: 255px;\r\n    display: flex;\r\n    gap: 10px;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 5px;\r\n    padding-left: 10px;\r\n    height: 35px;\r\n    padding-top: 3px;\r\n}\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn:hover {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n}\r\n\r\n.add-time-log-header {\r\n    display: flex;\r\n    gap: 20px;\r\n    align-items: center;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.work-time-block {\r\n    padding: 10px;\r\n    background-color: white;\r\n}\r\n\r\n.work-time-block .one-work-time-block {\r\n    display: flex;\r\n}\r\n\r\n.add-time-log-show-btn {\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.add-time-log-show-btn:hover {\r\n\r\n    cursor: pointer;\r\n    border: 1px solid #DFE1E6;\r\n}\r\n\r\n.work-time-block-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 3px;\r\n    max-height: 400px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.one-work-time-block .time-block-left {\r\n    border-radius: 10px 0px 0px 10px;\r\n    padding: 3px;\r\n    border-left: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 250px;\r\n}\r\n\r\n.one-work-time-block .time-block-center {\r\n    padding: 3px;\r\n    border: 1px solid black;\r\n    width: 160px;\r\n\r\n}\r\n\r\n.one-work-time-block .time-block-right {\r\n    border-radius: 0px 10px 10px 0px;\r\n    padding: 3px;\r\n    border-right: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 90px;\r\n\r\n}\r\n\r\n\r\n.add-time-log-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-time-log-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n\r\n.add-time-log-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-relation-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n.one-work-task-detail-relations-block {\r\n    padding: 10px;\r\n    background-color: white;\r\n}\r\n\r\n.one-work-task-detail-relations-block .one-relation {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding-top: 3px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n/* var1 */\r\n/* .one-work-task-detail-block .radio-check-block {\r\n    display: flex;\r\n    gap: 10px;\r\n    padding: 10px;\r\n    border-bottom: 1px solid #e0e0e0;\r\n    background-color: #f8f9fa;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block .button-c {\r\n    padding: 12px 24px;\r\n    cursor: pointer;\r\n    border: none;\r\n    background: transparent;\r\n    color: #666;\r\n    font-weight: 500;\r\n    transition: all 0.3s ease;\r\n    position: relative;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active {\r\n    color: #333;\r\n    background-color: #fff;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active::after {\r\n    content: '';\r\n    position: absolute;\r\n    bottom: -1px;\r\n    left: 0;\r\n    right: 0;\r\n    height: 2px;\r\n    background-color: #333;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div:hover:not(.active) {\r\n    background-color: #f0f0f0;\r\n    color: #333;\r\n} */\r\n\r\n\r\n\r\n\r\n\r\n\r\n/* var2 */\r\n\r\n.one-work-task-detail-block .radio-check-block {\r\n    display: flex;\r\n    background-color: #f5f5f5;\r\n    border-radius: 8px 8px 0 0;\r\n    padding: 4px;\r\n    gap: 2px;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div {\r\n    padding: 12px 24px;\r\n    cursor: pointer;\r\n    border: none;\r\n    background: transparent;\r\n    color: #757575;\r\n    font-weight: 500;\r\n    transition: all 0.3s ease;\r\n    border-radius: 6px 6px 0 0;\r\n    position: relative;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active {\r\n    color: #424242;\r\n    background-color: #fff;\r\n    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);\r\n}\r\n\r\n/* .radio-check-block div.active::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: -4px;\r\n    left: -2px;\r\n    right: -2px;\r\n    height: 4px;\r\n    background-color: #fff;\r\n    border-radius: 4px 4px 0 0;\r\n} */\r\n\r\n.one-work-task-detail-block .radio-check-block div:hover:not(.active) {\r\n    background-color: #eeeeee;\r\n    color: #424242;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -71898,7 +71898,8 @@ const AddTaskRelation = (props) => {
             react_1.default.createElement("option", { value: TaskRelation_1.TaskRelationType.SubTask }, "\u0413\u043B\u0430\u0432\u043D\u0430\u044F \u0434\u043B\u044F"),
             react_1.default.createElement("option", { value: TaskRelation_1.TaskRelationType.Link }, "\u0421\u0432\u044F\u0437\u0430\u043D\u0430 \u0441")),
         react_1.default.createElement("span", null, "\u0417\u0430\u0434\u0430\u0447\u0430"),
-        react_1.default.createElement("input", { className: 'form-input-v2', type: 'number', onChange: (e) => setSubTaskId(+e.target.value), placeholder: '\u0417\u0430\u0434\u0430\u0447\u0430', value: subTaskId }));
+        react_1.default.createElement("input", { className: 'form-input-v2', type: 'number', onChange: (e) => setSubTaskId(+e.target.value), placeholder: '\u0417\u0430\u0434\u0430\u0447\u0430', value: subTaskId }),
+        react_1.default.createElement("button", { className: 'btn-b btn-border create-new-task-btn', onClick: () => props.Create(mainTaskId, subTaskId, type) }, "\u0421\u0432\u044F\u0437\u0430\u0442\u044C"));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, AddTaskRelationSetup_1.default)(AddTaskRelation);
@@ -73028,7 +73029,7 @@ const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/R
 const AddTaskRelation_1 = __importDefault(__webpack_require__(/*! ../AddTaskRelation/AddTaskRelation */ "./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelation.tsx"));
 __webpack_require__(/*! ./OneWorkTaskDetail.css */ "./src/Apps/TaskManagementApp/Components/OneWorkTaskDetail/OneWorkTaskDetail.css");
 const OneWorkTaskDetail = (props) => {
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
     const [taskDescriptionEditable, setTaskDescriptionEditable] = (0, react_1.useState)(false);
     const [taskNewCommentEditable, setTaskNewCommentEditable] = (0, react_1.useState)(false);
     const [taskNameEditable, setTaskNameEditable] = (0, react_1.useState)(false);
@@ -73038,14 +73039,21 @@ const OneWorkTaskDetail = (props) => {
     const [taskExecutorEditable, setTaskExecutorEditable] = (0, react_1.useState)(false);
     const [showAddWorkTimeNew, setShowAddWorkTimeNew] = (0, react_1.useState)(false);
     const [showAddRelationNew, setShowAddRelationNew] = (0, react_1.useState)(false);
-    const [showAddWorkTimeBlock, setShowAddWorkTimeBlock] = (0, react_1.useState)(false);
+    // const [showAddWorkTimeBlock, setShowAddWorkTimeBlock] = useState(false);
+    const [radioContentTypeShown, setRadioContentTypeShown] = (0, react_1.useState)(0); //1-списания, 2 подзадачи
     const navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(() => {
         var _a;
-        if (((_a = props.Task) === null || _a === void 0 ? void 0 : _a.Id) && showAddWorkTimeBlock) {
+        if (((_a = props.Task) === null || _a === void 0 ? void 0 : _a.Id) && radioContentTypeShown == 1) {
             props.LoadTaskTimeLogs(props.Task.Id);
         }
-    }, [(_a = props.Task) === null || _a === void 0 ? void 0 : _a.Id, showAddWorkTimeBlock]);
+    }, [(_a = props.Task) === null || _a === void 0 ? void 0 : _a.Id, radioContentTypeShown]);
+    (0, react_1.useEffect)(() => {
+        var _a;
+        if (((_a = props.Task) === null || _a === void 0 ? void 0 : _a.Id) && radioContentTypeShown == 2) {
+            props.LoadTaskRelations(props.Task.Id);
+        }
+    }, [(_b = props.Task) === null || _b === void 0 ? void 0 : _b.Id, radioContentTypeShown]);
     (0, react_1.useEffect)(() => {
         return function cleanUp() {
             props.ClearCurrentTaskState();
@@ -73054,29 +73062,29 @@ const OneWorkTaskDetail = (props) => {
     (0, react_1.useEffect)(() => {
         // setTaskName(props.Task?.Name || '');
         setTaskNameEditable(false);
-    }, [(_b = props.Task) === null || _b === void 0 ? void 0 : _b.Name]);
+    }, [(_c = props.Task) === null || _c === void 0 ? void 0 : _c.Name]);
     (0, react_1.useEffect)(() => {
         // setTaskName(props.Task?.Name || '');
         setTaskSprintEditable(false);
-    }, [(_c = props.Task) === null || _c === void 0 ? void 0 : _c.SprintId]);
+    }, [(_d = props.Task) === null || _d === void 0 ? void 0 : _d.SprintId]);
     (0, react_1.useEffect)(() => {
         // setTaskName(props.Task?.Name || '');
         setTaskLabelEditable(false);
-    }, [(_d = props.Task) === null || _d === void 0 ? void 0 : _d.LabelId]);
+    }, [(_e = props.Task) === null || _e === void 0 ? void 0 : _e.LabelId]);
     (0, react_1.useEffect)(() => {
         // setTaskDescription(props.Task?.Description || '');
         setTaskDescriptionEditable(false);
-    }, [(_e = props.Task) === null || _e === void 0 ? void 0 : _e.Description]);
+    }, [(_f = props.Task) === null || _f === void 0 ? void 0 : _f.Description]);
     (0, react_1.useEffect)(() => {
         // setTaskStatus(props.Task?.StatusId || -1);
         setTaskStatusEditable(false);
-    }, [(_f = props.Task) === null || _f === void 0 ? void 0 : _f.StatusId]);
+    }, [(_g = props.Task) === null || _g === void 0 ? void 0 : _g.StatusId]);
     (0, react_1.useEffect)(() => {
         setTaskExecutorEditable(false);
-    }, [(_g = props.Task) === null || _g === void 0 ? void 0 : _g.ExecutorId]);
+    }, [(_h = props.Task) === null || _h === void 0 ? void 0 : _h.ExecutorId]);
     (0, react_1.useEffect)(() => {
         setTaskNewCommentEditable(false);
-    }, [(_j = (_h = props.Task) === null || _h === void 0 ? void 0 : _h.Comments) === null || _j === void 0 ? void 0 : _j.length]);
+    }, [(_k = (_j = props.Task) === null || _j === void 0 ? void 0 : _j.Comments) === null || _k === void 0 ? void 0 : _k.length]);
     const deleteTask = () => {
         if (!confirm('Удалить задачу?')) {
             return;
@@ -73085,8 +73093,10 @@ const OneWorkTaskDetail = (props) => {
     };
     const copyTask = () => __awaiter(void 0, void 0, void 0, function* () {
         let newTaskId = yield props.CopyTask(props.Task.Id);
-        const taskUrl = new RouteBuilder_1.default().TaskUrl(props.CurrentProjectId, newTaskId);
-        navigate(taskUrl);
+        if (newTaskId) {
+            const taskUrl = new RouteBuilder_1.default().TaskUrl(props.CurrentProjectId, newTaskId);
+            navigate(taskUrl);
+        }
     });
     const addComment = (val) => {
         props.AddComment(props.Task.Id, val);
@@ -73105,12 +73115,11 @@ const OneWorkTaskDetail = (props) => {
         return react_1.default.createElement("div", { className: 'work-time-block' },
             showAddWorkTimeNew ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowAddWorkTimeNew(false), IsHeightWindow: false, Title: '\u0420\u0430\u0431\u043E\u0442\u0430', InnerContent: () => react_1.default.createElement(AddWorkTimeLog_1.default, { Close: () => setShowAddWorkTimeNew(false), TaskId: props.Task.Id, DefaultDate: null, CreateTimeLog: props.CreateTimeLog }) }) : react_1.default.createElement(react_1.default.Fragment, null),
             react_1.default.createElement("div", { className: 'add-time-log-header' },
-                react_1.default.createElement("div", { className: 'add-time-log-show-btn', onClick: () => setShowAddWorkTimeBlock(!showAddWorkTimeBlock) }, "\u0421\u043F\u0438\u0441\u0430\u043D\u0438\u044F:"),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("button", { className: 'add-time-log-btn', onClick: () => setShowAddWorkTimeNew(true) },
                         react_1.default.createElement("span", { className: 'add-time-log-plus-icon' }, "+"),
                         react_1.default.createElement("span", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043F\u0438\u0441\u0430\u043D\u0438\u0435")))),
-            showAddWorkTimeBlock && react_1.default.createElement("div", { className: 'work-time-block-list' }, props.Task.TimeLogs.map(x => {
+            react_1.default.createElement("div", { className: 'work-time-block-list' }, props.Task.TimeLogs.map(x => {
                 var _a;
                 return react_1.default.createElement("div", { key: x.Id, className: 'one-work-time-block' },
                     react_1.default.createElement("div", { className: 'time-block-left' }, ((_a = props.ProjectUsers.find(u => u.Id === x.ProjectUserId)) === null || _a === void 0 ? void 0 : _a.Email) || ''),
@@ -73158,7 +73167,6 @@ const OneWorkTaskDetail = (props) => {
     const renderRelations = () => {
         return react_1.default.createElement("div", { className: 'one-work-task-detail-relations-block' },
             showAddRelationNew ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowAddRelationNew(false), IsHeightWindow: false, Title: '\u0421\u0432\u044F\u0437\u044C', InnerContent: () => react_1.default.createElement(AddTaskRelation_1.default, { Close: () => setShowAddRelationNew(false), TaskId: props.Task.Id }) }) : react_1.default.createElement(react_1.default.Fragment, null),
-            react_1.default.createElement("p", null, "\u0417\u0430\u0432\u0438\u0441\u0438\u043C\u043E\u0441\u0442\u0438"),
             react_1.default.createElement("div", null,
                 react_1.default.createElement("button", { className: 'add-relation-btn', onClick: () => setShowAddRelationNew(true) },
                     react_1.default.createElement("span", { className: 'add-relation-plus-icon' }, "+"),
@@ -73170,7 +73178,7 @@ const OneWorkTaskDetail = (props) => {
                             e.preventDefault();
                             navigate(taskUrl);
                         } }, GetRelationWord(x)),
-                    react_1.default.createElement("div", { className: 'task-button', onClick: () => deleteTask() },
+                    react_1.default.createElement("div", { className: 'task-button', onClick: () => props.DeleteTaskRelation(x.Id) },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: "Delete", title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0421\u0432\u044F\u0437\u044C' })));
             }));
     };
@@ -73217,7 +73225,7 @@ const OneWorkTaskDetail = (props) => {
             react_1.default.createElement("div", { className: 'one-work-task-detail-right-content' },
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", { onClick: () => setTaskStatusEditable(true), className: 'editable-by-click' }, "\u0421\u0442\u0430\u0442\u0443\u0441: "),
-                    !taskStatusEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskStatusEditable(true) }, ((_k = props.Statuses.find(x => x.Id == props.Task.StatusId)) === null || _k === void 0 ? void 0 : _k.Name) || '')
+                    !taskStatusEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskStatusEditable(true) }, ((_l = props.Statuses.find(x => x.Id == props.Task.StatusId)) === null || _l === void 0 ? void 0 : _l.Name) || '')
                         :
                             react_1.default.createElement(SaveCancelInputSelect_1.default, { CancelEvent: () => setTaskStatusEditable(false), SaveEvent: (id) => {
                                     props.UpdateTaskStatus(props.Task.Id, id);
@@ -73227,7 +73235,7 @@ const OneWorkTaskDetail = (props) => {
                                 }) })),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", { onClick: () => setTaskExecutorEditable(true), className: 'editable-by-click' }, "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C: "),
-                    !taskExecutorEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskExecutorEditable(true) }, ((_l = executorList.find(x => x.Id == props.Task.ExecutorId)) === null || _l === void 0 ? void 0 : _l.Name) || '')
+                    !taskExecutorEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskExecutorEditable(true) }, ((_m = executorList.find(x => x.Id == props.Task.ExecutorId)) === null || _m === void 0 ? void 0 : _m.Name) || '')
                         :
                             react_1.default.createElement(SaveCancelInputSelect_1.default, { CancelEvent: () => setTaskExecutorEditable(false), SaveEvent: (id) => {
                                     if (!id || id == -1) {
@@ -73245,8 +73253,8 @@ const OneWorkTaskDetail = (props) => {
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", null,
                         "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C: ",
-                        ((_m = creatorsList
-                            .find(x => x.Id == props.Task.CreatorId)) === null || _m === void 0 ? void 0 : _m.Name) || '')),
+                        ((_o = creatorsList
+                            .find(x => x.Id == props.Task.CreatorId)) === null || _o === void 0 ? void 0 : _o.Name) || '')),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("p", null,
                         "\u0414\u0430\u0442\u0430 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F: ",
@@ -73277,8 +73285,11 @@ const OneWorkTaskDetail = (props) => {
                                     return { Id: x.Id, Text: x.Name };
                                 }) })))),
         react_1.default.createElement("div", null,
-            renderTime(),
-            renderRelations()),
+            react_1.default.createElement("div", { className: 'radio-check-block' },
+                react_1.default.createElement("div", { className: `button-c ${radioContentTypeShown === 1 ? 'active' : ''}`, onClick: () => setRadioContentTypeShown(1) }, "\u0421\u043F\u0438\u0441\u0430\u043D\u0438\u044F"),
+                react_1.default.createElement("div", { className: `button-c ${radioContentTypeShown === 2 ? 'active' : ''}`, onClick: () => setRadioContentTypeShown(2) }, "\u0421\u0432\u044F\u0437\u0438")),
+            radioContentTypeShown == 1 && renderTime(),
+            radioContentTypeShown == 2 && renderRelations()),
         renderComments());
 };
 // and that function returns the connected, wrapper component:
@@ -73322,6 +73333,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     res.DeleteTask = (taskId) => {
         dispatch(window.G_TaskManagementTaskController.DeleteTaskRedux(taskId));
     };
+    res.DeleteTaskRelation = (relationId) => {
+        window.G_TaskManagementTaskController.DeleteTaskRelationRedux(relationId, dispatch);
+    };
     res.CopyTask = (taskId) => __awaiter(void 0, void 0, void 0, function* () {
         return yield window.G_TaskManagementTaskController.CopyTaskUI(taskId);
     });
@@ -73363,6 +73377,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
     res.LoadTaskTimeLogs = (id) => {
         dispatch(window.G_TaskManagementWorkTimeController.LoadTimeLogsForTaskRedux(id));
+    };
+    res.LoadTaskRelations = (id) => {
+        window.G_TaskManagementTaskController.LoadRelationsForTaskRedux(id, dispatch);
     };
     res.CreateTimeLog = (taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog) => {
         dispatch(window.G_TaskManagementWorkTimeController.CreateTimeLogRedux(taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog));
@@ -75535,7 +75552,7 @@ exports.UpdateTaskSprintActionCreator = UpdateTaskSprintActionCreator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.UpdateTaskExecutorActionCreator = exports.UpdateTaskExecutorActionName = exports.UpdateTaskExecutorActionParam = exports.UpdateTaskStatusActionCreator = exports.UpdateTaskStatusActionName = exports.UpdateTaskStatusActionParam = exports.UpdateTaskDescriptionActionCreator = exports.UpdateTaskDescriptionActionName = exports.UpdateTaskDescriptionActionParam = exports.UpdateTaskNameActionCreator = exports.UpdateTaskNameActionName = exports.UpdateTaskNameActionParam = exports.DeleteTaskRelationStateActionCreator = exports.DeleteTaskRelationStateActionName = exports.AddTaskRelationStateActionCreator = exports.AddTaskRelationStateActionName = exports.ClearCurrentTaskStateActionCreator = exports.ClearCurrentTaskStateActionName = exports.LoadTaskActionCreator = exports.LoadTaskActionName = exports.SetCurrentTaskIdActionCreator = exports.SetCurrentTaskIdActionName = exports.SetFilterTaskActionCreator = exports.SetFilterTaskActionName = exports.SetFilterTaskLabelActionCreator = exports.SetFilterTaskLabelActionName = exports.SetFilterTaskSprintActionCreator = exports.SetFilterTaskSprintActionName = exports.SetFilterTaskStatusActionCreator = exports.SetFilterTaskStatusActionName = exports.SetFilterTaskPageActionCreator = exports.SetFilterTaskPageActionName = exports.SetFilterTaskNameActionCreator = exports.SetFilterTaskNameActionName = exports.SetFilterTaskExecutorActionCreator = exports.SetFilterTaskExecutorActionName = exports.SetFilterTaskCreatorActionCreator = exports.SetFilterTaskCreatorActionName = exports.DeleteTaskActionCreator = exports.DeleteTaskActionName = exports.LoadTasksActionCreator = exports.LoadTasksActionName = exports.UpdateTaskActionCreator = exports.UpdateTaskActionName = exports.AddLoadTriggerActionCreator = exports.AddLoadTriggerActionName = exports.AddTaskToProjectActionCreator = exports.AddTaskToProjectActionName = void 0;
+exports.UpdateTaskExecutorActionCreator = exports.UpdateTaskExecutorActionName = exports.UpdateTaskExecutorActionParam = exports.UpdateTaskStatusActionCreator = exports.UpdateTaskStatusActionName = exports.UpdateTaskStatusActionParam = exports.UpdateTaskDescriptionActionCreator = exports.UpdateTaskDescriptionActionName = exports.UpdateTaskDescriptionActionParam = exports.UpdateTaskNameActionCreator = exports.UpdateTaskNameActionName = exports.UpdateTaskNameActionParam = exports.LoadTaskRelationStateActionCreator = exports.LoadTaskRelationStateActionName = exports.DeleteTaskRelationStateActionCreator = exports.DeleteTaskRelationStateActionName = exports.AddTaskRelationStateActionCreator = exports.AddTaskRelationStateActionName = exports.ClearCurrentTaskStateActionCreator = exports.ClearCurrentTaskStateActionName = exports.LoadTaskActionCreator = exports.LoadTaskActionName = exports.SetCurrentTaskIdActionCreator = exports.SetCurrentTaskIdActionName = exports.SetFilterTaskActionCreator = exports.SetFilterTaskActionName = exports.SetFilterTaskLabelActionCreator = exports.SetFilterTaskLabelActionName = exports.SetFilterTaskSprintActionCreator = exports.SetFilterTaskSprintActionName = exports.SetFilterTaskStatusActionCreator = exports.SetFilterTaskStatusActionName = exports.SetFilterTaskPageActionCreator = exports.SetFilterTaskPageActionName = exports.SetFilterTaskNameActionCreator = exports.SetFilterTaskNameActionName = exports.SetFilterTaskExecutorActionCreator = exports.SetFilterTaskExecutorActionName = exports.SetFilterTaskCreatorActionCreator = exports.SetFilterTaskCreatorActionName = exports.DeleteTaskActionCreator = exports.DeleteTaskActionName = exports.LoadTasksActionCreator = exports.LoadTasksActionName = exports.UpdateTaskActionCreator = exports.UpdateTaskActionName = exports.AddLoadTriggerActionCreator = exports.AddLoadTriggerActionName = exports.AddTaskToProjectActionCreator = exports.AddTaskToProjectActionName = void 0;
 exports.AddTaskToProjectActionName = 'AddTaskToProjectAction';
 function AddTaskToProjectActionCreator(data) {
     return { type: exports.AddTaskToProjectActionName, payload: data };
@@ -75647,6 +75664,12 @@ function DeleteTaskRelationStateActionCreator(id) {
     return { type: exports.DeleteTaskRelationStateActionName, payload: id };
 }
 exports.DeleteTaskRelationStateActionCreator = DeleteTaskRelationStateActionCreator;
+;
+exports.LoadTaskRelationStateActionName = 'LoadTaskRelationStateAction';
+function LoadTaskRelationStateActionCreator(data) {
+    return { type: exports.LoadTaskRelationStateActionName, payload: data };
+}
+exports.LoadTaskRelationStateActionCreator = LoadTaskRelationStateActionCreator;
 ;
 class UpdateTaskNameActionParam {
 }
@@ -75965,7 +75988,7 @@ exports["default"] = RouteBuilder;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.TaskManagementApiWorkTimeUrl = exports.TaskManagementApiUserUrl = exports.TaskManagementApiStatusUrl = exports.TaskManagementApiSprintUrl = exports.TaskManagementApiProjectUrl = exports.TaskManagementApiLabelUrl = exports.TaskManagementApiCommentUrl = exports.TaskManagementApiTaskUrl = exports.TaskManagementApiUrl = exports.TaskManagementDeleteTaskRelationUrl = exports.TaskManagementAddTaskRelationUrl = exports.TaskManagementTaskCopyUrl = exports.TaskManagementTaskDeleteUrl = exports.TaskManagementTaskGetUrl = exports.TaskManagementTasksGetUrl = exports.TaskManagementTaskUpdateUrl = exports.TaskManagementTaskAddNewUrl = exports.TaskManagementTaskUpdateExecutorUrl = exports.TaskManagementTaskUpdateStatusUrl = exports.TaskManagementTaskUpdateDescriptionUrl = exports.TaskManagementTaskUpdateNameUrl = exports.TaskManagementWorkTimeLogControllerUrl = exports.TaskManagementUserControllerUrl = exports.TaskManagementStatusControllerUrl = exports.TaskManagementSprintControllerUrl = exports.TaskManagementProjectControllerUrl = exports.TaskManagementLabelControllerUrl = exports.TaskManagementCommentControllerUrl = exports.TaskManagementTaskControllerUrl = exports.TaskManagementAppUrl = exports.TaskManagementApiPrefUrl = exports.TaskManagementTempoRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRute = exports.TaskManagementPreloader = void 0;
+exports.TaskManagementApiWorkTimeUrl = exports.TaskManagementApiUserUrl = exports.TaskManagementApiStatusUrl = exports.TaskManagementApiSprintUrl = exports.TaskManagementApiProjectUrl = exports.TaskManagementApiLabelUrl = exports.TaskManagementApiCommentUrl = exports.TaskManagementApiTaskUrl = exports.TaskManagementApiUrl = exports.TaskManagementGetTaskRelationUrl = exports.TaskManagementDeleteTaskRelationUrl = exports.TaskManagementAddTaskRelationUrl = exports.TaskManagementTaskCopyUrl = exports.TaskManagementTaskDeleteUrl = exports.TaskManagementTaskGetUrl = exports.TaskManagementTasksGetUrl = exports.TaskManagementTaskUpdateUrl = exports.TaskManagementTaskAddNewUrl = exports.TaskManagementTaskUpdateExecutorUrl = exports.TaskManagementTaskUpdateStatusUrl = exports.TaskManagementTaskUpdateDescriptionUrl = exports.TaskManagementTaskUpdateNameUrl = exports.TaskManagementWorkTimeLogControllerUrl = exports.TaskManagementUserControllerUrl = exports.TaskManagementStatusControllerUrl = exports.TaskManagementSprintControllerUrl = exports.TaskManagementProjectControllerUrl = exports.TaskManagementLabelControllerUrl = exports.TaskManagementCommentControllerUrl = exports.TaskManagementTaskControllerUrl = exports.TaskManagementAppUrl = exports.TaskManagementApiPrefUrl = exports.TaskManagementTempoRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRute = exports.TaskManagementPreloader = void 0;
 exports.TaskManagementPreloader = 'task_management_preloader';
 //Routes
 exports.TaskManagementAppRute = 'task-management';
@@ -76002,6 +76025,7 @@ exports.TaskManagementTaskDeleteUrl = 'delete-task';
 exports.TaskManagementTaskCopyUrl = 'copy-project-task';
 exports.TaskManagementAddTaskRelationUrl = 'add-task-relation';
 exports.TaskManagementDeleteTaskRelationUrl = 'delete-task-relation';
+exports.TaskManagementGetTaskRelationUrl = 'task-relations';
 //task
 exports.TaskManagementApiUrl = `${exports.TaskManagementApiPrefUrl}/${exports.TaskManagementAppUrl}`;
 exports.TaskManagementApiTaskUrl = `${exports.TaskManagementApiUrl}/${exports.TaskManagementTaskControllerUrl}`;
@@ -76906,10 +76930,15 @@ const TaskRelation_1 = __webpack_require__(/*! ../Entity/State/TaskRelation */ "
 class TaskManagementTaskController {
     constructor() {
         this.AddTaskRelationRedux = (mainTaskid, subTaskid, type, dispatch) => __awaiter(this, void 0, void 0, function* () {
+            this.preloader(true);
             let res = yield this.AddTaskRelation(mainTaskid, subTaskid, type);
-            var result = new TaskRelation_1.TaskRelation().FillByDataBack(res);
-            dispatch((0, TaskActions_1.AddTaskRelationStateActionCreator)(result));
-            return result;
+            this.preloader(false);
+            if (res) {
+                var result = new TaskRelation_1.TaskRelation().FillByDataBack(res);
+                dispatch((0, TaskActions_1.AddTaskRelationStateActionCreator)(result));
+                return result;
+            }
+            return null;
         });
         this.AddTaskRelation = (mainTaskid, subTaskid, type) => __awaiter(this, void 0, void 0, function* () {
             let data = {
@@ -76922,15 +76951,20 @@ class TaskManagementTaskController {
                 Type: ControllerHelper_1.ControllerHelper.PutHttp,
                 FuncSuccess: (xhr, status, jqXHR) => { },
                 FuncError: (xhr, status, error) => { },
-                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementAddTaskRelationUrl}`
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementAddTaskRelationUrl}`,
+                ContentType: 'body'
             });
-            return backResult;
+            return backResult.Data;
         });
         this.DeleteTaskRelationRedux = (id, dispatch) => __awaiter(this, void 0, void 0, function* () {
+            var _a;
+            this.preloader(true);
             let res = yield this.DeleteTaskRelation(id);
-            if (res.Result)
+            this.preloader(false);
+            if (res === null || res === void 0 ? void 0 : res.Result) {
                 dispatch((0, TaskActions_1.DeleteTaskRelationStateActionCreator)(id));
-            return res.Result;
+            }
+            return (_a = res === null || res === void 0 ? void 0 : res.Result) !== null && _a !== void 0 ? _a : false;
         });
         this.DeleteTaskRelation = (id) => __awaiter(this, void 0, void 0, function* () {
             let data = {
@@ -76943,7 +76977,31 @@ class TaskManagementTaskController {
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementDeleteTaskRelationUrl}`
             });
-            return backResult;
+            return backResult.Data;
+        });
+        this.LoadRelationsForTaskRedux = (id, dispatch) => __awaiter(this, void 0, void 0, function* () {
+            this.preloader(true);
+            let res = yield this.LoadRelationsForTask(id);
+            this.preloader(false);
+            if (res) {
+                var result = res.map(x => new TaskRelation_1.TaskRelation().FillByDataBack(x));
+                dispatch((0, TaskActions_1.LoadTaskRelationStateActionCreator)(result));
+                return result;
+            }
+            return null;
+        });
+        this.LoadRelationsForTask = (id) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "taskId": id
+            };
+            let backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                FuncSuccess: (xhr, status, jqXHR) => { },
+                FuncError: (xhr, status, error) => { },
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementGetTaskRelationUrl}`
+            });
+            return backResult.Data;
         });
         this.UpdateTaskNameRedux = (id, text) => {
             return (dispatch, getState) => {
@@ -77229,7 +77287,7 @@ class TaskManagementTaskController {
             this.preloader(true);
             let backResult = yield this.CopyTaskAsync(id);
             this.preloader(false);
-            return backResult.Id;
+            return backResult === null || backResult === void 0 ? void 0 : backResult.Id;
         });
         this.CopyTaskAsync = (id) => __awaiter(this, void 0, void 0, function* () {
             let data = {
@@ -77242,7 +77300,7 @@ class TaskManagementTaskController {
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskCopyUrl}`
             });
-            return backResult;
+            return backResult.Data;
         });
     }
     mapWithResult(onSuccess) {
@@ -79003,6 +79061,17 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 var tasks = helper.GetAllTaskFromState(newState);
                 tasks.forEach(tsk => {
                     tsk.Relations = tsk.Relations.filter(x => x.Id != payload);
+                });
+                return newState;
+            }
+        case TaskActions_1.LoadTaskRelationStateActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                let helper = new Helper_1.Helper();
+                var tasks = helper.GetAllTaskFromState(newState);
+                tasks.forEach(tsk => {
+                    tsk.Relations = payload;
                 });
                 return newState;
             }
@@ -83439,7 +83508,7 @@ class FetchHelper {
                 obj.FuncError && obj.FuncError(responseResult, null, null);
                 return { Error: responseResult };
             }
-            return responseResult;
+            // return responseResult;
         });
     }
     TrySend(ajaxObj) {

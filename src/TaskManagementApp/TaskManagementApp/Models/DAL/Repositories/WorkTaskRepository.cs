@@ -98,6 +98,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return (await GetAccessedIQuer(taskId, mainAppUserId).Select(x => x).FirstOrDefaultAsync());
         }
 
+        public async Task<WorkTask> GetAccessRelationsAsync(long taskId, long mainAppUserId)
+        {
+            return (await GetAccessedIQuer(taskId, mainAppUserId)
+                .Include(x => x.MainWorkTasksRelation).Include(x => x.SubWorkTasksRelation).Select(x => x).FirstOrDefaultAsync());
+        }
+
         private IQueryable<WorkTask> GetAccessedIQuer(long taskId, long mainAppUserId)
         {
             return _db.TaskManagementTasks.AsNoTracking().Include(x => x.Project).ThenInclude(x => x.Users)
@@ -121,6 +127,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         {
             return await _db.TaskManagementTasks.AsNoTracking()
                 .Include(x => x.Comments).Include(x => x.Sprints).Include(x => x.Labels)
+                //.Include(x => x.SubWorkTasksRelation).Include(x => x.MainWorkTasksRelation)
                 .FirstOrDefaultAsync(x => x.Id == id);
         }
 
@@ -151,6 +158,15 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public async Task<TaskRelation> GetRelationAsync(long relationId)
         {
             return await _db.TaskManagementTaskRelation.Where(x => x.Id == relationId).FirstOrDefaultAsync();
+        }
+
+        public async Task<bool> ExistsRelationAsync(long task1Id, long task2Id)
+        {
+            return await _db.TaskManagementTaskRelation.Where(x =>
+            (x.MainWorkTaskId == task1Id && x.SubWorkTaskId == task2Id)
+            || (x.MainWorkTaskId == task2Id && x.SubWorkTaskId == task1Id)
+            ).AnyAsync();
+
         }
     }
 }
