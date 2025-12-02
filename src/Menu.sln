@@ -39,6 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MenuApp", "MenuApp", "{0ADA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VaultApp", "VaultApp", "{9A1A6A25-631D-47D1-AFF0-59DC6C287C77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementApp.Tests", "TaskManagementApp\TaskManagementApp.Tests\TaskManagementApp.Tests.csproj", "{90EC8903-C2BA-479C-9D0C-02852E4006C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +99,10 @@ Global
 		{ACA8C501-5B28-4EF8-9A86-67E0203F5B3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACA8C501-5B28-4EF8-9A86-67E0203F5B3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACA8C501-5B28-4EF8-9A86-67E0203F5B3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90EC8903-C2BA-479C-9D0C-02852E4006C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90EC8903-C2BA-479C-9D0C-02852E4006C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90EC8903-C2BA-479C-9D0C-02852E4006C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90EC8903-C2BA-479C-9D0C-02852E4006C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,6 +113,7 @@ Global
 		{891D87AA-AAEE-42C3-AAE3-8F14ACFE6374} = {2CD8D0F2-FFC8-4228-8C78-7CC056EE6EDC}
 		{5D352F56-7661-4FB4-BE2A-2A1560448C46} = {9A1A6A25-631D-47D1-AFF0-59DC6C287C77}
 		{ACA8C501-5B28-4EF8-9A86-67E0203F5B3E} = {92A5ADB1-BEB6-413F-9FE0-55244236F218}
+		{90EC8903-C2BA-479C-9D0C-02852E4006C7} = {2CD8D0F2-FFC8-4228-8C78-7CC056EE6EDC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E4869D0-AB6B-458D-AE8D-2DF122FC5521}

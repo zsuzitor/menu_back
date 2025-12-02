@@ -18,11 +18,12 @@ namespace Menu.Models
 {
     public class MainAppInitializer : IStartUpInitializer
     {
-        public async Task ConfigurationInitialize(IServiceProvider services)
+        public async Task<IStartUpInitializer> ConfigurationInitialize(IServiceProvider services)
         {
+            return this;
         }
 
-        public async Task ErrorContainerInitialize(IServiceProvider services)
+        public async Task<IStartUpInitializer> ErrorContainerInitialize(IServiceProvider services)
         {
             var configurationService = services.GetRequiredService<IConfigurationService>();
             await configurationService.AddIfNotExistAsync(ErrorConsts.UserNotFound, "Пользователь не найден", "Main", "Error");
@@ -31,18 +32,20 @@ namespace Menu.Models
             await configurationService.AddIfNotExistAsync(ErrorConsts.NotFound, "Не найдено", "Main", "Error");
             await configurationService.AddIfNotExistAsync(ErrorConsts.HasNoAccess, "Нет доступа", "Main", "Error");
             await configurationService.AddIfNotExistAsync(ErrorConsts.UserAlreadyExist, "Пользователь уже существует", "Main", "Error");
+            return this;
         }
 
-        public void RepositoriesInitialize(IServiceCollection services)
+        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IImageRepository, ImageRepository>();
             services.AddScoped<IGeneralRepositoryStrategy, GeneralRepositoryStrategy>();
             services.AddScoped<INotificationRepository, NotificationRepository>();
             services.AddScoped<IConfigurationRepository, ConfigurationRepository>();
+            return this;
         }
 
-        public void ServicesInitialize(IServiceCollection services)
+        public IStartUpInitializer ServicesInitialize(IServiceCollection services)
         {
             services.AddSingleton<IFileService, PhysicalFileService>();
             services.AddScoped<IErrorService, ErrorService>();
@@ -55,12 +58,14 @@ namespace Menu.Models
             services.AddSingleton<ICoder, AesCoder1>();
             services.AddSingleton<IHasher, Hasher>();
             services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
+            return this;
 
-            
+
         }
 
-        public void WorkersInitialize(IServiceProvider serviceProvider)
+        public IStartUpInitializer WorkersInitialize(IServiceProvider serviceProvider)
         {
+            return this;
         }
     }
 }

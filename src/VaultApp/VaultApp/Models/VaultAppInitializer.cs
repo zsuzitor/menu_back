@@ -17,7 +17,7 @@ namespace VaultApp.Models
 {
     public class VaultAppInitializer : IStartUpInitializer
     {
-        public async Task ErrorContainerInitialize(IServiceProvider services)
+        public async Task<IStartUpInitializer> ErrorContainerInitialize(IServiceProvider services)
         {
             var configurationService = services.GetRequiredService<IConfigurationService>();
             await configurationService.AddIfNotExistAsync(Constants.VaultErrorConstants.VaultNotAllowed, "Vault не найден или нет доступа", "VaultApp", "Error");
@@ -28,33 +28,38 @@ namespace VaultApp.Models
             await configurationService.AddIfNotExistAsync(Constants.VaultErrorConstants.VaultBadAuth, "Vault не авторизован", "VaultApp", "Error");
             await configurationService.AddIfNotExistAsync(Constants.VaultErrorConstants.VaultNameNotValide, "Имя Vault не валидно, только кириллица/латиница/буквы и символ '_'", "VaultApp", "Error");
 
+            return this;
             //
         }
 
-        public void RepositoriesInitialize(IServiceCollection services)
+        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
         {
             services.AddScoped<ISecretRepository, SecretRepository>();
             services.AddScoped<IVaultRepository, VaultRepository>();
+            return this;
         }
 
-        public void ServicesInitialize(IServiceCollection services)
+        public IStartUpInitializer ServicesInitialize(IServiceCollection services)
         {
             services.AddScoped<ISecretService, SecretService>();
             services.AddScoped<IVaultService, VaultService>();
+            return this;
         }
 
 
-        public async Task ConfigurationInitialize(IServiceProvider services)
+        public async Task<IStartUpInitializer> ConfigurationInitialize(IServiceProvider services)
         {
             var configurationService = services.GetRequiredService<IConfigurationService>();
+            return this;
         }
 
-        public void WorkersInitialize(IServiceProvider serviceProvider)
+        public IStartUpInitializer WorkersInitialize(IServiceProvider serviceProvider)
         {
             Expression<Action<ISecretService>> actAlert = prSrv => prSrv.DeleteExpiredSecrets();//.Wait();
             var worker = serviceProvider.GetRequiredService<IWorker>();
             var conf = serviceProvider.GetRequiredService<IConfiguration>();
             worker.Recurring("vault_secrets_clean", conf["VaultApp:NotificationJobCron"], actAlert);
+            return this;
         }
 
     }

@@ -21,24 +21,28 @@ namespace Auth.Models.Auth
             _configuration = configuration;
         }
 
-        public async Task ConfigurationInitialize(IServiceProvider services)
+        public async Task<IStartUpInitializer> ConfigurationInitialize(IServiceProvider services)
         {
             var configurationService = services.GetRequiredService<IConfigurationService>();
             await configurationService.AddIfNotExistAsync(AuthConst.AuthEmailConfigurationsCode.PasswordRestoreEmailSubject, "Восстановление пароля","Main", "configuration");
+
+            return this;
         }
 
-        public async Task ErrorContainerInitialize(IServiceProvider services)
+        public async Task<IStartUpInitializer> ErrorContainerInitialize(IServiceProvider services)
         {
             var configurationService = services.GetRequiredService<IConfigurationService>();
             await configurationService.AddIfNotExistAsync(AuthConst.AuthErrors.ProblemWithRecoverPasswordToken, "Передан неверный токен, попробуйте другой", "Main", "Error");
+            return this;
         }
 
-        public void RepositoriesInitialize(IServiceCollection services)
+        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
         {
+            return this;
 
         }
 
-        public void ServicesInitialize(IServiceCollection services)
+        public IStartUpInitializer ServicesInitialize(IServiceCollection services)
         {
             var settings = new JWTServiceSettings();
             _configuration.GetSection("JwtSettings").Bind(settings);
@@ -63,10 +67,12 @@ namespace Auth.Models.Auth
 
             services.AddScoped<AuthEmailService, AuthEmailService>();
             services.AddScoped<IAuthService, AuthService>();
+            return this;
         }
 
-        public void WorkersInitialize(IServiceProvider serviceProvider)
+        public IStartUpInitializer WorkersInitialize(IServiceProvider serviceProvider)
         {
+            return this;
 
         }
     }

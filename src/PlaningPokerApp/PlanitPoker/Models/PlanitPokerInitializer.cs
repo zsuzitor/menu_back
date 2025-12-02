@@ -15,7 +15,7 @@ namespace PlanitPoker.Models
 {
     public class PlanitPokerInitializer: IStartUpInitializer
     {
-        public async Task ErrorContainerInitialize(IServiceProvider services)
+        public async Task<IStartUpInitializer> ErrorContainerInitialize(IServiceProvider services)
         {
 
             var configurationService = services.GetRequiredService<IConfigurationService>();
@@ -37,34 +37,39 @@ namespace PlanitPoker.Models
             await configurationService.AddIfNotExistAsync(Constants.PlanitPokerErrorConsts.UsernameBad, "Имя пользователя - кириллица/латиница/цифры до 50 символов", "PlaningPoker", "Error");
 
 
+            return this;
         }
 
-        public void RepositoriesInitialize(IServiceCollection services)
+        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
         {
             services.AddScoped<IPlaningUserRepository, PlaningUserRepository>();
             services.AddScoped<IRoomRepository, RoomRepository>();
             services.AddScoped<IStoryRepository, StoryRepository>();
+            return this;
         }
 
-        public void ServicesInitialize(IServiceCollection services)
+        public IStartUpInitializer ServicesInitialize(IServiceCollection services)
         {
             services.AddScoped<IPlanitPokerService, PlanitPokerService>();
 
             services.AddScoped<IPlanitApiHelper, PlanitApiHelper>();
-            
+            return this;
+
         }
 
-        public async Task ConfigurationInitialize(IServiceProvider services)
+        public async Task<IStartUpInitializer> ConfigurationInitialize(IServiceProvider services)
         {
             var configurationService = services.GetRequiredService<IConfigurationService>();
+            return this;
         }
 
-        public void WorkersInitialize(IServiceProvider serviceProvider)
+        public IStartUpInitializer WorkersInitialize(IServiceProvider serviceProvider)
         {
             Expression<Action<IPlanitPokerService>> actAlert = prSrv => prSrv.HandleInRoomsMemoryAsync();//.Wait();
             var worker = serviceProvider.GetRequiredService<IWorker>();
             var conf = serviceProvider.GetRequiredService<IConfiguration>();
             worker.Recurring("planing_poker_clean", conf["PlaningPokerApp:NotificationJobCron"], actAlert);
+            return this;
         }
     }
 }

@@ -15,31 +15,36 @@ namespace MenuApp.Models
 {
     public sealed class MenuAppInitializer : IStartUpInitializer
     {
-        public async Task ErrorContainerInitialize(IServiceProvider services)
+        public async Task<IStartUpInitializer> ErrorContainerInitialize(IServiceProvider services)
         {
+            return this;
 
         }
 
-        public void RepositoriesInitialize(IServiceCollection services)
+        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
         {
             services.AddScoped<IArticleRepository, ArticleRepository>();
+            return this;
 
         }
 
-        public void ServicesInitialize(IServiceCollection services)
+        public IStartUpInitializer ServicesInitialize(IServiceCollection services)
         {
             services.AddScoped<IArticleService, ArticleService>();
+            return this;
 
         }
 
 
-        public async Task ConfigurationInitialize(IServiceProvider services)
+        public async Task<IStartUpInitializer> ConfigurationInitialize(IServiceProvider services)
         {
             var configurationService = services.GetRequiredService<IConfigurationService>();
+            return this;
         }
 
-        public void WorkersInitialize(IServiceProvider serviceProvider)
+        public IStartUpInitializer WorkersInitialize(IServiceProvider serviceProvider)
         {
+            return this;
 
         }
     }

@@ -1,19 +1,14 @@
 ﻿using TaskManagementApp.Models.Services.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using BO.Models.Auth;
 using BO.Models.TaskManagementApp.DAL.Domain;
 using Common.Models.Exceptions;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
-using Menu.Models.Services;
-using TaskManagementApp.Models.DAL.Repositories;
-using Pipelines.Sockets.Unofficial.Arenas;
 
 namespace TaskManagementApp.Models.Services
 {
-    internal class WorkTaskStatusService : IWorkTaskStatusService
+    public class WorkTaskStatusService : IWorkTaskStatusService
     {
 
         private readonly IProjectRepository _projectRepository;

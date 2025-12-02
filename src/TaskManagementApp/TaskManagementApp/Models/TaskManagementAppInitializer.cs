@@ -17,7 +17,7 @@ namespace TaskManagementApp.Models
     {
         //public static IServiceProvider ServiceProvider;
 
-        public async Task ErrorContainerInitialize(IServiceProvider services)
+        public async Task<IStartUpInitializer> ErrorContainerInitialize(IServiceProvider services)
         {
             var configurationService = services.GetRequiredService<IConfigurationService>();
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.BadWorkTaskStatus, "Передан неверный статус задачи", "TaskManagementApp", "Error");
@@ -48,21 +48,12 @@ namespace TaskManagementApp.Models
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.RelationNotFound, "Связь не найдена", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.RelationError, "Ошибка при создании связи", "TaskManagementApp", "Error");
 
-            
 
-
-
-
-
-
-
-
-
-
+            return this;
 
         }
 
-        public void RepositoriesInitialize(IServiceCollection services)
+        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
         {
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<IWorkTaskRepository, WorkTaskRepository>();
@@ -72,11 +63,12 @@ namespace TaskManagementApp.Models
             services.AddScoped<IWorkTimeLogRepository, WorkTimeLogRepository>();
             services.AddScoped<ISprintRepository, SprintRepository>();
             services.AddScoped<IWorkTaskLabelRepository, WorkTaskLabelRepository>();
-            
+
+            return this;
 
         }
 
-        public void ServicesInitialize(IServiceCollection services)
+        public IStartUpInitializer ServicesInitialize(IServiceCollection services)
         {
             services.AddScoped<IProjectService, ProjectService>();
             services.AddScoped<ILabelService, LabelService>();
@@ -88,16 +80,17 @@ namespace TaskManagementApp.Models
             services.AddScoped<ISprintService, SprintService>();
             services.AddScoped<IWorkTaskStatusService, WorkTaskStatusService>();
 
-            
 
 
+
+            return this;
 
 
 
             //services.AddScoped<IProjectService, >();
         }
 
-        public async Task ConfigurationInitialize(IServiceProvider services)
+        public async Task<IStartUpInitializer> ConfigurationInitialize(IServiceProvider services)
         {
             var configurationService = services.GetRequiredService<IConfigurationService>();
             await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.AddedNewCommentInTask, "Добавлен новый комментарий в задачу {{taskName}}, {{taskUrl}}", "TaskManagementApp", "configuration");
@@ -105,10 +98,11 @@ namespace TaskManagementApp.Models
             await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.StatusInTaskWasChanged, "Изменен статус на {{newStatus}} в задаче {{taskName}}, {{taskUrl}}", "TaskManagementApp", "configuration");
             await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.TaskWasChanged, "Задача {{taskName}} была изменена, {{taskUrl}} \nПоля {{changedProp}}", "TaskManagementApp", "configuration");
 
+            return this;
             //
         }
 
-        public void WorkersInitialize(IServiceProvider serviceProvider)
+        public IStartUpInitializer WorkersInitialize(IServiceProvider serviceProvider)
         {
             //BackgroundJob.Schedule<IProjectService>(srv => srv.AlertAsync(), DateTimeOffset.Now.AddSeconds(15));
             //Expression<Action<IProjectService>> actAlert = prSrv => prSrv.AlertAsync();//.Wait();
@@ -117,6 +111,7 @@ namespace TaskManagementApp.Models
             var conf = serviceProvider.GetRequiredService<IConfiguration>();
             worker.Recurring("task_management_alert", conf["TaskManagementApp:NotificationJobCron"], actAlert);
 
+            return this;
 
         }
     }

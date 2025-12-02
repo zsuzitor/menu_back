@@ -11,10 +11,10 @@ namespace Common.Models
 
     public interface IStartUpInitializer
     {
-        Task ErrorContainerInitialize(IServiceProvider services);
-        Task ConfigurationInitialize(IServiceProvider services);
-        void ServicesInitialize(IServiceCollection services);
-        void RepositoriesInitialize(IServiceCollection services);
-        void WorkersInitialize(IServiceProvider serviceProvider);
+        Task<IStartUpInitializer> ErrorContainerInitialize(IServiceProvider services);
+        Task<IStartUpInitializer> ConfigurationInitialize(IServiceProvider services);
+        IStartUpInitializer ServicesInitialize(IServiceCollection services);
+        IStartUpInitializer RepositoriesInitialize(IServiceCollection services);
+        IStartUpInitializer WorkersInitialize(IServiceProvider serviceProvider);
     }
 }
