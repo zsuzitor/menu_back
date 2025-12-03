@@ -99,11 +99,11 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("delete-project")]
         [HttpDelete]
-        public async Task<ActionResult<BoolResultReturn>> DeleteProject([FromForm] long projectId)
+        public async Task<ActionResult<BoolResultNewReturn>> DeleteProject([FromForm] long projectId)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _projectService.DeleteAsync(projectId, userInfo);
-            return new JsonResult(new BoolResultReturn(res), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res), GetJsonOptions());
 
         }
 

@@ -71,12 +71,12 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("delete")]
         [HttpDelete]
-        public async Task<ActionResult<BoolResultReturn>> Delete([FromForm] long id)
+        public async Task<ActionResult<BoolResultNewReturn>> Delete([FromForm] long id)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _workTimeLogService.DeleteAsync(id, userInfo);
 
-            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
         }
 
         [Route("project-time")]

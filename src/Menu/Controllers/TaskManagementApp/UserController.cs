@@ -74,7 +74,7 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("change-user")]
         [HttpPatch]
-        public async Task<ActionResult<BoolResultReturn>> ChangeUser([FromBody] ChangeUserRequest request)
+        public async Task<ActionResult<BoolResultNewReturn>> ChangeUser([FromBody] ChangeUserRequest request)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
@@ -82,16 +82,16 @@ namespace Menu.Controllers.TaskManagementApp
             request.Email = _apiHealper.StringValidator(request.Email);
             var res = await _projectUserService.ChangeAsync(request.UserId, request.Name, request.Email, request.IsAdmin, request.Deactivated, userInfo);
 
-            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
         }
 
         [Route("delete-user")]
         [HttpDelete]
-        public async Task<ActionResult<BoolResultReturn>> DeleteUser([FromForm] long userId)
+        public async Task<ActionResult<BoolResultNewReturn>> DeleteUser([FromForm] long userId)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _projectUserService.DeleteAsync(userId, userInfo);
-            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
 
         }
 

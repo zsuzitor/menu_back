@@ -30,11 +30,7 @@ namespace TaskManagementApp.Tests.Services
         {
             var services = DefaultInit();
 
-            //services.AddScoped<IWorkTaskStatusService, WorkTaskStatusService>();
-            _ = AddMock<IProjectRepository>(services); //new Mock<IProjectRepository>();
-            //services.RemoveAll<IProjectRepository>();
-            //services.AddScoped<IProjectRepository>(_ => projRepo.Object);
-
+            _ = AddMock<IProjectRepository>(services);
 
             var projectId = 10;
             var status = _fixture.Build<WorkTaskStatus>()
@@ -42,15 +38,11 @@ namespace TaskManagementApp.Tests.Services
                 .With(x => x.Project, () => null)
                 .With(x => x.Tasks, () => null)
                 .Create();
-            var statusRepo = AddMock<ITaskStatusRepository>(services);// new Mock<ITaskStatusRepository>();
+            var statusRepo = AddMock<ITaskStatusRepository>(services);
             statusRepo
             .Setup(x => x.GetForProjectAsync(It.IsAny<long>()))
             .ReturnsAsync(new List<WorkTaskStatus> { status });
-            //services.RemoveAll<ITaskStatusRepository>();
-            //services.AddScoped<ITaskStatusRepository>(_ => statusRepo.Object);
-            _ = AddMock<IWorkTaskRepository>(services); //new Mock<IWorkTaskRepository>();
-            //services.RemoveAll<IWorkTaskRepository>();
-            //services.AddScoped<IWorkTaskRepository>(_ => taskRepo.Object);
+            _ = AddMock<IWorkTaskRepository>(services);
             var container = services.BuildServiceProvider();
             var test = container.GetRequiredService<IWorkTaskStatusService>();
 

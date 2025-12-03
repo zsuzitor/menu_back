@@ -138,7 +138,7 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("copy-project-task")]
         [HttpPut]
-        public async Task<ActionResult<WorkTaskReturn>> CopyProjectTask(long id)
+        public async Task<ActionResult<WorkTaskReturn>> CopyProjectTask([FromForm] long id)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var task = await _workTaskService.CopyAsync(id, userInfo);
@@ -161,12 +161,12 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("delete-task-relation")]
         [HttpDelete]
-        public async Task<ActionResult<BoolResultReturn>> DeleteTaskRelation([FromForm] long id)
+        public async Task<ActionResult<BoolResultNewReturn>> DeleteTaskRelation([FromForm] long id)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var relation = await _workTaskService.DeleteRelationAsync(id, userInfo);
             var r = new WorkTaskRelationReturn(relation);
-            return new JsonResult(new BoolResultReturn(r!=null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(r!=null), GetJsonOptions());
 
         }
 
@@ -190,7 +190,7 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("update-task")]
         [HttpPatch]
-        public async Task<ActionResult<BoolResultReturn>> UpdateTask(UpdateTaskRequest request)
+        public async Task<ActionResult<BoolResultNewReturn>> UpdateTask(UpdateTaskRequest request)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
@@ -203,57 +203,57 @@ namespace Menu.Controllers.TaskManagementApp
 
 
             var res = await _workTaskService.UpdateAsync(request.Map(), userInfo);
-            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
         }
 
         [Route("delete-task")]
         [HttpDelete]
-        public async Task<ActionResult<BoolResultReturn>> DeleteTask([FromForm] long taskId)
+        public async Task<ActionResult<BoolResultNewReturn>> DeleteTask([FromForm] long taskId)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
             var res = await _workTaskService.DeleteIfAccess(taskId, userInfo);
-            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
         }
 
 
         [Route("update-name")]
         [HttpPatch]
-        public async Task<ActionResult<BoolResultReturn>> UpdateTaskName([FromForm] long id, [FromForm] string name)
+        public async Task<ActionResult<BoolResultNewReturn>> UpdateTaskName([FromForm] long id, [FromForm] string name)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             name = _apiHealper.StringValidator(name);
             var res = await _workTaskService.UpdateNameAsync(id, name, userInfo);
-            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
         }
 
         [Route("update-description")]
         [HttpPatch]
-        public async Task<ActionResult<BoolResultReturn>> UpdateTaskDescription([FromForm] long id, [FromForm] string description)
+        public async Task<ActionResult<BoolResultNewReturn>> UpdateTaskDescription([FromForm] long id, [FromForm] string description)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             description = _apiHealper.StringValidator(description);
             var res = await _workTaskService.UpdateDescriptionAsync(id, description, userInfo);
-            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
         }
 
         [Route("update-status")]
         [HttpPatch]
-        public async Task<ActionResult<BoolResultReturn>> UpdateTaskStatus([FromForm] long id, [FromForm] long statusId)
+        public async Task<ActionResult<BoolResultNewReturn>> UpdateTaskStatus([FromForm] long id, [FromForm] long statusId)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _workTaskService.UpdateStatusAsync(id, statusId, userInfo);
-            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
 
         }
 
         [Route("update-executor")]
         [HttpPatch]
-        public async Task<ActionResult<BoolResultReturn>> UpdateExecutorStatus([FromForm] long id, [FromForm] long personId)
+        public async Task<ActionResult<BoolResultNewReturn>> UpdateExecutorStatus([FromForm] long id, [FromForm] long personId)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _workTaskService.UpdateExecutorAsync(id, personId, userInfo);
-            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
         }
 
         [Route("task-relations")]

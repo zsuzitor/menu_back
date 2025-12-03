@@ -55,12 +55,12 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("delete-comment")]
         [HttpDelete]
-        public async Task<ActionResult<BoolResultReturn>> DeleteComment([FromForm] long commentId)
+        public async Task<ActionResult<BoolResultNewReturn>> DeleteComment([FromForm] long commentId)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
             var res = await _workTaskCommentService.DeleteAsync(commentId, userInfo);
-            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
 
         }
 
@@ -77,12 +77,12 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("edit-comment")]
         [HttpPatch]
-        public async Task<ActionResult<BoolResultReturn>> EditComment([FromForm] long commentId, [FromForm] string text)
+        public async Task<ActionResult<BoolResultNewReturn>> EditComment([FromForm] long commentId, [FromForm] string text)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             text = _apiHealper.StringValidator(text);
             var res = await _workTaskCommentService.EditAsync(commentId, text, userInfo);
-            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
 
         }
 

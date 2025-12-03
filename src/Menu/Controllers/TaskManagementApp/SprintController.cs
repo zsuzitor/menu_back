@@ -99,45 +99,45 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("delete")]
         [HttpDelete]
-        [ProducesResponseType(typeof(BoolResultReturn), 200)]
+        [ProducesResponseType(typeof(BoolResultNewReturn), 200)]
         public async Task<ActionResult<ProjectSprintReturn>> DeleteSprint([FromForm] long id)
         {
 
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _sprintService.Delete(id, userInfo);
-            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
 
         }
 
         [Route("update-task-sprints")]
         [HttpPost]
-        public async Task<ActionResult<BoolResultReturn>> UpdateTaskSprints([FromBody] UpdateTaskSprints req)
+        public async Task<ActionResult<BoolResultNewReturn>> UpdateTaskSprints([FromBody] UpdateTaskSprints req)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _sprintService.UpdateTaskSprints(req.SprintId, req.TaskId, userInfo);
-            return new JsonResult(new BoolResultReturn(res), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res), GetJsonOptions());
 
         }
 
         [Route("add-task-to-sprint")]
         [HttpPost]
-        public async Task<ActionResult<BoolResultReturn>> AddTaskToSprint([FromForm] long sprintId, [FromForm] long taskId)
+        public async Task<ActionResult<BoolResultNewReturn>> AddTaskToSprint([FromForm] long sprintId, [FromForm] long taskId)
         {
 
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
             var res = await _sprintService.AddTaskToSprint(sprintId, taskId, userInfo);
-            return new JsonResult(new BoolResultReturn(res), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res), GetJsonOptions());
 
         }
 
         [Route("delete-task-from-sprint")]
         [HttpPost]
-        public async Task<ActionResult<BoolResultReturn>> DeleteTaskFromSprint([FromForm] long taskId, [FromForm] long sprintId)
+        public async Task<ActionResult<BoolResultNewReturn>> DeleteTaskFromSprint([FromForm] long taskId, [FromForm] long sprintId)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _sprintService.DeleteTaskFromSprint(sprintId, taskId, userInfo);
-            return new JsonResult(new BoolResultReturn(res), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res), GetJsonOptions());
 
         }
 

@@ -73,39 +73,39 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("delete")]
         [HttpDelete]
-        public async Task<ActionResult<BoolResultReturn>> DeleteLabel([FromBody] DeleteTaskLabels req)
+        public async Task<ActionResult<BoolResultNewReturn>> DeleteLabel([FromBody] DeleteTaskLabels req)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _labelService.Delete(req.Id, userInfo);
-            return new JsonResult(new BoolResultReturn(res), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res), GetJsonOptions());
         }
 
 
         [Route("update-task-labels")]
         [HttpPost]
-        public async Task<ActionResult<BoolResultReturn>> UpdateTaskLabels([FromBody] UpdateTaskLabels req)
+        public async Task<ActionResult<BoolResultNewReturn>> UpdateTaskLabels([FromBody] UpdateTaskLabels req)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _labelService.UpdateTaskLabels(req.LabelId, req.TaskId, userInfo);
-            return new JsonResult(new BoolResultReturn(res), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res), GetJsonOptions());
         }
 
         [Route("add-to-task")]
         [HttpPost]
-        public async Task<ActionResult<BoolResultReturn>> Add([FromBody] AddLabelToTask req)
+        public async Task<ActionResult<BoolResultNewReturn>> Add([FromBody] AddLabelToTask req)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _labelService.AddToTask(req.LabelId, req.TaskId, userInfo);
-            return new JsonResult(new BoolResultReturn(res), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res), GetJsonOptions());
         }
 
         [Route("delete-from-task")]
         [HttpPost]
-        public async Task<ActionResult<BoolResultReturn>> Remove([FromBody] RemoveLabelFromTask req)
+        public async Task<ActionResult<BoolResultNewReturn>> Remove([FromBody] RemoveLabelFromTask req)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _labelService.RemoveFromTask(req.LabelId, req.TaskId, userInfo);
-            return new JsonResult(new BoolResultReturn(res), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res), GetJsonOptions());
         }
 
         private JsonSerializerOptions GetJsonOptions()

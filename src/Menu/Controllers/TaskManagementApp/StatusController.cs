@@ -68,17 +68,17 @@ namespace Menu.Controllers.TaskManagementApp
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _workTaskStatusService.DeleteStatusAsync(statusId, userInfo);
-            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
         }
 
         [Route("update-status")]
         [HttpPatch]
-        public async Task<ActionResult<BoolResultReturn>> UpdateStatus([FromForm] long statusId, [FromForm] string status)
+        public async Task<ActionResult<BoolResultNewReturn>> UpdateStatus([FromForm] long statusId, [FromForm] string status)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             status = _apiHealper.StringValidator(status);
             var res = await _workTaskStatusService.UpdateStatusAsync(statusId, status, userInfo);
-            return new JsonResult(new BoolResultReturn(res != null), GetJsonOptions());
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
         }
 
         private JsonSerializerOptions GetJsonOptions()
