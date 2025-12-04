@@ -154,13 +154,14 @@ namespace TaskManagementApp.Models.Services
             {
                 throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
-
+            var labelRelationForDel = new List<WorkTaskLabelTaskRelation>();
             foreach (var label in task.Labels.ToList())
             {
                 //удаляем те что не переданы
                 var sp = labelId.FirstOrDefault(x => x == label.LabelId);
                 if (sp == default)
                 {
+                    labelRelationForDel.Add(label);
                     task.Labels.Remove(label);
                 }
             }
@@ -175,6 +176,8 @@ namespace TaskManagementApp.Models.Services
                 }
             }
 
+
+            await _labelRepository.DeleteAsync(labelRelationForDel);//todo хорошо бы в транзакции
             await _workTaskRepository.UpdateAsync(task);
 
             return true;

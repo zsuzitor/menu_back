@@ -72,5 +72,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return record;
             }
         }
+
+        public async Task<List<WorkTaskLabelTaskRelation>> DeleteAsync(List<WorkTaskLabelTaskRelation> list)
+        {
+            _db.RemoveRange(list);
+            await _db.SaveChangesAsync();
+            return list;
+        }
     }
 }

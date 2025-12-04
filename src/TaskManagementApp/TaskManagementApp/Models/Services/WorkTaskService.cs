@@ -384,6 +384,11 @@ namespace TaskManagementApp.Models.Services
             return res;
         }
 
+        public async Task<GetProjectTaskSelectInfo> GetProjectTaskSelectInfoAsync(long id, UserInfo userInfo)
+        {
+            return await _workTaskRepository.GetAccessSelectInfoAsync(id, userInfo.UserId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
+        }
+
 
         #region вспомогательные методы
         private async Task StatusChangedNotifyAsync(WorkTask upTask, UserInfo userInfo)
@@ -525,7 +530,9 @@ namespace TaskManagementApp.Models.Services
             return await _projectRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
         }
 
- 
+
+
+
 
 
         #endregion вспомогательные методы

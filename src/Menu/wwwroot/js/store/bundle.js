@@ -71896,6 +71896,7 @@ const AddTaskRelation = (props) => {
             } },
             react_1.default.createElement("option", { value: "-" }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
             react_1.default.createElement("option", { value: TaskRelation_1.TaskRelationType.SubTask }, "\u0413\u043B\u0430\u0432\u043D\u0430\u044F \u0434\u043B\u044F"),
+            react_1.default.createElement("option", { value: TaskRelation_1.TaskRelationType.MainTask }, "\u0417\u0430\u0432\u0438\u0441\u0438\u043C\u0430\u044F \u0434\u043B\u044F"),
             react_1.default.createElement("option", { value: TaskRelation_1.TaskRelationType.Link }, "\u0421\u0432\u044F\u0437\u0430\u043D\u0430 \u0441")),
         react_1.default.createElement("span", null, "\u0417\u0430\u0434\u0430\u0447\u0430"),
         react_1.default.createElement("input", { className: 'form-input-v2', type: 'number', onChange: (e) => setSubTaskId(+e.target.value), placeholder: '\u0417\u0430\u0434\u0430\u0447\u0430', value: subTaskId }),
@@ -71926,6 +71927,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const TaskRelation_1 = __webpack_require__(/*! ../../Models/Entity/State/TaskRelation */ "./src/Apps/TaskManagementApp/Models/Entity/State/TaskRelation.ts");
 const mapStateToProps = (state, ownProps) => {
     let res = {};
     return res;
@@ -71933,6 +71935,12 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     let res = {};
     res.Create = (mainTaskid, subTaskid, type) => __awaiter(void 0, void 0, void 0, function* () {
+        if (type == TaskRelation_1.TaskRelationType.MainTask) {
+            type = TaskRelation_1.TaskRelationType.SubTask;
+            let f = mainTaskid;
+            mainTaskid = subTaskid;
+            subTaskid = f;
+        }
         yield window.G_TaskManagementTaskController.AddTaskRelationRedux(mainTaskid, subTaskid, type, dispatch);
     });
     return res;
@@ -73852,6 +73860,7 @@ const ProjectDetailSetup_1 = __importDefault(__webpack_require__(/*! ./ProjectDe
 const EditProject_1 = __importDefault(__webpack_require__(/*! ../EditProject/EditProject */ "./src/Apps/TaskManagementApp/Components/EditProject/EditProject.tsx"));
 const PopupWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/PopupWindow/PopupWindow */ "./src/components/Body/PopupWindow/PopupWindow.tsx"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const SaveCancelInputMultiSelectWithSearch_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputMultiSelectWithSearch */ "./src/components/Body/SaveCancelInput/SaveCancelInputMultiSelectWithSearch.tsx"));
 __webpack_require__(/*! ./ProjectDetail.css */ "./src/Apps/TaskManagementApp/Components/ProjectDetail/ProjectDetail.css");
 const ProjectDetail = (props) => {
     var _a, _b;
@@ -73896,6 +73905,7 @@ const ProjectDetail = (props) => {
             props.SetFilterTaskExecutor(-1);
         }
     }, [props.ProjectUsers.length]);
+    const labelsChanges = props.TasksFilters.Labels.join(',');
     (0, react_1.useEffect)(() => {
         var _a;
         if (!((_a = props.Project) === null || _a === void 0 ? void 0 : _a.Id)) {
@@ -73917,14 +73927,14 @@ const ProjectDetail = (props) => {
         setLoadTasksTimerId(timerId);
     }, [(_b = props.Project) === null || _b === void 0 ? void 0 : _b.Id, props.TasksFilters.CreatorId, props.TasksFilters.ExecutorId,
         props.TasksFilters.Status, props.TasksFilters.TaskName,
-        props.TasksFilters.Page, props.TasksFilters.Retrigger, props.TasksFilters.Sprint, props.TasksFilters.Label]);
+        props.TasksFilters.Page, props.TasksFilters.Retrigger, props.TasksFilters.Sprint, labelsChanges]);
     const reloadTasks = () => {
         let filter = {
             Name: props.TasksFilters.TaskName, CreatorId: props.TasksFilters.CreatorId,
             PageNumber: props.TasksFilters.Page, PageSize: tasksOnPageCount,
             ProjectId: props.Project.Id, ExecutorId: props.TasksFilters.ExecutorId,
             StatusId: props.TasksFilters.Status, SprintId: props.TasksFilters.Sprint,
-            LabelId: props.TasksFilters.Label
+            LabelIds: props.TasksFilters.Labels
         };
         props.ReloadTasks(filter);
     };
@@ -73939,6 +73949,86 @@ const ProjectDetail = (props) => {
         setFilterVisibilityReviwer(false);
         setFilterVisibilitySprint(false);
         setFilterVisibilityLabel(false);
+    };
+    // const labelsRender = (labels: TaskLabel[]) => {
+    //     // return <div></div>
+    //     let arr = [];
+    //     for (let i = 0; i < labels.length; ++i) {
+    //         arr.push(i);
+    //     }
+    //     return <>
+    //         {arr.map(x => <div className='filter-tag'>
+    //             <span className='filter-name'>Лейбл:</span>
+    //             <select className='filter-input'
+    //                 onChange={e => {
+    //                     let id = +e.target.value;
+    //                     let newLalbels = [...labels.map(l => l.Id), id].filter(((value, index, array) => array.indexOf(value) === index))
+    //                     props.SetFilterTaskLabel(newLalbels)
+    //                 }}
+    //                 value={labels[x].Id}>
+    //                 <option value={-1}>Любой</option>
+    //                 {labels.map(label => <option value={label.Id} key={label.Id}>{label.Name}</option>)}
+    //             </select>
+    //             <button className='remove-filter' title='Удалить фильтр'
+    //                 onClick={() => {
+    //                     let lbls = labels.filter(l => l.Id != labels[x].Id).map(l => l.Id);
+    //                     props.SetFilterTaskLabel(lbls);
+    //                     if (lbls.length == 0)
+    //                         setFilterVisibilityLabel(false);
+    //                 }}>×</button>
+    //         </div>)}
+    //     </>
+    // }
+    // const labelsRender = (labels: number[]) => {
+    //     // return <div></div>
+    //     // if (labels.length == 0) {
+    //     //     labels.push(-1);
+    //     // }
+    //     let arr = [];
+    //     for (let i = 0; i < labels.length; ++i) {
+    //         arr.push(i);
+    //     }
+    //     return <>
+    //         {arr.map(x => <div className='filter-tag' key={x}>
+    //             <span className='filter-name'>Лейбл:</span>
+    //             <select className='filter-input'
+    //                 onChange={e => {
+    //                     let id = +e.target.value;
+    //                     // let newLalbels = [...labels, id].filter(((value, index, array) => array.indexOf(value) === index));
+    //                     let newLalbels = [...labels];
+    //                     newLalbels[x] = id;
+    //                     props.SetFilterTaskLabel(newLalbels)
+    //                 }}
+    //                 value={labels[x]}>
+    //                 <option value={-1}>Любой</option>
+    //                 {props.Labels.map(label => <option value={label.Id} key={label.Id}>{label.Name}</option>)}
+    //             </select>
+    //             <button className='remove-filter' title='Удалить фильтр'
+    //                 onClick={() => {
+    //                     // let lbls = labels.filter(l => l != labels[x]);
+    //                     // console.log('1' + labels);
+    //                     let lbls = [...labels];
+    //                     lbls.splice(x, 1);
+    //                     // console.log(lbls);
+    //                     props.SetFilterTaskLabel(lbls);
+    //                     // if (lbls.length == 0)
+    //                     //     setFilterVisibilityLabel(false);
+    //                 }}>×</button>
+    //         </div>)}
+    //     </>
+    // }
+    const labelsRender = (labels) => {
+        return react_1.default.createElement(SaveCancelInputMultiSelectWithSearch_1.default, { CancelEvent: () => {
+                // setTaskLabelEditable(false)
+                props.SetFilterTaskLabel([]);
+                setFilterVisibilityLabel(false);
+            }, SaveEvent: (id) => {
+                // props.UpdateTaskLabels(props.Task.Id, id);
+                props.SetFilterTaskLabel(id);
+                return true;
+            }, Selected: labels, ValuesWithId: props.Labels.map(x => {
+                return { Id: x.Id, Text: x.Name };
+            }) });
     };
     if (!props.Project) {
         return react_1.default.createElement("div", { className: 'management-project-no-project' },
@@ -73987,13 +74077,13 @@ const ProjectDetail = (props) => {
                         || filterVisibilityCreator
                         || filterVisibilityReviwer
                         || filterVisibilityStatus
-                        || filterVisibilitySprint
-                        || filterVisibilityLabel)
+                        || filterVisibilityLabel
+                        || filterVisibilitySprint)
                         || (props.TasksFilters.CreatorId != -1
                             || props.TasksFilters.ExecutorId != -1
                             || props.TasksFilters.Status != -1
                             || props.TasksFilters.Sprint != -1
-                            || props.TasksFilters.Label != -1
+                            || props.TasksFilters.Labels.length > 0
                             || props.TasksFilters.TaskName != ''
                             || props.TasksFilters.Page != 1))
                         &&
@@ -74049,15 +74139,7 @@ const ProjectDetail = (props) => {
                                     props.SetFilterTaskSprint(-1);
                                     setFilterVisibilitySprint(false);
                                 } }, "\u00D7")),
-                        filterVisibilityLabel && react_1.default.createElement("div", { className: 'filter-tag' },
-                            react_1.default.createElement("span", { className: 'filter-name' }, "\u041B\u0435\u0439\u0431\u043B:"),
-                            react_1.default.createElement("select", { className: 'filter-input', onChange: e => props.SetFilterTaskLabel(+e.target.value), value: props.TasksFilters.Label },
-                                react_1.default.createElement("option", { value: -1 }, "\u041B\u044E\u0431\u043E\u0439"),
-                                props.Labels.map(label => react_1.default.createElement("option", { value: label.Id, key: label.Id }, label.Name))),
-                            react_1.default.createElement("button", { className: 'remove-filter', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0444\u0438\u043B\u044C\u0442\u0440', onClick: () => {
-                                    props.SetFilterTaskLabel(-1);
-                                    setFilterVisibilityLabel(false);
-                                } }, "\u00D7")))),
+                        filterVisibilityLabel && labelsRender(props.TasksFilters.Labels))),
                 props.Tasks.length
                     ? props.Tasks.map(x => react_1.default.createElement(OneWorkTask_1.default, { key: x.Id, Task: x, Comments: x.Comments, CurrentProjectId: props.Project.Id }))
                     : react_1.default.createElement("div", { className: 'management-project-tasks-no-tasks' },
@@ -77213,16 +77295,17 @@ class TaskManagementTaskController {
                 "pageNumber": taskFilter.PageNumber,
                 "pageSize": taskFilter.PageSize,
                 "sprintId": taskFilter.SprintId,
-                "labelId": taskFilter.LabelId,
+                "labelId": taskFilter.LabelIds,
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                Type: ControllerHelper_1.ControllerHelper.PostHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
                     this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTasksGetUrl}`
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTasksGetUrl}`,
+                ContentType: 'body'
             });
         };
         this.LoadTaskRedux = (taskId) => {
@@ -78246,6 +78329,7 @@ var TaskRelationType;
 (function (TaskRelationType) {
     TaskRelationType[TaskRelationType["SubTask"] = 1] = "SubTask";
     TaskRelationType[TaskRelationType["Link"] = 2] = "Link";
+    TaskRelationType[TaskRelationType["MainTask"] = 3] = "MainTask"; //на бэке такого нет, чисто для формы редактирования
 })(TaskRelationType = exports.TaskRelationType || (exports.TaskRelationType = {}));
 ;
 class TaskRelation {
@@ -78281,7 +78365,7 @@ class TasksFilter {
         this.Page = 1;
         this.Retrigger = 0;
         this.Sprint = -1;
-        this.Label = -1;
+        this.Labels = [];
     }
 }
 exports.TasksFilter = TasksFilter;
@@ -78965,7 +79049,7 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                newState.TaskManagementApp.CurrentProjectTasksFilters.Label = payload;
+                newState.TaskManagementApp.CurrentProjectTasksFilters.Labels = payload;
                 return newState;
             }
         case TaskActions_1.SetFilterTaskActionName:
@@ -83431,11 +83515,12 @@ class FetchHelper {
                 if (getUrl.endsWith('/')) {
                     getUrl = getUrl.slice(0, -1);
                 }
-                let urlParams = new URLSearchParams();
-                var dataKeys = Object.keys(obj.Data);
-                dataKeys.forEach(x => {
-                    urlParams.append(x, obj.Data[x]);
-                });
+                let urlParams = this.buildUrlParams(obj.Data);
+                // new URLSearchParams();
+                // var dataKeys = Object.keys(obj.Data);
+                // dataKeys.forEach(x => {
+                //     urlParams.append(x, obj.Data[x]);
+                // });
                 getUrl += '?' + urlParams;
                 response = yield fetch(getUrl, {
                     method: obj.Type
@@ -83527,6 +83612,20 @@ class FetchHelper {
     // }
     MapWithResultDataOnlyObject(data) {
         return new ControllerHelper_1.ControllerHelper().MapWithResultDataOnlyObject(data);
+    }
+    buildUrlParams(obj) {
+        const params = new URLSearchParams();
+        Object.entries(obj).forEach(([key, value]) => {
+            if (Array.isArray(value)) {
+                // Для массива добавляем каждый элемент отдельно
+                value.forEach(item => params.append(key, item));
+            }
+            else {
+                // Для одиночных значений добавляем как есть
+                params.append(key, value);
+            }
+        });
+        return params;
     }
 }
 exports.FetchHelper = FetchHelper;

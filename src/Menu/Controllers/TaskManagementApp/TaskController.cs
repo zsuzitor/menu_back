@@ -47,44 +47,54 @@ namespace Menu.Controllers.TaskManagementApp
             _workTaskService = workTaskService;
         }
 
+        [Route("get-task-select-info")]
+        [HttpGet]
+        public async Task<ActionResult<GetProjectTaskSelectInfoReturn>> GetProjectTaskSelectInfo(long taskId)
+        {
+
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var task = await _workTaskService.GetProjectTaskSelectInfoAsync(taskId, userInfo);
+
+            return new JsonResult(new GetProjectTaskSelectInfoReturn() { Id = task.Id, Name = task.Name }, GetJsonOptions());
+        }
+
 
         [Route("get-project-tasks")]
-        [HttpGet]
-        public async Task<ActionResult<GetProjectTasksReturn>> GetProjectTasks(long projectId, string nameLike
-            , long? creatorId, long? executorId, int? statusId, int pageNumber, int pageSize, long? sprintId, long? labelId)
+        [HttpPost]
+        public async Task<ActionResult<GetProjectTasksReturn>> GetProjectTasks([FromBody] GetProjectTasksByFilterRequest request)
         {
-            nameLike = _apiHealper.StringValidator(nameLike);
-            if (string.IsNullOrWhiteSpace(nameLike))
+            request.NameLike = _apiHealper.StringValidator(request.NameLike);
+            if (string.IsNullOrWhiteSpace(request.NameLike))
             {
-                nameLike = null;
+                request.NameLike = null;
             }
 
-            if (creatorId < 1)
+            if (request.CreatorId < 1)
             {
-                creatorId = null;
+                request.CreatorId = null;
             }
 
-            if (executorId < 1)
+            if (request.ExecutorId < 1)
             {
-                executorId = null;
+                request.ExecutorId = null;
             }
 
-            if (statusId < 1)
+            if (request.StatusId < 1)
             {
-                statusId = null;
+                request.StatusId = null;
             }
-            if (sprintId < 1)
+            if (request.SprintId < 1)
             {
-                sprintId = null;
+                request.SprintId = null;
             }
-            if (labelId < 1)
+            if (request.LabelId == null || request.LabelId.Length ==0)
             {
-                labelId = null;
+                request.LabelId = null;
             }
 
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-            var res = await _projectService.ExistIfAccessAsync(projectId, userInfo);
+            var res = await _projectService.ExistIfAccessAsync(request.ProjectId, userInfo);
             if (!res.access)
             {
                 throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFound);
@@ -92,25 +102,25 @@ namespace Menu.Controllers.TaskManagementApp
 
             var tasks = await _workTaskService.GetTasksAsync(new GetTasksByFilter()
             {
-                CreatorId = creatorId,
-                ExecutorId = executorId,
-                StatusId = statusId,
-                PageNumber = pageNumber,
-                PageSize = pageSize,
-                Name = nameLike,
-                ProjectId = projectId,
-                SprintId = sprintId,
-                LabelId = labelId,
+                CreatorId = request.CreatorId,
+                ExecutorId = request.ExecutorId,
+                StatusId = request.StatusId,
+                PageNumber = request.PageNumber,
+                PageSize = request.PageSize,
+                Name = request.NameLike,
+                ProjectId = request.ProjectId,
+                SprintId = request.SprintId,
+                LabelIds = request.LabelId?.ToList(),
             });
             var tasksCount = await _workTaskService.GetTasksCountAsync(new GetTasksCountByFilter()
             {
-                CreatorId = creatorId,
-                ExecutorId = executorId,
-                StatusId = statusId,
-                Name = nameLike,
-                ProjectId = projectId,
-                SprintId = sprintId,
-                LabelId = labelId,
+                CreatorId = request.CreatorId,
+                ExecutorId = request.ExecutorId,
+                StatusId = request.StatusId,
+                Name = request.NameLike,
+                ProjectId = request.ProjectId,
+                SprintId = request.SprintId,
+                LabelIds = request.LabelId?.ToList(),
             });
             var taskReturn = tasks.Select(x => new WorkTaskReturn(x)).ToList();
 

@@ -12,6 +12,7 @@ namespace TaskManagementApp.Models.Services.Interfaces
         Task<WorkTask> CreateAsync(WorkTask task, UserInfo userInfo);
         Task<List<WorkTask>> GetTasksAsync(long projectId);
         Task<WorkTask> GetTaskAsync(long id);
+        Task<GetProjectTaskSelectInfo> GetProjectTaskSelectInfoAsync(long id, UserInfo userInfo);
         Task<WorkTask> GetTaskWithCommentsAsync(long id);
         Task<WorkTask> GetTaskFullAsync(long id);
         Task<WorkTask> CopyAsync(long id, UserInfo userInfo);

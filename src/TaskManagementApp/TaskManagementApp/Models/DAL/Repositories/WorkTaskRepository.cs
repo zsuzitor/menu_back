@@ -40,7 +40,9 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 && (filters.ExecutorId == null || x.ExecutorId == filters.ExecutorId)
                 && (filters.StatusId == null || x.StatusId == filters.StatusId)
                 && (filters.SprintId == null || x.Sprints.Any(s => s.SprintId == filters.SprintId))
-                && (filters.LabelId == null || x.Labels.Any(s => s.LabelId == filters.LabelId))
+                //&& (filters.LabelId == null || x.Labels.Any(s => s.LabelId == filters.LabelId))
+                && (filters.LabelIds == null || !filters.LabelIds.Any() || x.Labels.Where(s => filters.LabelIds.Contains(s.LabelId)).Count() == filters.LabelIds.Count)
+                //&& (filters.LabelIds == null || !filters.LabelIds.Any() || x.Labels.Select(x=>x.LabelId).Intersect(filters.LabelIds).Count() == filters.LabelIds.Count)
             //&& (string.IsNullOrWhiteSpace(filters.Name) || EF.Functions.Like(x.Name, $"%{filters.Name}%"))).OrderBy(x => x.Id)
                 && (string.IsNullOrWhiteSpace(filters.Name) || x.Name.Contains(filters.Name))).OrderBy(x => x.Id)
                 .Skip(skipCount).Take(filters.PageSize).ToListAsync();
@@ -53,7 +55,9 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 && (filters.ExecutorId == null || x.ExecutorId == filters.ExecutorId)
                 && (filters.StatusId == null || x.StatusId == filters.StatusId)
                 && (filters.SprintId == null || x.Sprints.Any(s => s.SprintId == filters.SprintId))
-                && (filters.LabelId == null || x.Labels.Any(s => s.LabelId == filters.LabelId))
+                //&& (filters.LabelId == null || x.Labels.Any(s => s.LabelId == filters.LabelId))
+                && (filters.LabelIds == null || !filters.LabelIds.Any() || x.Labels.Where(s => filters.LabelIds.Contains(s.LabelId)).Count() == filters.LabelIds.Count)
+                //&& (filters.LabelIds == null || filters.LabelIds.Any() || x.Labels.Select(x => x.LabelId).Intersect(filters.LabelIds).Count() == filters.LabelIds.Count)
                 //&& (string.IsNullOrWhiteSpace(filters.Name) || EF.Functions.Like(x.Name, $"%{filters.Name}%"))
                 && (string.IsNullOrWhiteSpace(filters.Name) || x.Name.Contains(filters.Name))
                 ).CountAsync();
@@ -167,6 +171,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
             || (x.MainWorkTaskId == task2Id && x.SubWorkTaskId == task1Id)
             ).AnyAsync();
 
+        }
+
+        public async Task<GetProjectTaskSelectInfo> GetAccessSelectInfoAsync(long taskId, long mainAppUserId)
+        {
+            return (await GetAccessedIQuer(taskId, mainAppUserId)
+                .Select(x => new GetProjectTaskSelectInfo() { Id = x.Id, Name = x.Name }).FirstOrDefaultAsync());
         }
     }
 }
