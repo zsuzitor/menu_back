@@ -10,12 +10,15 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
     {
         public static ModelBuilder WorkTaskLabelBuild(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<WorkTaskLabel>(entity => {
+            modelBuilder.Entity<WorkTaskLabel>(entity =>
+            {
                 entity.HasKey(x => x.Id);
                 entity.ToTable("TaskManagementLabel");
 
 
                 entity.HasMany(x => x.Tasks).WithOne(x => x.Label)
+                    .HasForeignKey(x => x.LabelId).OnDelete(DeleteBehavior.NoAction);
+                entity.HasMany(x => x.Preset).WithOne(x => x.Label)
                     .HasForeignKey(x => x.LabelId).OnDelete(DeleteBehavior.NoAction);
 
                 entity.Property(p => p.RowVersion)

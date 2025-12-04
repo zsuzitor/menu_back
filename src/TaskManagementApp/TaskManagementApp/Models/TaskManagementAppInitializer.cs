@@ -63,6 +63,7 @@ namespace TaskManagementApp.Models
             services.AddScoped<IWorkTimeLogRepository, WorkTimeLogRepository>();
             services.AddScoped<ISprintRepository, SprintRepository>();
             services.AddScoped<IWorkTaskLabelRepository, WorkTaskLabelRepository>();
+            services.AddScoped<IPresetRepository, PresetRepository>();
 
             return this;
 
@@ -79,6 +80,7 @@ namespace TaskManagementApp.Models
             services.AddScoped<IWorkTimeLogService, WorkTimeLogService>();
             services.AddScoped<ISprintService, SprintService>();
             services.AddScoped<IWorkTaskStatusService, WorkTaskStatusService>();
+            services.AddScoped<IPresetService, PresetService>();
 
 
 

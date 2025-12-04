@@ -64,9 +64,11 @@ namespace DAL.Models.DAL
         public DbSet<WorkTimeLog> TaskManagementWorkTimeLog { get; set; }
         public DbSet<ProjectSprint> TaskManagementWorkTaskSprint { get; set; }
         public DbSet<WorkTaskLabel> TaskManagementWorkTaskLabel { get; set; }
+        public DbSet<Preset> TaskManagementPreset { get; set; }
         public DbSet<WorkTaskLabelTaskRelation> TaskManagementWorkTaskLabelTaskRelation { get; set; }
         public DbSet<WorkTaskSprintRelation> TaskManagementWorkTaskSprintRelation { get; set; }
         public DbSet<TaskRelation> TaskManagementTaskRelation { get; set; }
+        public DbSet<WorkTaskLabelPresetRelation> TaskManagementPresetRelation { get; set; }
 
 
 
@@ -131,6 +133,7 @@ namespace DAL.Models.DAL
                 .WorkTaskLabelTaskRelationBuild()
                 .WorkTaskSprintRelationBuild()
                 .TaskRelatioBuild()
+                .TaskManagementPresetBuild()
                 ;
 
             #endregion TaskManagementApp

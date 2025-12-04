@@ -13,11 +13,13 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
 
 
         public List<WorkTaskLabelTaskRelation> Tasks { get; set; }
+        public List<WorkTaskLabelPresetRelation> Preset { get; set; }
         public byte[] RowVersion { get; set; }
 
         public WorkTaskLabel()
         {
             Tasks = new List<WorkTaskLabelTaskRelation>();
+            Preset = new List<WorkTaskLabelPresetRelation>();
         }
     }
 }
