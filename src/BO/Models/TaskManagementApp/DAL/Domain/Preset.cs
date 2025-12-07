@@ -9,6 +9,7 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
     {
 
         public long Id { get; set; }
+        public string Name { get; set; }
 
         public long ProjectId { get; set; }
         public Project Project { get; set; }

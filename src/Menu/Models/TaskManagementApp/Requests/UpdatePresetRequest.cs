@@ -1,17 +1,12 @@
 ﻿using BO.Models.TaskManagementApp.DAL.Domain;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace TaskManagementApp.Models.Returns
+namespace Menu.Models.TaskManagementApp.Requests
 {
-    public class PresetWorkTaskLabelReturn
+    public class UpdatePresetRequest
     {
-
         public long Id { get; set; }
         public string Name { get; set; }
-
-        public long ProjectId { get; set; }
 
 
         public long? CreatorId { get; set; }
@@ -24,11 +19,9 @@ namespace TaskManagementApp.Models.Returns
 
         public List<long> Labels { get; set; }
 
-
-        public PresetWorkTaskLabelReturn(Preset obj)
+        public UpdatePresetRequest()
         {
-            Id = obj.Id;
-            Name = obj.Name;
+            Labels = new List<long>();
         }
     }
 }

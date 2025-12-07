@@ -106,22 +106,22 @@ namespace TaskManagementApp.Models.Services
             }
 
 
-            var upTask = await GetIfEditAccess(task.Id, userInfo);
-            var prevTask = upTask.CopyPlaneProp();
+            var oldTask = await GetIfEditAccess(task.Id, userInfo);
+            var prevTask = oldTask.CopyPlaneProp();
 
-            if (task.StatusId != upTask.StatusId)
+            if (task.StatusId != oldTask.StatusId)
             {
                 var status = task.StatusId == null ? null : await _taskStatusRepository.GetAsync(task.StatusId.Value);
-                if (status == null || status.ProjectId != upTask.ProjectId)
+                if (status == null || status.ProjectId != oldTask.ProjectId)
                 {
                     throw new SomeCustomException(Consts.ErrorConsts.WorkTaskStatusNotExists);
                 }
             }
 
 
-            if (task.ExecutorId != null)
+            if (task.ExecutorId != null && task.ExecutorId != oldTask.ExecutorId)
             {
-                var executorExist = await _projectUserService.ExistAsync(upTask.ProjectId, task.ExecutorId.Value);
+                var executorExist = await _projectUserService.ExistAsync(oldTask.ProjectId, task.ExecutorId.Value);
                 if (!executorExist)
                 {
                     throw new SomeCustomNotFoundException(Consts.ErrorConsts.UserNotFound);
@@ -129,17 +129,17 @@ namespace TaskManagementApp.Models.Services
             }
 
 
-            upTask.Status = task.Status;
-            upTask.Name = task.Name;
-            upTask.Description = task.Description;
-            upTask.LastUpdateDate = _dateTimeProvider.CurrentDateTime();
+            oldTask.Status = task.Status;
+            oldTask.Name = task.Name;
+            oldTask.Description = task.Description;
+            oldTask.LastUpdateDate = _dateTimeProvider.CurrentDateTime();
             //upTask.CreatorId = task.CreatorId;
-            upTask.ExecutorId = task.ExecutorId;
-            await _workTaskRepository.UpdateAsync(upTask);
+            oldTask.ExecutorId = task.ExecutorId;
+            await _workTaskRepository.UpdateAsync(oldTask);
 
-            await TaskChangedNotifyAsync(prevTask, upTask, userInfo);
+            await TaskChangedNotifyAsync(prevTask, oldTask, userInfo);
 
-            return upTask;
+            return oldTask;
         }
 
 

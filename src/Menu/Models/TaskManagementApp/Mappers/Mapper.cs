@@ -4,6 +4,7 @@ using Common.Models.Exceptions;
 using Menu.Models.TaskManagementApp.Requests;
 using Nest;
 using System;
+using System.Linq;
 using TaskManagementApp.Models;
 
 namespace Menu.Models.TaskManagementApp.Mappers
@@ -119,6 +120,20 @@ namespace Menu.Models.TaskManagementApp.Mappers
             {
                 Name = obj.Name,
                 Id = obj.Id,
+            };
+        }
+
+        public static Preset Map(this UpdatePresetRequest obj)
+        {
+            return new Preset()
+            {
+                ExecutorId = obj.ExecutorId,
+                CreatorId = obj.CreatorId,
+                Id = obj.Id,
+                Name = obj.Name,
+                SprintId = obj.SprintId,
+                StatusId = obj.StatusId,
+                Labels = obj.Labels.Select(x=>new WorkTaskLabelPresetRelation() {LabelId=x,PresetId=obj.Id }).ToList(),
             };
         }
 

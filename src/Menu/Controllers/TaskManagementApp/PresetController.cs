@@ -1,8 +1,13 @@
-﻿using jwtLib.JWTAuth.Interfaces;
+﻿using Common.Models.Return;
+using jwtLib.JWTAuth.Interfaces;
+using Menu.Models.TaskManagementApp.Mappers;
+using Menu.Models.TaskManagementApp.Requests;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.Returns;
 using TaskManagementApp.Models.Services;
@@ -38,9 +43,45 @@ namespace Menu.Controllers.TaskManagementApp
         public async Task<ActionResult<List<PresetWorkTaskLabelReturn>>> GetLabels(long projectId)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-            var res = await _labelService.Get(projectId, userInfo);
+            var res = await _presetService.GetAllAsync(projectId, userInfo);
             return new JsonResult(res.Select(x => new PresetWorkTaskLabelReturn(x)).ToList(), GetJsonOptions());
         }
 
+        [Route("delete")]
+        [HttpDelete]
+        public async Task<ActionResult<BoolResultNewReturn>> Delete(long presetId)
+        {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _presetService.DeleteAsync(presetId, userInfo);
+            return new JsonResult(new BoolResultNewReturn(res!=null), GetJsonOptions());
+        }
+
+        [Route("create")]
+        [HttpPut]
+        public async Task<ActionResult<BoolResultNewReturn>> Create(CreatePresetRequest req)
+        {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _presetService.CreateAsync(req.Name, userInfo);
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
+        }
+
+        [Route("update")]
+        [HttpPatch]
+        public async Task<ActionResult<BoolResultNewReturn>> Update(UpdatePresetRequest req)
+        {
+            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var res = await _presetService.EditAsync(req.Map(), userInfo);
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
+        }
+
+
+        private JsonSerializerOptions GetJsonOptions()
+        {
+            return new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = null, // PascalCase
+                WriteIndented = true
+            };
+        }
     }
 }
