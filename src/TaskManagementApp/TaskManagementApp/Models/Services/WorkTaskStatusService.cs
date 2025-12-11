@@ -25,7 +25,7 @@ namespace TaskManagementApp.Models.Services
         }
 
 
-        public async Task<List<WorkTaskStatus>> GetStatusesAsync(long projectId, UserInfo userInfo)
+        public async Task<List<WorkTaskStatus>> GetStatusesAsync(long projectId)
         {
             return await _taskStatusRepository.GetForProjectAsync(projectId);
 
@@ -40,7 +40,7 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
-            return await GetStatusesAsync(projectId, userInfo);
+            return await GetStatusesAsync(projectId);
 
         }
 

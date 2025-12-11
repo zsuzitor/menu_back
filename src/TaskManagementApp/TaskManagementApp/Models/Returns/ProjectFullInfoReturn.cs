@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace TaskManagementApp.Models.Returns
 {
@@ -10,5 +8,6 @@ namespace TaskManagementApp.Models.Returns
         public List<WorkTaskStatusReturn> Statuses { get; set; }
         public List<ProjectSprintReturn> Sprints { get; set; }
         public List<ProjectLabelReturn> Labels { get; set; }
+        public List<PresetReturn> Presets { get; set; }
     }
 }

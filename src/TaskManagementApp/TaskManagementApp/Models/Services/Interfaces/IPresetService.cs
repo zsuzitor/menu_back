@@ -10,8 +10,9 @@ namespace TaskManagementApp.Models.Services.Interfaces
     public interface IPresetService
     {
         Task<List<Preset>> GetAllAsync(long projectId, UserInfo userInfo);
+        Task<List<Preset>> GetAllAsync(long projectId);
         Task<Preset> DeleteAsync(long presetId, UserInfo userInfo);
-        Task<Preset> CreateAsync(string name, UserInfo userInfo);
+        Task<Preset> CreateAsync(long projectId, string name, UserInfo userInfo);
         Task<Preset> EditAsync(Preset preset, UserInfo userInfo);
     }
 }

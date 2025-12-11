@@ -28,13 +28,14 @@ namespace Menu.Controllers.TaskManagementApp
         private readonly IProjectUserService _projectUserService;
         private readonly ISprintService _sprintService;
         private readonly ILabelService _labelService;
+        private readonly IPresetService _presetService;
 
 
         public ProjectController(
              IJWTService jwtService, IApiHelper apiHealper
             , ILogger<ProjectController> logger, IProjectService projectService,
              IProjectUserService projectUserService,
-             IWorkTaskStatusService statusService, ISprintService sprintService, ILabelService labelService)
+             IWorkTaskStatusService statusService, ISprintService sprintService, ILabelService labelService, IPresetService presetService)
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
@@ -45,6 +46,7 @@ namespace Menu.Controllers.TaskManagementApp
             _statusService = statusService;
             _sprintService = sprintService;
             _labelService = labelService;
+            _presetService = presetService;
         }
 
         [Route("get-projects")]
@@ -83,9 +85,10 @@ namespace Menu.Controllers.TaskManagementApp
 
 
             //todo много запросов
-            var statuses = (await _statusService.GetStatusesAsync(projectId, userInfo)).Select(x => new WorkTaskStatusReturn(x)).ToList();
-            var sprints = (await _sprintService.GetForProject(projectId, userInfo)).Select(x => new ProjectSprintReturn(x)).ToList();
-            var labels = (await _labelService.Get(projectId, userInfo)).Select(x => new ProjectLabelReturn(x)).ToList();
+            var statuses = (await _statusService.GetStatusesAsync(projectId)).Select(x => new WorkTaskStatusReturn(x)).ToList();
+            var sprints = (await _sprintService.GetForProject(projectId)).Select(x => new ProjectSprintReturn(x)).ToList();
+            var labels = (await _labelService.Get(projectId)).Select(x => new ProjectLabelReturn(x)).ToList();
+            var presets = (await _presetService.GetAllAsync(projectId)).Select(x => new PresetReturn(x)).ToList();
 
             var users = await _projectUserService.GetProjectUsersAsync(projectId, userInfo);
             var usersReturn = users.Select(x => new ProjectUserReturn(x)).ToList();

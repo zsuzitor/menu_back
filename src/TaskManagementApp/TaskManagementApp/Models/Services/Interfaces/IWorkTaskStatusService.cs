@@ -11,7 +11,7 @@ namespace TaskManagementApp.Models.Services.Interfaces
     {
 
         Task<List<WorkTaskStatus>> GetStatusesAccessAsync(long projectId, UserInfo userInfo);
-        Task<List<WorkTaskStatus>> GetStatusesAsync(long projectId, UserInfo userInfo);
+        Task<List<WorkTaskStatus>> GetStatusesAsync(long projectId);
 
         Task<WorkTaskStatus> CreateStatusAsync(string status, long projectId, UserInfo userInfo);
         Task<WorkTaskStatus> DeleteStatusAsync(long statusId, UserInfo userInfo);

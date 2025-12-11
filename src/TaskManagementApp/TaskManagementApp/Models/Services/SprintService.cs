@@ -142,7 +142,7 @@ namespace TaskManagementApp.Models.Services
             return sprint.Tasks.Select(x => x.Task).ToList();
         }
 
-        public async Task<List<ProjectSprint>> GetForProject(long projectId, UserInfo userInfo)
+        public async Task<List<ProjectSprint>> GetForProject(long projectId)
         {
 
             return await _sprintRepository.GetForProject(projectId);

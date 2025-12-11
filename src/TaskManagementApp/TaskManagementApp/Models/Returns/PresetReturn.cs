@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TaskManagementApp.Models.Returns
 {
-    public class PresetWorkTaskLabelReturn
+    public class PresetReturn
     {
 
         public long Id { get; set; }
@@ -25,7 +25,7 @@ namespace TaskManagementApp.Models.Returns
         public List<long> Labels { get; set; }
 
 
-        public PresetWorkTaskLabelReturn(Preset obj)
+        public PresetReturn(Preset obj)
         {
             Id = obj.Id;
             Name = obj.Name;

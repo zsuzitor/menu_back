@@ -40,11 +40,11 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("get-all")]
         [HttpGet]
-        public async Task<ActionResult<List<PresetWorkTaskLabelReturn>>> GetLabels(long projectId)
+        public async Task<ActionResult<List<PresetReturn>>> GetLabels(long projectId)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _presetService.GetAllAsync(projectId, userInfo);
-            return new JsonResult(res.Select(x => new PresetWorkTaskLabelReturn(x)).ToList(), GetJsonOptions());
+            return new JsonResult(res.Select(x => new PresetReturn(x)).ToList(), GetJsonOptions());
         }
 
         [Route("delete")]
@@ -61,8 +61,8 @@ namespace Menu.Controllers.TaskManagementApp
         public async Task<ActionResult<BoolResultNewReturn>> Create(CreatePresetRequest req)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-            var res = await _presetService.CreateAsync(req.Name, userInfo);
-            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
+            var res = await _presetService.CreateAsync(req.ProjectId, req.Name, userInfo);
+            return new JsonResult(new PresetReturn(res), GetJsonOptions());
         }
 
         [Route("update")]

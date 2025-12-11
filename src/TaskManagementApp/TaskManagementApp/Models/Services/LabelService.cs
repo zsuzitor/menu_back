@@ -96,6 +96,11 @@ namespace TaskManagementApp.Models.Services
             return await _labelRepository.GetForProjectAsync(projectId);
         }
 
+        public async Task<List<WorkTaskLabel>> Get(long projectId)
+        {
+            return await _labelRepository.GetForProjectAsync(projectId);
+        }
+
         public async Task<bool> RemoveFromTask(long labelId, long taskId, UserInfo userInfo)
         {
 

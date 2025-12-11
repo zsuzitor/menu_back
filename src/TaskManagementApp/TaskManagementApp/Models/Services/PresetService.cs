@@ -30,9 +30,9 @@ namespace TaskManagementApp.Models.Services
             _projectUserService = projectUserService;
         }
 
-        public async Task<Preset> CreateAsync(string name, UserInfo userInfo)
+        public async Task<Preset> CreateAsync(long projectId, string name, UserInfo userInfo)
         {
-            var s = await ExistIfAccessAdminAsync(preset.ProjectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(projectId, userInfo);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -40,7 +40,7 @@ namespace TaskManagementApp.Models.Services
 
             var newPreset = new Preset()
             {
-                Name = preset.Name,
+                Name = name,
             };
             return await _presetRepo.AddAsync(newPreset);
 
@@ -162,6 +162,11 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
+            return await _presetRepo.GetAllAsync(projectId);
+        }
+
+        public async Task<List<Preset>> GetAllAsync(long projectId)
+        {
             return await _presetRepo.GetAllAsync(projectId);
         }
 

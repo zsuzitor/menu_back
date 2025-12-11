@@ -12,6 +12,7 @@ namespace TaskManagementApp.Models.Services.Interfaces
         Task<WorkTaskLabel> Create(WorkTaskLabel req, UserInfo userInfo);
         Task<WorkTaskLabel> Update(WorkTaskLabel req, UserInfo userInfo);
         Task<List<WorkTaskLabel>> Get(long projectId, UserInfo userInfo);
+        Task<List<WorkTaskLabel>> Get(long projectId);
         Task<bool> Delete(long id, UserInfo userInfo);
         Task<bool> AddToTask(long labelId, long taskId, UserInfo userInfo);
         Task<bool> RemoveFromTask(long labelId, long taskId, UserInfo userInfo);
