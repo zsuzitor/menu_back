@@ -41,6 +41,7 @@ namespace TaskManagementApp.Models.Services
             var newPreset = new Preset()
             {
                 Name = name,
+                ProjectId = projectId,
             };
             return await _presetRepo.AddAsync(newPreset);
 

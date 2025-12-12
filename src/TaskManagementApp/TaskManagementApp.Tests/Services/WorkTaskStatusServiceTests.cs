@@ -46,7 +46,7 @@ namespace TaskManagementApp.Tests.Services
             var container = services.BuildServiceProvider();
             var test = container.GetRequiredService<IWorkTaskStatusService>();
 
-            var result = await test.GetStatusesAsync(projectId, null);
+            var result = await test.GetStatusesAsync(projectId);
 
             result.Should().NotBeNull();
             result.Should().HaveCount(1);

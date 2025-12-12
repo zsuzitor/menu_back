@@ -93,7 +93,7 @@ namespace Menu.Controllers.TaskManagementApp
             var users = await _projectUserService.GetProjectUsersAsync(projectId, userInfo);
             var usersReturn = users.Select(x => new ProjectUserReturn(x)).ToList();
 
-            return new JsonResult(new ProjectFullInfoReturn() { Users = usersReturn, Statuses = statuses, Sprints = sprints, Labels = labels }, GetJsonOptions());
+            return new JsonResult(new ProjectFullInfoReturn() { Users = usersReturn, Statuses = statuses, Sprints = sprints, Labels = labels, Presets = presets }, GetJsonOptions());
 
         }
 

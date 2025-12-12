@@ -36,6 +36,8 @@
     <Compile Remove="Migrations\20250921112718_sprintsmore_fix4.Designer.cs" />
     <Compile Remove="Migrations\20250921112934_sprintsmore_fix5.cs" />
     <Compile Remove="Migrations\20250921112934_sprintsmore_fix5.Designer.cs" />
+    <Compile Remove="Migrations\20251212163500_preset.cs" />
+    <Compile Remove="Migrations\20251212163500_preset.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
