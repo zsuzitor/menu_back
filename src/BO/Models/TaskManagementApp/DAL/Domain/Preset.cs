@@ -25,7 +25,7 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
 
         public long? SprintId { get; set; }
 
-        public WorkTaskSprintRelation Sprint { get; set; }
+        public ProjectSprint Sprint { get; set; }
 
         public List<WorkTaskLabelPresetRelation> Labels { get; set; }
 

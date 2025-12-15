@@ -49,7 +49,7 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("delete")]
         [HttpDelete]
-        public async Task<ActionResult<BoolResultNewReturn>> Delete(long presetId)
+        public async Task<ActionResult<BoolResultNewReturn>> Delete([FromForm] long presetId)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _presetService.DeleteAsync(presetId, userInfo);
@@ -60,6 +60,7 @@ namespace Menu.Controllers.TaskManagementApp
         [HttpPut]
         public async Task<ActionResult<BoolResultNewReturn>> Create(CreatePresetRequest req)
         {
+            req.Name = _apiHealper.StringValidator(req.Name);
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _presetService.CreateAsync(req.ProjectId, req.Name, userInfo);
             return new JsonResult(new PresetReturn(res), GetJsonOptions());
@@ -69,6 +70,27 @@ namespace Menu.Controllers.TaskManagementApp
         [HttpPatch]
         public async Task<ActionResult<BoolResultNewReturn>> Update(UpdatePresetRequest req)
         {
+            req.Name = _apiHealper.StringValidator(req.Name);
+            if (req.StatusId < 1)
+            {
+                req.StatusId = null;
+            }
+
+            if (req.CreatorId < 1)
+            {
+                req.CreatorId = null;
+            }
+
+            if (req.ExecutorId < 1)
+            {
+                req.ExecutorId = null;
+            }
+
+            if (req.SprintId < 1)
+            {
+                req.SprintId = null;
+            }
+
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
             var res = await _presetService.EditAsync(req.Map(), userInfo);
             return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());

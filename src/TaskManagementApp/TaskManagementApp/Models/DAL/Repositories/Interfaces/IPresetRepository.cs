@@ -10,7 +10,8 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
     public interface IPresetRepository : IGeneralRepository<Preset, long>
     {
         Task<List<Preset>> GetAllAsync(long projectId);
-        Task<Preset> GetWithLabelsAsync(long projectId);
+        Task<Preset> GetWithLabelsAsync(long presetId);
+        Task<List<Preset>> GetWithLabelsAForProjectsync(long projectId);
         Task<List<WorkTaskLabelPresetRelation>> DeleteAsync(List<WorkTaskLabelPresetRelation> list);
     }
 }

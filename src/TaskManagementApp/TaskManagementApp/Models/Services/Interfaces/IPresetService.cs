@@ -11,6 +11,7 @@ namespace TaskManagementApp.Models.Services.Interfaces
     {
         Task<List<Preset>> GetAllAsync(long projectId, UserInfo userInfo);
         Task<List<Preset>> GetAllAsync(long projectId);
+        Task<List<Preset>> GetAllWithLabelsAsync(long projectId);
         Task<Preset> DeleteAsync(long presetId, UserInfo userInfo);
         Task<Preset> CreateAsync(long projectId, string name, UserInfo userInfo);
         Task<Preset> EditAsync(Preset preset, UserInfo userInfo);

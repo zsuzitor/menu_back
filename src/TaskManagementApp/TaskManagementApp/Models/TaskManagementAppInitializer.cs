@@ -48,8 +48,10 @@ namespace TaskManagementApp.Models
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.RelationNotFound, "Связь не найдена", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.PresetNotFound, "Пресет не найден", "TaskManagementApp", "Error");
             await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.RelationError, "Ошибка при создании связи", "TaskManagementApp", "Error");
-
+            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.PresetNotValide, "Ошибка валидации пресета", "TaskManagementApp", "Error");
             
+
+
 
             return this;
 

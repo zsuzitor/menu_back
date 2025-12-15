@@ -1,6 +1,9 @@
 ﻿using BO.Models.TaskManagementApp.DAL.Domain;
+using DAL.Migrations;
+using Pipelines.Sockets.Unofficial.Arenas;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace TaskManagementApp.Models.Returns
@@ -29,6 +32,12 @@ namespace TaskManagementApp.Models.Returns
         {
             Id = obj.Id;
             Name = obj.Name;
+            ProjectId = obj.ProjectId;
+            CreatorId = obj.CreatorId;
+            ExecutorId = obj.ExecutorId;
+            StatusId = obj.StatusId;
+            SprintId = obj.SprintId;
+            Labels = obj.Labels.Select(x => x.LabelId).ToList();
         }
     }
 }

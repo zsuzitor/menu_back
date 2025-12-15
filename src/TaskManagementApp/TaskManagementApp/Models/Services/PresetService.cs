@@ -32,6 +32,11 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<Preset> CreateAsync(long projectId, string name, UserInfo userInfo)
         {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new SomeCustomBadRequestException(Consts.ErrorConsts.PresetNotValide);
+            }
+
             var s = await ExistIfAccessAdminAsync(projectId, userInfo);
             if (!s)
             {
@@ -62,6 +67,10 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<Preset> EditAsync(Preset preset, UserInfo userInfo)
         {
+            if (string.IsNullOrWhiteSpace(preset.Name))
+            {
+                throw new SomeCustomBadRequestException(Consts.ErrorConsts.PresetNotValide);
+            }
             var oldPreset = await _presetRepo.GetWithLabelsAsync(preset.Id) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.PresetNotFound);
 
             var s = await ExistIfAccessAdminAsync(oldPreset.ProjectId, userInfo);
@@ -169,6 +178,11 @@ namespace TaskManagementApp.Models.Services
         public async Task<List<Preset>> GetAllAsync(long projectId)
         {
             return await _presetRepo.GetAllAsync(projectId);
+        }
+
+        public async Task<List<Preset>> GetAllWithLabelsAsync(long projectId)
+        {
+            return await _presetRepo.GetWithLabelsAForProjectsync(projectId);
         }
 
         private async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)

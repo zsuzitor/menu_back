@@ -991,7 +991,7 @@ namespace DAL.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.WorkTaskSprintRelation", "Sprint")
+                    b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.ProjectSprint", "Sprint")
                         .WithMany()
                         .HasForeignKey("SprintId")
                         .OnDelete(DeleteBehavior.NoAction);

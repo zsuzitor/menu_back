@@ -40,6 +40,7 @@ namespace TaskManagementApp.Models
             public const string BadRelationType = "task_management_bad_relation";
             public const string RelationNotFound = "task_management_relation_not_found";
             public const string PresetNotFound = "task_management_preset_not_found";
+            public const string PresetNotValide = "task_management_preset_not_valide";
             public const string RelationError = "task_management_relation_error";
 
 

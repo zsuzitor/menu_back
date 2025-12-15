@@ -3035,7 +3035,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n\r\n\r\n.presets-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.presets-page-main .one-preset-block{\r\n    display: flex;\r\n}\r\n\r\n.one-preset-block .one-preset-buttons{\r\n    display: flex;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/Presets/Presets.css"],"names":[],"mappings":";;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;;AAEjB","sourcesContent":["\r\n\r\n\r\n.presets-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.presets-page-main .one-preset-block{\r\n    display: flex;\r\n}\r\n\r\n.one-preset-block .one-preset-buttons{\r\n    display: flex;\r\n\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".presets-page-main {\r\n    width: 100%;\r\n}\r\n\r\n\r\n.presets-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.presets-page-main .one-preset-block {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.one-preset-block .one-preset-buttons {\r\n    display: flex;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/Presets/Presets.css"],"names":[],"mappings":"AAAA;IACI,WAAW;AACf;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;IACI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,aAAa;;AAEjB","sourcesContent":[".presets-page-main {\r\n    width: 100%;\r\n}\r\n\r\n\r\n.presets-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.presets-page-main .one-preset-block {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.one-preset-block .one-preset-buttons {\r\n    display: flex;\r\n\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72522,19 +72522,21 @@ const SaveCancelInputMultiSelectWithSearch_1 = __importDefault(__webpack_require
 __webpack_require__(/*! ./EditPreset.css */ "./src/Apps/TaskManagementApp/Components/EditPreset/EditPreset.css");
 const EditPreset = (props) => {
     const [newName, setNewName] = (0, react_1.useState)("");
-    const [newCreatorId, setNewCreatorId] = (0, react_1.useState)(0);
-    const [newExecutorId, setNewExecutorId] = (0, react_1.useState)(0);
-    const [newStatusId, setNewStatusId] = (0, react_1.useState)(0);
-    const [newSprintId, setNewSprintId] = (0, react_1.useState)(0);
+    const [newCreatorId, setNewCreatorId] = (0, react_1.useState)(-1);
+    const [newExecutorId, setNewExecutorId] = (0, react_1.useState)(-1);
+    const [newStatusId, setNewStatusId] = (0, react_1.useState)(-1);
+    const [newSprintId, setNewSprintId] = (0, react_1.useState)(-1);
     const [newLabels, setNewLabels] = (0, react_1.useState)([]);
     (0, react_1.useEffect)(() => {
-        setNewName(props.Preset.Name);
-        setNewCreatorId(props.Preset.CreatorId);
-        setNewExecutorId(props.Preset.ExecutorId);
-        setNewStatusId(props.Preset.StatusId);
-        setNewSprintId(props.Preset.SprintId);
+        var _a, _b, _c, _d, _e;
+        setNewName((_a = props.Preset.Name) !== null && _a !== void 0 ? _a : '');
+        setNewCreatorId((_b = props.Preset.CreatorId) !== null && _b !== void 0 ? _b : -1);
+        setNewExecutorId((_c = props.Preset.ExecutorId) !== null && _c !== void 0 ? _c : -1);
+        setNewStatusId((_d = props.Preset.StatusId) !== null && _d !== void 0 ? _d : -1);
+        setNewSprintId((_e = props.Preset.SprintId) !== null && _e !== void 0 ? _e : -1);
         setNewLabels(props.Preset.LabelId);
     }, [props.Preset]);
+    console.log(newLabels);
     if (!props.Preset) {
         return react_1.default.createElement("div", null);
     }
@@ -74159,14 +74161,14 @@ const Presets = (props) => {
             react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: () => {
                     props.CreatePreset(props.ProjectId, newPresetName);
                 } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C")),
-        react_1.default.createElement("div", null, props.Presets.map(x => react_1.default.createElement("div", { className: 'one-preset-block' },
+        react_1.default.createElement("div", null, props.Presets.map(x => react_1.default.createElement("div", { className: 'one-preset-block', key: x.Id },
             react_1.default.createElement("div", null,
                 x.Id,
                 " ",
                 x.Name),
             react_1.default.createElement("div", { className: 'one-preset-buttons' },
                 react_1.default.createElement("div", { className: 'action-btn', onClick: (e) => {
-                        if (!confirm('Удалить пресет' + x.Name + '?')) {
+                        if (!confirm('Удалить пресет ' + x.Name + '?')) {
                             return;
                         }
                         e.preventDefault();
@@ -78792,7 +78794,7 @@ class Preset {
         this.ExecutorId = data.ExecutorId;
         this.StatusId = data.StatusId;
         this.SprintId = data.SprintId;
-        this.LabelId = data.LabelId;
+        this.LabelId = data.Labels;
         return this;
     }
 }

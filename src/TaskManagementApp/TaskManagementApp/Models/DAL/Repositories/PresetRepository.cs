@@ -1,4 +1,5 @@
 ﻿using BO.Models.TaskManagementApp.DAL.Domain;
+using DAL.Migrations;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
@@ -30,9 +31,14 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return await _db.TaskManagementPreset.AsNoTracking().Where(x => x.ProjectId == projectId).ToListAsync();
         }
 
-        public async Task<Preset> GetWithLabelsAsync(long projectId)
+        public async Task<List<Preset>> GetWithLabelsAForProjectsync(long projectId)
         {
-            return await _db.TaskManagementPreset.Include(x => x.Labels).FirstOrDefaultAsync(x => x.ProjectId == projectId);
+            return await _db.TaskManagementPreset.AsNoTracking().Include(x => x.Labels).Where(x => x.ProjectId == projectId).ToListAsync();
+        }
+
+        public async Task<Preset> GetWithLabelsAsync(long presetId)
+        {
+            return await _db.TaskManagementPreset.Include(x => x.Labels).FirstOrDefaultAsync(x => x.Id == presetId);
 
         }
     }

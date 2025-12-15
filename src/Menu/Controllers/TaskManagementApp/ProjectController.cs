@@ -88,7 +88,7 @@ namespace Menu.Controllers.TaskManagementApp
             var statuses = (await _statusService.GetStatusesAsync(projectId)).Select(x => new WorkTaskStatusReturn(x)).ToList();
             var sprints = (await _sprintService.GetForProject(projectId)).Select(x => new ProjectSprintReturn(x)).ToList();
             var labels = (await _labelService.Get(projectId)).Select(x => new ProjectLabelReturn(x)).ToList();
-            var presets = (await _presetService.GetAllAsync(projectId)).Select(x => new PresetReturn(x)).ToList();
+            var presets = (await _presetService.GetAllWithLabelsAsync(projectId)).Select(x => new PresetReturn(x)).ToList();
 
             var users = await _projectUserService.GetProjectUsersAsync(projectId, userInfo);
             var usersReturn = users.Select(x => new ProjectUserReturn(x)).ToList();
