@@ -10,6 +10,7 @@
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
         public long? SprintId { get; set; }
+        public long? PresetId { get; set; }
         public long[] LabelId { get; set; }
 
     }

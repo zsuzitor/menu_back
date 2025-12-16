@@ -182,7 +182,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<List<Preset>> GetAllWithLabelsAsync(long projectId)
         {
-            return await _presetRepo.GetWithLabelsAForProjectsync(projectId);
+            return await _presetRepo.GetWithLabelsForProjectsync(projectId);
         }
 
         private async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)

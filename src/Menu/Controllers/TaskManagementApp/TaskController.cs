@@ -16,6 +16,7 @@ using Nest;
 using TaskManagementApp.Models.DTO;
 using System.Text.Json;
 using TaskManagementApp.Models.Services;
+using DAL.Migrations;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -87,6 +88,10 @@ namespace Menu.Controllers.TaskManagementApp
             {
                 request.SprintId = null;
             }
+            if (request.PresetId < 1)
+            {
+                request.PresetId = null;
+            }
             if (request.LabelId == null || request.LabelId.Length ==0)
             {
                 request.LabelId = null;
@@ -110,6 +115,7 @@ namespace Menu.Controllers.TaskManagementApp
                 Name = request.NameLike,
                 ProjectId = request.ProjectId,
                 SprintId = request.SprintId,
+                PresetId= request.PresetId,
                 LabelIds = request.LabelId?.ToList(),
             });
             var tasksCount = await _workTaskService.GetTasksCountAsync(new GetTasksCountByFilter()
@@ -120,6 +126,7 @@ namespace Menu.Controllers.TaskManagementApp
                 Name = request.NameLike,
                 ProjectId = request.ProjectId,
                 SprintId = request.SprintId,
+                PresetId = request.PresetId,
                 LabelIds = request.LabelId?.ToList(),
             });
             var taskReturn = tasks.Select(x => new WorkTaskReturn(x)).ToList();

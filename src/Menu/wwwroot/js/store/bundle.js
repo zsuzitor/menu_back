@@ -2765,7 +2765,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".new-preset-block .edit-labels {\r\n    color: black;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/EditPreset/EditPreset.css"],"names":[],"mappings":"AAAA;IACI,YAAY;AAChB","sourcesContent":[".new-preset-block .edit-labels {\r\n    color: black;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3035,7 +3035,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".presets-page-main {\r\n    width: 100%;\r\n}\r\n\r\n\r\n.presets-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.presets-page-main .one-preset-block {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.one-preset-block .one-preset-buttons {\r\n    display: flex;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/Presets/Presets.css"],"names":[],"mappings":"AAAA;IACI,WAAW;AACf;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;IACI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,aAAa;;AAEjB","sourcesContent":[".presets-page-main {\r\n    width: 100%;\r\n}\r\n\r\n\r\n.presets-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.presets-page-main .one-preset-block {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.one-preset-block .one-preset-buttons {\r\n    display: flex;\r\n\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".presets-page-main {\r\n    width: 100%;\r\n    padding-top: 60px;\r\n}\r\n\r\n.presets-page-main .one-preset-block {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.presets-page-main .one-preset-info {\r\n\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n    flex-grow: 1;\r\n}\r\n\r\n.presets-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.presets-page-main .preset-block {\r\n\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.one-preset-block .one-preset-buttons {\r\n    display: flex;\r\n    flex-grow: 0;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/Presets/Presets.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,iBAAiB;AACrB;;AAEA;;IAEI,aAAa;IACb,8BAA8B;IAC9B,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;;IAEI,aAAa;IACb,SAAS;IACT,gBAAgB;IAChB,eAAe;IACf,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;;IAEI,aAAa;IACb,sBAAsB;IACtB,QAAQ;AACZ;;AAEA;IACI,aAAa;IACb,YAAY;;AAEhB","sourcesContent":[".presets-page-main {\r\n    width: 100%;\r\n    padding-top: 60px;\r\n}\r\n\r\n.presets-page-main .one-preset-block {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.presets-page-main .one-preset-info {\r\n\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n    flex-grow: 1;\r\n}\r\n\r\n.presets-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.presets-page-main .preset-block {\r\n\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.one-preset-block .one-preset-buttons {\r\n    display: flex;\r\n    flex-grow: 0;\r\n\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72536,7 +72536,6 @@ const EditPreset = (props) => {
         setNewSprintId((_e = props.Preset.SprintId) !== null && _e !== void 0 ? _e : -1);
         setNewLabels(props.Preset.LabelId);
     }, [props.Preset]);
-    console.log(newLabels);
     if (!props.Preset) {
         return react_1.default.createElement("div", null);
     }
@@ -72559,16 +72558,17 @@ const EditPreset = (props) => {
             react_1.default.createElement("select", { className: 'filter-input', onChange: e => setNewSprintId(+e.target.value), value: newSprintId },
                 react_1.default.createElement("option", { value: -1 }, "\u041B\u044E\u0431\u043E\u0439"),
                 props.Sprints.map(sprint => react_1.default.createElement("option", { value: sprint.Id, key: sprint.Id }, sprint.Name))),
-            react_1.default.createElement(SaveCancelInputMultiSelectWithSearch_1.default, { CancelEvent: () => {
-                    // setTaskLabelEditable(false)
-                    setNewLabels([]);
-                }, SaveEvent: (id) => {
-                    // props.UpdateTaskLabels(props.Task.Id, id);
-                    setNewLabels(id);
-                    return true;
-                }, Selected: newLabels, ValuesWithId: props.Labels.map(x => {
-                    return { Id: x.Id, Text: x.Name };
-                }) }),
+            react_1.default.createElement("div", { className: 'edit-labels' },
+                react_1.default.createElement(SaveCancelInputMultiSelectWithSearch_1.default, { CancelEvent: () => {
+                        // setTaskLabelEditable(false)
+                        setNewLabels([]);
+                    }, SaveEvent: (id) => {
+                        // props.UpdateTaskLabels(props.Task.Id, id);
+                        setNewLabels(id);
+                        return true;
+                    }, Selected: newLabels, ValuesWithId: props.Labels.map(x => {
+                        return { Id: x.Id, Text: x.Name };
+                    }) })),
             react_1.default.createElement("button", { className: 'button button-grey', onClick: () => {
                     props.UpdatePreset({
                         CreatorId: newCreatorId, Id: props.Preset.Id, LabelId: newLabels,
@@ -74156,29 +74156,33 @@ const Presets = (props) => {
         editPresetId > 0 ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => {
                 setEditPresetId(0);
             }, IsHeightWindow: true, Title: '\u0421\u043F\u0440\u0438\u043D\u0442', InnerContent: () => react_1.default.createElement(EditPreset_1.default, { Preset: editPreset, UpdatePreset: props.UpdatePreset }) }) : react_1.default.createElement(react_1.default.Fragment, null),
-        react_1.default.createElement("div", null,
-            react_1.default.createElement("input", { type: 'text', className: 'form-control', placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: newPresetName, onChange: (e) => setNewPresetName(e.target.value) }),
-            react_1.default.createElement("button", { className: 'btn btn-b-light', onClick: () => {
-                    props.CreatePreset(props.ProjectId, newPresetName);
-                } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C")),
-        react_1.default.createElement("div", null, props.Presets.map(x => react_1.default.createElement("div", { className: 'one-preset-block', key: x.Id },
-            react_1.default.createElement("div", null,
-                x.Id,
-                " ",
-                x.Name),
-            react_1.default.createElement("div", { className: 'one-preset-buttons' },
-                react_1.default.createElement("div", { className: 'action-btn', onClick: (e) => {
-                        if (!confirm('Удалить пресет ' + x.Name + '?')) {
-                            return;
-                        }
-                        e.preventDefault();
-                        props.DeletePreset(x.Id);
-                    }, title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043F\u0440\u0435\u0441\u0435\u0442' },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })),
-                react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
-                        setEditPresetId(x.Id);
-                    }, title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0441\u043F\u0440\u0438\u043D\u0442' },
-                    react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/pencil-edit.png" })))))));
+        react_1.default.createElement("div", { className: 'preset-block' },
+            react_1.default.createElement("div", { className: 'one-preset-block' },
+                react_1.default.createElement("div", { className: 'one-preset-info' },
+                    react_1.default.createElement("input", { type: 'text', placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: newPresetName, onChange: (e) => setNewPresetName(e.target.value) })),
+                react_1.default.createElement("div", { className: 'one-preset-buttons' },
+                    react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
+                            props.CreatePreset(props.ProjectId, newPresetName);
+                        }, title: '\u0421\u043E\u0437\u0434\u0430\u0442\u044C' },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/save-icon.png" })))),
+            react_1.default.createElement("div", null, props.Presets.map(x => react_1.default.createElement("div", { className: 'one-preset-block', key: x.Id },
+                react_1.default.createElement("div", null,
+                    x.Id,
+                    " ",
+                    x.Name),
+                react_1.default.createElement("div", { className: 'one-preset-buttons' },
+                    react_1.default.createElement("div", { className: 'action-btn', onClick: (e) => {
+                            if (!confirm('Удалить пресет ' + x.Name + '?')) {
+                                return;
+                            }
+                            e.preventDefault();
+                            props.DeletePreset(x.Id);
+                        }, title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043F\u0440\u0435\u0441\u0435\u0442' },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/delete-icon.png" })),
+                    react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
+                            setEditPresetId(x.Id);
+                        }, title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0441\u043F\u0440\u0438\u043D\u0442' },
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/pencil-edit.png" }))))))));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, PresetsSetup_1.default)(Presets);
@@ -74283,6 +74287,7 @@ const ProjectDetail = (props) => {
     const [filterVisibilityStatus, setFilterVisibilityStatus] = (0, react_1.useState)(false);
     const [filterVisibilitySprint, setFilterVisibilitySprint] = (0, react_1.useState)(false);
     const [filterVisibilityLabel, setFilterVisibilityLabel] = (0, react_1.useState)(false);
+    const [filterVisibilityPreset, setFilterVisibilityPreset] = (0, react_1.useState)(false);
     const [filterVisibilityReviwer, setFilterVisibilityReviwer] = (0, react_1.useState)(false);
     const navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(() => {
@@ -74336,14 +74341,15 @@ const ProjectDetail = (props) => {
         setLoadTasksTimerId(timerId);
     }, [(_b = props.Project) === null || _b === void 0 ? void 0 : _b.Id, props.TasksFilters.CreatorId, props.TasksFilters.ExecutorId,
         props.TasksFilters.Status, props.TasksFilters.TaskName,
-        props.TasksFilters.Page, props.TasksFilters.Retrigger, props.TasksFilters.Sprint, labelsChanges]);
+        props.TasksFilters.Page, props.TasksFilters.Retrigger, props.TasksFilters.Sprint,
+        props.TasksFilters.Preset, labelsChanges]);
     const reloadTasks = () => {
         let filter = {
             Name: props.TasksFilters.TaskName, CreatorId: props.TasksFilters.CreatorId,
             PageNumber: props.TasksFilters.Page, PageSize: tasksOnPageCount,
             ProjectId: props.Project.Id, ExecutorId: props.TasksFilters.ExecutorId,
             StatusId: props.TasksFilters.Status, SprintId: props.TasksFilters.Sprint,
-            LabelIds: props.TasksFilters.Labels
+            LabelIds: props.TasksFilters.Labels, PresetId: props.TasksFilters.Preset
         };
         props.ReloadTasks(filter);
     };
@@ -74358,6 +74364,7 @@ const ProjectDetail = (props) => {
         setFilterVisibilityReviwer(false);
         setFilterVisibilitySprint(false);
         setFilterVisibilityLabel(false);
+        setFilterVisibilityPreset(false);
     };
     // const labelsRender = (labels: TaskLabel[]) => {
     //     // return <div></div>
@@ -74481,17 +74488,20 @@ const ProjectDetail = (props) => {
                                 react_1.default.createElement("div", { className: 'add-one-filter', onClick: () => setFilterVisibilityReviwer(true) }, "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C"),
                                 react_1.default.createElement("div", { className: 'add-one-filter', onClick: () => setFilterVisibilityStatus(true) }, "\u0421\u0442\u0430\u0442\u0443\u0441"),
                                 react_1.default.createElement("div", { className: 'add-one-filter', onClick: () => setFilterVisibilitySprint(true) }, "\u0421\u043F\u0440\u0438\u043D\u0442"),
-                                react_1.default.createElement("div", { className: 'add-one-filter', onClick: () => setFilterVisibilityLabel(true) }, "\u041B\u0435\u0439\u0431\u043B")) })),
+                                react_1.default.createElement("div", { className: 'add-one-filter', onClick: () => setFilterVisibilityLabel(true) }, "\u041B\u0435\u0439\u0431\u043B"),
+                                react_1.default.createElement("div", { className: 'add-one-filter', onClick: () => setFilterVisibilityPreset(true) }, "\u041F\u0440\u0435\u0441\u0435\u0442")) })),
                     ((filterVisibilityName
                         || filterVisibilityCreator
                         || filterVisibilityReviwer
                         || filterVisibilityStatus
                         || filterVisibilityLabel
-                        || filterVisibilitySprint)
+                        || filterVisibilitySprint
+                        || filterVisibilityPreset)
                         || (props.TasksFilters.CreatorId != -1
                             || props.TasksFilters.ExecutorId != -1
                             || props.TasksFilters.Status != -1
                             || props.TasksFilters.Sprint != -1
+                            || props.TasksFilters.Preset != -1
                             || props.TasksFilters.Labels.length > 0
                             || props.TasksFilters.TaskName != ''
                             || props.TasksFilters.Page != 1))
@@ -74548,7 +74558,17 @@ const ProjectDetail = (props) => {
                                     props.SetFilterTaskSprint(-1);
                                     setFilterVisibilitySprint(false);
                                 } }, "\u00D7")),
-                        filterVisibilityLabel && labelsRender(props.TasksFilters.Labels))),
+                        filterVisibilityLabel && labelsRender(props.TasksFilters.Labels),
+                        filterVisibilityPreset && react_1.default.createElement("div", { className: 'filter-container' },
+                            react_1.default.createElement("div", { className: 'filter-tag' },
+                                react_1.default.createElement("span", { className: 'filter-name' }, "\u041F\u0440\u0435\u0441\u0435\u0442:"),
+                                react_1.default.createElement("select", { className: 'filter-input', value: props.TasksFilters.Preset, onChange: (e) => props.SetFilterPreset(+e.target.value) },
+                                    react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
+                                    props.Presets.map(x => react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name))),
+                                react_1.default.createElement("button", { className: 'remove-filter', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0444\u0438\u043B\u044C\u0442\u0440', onClick: () => {
+                                        props.SetFilterPreset(-1);
+                                        setFilterVisibilityPreset(false);
+                                    } }, "\u00D7"))))),
                 props.Tasks.length
                     ? props.Tasks.map(x => react_1.default.createElement(OneWorkTask_1.default, { key: x.Id, Task: x, Comments: x.Comments, CurrentProjectId: props.Project.Id }))
                     : react_1.default.createElement("div", { className: 'management-project-tasks-no-tasks' },
@@ -74583,6 +74603,7 @@ const mapStateToProps = (state, ownProps) => {
     res.Statuses = state.TaskManagementApp.CurrentProjectStatuses;
     res.Sprints = state.TaskManagementApp.CurrentProjectSprints;
     res.Labels = state.TaskManagementApp.CurrentProjectLabels;
+    res.Presets = state.TaskManagementApp.CurrentProjectPresets;
     return res;
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -74607,6 +74628,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
     res.SetFilterTaskLabel = (label) => {
         dispatch((0, TaskActions_1.SetFilterTaskLabelActionCreator)(label));
+    };
+    res.SetFilterPreset = (preset) => {
+        dispatch((0, TaskActions_1.SetFilterTaskPresetActionCreator)(preset));
     };
     res.ReloadTasks = (filter) => {
         dispatch(window.G_TaskManagementTaskController.LoadTasksRedux(filter));
@@ -76088,7 +76112,8 @@ exports.UpdateTaskSprintActionCreator = UpdateTaskSprintActionCreator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.UpdateTaskExecutorActionCreator = exports.UpdateTaskExecutorActionName = exports.UpdateTaskExecutorActionParam = exports.UpdateTaskStatusActionCreator = exports.UpdateTaskStatusActionName = exports.UpdateTaskStatusActionParam = exports.UpdateTaskDescriptionActionCreator = exports.UpdateTaskDescriptionActionName = exports.UpdateTaskDescriptionActionParam = exports.UpdateTaskNameActionCreator = exports.UpdateTaskNameActionName = exports.UpdateTaskNameActionParam = exports.LoadTaskRelationStateActionCreator = exports.LoadTaskRelationStateActionName = exports.DeleteTaskRelationStateActionCreator = exports.DeleteTaskRelationStateActionName = exports.AddTaskRelationStateActionCreator = exports.AddTaskRelationStateActionName = exports.ClearCurrentTaskStateActionCreator = exports.ClearCurrentTaskStateActionName = exports.LoadTaskActionCreator = exports.LoadTaskActionName = exports.SetCurrentTaskIdActionCreator = exports.SetCurrentTaskIdActionName = exports.SetFilterTaskActionCreator = exports.SetFilterTaskActionName = exports.SetFilterTaskLabelActionCreator = exports.SetFilterTaskLabelActionName = exports.SetFilterTaskSprintActionCreator = exports.SetFilterTaskSprintActionName = exports.SetFilterTaskStatusActionCreator = exports.SetFilterTaskStatusActionName = exports.SetFilterTaskPageActionCreator = exports.SetFilterTaskPageActionName = exports.SetFilterTaskNameActionCreator = exports.SetFilterTaskNameActionName = exports.SetFilterTaskExecutorActionCreator = exports.SetFilterTaskExecutorActionName = exports.SetFilterTaskCreatorActionCreator = exports.SetFilterTaskCreatorActionName = exports.DeleteTaskActionCreator = exports.DeleteTaskActionName = exports.LoadTasksActionCreator = exports.LoadTasksActionName = exports.UpdateTaskActionCreator = exports.UpdateTaskActionName = exports.AddLoadTriggerActionCreator = exports.AddLoadTriggerActionName = exports.AddTaskToProjectActionCreator = exports.AddTaskToProjectActionName = void 0;
+exports.UpdateTaskExecutorActionParam = exports.UpdateTaskStatusActionCreator = exports.UpdateTaskStatusActionName = exports.UpdateTaskStatusActionParam = exports.UpdateTaskDescriptionActionCreator = exports.UpdateTaskDescriptionActionName = exports.UpdateTaskDescriptionActionParam = exports.UpdateTaskNameActionCreator = exports.UpdateTaskNameActionName = exports.UpdateTaskNameActionParam = exports.LoadTaskRelationStateActionCreator = exports.LoadTaskRelationStateActionName = exports.DeleteTaskRelationStateActionCreator = exports.DeleteTaskRelationStateActionName = exports.AddTaskRelationStateActionCreator = exports.AddTaskRelationStateActionName = exports.ClearCurrentTaskStateActionCreator = exports.ClearCurrentTaskStateActionName = exports.LoadTaskActionCreator = exports.LoadTaskActionName = exports.SetCurrentTaskIdActionCreator = exports.SetCurrentTaskIdActionName = exports.SetFilterTaskActionCreator = exports.SetFilterTaskActionName = exports.SetFilterTaskLabelActionCreator = exports.SetFilterTaskLabelActionName = exports.SetFilterTaskPresetActionCreator = exports.SetFilterTaskPresetActionName = exports.SetFilterTaskSprintActionCreator = exports.SetFilterTaskSprintActionName = exports.SetFilterTaskStatusActionCreator = exports.SetFilterTaskStatusActionName = exports.SetFilterTaskPageActionCreator = exports.SetFilterTaskPageActionName = exports.SetFilterTaskNameActionCreator = exports.SetFilterTaskNameActionName = exports.SetFilterTaskExecutorActionCreator = exports.SetFilterTaskExecutorActionName = exports.SetFilterTaskCreatorActionCreator = exports.SetFilterTaskCreatorActionName = exports.DeleteTaskActionCreator = exports.DeleteTaskActionName = exports.LoadTasksActionCreator = exports.LoadTasksActionName = exports.UpdateTaskActionCreator = exports.UpdateTaskActionName = exports.AddLoadTriggerActionCreator = exports.AddLoadTriggerActionName = exports.AddTaskToProjectActionCreator = exports.AddTaskToProjectActionName = void 0;
+exports.UpdateTaskExecutorActionCreator = exports.UpdateTaskExecutorActionName = void 0;
 exports.AddTaskToProjectActionName = 'AddTaskToProjectAction';
 function AddTaskToProjectActionCreator(data) {
     return { type: exports.AddTaskToProjectActionName, payload: data };
@@ -76154,6 +76179,12 @@ function SetFilterTaskSprintActionCreator(num) {
     return { type: exports.SetFilterTaskSprintActionName, payload: num };
 }
 exports.SetFilterTaskSprintActionCreator = SetFilterTaskSprintActionCreator;
+;
+exports.SetFilterTaskPresetActionName = 'SetFilterTaskPresetAction';
+function SetFilterTaskPresetActionCreator(num) {
+    return { type: exports.SetFilterTaskPresetActionName, payload: num };
+}
+exports.SetFilterTaskPresetActionCreator = SetFilterTaskPresetActionCreator;
 ;
 exports.SetFilterTaskLabelActionName = 'SetFilterTaskLabelAction';
 function SetFilterTaskLabelActionCreator(num) {
@@ -77909,6 +77940,7 @@ class TaskManagementTaskController {
                 "pageSize": taskFilter.PageSize,
                 "sprintId": taskFilter.SprintId,
                 "labelId": taskFilter.LabelIds,
+                "presetId": taskFilter.PresetId,
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
@@ -79010,6 +79042,7 @@ class TasksFilter {
         this.Page = 1;
         this.Retrigger = 0;
         this.Sprint = -1;
+        this.Preset = -1;
         this.Labels = [];
     }
 }
@@ -79750,6 +79783,13 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
                 newState.TaskManagementApp.CurrentProjectTasksFilters.Sprint = payload;
+                return newState;
+            }
+        case TaskActions_1.SetFilterTaskPresetActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.TaskManagementApp.CurrentProjectTasksFilters.Preset = payload;
                 return newState;
             }
         case TaskActions_1.SetFilterTaskLabelActionName:

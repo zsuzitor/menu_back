@@ -20,6 +20,7 @@ namespace TaskManagementApp.Models.Services
     {
         private readonly IWorkTaskRepository _workTaskRepository;
         private readonly IProjectRepository _projectRepository;
+        private readonly IPresetRepository _presetRepository;
         private readonly ISprintRepository _sprintRepository;
         private readonly IWorkTaskLabelRepository _labelRepository;
         private readonly IProjectUserService _projectUserService;
@@ -32,7 +33,7 @@ namespace TaskManagementApp.Models.Services
         public WorkTaskService(IWorkTaskRepository workTaskRepository,
             IProjectRepository projectRepository, IProjectUserService projectUserService
             , IWorkTaskCommentService workTaskCommentService, ITaskManagementAppEmailService taskManagementAppEmailService, ITaskStatusRepository taskStatusRepository
-            , IConfiguration configuration, IDateTimeProvider dateTimeProvider, ISprintRepository sprintRepository, IWorkTaskLabelRepository labelRepository)
+            , IConfiguration configuration, IDateTimeProvider dateTimeProvider, ISprintRepository sprintRepository, IWorkTaskLabelRepository labelRepository, IPresetRepository presetRepository)
         {
             _workTaskRepository = workTaskRepository;
             _projectRepository = projectRepository;
@@ -44,7 +45,7 @@ namespace TaskManagementApp.Models.Services
             _dateTimeProvider = dateTimeProvider;
             _sprintRepository = sprintRepository;
             _labelRepository = labelRepository;
-
+            _presetRepository = presetRepository;
         }
 
         public async Task<WorkTask> CreateAsync(WorkTask task, UserInfo userInfo)
@@ -85,6 +86,16 @@ namespace TaskManagementApp.Models.Services
         /// <returns></returns>
         public async Task<List<WorkTask>> GetTasksAsync(GetTasksByFilter filters)
         {
+            if (filters.PresetId != null)
+            {
+                var preset = await _presetRepository.GetWithLabelsAsync(filters.PresetId.Value) ?? throw new SomeCustomException(Consts.ErrorConsts.PresetNotFound);
+                filters.StatusId = preset.StatusId;
+                filters.SprintId = preset.SprintId;
+                filters.CreatorId = preset.CreatorId;
+                filters.ExecutorId = preset.ExecutorId;
+                filters.LabelIds = preset.Labels.Select(x => x.LabelId).ToList();
+
+            }
             return await _workTaskRepository.GetTasksAsync(filters);
         }
 
@@ -102,7 +113,7 @@ namespace TaskManagementApp.Models.Services
 
             if (task.StatusId == null)
             {
-                throw new SomeCustomException(Consts.ErrorConsts.WorkTaskStatusNotExists);
+                throw new SomeCustomBadRequestException(Consts.ErrorConsts.WorkTaskStatusNotExists);
             }
 
 

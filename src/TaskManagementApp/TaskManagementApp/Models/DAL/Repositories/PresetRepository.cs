@@ -31,7 +31,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return await _db.TaskManagementPreset.AsNoTracking().Where(x => x.ProjectId == projectId).ToListAsync();
         }
 
-        public async Task<List<Preset>> GetWithLabelsAForProjectsync(long projectId)
+        public async Task<List<Preset>> GetWithLabelsForProjectsync(long projectId)
         {
             return await _db.TaskManagementPreset.AsNoTracking().Include(x => x.Labels).Where(x => x.ProjectId == projectId).ToListAsync();
         }

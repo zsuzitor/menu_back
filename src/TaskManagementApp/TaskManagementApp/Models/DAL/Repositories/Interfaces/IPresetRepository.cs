@@ -11,7 +11,7 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
     {
         Task<List<Preset>> GetAllAsync(long projectId);
         Task<Preset> GetWithLabelsAsync(long presetId);
-        Task<List<Preset>> GetWithLabelsAForProjectsync(long projectId);
+        Task<List<Preset>> GetWithLabelsForProjectsync(long projectId);
         Task<List<WorkTaskLabelPresetRelation>> DeleteAsync(List<WorkTaskLabelPresetRelation> list);
     }
 }
