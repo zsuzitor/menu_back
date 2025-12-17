@@ -142,7 +142,7 @@ namespace TaskManagementApp.Models.Services
 
             oldTask.Status = task.Status;
             oldTask.Name = task.Name;
-            oldTask.Description = task.Description;
+            //oldTask.Description = task.Description;
             oldTask.LastUpdateDate = _dateTimeProvider.CurrentDateTime();
             //upTask.CreatorId = task.CreatorId;
             oldTask.ExecutorId = task.ExecutorId;

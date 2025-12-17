@@ -75,7 +75,7 @@ namespace Menu.Models.TaskManagementApp.Mappers
                 StatusId = obj.StatusId,
                 //CreatorId = creatorId,
                 ExecutorId = obj.ExecutorId,
-                Description = obj.Description,
+                //Description = obj.Description,
             };
         }
 

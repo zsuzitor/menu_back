@@ -212,7 +212,7 @@ namespace Menu.Controllers.TaskManagementApp
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
             request.Name = _apiHealper.StringValidator(request.Name);
-            request.Description = _apiHealper.StringValidator(request.Description);
+            //request.Description = _apiHealper.StringValidator(request.Description);
             if (request.ExecutorId < 1)
             {
                 request.ExecutorId = null;

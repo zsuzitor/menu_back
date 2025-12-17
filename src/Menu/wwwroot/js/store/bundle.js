@@ -2954,7 +2954,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".one-work-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-work-task-detail-comments-block {\r\n    padding-left: 10px;\r\n\r\n    max-width: 610px;\r\n}\r\n\r\n.one-work-task-detail-body {\r\n    display: flex;\r\n    padding-top: 10px;\r\n    gap: 0.5rem;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.one-work-task-detail-content {\r\n    flex-grow: 2;\r\n    border-radius: 5px;\r\n    max-width: 600px;\r\n    background-color: white;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n    border-radius: 5px;\r\n    width: 300px;\r\n    display: flex;\r\n    background-color: white;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-name-full {\r\n    padding-left: 30px;\r\n    padding-right: 15px;\r\n    padding-bottom: 15px;\r\n\r\n    font-size: 25px;\r\n\r\n}\r\n\r\n.one-work-task-detail-name {\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n.one-work-task-detail-name:hover {\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.one-work-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-work-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-relations-block .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-header {\r\n    background-color: #fff;\r\n}\r\n\r\n.work-task-detail-description {\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.work-task-detail-description:hover {\r\n    /* background-color: #f5f5f5; */\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-right-content .editable-by-click {\r\n    cursor: pointer;\r\n}\r\n\r\n.task-comments-add {\r\n    padding-top: 15px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img {\r\n    width: 25px;\r\n    height: 25px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img img {\r\n    /* красит в салатовый */\r\n    filter: brightness(0) saturate(100%) invert(50%) sepia(100%) hue-rotate(30deg);\r\n}\r\n\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn {\r\n    width: 255px;\r\n    display: flex;\r\n    gap: 10px;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 5px;\r\n    padding-left: 10px;\r\n    height: 35px;\r\n    padding-top: 3px;\r\n}\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn:hover {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n}\r\n\r\n.add-time-log-header {\r\n    display: flex;\r\n    gap: 20px;\r\n    align-items: center;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.work-time-block {\r\n    padding: 10px;\r\n    background-color: white;\r\n}\r\n\r\n.work-time-block .one-work-time-block {\r\n    display: flex;\r\n}\r\n\r\n.add-time-log-show-btn {\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.add-time-log-show-btn:hover {\r\n\r\n    cursor: pointer;\r\n    border: 1px solid #DFE1E6;\r\n}\r\n\r\n.work-time-block-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 3px;\r\n    max-height: 400px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.one-work-time-block .time-block-left {\r\n    border-radius: 10px 0px 0px 10px;\r\n    padding: 3px;\r\n    border-left: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 250px;\r\n}\r\n\r\n.one-work-time-block .time-block-center {\r\n    padding: 3px;\r\n    border: 1px solid black;\r\n    width: 160px;\r\n\r\n}\r\n\r\n.one-work-time-block .time-block-right {\r\n    border-radius: 0px 10px 10px 0px;\r\n    padding: 3px;\r\n    border-right: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 90px;\r\n\r\n}\r\n\r\n\r\n.add-time-log-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-time-log-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n\r\n.add-time-log-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-relation-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n.one-work-task-detail-relations-block {\r\n    padding: 10px;\r\n    background-color: white;\r\n}\r\n\r\n.one-work-task-detail-relations-block .one-relation {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding-top: 3px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n/* var1 */\r\n/* .one-work-task-detail-block .radio-check-block {\r\n    display: flex;\r\n    gap: 10px;\r\n    padding: 10px;\r\n    border-bottom: 1px solid #e0e0e0;\r\n    background-color: #f8f9fa;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block .button-c {\r\n    padding: 12px 24px;\r\n    cursor: pointer;\r\n    border: none;\r\n    background: transparent;\r\n    color: #666;\r\n    font-weight: 500;\r\n    transition: all 0.3s ease;\r\n    position: relative;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active {\r\n    color: #333;\r\n    background-color: #fff;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active::after {\r\n    content: '';\r\n    position: absolute;\r\n    bottom: -1px;\r\n    left: 0;\r\n    right: 0;\r\n    height: 2px;\r\n    background-color: #333;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div:hover:not(.active) {\r\n    background-color: #f0f0f0;\r\n    color: #333;\r\n} */\r\n\r\n\r\n\r\n\r\n\r\n\r\n/* var2 */\r\n\r\n.one-work-task-detail-block .radio-check-block {\r\n    display: flex;\r\n    background-color: #f5f5f5;\r\n    border-radius: 8px 8px 0 0;\r\n    /* padding: 4px; */\r\n    padding-top: 10px;\r\n    gap: 2px;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div {\r\n    padding: 12px 24px;\r\n    cursor: pointer;\r\n    border: none;\r\n    background: transparent;\r\n    color: #757575;\r\n    font-weight: 500;\r\n    transition: all 0.3s ease;\r\n    border-radius: 6px 6px 0 0;\r\n    position: relative;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active {\r\n    color: #424242;\r\n    background-color: #fff;\r\n    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);\r\n}\r\n\r\n/* .radio-check-block div.active::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: -4px;\r\n    left: -2px;\r\n    right: -2px;\r\n    height: 4px;\r\n    background-color: #fff;\r\n    border-radius: 4px 4px 0 0;\r\n} */\r\n\r\n.one-work-task-detail-block .radio-check-block div:hover:not(.active) {\r\n    background-color: #eeeeee;\r\n    color: #424242;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/OneWorkTaskDetail/OneWorkTaskDetail.css"],"names":[],"mappings":"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","sourcesContent":[".one-work-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-work-task-detail-comments-block {\r\n    padding-left: 10px;\r\n\r\n    max-width: 610px;\r\n}\r\n\r\n.one-work-task-detail-body {\r\n    display: flex;\r\n    padding-top: 10px;\r\n    gap: 0.5rem;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.one-work-task-detail-content {\r\n    flex-grow: 2;\r\n    border-radius: 5px;\r\n    max-width: 600px;\r\n    background-color: white;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n    border-radius: 5px;\r\n    width: 300px;\r\n    display: flex;\r\n    background-color: white;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-name-full {\r\n    padding-left: 30px;\r\n    padding-right: 15px;\r\n    padding-bottom: 15px;\r\n\r\n    font-size: 25px;\r\n\r\n}\r\n\r\n.one-work-task-detail-name {\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n.one-work-task-detail-name:hover {\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.one-work-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-work-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-relations-block .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-header {\r\n    background-color: #fff;\r\n}\r\n\r\n.work-task-detail-description {\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.work-task-detail-description:hover {\r\n    /* background-color: #f5f5f5; */\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-right-content .editable-by-click {\r\n    cursor: pointer;\r\n}\r\n\r\n.task-comments-add {\r\n    padding-top: 15px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img {\r\n    width: 25px;\r\n    height: 25px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img img {\r\n    /* красит в салатовый */\r\n    filter: brightness(0) saturate(100%) invert(50%) sepia(100%) hue-rotate(30deg);\r\n}\r\n\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn {\r\n    width: 255px;\r\n    display: flex;\r\n    gap: 10px;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 5px;\r\n    padding-left: 10px;\r\n    height: 35px;\r\n    padding-top: 3px;\r\n}\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn:hover {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n}\r\n\r\n.add-time-log-header {\r\n    display: flex;\r\n    gap: 20px;\r\n    align-items: center;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.work-time-block {\r\n    padding: 10px;\r\n    background-color: white;\r\n}\r\n\r\n.work-time-block .one-work-time-block {\r\n    display: flex;\r\n}\r\n\r\n.add-time-log-show-btn {\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.add-time-log-show-btn:hover {\r\n\r\n    cursor: pointer;\r\n    border: 1px solid #DFE1E6;\r\n}\r\n\r\n.work-time-block-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 3px;\r\n    max-height: 400px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.one-work-time-block .time-block-left {\r\n    border-radius: 10px 0px 0px 10px;\r\n    padding: 3px;\r\n    border-left: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 250px;\r\n}\r\n\r\n.one-work-time-block .time-block-center {\r\n    padding: 3px;\r\n    border: 1px solid black;\r\n    width: 160px;\r\n\r\n}\r\n\r\n.one-work-time-block .time-block-right {\r\n    border-radius: 0px 10px 10px 0px;\r\n    padding: 3px;\r\n    border-right: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 90px;\r\n\r\n}\r\n\r\n\r\n.add-time-log-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-time-log-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n\r\n.add-time-log-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-relation-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n.one-work-task-detail-relations-block {\r\n    padding: 10px;\r\n    background-color: white;\r\n}\r\n\r\n.one-work-task-detail-relations-block .one-relation {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding-top: 3px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n/* var1 */\r\n/* .one-work-task-detail-block .radio-check-block {\r\n    display: flex;\r\n    gap: 10px;\r\n    padding: 10px;\r\n    border-bottom: 1px solid #e0e0e0;\r\n    background-color: #f8f9fa;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block .button-c {\r\n    padding: 12px 24px;\r\n    cursor: pointer;\r\n    border: none;\r\n    background: transparent;\r\n    color: #666;\r\n    font-weight: 500;\r\n    transition: all 0.3s ease;\r\n    position: relative;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active {\r\n    color: #333;\r\n    background-color: #fff;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active::after {\r\n    content: '';\r\n    position: absolute;\r\n    bottom: -1px;\r\n    left: 0;\r\n    right: 0;\r\n    height: 2px;\r\n    background-color: #333;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div:hover:not(.active) {\r\n    background-color: #f0f0f0;\r\n    color: #333;\r\n} */\r\n\r\n\r\n\r\n\r\n\r\n\r\n/* var2 */\r\n\r\n.one-work-task-detail-block .radio-check-block {\r\n    display: flex;\r\n    background-color: #f5f5f5;\r\n    border-radius: 8px 8px 0 0;\r\n    /* padding: 4px; */\r\n    padding-top: 10px;\r\n    gap: 2px;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div {\r\n    padding: 12px 24px;\r\n    cursor: pointer;\r\n    border: none;\r\n    background: transparent;\r\n    color: #757575;\r\n    font-weight: 500;\r\n    transition: all 0.3s ease;\r\n    border-radius: 6px 6px 0 0;\r\n    position: relative;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active {\r\n    color: #424242;\r\n    background-color: #fff;\r\n    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);\r\n}\r\n\r\n/* .radio-check-block div.active::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: -4px;\r\n    left: -2px;\r\n    right: -2px;\r\n    height: 4px;\r\n    background-color: #fff;\r\n    border-radius: 4px 4px 0 0;\r\n} */\r\n\r\n.one-work-task-detail-block .radio-check-block div:hover:not(.active) {\r\n    background-color: #eeeeee;\r\n    color: #424242;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".one-work-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-work-task-detail-comments-block {\r\n    padding-left: 10px;\r\n\r\n    max-width: 610px;\r\n}\r\n\r\n.one-work-task-detail-body {\r\n    display: flex;\r\n    padding-top: 10px;\r\n    gap: 0.5rem;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.one-work-task-detail-content {\r\n    flex-grow: 2;\r\n    border-radius: 5px;\r\n    max-width: 600px;\r\n    background-color: white;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n    border-radius: 5px;\r\n    width: 300px;\r\n    display: flex;\r\n    background-color: white;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-name-full {\r\n    padding-left: 30px;\r\n    padding-right: 15px;\r\n    padding-bottom: 15px;\r\n\r\n    font-size: 25px;\r\n\r\n}\r\n\r\n.one-work-task-detail-name {\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n.one-work-task-detail-name:hover {\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.one-work-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-work-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-relations-block .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-header {\r\n    background-color: #fff;\r\n}\r\n\r\n.work-task-detail-description {\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.work-task-detail-description:hover {\r\n    /* background-color: #f5f5f5; */\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-right-content .editable-by-click {\r\n    cursor: pointer;\r\n}\r\n\r\n.task-comments-add {\r\n    padding-top: 15px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img {\r\n    width: 25px;\r\n    height: 25px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img img {\r\n    /* красит в салатовый */\r\n    filter: brightness(0) saturate(100%) invert(50%) sepia(100%) hue-rotate(30deg);\r\n}\r\n\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn {\r\n    width: 255px;\r\n    display: flex;\r\n    gap: 10px;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 5px;\r\n    padding-left: 10px;\r\n    height: 35px;\r\n    padding-top: 3px;\r\n}\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn:hover {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n}\r\n\r\n.add-time-log-header {\r\n    display: flex;\r\n    gap: 20px;\r\n    align-items: center;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.work-time-block {\r\n    padding: 10px;\r\n    background-color: white;\r\n}\r\n\r\n.work-time-block .one-work-time-block {\r\n    display: flex;\r\n    cursor: pointer;\r\n    width: 500px;\r\n}\r\n\r\n.add-time-log-show-btn {\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.add-time-log-show-btn:hover {\r\n\r\n    cursor: pointer;\r\n    border: 1px solid #DFE1E6;\r\n}\r\n\r\n.work-time-block-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 3px;\r\n    max-height: 400px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.one-work-time-block .time-block-left {\r\n    border-radius: 10px 0px 0px 10px;\r\n    padding: 3px;\r\n    border-left: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 250px;\r\n}\r\n\r\n.one-work-time-block .time-block-center {\r\n    padding: 3px;\r\n    border: 1px solid black;\r\n    width: 160px;\r\n\r\n}\r\n\r\n.one-work-time-block .time-block-right {\r\n    border-radius: 0px 10px 10px 0px;\r\n    padding: 3px;\r\n    border-right: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 90px;\r\n\r\n}\r\n\r\n\r\n.add-time-log-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-time-log-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n\r\n.add-time-log-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-relation-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n.one-work-task-detail-relations-block {\r\n    padding: 10px;\r\n    background-color: white;\r\n}\r\n\r\n.one-work-task-detail-relations-block .one-relation {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding-top: 3px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n/* var1 */\r\n/* .one-work-task-detail-block .radio-check-block {\r\n    display: flex;\r\n    gap: 10px;\r\n    padding: 10px;\r\n    border-bottom: 1px solid #e0e0e0;\r\n    background-color: #f8f9fa;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block .button-c {\r\n    padding: 12px 24px;\r\n    cursor: pointer;\r\n    border: none;\r\n    background: transparent;\r\n    color: #666;\r\n    font-weight: 500;\r\n    transition: all 0.3s ease;\r\n    position: relative;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active {\r\n    color: #333;\r\n    background-color: #fff;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active::after {\r\n    content: '';\r\n    position: absolute;\r\n    bottom: -1px;\r\n    left: 0;\r\n    right: 0;\r\n    height: 2px;\r\n    background-color: #333;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div:hover:not(.active) {\r\n    background-color: #f0f0f0;\r\n    color: #333;\r\n} */\r\n\r\n\r\n\r\n\r\n\r\n\r\n/* var2 */\r\n\r\n.one-work-task-detail-block .radio-check-block {\r\n    display: flex;\r\n    background-color: #f5f5f5;\r\n    border-radius: 8px 8px 0 0;\r\n    /* padding: 4px; */\r\n    padding-top: 10px;\r\n    gap: 2px;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div {\r\n    padding: 12px 24px;\r\n    cursor: pointer;\r\n    border: none;\r\n    background: transparent;\r\n    color: #757575;\r\n    font-weight: 500;\r\n    transition: all 0.3s ease;\r\n    border-radius: 6px 6px 0 0;\r\n    position: relative;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active {\r\n    color: #424242;\r\n    background-color: #fff;\r\n    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n/* .radio-check-block div.active::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: -4px;\r\n    left: -2px;\r\n    right: -2px;\r\n    height: 4px;\r\n    background-color: #fff;\r\n    border-radius: 4px 4px 0 0;\r\n} */\r\n\r\n.one-work-task-detail-block .radio-check-block div:hover:not(.active) {\r\n    background-color: #eeeeee;\r\n    color: #424242;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/OneWorkTaskDetail/OneWorkTaskDetail.css"],"names":[],"mappings":"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","sourcesContent":[".one-work-task-detail-block {\r\n    position: relative;\r\n    margin-bottom: 1rem;\r\n    border-radius: 0.75rem;\r\n    -webkit-box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    overflow: hidden;\r\n    width: 100%;\r\n}\r\n\r\n.one-work-task-detail-comments-block {\r\n    padding-left: 10px;\r\n\r\n    max-width: 610px;\r\n}\r\n\r\n.one-work-task-detail-body {\r\n    display: flex;\r\n    padding-top: 10px;\r\n    gap: 0.5rem;\r\n    overflow: hidden;\r\n    gap: 15px;\r\n    flex-wrap: wrap;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.one-work-task-detail-content {\r\n    flex-grow: 2;\r\n    border-radius: 5px;\r\n    max-width: 600px;\r\n    background-color: white;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-right-content {\r\n    flex-grow: 1;\r\n    flex-shrink: 1;\r\n    flex-basis: 300px;\r\n    max-width: 300px;\r\n    border-radius: 5px;\r\n    width: 300px;\r\n    display: flex;\r\n    background-color: white;\r\n    flex-direction: column;\r\n    padding: 5px;\r\n}\r\n\r\n.one-work-task-detail-name-full {\r\n    padding-left: 30px;\r\n    padding-right: 15px;\r\n    padding-bottom: 15px;\r\n\r\n    font-size: 25px;\r\n\r\n}\r\n\r\n.one-work-task-detail-name {\r\n    border-radius: 5px;\r\n}\r\n\r\n\r\n.one-work-task-detail-name:hover {\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n\r\n}\r\n\r\n.one-work-task-detail-buttons {\r\n    display: flex;\r\n    gap: 0.25rem;\r\n    /* width: 35px; */\r\n    padding-left: 5px;\r\n    justify-content: end;\r\n    padding-right: 15px;\r\n}\r\n\r\n.one-work-task-detail-buttons .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-relations-block .task-button {\r\n\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-header {\r\n    background-color: #fff;\r\n}\r\n\r\n.work-task-detail-description {\r\n    border-radius: 3px;\r\n    cursor: pointer;\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.work-task-detail-description:hover {\r\n    /* background-color: #f5f5f5; */\r\n    border: 1px solid #DFE1E6;\r\n    cursor: pointer;\r\n}\r\n\r\n.one-work-task-detail-right-content .editable-by-click {\r\n    cursor: pointer;\r\n}\r\n\r\n.task-comments-add {\r\n    padding-top: 15px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img {\r\n    width: 25px;\r\n    height: 25px;\r\n}\r\n\r\n.task-comments-add-btn .task-comments-add-btn-img img {\r\n    /* красит в салатовый */\r\n    filter: brightness(0) saturate(100%) invert(50%) sepia(100%) hue-rotate(30deg);\r\n}\r\n\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn {\r\n    width: 255px;\r\n    display: flex;\r\n    gap: 10px;\r\n    border: 1px solid #DFE1E6;\r\n    border-radius: 5px;\r\n    padding-left: 10px;\r\n    height: 35px;\r\n    padding-top: 3px;\r\n}\r\n\r\n.one-work-task-detail-comments-block-inner .task-comments-add-btn:hover {\r\n    cursor: pointer;\r\n    border: 1px solid black;\r\n}\r\n\r\n.add-time-log-header {\r\n    display: flex;\r\n    gap: 20px;\r\n    align-items: center;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.work-time-block {\r\n    padding: 10px;\r\n    background-color: white;\r\n}\r\n\r\n.work-time-block .one-work-time-block {\r\n    display: flex;\r\n    cursor: pointer;\r\n    width: 500px;\r\n}\r\n\r\n.add-time-log-show-btn {\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.add-time-log-show-btn:hover {\r\n\r\n    cursor: pointer;\r\n    border: 1px solid #DFE1E6;\r\n}\r\n\r\n.work-time-block-list {\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 3px;\r\n    max-height: 400px;\r\n    overflow-y: auto;\r\n}\r\n\r\n.one-work-time-block .time-block-left {\r\n    border-radius: 10px 0px 0px 10px;\r\n    padding: 3px;\r\n    border-left: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 250px;\r\n}\r\n\r\n.one-work-time-block .time-block-center {\r\n    padding: 3px;\r\n    border: 1px solid black;\r\n    width: 160px;\r\n\r\n}\r\n\r\n.one-work-time-block .time-block-right {\r\n    border-radius: 0px 10px 10px 0px;\r\n    padding: 3px;\r\n    border-right: 1px solid black;\r\n    border-top: 1px solid black;\r\n    border-bottom: 1px solid black;\r\n    width: 90px;\r\n\r\n}\r\n\r\n\r\n.add-time-log-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-time-log-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n\r\n.add-time-log-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-plus-icon {\r\n    font-weight: bold;\r\n    font-size: 14px;\r\n}\r\n\r\n.add-relation-btn {\r\n\r\n    background-color: #6e98cc;\r\n    color: white;\r\n    border: none;\r\n    border-radius: 18px;\r\n    padding: 8px 16px;\r\n    font-size: 13px;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 6px;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.add-relation-btn:hover {\r\n    background-color: #5b8cca;\r\n}\r\n\r\n.one-work-task-detail-relations-block {\r\n    padding: 10px;\r\n    background-color: white;\r\n}\r\n\r\n.one-work-task-detail-relations-block .one-relation {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    padding-top: 3px;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n/* var1 */\r\n/* .one-work-task-detail-block .radio-check-block {\r\n    display: flex;\r\n    gap: 10px;\r\n    padding: 10px;\r\n    border-bottom: 1px solid #e0e0e0;\r\n    background-color: #f8f9fa;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block .button-c {\r\n    padding: 12px 24px;\r\n    cursor: pointer;\r\n    border: none;\r\n    background: transparent;\r\n    color: #666;\r\n    font-weight: 500;\r\n    transition: all 0.3s ease;\r\n    position: relative;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active {\r\n    color: #333;\r\n    background-color: #fff;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active::after {\r\n    content: '';\r\n    position: absolute;\r\n    bottom: -1px;\r\n    left: 0;\r\n    right: 0;\r\n    height: 2px;\r\n    background-color: #333;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div:hover:not(.active) {\r\n    background-color: #f0f0f0;\r\n    color: #333;\r\n} */\r\n\r\n\r\n\r\n\r\n\r\n\r\n/* var2 */\r\n\r\n.one-work-task-detail-block .radio-check-block {\r\n    display: flex;\r\n    background-color: #f5f5f5;\r\n    border-radius: 8px 8px 0 0;\r\n    /* padding: 4px; */\r\n    padding-top: 10px;\r\n    gap: 2px;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div {\r\n    padding: 12px 24px;\r\n    cursor: pointer;\r\n    border: none;\r\n    background: transparent;\r\n    color: #757575;\r\n    font-weight: 500;\r\n    transition: all 0.3s ease;\r\n    border-radius: 6px 6px 0 0;\r\n    position: relative;\r\n}\r\n\r\n.one-work-task-detail-block .radio-check-block div.active {\r\n    color: #424242;\r\n    background-color: #fff;\r\n    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n/* .radio-check-block div.active::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: -4px;\r\n    left: -2px;\r\n    right: -2px;\r\n    height: 4px;\r\n    background-color: #fff;\r\n    border-radius: 4px 4px 0 0;\r\n} */\r\n\r\n.one-work-task-detail-block .radio-check-block div:hover:not(.active) {\r\n    background-color: #eeeeee;\r\n    color: #424242;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3035,7 +3035,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".presets-page-main {\r\n    width: 100%;\r\n    padding-top: 60px;\r\n}\r\n\r\n.presets-page-main .one-preset-block {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.presets-page-main .one-preset-info {\r\n\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n    flex-grow: 1;\r\n}\r\n\r\n.presets-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.presets-page-main .preset-block {\r\n\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.one-preset-block .one-preset-buttons {\r\n    display: flex;\r\n    flex-grow: 0;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/Presets/Presets.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,iBAAiB;AACrB;;AAEA;;IAEI,aAAa;IACb,8BAA8B;IAC9B,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;;IAEI,aAAa;IACb,SAAS;IACT,gBAAgB;IAChB,eAAe;IACf,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;;IAEI,aAAa;IACb,sBAAsB;IACtB,QAAQ;AACZ;;AAEA;IACI,aAAa;IACb,YAAY;;AAEhB","sourcesContent":[".presets-page-main {\r\n    width: 100%;\r\n    padding-top: 60px;\r\n}\r\n\r\n.presets-page-main .one-preset-block {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.presets-page-main .one-preset-info {\r\n\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n    flex-grow: 1;\r\n}\r\n\r\n.presets-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.presets-page-main .preset-block {\r\n\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.one-preset-block .one-preset-buttons {\r\n    display: flex;\r\n    flex-grow: 0;\r\n\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".presets-page-main {\r\n    width: 100%;\r\n    padding-top: 60px;\r\n}\r\n\r\n.presets-page-main .one-preset-block {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.presets-page-main .one-preset-info {\r\n\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n    flex-grow: 1;\r\n}\r\n\r\n\r\n.presets-page-main .one-preset-info input {\r\n    flex-grow: 1;\r\n}\r\n\r\n\r\n\r\n.presets-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.presets-page-main .preset-block {\r\n\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.one-preset-block .one-preset-buttons {\r\n    display: flex;\r\n    flex-grow: 0;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/Presets/Presets.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,iBAAiB;AACrB;;AAEA;;IAEI,aAAa;IACb,8BAA8B;IAC9B,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;;IAEI,aAAa;IACb,SAAS;IACT,gBAAgB;IAChB,eAAe;IACf,YAAY;AAChB;;;AAGA;IACI,YAAY;AAChB;;;;AAIA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;;IAEI,aAAa;IACb,sBAAsB;IACtB,QAAQ;AACZ;;AAEA;IACI,aAAa;IACb,YAAY;;AAEhB","sourcesContent":[".presets-page-main {\r\n    width: 100%;\r\n    padding-top: 60px;\r\n}\r\n\r\n.presets-page-main .one-preset-block {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    max-height: 30px;\r\n    overflow: hidden;\r\n}\r\n\r\n.presets-page-main .one-preset-info {\r\n\r\n    display: flex;\r\n    gap: 20px;\r\n    overflow: hidden;\r\n    cursor: pointer;\r\n    flex-grow: 1;\r\n}\r\n\r\n\r\n.presets-page-main .one-preset-info input {\r\n    flex-grow: 1;\r\n}\r\n\r\n\r\n\r\n.presets-page-main .action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.presets-page-main .preset-block {\r\n\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 5px;\r\n}\r\n\r\n.one-preset-block .one-preset-buttons {\r\n    display: flex;\r\n    flex-grow: 0;\r\n\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72450,7 +72450,8 @@ const AddWorkTimeLog = (props) => {
                         props.CreateTimeLog(taskId, timeLogText, minutes, timeLogDate, endRange, startRange);
                     }
                 } }, "\u0420\u0430\u0431\u043E\u0442\u0430"),
-            react_1.default.createElement("button", { className: 'button button-grey', onClick: () => props.Close() }, "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C")));
+            react_1.default.createElement("button", { className: 'button button-grey', onClick: () => props.Close() }, "\u041E\u0442\u043C\u0435\u043D\u0438\u0442\u044C"),
+            props.DeleteTimeLog && react_1.default.createElement("button", { className: 'button button-grey', onClick: () => props.DeleteTimeLog(props.TimeLog.Id) }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, AddWorkTimeLogSetup_1.default)(AddWorkTimeLog);
@@ -73339,6 +73340,7 @@ const OneWorkTaskDetail = (props) => {
     const [taskLabelEditable, setTaskLabelEditable] = (0, react_1.useState)(false);
     const [taskExecutorEditable, setTaskExecutorEditable] = (0, react_1.useState)(false);
     const [showAddWorkTimeNew, setShowAddWorkTimeNew] = (0, react_1.useState)(false);
+    const [showEditWorkTime, setShowEditWorkTime] = (0, react_1.useState)(-1);
     const [showAddRelationNew, setShowAddRelationNew] = (0, react_1.useState)(false);
     // const [showAddWorkTimeBlock, setShowAddWorkTimeBlock] = useState(false);
     const [radioContentTypeShown, setRadioContentTypeShown] = (0, react_1.useState)(0); //1-списания, 2 подзадачи
@@ -73414,7 +73416,13 @@ const OneWorkTaskDetail = (props) => {
     };
     const renderTime = () => {
         return react_1.default.createElement("div", { className: 'work-time-block' },
-            showAddWorkTimeNew ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowAddWorkTimeNew(false), IsHeightWindow: false, Title: '\u0420\u0430\u0431\u043E\u0442\u0430', InnerContent: () => react_1.default.createElement(AddWorkTimeLog_1.default, { Close: () => setShowAddWorkTimeNew(false), TaskId: props.Task.Id, DefaultDate: null, CreateTimeLog: props.CreateTimeLog }) }) : react_1.default.createElement(react_1.default.Fragment, null),
+            showAddWorkTimeNew ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => {
+                    setShowEditWorkTime(-1);
+                    setShowAddWorkTimeNew(false);
+                }, IsHeightWindow: false, Title: '\u0420\u0430\u0431\u043E\u0442\u0430', InnerContent: () => react_1.default.createElement(AddWorkTimeLog_1.default, { Close: () => {
+                        setShowEditWorkTime(-1);
+                        setShowAddWorkTimeNew(false);
+                    }, TaskId: props.Task.Id, DefaultDate: null, CreateTimeLog: props.CreateTimeLog, TimeLog: showEditWorkTime > 1 ? props.Task.TimeLogs.find(x => x.Id == showEditWorkTime) : null, UpdateTimeLog: props.UpdateTimeLog, DeleteTimeLog: (i => { props.DeleteTimeLog(i, props.Task.Id); }) }) }) : react_1.default.createElement(react_1.default.Fragment, null),
             react_1.default.createElement("div", { className: 'add-time-log-header' },
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("button", { className: 'add-time-log-btn', onClick: () => setShowAddWorkTimeNew(true) },
@@ -73422,7 +73430,10 @@ const OneWorkTaskDetail = (props) => {
                         react_1.default.createElement("span", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043F\u0438\u0441\u0430\u043D\u0438\u0435")))),
             react_1.default.createElement("div", { className: 'work-time-block-list' }, props.Task.TimeLogs.map(x => {
                 var _a;
-                return react_1.default.createElement("div", { key: x.Id, className: 'one-work-time-block' },
+                return react_1.default.createElement("div", { key: x.Id, className: 'one-work-time-block', onClick: () => {
+                        setShowEditWorkTime(x.Id);
+                        setShowAddWorkTimeNew(true);
+                    } },
                     react_1.default.createElement("div", { className: 'time-block-left' }, ((_a = props.ProjectUsers.find(u => u.Id === x.ProjectUserId)) === null || _a === void 0 ? void 0 : _a.Email) || ''),
                     react_1.default.createElement("div", { className: 'time-block-center' }, formatDate(x.DayOfLog)),
                     react_1.default.createElement("div", { className: 'time-block-right' }, renderWorkNum(x.TimeMinutes)));
@@ -73685,6 +73696,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     res.CreateTimeLog = (taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog) => {
         dispatch(window.G_TaskManagementWorkTimeController.CreateTimeLogRedux(taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog));
     };
+    res.UpdateTimeLog = (id, taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog) => {
+        dispatch(window.G_TaskManagementWorkTimeController.UpdateTimeTempoLogRedux(id, taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog));
+    };
+    res.DeleteTimeLog = (id, taskId) => {
+        dispatch(window.G_TaskManagementWorkTimeController.DeleteTimeTaskLogRedux(id, taskId));
+    };
     return res;
 };
 exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -73739,7 +73756,7 @@ const OneWorkTask = (props) => {
     const [taskExecutorId, setTaskExecutorId] = (0, react_1.useState)(props.Task.ExecutorId || -1);
     const [taskCreator, setTaskCreator] = (0, react_1.useState)(props.Task.CreatorId);
     const [newCommentName, setNewCommentName] = (0, react_1.useState)('');
-    const [showComments, setShowComments] = (0, react_1.useState)(false);
+    // const [showComments, setShowComments] = useState(false);
     const [showFullTask, setShowFullTask] = (0, react_1.useState)(false);
     const navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(() => {
@@ -73754,14 +73771,14 @@ const OneWorkTask = (props) => {
     (0, react_1.useEffect)(() => {
         setTaskCreator(props.Task.CreatorId);
     }, [props.Task.CreatorId]);
-    (0, react_1.useEffect)(() => {
-        if (!showComments) {
-            // setComments([]);
-            props.SetEmptyTaskComments(props.Task.Id);
-            return;
-        }
-        props.LoadTaskComments(props.Task.Id);
-    }, [showComments]);
+    // useEffect(() => {
+    //     if (!showComments) {
+    //         // setComments([]);
+    //         props.SetEmptyTaskComments(props.Task.Id);
+    //         return;
+    //     }
+    //     props.LoadTaskComments(props.Task.Id);
+    // }, [showComments]);
     const cancelTask = () => {
         if (!confirm('Отменить изменения?')) {
             return;
@@ -74165,7 +74182,7 @@ const Presets = (props) => {
                             props.CreatePreset(props.ProjectId, newPresetName);
                         }, title: '\u0421\u043E\u0437\u0434\u0430\u0442\u044C' },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/save-icon.png" })))),
-            react_1.default.createElement("div", null, props.Presets.map(x => react_1.default.createElement("div", { className: 'one-preset-block', key: x.Id },
+            props.Presets.map(x => react_1.default.createElement("div", { className: 'one-preset-block', key: x.Id },
                 react_1.default.createElement("div", null,
                     x.Id,
                     " ",
@@ -74182,7 +74199,7 @@ const Presets = (props) => {
                     react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
                             setEditPresetId(x.Id);
                         }, title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0441\u043F\u0440\u0438\u043D\u0442' },
-                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/pencil-edit.png" }))))))));
+                        react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/pencil-edit.png" })))))));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, PresetsSetup_1.default)(Presets);
@@ -74570,7 +74587,7 @@ const ProjectDetail = (props) => {
                                         setFilterVisibilityPreset(false);
                                     } }, "\u00D7"))))),
                 props.Tasks.length
-                    ? props.Tasks.map(x => react_1.default.createElement(OneWorkTask_1.default, { key: x.Id, Task: x, Comments: x.Comments, CurrentProjectId: props.Project.Id }))
+                    ? props.Tasks.map(x => react_1.default.createElement(OneWorkTask_1.default, { key: x.Id, Task: x, CurrentProjectId: props.Project.Id }))
                     : react_1.default.createElement("div", { className: 'management-project-tasks-no-tasks' },
                         react_1.default.createElement("img", { src: G_PathToBaseImages + 'exclamation.png', alt: '' }),
                         react_1.default.createElement("h2", null, "\u0417\u0430\u0434\u0430\u0447\u0438 \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u044B!")),
@@ -76325,7 +76342,7 @@ exports.UpdateCurrentProjectTaskStatusActionCreator = UpdateCurrentProjectTaskSt
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ClearUserTempoTimeLogActionCreator = exports.ClearUserTempoTimeLogActionName = exports.SetUserTempoTimeLogDateToActionCreator = exports.SetUserTempoTimeLogDateToActionName = exports.SetUserTempoTimeLogDateFromActionCreator = exports.SetUserTempoTimeLogDateFromActionName = exports.SetUserTempoTimeLogDataActionCreator = exports.SetUserTempoTimeLogDataActionName = exports.ClearUserTimeLogActionCreator = exports.ClearUserTimeLogActionName = exports.SetUserTimeLogDateToActionCreator = exports.SetUserTimeLogDateToActionName = exports.SetUserTimeLogDateFromActionCreator = exports.SetUserTimeLogDateFromActionName = exports.SetUserTimeLogDataActionCreator = exports.SetUserTimeLogDataActionName = exports.ClearProjectTimeLogActionCreator = exports.ClearProjectTimeLogActionName = exports.SetProjectTimeLogDateToActionCreator = exports.SetProjectTimeLogDateToActionName = exports.SetProjectTimeLogDateFromActionCreator = exports.SetProjectTimeLogDateFromActionName = exports.SetProjectTimeLogDataActionCreator = exports.SetProjectTimeLogDataActionName = exports.DeleteTimeLogActionCreator = exports.DeleteTimeLogActionName = exports.DeleteTimeLogActionParam = exports.SetTaskTimeLogActionCreator = exports.SetTaskTimeLogActionName = exports.SetTaskTimeLogActionParam = exports.UpdateTimeLogActionCreator = exports.UpdateTimeLogActionName = exports.DelTimeLogTempoActionCreator = exports.DelTimeLogTempoActionName = exports.UpdateTimeLogTempoActionCreator = exports.UpdateTimeLogTempoActionName = exports.AddNewTimeLogTempoActionCreator = exports.AddNewTimeLogTempoActionName = exports.AddNewTimeLogTaskActionCreator = exports.AddNewTimeLogTaskActionName = void 0;
+exports.ClearUserTempoTimeLogActionCreator = exports.ClearUserTempoTimeLogActionName = exports.SetUserTempoTimeLogDateToActionCreator = exports.SetUserTempoTimeLogDateToActionName = exports.SetUserTempoTimeLogDateFromActionCreator = exports.SetUserTempoTimeLogDateFromActionName = exports.SetUserTempoTimeLogDataActionCreator = exports.SetUserTempoTimeLogDataActionName = exports.ClearUserTimeLogActionCreator = exports.ClearUserTimeLogActionName = exports.SetUserTimeLogDateToActionCreator = exports.SetUserTimeLogDateToActionName = exports.SetUserTimeLogDateFromActionCreator = exports.SetUserTimeLogDateFromActionName = exports.SetUserTimeLogDataActionCreator = exports.SetUserTimeLogDataActionName = exports.ClearProjectTimeLogActionCreator = exports.ClearProjectTimeLogActionName = exports.SetProjectTimeLogDateToActionCreator = exports.SetProjectTimeLogDateToActionName = exports.SetProjectTimeLogDateFromActionCreator = exports.SetProjectTimeLogDateFromActionName = exports.SetProjectTimeLogDataActionCreator = exports.SetProjectTimeLogDataActionName = exports.DeleteTimeLogActionCreator = exports.DeleteTimeLogActionName = exports.DeleteTimeLogActionParam = exports.SetTaskTimeLogActionCreator = exports.SetTaskTimeLogActionName = exports.SetTaskTimeLogActionParam = exports.UpdateTimeLogActionCreator = exports.UpdateTimeLogActionName = exports.DeleteTimeLogTempoActionCreator = exports.DeleteTimeLogTempoActionName = exports.UpdateTimeLogTempoActionCreator = exports.UpdateTimeLogTempoActionName = exports.AddNewTimeLogTempoActionCreator = exports.AddNewTimeLogTempoActionName = exports.AddNewTimeLogTaskActionCreator = exports.AddNewTimeLogTaskActionName = void 0;
 exports.AddNewTimeLogTaskActionName = 'AddNewTimeLogTaskAction';
 function AddNewTimeLogTaskActionCreator(time) {
     return { type: exports.AddNewTimeLogTaskActionName, payload: time };
@@ -76344,11 +76361,11 @@ function UpdateTimeLogTempoActionCreator(time) {
 }
 exports.UpdateTimeLogTempoActionCreator = UpdateTimeLogTempoActionCreator;
 ;
-exports.DelTimeLogTempoActionName = 'DelTimeLogTempoAction';
-function DelTimeLogTempoActionCreator(timeId) {
-    return { type: exports.DelTimeLogTempoActionName, payload: timeId };
+exports.DeleteTimeLogTempoActionName = 'DeleteTimeLogTempoAction';
+function DeleteTimeLogTempoActionCreator(timeId) {
+    return { type: exports.DeleteTimeLogTempoActionName, payload: timeId };
 }
-exports.DelTimeLogTempoActionCreator = DelTimeLogTempoActionCreator;
+exports.DeleteTimeLogTempoActionCreator = DeleteTimeLogTempoActionCreator;
 ;
 exports.UpdateTimeLogActionName = 'UpdateTimeLogLogAction';
 function UpdateTimeLogActionCreator(time) {
@@ -77898,9 +77915,9 @@ class TaskManagementTaskController {
                 "taskId": task.Id,
                 "name": task.Name,
                 "statusId": task.StatusId,
-                "creatorId": task.CreatorId,
+                // "creatorId": task.CreatorId,
                 "executorId": task.ExecutorId,
-                "description": task.Description,
+                // "description": task.Description,
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
@@ -78313,7 +78330,9 @@ class TaskManagementWorkTimeController {
                         return;
                     }
                     if (data === null || data === void 0 ? void 0 : data.Id) {
+                        // console.log(data);
                         let dt = new TimeLog_1.TimeLog().FillByBackModel(data);
+                        // console.log(dt);
                         dispatch((0, TimeLogAction_1.AddNewTimeLogTaskActionCreator)(dt));
                     }
                 });
@@ -78399,7 +78418,24 @@ class TaskManagementWorkTimeController {
                         return;
                     }
                     if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, TimeLogAction_1.DelTimeLogTempoActionCreator)(timeId));
+                        dispatch((0, TimeLogAction_1.DeleteTimeLogTempoActionCreator)(timeId));
+                    }
+                });
+            };
+        };
+        this.DeleteTimeTaskLogRedux = (timeId, taskId) => {
+            return (dispatch, getState) => {
+                this.preloader(true);
+                this.DeleteTimeLog(timeId, (error, data) => {
+                    this.preloader(false);
+                    if (error) {
+                        return;
+                    }
+                    if (data === null || data === void 0 ? void 0 : data.Result) {
+                        let d = new TimeLogAction_1.DeleteTimeLogActionParam();
+                        d.Id = timeId;
+                        d.TaskId = taskId;
+                        dispatch((0, TimeLogAction_1.DeleteTimeLogActionCreator)(d));
                     }
                 });
             };
@@ -78448,7 +78484,9 @@ class TaskManagementWorkTimeController {
                         return;
                     }
                     if (data) {
+                        // console.log(data);
                         let mapped = data.map(x => new TimeLog_1.TimeLog().FillByBackModel(x));
+                        // console.log(mapped);
                         dispatch((0, TimeLogAction_1.SetTaskTimeLogActionCreator)({ TaskId: taskId, Time: mapped }));
                     }
                 });
@@ -79140,17 +79178,24 @@ function TaskManagementCommentReducer(state = new AppState_1.AppState(), action)
                 let helper = new Helper_1.Helper();
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                let task = helper.GetTaskFromState(newState, payload.TaskId);
-                if (task.length == 0) {
-                    return newState;
-                }
-                task.forEach(tsk => {
-                    var comm = tsk.Comments.find(x => x.Id === payload.Id);
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == payload.TaskId) {
+                    var comm = task.Comments.find(x => x.Id === payload.Id);
                     if (!comm) {
                         return newState;
                     }
                     comm.Text = payload.Text;
-                });
+                }
+                // if (task.length == 0) {
+                //     return newState;
+                // }
+                // task.forEach(tsk => {
+                //     var comm = tsk.Comments.find(x => x.Id === payload.Id);
+                //     if (!comm) {
+                //         return newState;
+                //     }
+                //     comm.Text = payload.Text;
+                // });
                 return newState;
             }
         case CommentActions_1.DeleteCommentActionName:
@@ -79158,13 +79203,16 @@ function TaskManagementCommentReducer(state = new AppState_1.AppState(), action)
                 let helper = new Helper_1.Helper();
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                let task = helper.GetTaskFromState(newState, payload.TaskId);
-                if (task.length > 0) {
-                    task.forEach(tsk => {
-                        tsk.Comments = tsk.Comments.filter(x => x.Id !== payload.Id);
-                    });
-                    return newState;
-                }
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == payload.TaskId)
+                    task.Comments = task.Comments.filter(x => x.Id !== payload.Id);
+                // let task = helper.GetTaskFromState(newState, payload.TaskId);
+                // if (task.length > 0) {
+                //     task.forEach(tsk => {
+                //         tsk.Comments = tsk.Comments.filter(x => x.Id !== payload.Id);
+                //     });
+                //     return newState;
+                // }
                 return newState;
             }
         case CommentActions_1.AddCommentActionName:
@@ -79177,13 +79225,16 @@ function TaskManagementCommentReducer(state = new AppState_1.AppState(), action)
                 comment.Text = payload.Text;
                 comment.CreateDate = payload.CreateDate;
                 comment.CreatorId = payload.CreatorId;
-                let task = helper.GetTaskFromState(newState, payload.TaskId);
-                if (task.length > 0) {
-                    task.forEach(tsk => {
-                        tsk.Comments.push(comment);
-                    });
-                    return newState;
-                }
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == payload.TaskId)
+                    task.Comments.push(comment);
+                // let task = helper.GetTaskFromState(newState, payload.TaskId);
+                // if (task.length > 0) {
+                //     task.forEach(tsk => {
+                //         tsk.Comments.push(comment);
+                //     });
+                //     return newState;
+                // }
                 return newState;
             }
         case CommentActions_1.SetCommentsActionName:
@@ -79191,13 +79242,16 @@ function TaskManagementCommentReducer(state = new AppState_1.AppState(), action)
                 let helper = new Helper_1.Helper();
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                let task = helper.GetTaskFromState(newState, payload.TaskId);
-                if (task.length > 0) {
-                    task.forEach(tsk => {
-                        tsk.Comments = payload.Comments;
-                    });
-                    return newState;
-                }
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == payload.TaskId)
+                    task.Comments = payload.Comments;
+                // let task = helper.GetTaskFromState(newState, payload.TaskId);
+                // if (task.length > 0) {
+                //     task.forEach(tsk => {
+                //         tsk.Comments = payload.Comments
+                //     });
+                //     return newState;
+                // }
                 return newState;
             }
         // case SetEmptyTaskCommentsActionName:
@@ -79228,7 +79282,6 @@ exports.TaskManagementLabelReducer = void 0;
 const lodash_1 = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 const AppState_1 = __webpack_require__(/*! ../../../../Models/Entity/State/AppState */ "./src/Models/Entity/State/AppState.ts");
 const LabelActions_1 = __webpack_require__(/*! ../Actions/LabelActions */ "./src/Apps/TaskManagementApp/Models/Actions/LabelActions.ts");
-const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
 function TaskManagementLabelReducer(state = new AppState_1.AppState(), action) {
     switch (action.type) {
         case LabelActions_1.GetTaskLabelsActionName:
@@ -79266,34 +79319,44 @@ function TaskManagementLabelReducer(state = new AppState_1.AppState(), action) {
             {
                 let newState = (0, lodash_1.cloneDeep)(state);
                 let data = action.payload;
-                let helper = new Helper_1.Helper();
-                var tasks = helper.GetTaskFromState(newState, data.TaskId);
-                tasks.forEach(tsk => {
-                    tsk.LabelId = data.LabelId;
-                });
+                // let helper = new Helper();
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == data.TaskId)
+                    task.LabelId = data.LabelId;
+                // var tasks = helper.GetTaskFromState(newState, data.TaskId);
+                // tasks.forEach(tsk => {
+                //     tsk.LabelId = data.LabelId;
+                // });
                 return newState;
             }
         case LabelActions_1.AddLabelToTaskActionName:
             {
                 let newState = (0, lodash_1.cloneDeep)(state);
                 let data = action.payload;
-                let helper = new Helper_1.Helper();
-                var tasks = helper.GetTaskFromState(newState, data.TaskId);
-                tasks.forEach(tsk => {
-                    if (!tsk.LabelId.find(x => x == data.LabelId))
-                        tsk.LabelId = [...tsk.LabelId, data.LabelId];
-                });
+                // let helper = new Helper();
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == data.TaskId)
+                    if (!task.LabelId.find(x => x == data.LabelId))
+                        task.LabelId = [...task.LabelId, data.LabelId];
+                // var tasks = helper.GetTaskFromState(newState, data.TaskId);
+                // tasks.forEach(tsk => {
+                //     if (!tsk.LabelId.find(x => x == data.LabelId))
+                //         tsk.LabelId = [...tsk.LabelId, data.LabelId];
+                // });
                 return newState;
             }
         case LabelActions_1.DeleteLabelFromTaskActionName:
             {
                 let newState = (0, lodash_1.cloneDeep)(state);
                 let data = action.payload;
-                let helper = new Helper_1.Helper();
-                var tasks = helper.GetTaskFromState(newState, data.TaskId);
-                tasks.forEach(tsk => {
-                    tsk.LabelId = tsk.LabelId.filter(x => x != data.LabelId);
-                });
+                // let helper = new Helper();
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == data.TaskId)
+                    task.LabelId = task.LabelId.filter(x => x != data.LabelId);
+                // var tasks = helper.GetTaskFromState(newState, data.TaskId);
+                // tasks.forEach(tsk => {
+                //     tsk.LabelId = tsk.LabelId.filter(x => x != data.LabelId);
+                // });
                 return newState;
             }
         default:
@@ -79542,7 +79605,6 @@ const AppState_1 = __webpack_require__(/*! ../../../../Models/Entity/State/AppSt
 const SprintActions_1 = __webpack_require__(/*! ../Actions/SprintActions */ "./src/Apps/TaskManagementApp/Models/Actions/SprintActions.ts");
 const OneTask_1 = __webpack_require__(/*! ../Entity/State/OneTask */ "./src/Apps/TaskManagementApp/Models/Entity/State/OneTask.ts");
 const SprintInfo_1 = __webpack_require__(/*! ../Entity/State/SprintInfo */ "./src/Apps/TaskManagementApp/Models/Entity/State/SprintInfo.ts");
-const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
 function TaskManagementSprintReducer(state = new AppState_1.AppState(), action) {
     var _a, _b, _c;
     switch (action.type) {
@@ -79611,11 +79673,14 @@ function TaskManagementSprintReducer(state = new AppState_1.AppState(), action) 
                 if ((_a = newState.TaskManagementApp.CurrentSprint) === null || _a === void 0 ? void 0 : _a.Id) {
                     newState.TaskManagementApp.CurrentSprint.Tasks.push(dt); //добавляем пустую, чтот бы тригером перезагрузить список
                 }
-                let helper = new Helper_1.Helper();
-                var tasks = helper.GetTaskFromState(newState, data.taskId);
-                tasks.forEach(tsk => {
-                    tsk.SprintId = [...tsk.SprintId, data.sprintId];
-                });
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == data.taskId)
+                    task.SprintId = [...task.SprintId, data.sprintId];
+                // let helper = new Helper();
+                // var tasks = helper.GetTaskFromState(newState, data.taskId);
+                // tasks.forEach(tsk => {
+                //     tsk.SprintId = [...tsk.SprintId, data.sprintId];
+                // });
                 return newState;
             }
         case SprintActions_1.DeleteTaskFromSprintActionName:
@@ -79627,11 +79692,14 @@ function TaskManagementSprintReducer(state = new AppState_1.AppState(), action) 
                         = newState.TaskManagementApp.CurrentSprint.Tasks
                             .filter(x => x.Id != data.taskId);
                 }
-                let helper = new Helper_1.Helper();
-                var tasks = helper.GetTaskFromState(newState, data.taskId);
-                tasks.forEach(tsk => {
-                    tsk.SprintId = [...tsk.SprintId, data.sprintId];
-                });
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == data.taskId)
+                    task.SprintId = task.SprintId.filter(x => x != data.sprintId);
+                // let helper = new Helper();
+                // var tasks = helper.GetTaskFromState(newState, data.taskId);
+                // tasks.forEach(tsk => {
+                //     tsk.SprintId = [...tsk.SprintId, data.sprintId];
+                // });
                 return newState;
             }
         case SprintActions_1.UpdateTaskSprintActionName:
@@ -79661,11 +79729,14 @@ function TaskManagementSprintReducer(state = new AppState_1.AppState(), action) 
                                 .filter(x => x.Id != data.taskId);
                     }
                 }
-                let helper = new Helper_1.Helper();
-                var tasks = helper.GetTaskFromState(newState, data.taskId);
-                tasks.forEach(tsk => {
-                    tsk.SprintId = [...data.sprintId];
-                });
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == data.taskId)
+                    task.SprintId = [...data.sprintId];
+                // let helper = new Helper();
+                // var tasks = helper.GetTaskFromState(newState, data.taskId);
+                // tasks.forEach(tsk => {
+                //     tsk.SprintId = [...data.sprintId];
+                // });
                 return newState;
             }
         default:
@@ -79714,17 +79785,26 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                let helper = new Helper_1.Helper();
-                var tasks = helper.GetTaskFromState(newState, payload.Id);
-                tasks.forEach(tsk => {
-                    tsk.Name = payload.Name;
-                    tsk.StatusId = payload.StatusId;
-                    tsk.ExecutorId = payload.ExecutorId;
-                    tsk.CreatorId = payload.CreatorId;
-                    tsk.CreateDate = payload.CreateDate;
-                    tsk.LastUpdateDate = payload.LastUpdateDate;
-                    tsk.Description = payload.Description;
-                });
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == payload.Id) {
+                    task.Name = payload.Name;
+                    task.StatusId = payload.StatusId;
+                    task.ExecutorId = payload.ExecutorId;
+                    task.CreatorId = payload.CreatorId;
+                    task.CreateDate = payload.CreateDate;
+                    // task.LastUpdateDate = payload.LastUpdateDate;
+                    // task.Description = payload.Description;
+                }
+                // let helper = new Helper();
+                // var tasks = helper.GetTaskFromState(newState, payload.Id);
+                var taskList = newState.TaskManagementApp.CurrentProjectTasks.find(x => x.Id == payload.Id);
+                if (taskList) {
+                    taskList.Name = payload.Name;
+                    taskList.StatusId = payload.StatusId;
+                    taskList.ExecutorId = payload.ExecutorId;
+                    taskList.CreatorId = payload.CreatorId;
+                    taskList.CreateDate = payload.CreateDate;
+                }
                 return newState;
             }
         case TaskActions_1.LoadTasksActionName:
@@ -79829,59 +79909,103 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                let helper = new Helper_1.Helper();
-                var tasks = helper.GetTaskFromState(newState, payload.Id);
-                tasks.forEach(tsk => {
-                    tsk.Name = payload.Text;
-                });
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == payload.Id) {
+                    task.Name = payload.Text;
+                }
+                // let helper = new Helper();
+                // var tasks = helper.GetTaskFromState(newState, payload.Id);
+                var taskList = newState.TaskManagementApp.CurrentProjectTasks.find(x => x.Id == payload.Id);
+                if (taskList)
+                    taskList.Name = payload.Text;
+                // newState.TaskManagementApp.CurrentProjectTasks.forEach(tsk => {
+                //     tsk.Name = payload.Text;
+                // });
+                // let helper = new Helper();
+                // var tasks = helper.GetTaskFromState(newState, payload.Id);
+                // tasks.forEach(tsk => {
+                //     tsk.Name = payload.Text;
+                // });
                 return newState;
             }
         case TaskActions_1.UpdateTaskDescriptionActionName:
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                let helper = new Helper_1.Helper();
-                var tasks = helper.GetTaskFromState(newState, payload.Id);
-                tasks.forEach(tsk => {
-                    tsk.Description = payload.Text;
-                });
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == payload.Id) {
+                    task.Description = payload.Text;
+                }
+                // let helper = new Helper();
+                // var tasks = helper.GetTaskFromState(newState, payload.Id);
+                // tasks.forEach(tsk => {
+                //     tsk.Description = payload.Text;
+                // });
                 return newState;
             }
         case TaskActions_1.UpdateTaskStatusActionName:
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                let helper = new Helper_1.Helper();
-                var tasks = helper.GetTaskFromState(newState, payload.Id);
-                tasks.forEach(tsk => {
-                    tsk.StatusId = payload.IdStatus;
-                });
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == payload.Id) {
+                    task.StatusId = payload.IdStatus;
+                }
+                // let helper = new Helper();
+                // var tasks = helper.GetTaskFromState(newState, payload.Id);
+                var taskList = newState.TaskManagementApp.CurrentProjectTasks.find(x => x.Id == payload.Id);
+                if (taskList)
+                    taskList.StatusId = payload.IdStatus;
+                // newState.TaskManagementApp.CurrentProjectTasks.forEach(tsk => {
+                //     tsk.StatusId = payload.IdStatus;
+                // });
+                // let helper = new Helper();
+                // var tasks = helper.GetTaskFromState(newState, payload.Id);
+                // tasks.forEach(tsk => {
+                //     tsk.StatusId = payload.IdStatus;
+                // });
                 return newState;
             }
         case TaskActions_1.UpdateTaskExecutorActionName:
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                let helper = new Helper_1.Helper();
-                var tasks = helper.GetTaskFromState(newState, payload.Id);
-                tasks.forEach(tsk => {
-                    tsk.ExecutorId = payload.PersonId;
-                });
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == payload.Id) {
+                    task.ExecutorId = payload.PersonId;
+                }
+                // let helper = new Helper();
+                // var tasks = helper.GetTaskFromState(newState, payload.Id);
+                var taskList = newState.TaskManagementApp.CurrentProjectTasks.find(x => x.Id == payload.Id);
+                if (taskList)
+                    taskList.ExecutorId = payload.PersonId;
+                // newState.TaskManagementApp.CurrentProjectTasks.forEach(tsk => {
+                //     tsk.ExecutorId = payload.PersonId;
+                // });
+                // let helper = new Helper();
+                // var tasks = helper.GetTaskFromState(newState, payload.Id);
+                // tasks.forEach(tsk => {
+                //     tsk.ExecutorId = payload.PersonId;
+                // });
                 return newState;
             }
         case TaskActions_1.AddTaskRelationStateActionName:
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                let helper = new Helper_1.Helper();
-                var tasks = helper.GetTaskFromState(newState, payload.MainWorkTaskId);
-                tasks.forEach(tsk => {
-                    tsk.Relations = [...tsk.Relations, payload];
-                });
-                tasks = helper.GetTaskFromState(newState, payload.SubWorkTaskId);
-                tasks.forEach(tsk => {
-                    tsk.Relations = [...tsk.Relations, payload];
-                });
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == payload.MainWorkTaskId || (task === null || task === void 0 ? void 0 : task.Id) == payload.SubWorkTaskId) {
+                    task.Relations = [...task.Relations, payload];
+                }
+                // let helper = new Helper();
+                // var tasks = helper.GetTaskFromState(newState, payload.MainWorkTaskId);
+                // tasks.forEach(tsk => {
+                //     tsk.Relations = [...tsk.Relations, payload];
+                // });
+                // tasks = helper.GetTaskFromState(newState, payload.SubWorkTaskId);
+                // tasks.forEach(tsk => {
+                //     tsk.Relations = [...tsk.Relations, payload];
+                // });
                 return newState;
             }
         case TaskActions_1.DeleteTaskRelationStateActionName:
@@ -79889,10 +80013,12 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
                 let helper = new Helper_1.Helper();
-                var tasks = helper.GetAllTaskFromState(newState);
-                tasks.forEach(tsk => {
-                    tsk.Relations = tsk.Relations.filter(x => x.Id != payload);
-                });
+                newState.TaskManagementApp.CurrentTask.Relations
+                    = newState.TaskManagementApp.CurrentTask.Relations.filter(x => x.Id != payload);
+                // var tasks = helper.GetAllTaskFromState(newState);
+                // tasks.forEach(tsk => {
+                //     tsk.Relations = tsk.Relations.filter(x => x.Id != payload);
+                // });
                 return newState;
             }
         case TaskActions_1.LoadTaskRelationStateActionName:
@@ -79900,10 +80026,11 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
                 let helper = new Helper_1.Helper();
-                var tasks = helper.GetAllTaskFromState(newState);
-                tasks.forEach(tsk => {
-                    tsk.Relations = payload;
-                });
+                newState.TaskManagementApp.CurrentTask.Relations = payload;
+                // var tasks = helper.GetAllTaskFromState(newState);
+                // tasks.forEach(tsk => {
+                //     tsk.Relations = payload;
+                // });
                 return newState;
             }
         default:
@@ -80069,10 +80196,13 @@ function TaskManagementWorkTimeLogReducer(state = new AppState_1.AppState(), act
                 let helper = new Helper_1.Helper();
                 let newState = (0, lodash_1.cloneDeep)(state);
                 let payload = action.payload;
-                let tasks = helper.GetTaskFromState(newState, payload.WorkTaskId);
-                tasks.forEach(tsk => {
-                    tsk.TimeLogs.push(new TimeLog_1.TimeLog().Copy(payload));
-                });
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == payload.WorkTaskId)
+                    task.TimeLogs.push(new TimeLog_1.TimeLog().Copy(payload));
+                // let tasks = helper.GetTaskFromState(newState, payload.WorkTaskId);
+                // tasks.forEach(tsk => {
+                //     tsk.TimeLogs.push(new TimeLog().Copy(payload));
+                // });
                 return newState;
             }
         case TimeLogAction_1.AddNewTimeLogTempoActionName:
@@ -80092,7 +80222,7 @@ function TaskManagementWorkTimeLogReducer(state = new AppState_1.AppState(), act
                 }
                 return newState;
             }
-        case TimeLogAction_1.DelTimeLogTempoActionName:
+        case TimeLogAction_1.DeleteTimeLogTempoActionName:
             {
                 let newState = (0, lodash_1.cloneDeep)(state);
                 let helper = new Helper_1.Helper();
@@ -80108,13 +80238,20 @@ function TaskManagementWorkTimeLogReducer(state = new AppState_1.AppState(), act
                 let helper = new Helper_1.Helper();
                 let newState = (0, lodash_1.cloneDeep)(state);
                 let payload = action.payload;
-                let tasks = helper.GetTaskFromState(newState, payload.TaskId);
-                tasks.forEach(tsk => {
-                    let index = helper.GetIndexById(tsk.TimeLogs, payload.Id);
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == payload.TaskId) {
+                    let index = helper.GetIndexById(task.TimeLogs, payload.Id);
                     if (index >= 0) {
-                        tsk.TimeLogs.splice(index, 1);
+                        task.TimeLogs.splice(index, 1);
                     }
-                });
+                }
+                // let tasks = helper.GetTaskFromState(newState, payload.TaskId);
+                // tasks.forEach(tsk => {
+                //     let index = helper.GetIndexById(tsk.TimeLogs, payload.Id);
+                //     if (index >= 0) {
+                //         tsk.TimeLogs.splice(index, 1);
+                //     }
+                // });
                 return newState;
             }
         case TimeLogAction_1.UpdateTimeLogActionName:
@@ -80122,13 +80259,20 @@ function TaskManagementWorkTimeLogReducer(state = new AppState_1.AppState(), act
                 let helper = new Helper_1.Helper();
                 let newState = (0, lodash_1.cloneDeep)(state);
                 let payload = action.payload;
-                let tasks = helper.GetTaskFromState(newState, payload.WorkTaskId);
-                tasks.forEach(tsk => {
-                    let el = helper.GetElemById(tsk.TimeLogs, payload.Id);
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == payload.Id) {
+                    let el = helper.GetElemById(task.TimeLogs, payload.Id);
                     if (el) {
                         el.Copy(payload);
                     }
-                });
+                }
+                // let tasks = helper.GetTaskFromState(newState, payload.WorkTaskId);
+                // tasks.forEach(tsk => {
+                //     let el = helper.GetElemById(tsk.TimeLogs, payload.Id);
+                //     if (el) {
+                //         el.Copy(payload);
+                //     }
+                // });
                 return newState;
             }
         case TimeLogAction_1.SetTaskTimeLogActionName:
@@ -80136,10 +80280,14 @@ function TaskManagementWorkTimeLogReducer(state = new AppState_1.AppState(), act
                 let helper = new Helper_1.Helper();
                 let newState = (0, lodash_1.cloneDeep)(state);
                 let payload = action.payload;
-                let tasks = helper.GetTaskFromState(newState, payload.TaskId);
-                tasks.forEach(tsk => {
-                    tsk.TimeLogs = [...payload.Time].map(x => new TimeLog_1.TimeLog().Copy(x));
-                });
+                let task = newState.TaskManagementApp.CurrentTask;
+                if ((task === null || task === void 0 ? void 0 : task.Id) == payload.TaskId) {
+                    task.TimeLogs = [...payload.Time].map(x => new TimeLog_1.TimeLog().Copy(x));
+                }
+                // let tasks = helper.GetTaskFromState(newState, payload.TaskId);
+                // tasks.forEach(tsk => {
+                //     tsk.TimeLogs = [...payload.Time].map(x => new TimeLog().Copy(x));
+                // });
                 return newState;
             }
         case TimeLogAction_1.SetProjectTimeLogDataActionName:
@@ -84721,20 +84869,20 @@ class Helper {
         document.body.removeChild(textArea);
         return retult;
     }
-    GetAllTaskFromState(state) {
-        //todo куда то вынести
-        let res = [...state.TaskManagementApp.CurrentProjectTasks];
-        if (state.TaskManagementApp.CurrentTask)
-            res.push(state.TaskManagementApp.CurrentTask);
-        return res;
-    }
-    GetTaskFromState(state, taskId) {
-        //todo куда то вынести
-        if (taskId < 1) {
-            return [];
-        }
-        return this.GetAllTaskFromState(state).filter(x => x.Id === taskId);
-    }
+    // GetAllTaskFromState(state: AppState): OneTask[] {
+    //     //todo куда то вынести
+    //     let res: OneTask[] = [...state.TaskManagementApp.CurrentProjectTasks];
+    //     if (state.TaskManagementApp.CurrentTask)
+    //         res.push(state.TaskManagementApp.CurrentTask);
+    //     return res;
+    // }
+    // GetTaskFromState(state: AppState, taskId: number): OneTask[] {
+    //     //todo куда то вынести
+    //     if (taskId < 1) {
+    //         return [];
+    //     }
+    //     return this.GetAllTaskFromState(state).filter(x =>x.Id=== taskId)
+    // }
     GetIndexById1(arr, f) {
         return arr.findIndex(f);
     }

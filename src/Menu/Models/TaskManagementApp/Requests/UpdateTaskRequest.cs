@@ -7,6 +7,6 @@ namespace Menu.Models.TaskManagementApp.Requests
         public string Name { get; set; }
         public int StatusId { get; set; }
         public long? ExecutorId { get; set; }
-        public string Description { get; set; }
+        //public string Description { get; set; }
     }
 }
