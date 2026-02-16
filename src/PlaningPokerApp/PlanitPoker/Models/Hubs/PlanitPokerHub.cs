@@ -53,7 +53,7 @@ namespace PlanitPoker.Models.Hubs
             IStringValidator stringValidator, IPlanitPokerService planitPokerService,
             IUserService userService,
             IPlanitApiHelper apiHealper, IJWTService jwtService, IHasher hasher, IErrorService errorService
-            , IConfigurationService configurationService, ILogger<PlanitPokerHub> logger, ILoggerFactory loggerFactory)
+            , IConfigurationService configurationService, ILoggerFactory loggerFactory)
         {
             _multiThreadHelper = multiThreadHelper;
             _stringValidator = stringValidator;
@@ -65,8 +65,8 @@ namespace PlanitPoker.Models.Hubs
             _errorService = errorService;
             _configurationService = configurationService;
 
-            _logger = logger;
-            _hublogger = loggerFactory.CreateLogger("PlanitPoker");
+            _logger = loggerFactory.CreateLogger(Common.Models.Constants.Loggers.MenuApp);
+            _hublogger = loggerFactory.CreateLogger(Constants.Loggers.PlanitPoker);
 
             _apiHealper = apiHealper;
             _apiHealper.InitByHub(this);

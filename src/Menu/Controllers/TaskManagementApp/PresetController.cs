@@ -24,16 +24,14 @@ namespace Menu.Controllers.TaskManagementApp
 
         private readonly IJWTService _jwtService;
         private readonly IApiHelper _apiHealper;
-        private readonly ILogger _logger;
         private readonly IPresetService _presetService;
 
         public PresetController(
          IJWTService jwtService, IApiHelper apiHealper
-        , ILogger<ProjectController> logger, IPresetService presetService)
+        , IPresetService presetService)
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
-            _logger = logger;
 
             _presetService = presetService;
         }

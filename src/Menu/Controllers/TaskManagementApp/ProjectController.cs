@@ -11,6 +11,7 @@ using WEB.Common.Models.Helpers.Interfaces;
 using Common.Models.Return;
 using System.Text.Json;
 using System.Collections.Generic;
+using Common.Models;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -33,13 +34,13 @@ namespace Menu.Controllers.TaskManagementApp
 
         public ProjectController(
              IJWTService jwtService, IApiHelper apiHealper
-            , ILogger<ProjectController> logger, IProjectService projectService,
+            , ILoggerFactory loggerFactory, IProjectService projectService,
              IProjectUserService projectUserService,
              IWorkTaskStatusService statusService, ISprintService sprintService, ILabelService labelService, IPresetService presetService)
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Constants.Loggers.MenuApp);
 
             _projectService = projectService;
             _projectUserService = projectUserService;
@@ -76,6 +77,7 @@ namespace Menu.Controllers.TaskManagementApp
         public async Task<ActionResult<ProjectFullInfoReturn>> GetProjectInfo(long projectId)
         {
             var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            _logger.LogDebug("ProjectController GetProjectInfo projectId={projectId}", projectId);
 
             var res = await _projectService.GetByIdIfAccessAsync(projectId, userInfo);
             if (res == null)

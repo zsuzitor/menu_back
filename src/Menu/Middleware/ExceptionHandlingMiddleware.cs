@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using System;
 using Common.Models.Error.services.Interfaces;
@@ -7,12 +6,9 @@ using Common.Models.Exceptions;
 using Common.Models.Return;
 using BL.Models.Services.Interfaces;
 using Common.Models.Error;
-using Azure;
-using Nest;
 using System.Text.Json;
-using Common.Models.Error.services;
-using Menu.Controllers.TaskManagementApp;
 using Microsoft.Extensions.Logging;
+using Common.Models;
 
 namespace Menu.Middleware
 {
@@ -33,7 +29,7 @@ namespace Menu.Middleware
  
         //public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         public async Task InvokeAsync(HttpContext context, IErrorService errorService, IConfigurationService configurationService
-            , ILogger<ExceptionHandlingMiddleware> logger)
+            , ILoggerFactory loggerFactory)
         {
             try
             {
@@ -41,7 +37,7 @@ namespace Menu.Middleware
             }
             catch (Exception ex)
             {
-                await HandleExceptionAsync(context, ex, errorService, configurationService, logger);
+                await HandleExceptionAsync(context, ex, errorService, configurationService, loggerFactory.CreateLogger(Constants.Loggers.MenuApp));
             }
         }
 

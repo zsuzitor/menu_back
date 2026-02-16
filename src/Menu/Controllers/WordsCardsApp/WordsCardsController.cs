@@ -38,11 +38,11 @@ namespace Menu.Controllers.WordsCardsApp
 
 
         public WordsCardsController(IJWTService jwtService, IApiHelper apiHealper,
-            ILogger<WordsCardsController> logger, IWordsCardsService wordsCardsService, IErrorService errorService)
+            ILoggerFactory loggerFactory, IWordsCardsService wordsCardsService, IErrorService errorService)
         {
             _apiHealper = apiHealper;
             _jwtService = jwtService;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Common.Models.Constants.Loggers.MenuApp);
             _wordsCardsService = wordsCardsService;
             _errorService = errorService;
 

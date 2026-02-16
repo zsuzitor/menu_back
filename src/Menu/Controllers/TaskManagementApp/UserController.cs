@@ -12,6 +12,7 @@ using Common.Models.Return;
 using Menu.Models.TaskManagementApp.Requests;
 using Nest;
 using System.Text.Json;
+using Common.Models;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -33,12 +34,12 @@ namespace Menu.Controllers.TaskManagementApp
 
         public UserController(
              IJWTService jwtService, IApiHelper apiHealper
-            , ILogger<ProjectController> logger, IProjectService projectService,
+            , ILoggerFactory loggerFactory, IProjectService projectService,
              IProjectUserService projectUserService, IUserService mainAppUserService)
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Constants.Loggers.MenuApp);
 
             _projectService = projectService;
             _projectUserService = projectUserService;

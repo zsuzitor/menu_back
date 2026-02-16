@@ -2,6 +2,7 @@
 using BL.Models.Services.Interfaces;
 using BO.Models;
 using BO.Models.Configs;
+using Common.Models;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Logging;
 using MimeKit;
@@ -17,9 +18,9 @@ namespace BL.Models.Services
     {
         private readonly ILogger _logger;
         protected readonly IDateTimeProvider _dateTimeProvider;
-        public EmailServiceSender(ILogger<EmailServiceSender> logger, IDateTimeProvider dateTimeProvider)
+        public EmailServiceSender(ILoggerFactory loggerFactory, IDateTimeProvider dateTimeProvider)
         {
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Constants.Loggers.MenuApp);
             _dateTimeProvider = dateTimeProvider;
 
         }
@@ -96,7 +97,7 @@ namespace BL.Models.Services
 
     public class EmailServiceSenderMock : EmailServiceSender
     {
-        public EmailServiceSenderMock(ILogger<EmailServiceSender> logger, IDateTimeProvider dateTimeProvider) : base(logger, dateTimeProvider)
+        public EmailServiceSenderMock(ILoggerFactory loggerFactory, IDateTimeProvider dateTimeProvider) : base(loggerFactory, dateTimeProvider)
         {
         }
 

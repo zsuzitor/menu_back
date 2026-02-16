@@ -30,11 +30,11 @@ namespace Menu.Controllers.WordsCardsApp
         private readonly WordCardWordListReturnFactory _wordCardWordListReturnFactory;
 
         public WordsListController(IJWTService jwtService, IApiHelper apiHealper,
-            ILogger<WordsListController> logger, IErrorService errorService, IWordsListService wordsListService)
+            ILoggerFactory loggerFactory, IErrorService errorService, IWordsListService wordsListService)
         {
             _apiHealper = apiHealper;
             _jwtService = jwtService;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Common.Models.Constants.Loggers.MenuApp);
             _errorService = errorService;
             _wordsListService = wordsListService;
 

@@ -15,6 +15,7 @@ using Common.Models.Entity;
 using System.ComponentModel.DataAnnotations;
 using jwtLib.JWTAuth.Interfaces;
 using BO.Models.Auth;
+using Common.Models;
 
 //using NLog;
 
@@ -38,13 +39,13 @@ namespace Menu.Controllers
         private readonly BoolResultFactory _boolResultFactory;
 
         public AuthenticateController(IErrorService errorService, IApiHelper apiHealper
-            , IAuthService authSrvice, IJWTService jwtService, ILogger<AuthenticateController> logger)
+            , IAuthService authSrvice, IJWTService jwtService, ILoggerFactory loggerFactory)
         {
             _authSrvice = authSrvice;
             _apiHealper = apiHealper;
             _errorService = errorService;
             _jwtService = jwtService;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Constants.Loggers.MenuApp);
 
             _errRetrunFactory = new ErrorObjectReturnFactory();
             _tokensReturnFactory = new TokensReturnFactory();

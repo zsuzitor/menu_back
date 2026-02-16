@@ -1,4 +1,5 @@
-﻿using Common.Models.Return;
+﻿using Common.Models;
+using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.TaskManagementApp.Mappers;
 using Menu.Models.TaskManagementApp.Requests;
@@ -32,13 +33,13 @@ namespace Menu.Controllers.TaskManagementApp
 
         public WorkTimeLogController(
              IJWTService jwtService, IApiHelper apiHealper
-            , ILogger<ProjectController> logger, IWorkTaskService workTaskService
+            , ILoggerFactory loggerFactory, IWorkTaskService workTaskService
             , IWorkTimeLogService workTimeLogService
              )
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Constants.Loggers.MenuApp);
 
             _workTaskService = workTaskService;
             _workTimeLogService = workTimeLogService;

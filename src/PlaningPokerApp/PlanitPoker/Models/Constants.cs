@@ -6,6 +6,11 @@ namespace PlanitPoker.Models
     {
         public const int DefaultHourRoomAlive = 2;
 
+        public static class Loggers
+        {
+
+            public const string PlanitPoker = "PlanitPoker";
+        }
 
         public static class Roles
         {

@@ -11,6 +11,7 @@ using static System.Net.Mime.MediaTypeNames;
 using Common.Models.Return;
 using System.Text.Json;
 using System.Collections.Generic;
+using Common.Models;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -27,13 +28,13 @@ namespace Menu.Controllers.TaskManagementApp
         private readonly IProjectService _projectService;
         private readonly IWorkTaskStatusService _workTaskStatusService;
 
-        public StatusController(IProjectService projectService, IApiHelper apiHealper, IJWTService jwtService, ILogger<StatusController> logger
+        public StatusController(IProjectService projectService, IApiHelper apiHealper, IJWTService jwtService, ILoggerFactory loggerFactory
             , IWorkTaskStatusService workTaskStatusService)
         {
             _projectService = projectService;
             _apiHealper = apiHealper;
             _jwtService = jwtService;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Constants.Loggers.MenuApp);
             _workTaskStatusService = workTaskStatusService;
         }
 

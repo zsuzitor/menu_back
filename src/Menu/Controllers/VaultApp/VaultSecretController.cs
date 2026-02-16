@@ -28,12 +28,12 @@ namespace Menu.Controllers.VaultApp
 
 
         public VaultSecretController(IApiHelper apiHealper,
-            ILogger<VaultController> logger, IJWTService jwtService,
+            ILoggerFactory loggerFactory, IJWTService jwtService,
         IErrorService errorService, ISecretService secretService
         )
         {
             _apiHealper = apiHealper;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Common.Models.Constants.Loggers.MenuApp);
             _errorService = errorService;
             _jwtService = jwtService;
             _secretService = secretService;

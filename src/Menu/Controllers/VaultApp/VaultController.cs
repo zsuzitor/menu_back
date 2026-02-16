@@ -13,6 +13,7 @@ using VaultApp.Models.Entity.Input;
 using VaultApp.Models.Services;
 using WEB.Common.Models.Helpers.Interfaces;
 
+
 namespace Menu.Controllers.VaultApp
 {
     [Route("api/[controller]")]
@@ -31,13 +32,13 @@ namespace Menu.Controllers.VaultApp
 
 
         public VaultController(IApiHelper apiHealper,
-            ILogger<VaultController> logger, IJWTService jwtService,
+            ILoggerFactory loggerFactory, IJWTService jwtService,
             IErrorService errorService, IVaultService vaultService,
             IHasher hasher
         )
         {
             _apiHealper = apiHealper;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Common.Models.Constants.Loggers.MenuApp);
             _errorService = errorService;
             _jwtService = jwtService;
             _vaultService = vaultService;

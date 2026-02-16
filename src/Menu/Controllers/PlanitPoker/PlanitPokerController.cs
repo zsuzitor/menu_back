@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Http;
 using Common.Models.Error.services.Interfaces;
 using Menu.Models.PlanitPoker;
 using Menu.Models.PlanitPoker.Returns;
+using Common.Models;
 
 namespace Menu.Controllers.PlanitPoker
 {
@@ -37,13 +38,13 @@ namespace Menu.Controllers.PlanitPoker
         private readonly PlanitUserReturnFactory _planitUserReturnFactory;
 
         public PlanitPokerController(IApiHelper apiHealper,
-            ILogger<PlanitPokerController> logger,
+            ILoggerFactory loggerFactory,
             IPlanitPokerService planitPokerService, IJWTService jwtService,
         IErrorService errorService
         )
         {
             _apiHealper = apiHealper;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Constants.Loggers.MenuApp);
             _planitPokerService = planitPokerService;
             _errorService = errorService;
             //hubContext.

@@ -89,18 +89,28 @@ namespace TaskManagementApp.Models.Services
             if (filters.PresetId != null)
             {
                 var preset = await _presetRepository.GetWithLabelsAsync(filters.PresetId.Value) ?? throw new SomeCustomException(Consts.ErrorConsts.PresetNotFound);
-                filters.StatusId = preset.StatusId;
-                filters.SprintId = preset.SprintId;
-                filters.CreatorId = preset.CreatorId;
-                filters.ExecutorId = preset.ExecutorId;
-                filters.LabelIds = preset.Labels.Select(x => x.LabelId).ToList();
-
+                filters.StatusId ??= preset.StatusId;
+                filters.SprintId ??= preset.SprintId;
+                filters.CreatorId ??= preset.CreatorId;
+                filters.ExecutorId ??= preset.ExecutorId;
+                filters.LabelIds ??= preset.Labels.Select(x => x.LabelId).ToList();
             }
+
             return await _workTaskRepository.GetTasksAsync(filters);
         }
 
         public async Task<long> GetTasksCountAsync(GetTasksCountByFilter filters)
         {
+            if (filters.PresetId != null)
+            {
+                var preset = await _presetRepository.GetWithLabelsAsync(filters.PresetId.Value) ?? throw new SomeCustomException(Consts.ErrorConsts.PresetNotFound);
+                filters.StatusId ??= preset.StatusId;
+                filters.SprintId ??= preset.SprintId;
+                filters.CreatorId ??= preset.CreatorId;
+                filters.ExecutorId ??= preset.ExecutorId;
+                filters.LabelIds ??= preset.Labels.Select(x => x.LabelId).ToList();
+            }
+
             return await _workTaskRepository.GetTasksCountAsync(filters);
         }
 

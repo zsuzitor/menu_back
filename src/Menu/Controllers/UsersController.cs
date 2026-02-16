@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Http;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using Common.Models.Error;
+using Common.Models;
 
 namespace Menu.Controllers
 {
@@ -30,11 +31,11 @@ namespace Menu.Controllers
         private readonly ShortUserReturnFactory _shortUserReturnFactory;
 
         public UsersController(IJWTService jwtService, IApiHelper apiHealper
-            , ILogger<UsersController> logger, IUserService userService
+            , ILoggerFactory loggerFactory, IUserService userService
             , IErrorService errorService)
         {
             _apiHealper = apiHealper;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Constants.Loggers.MenuApp);
             _jwtService = jwtService;
             _userService = userService;
             _shortUserReturnFactory = new ShortUserReturnFactory();

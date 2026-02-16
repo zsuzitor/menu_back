@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BL.Models.Services.Interfaces;
+using Common.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
@@ -18,13 +19,13 @@ namespace Menu.Controllers
         public ValuesController(
             IDistributedCache cache
             //IWorker worker
-            ,ILogger<ValuesController> logger
+            , ILoggerFactory loggerFactory
             )
         {
             //ch.Get("t3",out int t1);
             _cache = cache;
             //worker.Recurring("", "* * * * *");
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Constants.Loggers.MenuApp);
         }
 
         [HttpGet("cache-test")]

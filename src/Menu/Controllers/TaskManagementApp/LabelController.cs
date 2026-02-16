@@ -24,17 +24,15 @@ namespace Menu.Controllers.TaskManagementApp
 
         private readonly IJWTService _jwtService;
         private readonly IApiHelper _apiHealper;
-        private readonly ILogger _logger;
         private readonly ILabelService _labelService;
 
 
         public LabelController(
              IJWTService jwtService, IApiHelper apiHealper
-            , ILogger<ProjectController> logger, ILabelService labelService)
+            , ILabelService labelService)
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
-            _logger = logger;
 
             _labelService = labelService;
         }

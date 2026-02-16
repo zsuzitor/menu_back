@@ -17,6 +17,7 @@ using TaskManagementApp.Models.DTO;
 using System.Text.Json;
 using TaskManagementApp.Models.Services;
 using DAL.Migrations;
+using Common.Models;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -37,12 +38,12 @@ namespace Menu.Controllers.TaskManagementApp
 
         public TaskController(
              IJWTService jwtService, IApiHelper apiHealper
-            , ILogger<ProjectController> logger, IProjectService projectService, IWorkTaskService workTaskService
+            , ILoggerFactory loggerFactory, IProjectService projectService, IWorkTaskService workTaskService
             )
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Constants.Loggers.MenuApp);
 
             _projectService = projectService;
             _workTaskService = workTaskService;
@@ -115,7 +116,7 @@ namespace Menu.Controllers.TaskManagementApp
                 Name = request.NameLike,
                 ProjectId = request.ProjectId,
                 SprintId = request.SprintId,
-                PresetId= request.PresetId,
+                PresetId = request.PresetId,
                 LabelIds = request.LabelId?.ToList(),
             });
             var tasksCount = await _workTaskService.GetTasksCountAsync(new GetTasksCountByFilter()

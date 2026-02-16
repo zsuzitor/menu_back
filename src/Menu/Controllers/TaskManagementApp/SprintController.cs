@@ -1,4 +1,5 @@
-﻿using Common.Models.Return;
+﻿using Common.Models;
+using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.TaskManagementApp.Mappers;
 using Menu.Models.TaskManagementApp.Requests;
@@ -28,11 +29,11 @@ namespace Menu.Controllers.TaskManagementApp
         private readonly ISprintService _sprintService;
 
         public SprintController(IApiHelper apiHealper, IJWTService jwtService
-            , ILogger<StatusController> logger, ISprintService sprintService)
+            , ILoggerFactory loggerFactory, ISprintService sprintService)
         {
             _apiHealper = apiHealper;
             _jwtService = jwtService;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Constants.Loggers.MenuApp);
             _sprintService = sprintService;
             _sprintService = sprintService;
         }

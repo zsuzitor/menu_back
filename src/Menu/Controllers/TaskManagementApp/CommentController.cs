@@ -10,6 +10,7 @@ using TaskManagementApp.Models.Services;
 using Common.Models.Return;
 using System.Text.Json;
 using System.Collections.Generic;
+using Common.Models;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -22,7 +23,6 @@ namespace Menu.Controllers.TaskManagementApp
 
         private readonly IJWTService _jwtService;
         private readonly IApiHelper _apiHealper;
-        private readonly ILogger _logger;
 
         private readonly IWorkTaskService _workTaskService;
         private readonly IWorkTaskCommentService _workTaskCommentService;
@@ -30,12 +30,11 @@ namespace Menu.Controllers.TaskManagementApp
 
         public CommentController(
              IJWTService jwtService, IApiHelper apiHealper
-            , ILogger<ProjectController> logger, IWorkTaskService workTaskService,
+            , IWorkTaskService workTaskService,
              IWorkTaskCommentService workTaskCommentService)
         {
             _jwtService = jwtService;
             _apiHealper = apiHealper;
-            _logger = logger;
 
             _workTaskService = workTaskService;
             _workTaskCommentService = workTaskCommentService;

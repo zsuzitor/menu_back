@@ -13,6 +13,7 @@ using Microsoft.Extensions.Logging;
 using Menu.Models.InputModels.MenuApp;
 using Menu.Models.Returns.Types.MenuApp;
 using BL.Models.Services.Interfaces;
+using Common.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -40,7 +41,7 @@ namespace Menu.Controllers
 
         public ArticleController(
              IJWTService jwtService, IApiHelper apiHealper, IArticleService articleService,
-             IErrorService errorService, IConfigurationService configurationService, ILogger<ArticleController> logger)
+             IErrorService errorService, IConfigurationService configurationService, ILoggerFactory loggerFactory)
         {
             //_articleRepository = articleRepository;
             _jwtService = jwtService;
@@ -48,7 +49,7 @@ namespace Menu.Controllers
             _articleService = articleService;
             _errorService = errorService;
             _configurationService = configurationService;
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger(Constants.Loggers.MenuApp);
             //_webHostEnvironment = webHostEnvironment;
 
             //_errRetrunFactory = new ErrorObjectReturnFactory();
