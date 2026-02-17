@@ -20,7 +20,7 @@ namespace Menu.Tests.Tests
         public void IsPrime_InputIs1_ReturnFalse()
         {
 
-            Assert.IsFalse(false, "1 should not be prime");
+            //Assert.IsFalse(false, "1 should not be prime");
         }
 
         [TestCase(-1)]
@@ -29,7 +29,7 @@ namespace Menu.Tests.Tests
         public void IsPrime_ValuesLessThan2_ReturnFalse(int value)
         {
 
-            Assert.AreEqual(value,value, $"{value} should not be");
+            //Assert.AreEqual(value,value, $"{value} should not be");
         }
     }
 }
