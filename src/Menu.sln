@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.1.32421.90
+# Visual Studio Version 18
+VisualStudioVersion = 18.3.11505.172 d18.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Menu", "Menu\Menu.csproj", "{EF9D2655-E184-4E70-B8F8-5F13CA2B1CBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Menu.Host", "Menu\Menu\Menu.Host.csproj", "{EF9D2655-E184-4E70-B8F8-5F13CA2B1CBA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Menu.Tests", "Menu.Tests\Menu.Tests.csproj", "{E9D3C34F-568E-466D-9C7C-55D1D6D74F14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Menu.Tests", "Menu\Menu.Tests\Menu.Tests.csproj", "{E9D3C34F-568E-466D-9C7C-55D1D6D74F14}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Auth", "Auth\Auth.csproj", "{68652494-3F59-4797-B0ED-BC382F45D14C}"
 EndProject

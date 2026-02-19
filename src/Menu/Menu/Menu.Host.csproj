@@ -43,15 +43,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Auth\Auth.csproj" />
-    <ProjectReference Include="..\TaskManagementApp\TaskManagementApp\TaskManagementApp.csproj" />
-    <ProjectReference Include="..\Common\Common.csproj" />
-    <ProjectReference Include="..\DAL\DAL.csproj" />
-    <ProjectReference Include="..\MenuApp\MenuApp\MenuApp.csproj" />
-    <ProjectReference Include="..\PlaningPokerApp\PlanitPoker\PlanitPoker.csproj" />
-    <ProjectReference Include="..\VaultApp\VaultApp\VaultApp.csproj" />
-    <ProjectReference Include="..\WEB.Common\WEB.Common.csproj" />
-    <ProjectReference Include="..\WordsCardsApp\WordsCardsApp\WordsCardsApp.csproj" />
+    <ProjectReference Include="..\..\Auth\Auth.csproj" />
+    <ProjectReference Include="..\..\TaskManagementApp\TaskManagementApp\TaskManagementApp.csproj" />
+    <ProjectReference Include="..\..\Common\Common.csproj" />
+    <ProjectReference Include="..\..\DAL\DAL.csproj" />
+    <ProjectReference Include="..\..\MenuApp\MenuApp\MenuApp.csproj" />
+    <ProjectReference Include="..\..\PlaningPokerApp\PlanitPoker\PlanitPoker.csproj" />
+    <ProjectReference Include="..\..\VaultApp\VaultApp\VaultApp.csproj" />
+    <ProjectReference Include="..\..\WEB.Common\WEB.Common.csproj" />
+    <ProjectReference Include="..\..\WordsCardsApp\WordsCardsApp\WordsCardsApp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

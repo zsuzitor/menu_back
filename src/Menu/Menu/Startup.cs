@@ -66,8 +66,7 @@ namespace Menu
             //конфигурацию накатывает на логирование(в частности nlogconfig) что бы там получить строку подключения
             NLog.Extensions.Logging.ConfigSettingLayoutRenderer.DefaultConfiguration = Configuration;
 
-            services.AddMvc(option => option.EnableEndpointRouting = false)
-                .SetCompatibilityVersion(CompatibilityVersion.Latest);
+            services.AddMvc(option => option.EnableEndpointRouting = false);
 
 
             if (bool.Parse(Configuration["UseInMemoryDataProvider"]))

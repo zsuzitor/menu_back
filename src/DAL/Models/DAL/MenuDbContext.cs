@@ -15,7 +15,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace DAL.Models.DAL
 {
-    public sealed class MenuDbContext : DbContext
+    public class MenuDbContext : DbContext
     {
         #region main
         public DbSet<MainNLogEntity> MainLogTable { get; set; }

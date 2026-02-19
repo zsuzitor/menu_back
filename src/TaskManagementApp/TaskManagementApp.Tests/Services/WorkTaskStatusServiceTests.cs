@@ -67,7 +67,7 @@ namespace TaskManagementApp.Tests.Services
         }
 
 
-        private Mock<T> AddMock<T>(ServiceCollection services) where T : class
+        private Mock<T> AddMock<T>(IServiceCollection services) where T : class
         {
             var m = new Mock<T>();
             services.RemoveAll<T>();
