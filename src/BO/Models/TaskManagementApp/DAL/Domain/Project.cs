@@ -24,6 +24,8 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         {
             Users = new List<ProjectUser>();
             Tasks = new List<WorkTask>();
+            TaskStatuses = new List<WorkTaskStatus>();
+            Sprints = new List<ProjectSprint>();
         }
 
     }

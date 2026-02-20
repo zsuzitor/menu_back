@@ -7,7 +7,7 @@ namespace BL.Models.Services.Cache
 {
     public class MemoryCacheAccessor : ICacheAccessor
     {
-        private readonly IMemoryCache _memoryCache;
+        private readonly IMemoryCache _memoryCache;//потокобезопасный
         public MemoryCacheAccessor(IMemoryCache memoryCache)
         {
             _memoryCache = memoryCache;

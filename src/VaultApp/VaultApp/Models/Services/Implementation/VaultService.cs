@@ -51,7 +51,7 @@ namespace VaultApp.Models.Services.Implementation
         public async Task<List<VaultUser>> GetUsersAsync(long vaultId, UserInfo userInfo)
         {
             await HasAccessToReadVaultWithError(vaultId, userInfo);
-            (var suc, var users) = await _cache.GetOrSet(VaultUsersCache + vaultId
+            (var suc, var users) = await _cache.GetOrSetAsync(VaultUsersCache + vaultId
                 , async () => await _vaultRepository.GetUsersAsync(vaultId)
                 , VaultUsersCacheTime);
             return users;
@@ -268,7 +268,7 @@ namespace VaultApp.Models.Services.Implementation
                 return false;
             }
 
-            (var suc, var users) = await _cache.GetOrSet(VaultUsersCache + vaultId
+            (var suc, var users) = await _cache.GetOrSetAsync(VaultUsersCache + vaultId
                 , async () => await _vaultRepository.GetUsersAsync(vaultId)
                 , VaultUsersCacheTime);
 

@@ -8,7 +8,7 @@ namespace BL.Models.Services.Cache
 {
     public class RedisCacheAccessor : ICacheAccessor
     {
-        private readonly IDistributedCache _distributedCache;
+        private readonly IDistributedCache _distributedCache;//потокобезопасный
         public RedisCacheAccessor(IDistributedCache distributedCache)
         {
             _distributedCache = distributedCache;

@@ -26,7 +26,7 @@ namespace BL.Models.Services.Cache
 
         public bool Get<T>(string key, out T res)
         {
-            return _cacheAccessor.Get(key,out res);
+            return _cacheAccessor.Get(key, out res);
         }
 
         public void Set<T>(string key, T value, TimeSpan time)
@@ -34,9 +34,9 @@ namespace BL.Models.Services.Cache
             _cacheAccessor.Set(key, value, time);
         }
 
-        public bool GetOrSet<T>(string key, out T res, Func<T> act, TimeSpan time)
+        public bool GetOrSet<T>(string key, out T res, Func<T> act, TimeSpan time, bool force = false)
         {
-            if (Get(key, out res))
+            if (!force && Get(key, out res))
             {
                 return true;
             }
@@ -47,16 +47,16 @@ namespace BL.Models.Services.Cache
             return true;
         }
 
-        public async Task<(bool, T)> GetOrSet<T>(string key, Func<Task<T>> act, TimeSpan time)
+        public async Task<(bool, T)> GetOrSetAsync<T>(string key, Func<Task<T>> act, TimeSpan time, bool force = false)
         {
-            if (Get(key, out T res))
+            if (!force && Get(key, out T res))
             {
                 return (true, res);
             }
 
             var result = await act();
             Set(key, result, time);
-            
+
             return (true, result);
         }
     }

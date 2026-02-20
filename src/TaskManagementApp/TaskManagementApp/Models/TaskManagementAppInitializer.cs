@@ -60,6 +60,8 @@ namespace TaskManagementApp.Models
         public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
         {
             services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<IProjectCachedRepository, ProjectCachedRepository>();
+            
             services.AddScoped<IWorkTaskRepository, WorkTaskRepository>();
             services.AddScoped<IProjectUserRepository, UserRepository>();
             services.AddScoped<IWorkTaskCommentRepository, WorkTaskCommentRepository>();

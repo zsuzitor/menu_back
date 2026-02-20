@@ -1,8 +1,11 @@
 ﻿
+using System;
+
 namespace TaskManagementApp.Models
 {
     public static class Consts
     {
+        public const string ProjectPrefix = "task_management_";
         public static class ErrorConsts
         {
             
@@ -54,6 +57,12 @@ namespace TaskManagementApp.Models
             public const string StatusInTaskWasChanged = "StatusInTaskWasChanged";
             public const string TaskWasChanged = "TaskWasChanged";
 
+        }
+
+        public class CacheKeys
+        {
+            public static readonly TimeSpan CacheTime = TimeSpan.FromMinutes(5);
+            public const string Project = $"{ProjectPrefix}Project_";
         }
     }
 }

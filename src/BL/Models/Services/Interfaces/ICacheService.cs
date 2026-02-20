@@ -8,8 +8,8 @@ namespace BL.Models.Services.Interfaces
     public interface ICacheService
     {
         bool Get<T>(string key, out T res);
-        bool GetOrSet<T>(string key, out T res, Func<T> act, TimeSpan time);
-        Task<(bool, T)> GetOrSet<T>(string key, Func<Task<T>> act, TimeSpan time);
+        bool GetOrSet<T>(string key, out T res, Func<T> act, TimeSpan time, bool force = false);
+        Task<(bool, T)> GetOrSetAsync<T>(string key, Func<Task<T>> act, TimeSpan time, bool force = false);
         bool Exist(string key);
         void Set<T>(string key, T value, TimeSpan time);
         void Remove(string key);

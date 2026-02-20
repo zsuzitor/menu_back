@@ -32,7 +32,7 @@ namespace BL.Models.Services
 
         public async Task<Configuration> GetAsync(string key)
         {
-            var res = await _cacheService.GetOrSet(key, async () =>
+            var res = await _cacheService.GetOrSetAsync(key, async () =>
             {
                 return await _configurationRepository.GetByKey(key);
             }, TimeSpan.FromHours(1));
