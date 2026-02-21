@@ -1,17 +1,18 @@
 ﻿using BO.Models.Auth;
+using BO.Models.TaskManagementApp.DAL;
 using BO.Models.TaskManagementApp.DAL.Domain;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
+using Pipelines.Sockets.Unofficial.Arenas;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using Pipelines.Sockets.Unofficial.Arenas;
 
 namespace TaskManagementApp.Models.DAL.Repositories
 {
@@ -25,7 +26,9 @@ namespace TaskManagementApp.Models.DAL.Repositories
         {
             return _db.TaskManagementWorkTimeLog//.Include(x=>x.WorkTask).ThenInclude(x=>x.Project)
                 .Include(x => x.ProjectUser)
-                .Where(x => x.ProjectUser.MainAppUserId == userInfo.UserId && !x.ProjectUser.Deactivated && x.Id == id)
+                .Where(x => x.ProjectUser.MainAppUserId == userInfo.UserId
+                    && x.ProjectUser.Role!= UserRoleEnum.Deactivated 
+                    && x.Id == id)
                 .Select(x => x).FirstOrDefaultAsync();
         }
 
@@ -36,7 +39,8 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return await _db.TaskManagementWorkTimeLog.AsNoTracking().Include(x => x.ProjectUser)
                 .Include(x => x.WorkTask)
                 .Where(x => x.WorkTask.ProjectId == projectId
-                && x.ProjectUser.MainAppUserId == userInfo.UserId && !x.ProjectUser.Deactivated
+                && x.ProjectUser.MainAppUserId == userInfo.UserId
+                    && x.ProjectUser.Role != UserRoleEnum.Deactivated
                 && x.DayOfLog.Date >= startDate.Date && x.DayOfLog.Date <= endDate.Date).Select(x => x).ToListAsync();
 
             //_db.TaskManagementWorkTimeLog
@@ -52,7 +56,8 @@ namespace TaskManagementApp.Models.DAL.Repositories
         {
             return await _db.TaskManagementWorkTimeLog.AsNoTracking().Include(x => x.ProjectUser)
                 .Where(x => x.WorkTaskId == taskId
-                && x.ProjectUser.MainAppUserId == userInfo.UserId && !x.ProjectUser.Deactivated).Select(x => x).ToListAsync();
+                && x.ProjectUser.MainAppUserId == userInfo.UserId
+                    && x.ProjectUser.Role != UserRoleEnum.Deactivated).Select(x => x).ToListAsync();
 
         }
 
@@ -77,7 +82,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return await _db.TaskManagementWorkTimeLog.AsNoTracking().Include(x => x.ProjectUser)
                 .Where(x =>
                  ((userId != null && x.ProjectUserId == userId) || (userId == null && x.ProjectUser.MainAppUserId == userInfo.UserId))
-                    && !x.ProjectUser.Deactivated
+                    && x.ProjectUser.Role != UserRoleEnum.Deactivated
                 && x.DayOfLog.Date >= startDate.Date && x.DayOfLog.Date <= endDate.Date).Select(x => x).ToListAsync();
 
         }

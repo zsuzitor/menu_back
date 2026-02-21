@@ -4,7 +4,7 @@ Write-Host "Создание миграции $migrationName" -ForegroundColor B
 
 dotnet ef migrations add $migrationName `
     --project .\src\DAL `
-    --startup-project .\src\Menu `
+    --startup-project .\src\Menu\Menu `
     --output-dir Migrations
 
 if ($LASTEXITCODE -eq 0) {

@@ -1,6 +1,7 @@
 ﻿
+using BO.Models.DAL.Domain;
+using BO.Models.TaskManagementApp.DAL;
 using BO.Models.TaskManagementApp.DAL.Domain;
-using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
@@ -8,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace TaskManagementApp.Models.DAL.Repositories
 {
@@ -35,8 +37,10 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async Task<long?> GetIdByMainAppIdAsync(long userId, long projectId)
         {
-            return (await _db.TaskManagementProjectUsers.Select(x => new {x.Id, x.MainAppUserId, x.ProjectId, x.Deactivated })
-                .FirstOrDefaultAsync(x => x.MainAppUserId == userId && x.ProjectId == projectId && !x.Deactivated))?.Id;
+            return (await _db.TaskManagementProjectUsers
+                .Where(x => x.MainAppUserId == userId && x.ProjectId == projectId && x.Role != UserRoleEnum.Deactivated)
+                .Select(x => new { x.Id, x.MainAppUserId })
+                .FirstOrDefaultAsync())?.Id;
         }
 
         public async Task<string> GetNotificationEmailAsync(long userId)
@@ -47,7 +51,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async Task<(string email, long? mainAppId)> GetNotificationEmailWithMainAppIdAsync(long userId)
         {
-            var res =  (await _db.TaskManagementProjectUsers.Select(x => new { x.Id, x.NotifyEmail, x.MainAppUserId })
+            var res = (await _db.TaskManagementProjectUsers.Select(x => new { x.Id, x.NotifyEmail, x.MainAppUserId })
                    .FirstOrDefaultAsync(x => x.Id == userId));
 
             return (res?.NotifyEmail, res?.MainAppUserId);
@@ -61,7 +65,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public override async Task<ProjectUser> DeleteAsync(ProjectUser user)
         {
             _db.TaskManagementProjectUsers.Attach(user);
-            user.Deactivated = true;
+            user.Role = UserRoleEnum.Deactivated;
             await _db.SaveChangesAsync();
             return user;
         }
@@ -71,7 +75,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             _db.TaskManagementProjectUsers.AttachRange(records);
             foreach (var item in records)
             {
-                item.Deactivated = true;
+                item.Role = UserRoleEnum.Deactivated;
             }
 
             await _db.SaveChangesAsync();
@@ -82,7 +86,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             var record = await GetAsync(recordId);
             if (record != null)
             {
-                record.Deactivated = false;
+                record.Role = UserRoleEnum.Deactivated;
                 await _db.SaveChangesAsync();
             }
 

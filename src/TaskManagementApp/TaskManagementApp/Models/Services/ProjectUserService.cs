@@ -6,6 +6,7 @@ using TaskManagementApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BO.Models.TaskManagementApp.DAL;
 
 namespace TaskManagementApp.Models.Services
 {
@@ -89,8 +90,11 @@ namespace TaskManagementApp.Models.Services
 
             user.UserName = name;
             user.NotifyEmail = email;
-            user.IsAdmin = isAdmin;
-            user.Deactivated = deactivated;
+            user.Role = UserRoleEnum.Editor;
+            if (isAdmin)
+                user.Role = UserRoleEnum.Admin;
+            if(deactivated)
+                user.Role = UserRoleEnum.Deactivated;
             await _projectUserRepository.UpdateAsync(user);
             return user;
 
@@ -104,7 +108,7 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectUserNotFound);
             }
 
-            if (user.Deactivated)
+            if (user.Role==UserRoleEnum.Deactivated)
             {
                 return user;
             }
@@ -123,7 +127,7 @@ namespace TaskManagementApp.Models.Services
         public async Task<ProjectUser> GetByMainAppIdAsync(UserInfo userInfo, long projectId)
         {
             var user = await _projectUserRepository.GetByMainAppUserIdAsync(userInfo.UserId, projectId);
-            if (user.Deactivated)
+            if (user.Role == UserRoleEnum.Deactivated)
             {
                 return null;
             }
@@ -135,7 +139,7 @@ namespace TaskManagementApp.Models.Services
         public async Task<ProjectUser> GetAdminByMainAppIdAsync(UserInfo userInfo, long projectId)
         {
             var user = await _projectUserRepository.GetByMainAppUserIdAsync(userInfo.UserId, projectId);
-            if (user.Deactivated || !user.IsAdmin)
+            if (user.Role != UserRoleEnum.Admin)
             {
                 return null;
             }

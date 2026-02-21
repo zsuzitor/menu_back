@@ -1,4 +1,5 @@
-﻿using BO.Models.TaskManagementApp.DAL.Domain;
+﻿using BO.Models.TaskManagementApp.DAL;
+using BO.Models.TaskManagementApp.DAL.Domain;
 
 namespace TaskManagementApp.Models.Returns
 {
@@ -16,9 +17,9 @@ namespace TaskManagementApp.Models.Returns
             Id = user.Id;
             Name = user.UserName;
             Email = user.NotifyEmail;
-            IsAdmin = user.IsAdmin;
+            IsAdmin = user.Role==UserRoleEnum.Admin;
             MainAppUserId = user.MainAppUserId;
-            Deactivated = user.Deactivated;
+            Deactivated = user.Role == UserRoleEnum.Deactivated;
         }
     }
 }

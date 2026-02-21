@@ -8,9 +8,10 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
     public sealed class ProjectUser : IDomainRecord<long>
     {
         public long Id { get; set; }
-        public bool IsAdmin { get; set; }
+        //public bool IsAdmin { get; set; }
+        public UserRoleEnum Role { get; set; }
         public string UserName { get; set; }
-        public bool Deactivated { get; set; }
+        //public bool Deactivated { get; set; }
         public string NotifyEmail { get; set; }
 
         public long ProjectId { get; set; }

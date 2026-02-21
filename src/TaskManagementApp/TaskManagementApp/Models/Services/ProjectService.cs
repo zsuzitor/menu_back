@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BL.Models.Services.Interfaces;
+using BO.Models.TaskManagementApp.DAL;
 
 namespace TaskManagementApp.Models.Services
 {
@@ -42,7 +43,7 @@ namespace TaskManagementApp.Models.Services
 
             var user = new ProjectUser()
             {
-                IsAdmin = true,
+                Role = UserRoleEnum.Admin,
                 UserName = string.IsNullOrEmpty(mainAppUserInfo.Name) ? mainAppUserInfo.Email : mainAppUserInfo.Name,
                 MainAppUserId = userInfo.UserId,
                 NotifyEmail = mainAppUserInfo.Email,

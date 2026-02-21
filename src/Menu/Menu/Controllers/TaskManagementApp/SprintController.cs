@@ -25,7 +25,6 @@ namespace Menu.Controllers.TaskManagementApp
         private readonly IJWTService _jwtService;
         private readonly IApiHelper _apiHealper;
         private readonly ILogger _logger;
-        private readonly IProjectService _projectService;
         private readonly ISprintService _sprintService;
 
         public SprintController(IApiHelper apiHealper, IJWTService jwtService

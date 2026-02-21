@@ -1,5 +1,6 @@
 ﻿
 using BL.Models.Services.Interfaces;
+using BO.Models.TaskManagementApp.DAL;
 using BO.Models.TaskManagementApp.DAL.Domain;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
@@ -25,7 +26,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async override Task<Project> AddAsync(Project newRecord)
         {
-            var result =  await _projectRepository.AddAsync(newRecord);
+            var result = await _projectRepository.AddAsync(newRecord);
             _cache.Set(Consts.CacheKeys.Project + result.Id,
                 result,
                 Consts.CacheKeys.CacheTime
@@ -36,7 +37,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public async override Task<IEnumerable<Project>> AddAsync(IEnumerable<Project> newRecords)
         {
             var result = await _projectRepository.AddAsync(newRecords);
-            foreach(var r in result)
+            foreach (var r in result)
             {
                 _cache.Set(Consts.CacheKeys.Project + r.Id,
                     r,
@@ -49,7 +50,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async Task<Project> CreateAsync(string name, ProjectUser user)
         {
-            var record =  await _projectRepository.CreateAsync(name, user);
+            var record = await _projectRepository.CreateAsync(name, user);
 
             _cache.Set(Consts.CacheKeys.Project + record.Id,
                 record,
@@ -60,7 +61,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async override Task<IEnumerable<Project>> DeleteAsync(IEnumerable<Project> records)
         {
-            var result =  await _projectRepository.DeleteAsync(records);
+            var result = await _projectRepository.DeleteAsync(records);
 
             foreach (var r in records)
             {
@@ -79,7 +80,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async override Task<Project> DeleteAsync(long recordId)
         {
-             var record = await _projectRepository.DeleteAsync(recordId);
+            var record = await _projectRepository.DeleteAsync(recordId);
             _cache.Remove(Consts.CacheKeys.Project + recordId);
             return record;
         }
@@ -111,7 +112,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return false;
             }
 
-            return result.Item2.Users.Exists(u => u.MainAppUserId == mainAppUserId && !u.Deactivated && u.IsAdmin);
+            return result.Item2.Users.Exists(u => u.MainAppUserId == mainAppUserId && u.Role == UserRoleEnum.Admin);
 
             //return await _projectRepository.ExistIfAccessAdminAsync(id, mainAppUserId);
         }
@@ -130,9 +131,10 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return (false, false);
             }
 
-            var user= result.Item2.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId && !u.Deactivated);
-            if (user != null) {
-                if (user.IsAdmin)
+            var user = result.Item2.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId && u.Role != UserRoleEnum.Deactivated);
+            if (user != null)
+            {
+                if (user.Role == UserRoleEnum.Admin)
                 {
                     return (true, true);
 
@@ -176,7 +178,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return null;
             }
 
-             if(result.Item2.Users.Exists(u => u.MainAppUserId == mainAppUserId && !u.Deactivated && u.IsAdmin))
+            if (result.Item2.Users.Exists(u => u.MainAppUserId == mainAppUserId && u.Role == UserRoleEnum.Admin))
             {
                 return result.Item2;
             }
@@ -199,7 +201,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return null;
             }
 
-            if (result.Item2.Users.Exists(u => u.MainAppUserId == mainAppUserId && !u.Deactivated))
+            if (result.Item2.Users.Exists(u => u.MainAppUserId == mainAppUserId && u.Role != UserRoleEnum.Deactivated))
             {
                 return result.Item2;
             }
@@ -236,7 +238,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async override Task<Project> UpdateAsync(Project record)
         {
-            var result= await _projectRepository.UpdateAsync(record);
+            var result = await _projectRepository.UpdateAsync(record);
 
             _cache.Set(Consts.CacheKeys.Project + result.Id,
                 result,
@@ -273,9 +275,9 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, long mainAppUserId)
         {
             var user = await _db.TaskManagementProjectUsers.AsNoTracking().Include(x => x.Project)
-                .Where(u => u.MainAppUserId == mainAppUserId && !u.Deactivated
+                .Where(u => u.MainAppUserId == mainAppUserId && u.Role != UserRoleEnum.Deactivated
                 && u.Project.Id == id && !u.Project.IsDeleted)
-                .Select(x => new { x.Id, x.IsAdmin }).FirstOrDefaultAsync();
+                .Select(x => new { x.Id, isAdmin = (x.Role == UserRoleEnum.Admin) }).FirstOrDefaultAsync();
 
             //var user = await _db.TaskManagementTaskProject.AsNoTracking().Include(x => x.Users)
             //    .Where(x => x.Id == id && !x.IsDeleted
@@ -288,14 +290,14 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return (false, false);
             }
 
-            return (true, user.IsAdmin);
+            return (true, user.isAdmin);
         }
 
         public async Task<Project> GetByIdIfAccessAsync(long id, long mainAppUserId)
         {
 
             return await _db.TaskManagementProjectUsers.AsNoTracking().Include(x => x.Project)
-                .Where(u => u.MainAppUserId == mainAppUserId && !u.Deactivated
+                .Where(u => u.MainAppUserId == mainAppUserId && u.Role != UserRoleEnum.Deactivated
                 && u.Project.Id == id && !u.Project.IsDeleted)
                 .Select(x => x.Project).FirstOrDefaultAsync();
 
@@ -317,7 +319,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public async Task<Project> GetByIdIfAccessAdminAsync(long id, long mainAppUserId)
         {
             return await _db.TaskManagementProjectUsers.AsNoTracking().Include(x => x.Project)
-                .Where(u => u.MainAppUserId == mainAppUserId && !u.Deactivated && u.IsAdmin
+                .Where(u => u.MainAppUserId == mainAppUserId && u.Role == UserRoleEnum.Admin
                 && u.Project.Id == id && !u.Project.IsDeleted)
                 .Select(x => x.Project).FirstOrDefaultAsync();
             //todo загрузит скорее всего с пользаками
@@ -364,7 +366,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public async Task<List<Project>> GetProjectsByMainAppUserIdAsync(long userId)
         {
             return await _db.TaskManagementProjectUsers.AsNoTracking()
-                .Where(x => x.MainAppUserId == userId && !x.Deactivated)
+                .Where(x => x.MainAppUserId == userId && x.Role != UserRoleEnum.Deactivated)
                 .Include(x => x.Project).Select(x => x.Project).Where(x => !x.IsDeleted).ToListAsync();
 
 
