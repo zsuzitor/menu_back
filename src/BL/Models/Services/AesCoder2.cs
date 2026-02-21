@@ -1,9 +1,10 @@
-﻿using System;
+﻿using BL.Models.Services.Interfaces;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Security.Cryptography;
 using System.IO;
-using BL.Models.Services.Interfaces;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace BL.Models.Services
 {
@@ -12,68 +13,101 @@ namespace BL.Models.Services
 
         public static byte[] AES_Encrypt(byte[] bytesToBeEncrypted, byte[] passwordBytes)
         {
-            byte[] encryptedBytes = null;
+            if (bytesToBeEncrypted == null || bytesToBeEncrypted.Length == 0)
+                throw new ArgumentException("Data to encrypt cannot be empty", nameof(bytesToBeEncrypted));
 
-            // Set your salt here, change it to meet your flavor:
-            // The salt bytes must be at least 8 bytes.
-            byte[] saltBytes = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+            if (passwordBytes == null || passwordBytes.Length == 0)
+                throw new ArgumentException("Password cannot be empty", nameof(passwordBytes));
 
-            using (MemoryStream ms = new MemoryStream())
+            // Генерируем случайную соль для каждого шифрования (лучшая практика)
+            byte[] saltBytes = new byte[16]; // 16 байт соли
+            using (var rng = RandomNumberGenerator.Create())
             {
-                using (RijndaelManaged AES = new RijndaelManaged())
-                {
-                    AES.KeySize = 256;
-                    AES.BlockSize = 128;
-
-                    var key = new Rfc2898DeriveBytes(passwordBytes, saltBytes, 1000);
-                    AES.Key = key.GetBytes(AES.KeySize / 8);
-                    AES.IV = key.GetBytes(AES.BlockSize / 8);
-
-                    AES.Mode = CipherMode.CBC;
-
-                    using (var cs = new CryptoStream(ms, AES.CreateEncryptor(), CryptoStreamMode.Write))
-                    {
-                        cs.Write(bytesToBeEncrypted, 0, bytesToBeEncrypted.Length);
-                        cs.Close();
-                    }
-                    encryptedBytes = ms.ToArray();
-                }
+                rng.GetBytes(saltBytes);
             }
 
-            return encryptedBytes;
+            using (var ms = new MemoryStream())
+            {
+                // Сначала записываем соль, чтобы потом можно было расшифровать
+                ms.Write(saltBytes, 0, saltBytes.Length);
+
+                using (var aes = Aes.Create())
+                {
+                    aes.KeySize = 256;
+                    aes.BlockSize = 128;
+                    aes.Mode = CipherMode.CBC;
+                    aes.Padding = PaddingMode.PKCS7;
+
+                    // Используем статический метод PBKDF2 для генерации ключа и IV
+                    int keySizeInBytes = aes.KeySize / 8; // 32 байта
+                    int ivSizeInBytes = aes.BlockSize / 8; // 16 байт
+
+                    // Генерируем ключ и IV за один проход
+                    byte[] keyAndIv = new byte[keySizeInBytes + ivSizeInBytes];
+                    keyAndIv = Rfc2898DeriveBytes.Pbkdf2(
+                        passwordBytes,
+                        saltBytes,
+                        100000,        // Итерации
+                        HashAlgorithmName.SHA256,
+                        keySizeInBytes + ivSizeInBytes
+                    );
+
+                    // Разделяем на ключ и IV
+                    aes.Key = keyAndIv.Take(keySizeInBytes).ToArray();
+                    aes.IV = keyAndIv.Skip(keySizeInBytes).Take(ivSizeInBytes).ToArray();
+
+                    using (var cs = new CryptoStream(ms, aes.CreateEncryptor(), CryptoStreamMode.Write))
+                    {
+                        cs.Write(bytesToBeEncrypted, 0, bytesToBeEncrypted.Length);
+                    }
+
+                    return ms.ToArray();
+                }
+            }
         }
 
         public static byte[] AES_Decrypt(byte[] bytesToBeDecrypted, byte[] passwordBytes)
         {
-            byte[] decryptedBytes = null;
+            if (bytesToBeDecrypted == null || bytesToBeDecrypted.Length < 16)
+                throw new ArgumentException("Invalid encrypted data", nameof(bytesToBeDecrypted));
 
-            // Set your salt here, change it to meet your flavor:
-            // The salt bytes must be at least 8 bytes.
-            byte[] saltBytes = new byte[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+            if (passwordBytes == null || passwordBytes.Length == 0)
+                throw new ArgumentException("Password cannot be empty", nameof(passwordBytes));
 
-            using (MemoryStream ms = new MemoryStream())
+            using (var ms = new MemoryStream(bytesToBeDecrypted))
             {
-                using (RijndaelManaged AES = new RijndaelManaged())
+                // Читаем соль из начала зашифрованных данных
+                byte[] saltBytes = new byte[16];
+                ms.Read(saltBytes, 0, 16);
+
+                using (var aes = Aes.Create())
                 {
-                    AES.KeySize = 256;
-                    AES.BlockSize = 128;
+                    aes.KeySize = 256;
+                    aes.BlockSize = 128;
+                    aes.Mode = CipherMode.CBC;
+                    aes.Padding = PaddingMode.PKCS7;
 
-                    var key = new Rfc2898DeriveBytes(passwordBytes, saltBytes, 1000);
-                    AES.Key = key.GetBytes(AES.KeySize / 8);
-                    AES.IV = key.GetBytes(AES.BlockSize / 8);
+                    // Генерируем ключ и IV из пароля и соли
+                    byte[] keyAndIv = Rfc2898DeriveBytes.Pbkdf2(
+                        password: passwordBytes,
+                        salt: saltBytes,
+                        iterations: 100000,
+                        hashAlgorithm: HashAlgorithmName.SHA256,
+                        outputLength: 48 // 32 (key) + 16 (IV)
+                    );
 
-                    AES.Mode = CipherMode.CBC;
+                    // Используние диапазонов C# 8.0+ для более чистого кода
+                    aes.Key = keyAndIv[0..32];
+                    aes.IV = keyAndIv[32..48];
 
-                    using (var cs = new CryptoStream(ms, AES.CreateDecryptor(), CryptoStreamMode.Write))
+                    using (var cs = new CryptoStream(ms, aes.CreateDecryptor(), CryptoStreamMode.Read))
+                    using (var resultMs = new MemoryStream())
                     {
-                        cs.Write(bytesToBeDecrypted, 0, bytesToBeDecrypted.Length);
-                        cs.Close();
+                        cs.CopyTo(resultMs);
+                        return resultMs.ToArray();
                     }
-                    decryptedBytes = ms.ToArray();
                 }
             }
-
-            return decryptedBytes;
         }
 
         public static string EncryptString(string text, string password)
@@ -81,7 +115,7 @@ namespace BL.Models.Services
             byte[] baPwd = Encoding.UTF8.GetBytes(password);
 
             // Hash the password with SHA256
-            byte[] baPwdHash = SHA256Managed.Create().ComputeHash(baPwd);
+            byte[] baPwdHash = SHA256.HashData(baPwd);
 
             byte[] baText = Encoding.UTF8.GetBytes(text);
 
@@ -105,7 +139,7 @@ namespace BL.Models.Services
             byte[] baPwd = Encoding.UTF8.GetBytes(password);
 
             // Hash the password with SHA256
-            byte[] baPwdHash = SHA256Managed.Create().ComputeHash(baPwd);
+            byte[] baPwdHash = SHA256.HashData(baPwd);
 
             byte[] baText = Convert.FromBase64String(text);
 
@@ -125,7 +159,7 @@ namespace BL.Models.Services
         {
             int saltLength = GetSaltLength();
             byte[] ba = new byte[saltLength];
-            RNGCryptoServiceProvider.Create().GetBytes(ba);
+            RandomNumberGenerator.Create().GetBytes(ba);
             return ba;
         }
 
