@@ -14,12 +14,16 @@ namespace TaskManagementApp.Models.Services
 
         private readonly IWorkTaskLabelRepository _labelRepository;
         private readonly IProjectRepository _projectRepository;
+        private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly IWorkTaskRepository _workTaskRepository;
-        public LabelService(IWorkTaskRepository workTaskRepository, IWorkTaskLabelRepository labelRepository, IProjectRepository projectRepository)
+        public LabelService(IWorkTaskRepository workTaskRepository
+            , IWorkTaskLabelRepository labelRepository, IProjectRepository projectRepository
+            , IProjectCachedRepository projectCacheRepository)
         {
             _labelRepository = labelRepository;
             _projectRepository = projectRepository;
             _workTaskRepository = workTaskRepository;
+            _projectCacheRepository = projectCacheRepository;
         }
 
         public async Task<bool> AddToTask(long labelId, long taskId, UserInfo userInfo)
@@ -190,7 +194,7 @@ namespace TaskManagementApp.Models.Services
 
         private async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)
         {
-            return await _projectRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
         }
     }
 }

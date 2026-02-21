@@ -42,6 +42,7 @@ public class MenuControllerTests : IClassFixture<CustomWebApplicationFactory>
                 services.RemoveAll(typeof(MenuDbContext));
                 _IPresetRepository = AddMock<IPresetRepository>(services);
                 AddMock<IProjectRepository>(services);
+                AddMock<IProjectCachedRepository>(services);
                 AddMock<IProjectUserRepository>(services);
                 AddMock<ISprintRepository>(services);
                 AddMock<ITaskStatusRepository>(services);

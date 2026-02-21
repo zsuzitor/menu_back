@@ -16,20 +16,25 @@ namespace TaskManagementApp.Models.Services
     public sealed class ProjectService : IProjectService
     {
         private readonly IProjectRepository _projectRepository;
+        private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly ITaskStatusRepository _taskStatusRepository;
         private readonly IProjectUserService _projectUserService;
         private readonly IWorkTaskService _workTaskService;
         private readonly IUserService _mainAppUserService;
         private readonly IDateTimeProvider _dateTimeProvider;
         public ProjectService(IProjectRepository projectRepository, IProjectUserService userService,
-            IWorkTaskService workTaskService, IUserService mainAppUserService, ITaskStatusRepository taskStatusRepository, IDateTimeProvider dateTimeProvider)
+            IWorkTaskService workTaskService, IUserService mainAppUserService
+            , ITaskStatusRepository taskStatusRepository, IDateTimeProvider dateTimeProvider
+            , IProjectCachedRepository projectCacheRepository)
         {
             _projectRepository = projectRepository;
+            _projectCacheRepository = projectCacheRepository;
             _projectUserService = userService;
             _workTaskService = workTaskService;
             _mainAppUserService = mainAppUserService;
             _taskStatusRepository = taskStatusRepository;
             _dateTimeProvider = dateTimeProvider;
+
         }
 
         public async Task<Project> CreateAsync(string name, UserInfo userInfo)
@@ -48,7 +53,7 @@ namespace TaskManagementApp.Models.Services
                 MainAppUserId = userInfo.UserId,
                 NotifyEmail = mainAppUserInfo.Email,
             };
-            var project = await _projectRepository.CreateAsync(name, user);
+            var project = await _projectCacheRepository.CreateAsync(name, user);
             return project;
         }
 
@@ -59,27 +64,27 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<Project> GetAsync(long id)
         {
-            return await _projectRepository.GetNoTrackAsync(id);
+            return await _projectCacheRepository.GetNoTrackAsync(id);
         }
 
         public async Task<Project> GetByIdIfAccessAsync(long id, UserInfo userInfo)
         {
-            return await _projectRepository.GetByIdIfAccessAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.GetByIdIfAccessAsync(id, userInfo.UserId);
         }
 
         public async Task<Project> GetByIdIfAccessAdminAsync(long id, UserInfo userInfo)
         {
-            return await _projectRepository.GetByIdIfAccessAdminAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.GetByIdIfAccessAdminAsync(id, userInfo.UserId);
         }
 
         public async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, UserInfo userInfo)
         {
-            return await _projectRepository.ExistIfAccessAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAsync(id, userInfo.UserId);
         }
 
         public async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)
         {
-            return await _projectRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
         }
 
 

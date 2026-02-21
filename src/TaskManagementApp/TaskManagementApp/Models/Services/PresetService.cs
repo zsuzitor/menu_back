@@ -17,17 +17,21 @@ namespace TaskManagementApp.Models.Services
     {
         private readonly IPresetRepository _presetRepo;
         private readonly IProjectRepository _projectRepository;
+        private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly IWorkTaskLabelRepository _labelRepository;
         private readonly ITaskStatusRepository _taskStatusRepository;
         private readonly IProjectUserService _projectUserService;
 
-        public PresetService(IPresetRepository presetRepo, IProjectRepository projectRepository, IWorkTaskLabelRepository labelRepository, ITaskStatusRepository taskStatusRepository, IProjectUserService projectUserService)
+        public PresetService(IPresetRepository presetRepo, IProjectRepository projectRepository
+            , IWorkTaskLabelRepository labelRepository, ITaskStatusRepository taskStatusRepository
+            , IProjectUserService projectUserService, IProjectCachedRepository projectCacheRepository)
         {
             _presetRepo = presetRepo;
             _projectRepository = projectRepository;
             _labelRepository = labelRepository;
             _taskStatusRepository = taskStatusRepository;
             _projectUserService = projectUserService;
+            _projectCacheRepository = projectCacheRepository;
         }
 
         public async Task<Preset> CreateAsync(long projectId, string name, UserInfo userInfo)
@@ -187,7 +191,7 @@ namespace TaskManagementApp.Models.Services
 
         private async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)
         {
-            return await _projectRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
         }
     }
 }

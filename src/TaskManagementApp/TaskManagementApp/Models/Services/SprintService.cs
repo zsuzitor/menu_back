@@ -14,13 +14,15 @@ namespace TaskManagementApp.Models.Services
     {
         private readonly ISprintRepository _sprintRepository;
         private readonly IProjectRepository _projectRepository;
+        private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly IWorkTaskRepository _workTaskRepository;
         public SprintService(ISprintRepository sprintRepository, IProjectRepository projectRepository
-            , IWorkTaskRepository workTaskRepository)
+            , IWorkTaskRepository workTaskRepository, IProjectCachedRepository projectCacheRepository)
         {
             _sprintRepository = sprintRepository;
             _projectRepository = projectRepository;
             _workTaskRepository = workTaskRepository;
+            _projectCacheRepository = projectCacheRepository;
         }
 
         public async Task<bool> AddTaskToSprint(long sprintId, long taskId, UserInfo userInfo)
@@ -218,12 +220,12 @@ namespace TaskManagementApp.Models.Services
 
         private async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, UserInfo userInfo)
         {
-            return await _projectRepository.ExistIfAccessAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAsync(id, userInfo.UserId);
         }
 
         private async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)
         {
-            return await _projectRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
         }
 
  

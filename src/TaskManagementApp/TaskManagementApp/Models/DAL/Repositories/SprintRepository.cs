@@ -1,7 +1,9 @@
-﻿using BO.Models.TaskManagementApp.DAL.Domain;
+﻿using BL.Models.Services.Interfaces;
+using BO.Models.TaskManagementApp.DAL.Domain;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
+using Microsoft.AspNetCore.SignalR.Protocol;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +14,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
 {
     public class SprintRepository : GeneralRepository<ProjectSprint, long>, ISprintRepository
     {
-        public SprintRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
+        private readonly ICacheService _cache;
+
+        public SprintRepository(MenuDbContext db, IGeneralRepositoryStrategy repo
+            , ICacheService cache) : base(db, repo)
         {
+            _cache = cache;
         }
 
         public async Task<List<ProjectSprint>> GetForProject(long projectId)
@@ -36,8 +42,9 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 _db.Remove(record);
                 await _db.SaveChangesAsync();
                 await t.CommitAsync();
-                return record;
             }
+            _cache.Remove(Consts.CacheKeys.Project + record.ProjectId);
+            return record;
         }
 
         public async Task<bool> ExistsAsync(long sprintId, long taskId)
@@ -64,6 +71,67 @@ namespace TaskManagementApp.Models.DAL.Repositories
             await _db.SaveChangesAsync();
             return true;
 
+        }
+
+
+        public override async Task<ProjectSprint> AddAsync(ProjectSprint newRecord)
+        {
+            var result = await base.AddAsync(newRecord);
+            _cache.Remove(Consts.CacheKeys.Project + result.ProjectId);
+            return result;
+        }
+
+        public override async Task<IEnumerable<ProjectSprint>> AddAsync(IEnumerable<ProjectSprint> newRecords)
+        {
+            var result = await base.AddAsync(newRecords);
+            foreach (var record in result.Select(x => x.ProjectId).Distinct())
+            {
+                _cache.Remove(Consts.CacheKeys.Project + record);
+            }
+            return result;
+        }
+
+        public override async Task<ProjectSprint> UpdateAsync(ProjectSprint record)
+        {
+            var result = await base.UpdateAsync(record);
+            _cache.Remove(Consts.CacheKeys.Project + result.ProjectId);
+            return result;
+        }
+
+        public override async Task<IEnumerable<ProjectSprint>> UpdateAsync(IEnumerable<ProjectSprint> records)
+        {
+            var result = await base.UpdateAsync(records);
+            foreach (var record in result.Select(x => x.ProjectId).Distinct())
+            {
+                _cache.Remove(Consts.CacheKeys.Project + record);
+            }
+            return result;
+        }
+
+
+        public override async Task<IEnumerable<ProjectSprint>> DeleteAsync(IEnumerable<ProjectSprint> records)
+        {
+            //todo плохо
+            foreach (var record in records)
+            {
+                await this.DeleteAsync(record);
+            }
+            return records;
+        }
+
+        public override async Task<ProjectSprint> DeleteAsync(long recordId)
+        {
+            ProjectSprint result = null;
+            using (var t = await _db.Database.BeginTransactionAsync())
+            {
+                result = await _db.TaskManagementWorkTaskSprint.FirstOrDefaultAsync(x => x.Id == recordId);
+                _db.RemoveRange(_db.TaskManagementWorkTaskSprintRelation.Where(x => x.SprintId == result.Id));
+                _db.Remove(result);
+                await _db.SaveChangesAsync();
+                await t.CommitAsync();
+            }
+            _cache.Remove(Consts.CacheKeys.Project + result.ProjectId);
+            return result;
         }
     }
 }

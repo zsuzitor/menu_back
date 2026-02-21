@@ -12,16 +12,17 @@ namespace TaskManagementApp.Models.Services
     {
 
         private readonly IProjectRepository _projectRepository;
+        private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly ITaskStatusRepository _taskStatusRepository;
         private readonly IWorkTaskRepository _workTaskRepository;
 
         public WorkTaskStatusService(IProjectRepository projectRepository, ITaskStatusRepository taskStatusRepository
-            , IWorkTaskRepository workTaskRepository)
+            , IWorkTaskRepository workTaskRepository, IProjectCachedRepository projectCacheRepository)
         {
             _projectRepository = projectRepository;
             _taskStatusRepository = taskStatusRepository;
             _workTaskRepository = workTaskRepository;
-
+            _projectCacheRepository = projectCacheRepository;
         }
 
 
@@ -102,12 +103,12 @@ namespace TaskManagementApp.Models.Services
 
         private async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, UserInfo userInfo)
         {
-            return await _projectRepository.ExistIfAccessAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAsync(id, userInfo.UserId);
         }
 
         private async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)
         {
-            return await _projectRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
         }
     }
 }

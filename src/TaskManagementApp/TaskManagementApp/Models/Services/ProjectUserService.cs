@@ -14,10 +14,14 @@ namespace TaskManagementApp.Models.Services
     {
         private readonly IProjectUserRepository _projectUserRepository;
         private readonly IProjectRepository _projectRepository;
-        public ProjectUserService(IProjectUserRepository projectUserRepository, IProjectRepository projectRepository)
+        private readonly IProjectCachedRepository _projectCacheRepository;
+
+        public ProjectUserService(IProjectUserRepository projectUserRepository, IProjectRepository projectRepository
+            , IProjectCachedRepository projectCacheRepository)
         {
             _projectUserRepository = projectUserRepository;
             _projectRepository = projectRepository;
+            _projectCacheRepository = projectCacheRepository;
         }
 
         public async Task<ProjectUser> CreateAsync(ProjectUser user)
@@ -66,16 +70,10 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectUserNotFound);
             }
 
-            if(user.MainAppUserId == userInfo.UserId)
+            if (user.MainAppUserId == userInfo.UserId)
             {
-                if (isAdmin)
-                {
-                    await ThrowIfNotAccessToProject(userInfo.UserId, user.ProjectId, true);
-                }
-                else
-                {
-                    await ThrowIfNotAccessToProject(userInfo.UserId, user.ProjectId, false);
-                }
+                //если редачим себя проверяем можем ли мы проставить флаг isAdmin
+                await ThrowIfNotAccessToProject(userInfo.UserId, user.ProjectId, isAdmin);
             }
             else
             {
@@ -93,7 +91,7 @@ namespace TaskManagementApp.Models.Services
             user.Role = UserRoleEnum.Editor;
             if (isAdmin)
                 user.Role = UserRoleEnum.Admin;
-            if(deactivated)
+            if (deactivated)
                 user.Role = UserRoleEnum.Deactivated;
             await _projectUserRepository.UpdateAsync(user);
             return user;
@@ -108,7 +106,7 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectUserNotFound);
             }
 
-            if (user.Role==UserRoleEnum.Deactivated)
+            if (user.Role == UserRoleEnum.Deactivated)
             {
                 return user;
             }
@@ -166,7 +164,7 @@ namespace TaskManagementApp.Models.Services
 
         private async Task ThrowIfNotAccessToProject(long mainAppUserId, long projectId, bool isAdmin)
         {
-            var res = await _projectRepository.ExistIfAccessAsync(projectId, mainAppUserId);
+            var res = await _projectCacheRepository.ExistIfAccessAsync(projectId, mainAppUserId);
             //var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(mainAppUserId, projectId);
             //if (userCurrent == null || !userCurrent.IsAdmin || userCurrent.Deactivated)
             //{

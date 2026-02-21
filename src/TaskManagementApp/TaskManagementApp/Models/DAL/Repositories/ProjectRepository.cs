@@ -335,6 +335,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             _db.TaskManagementTaskProject.Attach(project);
             project.IsDeleted = true;
             await _db.SaveChangesAsync();
+            _cache.Remove(Consts.CacheKeys.Project + project.Id);
             return project;
         }
 
@@ -347,6 +348,11 @@ namespace TaskManagementApp.Models.DAL.Repositories
             }
 
             await _db.SaveChangesAsync();
+            foreach(var r in records)
+            {
+                _cache.Remove(Consts.CacheKeys.Project + r.Id);
+            }
+
             return records;
         }
 
@@ -357,6 +363,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             {
                 project.IsDeleted = false;
                 await _db.SaveChangesAsync();
+                _cache.Remove(Consts.CacheKeys.Project + project.Id);
             }
 
             return project;
@@ -376,7 +383,41 @@ namespace TaskManagementApp.Models.DAL.Repositories
         {
             return await _db.TaskManagementTaskProject
                 .Include(x => x.Sprints).Include(x => x.Users).Include(x => x.TaskStatuses)
+                .Include(x=>x.Presets)
                 .AsNoTracking().FirstOrDefaultAsync();
+        }
+
+        public override async Task<Project> AddAsync(Project newRecord)
+        {
+            var result = await base.AddAsync(newRecord);
+            _cache.Remove(Consts.CacheKeys.Project + result.Id);
+            return result;
+        }
+
+        public override async Task<IEnumerable<Project>> AddAsync(IEnumerable<Project> newRecords)
+        {
+            var result = await base.AddAsync(newRecords);
+            foreach (var record in result) {
+                _cache.Remove(Consts.CacheKeys.Project + record.Id);
+            }
+            return result;
+        }
+
+        public override async Task<Project> UpdateAsync(Project record)
+        {
+            var result = await base.UpdateAsync(record);
+            _cache.Remove(Consts.CacheKeys.Project + result.Id);
+            return result;
+        }
+
+        public override async Task<IEnumerable<Project>> UpdateAsync(IEnumerable<Project> records)
+        {
+            var result = await base.UpdateAsync(records);
+            foreach (var record in result)
+            {
+                _cache.Remove(Consts.CacheKeys.Project + record.Id);
+            }
+            return result;
         }
     }
 }

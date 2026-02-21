@@ -17,6 +17,7 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
 
         public List<WorkTaskStatus> TaskStatuses { get; set; }
         public List<ProjectSprint> Sprints { get; set; }
+        public List<Preset> Presets { get; set; }
 
         public byte[] RowVersion { get; set; }
 
@@ -26,6 +27,7 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
             Tasks = new List<WorkTask>();
             TaskStatuses = new List<WorkTaskStatus>();
             Sprints = new List<ProjectSprint>();
+            Presets = new List<Preset>();
         }
 
     }

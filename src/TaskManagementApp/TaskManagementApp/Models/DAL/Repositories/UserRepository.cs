@@ -1,4 +1,5 @@
 ﻿
+using BL.Models.Services.Interfaces;
 using BO.Models.DAL.Domain;
 using BO.Models.TaskManagementApp.DAL;
 using BO.Models.TaskManagementApp.DAL.Domain;
@@ -15,8 +16,10 @@ namespace TaskManagementApp.Models.DAL.Repositories
 {
     internal sealed class UserRepository : GeneralRepository<ProjectUser, long>, IProjectUserRepository
     {
-        public UserRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
+        private readonly ICacheService _cache;
+        public UserRepository(MenuDbContext db, IGeneralRepositoryStrategy repo, ICacheService cache) : base(db, repo)
         {
+            _cache = cache;
         }
 
         public async Task<ProjectUser> CreateAsync(ProjectUser user)
@@ -67,6 +70,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             _db.TaskManagementProjectUsers.Attach(user);
             user.Role = UserRoleEnum.Deactivated;
             await _db.SaveChangesAsync();
+            _cache.Remove(Consts.CacheKeys.Project + user.ProjectId);
             return user;
         }
 
@@ -79,6 +83,11 @@ namespace TaskManagementApp.Models.DAL.Repositories
             }
 
             await _db.SaveChangesAsync();
+            foreach (var item in records)
+            {
+                _cache.Remove(Consts.CacheKeys.Project + item.ProjectId);
+            }
+
             return records;
         }
         public override async Task<ProjectUser> DeleteAsync(long recordId)
@@ -89,6 +98,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 record.Role = UserRoleEnum.Deactivated;
                 await _db.SaveChangesAsync();
             }
+            _cache.Remove(Consts.CacheKeys.Project + record.ProjectId);
 
             return record;
         }
@@ -103,5 +113,41 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return await _db.TaskManagementProjectUsers.AnyAsync(x => x.MainAppUserId == mainAppUserId && x.ProjectId == projectId);
 
         }
+
+
+        public override async Task<ProjectUser> AddAsync(ProjectUser newRecord)
+        {
+            var result = await base.AddAsync(newRecord);
+            _cache.Remove(Consts.CacheKeys.Project + result.ProjectId);
+            return result;
+        }
+
+        public override async Task<IEnumerable<ProjectUser>> AddAsync(IEnumerable<ProjectUser> newRecords)
+        {
+            var result = await base.AddAsync(newRecords);
+            foreach (var record in result.Select(x => x.ProjectId).Distinct())
+            {
+                _cache.Remove(Consts.CacheKeys.Project + record);
+            }
+            return result;
+        }
+
+        public override async Task<ProjectUser> UpdateAsync(ProjectUser record)
+        {
+            var result = await base.UpdateAsync(record);
+            _cache.Remove(Consts.CacheKeys.Project + result.ProjectId);
+            return result;
+        }
+
+        public override async Task<IEnumerable<ProjectUser>> UpdateAsync(IEnumerable<ProjectUser> records)
+        {
+            var result = await base.UpdateAsync(records);
+            foreach (var record in result.Select(x => x.ProjectId).Distinct())
+            {
+                _cache.Remove(Consts.CacheKeys.Project + record);
+            }
+            return result;
+        }
+
     }
 }

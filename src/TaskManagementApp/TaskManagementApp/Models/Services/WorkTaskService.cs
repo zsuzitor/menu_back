@@ -20,6 +20,7 @@ namespace TaskManagementApp.Models.Services
     {
         private readonly IWorkTaskRepository _workTaskRepository;
         private readonly IProjectRepository _projectRepository;
+        private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly IPresetRepository _presetRepository;
         private readonly ISprintRepository _sprintRepository;
         private readonly IWorkTaskLabelRepository _labelRepository;
@@ -32,8 +33,12 @@ namespace TaskManagementApp.Models.Services
 
         public WorkTaskService(IWorkTaskRepository workTaskRepository,
             IProjectRepository projectRepository, IProjectUserService projectUserService
-            , IWorkTaskCommentService workTaskCommentService, ITaskManagementAppEmailService taskManagementAppEmailService, ITaskStatusRepository taskStatusRepository
-            , IConfiguration configuration, IDateTimeProvider dateTimeProvider, ISprintRepository sprintRepository, IWorkTaskLabelRepository labelRepository, IPresetRepository presetRepository)
+            , IWorkTaskCommentService workTaskCommentService
+            , ITaskManagementAppEmailService taskManagementAppEmailService
+            , ITaskStatusRepository taskStatusRepository
+            , IConfiguration configuration, IDateTimeProvider dateTimeProvider
+            , ISprintRepository sprintRepository, IWorkTaskLabelRepository labelRepository
+            , IPresetRepository presetRepository, IProjectCachedRepository projectCacheRepository)
         {
             _workTaskRepository = workTaskRepository;
             _projectRepository = projectRepository;
@@ -46,6 +51,7 @@ namespace TaskManagementApp.Models.Services
             _sprintRepository = sprintRepository;
             _labelRepository = labelRepository;
             _presetRepository = presetRepository;
+            _projectCacheRepository = projectCacheRepository;
         }
 
         public async Task<WorkTask> CreateAsync(WorkTask task, UserInfo userInfo)
@@ -245,7 +251,7 @@ namespace TaskManagementApp.Models.Services
         {
             var task = await _workTaskRepository.GetTaskWithCommentsAsync(taskId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
 
-            var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
+            var projectAccessed = await _projectCacheRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
             if (!projectAccessed.access)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -306,7 +312,7 @@ namespace TaskManagementApp.Models.Services
         {
             var task = await _workTaskRepository.GetAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
 
-            var canAddToProject = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
+            var canAddToProject = await _projectCacheRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
             if (!canAddToProject.access)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectHaveNoAccess);
@@ -548,7 +554,7 @@ namespace TaskManagementApp.Models.Services
 
         private async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)
         {
-            return await _projectRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
         }
 
 

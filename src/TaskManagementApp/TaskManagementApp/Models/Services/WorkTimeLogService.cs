@@ -16,19 +16,22 @@ namespace TaskManagementApp.Models.Services
     {
         private readonly IWorkTimeLogRepository _workTimeLogRepository;
         private readonly IProjectRepository _projectRepository;
+        private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly IWorkTaskRepository _workTaskRepository;
         private readonly IProjectUserRepository _projectUserRepository;
         private readonly IDateTimeProvider _dateTimeProvider;
 
 
         public WorkTimeLogService(IWorkTimeLogRepository workTimeLogRepository, IProjectRepository projectRepository
-            , IWorkTaskRepository workTaskRepository, IProjectUserRepository projectUserRepository, IDateTimeProvider dateTimeProvider)
+            , IWorkTaskRepository workTaskRepository, IProjectUserRepository projectUserRepository
+            , IDateTimeProvider dateTimeProvider, IProjectCachedRepository projectCacheRepository)
         {
             _workTimeLogRepository = workTimeLogRepository;
             _projectRepository = projectRepository;
             _workTaskRepository = workTaskRepository;
             _projectUserRepository = projectUserRepository;
             _dateTimeProvider = dateTimeProvider;
+            _projectCacheRepository = projectCacheRepository;
         }
 
         public async Task<WorkTimeLog> CreateAsync(WorkTimeLog obj, UserInfo userInfo)
@@ -118,7 +121,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<List<WorkTimeLog>> GetTimeForProjectAsync(long projectId, DateTime startDate, DateTime endDate, UserInfo userInfo, long? userId)
         {
-            var access = await _projectRepository.ExistIfAccessAsync(projectId, userInfo.UserId);
+            var access = await _projectCacheRepository.ExistIfAccessAsync(projectId, userInfo.UserId);
             if (!access.access)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectHaveNoAccess);
