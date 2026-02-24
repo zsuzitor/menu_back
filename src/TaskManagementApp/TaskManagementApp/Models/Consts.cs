@@ -9,42 +9,42 @@ namespace TaskManagementApp.Models
         public static class ErrorConsts
         {
             
-            public const string BadWorkTaskStatus = "task_management_bad_work_task_status";
+            public const string BadWorkTaskStatus = $"{ProjectPrefix}bad_work_task_status";
 
 
-            public const string ProjectNotFound = "task_management_project_not_found";
-            public const string ProjectNotFoundOrNotAccesible = "task_management_project_not_found_or_not_accessible";
-            public const string EmptyProjectName = "task_management_empty_project_name";
+            public const string ProjectNotFound = $"{ProjectPrefix}project_not_found";
+            public const string ProjectNotFoundOrNotAccesible = $"{ProjectPrefix}project_not_found_or_not_accessible";
+            public const string EmptyProjectName = $"{ProjectPrefix}empty_project_name";
             
 
-            public const string EmptyUserName = "task_management_empty_user_name";
-            public const string UserAlreadyAdded = "task_management_user_already_added";
+            public const string EmptyUserName = $"{ProjectPrefix}empty_user_name";
+            public const string UserAlreadyAdded = $"{ProjectPrefix}user_already_added";
 
             
-            public const string ProjectUserNotFound = "task_management_project_user_not_founded";
-            public const string HaveNoAccessToEditProject = "task_management_have_no_access_to_edit_project";
-            public const string UserNotFound = "task_management_user_not_found";
-            public const string TaskNotFound = "task_management_task_not_found";
-            public const string TaskLogTimeNotFound = "task_management_task_log_time_not_found";
-            public const string ProjectHaveNoAccess = "task_management_project_have_no_access";
-            public const string TaskHaveNoAccess = "task_management_task_have_no_access";
-            public const string CommentNotFoundOrNotAccess = "task_management_comment_not_found_or_have_no_access";
-            public const string CommentNotFound = "task_management_comment_not_found";
-            public const string UserInMainAppNotFound = "task_management_user_main_app_not_found";
-            public const string EmptyTaskName = "task_management_emptyTaskName";
-            public const string TaskWithStatusExists = "task_management_task_with_status_exist";
-            public const string WorkTaskEmptyStatusName = "task_management_empty_status_name";
-            public const string WorkTaskStatusNotExists = "task_management_work_task_status_not_exist";
-            public const string WorkTaskTimeLogValidationError = "task_management_work_task_time_log_validation_error";
-            public const string WorkTaskTimeLogIntervalValidationError = "task_management_work_task_time_log_interval_validation_error";
-            public const string SprintNotFound = "task_management_sprint_not_found";
-            public const string LabelNotFound = "task_management_label_not_found";
-            public const string LabelExists = "task_management_label_exists";
-            public const string BadRelationType = "task_management_bad_relation";
-            public const string RelationNotFound = "task_management_relation_not_found";
-            public const string PresetNotFound = "task_management_preset_not_found";
-            public const string PresetNotValide = "task_management_preset_not_valide";
-            public const string RelationError = "task_management_relation_error";
+            public const string ProjectUserNotFound = $"{ProjectPrefix}project_user_not_founded";
+            public const string HaveNoAccessToEditProject = $"{ProjectPrefix}have_no_access_to_edit_project";
+            public const string UserNotFound = $"{ProjectPrefix}user_not_found";
+            public const string TaskNotFound = $"{ProjectPrefix}task_not_found";
+            public const string TaskLogTimeNotFound = $"{ProjectPrefix}task_log_time_not_found";
+            public const string ProjectHaveNoAccess = $"{ProjectPrefix}project_have_no_access";
+            public const string TaskHaveNoAccess = $"{ProjectPrefix}task_have_no_access";
+            public const string CommentNotFoundOrNotAccess = $"{ProjectPrefix}comment_not_found_or_have_no_access";
+            public const string CommentNotFound = $"{ProjectPrefix}comment_not_found";
+            public const string UserInMainAppNotFound = $"{ProjectPrefix}user_main_app_not_found";
+            public const string EmptyTaskName = $"{ProjectPrefix}emptyTaskName";
+            public const string TaskWithStatusExists = $"{ProjectPrefix}task_with_status_exist";
+            public const string WorkTaskEmptyStatusName = $"{ProjectPrefix}empty_status_name";
+            public const string WorkTaskStatusNotExists = $"{ProjectPrefix}work_task_status_not_exist";
+            public const string WorkTaskTimeLogValidationError = $"{ProjectPrefix}work_task_time_log_validation_error";
+            public const string WorkTaskTimeLogIntervalValidationError = $"{ProjectPrefix}work_task_time_log_interval_validation_error";
+            public const string SprintNotFound = $"{ProjectPrefix}sprint_not_found";
+            public const string LabelNotFound = $"{ProjectPrefix}label_not_found";
+            public const string LabelExists = $"{ProjectPrefix}label_exists";
+            public const string BadRelationType = $"{ProjectPrefix}bad_relation";
+            public const string RelationNotFound = $"{ProjectPrefix}relation_not_found";
+            public const string PresetNotFound = $"{ProjectPrefix}preset_not_found";
+            public const string PresetNotValide = $"{ProjectPrefix}preset_not_valide";
+            public const string RelationError = $"{ProjectPrefix}relation_error";
 
 
 
@@ -62,7 +62,15 @@ namespace TaskManagementApp.Models
         public class CacheKeys
         {
             public static readonly TimeSpan CacheTime = TimeSpan.FromMinutes(5);
-            public const string Project = $"{ProjectPrefix}Project_";
+            public const string Project = $"{ProjectPrefix}Project";
+            public const string Sprints = $"{ProjectPrefix}Sprints_";
+            public const string Users = $"{ProjectPrefix}Users_";
+            public const string TaskStatuses = $"{ProjectPrefix}TaskStatuses_";
+            public const string Presets = $"{ProjectPrefix}Presets_";
+
+
+            //.Include(x => x.Sprints).Include(x => x.Users).Include(x => x.TaskStatuses)
+            //.Include(x => x.Presets)
         }
     }
 }

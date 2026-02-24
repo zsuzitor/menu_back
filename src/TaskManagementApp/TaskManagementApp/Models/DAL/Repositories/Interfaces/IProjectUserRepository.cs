@@ -7,7 +7,6 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
 {
     public interface IProjectUserRepository : IGeneralRepository<ProjectUser, long>
     {
-        Task<ProjectUser> CreateAsync(ProjectUser user);
         Task<List<ProjectUser>> GetProjectUsersAsync(long projectId);
         Task<bool> ExistAsync(long projectId, long userId);
         Task<bool> ExistByMainIdAsync(long projectId, long mainAppUserId);

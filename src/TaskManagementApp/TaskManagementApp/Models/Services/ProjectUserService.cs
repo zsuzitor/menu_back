@@ -35,7 +35,7 @@ namespace TaskManagementApp.Models.Services
                 }
             }
 
-            return await _projectUserRepository.CreateAsync(user);
+            return await _projectUserRepository.AddAsync(user);
         }
 
         public async Task<List<ProjectUser>> GetProjectUsersAccessAsync(long projectId, UserInfo userInfo)

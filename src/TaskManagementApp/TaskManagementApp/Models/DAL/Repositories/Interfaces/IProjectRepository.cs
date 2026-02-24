@@ -16,7 +16,13 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
         Task<Project> GetByIdIfAccessAdminAsync(long id, long mainAppUserId);
         Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, long mainAppUserId);
         Task<bool> ExistIfAccessAdminAsync(long id, long mainAppUserId);
-        Task<Project> GetNoTrackForCacheAsync(long id);
+        //Task<Project> GetNoTrackForCacheAsync(long id);
+
+
+
+        //Task<Project> GetCacheAsync(long id);
+        //Task<List<Project>> GetCacheAsync(List<long> ids);
+        //Task<bool> ExistCacheAsync(long id);
 
     }
 }
