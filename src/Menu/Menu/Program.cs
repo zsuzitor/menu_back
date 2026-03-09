@@ -1,8 +1,6 @@
-﻿
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
@@ -13,36 +11,35 @@ namespace Menu
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var builder = WebApplication.CreateBuilder(args);
+
+            // Настройка конфигурации
+            builder.Configuration
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json",
+                    optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables();
+
+            if (args != null)
+            {
+                builder.Configuration.AddCommandLine(args);
+            }
+
+            // Настройка логирования с NLog
+            builder.Logging.ClearProviders();
+            builder.Logging.SetMinimumLevel(LogLevel.Trace);
+            builder.Host.UseNLog(); // Важно: UseNLog() на Host, а не на Logging
+
+            // Добавление Startup
+            var startup = new Startup(builder.Configuration);
+            startup.ConfigureServices(builder.Services);
+
+            var app = builder.Build();
+
+            // Настройка pipeline
+            startup.Configure(app, app.Environment, app.Services);
+
+            app.Run();
         }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureAppConfiguration((hostingContext, configBuidler) =>
-                {
-                    //config.Sources.Clear();
-
-                    var env = hostingContext.HostingEnvironment;
-                    configBuidler
-                        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                        .AddJsonFile($"appsettings.{env.EnvironmentName}.json",
-                            optional: true, reloadOnChange: true)
-                        .AddEnvironmentVariables();
-
-                    if (args != null)
-                    {
-                        configBuidler.AddCommandLine(args);
-                    }
-                })
-            .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                })
-            .ConfigureLogging(logging =>
-                {
-                    logging.ClearProviders();
-                    logging.SetMinimumLevel(LogLevel.Trace);
-                    logging.AddNLog("nlog.config");
-                });//.UseNLog();
     }
 }

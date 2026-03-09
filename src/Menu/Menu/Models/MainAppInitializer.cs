@@ -25,14 +25,18 @@ namespace Menu.Models
 
         public async Task<IStartUpInitializer> ErrorContainerInitialize(IServiceProvider services)
         {
-            var configurationService = services.GetRequiredService<IConfigurationService>();
-            await configurationService.AddIfNotExistAsync(ErrorConsts.UserNotFound, "Пользователь не найден", "Main", "Error");
-            await configurationService.AddIfNotExistAsync(ErrorConsts.NotAuthorized, "Не авторизован", "Main", "Error");
-            await configurationService.AddIfNotExistAsync(ErrorConsts.SomeError, "Произошла неизвестная ошибка", "Main", "Error");
-            await configurationService.AddIfNotExistAsync(ErrorConsts.NotFound, "Не найдено", "Main", "Error");
-            await configurationService.AddIfNotExistAsync(ErrorConsts.HasNoAccess, "Нет доступа", "Main", "Error");
-            await configurationService.AddIfNotExistAsync(ErrorConsts.UserAlreadyExist, "Пользователь уже существует", "Main", "Error");
-            return this;
+            var serviceScopeFactory = services.GetRequiredService<IServiceScopeFactory>();
+            using (var scope = serviceScopeFactory.CreateScope())
+            {
+                var configurationService = scope.ServiceProvider.GetRequiredService<IConfigurationService>();
+                await configurationService.AddIfNotExistAsync(ErrorConsts.UserNotFound, "Пользователь не найден", "Main", "Error");
+                await configurationService.AddIfNotExistAsync(ErrorConsts.NotAuthorized, "Не авторизован", "Main", "Error");
+                await configurationService.AddIfNotExistAsync(ErrorConsts.SomeError, "Произошла неизвестная ошибка", "Main", "Error");
+                await configurationService.AddIfNotExistAsync(ErrorConsts.NotFound, "Не найдено", "Main", "Error");
+                await configurationService.AddIfNotExistAsync(ErrorConsts.HasNoAccess, "Нет доступа", "Main", "Error");
+                await configurationService.AddIfNotExistAsync(ErrorConsts.UserAlreadyExist, "Пользователь уже существует", "Main", "Error");
+                return this;
+            }
         }
 
         public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)

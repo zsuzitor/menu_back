@@ -1,23 +1,25 @@
 ﻿using BO.Models.TaskManagementApp.DAL.Domain;
-using TaskManagementApp.Models.Returns;
-using TaskManagementApp.Models.Services.Interfaces;
+using Common.Models;
 using Common.Models.Exceptions;
+using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Linq;
-using System.Threading.Tasks;
-using WEB.Common.Models.Helpers.Interfaces;
-using Common.Models.Return;
-using System.Text.Json;
 using System.Collections.Generic;
-using Common.Models;
+using System.Linq;
+using System.Text.Json;
+using System.Threading.Tasks;
+using TaskManagementApp.Models.Returns;
+using TaskManagementApp.Models.Services.Interfaces;
+using WEB.Common.Models.Helpers.Interfaces;
 
 namespace Menu.Controllers.TaskManagementApp
 {
     [Route("api/taskmanagement/[controller]")]
     [ApiController]
     [Produces("application/json")]
+    [Tags("taskmanagement")]
     public class ProjectController : ControllerBase
     {
         private readonly IJWTService _jwtService;

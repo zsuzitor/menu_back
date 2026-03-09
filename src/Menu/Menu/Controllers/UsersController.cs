@@ -1,18 +1,19 @@
 ﻿
-using System.Threading.Tasks;
-using jwtLib.JWTAuth.Interfaces;
-using Menu.Models.Returns.Types;
-using WEB.Common.Models.Helpers.Interfaces;
-using Menu.Models.Services.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Common.Models.Return;
+using Common.Models;
 using Common.Models.Entity;
-using Microsoft.AspNetCore.Http;
+using Common.Models.Error;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
-using Common.Models.Error;
-using Common.Models;
+using Common.Models.Return;
+using jwtLib.JWTAuth.Interfaces;
+using Menu.Host.Models.Requests;
+using Menu.Models.Returns.Types;
+using Menu.Models.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
+using WEB.Common.Models.Helpers.Interfaces;
 
 namespace Menu.Controllers
 {
@@ -91,12 +92,12 @@ namespace Menu.Controllers
 
         [Route("change-user-image")]
         [HttpPatch]
-        public async Task ChangeUserImage([FromForm] IFormFile image)
+        public async Task ChangeUserImage([FromForm] ChangeUserImageRequest request)
         {
             await _apiHealper.DoStandartSomething(
               async () =>
               {
-                  _apiHealper.FileValidator(image, ModelState);
+                  _apiHealper.FileValidator(request.Image, ModelState);
                   _apiHealper.ErrorsFromModelState(ModelState);
                   if (_errorService.HasError())
                   {
@@ -104,8 +105,8 @@ namespace Menu.Controllers
                   }
 
                   var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                  var res = await _userService.ChangeImageAsync(userInfo.UserId, image);
-                  if(image != null && string.IsNullOrEmpty(res))
+                  var res = await _userService.ChangeImageAsync(userInfo.UserId, request.Image);
+                  if(request.Image != null && string.IsNullOrEmpty(res))
                   {
                       throw new SomeCustomException(ErrorConsts.SomeError);
                   }

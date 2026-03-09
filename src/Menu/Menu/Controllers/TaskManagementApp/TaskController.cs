@@ -1,29 +1,31 @@
 ﻿using BO.Models.TaskManagementApp.DAL.Domain;
-using TaskManagementApp.Models;
-using TaskManagementApp.Models.Returns;
-using TaskManagementApp.Models.Services.Interfaces;
+using Common.Models;
 using Common.Models.Exceptions;
+using Common.Models.Return;
+using DAL.Migrations;
 using jwtLib.JWTAuth.Interfaces;
+using Menu.Models.TaskManagementApp.Mappers;
+using Menu.Models.TaskManagementApp.Requests;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Linq;
-using System.Threading.Tasks;
-using WEB.Common.Models.Helpers.Interfaces;
-using Common.Models.Return;
-using Menu.Models.TaskManagementApp.Requests;
-using Menu.Models.TaskManagementApp.Mappers;
 using Nest;
-using TaskManagementApp.Models.DTO;
+using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
+using TaskManagementApp.Models;
+using TaskManagementApp.Models.DTO;
+using TaskManagementApp.Models.Returns;
 using TaskManagementApp.Models.Services;
-using DAL.Migrations;
-using Common.Models;
+using TaskManagementApp.Models.Services.Interfaces;
+using WEB.Common.Models.Helpers.Interfaces;
 
 namespace Menu.Controllers.TaskManagementApp
 {
     [Route("api/taskmanagement/[controller]")]
     [ApiController]
     [Produces("application/json")]
+    [Tags("taskmanagement")]
 
     public class TaskController : ControllerBase
     {

@@ -2,6 +2,7 @@
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.TaskManagementApp.Mappers;
 using Menu.Models.TaskManagementApp.Requests;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace Menu.Controllers.TaskManagementApp
     [Route("api/taskmanagement/[controller]")]
     [ApiController]
     [Produces("application/json")]
+    [Tags("taskmanagement")]
     public class LabelController : ControllerBase
     {
 

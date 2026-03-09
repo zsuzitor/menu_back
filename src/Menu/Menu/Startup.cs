@@ -67,6 +67,8 @@ namespace Menu
             NLog.Extensions.Logging.ConfigSettingLayoutRenderer.DefaultConfiguration = Configuration;
 
             services.AddMvc(option => option.EnableEndpointRouting = false);
+            services.AddEndpointsApiExplorer();
+            services.AddSwaggerGen();
 
 
             if (bool.Parse(Configuration["UseInMemoryDataProvider"]))
@@ -243,11 +245,12 @@ namespace Menu
                 }
             });
 
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 //app.UseDatabaseErrorPage();
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
             else
             {

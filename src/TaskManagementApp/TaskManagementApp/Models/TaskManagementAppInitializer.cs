@@ -19,37 +19,42 @@ namespace TaskManagementApp.Models
 
         public async Task<IStartUpInitializer> ErrorContainerInitialize(IServiceProvider services)
         {
-            var configurationService = services.GetRequiredService<IConfigurationService>();
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.BadWorkTaskStatus, "Передан неверный статус задачи", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.ProjectNotFound, "Проект не найден", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible, "Проект не найден или недоступен", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.EmptyProjectName, "Не указано название проекта", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.EmptyUserName, "Не заполнено имя пользователя", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.UserAlreadyAdded, "Пользователь уже был добавлен", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.ProjectUserNotFound, "Пользователь проекта не найден", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.HaveNoAccessToEditProject, "Нет прав на редактирование проекта", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.UserNotFound, "Пользователь не найден", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.TaskNotFound, "Задача не найдена", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.TaskLogTimeNotFound, "Логгирование не найдено", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.ProjectHaveNoAccess, "Нет доступа к проекту", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.CommentNotFoundOrNotAccess, "Комментарий не найден или нет доступа", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.CommentNotFound, "Комментарий не найден", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.UserInMainAppNotFound, "Пользователь основного приложения не найден", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.EmptyTaskName, "Не указано название задачи", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.TaskWithStatusExists, "Существует задачи с указанным статусом", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskStatusNotExists, "Переданный статус не существует", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskEmptyStatusName, "Переданное название статуса не валидно", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskTimeLogValidationError, "Ошибка валидации, переданы неверные поля", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskTimeLogIntervalValidationError, "Ошибка валидации, передан неверный интервал", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.SprintNotFound, "Спринт не найден", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.LabelNotFound, "Метка не найдена", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.LabelExists, "Метка уже создана", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.BadRelationType, "Неверный тип связи", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.RelationNotFound, "Связь не найдена", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.PresetNotFound, "Пресет не найден", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.RelationError, "Ошибка при создании связи", "TaskManagementApp", "Error");
-            await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.PresetNotValide, "Ошибка валидации пресета", "TaskManagementApp", "Error");
-            
+            var serviceScopeFactory = services.GetRequiredService<IServiceScopeFactory>();
+            using (var scope = serviceScopeFactory.CreateScope())
+            {
+                var configurationService = scope.ServiceProvider.GetRequiredService<IConfigurationService>();
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.BadWorkTaskStatus, "Передан неверный статус задачи", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.ProjectNotFound, "Проект не найден", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible, "Проект не найден или недоступен", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.EmptyProjectName, "Не указано название проекта", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.EmptyUserName, "Не заполнено имя пользователя", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.UserAlreadyAdded, "Пользователь уже был добавлен", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.ProjectUserNotFound, "Пользователь проекта не найден", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.HaveNoAccessToEditProject, "Нет прав на редактирование проекта", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.UserNotFound, "Пользователь не найден", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.TaskNotFound, "Задача не найдена", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.TaskLogTimeNotFound, "Логгирование не найдено", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.ProjectHaveNoAccess, "Нет доступа к проекту", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.CommentNotFoundOrNotAccess, "Комментарий не найден или нет доступа", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.CommentNotFound, "Комментарий не найден", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.UserInMainAppNotFound, "Пользователь основного приложения не найден", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.EmptyTaskName, "Не указано название задачи", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.TaskWithStatusExists, "Существует задачи с указанным статусом", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskStatusNotExists, "Переданный статус не существует", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskEmptyStatusName, "Переданное название статуса не валидно", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskTimeLogValidationError, "Ошибка валидации, переданы неверные поля", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.WorkTaskTimeLogIntervalValidationError, "Ошибка валидации, передан неверный интервал", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.SprintNotFound, "Спринт не найден", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.LabelNotFound, "Метка не найдена", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.LabelExists, "Метка уже создана", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.BadRelationType, "Неверный тип связи", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.RelationNotFound, "Связь не найдена", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.PresetNotFound, "Пресет не найден", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.RelationError, "Ошибка при создании связи", "TaskManagementApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.PresetNotValide, "Ошибка валидации пресета", "TaskManagementApp", "Error");
+
+            }
+
 
 
 
@@ -100,12 +105,17 @@ namespace TaskManagementApp.Models
 
         public async Task<IStartUpInitializer> ConfigurationInitialize(IServiceProvider services)
         {
-            var configurationService = services.GetRequiredService<IConfigurationService>();
-            await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.AddedNewCommentInTask, "Добавлен новый комментарий в задачу {{taskName}}, {{taskUrl}}", "TaskManagementApp", "configuration");
-            await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.NewExecutorInTask, "Назначение ревьювером по задаче {{taskName}}, {{taskUrl}}", "TaskManagementApp", "configuration");
-            await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.StatusInTaskWasChanged, "Изменен статус на {{newStatus}} в задаче {{taskName}}, {{taskUrl}}", "TaskManagementApp", "configuration");
-            await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.TaskWasChanged, "Задача {{taskName}} была изменена, {{taskUrl}} \nПоля {{changedProp}}", "TaskManagementApp", "configuration");
+            var serviceScopeFactory = services.GetRequiredService<IServiceScopeFactory>();
+            using (var scope = serviceScopeFactory.CreateScope())
+            {
 
+                var configurationService = scope.ServiceProvider.GetRequiredService<IConfigurationService>();
+                await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.AddedNewCommentInTask, "Добавлен новый комментарий в задачу {{taskName}}, {{taskUrl}}", "TaskManagementApp", "configuration");
+                await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.NewExecutorInTask, "Назначение ревьювером по задаче {{taskName}}, {{taskUrl}}", "TaskManagementApp", "configuration");
+                await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.StatusInTaskWasChanged, "Изменен статус на {{newStatus}} в задаче {{taskName}}, {{taskUrl}}", "TaskManagementApp", "configuration");
+                await configurationService.AddIfNotExistAsync(Consts.EmailConfigurationsCode.TaskWasChanged, "Задача {{taskName}} была изменена, {{taskUrl}} \nПоля {{changedProp}}", "TaskManagementApp", "configuration");
+
+            }
             return this;
             //
         }

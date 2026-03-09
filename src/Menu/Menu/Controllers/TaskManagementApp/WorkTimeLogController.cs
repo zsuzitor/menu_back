@@ -20,6 +20,7 @@ namespace Menu.Controllers.TaskManagementApp
     [Route("api/taskmanagement/[controller]")]
     [ApiController]
     [Produces("application/json")]
+    [Tags("taskmanagement")]
     public class WorkTimeLogController : ControllerBase
     {
 

@@ -3,6 +3,7 @@ using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.TaskManagementApp.Mappers;
 using Menu.Models.TaskManagementApp.Requests;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Nest;
@@ -19,6 +20,7 @@ namespace Menu.Controllers.TaskManagementApp
     [Route("api/taskmanagement/[controller]")]
     [Produces("application/json")]
     [ApiController]
+    [Tags("taskmanagement")]
     public class SprintController : ControllerBase
     {
 

@@ -1,21 +1,22 @@
-﻿using Common.Models.Error;
-using Common.Models.Exceptions;
-using Common.Models.Validators;
-using WEB.Common.Models.Helpers.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using PlanitPoker.Models.Services;
-using System.Threading.Tasks;
-using System.Linq;
-using PlanitPoker.Models.Returns;
+﻿using Common.Models;
 using Common.Models.Entity;
-using Common.Models.Return;
-using jwtLib.JWTAuth.Interfaces;
-using Microsoft.AspNetCore.Http;
+using Common.Models.Error;
 using Common.Models.Error.services.Interfaces;
+using Common.Models.Exceptions;
+using Common.Models.Return;
+using Common.Models.Validators;
+using jwtLib.JWTAuth.Interfaces;
+using Menu.Host.Models.PlanitPoker.Requests;
 using Menu.Models.PlanitPoker;
 using Menu.Models.PlanitPoker.Returns;
-using Common.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using PlanitPoker.Models.Returns;
+using PlanitPoker.Models.Services;
+using System.Linq;
+using System.Threading.Tasks;
+using WEB.Common.Models.Helpers.Interfaces;
 
 namespace Menu.Controllers.PlanitPoker
 {
@@ -181,13 +182,13 @@ namespace Menu.Controllers.PlanitPoker
 
         [Route("change-room-image")]
         [HttpPatch]
-        public async Task ChangeRoomImage([FromForm] string roomname, [FromForm] IFormFile image)
+        public async Task ChangeRoomImage([FromForm] ChangeRoomImageRequest request)
         {
-            roomname = NormalizeRoomName(roomname);
+            request.RoomName = NormalizeRoomName(request.RoomName);
             await _apiHealper.DoStandartSomething(
               async () =>
               {
-                  _apiHealper.FileValidator(image, ModelState);
+                  _apiHealper.FileValidator(request.Image, ModelState);
                   _apiHealper.ErrorsFromModelState(ModelState);
                   if (_errorService.HasError())
                   {
@@ -195,8 +196,8 @@ namespace Menu.Controllers.PlanitPoker
                   }
 
                   var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-                  var res = await _planitPokerService.ChangeRoomImageAsync(roomname, userInfo.UserId, image);
-                  if (image != null && string.IsNullOrEmpty(res))
+                  var res = await _planitPokerService.ChangeRoomImageAsync(request.RoomName, userInfo.UserId, request.Image);
+                  if (request.Image != null && string.IsNullOrEmpty(res))
                   {
                       throw new SomeCustomException(ErrorConsts.SomeError);
                   }

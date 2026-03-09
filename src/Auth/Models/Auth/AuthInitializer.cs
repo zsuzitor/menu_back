@@ -23,16 +23,27 @@ namespace Auth.Models.Auth
 
         public async Task<IStartUpInitializer> ConfigurationInitialize(IServiceProvider services)
         {
-            var configurationService = services.GetRequiredService<IConfigurationService>();
-            await configurationService.AddIfNotExistAsync(AuthConst.AuthEmailConfigurationsCode.PasswordRestoreEmailSubject, "Восстановление пароля","Main", "configuration");
 
+            var serviceScopeFactory = services.GetRequiredService<IServiceScopeFactory>();
+            using (var scope = serviceScopeFactory.CreateScope())
+            {
+                var configurationService = scope.ServiceProvider.GetRequiredService<IConfigurationService>();
+                await configurationService.AddIfNotExistAsync(AuthConst.AuthEmailConfigurationsCode.PasswordRestoreEmailSubject, "Восстановление пароля", "Main", "configuration");
+
+
+            }
             return this;
         }
 
         public async Task<IStartUpInitializer> ErrorContainerInitialize(IServiceProvider services)
         {
-            var configurationService = services.GetRequiredService<IConfigurationService>();
-            await configurationService.AddIfNotExistAsync(AuthConst.AuthErrors.ProblemWithRecoverPasswordToken, "Передан неверный токен, попробуйте другой", "Main", "Error");
+            var serviceScopeFactory = services.GetRequiredService<IServiceScopeFactory>();
+            using (var scope = serviceScopeFactory.CreateScope())
+            {
+                var configurationService = scope.ServiceProvider.GetRequiredService<IConfigurationService>();
+                await configurationService.AddIfNotExistAsync(AuthConst.AuthErrors.ProblemWithRecoverPasswordToken, "Передан неверный токен, попробуйте другой", "Main", "Error");
+
+            }
             return this;
         }
 

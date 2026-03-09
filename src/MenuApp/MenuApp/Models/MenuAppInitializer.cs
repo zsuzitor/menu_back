@@ -38,7 +38,7 @@ namespace MenuApp.Models
 
         public async Task<IStartUpInitializer> ConfigurationInitialize(IServiceProvider services)
         {
-            var configurationService = services.GetRequiredService<IConfigurationService>();
+            //var configurationService = services.GetRequiredService<IConfigurationService>();
             return this;
         }
 

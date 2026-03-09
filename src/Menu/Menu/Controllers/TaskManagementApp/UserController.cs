@@ -1,24 +1,26 @@
-﻿using TaskManagementApp.Models.Returns;
-using TaskManagementApp.Models.Services.Interfaces;
+﻿using Common.Models;
 using Common.Models.Exceptions;
+using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.Services.Interfaces;
+using Menu.Models.TaskManagementApp.Requests;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
-using WEB.Common.Models.Helpers.Interfaces;
-using TaskManagementApp.Models;
-using Common.Models.Return;
-using Menu.Models.TaskManagementApp.Requests;
 using Nest;
 using System.Text.Json;
-using Common.Models;
+using System.Threading.Tasks;
+using TaskManagementApp.Models;
+using TaskManagementApp.Models.Returns;
+using TaskManagementApp.Models.Services.Interfaces;
+using WEB.Common.Models.Helpers.Interfaces;
 
 namespace Menu.Controllers.TaskManagementApp
 {
     [Route("api/taskmanagement/[controller]")]
     [ApiController]
     [Produces("application/json")]
+    [Tags("taskmanagement")]
 
     public class UserController : ControllerBase
     {

@@ -1,22 +1,23 @@
 ﻿
+using Common.Models.Entity;
+using Common.Models.Error.services.Interfaces;
+using Common.Models.Exceptions;
+using Common.Models.Return;
+using jwtLib.JWTAuth.Interfaces;
+using Menu.Host.Models.WordsCardsApp.Requests;
+using Menu.Models.WordsCardsApp.Requests;
+using Menu.Models.WordsCardsApp.Returns;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Common.Models.Error.services.Interfaces;
-using Common.Models.Exceptions;
-using Common.Models.Entity;
-using Common.Models.Return;
-using jwtLib.JWTAuth.Interfaces;
 using WEB.Common.Models.Helpers.Interfaces;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using WordsCardsApp.BL.Services.Interfaces;
-using Menu.Models.WordsCardsApp.Requests;
-using Menu.Models.WordsCardsApp.Returns;
 
 namespace Menu.Controllers.WordsCardsApp
 {
@@ -177,14 +178,14 @@ namespace Menu.Controllers.WordsCardsApp
 
         [Route("create-from-file")]
         [HttpPut]
-        public async Task CreateFromFile([FromForm] IFormFile file)
+        public async Task CreateFromFile([FromForm] CreateFromFileRequest request)
         {
             await _apiHealper.DoStandartSomething(
                 async () =>
                 {
                     var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
 
-                    var res = await _wordsCardsService.CreateFromFile(file, userInfo);
+                    var res = await _wordsCardsService.CreateFromFile(request.File, userInfo);
 
                     await _apiHealper.WriteResponseAsync(Response, _wordCardReturnFactory.GetObjectReturn(res));
 
