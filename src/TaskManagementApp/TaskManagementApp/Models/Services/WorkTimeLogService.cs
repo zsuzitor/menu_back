@@ -2,10 +2,8 @@
 using BO.Models.Auth;
 using BO.Models.TaskManagementApp.DAL.Domain;
 using Common.Models.Exceptions;
-using Pipelines.Sockets.Unofficial.Arenas;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TaskManagementApp.Models.Services.Interfaces;

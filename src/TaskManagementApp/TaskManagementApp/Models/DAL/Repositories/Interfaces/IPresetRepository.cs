@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
 {
+    public interface IPresetCachedRepository : IPresetRepository;
     public interface IPresetRepository : IGeneralRepository<Preset, long>
     {
         Task<List<Preset>> GetAllAsync(long projectId);

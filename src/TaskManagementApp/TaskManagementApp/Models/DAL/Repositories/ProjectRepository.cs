@@ -15,9 +15,8 @@ namespace TaskManagementApp.Models.DAL.Repositories
 {
     public sealed class ProjectCachedRepository : ProjectRepository, IProjectCachedRepository
     {
-        //private readonly IProjectRepository _projectRepository;
         private readonly ICacheService _cache;
-        public ProjectCachedRepository(IProjectRepository projectRepository, MenuDbContext db,
+        public ProjectCachedRepository(MenuDbContext db,
             IGeneralRepositoryStrategy repo,
             ICacheService cache) : base(db, repo, cache)
         {
@@ -100,7 +99,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public override async Task<bool> ExistIfAccessAdminAsync(long id, long mainAppUserId)
         {
-            var users = await _cache.GetOrSetAsync(Consts.CacheKeys.Users + id,
+            var users = await _cache.GetOrSetAsync(Consts.CacheKeys.UsersByProjectId + id,
             async () =>
             {
                 return await base.GetProjectUsersAsync(id);
@@ -131,7 +130,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public override async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, long mainAppUserId)
         {
-            var users = await _cache.GetOrSetAsync(Consts.CacheKeys.Users + id,
+            var users = await _cache.GetOrSetAsync(Consts.CacheKeys.UsersByProjectId + id,
             async () =>
             {
                 return await base.GetProjectUsersAsync(id);
@@ -171,15 +170,15 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return result.Item2;
         }
 
-        //public async Task<List<Project>> GetAsync(List<long> ids)
-        //{
-        //    return await _projectRepository.GetAsync(ids);
-        //}
+        public override async Task<List<Project>> GetAsync(List<long> ids)
+        {
+            return await base.GetAsync(ids);
+        }
 
         public override async Task<Project> GetByIdIfAccessAdminAsync(long id, long mainAppUserId)
         {
 
-            var users = await _cache.GetOrSetAsync(Consts.CacheKeys.Users + id,
+            var users = await _cache.GetOrSetAsync(Consts.CacheKeys.UsersByProjectId + id,
             async () =>
             {
                 return await base.GetProjectUsersAsync(id);
@@ -208,7 +207,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public override async Task<Project> GetByIdIfAccessAsync(long id, long mainAppUserId)
         {
 
-            var users = await _cache.GetOrSetAsync(Consts.CacheKeys.Users + id,
+            var users = await _cache.GetOrSetAsync(Consts.CacheKeys.UsersByProjectId + id,
             async () =>
             {
                 return await base.GetProjectUsersAsync(id);
@@ -363,7 +362,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             _db.TaskManagementTaskProject.Attach(project);
             project.IsDeleted = true;
             await _db.SaveChangesAsync();
-            _cache.Remove(Consts.CacheKeys.Project + project.Id);
+            Consts.CacheKeys.ClearForProject(_cache, project.Id);
             return project;
         }
 
@@ -378,7 +377,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             await _db.SaveChangesAsync();
             foreach (var r in records)
             {
-                _cache.Remove(Consts.CacheKeys.Project + r.Id);
+                Consts.CacheKeys.ClearForProject(_cache, r.Id);
             }
 
             return records;
@@ -391,7 +390,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             {
                 project.IsDeleted = false;
                 await _db.SaveChangesAsync();
-                _cache.Remove(Consts.CacheKeys.Project + project.Id);
+                Consts.CacheKeys.ClearForProject(_cache, project.Id);
             }
 
             return project;
@@ -418,24 +417,24 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public override async Task<Project> AddAsync(Project newRecord)
         {
             var result = await base.AddAsync(newRecord);
-            _cache.Remove(Consts.CacheKeys.Project + result.Id);
+            //_cache.Remove(Consts.CacheKeys.Project + result.Id);
             return result;
         }
 
         public override async Task<IEnumerable<Project>> AddAsync(IEnumerable<Project> newRecords)
         {
             var result = await base.AddAsync(newRecords);
-            foreach (var record in result)
-            {
-                _cache.Remove(Consts.CacheKeys.Project + record.Id);
-            }
+            //foreach (var record in result)
+            //{
+            //    _cache.Remove(Consts.CacheKeys.Project + record.Id);
+            //}
             return result;
         }
 
         public override async Task<Project> UpdateAsync(Project record)
         {
             var result = await base.UpdateAsync(record);
-            _cache.Remove(Consts.CacheKeys.Project + result.Id);
+            Consts.CacheKeys.ClearForProject(_cache, result.Id);
             return result;
         }
 
@@ -444,7 +443,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             var result = await base.UpdateAsync(records);
             foreach (var record in result)
             {
-                _cache.Remove(Consts.CacheKeys.Project + record.Id);
+                Consts.CacheKeys.ClearForProject(_cache, record.Id);
             }
             return result;
         }

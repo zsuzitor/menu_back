@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
 {
+    //public interface ISprintCachedRepository : ISprintRepository;
     public interface ISprintRepository : IGeneralRepository<ProjectSprint, long>
     {
         //Task AddTaskToSprint();

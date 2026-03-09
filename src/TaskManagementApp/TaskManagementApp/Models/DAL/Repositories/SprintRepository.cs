@@ -43,7 +43,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 await _db.SaveChangesAsync();
                 await t.CommitAsync();
             }
-            _cache.Remove(Consts.CacheKeys.Project + record.ProjectId);
+            _cache.Remove(Consts.CacheKeys.SprintsByProjectId + record.ProjectId);
             return record;
         }
 
@@ -77,7 +77,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public override async Task<ProjectSprint> AddAsync(ProjectSprint newRecord)
         {
             var result = await base.AddAsync(newRecord);
-            _cache.Remove(Consts.CacheKeys.Project + result.ProjectId);
+            _cache.Remove(Consts.CacheKeys.SprintsByProjectId + result.ProjectId);
             return result;
         }
 
@@ -86,7 +86,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             var result = await base.AddAsync(newRecords);
             foreach (var record in result.Select(x => x.ProjectId).Distinct())
             {
-                _cache.Remove(Consts.CacheKeys.Project + record);
+                _cache.Remove(Consts.CacheKeys.SprintsByProjectId + record);
             }
             return result;
         }
@@ -94,7 +94,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public override async Task<ProjectSprint> UpdateAsync(ProjectSprint record)
         {
             var result = await base.UpdateAsync(record);
-            _cache.Remove(Consts.CacheKeys.Project + result.ProjectId);
+            _cache.Remove(Consts.CacheKeys.SprintsByProjectId + result.ProjectId);
             return result;
         }
 
@@ -103,7 +103,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             var result = await base.UpdateAsync(records);
             foreach (var record in result.Select(x => x.ProjectId).Distinct())
             {
-                _cache.Remove(Consts.CacheKeys.Project + record);
+                _cache.Remove(Consts.CacheKeys.SprintsByProjectId + record);
             }
             return result;
         }
@@ -130,7 +130,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 await _db.SaveChangesAsync();
                 await t.CommitAsync();
             }
-            _cache.Remove(Consts.CacheKeys.Project + result.ProjectId);
+            _cache.Remove(Consts.CacheKeys.SprintsByProjectId + result.ProjectId);
             return result;
         }
     }

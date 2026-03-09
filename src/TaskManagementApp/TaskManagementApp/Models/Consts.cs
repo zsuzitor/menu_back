@@ -1,4 +1,6 @@
 ﻿
+using BL.Models.Services.Interfaces;
+using BO.Models.TaskManagementApp.DAL.Domain;
 using System;
 
 namespace TaskManagementApp.Models
@@ -63,11 +65,22 @@ namespace TaskManagementApp.Models
         {
             public static readonly TimeSpan CacheTime = TimeSpan.FromMinutes(5);
             public const string Project = $"{ProjectPrefix}Project";
-            public const string Sprints = $"{ProjectPrefix}Sprints_";
-            public const string Users = $"{ProjectPrefix}Users_";
-            public const string TaskStatuses = $"{ProjectPrefix}TaskStatuses_";
-            public const string Presets = $"{ProjectPrefix}Presets_";
+            public const string SprintsByProjectId = $"{ProjectPrefix}Sprints_";
+            public const string UsersByProjectId = $"{ProjectPrefix}Users_";
+            public const string TaskStatusesByProjectId = $"{ProjectPrefix}TaskStatuses_";
 
+            public const string PresetsByProjectId = $"{ProjectPrefix}Presets_";
+            public const string Preset = $"{ProjectPrefix}Preset_";
+
+            public static void ClearForProject(ICacheService cache, long projectId)
+            {
+                //todo вынести в хелпер
+                cache?.Remove(Consts.CacheKeys.Project + projectId);
+                cache?.Remove(Consts.CacheKeys.SprintsByProjectId + projectId);
+                cache?.Remove(Consts.CacheKeys.UsersByProjectId + projectId);
+                cache?.Remove(Consts.CacheKeys.TaskStatusesByProjectId + projectId);
+                cache?.Remove(Consts.CacheKeys.PresetsByProjectId + projectId);
+            }
 
             //.Include(x => x.Sprints).Include(x => x.Users).Include(x => x.TaskStatuses)
             //.Include(x => x.Presets)
