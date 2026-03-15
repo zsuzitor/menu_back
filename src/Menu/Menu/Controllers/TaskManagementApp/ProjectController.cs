@@ -1,13 +1,16 @@
-﻿using BO.Models.TaskManagementApp.DAL.Domain;
+﻿using Auth.Models.Auth;
+using BO.Models.TaskManagementApp.DAL.Domain;
 using Common.Models;
 using Common.Models.Exceptions;
 using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
+using Menu.Host.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Text.Json;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.Returns;
@@ -54,10 +57,11 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("get-projects")]
         [HttpGet]
+        [CustomAuthorize]
         public async Task<ActionResult<List<ProjectInList>>> GetProjects()
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-            var res = await _projectService.GetProjectsByMainAppUserIdAsync(userInfo.UserId);
+            var userId = User.GetUserId();
+            var res = await _projectService.GetProjectsByMainAppUserIdAsync(userId);
             res = res ?? new System.Collections.Generic.List<Project>();
             return new JsonResult(res.Select(x => new ProjectInList(x)).ToList(), GetJsonOptions());
 
@@ -65,23 +69,25 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("add-new-project")]
         [HttpPut]
+        [CustomAuthorize]
         public async Task<ActionResult<ProjectInList>> AddProject([FromForm] string projectName)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userId = User.GetUserId();
             projectName = _apiHealper.StringValidator(projectName);
 
-            var res = await _projectService.CreateAsync(projectName, userInfo);
+            var res = await _projectService.CreateAsync(projectName, userId);
             return new JsonResult(new ProjectInList(res), GetJsonOptions());
         }
 
         [Route("get-project-info")]
         [HttpGet]
+        [CustomAuthorize]
         public async Task<ActionResult<ProjectFullInfoReturn>> GetProjectInfo(long projectId)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userId = User.GetUserId();
             _logger.LogDebug("ProjectController GetProjectInfo projectId={projectId}", projectId);
 
-            var res = await _projectService.GetByIdIfAccessAsync(projectId, userInfo);
+            var res = await _projectService.GetByIdIfAccessAsync(projectId, userId);
             if (res == null)
             {
                 throw new SomeCustomException("project_not_found");
@@ -94,7 +100,7 @@ namespace Menu.Controllers.TaskManagementApp
             var labels = (await _labelService.Get(projectId)).Select(x => new ProjectLabelReturn(x)).ToList();
             var presets = (await _presetService.GetAllWithLabelsAsync(projectId)).Select(x => new PresetReturn(x)).ToList();
 
-            var users = await _projectUserService.GetProjectUsersAsync(projectId, userInfo);
+            var users = await _projectUserService.GetProjectUsersAsync(projectId, userId);
             var usersReturn = users.Select(x => new ProjectUserReturn(x)).ToList();
 
             return new JsonResult(new ProjectFullInfoReturn() { Users = usersReturn, Statuses = statuses, Sprints = sprints, Labels = labels, Presets = presets }, GetJsonOptions());
@@ -106,10 +112,11 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("delete-project")]
         [HttpDelete]
+        [CustomAuthorize]
         public async Task<ActionResult<BoolResultNewReturn>> DeleteProject([FromForm] long projectId)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-            var res = await _projectService.DeleteAsync(projectId, userInfo);
+            var userId = User.GetUserId();
+            var res = await _projectService.DeleteAsync(projectId, userId);
             return new JsonResult(new BoolResultNewReturn(res), GetJsonOptions());
 
         }

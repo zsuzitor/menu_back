@@ -6,6 +6,11 @@ namespace Common.Models
 {
     public class Constants
     {
+        public static class Claims
+        {
+            public const string Id = "Id";
+        }
+
         public static class Loggers
         {
 

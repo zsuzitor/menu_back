@@ -1,6 +1,8 @@
-﻿using Common.Models;
+﻿using Auth.Models.Auth;
+using Common.Models;
 using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
+using Menu.Host.Infrastructure;
 using Menu.Models.TaskManagementApp.Mappers;
 using Menu.Models.TaskManagementApp.Requests;
 using Microsoft.AspNetCore.Http;
@@ -50,61 +52,67 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("create")]
         [HttpPut]
+        [CustomAuthorize]
         public async Task<ActionResult<WorkTimeLogReturn>> Create([FromBody] WorkTimeLogCreateRequest request)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userId = User.GetUserId();
 
             request.Text = _apiHealper.StringValidator(request.Text);
-            var res = await _workTimeLogService.CreateAsync(request.Map(), userInfo);
+            var res = await _workTimeLogService.CreateAsync(request.Map(), userId);
 
             return new JsonResult(new WorkTimeLogReturn(res), GetJsonOptions());
         }
 
         [Route("update")]
         [HttpPatch]
+        [CustomAuthorize]
         public async Task<ActionResult<WorkTimeLogReturn>> Update([FromBody] WorkTimeLogUpdateRequest request)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userId = User.GetUserId();
             request.Text = _apiHealper.StringValidator(request.Text);
-            var res = await _workTimeLogService.EditAsync(request.Map(), userInfo);
+            var res = await _workTimeLogService.EditAsync(request.Map(), userId);
             return new JsonResult(new WorkTimeLogReturn(res), GetJsonOptions());
 
         }
 
         [Route("delete")]
         [HttpDelete]
+        [CustomAuthorize]
         public async Task<ActionResult<BoolResultNewReturn>> Delete([FromForm] long id)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-            var res = await _workTimeLogService.DeleteAsync(id, userInfo);
+            var userId = User.GetUserId();
+            var res = await _workTimeLogService.DeleteAsync(id, userId);
 
             return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
         }
 
         [Route("project-time")]
         [HttpGet]
+        [CustomAuthorize]
         public async Task<ActionResult<List<WorkTimeLogReturn>>> GetProjectTime(long id, DateTime dateFrom, DateTime dateTo, long? userId)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-            var res = await _workTimeLogService.GetTimeForProjectAsync(id, dateFrom, dateTo, userInfo, userId);
+            var currentUserId = User.GetUserId();
+            var res = await _workTimeLogService.GetTimeForProjectAsync(id, dateFrom, dateTo, currentUserId, userId);
             return new JsonResult(res.Select(x => new WorkTimeLogReturn(x)), GetJsonOptions());
         }
 
         [Route("task-time")]
         [HttpGet]
+        [CustomAuthorize]
         public async Task<ActionResult<WorkTimeLogReturn>> GetTaskTime(long taskId)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-            var res = await _workTimeLogService.GetTimeForTaskAsync(taskId, userInfo);
+            var userId = User.GetUserId();
+            var res = await _workTimeLogService.GetTimeForTaskAsync(taskId, userId);
             return new JsonResult(res.Select(x => new WorkTimeLogReturn(x)), GetJsonOptions());
         }
 
         [Route("user-time")]
         [HttpGet]
+        [CustomAuthorize]
         public async Task<ActionResult<WorkTimeLogReturn>> GetUserTime(long? projectId, DateTime dateFrom, DateTime dateTo, long? userId)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-            var res = await _workTimeLogService.GetTimeForUserAsync(userId, dateFrom, dateTo, userInfo);
+            var currentUserId = User.GetUserId();
+            var res = await _workTimeLogService.GetTimeForUserAsync(userId, dateFrom, dateTo, currentUserId);
             return new JsonResult(res.Select(x => new WorkTimeLogReturn(x)), GetJsonOptions());
             //todo projectId
 

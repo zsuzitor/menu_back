@@ -1,17 +1,19 @@
-﻿using TaskManagementApp.Models.Returns;
-using TaskManagementApp.Models.Services.Interfaces;
+﻿using Auth.Models.Auth;
+using Common.Models;
+using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
+using Menu.Host.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using TaskManagementApp.Models.Returns;
+using TaskManagementApp.Models.Services.Interfaces;
 using WEB.Common.Models.Helpers.Interfaces;
 using static System.Net.Mime.MediaTypeNames;
-using Common.Models.Return;
-using System.Text.Json;
-using System.Collections.Generic;
-using Common.Models;
 
 namespace Menu.Controllers.TaskManagementApp
 {
@@ -42,10 +44,11 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("get-statuses")]
         [HttpGet]
+        [CustomAuthorize]
         public async Task<ActionResult<List<WorkTaskStatusReturn>>> GetStatus(long projectId)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-            var res = await _workTaskStatusService.GetStatusesAccessAsync(projectId, userInfo);
+            var userId = User.GetUserId();
+            var res = await _workTaskStatusService.GetStatusesAccessAsync(projectId, userId);
 
             return new JsonResult(res.Select(x => new WorkTaskStatusReturn(x)), GetJsonOptions());
 
@@ -53,12 +56,13 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("create-status")]
         [HttpPut]
+        [CustomAuthorize]
         public async Task<ActionResult<WorkTaskStatusReturn>> CreateStatus([FromForm] long projectId, [FromForm] string status)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userId = User.GetUserId();
 
             status = _apiHealper.StringValidator(status);
-            var res = await _workTaskStatusService.CreateStatusAsync(status, projectId, userInfo);
+            var res = await _workTaskStatusService.CreateStatusAsync(status, projectId, userId);
 
             return new JsonResult(new WorkTaskStatusReturn(res), GetJsonOptions());
 
@@ -66,20 +70,22 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("delete-status")]
         [HttpDelete]
+        [CustomAuthorize]
         public async Task<ActionResult<ProjectSprintReturn>> DeleteStatus([FromForm] long statusId)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-            var res = await _workTaskStatusService.DeleteStatusAsync(statusId, userInfo);
+            var userId = User.GetUserId();
+            var res = await _workTaskStatusService.DeleteStatusAsync(statusId, userId);
             return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
         }
 
         [Route("update-status")]
         [HttpPatch]
+        [CustomAuthorize]
         public async Task<ActionResult<BoolResultNewReturn>> UpdateStatus([FromForm] long statusId, [FromForm] string status)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userId = User.GetUserId();
             status = _apiHealper.StringValidator(status);
-            var res = await _workTaskStatusService.UpdateStatusAsync(statusId, status, userInfo);
+            var res = await _workTaskStatusService.UpdateStatusAsync(statusId, status, userId);
             return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
         }
 

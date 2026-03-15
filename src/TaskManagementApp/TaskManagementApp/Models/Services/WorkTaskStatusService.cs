@@ -33,9 +33,9 @@ namespace TaskManagementApp.Models.Services
         }
 
 
-        public async Task<List<WorkTaskStatus>> GetStatusesAccessAsync(long projectId, UserInfo userInfo)
+        public async Task<List<WorkTaskStatus>> GetStatusesAccessAsync(long projectId, long userId)
         {
-            var s = await ExistIfAccessAsync(projectId, userInfo);
+            var s = await ExistIfAccessAsync(projectId, userId);
             if (!s.access)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -45,9 +45,9 @@ namespace TaskManagementApp.Models.Services
 
         }
 
-        public async Task<WorkTaskStatus> CreateStatusAsync(string status, long projectId, UserInfo userInfo)
+        public async Task<WorkTaskStatus> CreateStatusAsync(string status, long projectId, long userId)
         {
-            var s = await ExistIfAccessAdminAsync(projectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(projectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -56,7 +56,7 @@ namespace TaskManagementApp.Models.Services
             return await _taskStatusRepository.AddAsync(new WorkTaskStatus() { Name = status, ProjectId = projectId });
         }
 
-        public async Task<WorkTaskStatus> DeleteStatusAsync(long statusId, UserInfo userInfo)
+        public async Task<WorkTaskStatus> DeleteStatusAsync(long statusId, long userId)
         {
             var status = await _taskStatusRepository.GetAsync(statusId);
             if (status == null)
@@ -64,7 +64,7 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.WorkTaskStatusNotExists);
             }
 
-            var s = await ExistIfAccessAdminAsync(status.ProjectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(status.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -80,7 +80,7 @@ namespace TaskManagementApp.Models.Services
             return await _taskStatusRepository.DeleteAsync(status);
         }
 
-        public async Task<WorkTaskStatus> UpdateStatusAsync(long statusId, string status, UserInfo userInfo)
+        public async Task<WorkTaskStatus> UpdateStatusAsync(long statusId, string status, long userId)
         {
 
             var statusEntity = await _taskStatusRepository.GetAsync(statusId);
@@ -89,7 +89,7 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.WorkTaskStatusNotExists);
             }
 
-            var s = await ExistIfAccessAdminAsync(statusEntity.ProjectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(statusEntity.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -101,14 +101,14 @@ namespace TaskManagementApp.Models.Services
 
         }
 
-        private async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, UserInfo userInfo)
+        private async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, long userId)
         {
-            return await _projectCacheRepository.ExistIfAccessAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAsync(id, userId);
         }
 
-        private async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)
+        private async Task<bool> ExistIfAccessAdminAsync(long id, long userId)
         {
-            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userId);
         }
     }
 }

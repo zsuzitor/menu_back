@@ -1,7 +1,8 @@
 ﻿namespace Menu.Models
 {
-    public class Constants
+    public static class Constants
     {
+
         public const string VaultAuthCookie = "Auth_Vault";
 
 

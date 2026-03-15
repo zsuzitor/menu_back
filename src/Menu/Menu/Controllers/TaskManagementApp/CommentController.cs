@@ -1,6 +1,8 @@
-﻿using Common.Models;
+﻿using Auth.Models.Auth;
+using Common.Models;
 using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
+using Menu.Host.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -45,44 +47,47 @@ namespace Menu.Controllers.TaskManagementApp
 
         [Route("create-comment")]
         [HttpPut]
+        [CustomAuthorize]
         public async Task<ActionResult<WorkTaskCommentReturn>> CreateComment([FromForm] long taskId, [FromForm] string text)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userId = User.GetUserId();
             text = _apiHealper.StringValidator(text);
-            var res = await _workTaskService.CreateCommentAsync(taskId, text, userInfo);
+            var res = await _workTaskService.CreateCommentAsync(taskId, text, userId);
             return new JsonResult(new WorkTaskCommentReturn(res), GetJsonOptions());
 
         }
 
         [Route("delete-comment")]
         [HttpDelete]
+        [CustomAuthorize]
         public async Task<ActionResult<BoolResultNewReturn>> DeleteComment([FromForm] long commentId)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userId = User.GetUserId();
 
-            var res = await _workTaskCommentService.DeleteAsync(commentId, userInfo);
+            var res = await _workTaskCommentService.DeleteAsync(commentId, userId);
             return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
 
         }
 
         [Route("get-comments")]
         [HttpGet]
+        [CustomAuthorize]
         public async Task<ActionResult<List<WorkTaskCommentReturn>>> GetComments(long taskId)
         {
-
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-            var res = await _workTaskService.GetCommentsAsync(taskId, userInfo);
+            var userId = User.GetUserId();
+            var res = await _workTaskService.GetCommentsAsync(taskId, userId);
             return new JsonResult(res.Select(x => new WorkTaskCommentReturn(x)).ToList(), GetJsonOptions());
 
         }
 
         [Route("edit-comment")]
         [HttpPatch]
+        [CustomAuthorize]
         public async Task<ActionResult<BoolResultNewReturn>> EditComment([FromForm] long commentId, [FromForm] string text)
         {
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userId = User.GetUserId();
             text = _apiHealper.StringValidator(text);
-            var res = await _workTaskCommentService.EditAsync(commentId, text, userInfo);
+            var res = await _workTaskCommentService.EditAsync(commentId, text, userId);
             return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
 
         }

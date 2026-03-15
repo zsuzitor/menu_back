@@ -34,14 +34,14 @@ namespace TaskManagementApp.Models.Services
             _projectCacheRepository = projectCacheRepository;
         }
 
-        public async Task<Preset> CreateAsync(long projectId, string name, UserInfo userInfo)
+        public async Task<Preset> CreateAsync(long projectId, string name, long userId)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
                 throw new SomeCustomBadRequestException(Consts.ErrorConsts.PresetNotValide);
             }
 
-            var s = await ExistIfAccessAdminAsync(projectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(projectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -56,11 +56,11 @@ namespace TaskManagementApp.Models.Services
 
         }
 
-        public async Task<Preset> DeleteAsync(long presetId, UserInfo userInfo)
+        public async Task<Preset> DeleteAsync(long presetId, long userId)
         {
             var oldPreset = await _presetRepo.GetAsync(presetId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.PresetNotFound);
 
-            var s = await ExistIfAccessAdminAsync(oldPreset.ProjectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(oldPreset.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -69,7 +69,7 @@ namespace TaskManagementApp.Models.Services
             return await _presetRepo.DeleteAsync(oldPreset);
         }
 
-        public async Task<Preset> EditAsync(Preset preset, UserInfo userInfo)
+        public async Task<Preset> EditAsync(Preset preset, long userId)
         {
             if (string.IsNullOrWhiteSpace(preset.Name))
             {
@@ -77,7 +77,7 @@ namespace TaskManagementApp.Models.Services
             }
             var oldPreset = await _presetRepo.GetWithLabelsAsync(preset.Id) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.PresetNotFound);
 
-            var s = await ExistIfAccessAdminAsync(oldPreset.ProjectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(oldPreset.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -168,9 +168,9 @@ namespace TaskManagementApp.Models.Services
 
 
 
-        public async Task<List<Preset>> GetAllAsync(long projectId, UserInfo userInfo)
+        public async Task<List<Preset>> GetAllAsync(long projectId, long userId)
         {
-            var s = await ExistIfAccessAdminAsync(projectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(projectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -189,9 +189,9 @@ namespace TaskManagementApp.Models.Services
             return await _presetRepo.GetWithLabelsForProjectsync(projectId);
         }
 
-        private async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)
+        private async Task<bool> ExistIfAccessAdminAsync(long id, long userId)
         {
-            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userId);
         }
     }
 }

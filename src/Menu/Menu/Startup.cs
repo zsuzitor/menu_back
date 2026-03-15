@@ -200,6 +200,39 @@ namespace Menu
                 options.SuppressModelStateInvalidFilter = true;
             });
 
+
+            //services.AddJwtBearer(options =>
+            // {
+            //     // Полностью отключаем стандартную валидацию
+            //     options.TokenValidationParameters = new TokenValidationParameters
+            //     {
+            //         ValidateIssuer = false,
+            //         ValidateAudience = false,
+            //         ValidateLifetime = false,
+            //         ValidateIssuerSigningKey = false,
+            //         RequireSignedTokens = false // Отключаем проверку подписи
+            //     };
+
+            //     // Вся логика в событии
+            //     options.Events = new JwtBearerEvents
+            //     {
+            //         OnTokenValidated = async context =>
+            //         {
+            //             var token = context.Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+            //             var result = await yourService.ValidateToken(token);
+
+            //             if (!result.IsValid)
+            //             {
+            //                 context.Fail("Invalid token");
+            //                 return;
+            //             }
+
+            //             // Заменяем principal на свой
+            //             context.Principal = result.Principal;
+            //         }
+            //     };
+            // })
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

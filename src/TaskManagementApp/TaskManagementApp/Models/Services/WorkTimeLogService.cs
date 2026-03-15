@@ -32,11 +32,11 @@ namespace TaskManagementApp.Models.Services
             _projectCacheRepository = projectCacheRepository;
         }
 
-        public async Task<WorkTimeLog> CreateAsync(WorkTimeLog obj, UserInfo userInfo)
+        public async Task<WorkTimeLog> CreateAsync(WorkTimeLog obj, long userId)
         {
             ValidateTimeLog(obj);
 
-            var userId = await _workTaskRepository.GetUserIdAccessAsync(obj.WorkTaskId, userInfo.UserId);
+            userId = await _workTaskRepository.GetUserIdAccessAsync(obj.WorkTaskId, userId);
             if (userId == 0)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.TaskNotFound);
@@ -48,9 +48,9 @@ namespace TaskManagementApp.Models.Services
             return await _workTimeLogRepository.AddAsync(obj);
         }
 
-        public async Task<WorkTimeLog> DeleteAsync(long id, UserInfo userInfo)
+        public async Task<WorkTimeLog> DeleteAsync(long id, long userId)
         {
-            var time = await _workTimeLogRepository.GetTimeAccessAsync(id, userInfo);
+            var time = await _workTimeLogRepository.GetTimeAccessAsync(id, userId);
             //var time = await _workTimeLogRepository.GetAsync(id);
             if (time == null)
             {
@@ -68,11 +68,11 @@ namespace TaskManagementApp.Models.Services
 
         }
 
-        public async Task<WorkTimeLog> EditAsync(WorkTimeLog obj, UserInfo userInfo)
+        public async Task<WorkTimeLog> EditAsync(WorkTimeLog obj, long userId)
         {
             ValidateTimeLog(obj);
 
-            var time = await _workTimeLogRepository.GetTimeAccessAsync(obj.Id, userInfo);
+            var time = await _workTimeLogRepository.GetTimeAccessAsync(obj.Id, userId);
             //var time = await _workTimeLogRepository.GetAsync(obj.Id);
             if (time == null)
             {
@@ -97,9 +97,9 @@ namespace TaskManagementApp.Models.Services
 
         }
 
-        public async Task<WorkTimeLog> GetAsync(long id, UserInfo userInfo)
+        public async Task<WorkTimeLog> GetAsync(long id, long userId)
         {
-            var time = await _workTimeLogRepository.GetTimeAccessAsync(id, userInfo);
+            var time = await _workTimeLogRepository.GetTimeAccessAsync(id, userId);
             //var time = await _workTimeLogRepository.GetAsync(id);
             if (time == null)
             {
@@ -117,9 +117,9 @@ namespace TaskManagementApp.Models.Services
 
         }
 
-        public async Task<List<WorkTimeLog>> GetTimeForProjectAsync(long projectId, DateTime startDate, DateTime endDate, UserInfo userInfo, long? userId)
+        public async Task<List<WorkTimeLog>> GetTimeForProjectAsync(long projectId, DateTime startDate, DateTime endDate, long currentUserId, long? userId)
         {
-            var access = await _projectCacheRepository.ExistIfAccessAsync(projectId, userInfo.UserId);
+            var access = await _projectCacheRepository.ExistIfAccessAsync(projectId, currentUserId);
             if (!access.access)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectHaveNoAccess);
@@ -128,9 +128,9 @@ namespace TaskManagementApp.Models.Services
             return await _workTimeLogRepository.GetTimeForProjectAsync(projectId, startDate, endDate, userId);
         }
 
-        public async Task<List<WorkTimeLog>> GetTimeForTaskAsync(long taskId, UserInfo userInfo)
+        public async Task<List<WorkTimeLog>> GetTimeForTaskAsync(long taskId, long userId)
         {
-            var access = await _workTaskRepository.HaveAccessAsync(taskId, userInfo.UserId);
+            var access = await _workTaskRepository.HaveAccessAsync(taskId, userId);
             if (!access)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectHaveNoAccess);
@@ -140,9 +140,9 @@ namespace TaskManagementApp.Models.Services
 
         }
 
-        public async Task<List<WorkTimeLog>> GetTimeForUserAsync(long? userId, DateTime startDate, DateTime endDate, UserInfo userInfo)
+        public async Task<List<WorkTimeLog>> GetTimeForUserAsync(long? userId, DateTime startDate, DateTime endDate, long currentUserId)
         {
-            return await _workTimeLogRepository.GetTimeForUserAsync(userId, startDate, endDate, userInfo);
+            return await _workTimeLogRepository.GetTimeForUserAsync(userId, startDate, endDate, currentUserId);
         }
 
 

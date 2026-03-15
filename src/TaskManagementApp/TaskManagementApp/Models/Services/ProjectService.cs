@@ -37,20 +37,20 @@ namespace TaskManagementApp.Models.Services
 
         }
 
-        public async Task<Project> CreateAsync(string name, UserInfo userInfo)
+        public async Task<Project> CreateAsync(string name, long userId)
         {
             if (string.IsNullOrWhiteSpace(name))
             {
                 throw new SomeCustomException(Consts.ErrorConsts.EmptyProjectName);
             }
             //конечно не очень красиво отходить от репозиториев, но ладно
-            var mainAppUserInfo = await _mainAppUserService.GetShortInfoAsync(userInfo.UserId);
+            var mainAppUserInfo = await _mainAppUserService.GetShortInfoAsync(userId);
 
             var user = new ProjectUser()
             {
                 Role = UserRoleEnum.Admin,
                 UserName = string.IsNullOrEmpty(mainAppUserInfo.Name) ? mainAppUserInfo.Email : mainAppUserInfo.Name,
-                MainAppUserId = userInfo.UserId,
+                MainAppUserId = userId,
                 NotifyEmail = mainAppUserInfo.Email,
             };
             var project = await _projectCacheRepository.CreateAsync(name, user);
@@ -67,30 +67,30 @@ namespace TaskManagementApp.Models.Services
             return await _projectCacheRepository.GetNoTrackAsync(id);
         }
 
-        public async Task<Project> GetByIdIfAccessAsync(long id, UserInfo userInfo)
+        public async Task<Project> GetByIdIfAccessAsync(long id, long userId)
         {
-            return await _projectCacheRepository.GetByIdIfAccessAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.GetByIdIfAccessAsync(id, userId);
         }
 
-        public async Task<Project> GetByIdIfAccessAdminAsync(long id, UserInfo userInfo)
+        public async Task<Project> GetByIdIfAccessAdminAsync(long id, long userId)
         {
-            return await _projectCacheRepository.GetByIdIfAccessAdminAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.GetByIdIfAccessAdminAsync(id, userId);
         }
 
-        public async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, UserInfo userInfo)
+        public async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, long userId)
         {
-            return await _projectCacheRepository.ExistIfAccessAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAsync(id, userId);
         }
 
-        public async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)
+        public async Task<bool> ExistIfAccessAdminAsync(long id, long userId)
         {
-            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userId);
         }
 
 
-        public async Task<ProjectUser> CreateUserAsync(long projectId, string userName, string email, long? mainAppUserId, UserInfo userInfo)
+        public async Task<ProjectUser> CreateUserAsync(long projectId, string userName, string email, long? mainAppUserId, long userId)
         {
-            if (!await ExistIfAccessAdminAsync(projectId, userInfo))
+            if (!await ExistIfAccessAdminAsync(projectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -113,14 +113,14 @@ namespace TaskManagementApp.Models.Services
         }
 
 
-        public async Task<WorkTask> CreateTaskAsync(WorkTask task, UserInfo userInfo)
+        public async Task<WorkTask> CreateTaskAsync(WorkTask task, long userId)
         {
             if (string.IsNullOrWhiteSpace(task.Name))
             {
                 throw new SomeCustomException(Consts.ErrorConsts.EmptyTaskName);
             }
 
-            var creator = await _projectUserService.GetByMainAppIdAsync(userInfo, task.ProjectId);
+            var creator = await _projectUserService.GetByMainAppIdAsync(userId, task.ProjectId);
             if (creator == null)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -161,19 +161,19 @@ namespace TaskManagementApp.Models.Services
                 Name = task.Name,
                 ProjectId = task.ProjectId,
                 ExecutorId = task.ExecutorId,
-                CreatorEntityId = userInfo.UserId,
+                CreatorEntityId = userId,
                 CreateDate = _dateTimeProvider.CurrentDateTime(),
                 LastUpdateDate = _dateTimeProvider.CurrentDateTime(),
                 StatusId = task.StatusId,
             };
 
             //todo проверяем что creator+reviwer входит в проект. по идеи если что упадет с исключением
-            return await _workTaskService.CreateAsync(newTask, userInfo);
+            return await _workTaskService.CreateAsync(newTask, userId);
         }
 
-        public async Task<bool> DeleteAsync(long projectId, UserInfo userInfo)
+        public async Task<bool> DeleteAsync(long projectId, long userId)
         {
-            var project = await _projectRepository.GetByIdIfAccessAdminAsync(projectId, userInfo.UserId);
+            var project = await _projectRepository.GetByIdIfAccessAdminAsync(projectId, userId);
             if (project == null)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);

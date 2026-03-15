@@ -29,7 +29,7 @@ namespace TaskManagementApp.Models.Services
             return await _workTaskCommentRepository.AddAsync(comment);
         }
 
-        public async Task<WorkTaskComment> DeleteAsync(long commentId, UserInfo userInfo)
+        public async Task<WorkTaskComment> DeleteAsync(long commentId, long userId)
         {
             //todo можно сильно оптимизировать
             var comment = await _workTaskCommentRepository.GetAsync(commentId);
@@ -44,7 +44,7 @@ namespace TaskManagementApp.Models.Services
             //    throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
             //}
 
-            var user = await _projectUserService.GetByMainAppIdAsync(userInfo, task.ProjectId);
+            var user = await _projectUserService.GetByMainAppIdAsync(userId, task.ProjectId);
             if (user == null)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.UserNotFound);
@@ -61,7 +61,7 @@ namespace TaskManagementApp.Models.Services
             return deleted;
         }
 
-        public async Task<WorkTaskComment> EditAsync(long commentId, string text, UserInfo userInfo)
+        public async Task<WorkTaskComment> EditAsync(long commentId, string text, long userId)
         {
             //todo можно сильно оптимизировать
 
@@ -83,7 +83,7 @@ namespace TaskManagementApp.Models.Services
             //    throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
             //}
 
-            var user = await _projectUserService.GetByMainAppIdAsync(userInfo, task.ProjectId);
+            var user = await _projectUserService.GetByMainAppIdAsync(userId, task.ProjectId);
             if (user == null)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.UserNotFound);

@@ -14,8 +14,8 @@ namespace TaskManagementApp.Models.Services.Interfaces
         /// <param name="comment"></param>
         /// <returns></returns>
         Task<WorkTaskComment> CreateAsync(WorkTaskComment comment);
-        Task<WorkTaskComment> EditAsync(long commentId, string text, UserInfo userInfo);
-        Task<WorkTaskComment> DeleteAsync(long commentId, UserInfo userInfo);
+        Task<WorkTaskComment> EditAsync(long commentId, string text, long userId);
+        Task<WorkTaskComment> DeleteAsync(long commentId, long userId);
 
     }
 }

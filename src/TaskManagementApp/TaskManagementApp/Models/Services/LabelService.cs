@@ -26,11 +26,11 @@ namespace TaskManagementApp.Models.Services
             _projectCacheRepository = projectCacheRepository;
         }
 
-        public async Task<bool> AddToTask(long labelId, long taskId, UserInfo userInfo)
+        public async Task<bool> AddToTask(long labelId, long taskId, long userId)
         {
             var label = await _labelRepository.GetNoTrackAsync(labelId) ?? throw new SomeCustomException(Consts.ErrorConsts.LabelNotFound);
 
-            var s = await ExistIfAccessAdminAsync(label.ProjectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(label.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -53,9 +53,9 @@ namespace TaskManagementApp.Models.Services
             return false;
         }
 
-        public async Task<WorkTaskLabel> Create(WorkTaskLabel req, UserInfo userInfo)
+        public async Task<WorkTaskLabel> Create(WorkTaskLabel req, long userId)
         {
-            var s = await ExistIfAccessAdminAsync(req.ProjectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(req.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -75,12 +75,12 @@ namespace TaskManagementApp.Models.Services
 
         }
 
-        public async Task<bool> Delete(long id, UserInfo userInfo)
+        public async Task<bool> Delete(long id, long userId)
         {
 
             var label = await _labelRepository.GetAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.LabelNotFound);
 
-            var s = await ExistIfAccessAdminAsync(label.ProjectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(label.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -90,9 +90,9 @@ namespace TaskManagementApp.Models.Services
             return true;
         }
 
-        public async Task<List<WorkTaskLabel>> Get(long projectId, UserInfo userInfo)
+        public async Task<List<WorkTaskLabel>> Get(long projectId, long userId)
         {
-            var s = await ExistIfAccessAdminAsync(projectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(projectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -105,26 +105,26 @@ namespace TaskManagementApp.Models.Services
             return await _labelRepository.GetForProjectAsync(projectId);
         }
 
-        public async Task<bool> RemoveFromTask(long labelId, long taskId, UserInfo userInfo)
+        public async Task<bool> RemoveFromTask(long labelId, long taskId, long userId)
         {
 
             var label = await _labelRepository.GetNoTrackAsync(labelId) ?? throw new SomeCustomException(Consts.ErrorConsts.LabelNotFound);
 
-            var s = await ExistIfAccessAdminAsync(label.ProjectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(label.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
             return await _labelRepository.RemoveFromTaskIdExistAsync(labelId, taskId);
-            
+
         }
 
-        public async Task<WorkTaskLabel> Update(WorkTaskLabel req, UserInfo userInfo)
+        public async Task<WorkTaskLabel> Update(WorkTaskLabel req, long userId)
         {
             var old = await _labelRepository.GetAsync(req.Id);
 
-            var s = await ExistIfAccessAdminAsync(old.ProjectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(old.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -140,7 +140,7 @@ namespace TaskManagementApp.Models.Services
             return await _labelRepository.UpdateAsync(old);
         }
 
-        public async Task<bool> UpdateTaskLabels(List<long> labelId, long taskId, UserInfo userInfo)
+        public async Task<bool> UpdateTaskLabels(List<long> labelId, long taskId, long userId)
         {
 
             var labels = await _labelRepository.GetNoTrackAsync(labelId) ?? throw new SomeCustomException(Consts.ErrorConsts.LabelNotFound);
@@ -153,7 +153,7 @@ namespace TaskManagementApp.Models.Services
 
             var task = await _workTaskRepository.GetWithLabelRelationAsync(taskId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
 
-            var s = await ExistIfAccessAdminAsync(task.ProjectId, userInfo);
+            var s = await ExistIfAccessAdminAsync(task.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -192,9 +192,9 @@ namespace TaskManagementApp.Models.Services
             return true;
         }
 
-        private async Task<bool> ExistIfAccessAdminAsync(long id, UserInfo userInfo)
+        private async Task<bool> ExistIfAccessAdminAsync(long id, long userId)
         {
-            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userInfo.UserId);
+            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userId);
         }
     }
 }

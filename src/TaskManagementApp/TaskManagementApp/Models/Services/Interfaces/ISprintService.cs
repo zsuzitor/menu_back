@@ -7,15 +7,15 @@ namespace TaskManagementApp.Models.Services.Interfaces
 {
     public interface ISprintService
     {
-        Task<ProjectSprint> Create(ProjectSprint req, UserInfo userInfo);
-        Task<ProjectSprint> Update(ProjectSprint req, UserInfo userInfo);
-        Task<ProjectSprint> Get(long sprintId, UserInfo userInfo);
-        Task<List<WorkTask>> GetTasks(long sprintId, UserInfo userInfo);
+        Task<ProjectSprint> Create(ProjectSprint req, long userId);
+        Task<ProjectSprint> Update(ProjectSprint req, long userId);
+        Task<ProjectSprint> Get(long sprintId, long userId);
+        Task<List<WorkTask>> GetTasks(long sprintId, long userId);
         Task<List<ProjectSprint>> GetForProject(long projectId);
-        Task<List<ProjectSprint>> GetForProjectWithRights(long projectId, UserInfo userInfo);
-        Task<ProjectSprint> Delete(long id, UserInfo userInfo);
-        Task<bool> AddTaskToSprint(long sprintId, long taskId, UserInfo userInfo);
-        Task<bool> UpdateTaskSprints(List<long> sprintId, long taskId, UserInfo userInfo);
-        Task<bool> DeleteTaskFromSprint(long sprintId, long taskId, UserInfo userInfo);
+        Task<List<ProjectSprint>> GetForProjectWithRights(long projectId, long userId);
+        Task<ProjectSprint> Delete(long id, long userId);
+        Task<bool> AddTaskToSprint(long sprintId, long taskId, long userId);
+        Task<bool> UpdateTaskSprints(List<long> sprintId, long taskId, long userId);
+        Task<bool> DeleteTaskFromSprint(long sprintId, long taskId, long userId);
     }
 }

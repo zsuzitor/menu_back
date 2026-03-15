@@ -10,11 +10,11 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
 {
     public interface IWorkTimeLogRepository : IGeneralRepository<WorkTimeLog, long>
     {
-        Task<List<WorkTimeLog>> GetTimeForOneUserTaskAsync(long taskId, UserInfo userInfo);
-        Task<List<WorkTimeLog>> GetTimeForOneUserProjectAsync(long projectId, DateTime startDate, DateTime endDate, UserInfo userInfo);
+        Task<List<WorkTimeLog>> GetTimeForOneUserTaskAsync(long taskId, long userId);
+        Task<List<WorkTimeLog>> GetTimeForOneUserProjectAsync(long projectId, DateTime startDate, DateTime endDate, long userId);
         Task<List<WorkTimeLog>> GetTimeForTaskAsync(long taskId);
         Task<List<WorkTimeLog>> GetTimeForProjectAsync(long projectId, DateTime startDate, DateTime endDate, long? userId);
-        Task<List<WorkTimeLog>> GetTimeForUserAsync(long? userId, DateTime startDate, DateTime endDate, UserInfo userInfo);
-        Task<WorkTimeLog> GetTimeAccessAsync(long id, UserInfo userInfo);
+        Task<List<WorkTimeLog>> GetTimeForUserAsync(long? userId, DateTime startDate, DateTime endDate, long currentUserId);
+        Task<WorkTimeLog> GetTimeAccessAsync(long id, long userId);
     }
 }
