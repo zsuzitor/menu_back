@@ -1,11 +1,22 @@
 ﻿
-using System;
 using Auth.Models.Auth;
+using BL.Models.Services;
+using BL.Models.Services.Cache;
+using BL.Models.Services.Interfaces;
+using BO.Models.Configs;
+using Common.Models;
+using Common.Models.Validators;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
-using WEB.Common.Models.Helpers;
-using WEB.Common.Models.Helpers.Interfaces;
+using Hangfire;
+using Hangfire.Dashboard.BasicAuthorization;
+using Hangfire.MemoryStorage;
+using Hangfire.SqlServer;
+using Menu.Host.Infrastructure.Swagger;
+using Menu.Middleware;
+using Menu.Models;
+using MenuApp.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -13,29 +24,18 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using BL.Models.Services.Interfaces;
-using BL.Models.Services;
 using Microsoft.Extensions.WebEncoders;
+using PlanitPoker.Models;
+using PlanitPoker.Models.Hubs;
+using System;
+using System.Collections.Generic;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
-using PlanitPoker.Models.Hubs;
-using Common.Models;
-using Common.Models.Validators;
-using Hangfire;
-using Hangfire.SqlServer;
-using PlanitPoker.Models;
-using MenuApp.Models;
-using WordsCardsApp;
 using TaskManagementApp.Models;
-using BO.Models.Configs;
-using System.Collections.Generic;
-using Hangfire.MemoryStorage;
 using VaultApp.Models;
-using BL.Models.Services.Cache;
-using Hangfire.Dashboard.BasicAuthorization;
-using Menu.Models;
-using Menu.Middleware;
-using Common.Models.Error.services.Interfaces;
+using WEB.Common.Models.Helpers;
+using WEB.Common.Models.Helpers.Interfaces;
+using WordsCardsApp;
 
 namespace Menu
 {
@@ -68,7 +68,10 @@ namespace Menu
 
             services.AddMvc(option => option.EnableEndpointRouting = false);
             services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+            {
+                c.OperationFilter<AddCustomHeaderFilter>();
+            });
 
 
             if (bool.Parse(Configuration["UseInMemoryDataProvider"]))
