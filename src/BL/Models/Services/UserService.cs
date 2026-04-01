@@ -1,12 +1,13 @@
-﻿using jwtLib.JWTAuth.Interfaces;
-using BO.Models.DAL.Domain;
-using DAL.Models.DAL.Repositories.Interfaces;
+﻿using BO.Models.DAL.Domain;
+using Common.Models.Error;
 using Common.Models.Exceptions;
+using DAL.Models.DAL.Repositories;
+using DAL.Models.DAL.Repositories.Interfaces;
+using jwtLib.JWTAuth.Interfaces;
 using Menu.Models.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Threading.Tasks;
-using Common.Models.Error;
-using Microsoft.AspNetCore.Http;
 
 namespace Menu.Models.Services
 {
@@ -61,11 +62,6 @@ namespace Menu.Models.Services
             return await _userRepository.SetRefreshTokenHashAsync(userId, hash);
         }
 
-        private async Task<User> GetByEmailAndPasswordHashAsync(string email, string passwordHash)
-        {
-            return await _userRepository.GetByEmailAndPasswordHashAsync(email, passwordHash);
-        }
-
         public async Task<User> GetByEmailAndPasswordAsync(string email, string password)
         {
             if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
@@ -73,8 +69,13 @@ namespace Menu.Models.Services
                 return null;
             }
 
-            var passwordHash = _hasher.GetHash(password);
-            return await GetByEmailAndPasswordHashAsync(email, passwordHash);
+            var user = await _userRepository.GetUserAsync(email);
+            if (!_hasher.VerifySaltHash(password, user?.PasswordHash))
+            {
+                return null;
+            }
+
+            return user;
         }
 
         public async Task<long?> GetIdByEmailAsync(string email)
@@ -124,7 +125,7 @@ namespace Menu.Models.Services
 
         public async Task<User> UpdateUserPasswordAsync(long userId, string password)
         {
-            var passwordHash = _hasher.GetHash(password);
+            var passwordHash = _hasher.GetSecuredHash(password);
             return await _userRepository.UpdateUserPasswordAsync(userId, passwordHash);
         }
 
@@ -135,9 +136,20 @@ namespace Menu.Models.Services
                 throw new SomeCustomException(ErrorConsts.BadPasswords);
             }
 
-            var oldPasswordHash = _hasher.GetHash(oldPassword);
-            var passwordHash = _hasher.GetHash(newPassword);
-            var user = await _userRepository.UpdateUserPasswordAsync(userId, oldPasswordHash, passwordHash);
+            var user = await _userRepository.GetUserByIdAsync(userId);
+            if (user == null)
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
+
+            if (!_hasher.VerifySaltHash(oldPassword, user?.PasswordHash))
+            {
+                throw new SomeCustomException(ErrorConsts.NotFound);
+            }
+
+            var passwordHash = _hasher.GetSecuredHash(newPassword);
+
+            user = await _userRepository.UpdateUserPasswordAsync(userId, passwordHash);
             if (user == null)
             {
                 throw new SomeCustomException(ErrorConsts.NotFound);

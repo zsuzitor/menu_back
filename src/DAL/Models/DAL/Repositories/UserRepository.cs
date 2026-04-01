@@ -95,12 +95,6 @@ namespace DAL.Models.DAL.Repositories
             return true;
         }
 
-        public async Task<User> GetByEmailAndPasswordHashAsync(string email, string passwordHash)
-        {
-            return await _db.Users.AsNoTracking()
-                .FirstOrDefaultAsync(x => x.Email == email && x.PasswordHash == passwordHash);
-        }
-
         public async Task<bool> UserIsExist(string email, string login = null)
         {
             if (string.IsNullOrWhiteSpace(email) && string.IsNullOrWhiteSpace(login))
@@ -159,19 +153,6 @@ namespace DAL.Models.DAL.Repositories
             return user;
         }
 
-        public async Task<User> UpdateUserPasswordAsync(long userId, string oldPasswordHash, string passwordHash)
-        {
-            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId
-                && x.PasswordHash == oldPasswordHash);
-            if (user != null)
-            {
-                user.PasswordHash = passwordHash;
-                await _db.SaveChangesAsync();
-            }
-
-            return user;
-        }
-
         public async Task<User> UpdateUserNameAsync(long userId, string newName)
         {
             var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
@@ -200,6 +181,12 @@ namespace DAL.Models.DAL.Repositories
         {
             await _db.SaveChangesAsync();
             return newUser;
+        }
+
+        public async Task<User> GetUserAsync(string email)
+        {
+            return await _db.Users.AsNoTracking()
+                .FirstOrDefaultAsync(x => x.Email == email);
         }
     }
 }

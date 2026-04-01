@@ -67,7 +67,7 @@ namespace Auth.Models.Auth.Services
 
         public async Task<AllTokens> RegisterAsync(RegisterModel registerModel)
         {
-            var passwordHash = _hasher.GetHash(registerModel.Password);
+            var passwordHash = _hasher.GetSecuredHash(registerModel.Password);
             if (string.IsNullOrWhiteSpace(passwordHash))
             {
                 return null;
