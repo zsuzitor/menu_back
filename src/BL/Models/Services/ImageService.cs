@@ -1,15 +1,16 @@
 ﻿
 
 
+using BL.Models.Services.Interfaces;
 using BO.Models.DAL.Domain;
+using DAL.Models.DAL.Repositories.Interfaces;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DAL.Models.DAL.Repositories.Interfaces;
-using BL.Models.Services.Interfaces;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Menu.Models.Services
 {
@@ -64,17 +65,29 @@ namespace Menu.Models.Services
             List<CustomImage> imagesForAdd = new List<CustomImage>();
             foreach (var uploadedImg in images)
             {
-                var physImg = await CreateUploadFileWithOutDbRecord(uploadedImg);
-
-                var img = new CustomImage()
-                {
-                    Path = physImg,
-                };
-                beforeCreate(img);
-                imagesForAdd.Add(img);
+                var img = await GetCreatableUploadObjects(uploadedImg, beforeCreate);
+                if (img != null)
+                    imagesForAdd.Add(img);
             }
 
             return imagesForAdd;
+        }
+
+        public async Task<CustomImage> GetCreatableUploadObjects(IFormFile image, Action<CustomImage> beforeCreate)
+        {
+            if (image == null)
+            {
+                return null;
+            }
+
+            var physImg = await CreateUploadFileWithOutDbRecord(image);
+            var img = new CustomImage()
+            {
+                Path = physImg,
+            };
+            if (beforeCreate != null)
+                beforeCreate(img);
+            return img;
         }
 
 
@@ -136,6 +149,7 @@ namespace Menu.Models.Services
             //todo может тут проверить что это именно картинка??
             //return await _fileService.DeletePhysicalFile(path);
             return await _imageDataStorage.DeleteAsync(path);
+            //todo это оставить но все использования надо убрать
         }
 
 
@@ -182,6 +196,17 @@ namespace Menu.Models.Services
             return images;
         }
 
+        public async Task<CustomImage> Upload(IFormFile image)
+        {
+            var res = await GetCreatableUploadObjects(image, null);
 
+            await _imageRepository.AddAsync(res);
+            return res;
+        }
+
+        public async Task<CustomImage> GetById(long idImage)
+        {
+            return await _imageRepository.GetAsync(idImage);
+        }
     }
 }
