@@ -15,6 +15,9 @@ namespace DAL.Models.DAL.ContextSetup.PlaningPoker
                 entity.HasKey(x => x.Id);
                 entity.Property(x => x.Name).IsRequired();
                 entity.HasIndex(x => x.Name).IsUnique();
+
+                entity.HasOne(x => x.Image).WithMany().HasForeignKey(x => x.ImageId);
+
                 entity.HasMany(x => x.Stories).WithOne(x => x.Room)
                     .HasForeignKey(x => x.RoomId).OnDelete(DeleteBehavior.Cascade);
                 entity.HasMany(x => x.Users).WithOne(x => x.Room)

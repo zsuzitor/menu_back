@@ -8,6 +8,7 @@ using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
@@ -188,10 +189,11 @@ namespace Menu.Models.Services
             }
 
             await _imageRepository.DeleteAsync(images);
-            foreach (var img in images)
-            {
-                await DeleteFileWithOutDbRecord(img.Path);
-            }
+            //удаляется теперь джобой
+            //foreach (var img in images)
+            //{
+            //    await DeleteFileWithOutDbRecord(img.Path);
+            //}
 
             return images;
         }
@@ -207,6 +209,24 @@ namespace Menu.Models.Services
         public async Task<CustomImage> GetById(long idImage)
         {
             return await _imageRepository.GetAsync(idImage);
+        }
+
+        public async Task DeleteNotActualFiles()
+        {
+            var records = await _imageRepository.GetNotActualFiles();
+            foreach (var record in records) {
+                try
+                {
+                    var success = await _imageDataStorage.DeleteAsync(record.Path);
+                    if (success)
+                    {
+                        record.PhysFileDeleted = true;
+                    }
+                    //todo какой то счетчик попыток удаления нужен? хотя если файл удален то тут все норм, а другие кейсы хз
+                }
+                catch { }
+            }
+            await _imageRepository.UpdateAsync(records);
         }
     }
 }

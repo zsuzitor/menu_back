@@ -54,12 +54,12 @@ namespace WordsCardsApp.DAL.Repositories
         //todo возможно есть случаи когда вызывается этот метод хотя нам надо просто узнать если ли доступ вообще
         public async Task<WordCard> GetByIdIfAccessAsync(long id, long userId)
         {
-            return await _db.WordsCards.FirstOrDefaultAsync(x => x.UserId == userId && x.Id == id);
+            return await _db.WordsCards.Include(x => x.Image).FirstOrDefaultAsync(x => x.UserId == userId && x.Id == id);
         }
 
         public async Task<WordCard> GetByIdIfAccessNoTrackAsync(long id, long userId)
         {
-            return await _db.WordsCards.AsNoTracking().FirstOrDefaultAsync(x => x.UserId == userId && x.Id == id);
+            return await _db.WordsCards.Include(x => x.Image).AsNoTracking().FirstOrDefaultAsync(x => x.UserId == userId && x.Id == id);
         }
 
         public async Task<List<WordCard>> LoadWordListsIdAsync(List<WordCard> words)
@@ -92,7 +92,7 @@ namespace WordsCardsApp.DAL.Repositories
 
         private IQueryable<WordCard> GetAllForUser(long userId)
         {
-            return _db.WordsCards.AsNoTracking().Where(x => x.UserId == userId);
+            return _db.WordsCards.Include(x=>x.Image).AsNoTracking().Where(x => x.UserId == userId);
         }
     }
 }

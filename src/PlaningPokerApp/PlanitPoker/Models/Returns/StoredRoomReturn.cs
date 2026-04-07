@@ -52,7 +52,7 @@ namespace PlanitPoker.Models.Returns
             }
 
             Name = obj.Name;
-            ImagePath = obj.ImagePath;
+            ImagePath = obj.Image?.Path;
             DieDate = obj.DieDate;
             Status = obj.Status;
             CurrentStoryId = obj.CurrentStoryId;

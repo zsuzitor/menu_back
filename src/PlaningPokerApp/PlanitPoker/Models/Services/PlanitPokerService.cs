@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Http;
 using Menu.Models.Services.Interfaces;
 using BL.Models.Services.Interfaces;
 using BL.Models.Services;
+using BO.Models.DAL.Domain;
 
 namespace PlanitPoker.Models.Services
 {
@@ -1145,9 +1146,16 @@ namespace PlanitPoker.Models.Services
                         {
                             await SaveRoomWithoutRightsNoLock(rm);
                         }
+                        else if (clearRooms)
+                        {
+                            //удаляем картинку только если комната не сохраняется в бд и должна быть удалена из памяти
+                            if (rm.StoredRoom.Image != null)
+                                await _imageService.DeleteById(rm.StoredRoom.Image.Id);
+                        }
 
                         if (clearRooms)
                         {
+                            //удаляем из памяти, комната возможно сохранена а возможно нет
                             Rooms.Remove(roomName, out var room);
                         }
                     });
@@ -1257,39 +1265,45 @@ namespace PlanitPoker.Models.Services
                 throw new SomeCustomException(Constants.PlanitPokerErrorConsts.RoomNotFound);
             }
 
+
+
             string pathImage = null;
-            if (image != null)
-            {
-                pathImage = await _imageService.CreateUploadFileWithOutDbRecord(image);
-                if (string.IsNullOrEmpty(pathImage))
-                {
-                    throw new SomeCustomException(ErrorConsts.FileError);
-                }
-            }
-
-
             var success = await UpdateIfCan(room, userId, true, async rm =>
             {
                 try
                 {
                     var roomDb = await _roomRepository.GetByNameAsync(roomName);
-                    string oldImage = null;
+
+                    CustomImage imageRecord = null;
+                    if (image != null)
+                    {
+                        imageRecord = await _imageService.Upload(image);
+                        //if (string.IsNullOrEmpty(pathImage))
+                        //{
+                        //    throw new SomeCustomException(ErrorConsts.FileError);
+                        //}
+                    }
+
+                    long? oldImageId = null;
                     if (roomDb != null)
                     {
-                        oldImage = roomDb.ImagePath;
-                        roomDb.ImagePath = pathImage;
+
+                        //работаем с записью в бд, ее может не быть если рума не сохранена
+                        oldImageId = roomDb.ImageId;
+                        roomDb.ImageId = imageRecord?.Id;
                         _ = await _roomRepository.UpdateAsync(roomDb);
                     }
 
-                    oldImage ??= rm.ImagePath;
-                    await _imageService.DeleteFileWithOutDbRecord(oldImage);
-
-                    rm.ImagePath = pathImage;
+                    oldImageId ??= rm.Image?.Id;
+                    if (oldImageId.HasValue)
+                        await _imageService.DeleteById(oldImageId.Value);
+                    rm.Image = imageRecord;
+                    pathImage = imageRecord?.Path;
                     return true;
                 }
                 catch
                 {
-                    await _imageService.DeleteFileWithOutDbRecord(pathImage);
+                    //await _imageService.DeleteFileWithOutDbRecord(pathImage);
                     return false;
                 }
 
@@ -1514,7 +1528,7 @@ namespace PlanitPoker.Models.Services
                 Password = roomDb.StoredRoom.Password,
                 Id = roomDb.StoredRoom.Id ?? 0,
                 Cards = JsonSerializer.Serialize(roomDb.StoredRoom.Cards), //string.Join(';', roomDb.StoredRoom.Cards),
-                ImagePath = roomDb.StoredRoom.ImagePath,
+                ImageId = roomDb.StoredRoom.Image?.Id,
             };
 
             return res;
@@ -1548,7 +1562,7 @@ namespace PlanitPoker.Models.Services
                 }).ToList(),
                 Cards = string.IsNullOrWhiteSpace(roomDb.Cards) ? DefaultCards.Select(x => x).ToList()
                     : JsonSerializer.Deserialize<List<string>>(roomDb.Cards),
-                ImagePath = roomDb.ImagePath,
+                Image = roomDb.Image,
                 //roomDb.Cards?.Split(";", StringSplitOptions.RemoveEmptyEntries).ToList() ?? new List<string>()
             };
             storedRoom.SetDieDate(_dateTimeProvider.CurrentDateTime());
@@ -1655,6 +1669,7 @@ namespace PlanitPoker.Models.Services
                 throw new SomeCustomException("Имя каким то образом задублилось"); //todo
             }
 
+            //todo посмотреть, транзакция нужна?
             if (roomFromDb == null)
             {
                 objForSave.Users.AddRange(

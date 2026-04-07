@@ -22,12 +22,12 @@ namespace MenuApp.Models.DAL.Repositories
 
         public async Task<List<Article>> GetAllUsersArticles(long userId)
         {
-            return await _db.Articles.AsNoTracking().Where(x => x.UserId == userId).ToListAsync();
+            return await _db.Articles.Include(x=>x.Image).AsNoTracking().Where(x => x.UserId == userId).ToListAsync();
         }
 
         public async Task<List<ArticleShort>> GetAllUsersArticlesShort(long userId)
         {
-            return await _db.Articles.AsNoTracking().Where(x => x.UserId == userId).Select(x => new ArticleShort(x)).ToListAsync();
+            return await _db.Articles.Include(x=>x.Image).AsNoTracking().Where(x => x.UserId == userId).Select(x => new ArticleShort(x)).ToListAsync();
         }
 
         public async Task<bool?> ChangeFollowStatus(long id, long userId)
@@ -45,12 +45,12 @@ namespace MenuApp.Models.DAL.Repositories
 
         public async Task<Article> GetByIdIfAccessAsync(long id, long userId)
         {
-            return await _db.Articles.FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
+            return await _db.Articles.Include(x => x.Image).FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
         }
 
         public async Task<Article> GetByIdIfAccessNoTrackAsync(long id, long userId)
         {
-            return await _db.Articles.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
+            return await _db.Articles.Include(x => x.Image).AsNoTracking().FirstOrDefaultAsync(x => x.Id == id && x.UserId == userId);
         }
 
 

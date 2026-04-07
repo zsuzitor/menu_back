@@ -41,7 +41,7 @@ namespace Menu.Models.Returns.Types
                 Id = obj.Id;
                 Name = obj.Name;
                 Email = obj.Email;
-                ImagePath = obj.ImagePath;
+                ImagePath = obj.Image?.Path;
             }
         }
 

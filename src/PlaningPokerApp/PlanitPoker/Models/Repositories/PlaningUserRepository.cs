@@ -26,16 +26,19 @@ namespace PlanitPoker.Models.Repositories
 
         public async Task<List<RoomShortInfo>> GetRoomsAsync(long userId)
         {
-            var query = _db.PlaningRoomUsers.Where(x => x.MainAppUserId == userId)
-                //.Select(x=>x.RoomId)
-                //.AsQueryable()
-                .Join(_db.PlaningRooms, x => x.RoomId, x => x.Id
-                , (x, y) => new RoomShortInfo() { Name = y.Name, ImagePath = y.ImagePath });
-            //var sql = query.ToSql();
-            //var g = _db.PlaningRoomUsers.Where(x => x.MainAppUserId == userId);
-            //g.joi
-            return await query.ToListAsync();
-            //.Select(x => new RoomShortInfo() { Name = x.Name, ImagePath = }).ToListAsync();
+            return await _db.PlaningRooms.Include(x => x.Users).Include(x => x.Image)
+                .Where(x => x.Users.Any(u => u.Id == userId))
+                .Select(x => new RoomShortInfo() { Name = x.Name, ImagePath = x.Image == null ? null : x.Image.Path }).ToListAsync();
+            //var query = _db.PlaningRoomUsers.Where(x => x.MainAppUserId == userId)
+            //    //.Select(x=>x.RoomId)
+            //    //.AsQueryable()
+            //    .Join(_db.PlaningRooms, x => x.RoomId, x => x.Id
+            //    , (x, y) => new RoomShortInfo() { Name = y.Name, ImagePath = y.ImagePath });
+            ////var sql = query.ToSql();
+            ////var g = _db.PlaningRoomUsers.Where(x => x.MainAppUserId == userId);
+            ////g.joi
+            //return await query.ToListAsync();
+            ////.Select(x => new RoomShortInfo() { Name = x.Name, ImagePath = }).ToListAsync();
         }
 
 

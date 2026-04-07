@@ -22,7 +22,7 @@ namespace DAL.Models.DAL.Repositories.Interfaces
         Task<List<(long userId, string email)>> GetIdByEmailAsync(List<string> email);
         Task<User> UpdateUserPasswordAsync(long userId, string passwordHash);
         Task<User> UpdateUserNameAsync(long userId, string newName);
-        Task<User> UpdateImageAsync(long userId, string imagePath);
+        //Task<User> UpdateImageAsync(long userId, string imagePath);
 
         Task<User> GetShortInfo(long userId);
     }

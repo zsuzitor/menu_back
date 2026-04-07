@@ -1,16 +1,18 @@
 ﻿
 
 
+using BO.Models.Auth;
+using BO.Models.MenuApp.DAL.Domain;
 using Common.Models.Error;
 using Common.Models.Exceptions;
+using DAL.Models.DAL;
+using Hangfire.Common;
 using Menu.Models.Services.Interfaces;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using MenuApp.Models.DAL.Repositories.Interfaces;
-using BO.Models.MenuApp.DAL.Domain;
-using BO.Models.Auth;
 using MenuApp.Models.BO;
 using MenuApp.Models.BO.Input;
+using MenuApp.Models.DAL.Repositories.Interfaces;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace MenuApp.Models.BL.Services
 {
@@ -18,12 +20,17 @@ namespace MenuApp.Models.BL.Services
     {
         private readonly IArticleRepository _articleRepository;
         private readonly IImageService _imageService;
+        private readonly IDBHelper _dbHelper;
+        private readonly MenuDbContext _db;
 
 
-        public ArticleService(IArticleRepository articleRepository, IImageService imageService)
+        public ArticleService(IArticleRepository articleRepository, IImageService imageService
+            , IDBHelper dbHelper, MenuDbContext db)
         {
             _articleRepository = articleRepository;
             _imageService = imageService;
+            _dbHelper = dbHelper;
+            _db = db;
         }
 
         //
@@ -55,23 +62,25 @@ namespace MenuApp.Models.BL.Services
             article.UserId = userInfo.UserId;
             try
             {
-                article.MainImagePath = await _imageService.CreateUploadFileWithOutDbRecord(newArticle.MainImageNew);
-
-                article = await _articleRepository.AddAsync(article);
-
-
-                article.AdditionalImages = await _imageService.Upload(newArticle.AdditionalImages, (img) => img.ArticleId = article.Id);
-
+                await _dbHelper.ActionInTransaction(_db, async () =>
+                {
+                    var image = await _imageService.Upload(newArticle.MainImageNew);
+                    article.ImageId = image?.Id;
+                    article = await _articleRepository.AddAsync(article);
+                    article.AdditionalImages = await _imageService.Upload(newArticle.AdditionalImages, (img) => img.ArticleId = article.Id);
+                    article.Image = image;
+                });
+                
                 return article;
             }
             catch
             {
 
-                if (article.AdditionalImages?.Count > 0)
-                {
-                    //TODO картинки надо попытаться удалить
-                    await _imageService.DeleteFull(article.AdditionalImages);
-                }
+                //if (article.AdditionalImages?.Count > 0)
+                //{
+                //    //TODO картинки надо попытаться удалить
+                //    await _imageService.DeleteFull(article.AdditionalImages);
+                //}
                 throw;
             }
         }
@@ -91,55 +100,63 @@ namespace MenuApp.Models.BL.Services
                 throw new SomeCustomException("id_is_required");//TODO
             }
 
-            var oldObj = await GetByIdIfAccess((long)newArticle.Id, userInfo);
 
-
-            if (oldObj == null)
+            Article oldObj = null;
+            await _dbHelper.ActionInTransaction(_db, async () =>
             {
-                throw new SomeCustomException(ErrorConsts.NotFound);
-            }
-            
-            var changed = FillArticleFromInputModelEdit(oldObj, newArticle);
+                oldObj = await GetByIdIfAccess((long)newArticle.Id, userInfo);
 
-            if (newArticle.MainImageNew != null)
-            {
-                await _imageService.DeleteFileWithOutDbRecord(oldObj.MainImagePath);
-                oldObj.MainImagePath = await _imageService.CreateUploadFileWithOutDbRecord(newArticle.MainImageNew);
-                changed = true;
-            }
-            else if (newArticle.DeleteMainImage ?? false && !string.IsNullOrWhiteSpace(oldObj.MainImagePath))
-            {
-                await _imageService.DeleteFileWithOutDbRecord(oldObj.MainImagePath);
-                oldObj.MainImagePath = null;
-                changed = true;
-
-            }
-
-            if (changed)//?
-            {
-                await _articleRepository.UpdateAsync(oldObj);
-            }
-
-            var newImages = await _imageService.Upload(newArticle.AdditionalImages, (img) => img.ArticleId = oldObj.Id);
-
-            //удаляем в конце тк самая неважная операция и самая ломающая
-            
-            //var imageNewList = new List<CustomImage>();
-
-            if (newArticle.DeletedAdditionalImages.Count > 0)
-            {
-                var imageForDelete = new List<long>();
-                var oldImagesId = await _imageService.GetIdsByArticleId(oldObj.Id);
-                foreach (var oldImage in oldImagesId)
+                if (oldObj == null)
                 {
-                    if (newArticle.DeletedAdditionalImages.Contains(oldImage))
-                    {
-                        imageForDelete.Add(oldImage);
-                    }
+                    throw new SomeCustomException(ErrorConsts.NotFound);
                 }
 
-                var deletedImages = await _imageService.DeleteById(imageForDelete);
-            }
+                var changed = FillArticleFromInputModelEdit(oldObj, newArticle);
+
+                if (newArticle.MainImageNew != null)
+                {
+                    if (oldObj.ImageId.HasValue)
+                        await _imageService.DeleteById(oldObj.ImageId.Value);
+                    oldObj.Image = await _imageService.Upload(newArticle.MainImageNew);
+                    oldObj.ImageId = oldObj.Image.Id;
+                    changed = true;
+                }
+                else if (newArticle.DeleteMainImage ?? false && oldObj.ImageId.HasValue)
+                {
+                    await _imageService.DeleteById(oldObj.ImageId.Value);
+                    oldObj.ImageId = null;
+                    oldObj.Image = null;
+                    changed = true;
+
+                }
+
+                if (changed)//?
+                {
+                    await _articleRepository.UpdateAsync(oldObj);
+                }
+
+                var newImages = await _imageService.Upload(newArticle.AdditionalImages, (img) => img.ArticleId = oldObj.Id);
+
+                //удаляем в конце тк самая неважная операция и самая ломающая
+
+                //var imageNewList = new List<CustomImage>();
+
+                if (newArticle.DeletedAdditionalImages.Count > 0)
+                {
+                    var imageForDelete = new List<long>();
+                    var oldImagesId = await _imageService.GetIdsByArticleId(oldObj.Id);
+                    foreach (var oldImage in oldImagesId)
+                    {
+                        if (newArticle.DeletedAdditionalImages.Contains(oldImage))
+                        {
+                            imageForDelete.Add(oldImage);
+                        }
+                    }
+
+                    var deletedImages = await _imageService.DeleteById(imageForDelete);
+                }
+            });
+            
             
 
             return oldObj;
@@ -156,7 +173,8 @@ namespace MenuApp.Models.BL.Services
             if (deletedArticle != null)
             {
                 await _imageService.DeleteFull(deletedArticle.AdditionalImages);
-                await _imageService.DeleteFileWithOutDbRecord(deletedArticle.MainImagePath);
+                if(deletedArticle.ImageId.HasValue)
+                await _imageService.DeleteById(deletedArticle.ImageId.Value);
             }
 
             return deletedArticle;
@@ -195,7 +213,7 @@ namespace MenuApp.Models.BL.Services
                 throw new NotAuthException();
             }
 
-            return await _articleRepository.GetByIdIfAccessNoTrackAsync(id, userInfo.UserId);
+            return await _articleRepository.GetByIdIfAccessAsync(id, userInfo.UserId);
         }
 
         public async Task<Article> GetFullByIdIfAccess(long id, UserInfo userInfo)

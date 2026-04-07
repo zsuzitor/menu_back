@@ -7,7 +7,8 @@ namespace BO.Models.WordsCardsApp.DAL.Domain
     public sealed class WordCard : IDomainRecord<long>
     {
         public long Id { get; set; }
-        public string ImagePath { get; set; }
+        public long? ImageId { get; set; }
+        public CustomImage Image { get; set; }
 
         public string Word { get; set; }
         public string WordAnswer { get; set; }//не хотел завязываться на слово "перевод"

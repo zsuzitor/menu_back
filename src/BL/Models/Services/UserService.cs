@@ -1,6 +1,7 @@
 ﻿using BO.Models.DAL.Domain;
 using Common.Models.Error;
 using Common.Models.Exceptions;
+using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
 using jwtLib.JWTAuth.Interfaces;
@@ -16,14 +17,18 @@ namespace Menu.Models.Services
         private readonly IJWTHasher _hasher;
         private readonly IUserRepository _userRepository;
         private readonly IImageService _imageService;
+        private readonly IDBHelper _dbHelper;
+        private readonly MenuDbContext _db;
 
 
         public UserService(IUserRepository userRepository, IJWTHasher hasher
-            , IImageService imageService)
+            , IImageService imageService, IDBHelper dbHelper, MenuDbContext db)
         {
             _userRepository = userRepository;
             _hasher = hasher;
             _imageService = imageService;
+            _dbHelper = dbHelper;
+            _db = db;
         }
 
 
@@ -181,29 +186,32 @@ namespace Menu.Models.Services
             //{
             //    throw new SomeCustomException(ErrorConsts.NotFound);
             //}
-            string pathImage = null;
-            if (image != null)
-            {
-                //throw new SomeCustomException(ErrorConsts.FileError);
-                pathImage = await _imageService.CreateUploadFileWithOutDbRecord(image);
-                if (string.IsNullOrEmpty(pathImage))
-                {
-                    throw new SomeCustomException(ErrorConsts.FileError);
-                }
-            }
-
             var user = await _userRepository.GetUserByIdAsync(userId);
             if (user == null)
             {
                 throw new SomeCustomException(ErrorConsts.NotFound);
             }
 
-            var oldImgPath = user.ImagePath;
-            user.ImagePath = pathImage;
-            _ = await _userRepository.UpdateAsync(user);
-            await _imageService.DeleteFileWithOutDbRecord(oldImgPath);
+            string newPath = null;
+            await _dbHelper.ActionInTransaction(_db, async () =>
+            {
 
-            return pathImage;
+                CustomImage imageRecord = null;
+                if (image != null)
+                {
+                    //throw new SomeCustomException(ErrorConsts.FileError);
+                    imageRecord = await _imageService.Upload(image);
+                }
+
+                //var oldImage = await _imageService.GetById(user.ImageId);
+                if (user.ImageId.HasValue)
+                    await _imageService.DeleteById(user.ImageId.Value);
+
+                user.ImageId = imageRecord?.Id;
+                _ = await _userRepository.UpdateAsync(user);
+                newPath = imageRecord?.Path;
+            });
+            return newPath;
 
         }
 

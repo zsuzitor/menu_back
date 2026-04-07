@@ -16,6 +16,19 @@ namespace BO.Models.DAL.Domain
         public Article Article { get; set; }
         public byte[] RowVersion { get; set; }
 
+        /// <summary>
+        /// объект(запись) в бд удален
+        /// </summary>
+        public bool IsDeleted { get; set; }
+        /// <summary>
+        /// надо удалить физический файл
+        /// </summary>
+        public bool PhysFileShouldBeDeleted { get; set; }
+        /// <summary>
+        /// физический файл удален
+        /// </summary>
+        public bool PhysFileDeleted { get; set; }
+
 
 
     }

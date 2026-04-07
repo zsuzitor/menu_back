@@ -1,4 +1,5 @@
-﻿using PlanitPoker.Models.Enums;
+﻿using BO.Models.DAL.Domain;
+using PlanitPoker.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace PlanitPoker.Models.Entity
         public long? Id { get; set; }//только для уже существующих в бд записей
         public string Name { get; set; }
         public string Password { get; set; }
-        public string ImagePath { get; set; }
+        public CustomImage Image { get; set; }//todo можно создать укороченный тип
 
 
         public DateTime DieDate { get; set; }

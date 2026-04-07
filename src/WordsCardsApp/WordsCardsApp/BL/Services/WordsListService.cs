@@ -30,7 +30,7 @@ namespace WordsCardsApp.BL.Services
                 throw new SomeCustomException(ErrorConsts.NotFound);
             }
 
-            var card = await _wordsCardsService.GetByIdIfAccess(cardId, userInfo);
+            var card = await _wordsCardsService.GetByIdIfAccessNoTrackAsync(cardId, userInfo);
             if (card == null)
             {
                 throw new SomeCustomException(ErrorConsts.NotFound);
@@ -113,7 +113,7 @@ namespace WordsCardsApp.BL.Services
                 throw new SomeCustomException(ErrorConsts.NotFound);
             }
 
-            var card = await _wordsCardsService.GetByIdIfAccess(cardId, userInfo);//вохможно лишнее, тк уже проверили лист
+            var card = await _wordsCardsService.GetByIdIfAccessNoTrackAsync(cardId, userInfo);//вохможно лишнее, тк уже проверили лист
             if (card == null)
             {
                 throw new SomeCustomException(ErrorConsts.NotFound);

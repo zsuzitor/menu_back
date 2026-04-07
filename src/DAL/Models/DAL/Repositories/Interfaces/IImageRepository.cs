@@ -10,5 +10,8 @@ namespace DAL.Models.DAL.Repositories.Interfaces
     public interface IImageRepository:IGeneralRepository<CustomImage,long>
     {
         Task<List<long>> GetImagesIdsByArticleId(long articleId);
+        Task<List<CustomImage>> GetNotActualFiles();
+
+        
     }
 }

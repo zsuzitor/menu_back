@@ -1,6 +1,7 @@
 ﻿
 
 using BO.Models.DAL;
+using BO.Models.DAL.Domain;
 using System.Collections.Generic;
 
 namespace BO.Models.PlaningPoker.DAL
@@ -10,7 +11,8 @@ namespace BO.Models.PlaningPoker.DAL
         public long Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
-        public string ImagePath { get; set; }
+        public long? ImageId { get; set; }
+        public CustomImage Image { get; set; }
 
 
         public List<PlaningStoryDal> Stories { get; set; }

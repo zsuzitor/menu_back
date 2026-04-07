@@ -18,6 +18,8 @@ namespace DAL.Models.DAL.ContextSetup
                 //раскомментить если будет изменение логики заполнения логинов, тк сейчас полностью копирует почту, смысла ноый индекс делать нет
                 //modelBuilder.Entity<User>().HasIndex(x => x.Login).IsUnique();
                 entity.Property(x => x.PasswordHash).IsRequired();
+
+                entity.HasOne(x => x.Image).WithMany().HasForeignKey(x => x.ImageId);
                 entity.HasMany(x => x.Articles).WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId);
                 entity.HasMany(x => x.WordsCards).WithOne(x => x.User).

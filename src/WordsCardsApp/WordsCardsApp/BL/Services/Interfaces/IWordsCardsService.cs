@@ -12,6 +12,7 @@ namespace WordsCardsApp.BL.Services.Interfaces
     public interface IWordsCardsService
     {
         Task<WordCard> GetByIdIfAccess(long id, UserInfo userInfo);
+        Task<WordCard> GetByIdIfAccessNoTrackAsync(long id, UserInfo userInfo);
         Task<List<WordCard>> GetAllForUser(UserInfo userInfo);
         Task<List<WordCard>> GetAllForUserForView(UserInfo userInfo);
         

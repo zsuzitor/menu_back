@@ -66,7 +66,7 @@ namespace Menu.Models.Returns.Types.MenuApp
             Id = obj.Id;
             Title = obj.Title;
             Body = obj.Body;
-            MainImagePath = obj.MainImagePath;
+            MainImagePath = obj.Image?.Path;
             Followed = obj.Followed;
             UserId = obj.UserId;
             AdditionalImages = obj.AdditionalImages?.Select(x => new CustomImageReturn(x)).ToList();

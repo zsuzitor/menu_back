@@ -22,7 +22,7 @@ namespace PlanitPoker.Models.Repositories
 
         public async Task<PlaningRoomDal> GetByNameAsync(string name)
         {
-            return await _db.PlaningRooms.FirstOrDefaultAsync(x => x.Name == name.ToUpper());
+            return await _db.PlaningRooms.Include(x=>x.Image).FirstOrDefaultAsync(x => x.Name == name.ToUpper());
         }
 
         public async Task<PlaningRoomDal> DeleteByNameAsync(string name)

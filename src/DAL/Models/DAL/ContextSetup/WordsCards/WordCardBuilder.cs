@@ -17,6 +17,8 @@ namespace DAL.Models.DAL.ContextSetup.WordsCards
                     .WithOne(x => x.WordCard)
                     .HasForeignKey(x => x.WordCardId).OnDelete(DeleteBehavior.Cascade);
 
+                entity.HasOne(x => x.Image).WithMany().HasForeignKey(x => x.ImageId);
+
                 entity.Property(p => p.RowVersion)
                     .IsRowVersion() // Автоматически обновляется SQL Server
                     .IsConcurrencyToken(); // Включает проверку на конфликты

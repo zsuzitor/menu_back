@@ -11,6 +11,7 @@ namespace Menu.Models.Services.Interfaces
     public interface IImageService
     {
         Task<CustomImage> Upload(IFormFile image, Action<CustomImage> beforeCreate);
+        Task<CustomImage> Upload(IFormFile image);
         Task<List<CustomImage>> Upload(List<IFormFile> images, Action<CustomImage> beforeCreate);
 
         /// <summary>
@@ -20,14 +21,19 @@ namespace Menu.Models.Services.Interfaces
         /// <param name="beforeCreate"></param>
         /// <returns></returns>
         Task<List<CustomImage>> GetCreatableUploadObjects(List<IFormFile> images, Action<CustomImage> beforeCreate);
+        Task<CustomImage> GetCreatableUploadObjects(IFormFile images, Action<CustomImage> beforeCreate);
         Task<string> CreateWithOutDbRecord(IFormFile image);
         Task<string> CreateUploadFileWithOutDbRecord(IFormFile image);
 
         Task<bool> DeleteFileWithOutDbRecord(string path);
         Task<CustomImage> DeleteById(long idImage);
+        Task<CustomImage> GetById(long idImage);
         Task<List<long>> GetIdsByArticleId(long idArticle);
         Task<List<CustomImage>> DeleteById(List<long> idImages);
         Task<List<CustomImage>> DeleteFull(List<CustomImage> images);
+
+
+        Task DeleteNotActualFiles();
 
         //string GetRelativePath(string subPath);
     }

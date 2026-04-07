@@ -128,7 +128,7 @@ namespace DAL.Models.DAL.Repositories
         public async Task<User> GetShortInfo(long userId)
         {
             //TODO тут бы обрезать модель, грузить только то что надо и тд, но пока что так
-            var user = await _db.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Id == userId);
+            var user = await _db.Users.Include(x => x.Image).AsNoTracking().FirstOrDefaultAsync(x => x.Id == userId);
             if (user == null)
             {
                 return null;
@@ -165,17 +165,17 @@ namespace DAL.Models.DAL.Repositories
             return user;
         }
 
-        public async Task<User> UpdateImageAsync(long userId, string imagePath)
-        {
-            var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
-            if (user != null)
-            {
-                user.ImagePath = imagePath;
-                await _db.SaveChangesAsync();
-            }
+        //public async Task<User> UpdateImageAsync(long userId, string imagePath)
+        //{
+        //    var user = await _db.Users.FirstOrDefaultAsync(x => x.Id == userId);
+        //    if (user != null)
+        //    {
+        //        user.ImagePath = imagePath;
+        //        await _db.SaveChangesAsync();
+        //    }
 
-            return user;
-        }
+        //    return user;
+        //}
 
         public async Task<User> UpdateAsync(User newUser)
         {

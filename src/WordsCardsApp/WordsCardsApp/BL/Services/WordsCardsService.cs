@@ -1,8 +1,11 @@
 ﻿
 using BO.Models.Auth;
+using BO.Models.DAL.Domain;
 using BO.Models.WordsCardsApp.DAL.Domain;
 using Common.Models.Error;
 using Common.Models.Exceptions;
+using DAL.Models.DAL;
+using Hangfire.Common;
 using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
@@ -20,15 +23,30 @@ namespace WordsCardsApp.BL.Services
         private readonly IWordsCardsRepository _wordCardRepository;
         private readonly IWordsListRepository _wordCardListsRepository;
         private readonly IImageService _imageService;
+        private readonly IDBHelper _dbHelper;
+        private readonly MenuDbContext _db;
 
-        public WordsCardsService(IWordsCardsRepository repository, IImageService imageService, IWordsListRepository wordCardListsRepository)
+        public WordsCardsService(IWordsCardsRepository repository, IImageService imageService
+            , IWordsListRepository wordCardListsRepository, IDBHelper dbHelper, MenuDbContext db)
         {
             _wordCardRepository = repository;
             _imageService = imageService;
             _wordCardListsRepository = wordCardListsRepository;
+            _dbHelper = dbHelper;
+            _db = db;
         }
 
         public async Task<WordCard> GetByIdIfAccess(long id, UserInfo userInfo)
+        {
+            if (userInfo == null)
+            {
+                throw new NotAuthException();
+            }
+
+            return await _wordCardRepository.GetByIdIfAccessAsync(id, userInfo.UserId);
+        }
+
+        public async Task<WordCard> GetByIdIfAccessNoTrackAsync(long id, UserInfo userInfo)
         {
             if (userInfo == null)
             {
@@ -63,9 +81,15 @@ namespace WordsCardsApp.BL.Services
 
             try
             {
-                wordCardNew.ImagePath = await _imageService.CreateUploadFileWithOutDbRecord(input.MainImageNew);
-                var resWordCard = await _wordCardRepository.AddAsync(wordCardNew);
-                return resWordCard;
+                WordCard resWordCard = null;
+                await _dbHelper.ActionInTransaction(_db, async () =>
+                {
+                    var img = await _imageService.Upload(input.MainImageNew);
+                    wordCardNew.ImageId = img.Id;
+                    wordCardNew.Image = img;
+                    resWordCard = await _wordCardRepository.AddAsync(wordCardNew);
+                });
+                    return resWordCard;
             }
             catch
             {
@@ -95,7 +119,9 @@ namespace WordsCardsApp.BL.Services
                 {
                     var wordCardNew = WordCardFromInputModelNew(i);
                     wordCardNew.UserId = userInfo.UserId;
-                    wordCardNew.ImagePath = await _imageService.CreateUploadFileWithOutDbRecord(i.MainImageNew);
+                    var img = await _imageService.Upload(i.MainImageNew);
+                    wordCardNew.ImageId = img.Id;
+                    wordCardNew.Image = img;
                     if (i.ListId != null)
                     {
                         var curList = lst.FirstOrDefault(x => x.Id == i.ListId);
@@ -143,14 +169,18 @@ namespace WordsCardsApp.BL.Services
 
             if (input.MainImageNew != null)
             {
-                await _imageService.DeleteFileWithOutDbRecord(oldObj.ImagePath);
-                oldObj.ImagePath = await _imageService.CreateUploadFileWithOutDbRecord(input.MainImageNew);
+                if (oldObj.ImageId.HasValue)
+                    await _imageService.DeleteById(oldObj.ImageId.Value);
+                oldObj.Image = await _imageService.Upload(input.MainImageNew);
+                oldObj.ImageId = oldObj.Image.Id;
                 changed = true;
             }
-            else if (input.DeleteMainImage ?? false && !string.IsNullOrWhiteSpace(oldObj.ImagePath))
+            else if (input.DeleteMainImage ?? false && oldObj.ImageId.HasValue)
             {
-                await _imageService.DeleteFileWithOutDbRecord(oldObj.ImagePath);
-                oldObj.ImagePath = null;
+                if (oldObj.ImageId.HasValue)
+                    await _imageService.DeleteById(oldObj.ImageId.Value);
+                oldObj.ImageId = null;
+                oldObj.Image = null;
                 changed = true;
 
             }
@@ -210,7 +240,7 @@ namespace WordsCardsApp.BL.Services
                     WordAnswer = strData[1].Trim(),
                     Description = strData[2].Trim(),
                     Hided = bool.Parse(strData[3].Trim()),
-                    ImagePath = strData[4].Trim(),
+                    Image = new CustomImage() { Path = strData[4].Trim() },
                     UserId = userInfo.UserId,
                 });
             }
@@ -225,14 +255,18 @@ namespace WordsCardsApp.BL.Services
             {
                 throw new NotAuthException();
             }
+            WordCard deletedRecord = null;
+            await _dbHelper.ActionInTransaction(_db, async () => {
+                //var record = await _wordCardRepository.GetByIdIfAccessAsync(id, userInfo.UserId);
+                deletedRecord = await _wordCardRepository.DeleteAsync(id, userInfo.UserId);
+                if (deletedRecord == null)
+                {
+                    throw new SomeCustomException(ErrorConsts.NotFound);
+                }
 
-            var deletedRecord = await _wordCardRepository.DeleteAsync(id, userInfo.UserId);
-            if (deletedRecord == null)
-            {
-                throw new SomeCustomException(ErrorConsts.NotFound);
-            }
-
-            await _imageService.DeleteFileWithOutDbRecord(deletedRecord.ImagePath);
+                if (deletedRecord.ImageId.HasValue)
+                    await _imageService.DeleteById(deletedRecord.ImageId.Value);
+            });
 
             return deletedRecord;
         }
@@ -292,7 +326,7 @@ namespace WordsCardsApp.BL.Services
 
         public string ToStringForSave(WordCard obj)
         {
-            return $"{obj.Word};{obj.WordAnswer};{obj.Description};{obj.Hided};{obj.ImagePath};";
+            return $"{obj.Word};{obj.WordAnswer};{obj.Description};{obj.Hided};{obj.Image?.Path};";
         }
 
         public async Task<List<string>> GetAllRecordsStringForSave(UserInfo userInfo)

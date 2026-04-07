@@ -23,7 +23,7 @@ namespace MenuApp.Models.BO
             Id = article.Id;
             Title = article.Title;
             Body = article.Body;
-            MainImagePath = article.MainImagePath;
+            MainImagePath = article.Image?.Path;
             Followed = article.Followed;
         }
     }

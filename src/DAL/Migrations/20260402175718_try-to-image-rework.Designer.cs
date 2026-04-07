@@ -4,6 +4,7 @@ using DAL.Models.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(MenuDbContext))]
-    partial class MenuDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260402175718_try-to-image-rework")]
+    partial class trytoimagerework
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -244,8 +247,8 @@ namespace DAL.Migrations
                     b.Property<bool>("Followed")
                         .HasColumnType("bit");
 
-                    b.Property<long?>("ImageId")
-                        .HasColumnType("bigint");
+                    b.Property<string>("MainImagePath")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()
@@ -259,8 +262,6 @@ namespace DAL.Migrations
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ImageId");
 
                     b.HasIndex("UserId");
 
@@ -278,8 +279,8 @@ namespace DAL.Migrations
                     b.Property<string>("Cards")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long?>("ImageId")
-                        .HasColumnType("bigint");
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -294,8 +295,6 @@ namespace DAL.Migrations
                         .HasColumnType("rowversion");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ImageId");
 
                     b.HasIndex("Name")
                         .IsUnique();
@@ -905,8 +904,8 @@ namespace DAL.Migrations
                     b.Property<bool>("Hided")
                         .HasColumnType("bit");
 
-                    b.Property<long?>("ImageId")
-                        .HasColumnType("bigint");
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()
@@ -923,8 +922,6 @@ namespace DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ImageId");
 
                     b.HasIndex("UserId");
 
@@ -1001,28 +998,13 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("BO.Models.MenuApp.DAL.Domain.Article", b =>
                 {
-                    b.HasOne("BO.Models.DAL.Domain.CustomImage", "Image")
-                        .WithMany()
-                        .HasForeignKey("ImageId");
-
                     b.HasOne("BO.Models.DAL.Domain.User", "User")
                         .WithMany("Articles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Image");
-
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("BO.Models.PlaningPoker.DAL.PlaningRoomDal", b =>
-                {
-                    b.HasOne("BO.Models.DAL.Domain.CustomImage", "Image")
-                        .WithMany()
-                        .HasForeignKey("ImageId");
-
-                    b.Navigation("Image");
                 });
 
             modelBuilder.Entity("BO.Models.PlaningPoker.DAL.PlaningRoomUserDal", b =>
@@ -1313,15 +1295,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("BO.Models.WordsCardsApp.DAL.Domain.WordCard", b =>
                 {
-                    b.HasOne("BO.Models.DAL.Domain.CustomImage", "Image")
-                        .WithMany()
-                        .HasForeignKey("ImageId");
-
                     b.HasOne("BO.Models.DAL.Domain.User", "User")
                         .WithMany("WordsCards")
                         .HasForeignKey("UserId");
-
-                    b.Navigation("Image");
 
                     b.Navigation("User");
                 });

@@ -16,9 +16,12 @@ namespace BO.Models.DAL.Domain
         public string Email { get; set; }
         public string Login { get; set; }
        
-        public string ImagePath { get; set; }
+        //public string ImagePath { get; set; }
         public string PasswordHash { get; set; }
         public string RefreshTokenHash { get; set; }
+
+        public long? ImageId { get; set; }
+        public CustomImage Image { get; set; }
 
         public List<Article> Articles { get; set; }
         public List<WordCard> WordsCards { get; set; }

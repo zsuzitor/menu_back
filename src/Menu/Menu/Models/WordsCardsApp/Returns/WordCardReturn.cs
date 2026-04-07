@@ -57,7 +57,7 @@ namespace Menu.Models.WordsCardsApp.Returns
         public WordCardReturn(WordCard obj)
         {
             Id = obj.Id;
-            ImagePath = obj.ImagePath;
+            ImagePath = obj?.Image?.Path;
             Word = obj.Word;
             WordAnswer = obj.WordAnswer;
             Hided = obj.Hided;

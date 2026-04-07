@@ -17,6 +17,10 @@ namespace DAL.Models.DAL.ContextSetup.MenuApp
                 entity.HasMany(x => x.AdditionalImages)
                     .WithOne(x => x.Article)
                     .HasForeignKey(x => x.ArticleId).OnDelete(DeleteBehavior.Cascade);
+
+
+                entity.HasOne(x => x.Image).WithMany().HasForeignKey(x => x.ImageId);
+
                 entity.ToTable("Articles");
 
 

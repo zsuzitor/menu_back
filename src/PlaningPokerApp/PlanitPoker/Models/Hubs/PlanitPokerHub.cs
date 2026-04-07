@@ -127,7 +127,7 @@ namespace PlanitPoker.Models.Hubs
                     UserConnectionId = connectionId,
                     Name = username,
                     Role = GetCreatorRoles(),
-                    ImageLink = userMainAppInfo?.ImagePath,
+                    ImageLink = userMainAppInfo?.Image?.Path,
                 };
 
                 var room = await _planitPokerService.CreateRoomWithUserAsync(roomName, password, user);
@@ -277,7 +277,7 @@ namespace PlanitPoker.Models.Hubs
                     UserConnectionId = connectionId,
                     Name = username,
                     Role = GetDefaultRoles(),
-                    ImageLink = userMainAppInfo?.ImagePath,
+                    ImageLink = userMainAppInfo?.Image?.Path,
                 };
 
                 _ = await EnterInRoom(room, user);
