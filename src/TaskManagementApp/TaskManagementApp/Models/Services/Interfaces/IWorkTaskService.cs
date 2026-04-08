@@ -4,6 +4,7 @@ using BO.Models.TaskManagementApp.DAL.Domain;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.DTO;
+using TaskManagementApp.Models.Returns;
 
 namespace TaskManagementApp.Models.Services.Interfaces
 {
@@ -16,6 +17,7 @@ namespace TaskManagementApp.Models.Services.Interfaces
         Task<WorkTask> GetTaskWithCommentsAsync(long id);
         Task<WorkTask> GetTaskFullAsync(long id);
         Task<WorkTask> CopyAsync(long id, long userId);
+        Task<TaskName> GetTaskNameAsync(long id, long userId);
         Task<TaskRelation> CreateRelationAsync(TaskRelation req, long userId);
         Task<List<TaskRelation>> GetRelationsAsync(long taskId, long userId);
         Task<TaskRelation> DeleteRelationAsync(long relationId, long userId);

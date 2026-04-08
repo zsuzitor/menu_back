@@ -72277,6 +72277,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -72290,6 +72299,8 @@ const AddWorkTimeLog = (props) => {
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
     let helper = new Helper_1.Helper();
     const [taskId, setTaskId] = (0, react_1.useState)(props.TaskId || ((_a = props.TimeLog) === null || _a === void 0 ? void 0 : _a.WorkTaskId) || 0);
+    const [taskName, setTaskName] = (0, react_1.useState)('');
+    const [loadTasksTimerId, setLoadTasksTimerId] = (0, react_1.useState)(null);
     const [timeLogText, setTimeLogText] = (0, react_1.useState)(((_b = props.TimeLog) === null || _b === void 0 ? void 0 : _b.Comment) || '');
     const [range, setRange] = (0, react_1.useState)(((_c = props.TimeLog) === null || _c === void 0 ? void 0 : _c.RangeStartOfLog) ? true : false);
     const [timeLogVal, setTimeLogVal] = (0, react_1.useState)(((_d = props.TimeLog) === null || _d === void 0 ? void 0 : _d.TimeMinutes) ? helper.MinutesToHours2(props.TimeLog.TimeMinutes) : '');
@@ -72323,6 +72334,24 @@ const AddWorkTimeLog = (props) => {
         var _a;
         setTaskId(props.TaskId || ((_a = props.TimeLog) === null || _a === void 0 ? void 0 : _a.WorkTaskId) || 0);
     }, [props.TaskId, (_o = props.TimeLog) === null || _o === void 0 ? void 0 : _o.WorkTaskId]);
+    // useEffect(() => {
+    //     setTaskName(props.TaskName || '');
+    // }, [props.TaskName]);
+    (0, react_1.useEffect)(() => {
+        if (loadTasksTimerId) {
+            clearTimeout(loadTasksTimerId);
+        }
+        if (props.TaskName != taskName) {
+            setTaskName(props.TaskName || '');
+        }
+        if (taskId && taskId > 0 && !props.TaskName) {
+            var timerId = setTimeout(() => __awaiter(void 0, void 0, void 0, function* () {
+                var tName = yield props.GetTaskName(taskId);
+                setTaskName(tName);
+            }), 1500);
+            setLoadTasksTimerId(timerId);
+        }
+    }, [taskId, props.TaskName]);
     (0, react_1.useEffect)(() => {
         var _a;
         setTimeLogDate(((_a = props.TimeLog) === null || _a === void 0 ? void 0 : _a.DayOfLog) || props.DefaultDate || new Date());
@@ -72391,6 +72420,7 @@ const AddWorkTimeLog = (props) => {
         props.TaskId || react_1.default.createElement("div", null,
             react_1.default.createElement("span", null, "\u0417\u0430\u0434\u0430\u0447\u0430"),
             react_1.default.createElement("input", { className: 'form-input-v2', type: 'number', onChange: (e) => setTaskId(+e.target.value), placeholder: '\u0417\u0430\u0434\u0430\u0447\u0430', value: taskId })),
+        react_1.default.createElement("p", null, taskName),
         react_1.default.createElement("div", null,
             react_1.default.createElement("span", null, "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439"),
             react_1.default.createElement("input", { className: 'form-input-v2', type: 'text', value: timeLogText, placeholder: "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439", onChange: e => setTimeLogText(e.target.value) })),
@@ -72463,10 +72493,19 @@ exports["default"] = (0, AddWorkTimeLogSetup_1.default)(AddWorkTimeLog);
 /*!**************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Components/AddWorkTimeLog/AddWorkTimeLogSetup.tsx ***!
   \**************************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 const mapStateToProps = (state, ownProps) => {
@@ -72475,6 +72514,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
     let res = {};
+    res.GetTaskName = (taskId) => __awaiter(void 0, void 0, void 0, function* () {
+        return yield window.G_TaskManagementTaskController.GetTaskNameUI(taskId);
+    });
     return res;
 };
 exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -73422,7 +73464,11 @@ const OneWorkTaskDetail = (props) => {
                 }, IsHeightWindow: false, Title: '\u0420\u0430\u0431\u043E\u0442\u0430', InnerContent: () => react_1.default.createElement(AddWorkTimeLog_1.default, { Close: () => {
                         setShowEditWorkTime(-1);
                         setShowAddWorkTimeNew(false);
-                    }, TaskId: props.Task.Id, DefaultDate: null, CreateTimeLog: props.CreateTimeLog, TimeLog: showEditWorkTime > 1 ? props.Task.TimeLogs.find(x => x.Id == showEditWorkTime) : null, UpdateTimeLog: props.UpdateTimeLog, DeleteTimeLog: (i => { props.DeleteTimeLog(i, props.Task.Id); }) }) }) : react_1.default.createElement(react_1.default.Fragment, null),
+                    }, TaskId: props.Task.Id, TaskName: props.Task.Name, DefaultDate: null, CreateTimeLog: props.CreateTimeLog, TimeLog: showEditWorkTime > 1 ? props.Task.TimeLogs.find(x => x.Id == showEditWorkTime) : null, UpdateTimeLog: props.UpdateTimeLog, DeleteTimeLog: (i => {
+                        props.DeleteTimeLog(i, props.Task.Id);
+                        setShowEditWorkTime(-1);
+                        setShowAddWorkTimeNew(false);
+                    }) }) }) : react_1.default.createElement(react_1.default.Fragment, null),
             react_1.default.createElement("div", { className: 'add-time-log-header' },
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("button", { className: 'add-time-log-btn', onClick: () => setShowAddWorkTimeNew(true) },
@@ -73771,14 +73817,6 @@ const OneWorkTask = (props) => {
     (0, react_1.useEffect)(() => {
         setTaskCreator(props.Task.CreatorId);
     }, [props.Task.CreatorId]);
-    // useEffect(() => {
-    //     if (!showComments) {
-    //         // setComments([]);
-    //         props.SetEmptyTaskComments(props.Task.Id);
-    //         return;
-    //     }
-    //     props.LoadTaskComments(props.Task.Id);
-    // }, [showComments]);
     const cancelTask = () => {
         if (!confirm('Отменить изменения?')) {
             return;
@@ -76576,7 +76614,7 @@ exports["default"] = RouteBuilder;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.TaskManagementApiWorkTimeUrl = exports.TaskManagementApiUserUrl = exports.TaskManagementApiStatusUrl = exports.TaskManagementApiPresetUrl = exports.TaskManagementApiSprintUrl = exports.TaskManagementApiProjectUrl = exports.TaskManagementApiLabelUrl = exports.TaskManagementApiCommentUrl = exports.TaskManagementApiTaskUrl = exports.TaskManagementApiUrl = exports.TaskManagementGetTaskRelationUrl = exports.TaskManagementDeleteTaskRelationUrl = exports.TaskManagementAddTaskRelationUrl = exports.TaskManagementTaskCopyUrl = exports.TaskManagementTaskDeleteUrl = exports.TaskManagementTaskGetUrl = exports.TaskManagementTasksGetUrl = exports.TaskManagementTaskUpdateUrl = exports.TaskManagementTaskAddNewUrl = exports.TaskManagementTaskUpdateExecutorUrl = exports.TaskManagementTaskUpdateStatusUrl = exports.TaskManagementTaskUpdateDescriptionUrl = exports.TaskManagementTaskUpdateNameUrl = exports.TaskManagementWorkTimeLogControllerUrl = exports.TaskManagementUserControllerUrl = exports.TaskManagementStatusControllerUrl = exports.TaskManagementPresetControllerUrl = exports.TaskManagementSprintControllerUrl = exports.TaskManagementProjectControllerUrl = exports.TaskManagementLabelControllerUrl = exports.TaskManagementCommentControllerUrl = exports.TaskManagementTaskControllerUrl = exports.TaskManagementAppUrl = exports.TaskManagementApiPrefUrl = exports.TaskManagementTempoRoute = exports.TaskManagementPresetsRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRute = exports.TaskManagementPreloader = void 0;
+exports.TaskManagementApiWorkTimeUrl = exports.TaskManagementApiUserUrl = exports.TaskManagementApiStatusUrl = exports.TaskManagementApiPresetUrl = exports.TaskManagementApiSprintUrl = exports.TaskManagementApiProjectUrl = exports.TaskManagementApiLabelUrl = exports.TaskManagementApiCommentUrl = exports.TaskManagementApiTaskUrl = exports.TaskManagementApiUrl = exports.TaskManagementGetTaskRelationUrl = exports.TaskManagementDeleteTaskRelationUrl = exports.TaskManagementAddTaskRelationUrl = exports.TaskManagementTaskNameUrl = exports.TaskManagementTaskCopyUrl = exports.TaskManagementTaskDeleteUrl = exports.TaskManagementTaskGetUrl = exports.TaskManagementTasksGetUrl = exports.TaskManagementTaskUpdateUrl = exports.TaskManagementTaskAddNewUrl = exports.TaskManagementTaskUpdateExecutorUrl = exports.TaskManagementTaskUpdateStatusUrl = exports.TaskManagementTaskUpdateDescriptionUrl = exports.TaskManagementTaskUpdateNameUrl = exports.TaskManagementWorkTimeLogControllerUrl = exports.TaskManagementUserControllerUrl = exports.TaskManagementStatusControllerUrl = exports.TaskManagementPresetControllerUrl = exports.TaskManagementSprintControllerUrl = exports.TaskManagementProjectControllerUrl = exports.TaskManagementLabelControllerUrl = exports.TaskManagementCommentControllerUrl = exports.TaskManagementTaskControllerUrl = exports.TaskManagementAppUrl = exports.TaskManagementApiPrefUrl = exports.TaskManagementTempoRoute = exports.TaskManagementPresetsRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRute = exports.TaskManagementPreloader = void 0;
 exports.TaskManagementPreloader = 'task_management_preloader';
 //Routes
 exports.TaskManagementAppRute = 'task-management';
@@ -76613,6 +76651,7 @@ exports.TaskManagementTasksGetUrl = 'get-project-tasks';
 exports.TaskManagementTaskGetUrl = 'get-project-task';
 exports.TaskManagementTaskDeleteUrl = 'delete-task';
 exports.TaskManagementTaskCopyUrl = 'copy-project-task';
+exports.TaskManagementTaskNameUrl = 'get-project-task-name';
 exports.TaskManagementAddTaskRelationUrl = 'add-task-relation';
 exports.TaskManagementDeleteTaskRelationUrl = 'delete-task-relation';
 exports.TaskManagementGetTaskRelationUrl = 'task-relations';
@@ -78047,6 +78086,25 @@ class TaskManagementTaskController {
             });
             return backResult.Data;
         });
+        this.GetTaskNameUI = (id) => __awaiter(this, void 0, void 0, function* () {
+            this.preloader(true);
+            let backResult = yield this.GetTaskNameAsync(id);
+            this.preloader(false);
+            return backResult === null || backResult === void 0 ? void 0 : backResult.Name;
+        });
+        this.GetTaskNameAsync = (id) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "id": id,
+            };
+            let backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                FuncSuccess: (xhr, status, jqXHR) => { },
+                FuncError: (xhr, status, error) => { },
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskNameUrl}`
+            });
+            return backResult.Data;
+        });
     }
     mapWithResult(onSuccess) {
         return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
@@ -79206,13 +79264,6 @@ function TaskManagementCommentReducer(state = new AppState_1.AppState(), action)
                 let task = newState.TaskManagementApp.CurrentTask;
                 if ((task === null || task === void 0 ? void 0 : task.Id) == payload.TaskId)
                     task.Comments = task.Comments.filter(x => x.Id !== payload.Id);
-                // let task = helper.GetTaskFromState(newState, payload.TaskId);
-                // if (task.length > 0) {
-                //     task.forEach(tsk => {
-                //         tsk.Comments = tsk.Comments.filter(x => x.Id !== payload.Id);
-                //     });
-                //     return newState;
-                // }
                 return newState;
             }
         case CommentActions_1.AddCommentActionName:
@@ -79228,13 +79279,6 @@ function TaskManagementCommentReducer(state = new AppState_1.AppState(), action)
                 let task = newState.TaskManagementApp.CurrentTask;
                 if ((task === null || task === void 0 ? void 0 : task.Id) == payload.TaskId)
                     task.Comments.push(comment);
-                // let task = helper.GetTaskFromState(newState, payload.TaskId);
-                // if (task.length > 0) {
-                //     task.forEach(tsk => {
-                //         tsk.Comments.push(comment);
-                //     });
-                //     return newState;
-                // }
                 return newState;
             }
         case CommentActions_1.SetCommentsActionName:
@@ -79245,13 +79289,6 @@ function TaskManagementCommentReducer(state = new AppState_1.AppState(), action)
                 let task = newState.TaskManagementApp.CurrentTask;
                 if ((task === null || task === void 0 ? void 0 : task.Id) == payload.TaskId)
                     task.Comments = payload.Comments;
-                // let task = helper.GetTaskFromState(newState, payload.TaskId);
-                // if (task.length > 0) {
-                //     task.forEach(tsk => {
-                //         tsk.Comments = payload.Comments
-                //     });
-                //     return newState;
-                // }
                 return newState;
             }
         // case SetEmptyTaskCommentsActionName:
@@ -79323,10 +79360,6 @@ function TaskManagementLabelReducer(state = new AppState_1.AppState(), action) {
                 let task = newState.TaskManagementApp.CurrentTask;
                 if ((task === null || task === void 0 ? void 0 : task.Id) == data.TaskId)
                     task.LabelId = data.LabelId;
-                // var tasks = helper.GetTaskFromState(newState, data.TaskId);
-                // tasks.forEach(tsk => {
-                //     tsk.LabelId = data.LabelId;
-                // });
                 return newState;
             }
         case LabelActions_1.AddLabelToTaskActionName:
@@ -79338,11 +79371,6 @@ function TaskManagementLabelReducer(state = new AppState_1.AppState(), action) {
                 if ((task === null || task === void 0 ? void 0 : task.Id) == data.TaskId)
                     if (!task.LabelId.find(x => x == data.LabelId))
                         task.LabelId = [...task.LabelId, data.LabelId];
-                // var tasks = helper.GetTaskFromState(newState, data.TaskId);
-                // tasks.forEach(tsk => {
-                //     if (!tsk.LabelId.find(x => x == data.LabelId))
-                //         tsk.LabelId = [...tsk.LabelId, data.LabelId];
-                // });
                 return newState;
             }
         case LabelActions_1.DeleteLabelFromTaskActionName:
@@ -79353,10 +79381,6 @@ function TaskManagementLabelReducer(state = new AppState_1.AppState(), action) {
                 let task = newState.TaskManagementApp.CurrentTask;
                 if ((task === null || task === void 0 ? void 0 : task.Id) == data.TaskId)
                     task.LabelId = task.LabelId.filter(x => x != data.LabelId);
-                // var tasks = helper.GetTaskFromState(newState, data.TaskId);
-                // tasks.forEach(tsk => {
-                //     tsk.LabelId = tsk.LabelId.filter(x => x != data.LabelId);
-                // });
                 return newState;
             }
         default:
@@ -79676,11 +79700,6 @@ function TaskManagementSprintReducer(state = new AppState_1.AppState(), action) 
                 let task = newState.TaskManagementApp.CurrentTask;
                 if ((task === null || task === void 0 ? void 0 : task.Id) == data.taskId)
                     task.SprintId = [...task.SprintId, data.sprintId];
-                // let helper = new Helper();
-                // var tasks = helper.GetTaskFromState(newState, data.taskId);
-                // tasks.forEach(tsk => {
-                //     tsk.SprintId = [...tsk.SprintId, data.sprintId];
-                // });
                 return newState;
             }
         case SprintActions_1.DeleteTaskFromSprintActionName:
@@ -79695,11 +79714,6 @@ function TaskManagementSprintReducer(state = new AppState_1.AppState(), action) 
                 let task = newState.TaskManagementApp.CurrentTask;
                 if ((task === null || task === void 0 ? void 0 : task.Id) == data.taskId)
                     task.SprintId = task.SprintId.filter(x => x != data.sprintId);
-                // let helper = new Helper();
-                // var tasks = helper.GetTaskFromState(newState, data.taskId);
-                // tasks.forEach(tsk => {
-                //     tsk.SprintId = [...tsk.SprintId, data.sprintId];
-                // });
                 return newState;
             }
         case SprintActions_1.UpdateTaskSprintActionName:
@@ -79732,11 +79746,6 @@ function TaskManagementSprintReducer(state = new AppState_1.AppState(), action) 
                 let task = newState.TaskManagementApp.CurrentTask;
                 if ((task === null || task === void 0 ? void 0 : task.Id) == data.taskId)
                     task.SprintId = [...data.sprintId];
-                // let helper = new Helper();
-                // var tasks = helper.GetTaskFromState(newState, data.taskId);
-                // tasks.forEach(tsk => {
-                //     tsk.SprintId = [...data.sprintId];
-                // });
                 return newState;
             }
         default:
@@ -79792,11 +79801,7 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                     task.ExecutorId = payload.ExecutorId;
                     task.CreatorId = payload.CreatorId;
                     task.CreateDate = payload.CreateDate;
-                    // task.LastUpdateDate = payload.LastUpdateDate;
-                    // task.Description = payload.Description;
                 }
-                // let helper = new Helper();
-                // var tasks = helper.GetTaskFromState(newState, payload.Id);
                 var taskList = newState.TaskManagementApp.CurrentProjectTasks.find(x => x.Id == payload.Id);
                 if (taskList) {
                     taskList.Name = payload.Name;
@@ -79913,19 +79918,9 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 if ((task === null || task === void 0 ? void 0 : task.Id) == payload.Id) {
                     task.Name = payload.Text;
                 }
-                // let helper = new Helper();
-                // var tasks = helper.GetTaskFromState(newState, payload.Id);
                 var taskList = newState.TaskManagementApp.CurrentProjectTasks.find(x => x.Id == payload.Id);
                 if (taskList)
                     taskList.Name = payload.Text;
-                // newState.TaskManagementApp.CurrentProjectTasks.forEach(tsk => {
-                //     tsk.Name = payload.Text;
-                // });
-                // let helper = new Helper();
-                // var tasks = helper.GetTaskFromState(newState, payload.Id);
-                // tasks.forEach(tsk => {
-                //     tsk.Name = payload.Text;
-                // });
                 return newState;
             }
         case TaskActions_1.UpdateTaskDescriptionActionName:
@@ -79936,11 +79931,6 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 if ((task === null || task === void 0 ? void 0 : task.Id) == payload.Id) {
                     task.Description = payload.Text;
                 }
-                // let helper = new Helper();
-                // var tasks = helper.GetTaskFromState(newState, payload.Id);
-                // tasks.forEach(tsk => {
-                //     tsk.Description = payload.Text;
-                // });
                 return newState;
             }
         case TaskActions_1.UpdateTaskStatusActionName:
@@ -79951,19 +79941,9 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 if ((task === null || task === void 0 ? void 0 : task.Id) == payload.Id) {
                     task.StatusId = payload.IdStatus;
                 }
-                // let helper = new Helper();
-                // var tasks = helper.GetTaskFromState(newState, payload.Id);
                 var taskList = newState.TaskManagementApp.CurrentProjectTasks.find(x => x.Id == payload.Id);
                 if (taskList)
                     taskList.StatusId = payload.IdStatus;
-                // newState.TaskManagementApp.CurrentProjectTasks.forEach(tsk => {
-                //     tsk.StatusId = payload.IdStatus;
-                // });
-                // let helper = new Helper();
-                // var tasks = helper.GetTaskFromState(newState, payload.Id);
-                // tasks.forEach(tsk => {
-                //     tsk.StatusId = payload.IdStatus;
-                // });
                 return newState;
             }
         case TaskActions_1.UpdateTaskExecutorActionName:
@@ -79974,19 +79954,9 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 if ((task === null || task === void 0 ? void 0 : task.Id) == payload.Id) {
                     task.ExecutorId = payload.PersonId;
                 }
-                // let helper = new Helper();
-                // var tasks = helper.GetTaskFromState(newState, payload.Id);
                 var taskList = newState.TaskManagementApp.CurrentProjectTasks.find(x => x.Id == payload.Id);
                 if (taskList)
                     taskList.ExecutorId = payload.PersonId;
-                // newState.TaskManagementApp.CurrentProjectTasks.forEach(tsk => {
-                //     tsk.ExecutorId = payload.PersonId;
-                // });
-                // let helper = new Helper();
-                // var tasks = helper.GetTaskFromState(newState, payload.Id);
-                // tasks.forEach(tsk => {
-                //     tsk.ExecutorId = payload.PersonId;
-                // });
                 return newState;
             }
         case TaskActions_1.AddTaskRelationStateActionName:
@@ -79997,15 +79967,6 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 if ((task === null || task === void 0 ? void 0 : task.Id) == payload.MainWorkTaskId || (task === null || task === void 0 ? void 0 : task.Id) == payload.SubWorkTaskId) {
                     task.Relations = [...task.Relations, payload];
                 }
-                // let helper = new Helper();
-                // var tasks = helper.GetTaskFromState(newState, payload.MainWorkTaskId);
-                // tasks.forEach(tsk => {
-                //     tsk.Relations = [...tsk.Relations, payload];
-                // });
-                // tasks = helper.GetTaskFromState(newState, payload.SubWorkTaskId);
-                // tasks.forEach(tsk => {
-                //     tsk.Relations = [...tsk.Relations, payload];
-                // });
                 return newState;
             }
         case TaskActions_1.DeleteTaskRelationStateActionName:
@@ -80015,10 +79976,6 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 let helper = new Helper_1.Helper();
                 newState.TaskManagementApp.CurrentTask.Relations
                     = newState.TaskManagementApp.CurrentTask.Relations.filter(x => x.Id != payload);
-                // var tasks = helper.GetAllTaskFromState(newState);
-                // tasks.forEach(tsk => {
-                //     tsk.Relations = tsk.Relations.filter(x => x.Id != payload);
-                // });
                 return newState;
             }
         case TaskActions_1.LoadTaskRelationStateActionName:
@@ -80027,10 +79984,6 @@ function TaskManagementTaskReducer(state = new AppState_1.AppState(), action) {
                 let payload = action.payload;
                 let helper = new Helper_1.Helper();
                 newState.TaskManagementApp.CurrentTask.Relations = payload;
-                // var tasks = helper.GetAllTaskFromState(newState);
-                // tasks.forEach(tsk => {
-                //     tsk.Relations = payload;
-                // });
                 return newState;
             }
         default:
@@ -80245,13 +80198,6 @@ function TaskManagementWorkTimeLogReducer(state = new AppState_1.AppState(), act
                         task.TimeLogs.splice(index, 1);
                     }
                 }
-                // let tasks = helper.GetTaskFromState(newState, payload.TaskId);
-                // tasks.forEach(tsk => {
-                //     let index = helper.GetIndexById(tsk.TimeLogs, payload.Id);
-                //     if (index >= 0) {
-                //         tsk.TimeLogs.splice(index, 1);
-                //     }
-                // });
                 return newState;
             }
         case TimeLogAction_1.UpdateTimeLogActionName:
@@ -80266,13 +80212,6 @@ function TaskManagementWorkTimeLogReducer(state = new AppState_1.AppState(), act
                         el.Copy(payload);
                     }
                 }
-                // let tasks = helper.GetTaskFromState(newState, payload.WorkTaskId);
-                // tasks.forEach(tsk => {
-                //     let el = helper.GetElemById(tsk.TimeLogs, payload.Id);
-                //     if (el) {
-                //         el.Copy(payload);
-                //     }
-                // });
                 return newState;
             }
         case TimeLogAction_1.SetTaskTimeLogActionName:
@@ -80284,10 +80223,6 @@ function TaskManagementWorkTimeLogReducer(state = new AppState_1.AppState(), act
                 if ((task === null || task === void 0 ? void 0 : task.Id) == payload.TaskId) {
                     task.TimeLogs = [...payload.Time].map(x => new TimeLog_1.TimeLog().Copy(x));
                 }
-                // let tasks = helper.GetTaskFromState(newState, payload.TaskId);
-                // tasks.forEach(tsk => {
-                //     tsk.TimeLogs = [...payload.Time].map(x => new TimeLog().Copy(x));
-                // });
                 return newState;
             }
         case TimeLogAction_1.SetProjectTimeLogDataActionName:

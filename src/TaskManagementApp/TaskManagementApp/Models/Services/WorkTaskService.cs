@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.DTO;
 using BL.Models.Services.Interfaces;
+using TaskManagementApp.Models.Returns;
 
 namespace TaskManagementApp.Models.Services
 {
@@ -555,6 +556,11 @@ namespace TaskManagementApp.Models.Services
         private async Task<bool> ExistIfAccessAdminAsync(long id, long userId)
         {
             return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userId);
+        }
+
+        public async Task<TaskName> GetTaskNameAsync(long id, long userId)
+        {
+            return await _workTaskRepository.GetNameAccessAsync(id, userId);
         }
 
 

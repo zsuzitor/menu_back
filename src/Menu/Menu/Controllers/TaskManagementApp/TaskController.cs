@@ -173,6 +173,17 @@ namespace Menu.Controllers.TaskManagementApp
 
         }
 
+        [Route("get-project-task-name")]
+        [HttpGet]
+        [CustomAuthorize]
+        public async Task<ActionResult<WorkTaskReturn>> GetProjectTaskName(long id)
+        {
+            var userId = User.GetUserId();
+            var task = await _workTaskService.GetTaskNameAsync(id, userId);
+            return new JsonResult(new TaskNameReturn(task), GetJsonOptions());
+
+        }
+
         [Route("add-task-relation")]
         [HttpPut]
         [CustomAuthorize]
