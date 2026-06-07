@@ -19,7 +19,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
                     .HasForeignKey(x => x.ProjectUserId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasOne(x => x.WorkTask).WithMany(x => x.WorkTimeLogs)
                     .HasForeignKey(x => x.WorkTaskId).OnDelete(DeleteBehavior.NoAction);
-                entity.ToTable("TaskManagementWorkTimeLog");
+                entity.ToTable("TaskManagementWorkTimeLog", schema: "TaskManagementApp");
 
 
                 entity.Property(p => p.RowVersion)

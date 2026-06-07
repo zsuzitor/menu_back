@@ -64,7 +64,7 @@ logstash почитать
 
 
 переименовать planit in planing
-переосмыслить отправку писем C:\code\menu_back\CodeReviewApp\Models\Services\TaskReviewService.cs
+//переосмыслить отправку писем C:\code\menu_back\CodeReviewApp\Models\Services\TaskReviewService.cs
 все проверкио том есть ли админские права на проект вынести в уровень дал, вероятно в хелпер какой то, и заюзать уже в репах а не в projectservice, если все ок то из projectservice убрать создание статусов например и все остальное
 новыйрепозиторий для определения доступов в tastmanagment апе? или сначала переписать все на нормальные роли
 убрать formdata ходить через body

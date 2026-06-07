@@ -18,7 +18,7 @@ namespace DAL.Models.DAL.ContextSetup.PlaningPoker
                     .HasForeignKey(x => x.MainAppUserId);
                 entity.HasOne(x => x.Room).WithMany(x => x.Users)
                     .HasForeignKey(x => x.RoomId);
-                entity.ToTable("PlaningRoomUsers");
+                entity.ToTable("PlaningRoomUsers", schema: "PlaningPoker");
 
                 entity.Property(p => p.RowVersion)
                     .IsRowVersion() // Автоматически обновляется SQL Server

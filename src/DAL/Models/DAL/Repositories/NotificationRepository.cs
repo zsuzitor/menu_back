@@ -24,7 +24,5 @@ namespace DAL.Models.DAL.Repositories
                 && (x.Group == group || string.IsNullOrWhiteSpace(group)))
                 .ToListAsync();
         }
-
-
     }
 }

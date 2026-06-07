@@ -15,7 +15,7 @@ namespace DAL.Models.DAL.ContextSetup.VaultApp
                 entity.HasIndex(x => x.VaultId);
                 entity.Property(x => x.Key).IsRequired();
                 entity.HasOne(x => x.Vault).WithMany(x => x.Secrets);
-                entity.ToTable("Secrets");
+                entity.ToTable("Secrets", schema: "VaultApp");
 
                 entity.Property(p => p.RowVersion)
                     .IsRowVersion() // Автоматически обновляется SQL Server

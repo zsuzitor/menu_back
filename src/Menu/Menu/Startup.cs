@@ -25,6 +25,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.WebEncoders;
+using NLog;
 using PlanitPoker.Models;
 using PlanitPoker.Models.Hubs;
 using System;
@@ -65,6 +66,7 @@ namespace Menu
         {
             //конфигурацию накатывает на логирование(в частности nlogconfig) что бы там получить строку подключения
             NLog.Extensions.Logging.ConfigSettingLayoutRenderer.DefaultConfiguration = Configuration;
+            //NLog.LogManager.Setup().LoadConfigurationFromFile("nlog.Debug.config");
 
             services.AddMvc(option => option.EnableEndpointRouting = false);
             services.AddEndpointsApiExplorer();

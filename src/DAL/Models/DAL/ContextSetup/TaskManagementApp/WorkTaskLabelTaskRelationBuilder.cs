@@ -9,7 +9,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
         {
             modelBuilder.Entity<WorkTaskLabelTaskRelation>(entity => {
                 entity.HasKey(x => x.Id);
-                entity.ToTable("TaskManagementLabelTaskRelation");
+                entity.ToTable("TaskManagementLabelTaskRelation", schema: "TaskManagementApp");
 
             });
 

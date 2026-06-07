@@ -4,6 +4,7 @@ using DAL.Models.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(MenuDbContext))]
-    partial class MenuDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260607130953_fix-schemas")]
+    partial class fixschemas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -676,7 +679,7 @@ namespace DAL.Migrations
 
                     b.HasIndex("PresetId");
 
-                    b.ToTable("TaskManagementPresetRelation", "TaskManagementApp");
+                    b.ToTable("TaskManagementPresetRelation");
                 });
 
             modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.WorkTaskLabelTaskRelation", b =>

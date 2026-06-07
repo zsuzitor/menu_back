@@ -22,7 +22,7 @@ namespace DAL.Models.DAL.ContextSetup.PlaningPoker
                     .HasForeignKey(x => x.RoomId).OnDelete(DeleteBehavior.Cascade);
                 entity.HasMany(x => x.Users).WithOne(x => x.Room)
                     .HasForeignKey(x => x.RoomId).OnDelete(DeleteBehavior.Cascade);
-                entity.ToTable("PlaningRooms");
+                entity.ToTable("PlaningRooms", schema: "PlaningPoker");
 
                 entity.Property(p => p.RowVersion)
                     .IsRowVersion() // Автоматически обновляется SQL Server

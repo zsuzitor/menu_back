@@ -12,7 +12,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
         {
             modelBuilder.Entity<ProjectSprint>(entity => {
                 entity.HasKey(x => x.Id);
-                entity.ToTable("TaskManagementSprint");
+                entity.ToTable("TaskManagementSprint", schema: "TaskManagementApp");
 
                 entity.HasMany(x => x.Tasks).WithOne(x => x.Sprint)
                     .HasForeignKey(x => x.SprintId).OnDelete(DeleteBehavior.NoAction);

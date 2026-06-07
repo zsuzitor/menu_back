@@ -11,6 +11,7 @@ namespace BO.Models.Configs
 
     public class MailSendingInstanceConfig
     {
+        public string NotificationJobCron { get; set; }
         public string NameFrom { get; set; }
         public string EmailFrom { get; set; }
         public string MailingHost { get; set; }

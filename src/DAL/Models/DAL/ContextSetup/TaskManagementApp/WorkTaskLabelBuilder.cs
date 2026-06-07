@@ -13,7 +13,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
             modelBuilder.Entity<WorkTaskLabel>(entity =>
             {
                 entity.HasKey(x => x.Id);
-                entity.ToTable("TaskManagementLabel");
+                entity.ToTable("TaskManagementLabel", schema: "TaskManagementApp");
 
 
                 entity.HasMany(x => x.Tasks).WithOne(x => x.Label)

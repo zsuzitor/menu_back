@@ -23,7 +23,7 @@ namespace DAL.Models.DAL.ContextSetup.VaultApp
                 entity.Property(p => p.RowVersion)
                     .IsRowVersion() // Автоматически обновляется SQL Server
                     .IsConcurrencyToken(); // Включает проверку на конфликты
-                entity.ToTable("Vaults");
+                entity.ToTable("Vaults", schema: "VaultApp");
             });
 
             modelBuilder.Entity<User>().HasMany(x => x.Vaults).WithOne(x => x.User)

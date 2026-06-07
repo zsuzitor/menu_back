@@ -64,7 +64,7 @@ namespace VaultApp.Models
             Expression<Action<ISecretService>> actAlert = prSrv => prSrv.DeleteExpiredSecrets();//.Wait();
             var worker = serviceProvider.GetRequiredService<IWorker>();
             var conf = serviceProvider.GetRequiredService<IConfiguration>();
-            worker.Recurring("vault_secrets_clean", conf["VaultApp:NotificationJobCron"], actAlert);
+            worker.Recurring("vault_secrets_clean", conf["VaultApp:DeleteExpiredSecretsJobCron"], actAlert);
             return this;
         }
 

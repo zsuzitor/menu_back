@@ -1,9 +1,5 @@
-﻿using BO.Models.DAL.Domain;
-using BO.Models.MenuApp.DAL.Domain;
+﻿using BO.Models.MenuApp.DAL.Domain;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DAL.Models.DAL.ContextSetup.MenuApp
 {
@@ -21,7 +17,7 @@ namespace DAL.Models.DAL.ContextSetup.MenuApp
 
                 entity.HasOne(x => x.Image).WithMany().HasForeignKey(x => x.ImageId);
 
-                entity.ToTable("Articles");
+                entity.ToTable("Articles", schema:"MenuApp");
 
 
                 entity.Property(p => p.RowVersion)

@@ -9,7 +9,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
         {
             modelBuilder.Entity<WorkTaskStatus>(entity => {
                 entity.HasKey(x => x.Id);
-                entity.ToTable("TaskManagementTaskStatus");
+                entity.ToTable("TaskManagementTaskStatus", schema: "TaskManagementApp");
 
 
                 entity.Property(p => p.RowVersion)

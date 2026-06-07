@@ -1,6 +1,7 @@
 ﻿using BL.Models.Services;
 using BL.Models.Services.Cache;
 using BL.Models.Services.Interfaces;
+using BO.Models.Configs;
 using Common.Models;
 using Common.Models.Error;
 using Common.Models.Error.services;
@@ -16,6 +17,8 @@ using System;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using TaskManagementApp.Models;
+using TaskManagementApp.Models.Services.Interfaces;
+using static Org.BouncyCastle.Math.EC.ECCurve;
 
 namespace Menu.Models
 {
@@ -59,6 +62,7 @@ namespace Menu.Models
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IConfigurationService, ConfigurationService>();
+            services.AddScoped<DefaultEmailService, DefaultEmailService>();
             services.AddSingleton<IWorker, HangfireWorker>();
             services.AddSingleton<ICacheAccessor, MemoryCacheAccessor>();
             services.AddSingleton<ICacheService, CacheService>();
@@ -73,10 +77,17 @@ namespace Menu.Models
         public IStartUpInitializer WorkersInitialize(IServiceProvider serviceProvider)
         {
 
-            Expression<Action<IImageService>> actAlert = imgSrv => imgSrv.DeleteNotActualFiles();//.Wait();
+            Expression<Action<IImageService>> actClean = imgSrv => imgSrv.DeleteNotActualFiles();//.Wait();
             var worker = serviceProvider.GetRequiredService<IWorker>();
             var conf = serviceProvider.GetRequiredService<IConfiguration>();
-            worker.Recurring("phys_images_clean", conf["ImageSettings:PhysImagesCleanCron"], actAlert);
+            worker.Recurring("phys_images_clean", conf["ImageSettings:PhysImagesCleanCron"], actClean);
+
+            var mailConfigs = serviceProvider.GetRequiredService<MailSendingConfig>();
+            var mailConfig = mailConfigs.Values["DefaultMailSettings"];
+            Expression<Action<DefaultEmailService>> actAlert = prSrv => prSrv.SendQueueAsync();//.Wait();
+            worker.Recurring("main_app_alert", mailConfig.NotificationJobCron, actAlert);
+
+
 
             return this;
         }

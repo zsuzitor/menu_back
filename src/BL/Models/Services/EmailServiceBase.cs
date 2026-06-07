@@ -40,7 +40,7 @@ namespace BL.Models.Services
             _dateTimeProvider = dateTimeProvider;
         }
 
-        public virtual async Task SendEmailAsync(string email, string subject, string message)
+        protected async Task SendEmailAsync(string email, string subject, string message, string group)
         {
             if (string.IsNullOrWhiteSpace(email))
             {
@@ -55,7 +55,7 @@ namespace BL.Models.Services
                 Message = message,
                 Subject = subject,
                 Type = BO.Models.DAL.Domain.NotificationType.Email,
-                Group = Group,
+                Group = group,
             });
 
             await _emailService.SendEmailAsync(email, subject, message, _config);
@@ -64,7 +64,13 @@ namespace BL.Models.Services
             await _notificationRepository.UpdateAsync(rec);
         }
 
-        public virtual async Task QueueEmailAsync(string email, string subject, string message)
+        public virtual async Task SendEmailAsync(string email, string subject, string message)
+        {
+            await SendEmailAsync(email, subject, message, Group);
+        }
+
+
+        protected async Task QueueEmailAsync(string email, string subject, string message, string group)
         {
             if (string.IsNullOrWhiteSpace(email))
             {
@@ -78,13 +84,17 @@ namespace BL.Models.Services
                 Message = message,
                 Subject = subject,
                 Type = BO.Models.DAL.Domain.NotificationType.Email,
-                Group = Group,
+                Group = group,
             });
         }
-
-        public virtual async Task QueueEmailAsync(List<string> email, string subject, string message)
+        public virtual async Task QueueEmailAsync(string email, string subject, string message)
         {
-            var mails = email.Where(x => !string.IsNullOrWhiteSpace(x)).Select(x => 
+            await QueueEmailAsync(email, subject, message, Group);
+        }
+
+        protected async Task QueueEmailAsync(List<string> email, string subject, string message, string group)
+        {
+            var mails = email.Where(x => !string.IsNullOrWhiteSpace(x)).Select(x =>
             new BO.Models.DAL.Domain.Notification()
             {
                 CreatedDate = _dateTimeProvider.CurrentDateTime(),
@@ -92,16 +102,22 @@ namespace BL.Models.Services
                 Message = message,
                 Subject = subject,
                 Type = BO.Models.DAL.Domain.NotificationType.Email,
-                Group = Group,
+                Group = group,
             }).ToList();
 
             await _notificationRepository.AddAsync(mails);
         }
 
-        public virtual async Task SendQueueAsync()
+        public virtual async Task QueueEmailAsync(List<string> email, string subject, string message)
+        {
+            await QueueEmailAsync(email, subject, message, Group);
+        }
+
+
+        protected async Task SendQueueAsync(string group)
         {
             var localForSend = await _notificationRepository.GetActual(
-                BO.Models.DAL.Domain.NotificationType.Email, Group);
+                BO.Models.DAL.Domain.NotificationType.Email, group);
 
             if (localForSend.Count == 0)
             {
@@ -129,6 +145,11 @@ namespace BL.Models.Services
             await _emailService.SendEmailAsync(combinedForSend, _config);
             localForSend.ForEach(x => x.SendedDate = _dateTimeProvider.CurrentDateTime());
             await _notificationRepository.UpdateAsync(localForSend);
+        }
+        public virtual async Task SendQueueAsync()
+        {
+            await SendQueueAsync(Group);
+            
         }
     }
 }

@@ -124,10 +124,10 @@ namespace TaskManagementApp.Models
         {
             //BackgroundJob.Schedule<IProjectService>(srv => srv.AlertAsync(), DateTimeOffset.Now.AddSeconds(15));
             //Expression<Action<IProjectService>> actAlert = prSrv => prSrv.AlertAsync();//.Wait();
-            Expression<Action<ITaskManagementAppEmailService>> actAlert = prSrv => prSrv.SendQueueAsync();//.Wait();
-            var worker = serviceProvider.GetRequiredService<IWorker>();
-            var conf = serviceProvider.GetRequiredService<IConfiguration>();
-            worker.Recurring("task_management_alert", conf["TaskManagementApp:NotificationJobCron"], actAlert);
+            //Expression<Action<ITaskManagementAppEmailService>> actAlert = prSrv => prSrv.SendQueueAsync();//.Wait();
+            //var worker = serviceProvider.GetRequiredService<IWorker>();
+            //var conf = serviceProvider.GetRequiredService<IConfiguration>();
+            //worker.Recurring("task_management_alert", conf["TaskManagementApp:NotificationJobCron"], actAlert);
 
             return this;
 

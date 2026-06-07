@@ -12,7 +12,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
         {
             modelBuilder.Entity<TaskRelation>(entity => {
                 entity.HasKey(x => x.Id);
-                entity.ToTable("TaskManagementTaskRelation");
+                entity.ToTable("TaskManagementTaskRelation", schema: "TaskManagementApp");
 
                 entity.HasOne(x => x.MainWorkTask)
                 //.WithMany()

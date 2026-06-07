@@ -26,7 +26,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
             entity.HasOne(x => x.Sprint).WithMany()
                 .HasForeignKey(x => x.SprintId).OnDelete(DeleteBehavior.NoAction);
 
-            entity.ToTable("TaskManagementPreset");
+            entity.ToTable("TaskManagementPreset", schema: "TaskManagementApp");
 
             entity.Property(p => p.RowVersion)
                 .IsRowVersion() // Автоматически обновляется SQL Server

@@ -18,7 +18,7 @@ namespace DAL.Models.DAL.ContextSetup.PlaningPoker
                     .HasForeignKey(x => x.RoomId);
                 entity.Property(e => e.Vote)
                     .HasColumnType("decimal(18,4)");
-                entity.ToTable("PlaningStories");
+                entity.ToTable("PlaningStories", schema: "PlaningPoker");
 
                 entity.Property(p => p.RowVersion)
                     .IsRowVersion() // Автоматически обновляется SQL Server

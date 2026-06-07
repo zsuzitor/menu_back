@@ -134,6 +134,7 @@ namespace DAL.Models.DAL
                 .WorkTaskSprintRelationBuild()
                 .TaskRelatioBuild()
                 .TaskManagementPresetBuild()
+                .TaskManagementPresetRelationBuild()
                 ;
 
             #endregion TaskManagementApp

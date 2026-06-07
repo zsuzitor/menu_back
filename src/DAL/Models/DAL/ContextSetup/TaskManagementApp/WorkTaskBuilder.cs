@@ -19,7 +19,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
                 entity.HasMany(x => x.Labels).WithOne(x => x.Task)
                     .HasForeignKey(x => x.TaskId).OnDelete(DeleteBehavior.NoAction);
 
-                entity.ToTable("TaskManagementTasks");
+                entity.ToTable("TaskManagementTasks", schema: "TaskManagementApp");
 
                 entity.Property(p => p.RowVersion)
                     .IsRowVersion() // Автоматически обновляется SQL Server

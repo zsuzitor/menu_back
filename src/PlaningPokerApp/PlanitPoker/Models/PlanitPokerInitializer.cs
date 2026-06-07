@@ -73,7 +73,7 @@ namespace PlanitPoker.Models
             Expression<Action<IPlanitPokerService>> actAlert = prSrv => prSrv.HandleInRoomsMemoryAsync();//.Wait();
             var worker = serviceProvider.GetRequiredService<IWorker>();
             var conf = serviceProvider.GetRequiredService<IConfiguration>();
-            worker.Recurring("planing_poker_clean", conf["PlaningPokerApp:NotificationJobCron"], actAlert);
+            worker.Recurring("planing_poker_clean", conf["PlaningPokerApp:CleanRoomsJobCron"], actAlert);
             return this;
         }
     }

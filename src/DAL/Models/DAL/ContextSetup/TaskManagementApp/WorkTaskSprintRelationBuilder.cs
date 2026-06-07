@@ -12,7 +12,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
         {
             modelBuilder.Entity<WorkTaskSprintRelation>(entity => {
                 entity.HasKey(x => x.Id);
-                entity.ToTable("TaskManagementSprintTaskRelation");
+                entity.ToTable("TaskManagementSprintTaskRelation", schema: "TaskManagementApp");
 
             });
 

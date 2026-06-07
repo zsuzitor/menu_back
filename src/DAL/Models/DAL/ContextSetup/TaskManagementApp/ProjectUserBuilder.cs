@@ -16,7 +16,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
                     .HasForeignKey(x => x.CreatorId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasMany(x => x.ExecuteByUser).WithOne(x => x.Executor)
                     .HasForeignKey(x => x.ExecutorId).OnDelete(DeleteBehavior.NoAction);
-                entity.ToTable("TaskManagementProjectUsers");
+                entity.ToTable("TaskManagementProjectUsers", schema: "TaskManagementApp");
 
                 entity.Property(p => p.RowVersion)
                     .IsRowVersion() // Автоматически обновляется SQL Server

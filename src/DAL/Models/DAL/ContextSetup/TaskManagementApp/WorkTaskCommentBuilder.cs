@@ -10,7 +10,7 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
         {
             modelBuilder.Entity<WorkTaskComment>(entity => {
                 entity.HasKey(x => x.Id);
-                entity.ToTable("TaskManagementTaskComment");
+                entity.ToTable("TaskManagementTaskComment", schema: "TaskManagementApp");
 
 
                 entity.Property(p => p.RowVersion)
