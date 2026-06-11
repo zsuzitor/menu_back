@@ -9,13 +9,6 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
         {
             modelBuilder.Entity<ProjectUser>(entity =>
             {
-                entity.HasKey(x => x.Id);
-                entity.HasMany(x => x.Comments).WithOne(x => x.Creator)
-                    .HasForeignKey(x => x.CreatorId).OnDelete(DeleteBehavior.NoAction);
-                entity.HasMany(x => x.CreateByUser).WithOne(x => x.Creator)
-                    .HasForeignKey(x => x.CreatorId).OnDelete(DeleteBehavior.NoAction);
-                entity.HasMany(x => x.ExecuteByUser).WithOne(x => x.Executor)
-                    .HasForeignKey(x => x.ExecutorId).OnDelete(DeleteBehavior.NoAction);
                 entity.ToTable("TaskManagementProjectUsers", schema: "TaskManagementApp");
 
                 entity.Property(p => p.RowVersion)

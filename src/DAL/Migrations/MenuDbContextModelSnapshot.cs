@@ -488,9 +488,6 @@ namespace DAL.Migrations
                     b.Property<long?>("MainAppUserId")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("NotifyEmail")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<long>("ProjectId")
                         .HasColumnType("bigint");
 
@@ -501,9 +498,6 @@ namespace DAL.Migrations
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -555,9 +549,6 @@ namespace DAL.Migrations
 
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
-
-                    b.Property<long>("CreatorEntityId")
-                        .HasColumnType("bigint");
 
                     b.Property<long>("CreatorId")
                         .HasColumnType("bigint");
@@ -768,9 +759,6 @@ namespace DAL.Migrations
                     b.Property<DateTime>("DayOfLog")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("ProjectUserId")
-                        .HasColumnType("bigint");
-
                     b.Property<DateTime?>("RangeEndOfLog")
                         .HasColumnType("datetime2");
 
@@ -785,12 +773,15 @@ namespace DAL.Migrations
                     b.Property<long>("TimeMinutes")
                         .HasColumnType("bigint");
 
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
                     b.Property<long>("WorkTaskId")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProjectUserId");
+                    b.HasIndex("UserId");
 
                     b.HasIndex("WorkTaskId");
 
@@ -1144,13 +1135,13 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.WorkTask", b =>
                 {
-                    b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.ProjectUser", "Creator")
+                    b.HasOne("BO.Models.DAL.Domain.User", "Creator")
                         .WithMany("CreateByUser")
                         .HasForeignKey("CreatorId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.ProjectUser", "Executor")
+                    b.HasOne("BO.Models.DAL.Domain.User", "Executor")
                         .WithMany("ExecuteByUser")
                         .HasForeignKey("ExecutorId")
                         .OnDelete(DeleteBehavior.NoAction);
@@ -1177,7 +1168,7 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.WorkTaskComment", b =>
                 {
-                    b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.ProjectUser", "Creator")
+                    b.HasOne("BO.Models.DAL.Domain.User", "Creator")
                         .WithMany("Comments")
                         .HasForeignKey("CreatorId")
                         .OnDelete(DeleteBehavior.NoAction)
@@ -1264,9 +1255,9 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.WorkTimeLog", b =>
                 {
-                    b.HasOne("BO.Models.TaskManagementApp.DAL.Domain.ProjectUser", "ProjectUser")
+                    b.HasOne("BO.Models.DAL.Domain.User", "User")
                         .WithMany("WorkTimeLogs")
-                        .HasForeignKey("ProjectUserId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
@@ -1276,7 +1267,7 @@ namespace DAL.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("ProjectUser");
+                    b.Navigation("User");
 
                     b.Navigation("WorkTask");
                 });
@@ -1358,6 +1349,12 @@ namespace DAL.Migrations
                 {
                     b.Navigation("Articles");
 
+                    b.Navigation("Comments");
+
+                    b.Navigation("CreateByUser");
+
+                    b.Navigation("ExecuteByUser");
+
                     b.Navigation("TaskManagementProjects");
 
                     b.Navigation("Vaults");
@@ -1365,6 +1362,8 @@ namespace DAL.Migrations
                     b.Navigation("WordsCards");
 
                     b.Navigation("WordsLists");
+
+                    b.Navigation("WorkTimeLogs");
                 });
 
             modelBuilder.Entity("BO.Models.MenuApp.DAL.Domain.Article", b =>
@@ -1400,17 +1399,6 @@ namespace DAL.Migrations
             modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.ProjectSprint", b =>
                 {
                     b.Navigation("Tasks");
-                });
-
-            modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.ProjectUser", b =>
-                {
-                    b.Navigation("Comments");
-
-                    b.Navigation("CreateByUser");
-
-                    b.Navigation("ExecuteByUser");
-
-                    b.Navigation("WorkTimeLogs");
                 });
 
             modelBuilder.Entity("BO.Models.TaskManagementApp.DAL.Domain.WorkTask", b =>

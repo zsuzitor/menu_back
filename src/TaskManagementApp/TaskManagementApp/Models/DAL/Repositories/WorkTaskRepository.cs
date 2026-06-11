@@ -102,6 +102,11 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return (await GetAccessedIQuer(taskId, mainAppUserId).Select(x => x).FirstOrDefaultAsync());
         }
 
+        public async Task<WorkTask> GetAccessNoTrackAsync(long taskId, long mainAppUserId)
+        {
+            return (await GetAccessedIQuer(taskId, mainAppUserId).Select(x => x).FirstOrDefaultAsync());
+        }
+
         public async Task<WorkTask> GetAccessRelationsAsync(long taskId, long mainAppUserId)
         {
             return (await GetAccessedIQuer(taskId, mainAppUserId)

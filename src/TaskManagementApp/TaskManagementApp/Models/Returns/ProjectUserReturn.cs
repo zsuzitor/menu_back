@@ -15,8 +15,8 @@ namespace TaskManagementApp.Models.Returns
         public ProjectUserReturn(ProjectUser user)
         {
             Id = user.Id;
-            Name = user.UserName;
-            Email = user.NotifyEmail;
+            Name = user.MainAppUser?.Name ?? user.MainAppUser?.Email;
+            Email = user.MainAppUser?.Email;
             IsAdmin = user.Role==UserRoleEnum.Admin;
             MainAppUserId = user.MainAppUserId;
             Deactivated = user.Role == UserRoleEnum.Deactivated;

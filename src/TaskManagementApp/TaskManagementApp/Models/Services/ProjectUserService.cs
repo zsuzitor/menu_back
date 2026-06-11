@@ -1,27 +1,26 @@
-﻿using BO.Models.Auth;
+﻿using BO.Models.TaskManagementApp.DAL;
 using BO.Models.TaskManagementApp.DAL.Domain;
-using BO.Models.DAL.Domain;
-using TaskManagementApp.Models.DAL.Repositories.Interfaces;
-using TaskManagementApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
+using DAL.Models.DAL.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BO.Models.TaskManagementApp.DAL;
+using TaskManagementApp.Models.DAL.Repositories.Interfaces;
+using TaskManagementApp.Models.Services.Interfaces;
 
 namespace TaskManagementApp.Models.Services
 {
     public sealed class ProjectUserService : IProjectUserService
     {
         private readonly IProjectUserRepository _projectUserRepository;
-        private readonly IProjectRepository _projectRepository;
         private readonly IProjectCachedRepository _projectCacheRepository;
+        private readonly IUserRepository _userRepo;
 
-        public ProjectUserService(IProjectUserRepository projectUserRepository, IProjectRepository projectRepository
-            , IProjectCachedRepository projectCacheRepository)
+        public ProjectUserService(IProjectUserRepository projectUserRepository
+            , IProjectCachedRepository projectCacheRepository, IUserRepository userRepo)
         {
             _projectUserRepository = projectUserRepository;
-            _projectRepository = projectRepository;
             _projectCacheRepository = projectCacheRepository;
+            _userRepo = userRepo;
         }
 
         public async Task<ProjectUser> CreateAsync(ProjectUser user)
@@ -43,12 +42,12 @@ namespace TaskManagementApp.Models.Services
 
             await ThrowIfNotAccessToProject(projectId, userId, false);
 
-            return await _projectUserRepository.GetProjectUsersAsync(projectId);
+            return await _projectUserRepository.GetProjectUsersWithMainAppUserAsync(projectId);
         }
 
-        public async Task<List<ProjectUser>> GetProjectUsersAsync(long projectId, long userId)
+        public async Task<List<ProjectUser>> GetProjectUsersAsync(long projectId)
         {
-            return await _projectUserRepository.GetProjectUsersAsync(projectId);
+            return await _projectUserRepository.GetProjectUsersWithMainAppUserAsync(projectId);
         }
 
 
@@ -56,29 +55,30 @@ namespace TaskManagementApp.Models.Services
         {
             return await _projectUserRepository.ExistAsync(projectId, userId);
         }
-
-        public async Task<ProjectUser> ChangeAsync(long userIdForChange, string name, string email, bool isAdmin, bool deactivated, long userId)
+        public async Task<bool> ExistByMainAppUserIdAsync(long projectId, long mainAppUserId)
         {
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                throw new SomeCustomException(Consts.ErrorConsts.EmptyUserName);
-            }
+            return await _projectUserRepository.ExistByMainIdAsync(projectId, mainAppUserId);
+        }
 
-            var user = await _projectUserRepository.GetAsync(userIdForChange);
+        public async Task<ProjectUser> ChangeAsync(long userIdForChange, long projectId,  bool isAdmin, bool deactivated, long userId)
+        {
+            await ThrowIfNotAccessToProject(userId, projectId, true);
+
+            var user = await _projectUserRepository.GetByMainAppUserIdAsync(userIdForChange, projectId);
             if (user == null)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectUserNotFound);
             }
 
-            if (user.MainAppUserId == userId)
-            {
-                //если редачим себя проверяем можем ли мы проставить флаг isAdmin
-                await ThrowIfNotAccessToProject(userId, user.ProjectId, isAdmin);
-            }
-            else
-            {
-                await ThrowIfNotAccessToProject(userId, user.ProjectId, true);
-            }
+            //if (user.MainAppUserId == userId)
+            //{
+            //    //если редачим себя проверяем можем ли мы проставить флаг isAdmin
+            //    await ThrowIfNotAccessToProject(userId, user.ProjectId, isAdmin);
+            //}
+            //else
+            //{
+            //    await ThrowIfNotAccessToProject(userId, user.ProjectId, true);
+            //}
 
             //var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(userInfo.UserId, user.ProjectId);
             //if (userCurrent == null || !userCurrent.IsAdmin || userCurrent.Deactivated)
@@ -86,8 +86,6 @@ namespace TaskManagementApp.Models.Services
             //    throw new SomeCustomException(Consts.ErrorConsts.HaveNoAccessToEditProject);
             //}
 
-            user.UserName = name;
-            user.NotifyEmail = email;
             user.Role = UserRoleEnum.Editor;
             if (isAdmin)
                 user.Role = UserRoleEnum.Admin;
@@ -98,9 +96,11 @@ namespace TaskManagementApp.Models.Services
 
         }
 
-        public async Task<ProjectUser> DeleteAsync(long userIdForDel, long userId)
+        public async Task<ProjectUser> DeleteAsync(long userIdForDel, long projectId, long userId)
         {
-            var user = await _projectUserRepository.GetAsync(userIdForDel);
+            await ThrowIfNotAccessToProject(userId, projectId, true);
+
+            var user = await _projectUserRepository.GetByMainAppUserIdAsync(userIdForDel, projectId);
             if (user == null)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectUserNotFound);
@@ -116,7 +116,6 @@ namespace TaskManagementApp.Models.Services
             //{
             //    throw new SomeCustomException(Consts.ErrorConsts.HaveNoAccessToEditProject);
             //}
-            await ThrowIfNotAccessToProject(userId, user.ProjectId, true);
 
             await _projectUserRepository.DeleteAsync(user);
             return user;
@@ -152,12 +151,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<string> GetNotificationEmailAsync(long userId)
         {
-            return await _projectUserRepository.GetNotificationEmailAsync(userId);
-        }
-
-        public async Task<(string email, long? mainAppId)> GetNotificationEmailWithMainAppIdAsync(long userId)
-        {
-            return await _projectUserRepository.GetNotificationEmailWithMainAppIdAsync(userId);
+            return await _userRepo.GetEmail(userId);
         }
 
 
@@ -176,9 +170,11 @@ namespace TaskManagementApp.Models.Services
             }
         }
 
-        public async Task<List<ProjectUser>> GetProjectUserAsync(long projectId, List<long> usersId)
-        {
-            return await _projectUserRepository.GetProjectUserAsync(projectId, usersId);
-        }
+        //public async Task<List<ProjectUser>> GetProjectUserAsync(long projectId, List<long> usersId)
+        //{
+        //    return await _projectUserRepository.GetProjectUserAsync(projectId, usersId);
+        //}
+
+
     }
 }

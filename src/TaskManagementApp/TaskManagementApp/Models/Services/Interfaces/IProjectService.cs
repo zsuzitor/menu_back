@@ -17,7 +17,7 @@ namespace TaskManagementApp.Models.Services.Interfaces
         Task<bool> ExistIfAccessAdminAsync(long id, long userId);
 
         Task<Project> CreateAsync(string name, long userId);
-        Task<ProjectUser> CreateUserAsync(long projectId, string userName, string email, long? mainAppUserId, long userId);
+        Task<ProjectUser> CreateUserAsync(long projectId, long? mainAppUserId, long userId);
         Task<WorkTask> CreateTaskAsync(WorkTask task, long userId);
         Task<bool> DeleteAsync(long projectId, long userId);
         Task AlertAsync();

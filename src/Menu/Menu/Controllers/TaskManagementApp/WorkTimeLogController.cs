@@ -112,6 +112,7 @@ namespace Menu.Controllers.TaskManagementApp
         public async Task<ActionResult<WorkTimeLogReturn>> GetUserTime(long? projectId, DateTime dateFrom, DateTime dateTo, long? userId)
         {
             var currentUserId = User.GetUserId();
+            userId = userId ?? currentUserId;
             var res = await _workTimeLogService.GetTimeForUserAsync(userId, dateFrom, dateTo, currentUserId);
             return new JsonResult(res.Select(x => new WorkTimeLogReturn(x)), GetJsonOptions());
             //todo projectId

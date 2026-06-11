@@ -1,14 +1,6 @@
-﻿в тех связях что я вынес в юзера открыт и посомтреть ссылки на userid
-репозиторий проджекс юзеров
-"add-new-user - убрать лишние параметры
-add-new-task - передавать ид пользака из мейн апы
-update-task- передавать ид пользака из мейн апы
-update-executor- передавать ид пользака из мейн апы
-add-new-user - убрать юзернейм
-change-user- передавать ид пользака из мейн апы + тут добавляется в запросе id проекта
-delete-user тут добавляется в запросе id проекта
-update - для пресетов   передавать ид пользака из мейн апы + тут добавляется в запросе id проекта
-WorkTimeLogReturn - ProjectUserId изменил на UserId
+﻿
+
+E:\projects\menu_front\src\Apps\TaskManagementApp\Components\OneProjectUser\OneProjectUser.tsx - кажется есть возможность редачить почту перепроверить это
 
 
 

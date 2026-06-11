@@ -38,19 +38,13 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.CommentNotFound);
             }
 
-            var task = await _workTaskRepository.GetNoTrackAsync(comment.TaskId);
-            //if (task == null)
-            //{
-            //    throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
-            //}
-
-            var user = await _projectUserService.GetByMainAppIdAsync(userId, task.ProjectId);
-            if (user == null)
+            var task = await _workTaskRepository.GetAccessNoTrackAsync(comment.TaskId, userId);
+            if (task == null)
             {
-                throw new SomeCustomNotFoundException(Consts.ErrorConsts.UserNotFound);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
             }
 
-            if(comment.CreatorId != user.Id)
+            if(comment.CreatorId != userId)
             {
                 throw new SomeCustomException(Consts.ErrorConsts.CommentNotFoundOrNotAccess);
             }
@@ -76,20 +70,14 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.CommentNotFound);
             }
 
-            var task = await _workTaskRepository.GetNoTrackAsync(comment.TaskId);
-
-            //if (task == null)
-            //{
-            //    throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
-            //}
-
-            var user = await _projectUserService.GetByMainAppIdAsync(userId, task.ProjectId);
-            if (user == null)
+            var task = await _workTaskRepository.GetAccessNoTrackAsync(comment.TaskId, userId);
+            if (task == null)
             {
-                throw new SomeCustomNotFoundException(Consts.ErrorConsts.UserNotFound);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
             }
 
-            if (comment.CreatorId != user.Id)
+
+            if (comment.CreatorId != userId)
             {
                 throw new SomeCustomException(Consts.ErrorConsts.CommentNotFoundOrNotAccess);
             }

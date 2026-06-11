@@ -100,7 +100,7 @@ namespace Menu.Controllers.TaskManagementApp
             var labels = (await _labelService.Get(projectId)).Select(x => new ProjectLabelReturn(x)).ToList();
             var presets = (await _presetService.GetAllWithLabelsAsync(projectId)).Select(x => new PresetReturn(x)).ToList();
 
-            var users = await _projectUserService.GetProjectUsersAsync(projectId, userId);
+            var users = await _projectUserService.GetProjectUsersAsync(projectId);
             var usersReturn = users.Select(x => new ProjectUserReturn(x)).ToList();
 
             return new JsonResult(new ProjectFullInfoReturn() { Users = usersReturn, Statuses = statuses, Sprints = sprints, Labels = labels, Presets = presets }, GetJsonOptions());

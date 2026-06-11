@@ -15,6 +15,6 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
         Task<List<WorkTimeLog>> GetTimeForTaskAsync(long taskId);
         Task<List<WorkTimeLog>> GetTimeForProjectAsync(long projectId, DateTime startDate, DateTime endDate, long? userId);
         Task<List<WorkTimeLog>> GetTimeForUserAsync(long? userId, DateTime startDate, DateTime endDate, long currentUserId);
-        Task<WorkTimeLog> GetTimeAccessAsync(long id, long userId);
+        Task<WorkTimeLog> GetTimeAccessEditAsync(long id, long userId);
     }
 }

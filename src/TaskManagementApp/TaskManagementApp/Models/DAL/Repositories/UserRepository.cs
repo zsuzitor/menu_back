@@ -28,6 +28,11 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return await _db.TaskManagementProjectUsers.AsNoTracking().Where(x => x.ProjectId == projectId).ToListAsync();
         }
 
+        public async Task<List<ProjectUser>> GetProjectUsersWithMainAppUserAsync(long projectId)
+        {
+            return await _db.TaskManagementProjectUsers.AsNoTracking().Include(x => x.MainAppUser).Where(x => x.ProjectId == projectId).ToListAsync();
+        }
+
         public async Task<ProjectUser> GetByMainAppUserIdAsync(long mainAppUserId, long projectId)
         {
             return await _db.TaskManagementProjectUsers.AsNoTracking()
@@ -42,24 +47,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 .FirstOrDefaultAsync())?.Id;
         }
 
-        public async Task<string> GetNotificationEmailAsync(long userId)
-        {
-            return (await _db.TaskManagementProjectUsers.Select(x => new { x.Id, x.NotifyEmail })
-                .FirstOrDefaultAsync(x => x.Id == userId))?.NotifyEmail;
-        }
 
-        public async Task<(string email, long? mainAppId)> GetNotificationEmailWithMainAppIdAsync(long userId)
-        {
-            var res = (await _db.TaskManagementProjectUsers.Select(x => new { x.Id, x.NotifyEmail, x.MainAppUserId })
-                   .FirstOrDefaultAsync(x => x.Id == userId));
 
-            return (res?.NotifyEmail, res?.MainAppUserId);
-        }
-
-        public async Task<List<ProjectUser>> GetProjectUserAsync(long projectId, List<long> usersId)
-        {
-            return await (_db.TaskManagementProjectUsers.AsNoTracking().Where(x => x.ProjectId == projectId && usersId.Contains(x.Id)).ToListAsync());
-        }
+        //public async Task<List<ProjectUser>> GetProjectUserAsync(long projectId, List<long> usersId)
+        //{
+        //    return await (_db.TaskManagementProjectUsers.AsNoTracking().Where(x => x.ProjectId == projectId && usersId.Contains(x.Id)).ToListAsync());
+        //}
 
         public override async Task<ProjectUser> DeleteAsync(ProjectUser user)
         {
@@ -152,6 +145,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             }
             return result;
         }
+
 
     }
 }

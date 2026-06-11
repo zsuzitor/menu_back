@@ -59,8 +59,8 @@ namespace Menu.Controllers.TaskManagementApp
         public async Task<ActionResult<GetProjectTaskSelectInfoReturn>> GetProjectTaskSelectInfo(long taskId)
         {
 
-            var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
-            var task = await _workTaskService.GetProjectTaskSelectInfoAsync(taskId, userInfo.UserId);
+            var userId = User.GetUserId();
+            var task = await _workTaskService.GetProjectTaskSelectInfoAsync(taskId, userId);
 
             return new JsonResult(new GetProjectTaskSelectInfoReturn() { Id = task.Id, Name = task.Name }, GetJsonOptions());
         }

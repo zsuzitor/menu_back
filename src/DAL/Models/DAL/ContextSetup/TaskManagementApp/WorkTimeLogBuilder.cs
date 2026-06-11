@@ -15,8 +15,8 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
             modelBuilder.Entity<WorkTimeLog>(entity =>
             {
                 entity.HasKey(x => x.Id);
-                entity.HasOne(x => x.ProjectUser).WithMany(x => x.WorkTimeLogs)
-                    .HasForeignKey(x => x.ProjectUserId).OnDelete(DeleteBehavior.NoAction);
+                entity.HasOne(x => x.User).WithMany(x => x.WorkTimeLogs)
+                    .HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasOne(x => x.WorkTask).WithMany(x => x.WorkTimeLogs)
                     .HasForeignKey(x => x.WorkTaskId).OnDelete(DeleteBehavior.NoAction);
                 entity.ToTable("TaskManagementWorkTimeLog", schema: "TaskManagementApp");

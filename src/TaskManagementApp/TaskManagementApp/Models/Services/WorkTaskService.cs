@@ -146,10 +146,10 @@ namespace TaskManagementApp.Models.Services
                 }
             }
 
-
-            if (task.ExecutorId != null && task.ExecutorId != oldTask.ExecutorId)
+            task.ExecutorId = task.ExecutorId ?? userId;
+            if (task.ExecutorId != oldTask.ExecutorId)
             {
-                var executorExist = await _projectUserService.ExistAsync(oldTask.ProjectId, task.ExecutorId.Value);
+                var executorExist = await _projectUserService.ExistByMainAppUserIdAsync(oldTask.ProjectId, task.ExecutorId.Value);
                 if (!executorExist)
                 {
                     throw new SomeCustomNotFoundException(Consts.ErrorConsts.UserNotFound);
@@ -230,7 +230,7 @@ namespace TaskManagementApp.Models.Services
             var upTask = await GetIfEditAccess(id, userId);
             var oldTask = upTask.CopyPlaneProp();
 
-            var executorExist = await _projectUserService.ExistAsync(upTask.ProjectId, executorId);
+            var executorExist = await _projectUserService.ExistByMainAppUserIdAsync(upTask.ProjectId, executorId);
             if (!executorExist)
             {
                 throw new SomeCustomException(Consts.ErrorConsts.UserNotFound);
@@ -284,9 +284,8 @@ namespace TaskManagementApp.Models.Services
 
             //todo много запросов что то получается
             var task = await GetByIdIfAccessAsync(taskId, userId);
-            var projectUserId = await _projectUserService.GetIdByMainAppIdAsync(userId, task.ProjectId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskHaveNoAccess);
 
-            var newComment = new WorkTaskComment() { CreatorId = projectUserId, TaskId = taskId, Text = text, CreateDate = _dateTimeProvider.CurrentDateTime() };
+            var newComment = new WorkTaskComment() { CreatorId = userId, TaskId = taskId, Text = text, CreateDate = _dateTimeProvider.CurrentDateTime() };
             var comment = await _workTaskCommentService.CreateAsync(newComment);
             var emails = await GetTaskUsersForNotificationAsync(task, userId);
 
@@ -343,12 +342,10 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
-            var projUser = await _projectUserService.GetIdByMainAppIdAsync(userId,task.ProjectId);
             var newTask = new WorkTask()
             {
                 CreateDate = _dateTimeProvider.CurrentDateTime(),
-                CreatorEntityId = userId,
-                CreatorId = projUser.Value,
+                CreatorId = userId,
                 Description = task.Description,
                 ExecutorId = task.ExecutorId,
                 LastUpdateDate = _dateTimeProvider.CurrentDateTime(),
@@ -358,7 +355,7 @@ namespace TaskManagementApp.Models.Services
             };
 
             await _workTaskRepository.AddAsync(newTask);
-
+            //todo транзакция
             newTask.Labels = task.Labels.Select(x => new WorkTaskLabelTaskRelation() { LabelId = x.LabelId, TaskId = newTask.Id }).ToList();
             newTask.Sprints = task.Sprints.Select(x => new WorkTaskSprintRelation() { SprintId = x.SprintId, TaskId = newTask.Id }).ToList();
             await _workTaskRepository.UpdateAsync(newTask);
@@ -474,15 +471,22 @@ namespace TaskManagementApp.Models.Services
                     executorforLoad.Add(upTask.ExecutorId.Value);
                 }
 
-                var executors = await _projectUserService.GetProjectUserAsync(upTask.ProjectId, executorforLoad);
 
-                prevExecutor = prevExecutor ?? executors.FirstOrDefault(x => x.Id == prevTask?.ExecutorId);
-                newExecutor = newExecutor ?? executors.FirstOrDefault(x => x.Id == upTask.ExecutorId);
+                var prevExecutorEmail = prevExecutor?.Email;
+                if(prevTask?.ExecutorId != null && prevExecutorEmail == null)
+                {
+                    prevExecutorEmail = await _projectUserService.GetNotificationEmailAsync(prevTask.ExecutorId.Value);
+                }
+                var newExecutorEmail = newExecutor?.Email;
+                if (upTask?.ExecutorId != null && newExecutorEmail == null)
+                {
+                    newExecutorEmail = await _projectUserService.GetNotificationEmailAsync(upTask.ExecutorId.Value);
+                }
                 changes.Add(new EmailServiceBase.Changes()
                 {
                     PropName = "Исполнитель",
-                    PropPrevValue = prevExecutor?.NotifyEmail,//todo тут не уверен что эти почты надо брать
-                    PropNewValue = newExecutor?.NotifyEmail
+                    PropPrevValue = prevExecutorEmail,//todo тут не уверен что эти почты надо брать
+                    PropNewValue = newExecutorEmail
                 });
             }
 
@@ -522,14 +526,14 @@ namespace TaskManagementApp.Models.Services
 
             if (upTask.ExecutorId.HasValue)
             {
-                var us = await _projectUserService.GetNotificationEmailWithMainAppIdAsync(upTask.ExecutorId.Value);
-                emails.Add((us.mainAppId, us.email));
+                var us = await _projectUserService.GetNotificationEmailAsync(upTask.ExecutorId.Value);
+                emails.Add((upTask.ExecutorId, us));
             }
 
             if (upTask.CreatorId != upTask.ExecutorId)
             {
-                var us = await _projectUserService.GetNotificationEmailWithMainAppIdAsync(upTask.CreatorId);
-                emails.Add((us.mainAppId, us.email));
+                var us = await _projectUserService.GetNotificationEmailAsync(upTask.CreatorId);
+                emails.Add((upTask.ExecutorId, us));
             }
 
 

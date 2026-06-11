@@ -25,5 +25,6 @@ namespace DAL.Models.DAL.Repositories.Interfaces
         //Task<User> UpdateImageAsync(long userId, string imagePath);
 
         Task<User> GetShortInfo(long userId);
+        Task<string> GetEmail(long userId);
     }
 }

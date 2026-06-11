@@ -1,8 +1,6 @@
 ﻿
 using BO.Models.TaskManagementApp.DAL.Domain;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TaskManagementApp.Models.Returns
 {
@@ -33,7 +31,7 @@ namespace TaskManagementApp.Models.Returns
         public long WorkTaskId { get; set; }
 
 
-        public long ProjectUserId { get; set; }
+        public long UserId { get; set; }
 
 
         public WorkTimeLogReturn(WorkTimeLog obj)
@@ -44,7 +42,7 @@ namespace TaskManagementApp.Models.Returns
             DayOfLog = obj.DayOfLog;
             CreationTime = obj.CreationTime;
             WorkTaskId = obj.WorkTaskId;
-            ProjectUserId = obj.ProjectUserId;
+            UserId = obj.UserId;
             RangeEndOfLog = obj.RangeEndOfLog;
             RangeStartOfLog = obj.RangeStartOfLog;
 

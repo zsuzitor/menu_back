@@ -26,8 +26,16 @@ namespace BO.Models.DAL.Domain
         public List<Article> Articles { get; set; }
         public List<WordCard> WordsCards { get; set; }
         public List<WordsList> WordsLists { get; set; }
-        public List<ProjectUser> TaskManagementProjects { get; set; }
         public List<VaultUserDal> Vaults { get; set; }
+
+
+        #region task-managment
+        public List<WorkTaskComment> Comments { get; set; }
+        public List<WorkTask> CreateByUser { get; set; }
+        public List<WorkTask> ExecuteByUser { get; set; }
+        public List<WorkTimeLog> WorkTimeLogs { get; set; }
+        public List<ProjectUser> TaskManagementProjects { get; set; }
+        #endregion task-managment
 
 
         public byte[] RowVersion { get; set; }
@@ -39,6 +47,10 @@ namespace BO.Models.DAL.Domain
             WordsLists = new List<WordsList>();
             TaskManagementProjects = new List<ProjectUser>();
             Vaults = new List<VaultUserDal>();
+            Comments = new List<WorkTaskComment>();
+            CreateByUser = new List<WorkTask>();
+            ExecuteByUser = new List<WorkTask>();
+            WorkTimeLogs = new List<WorkTimeLog>();
         }
     }
 }

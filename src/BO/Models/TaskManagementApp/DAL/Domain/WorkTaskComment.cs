@@ -1,5 +1,6 @@
 ﻿
 using BO.Models.DAL;
+using BO.Models.DAL.Domain;
 using System;
 
 namespace BO.Models.TaskManagementApp.DAL.Domain
@@ -14,7 +15,7 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public WorkTask Task { get; set; }
 
         public long CreatorId { get; set; }
-        public ProjectUser Creator { get; set; }
+        public User Creator { get; set; }
 
 
         public byte[] RowVersion { get; set; }

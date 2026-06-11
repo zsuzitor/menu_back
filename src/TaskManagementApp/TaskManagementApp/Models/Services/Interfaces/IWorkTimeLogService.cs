@@ -10,7 +10,7 @@ namespace TaskManagementApp.Models.Services.Interfaces
     public interface IWorkTimeLogService
     {
         Task<WorkTimeLog> CreateAsync(WorkTimeLog obj, long userId);
-        Task<WorkTimeLog> GetAsync(long id, long userId);
+        //Task<WorkTimeLog> GetAsync(long id, long userId);
         Task<WorkTimeLog> EditAsync(WorkTimeLog obj, long userId);
         Task<WorkTimeLog> DeleteAsync(long id, long userId);
 

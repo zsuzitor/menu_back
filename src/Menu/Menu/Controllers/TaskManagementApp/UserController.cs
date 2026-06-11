@@ -57,21 +57,21 @@ namespace Menu.Controllers.TaskManagementApp
         public async Task<ActionResult<ProjectUserReturn>> AddNewUser([FromBody] AddNewUserRequest request)
         {
             var userId = User.GetUserId();
-            request.UserName = _apiHealper.StringValidator(request.UserName);
             request.MainAppUserEmail = _apiHealper.StringValidator(request.MainAppUserEmail);
 
             long? userIdForAdd = null;
             if (!string.IsNullOrWhiteSpace(request.MainAppUserEmail))
             {
                 userIdForAdd = await _mainAppUserService.GetIdByEmailAsync(request.MainAppUserEmail);
-                if (userIdForAdd == null)
-                {
-                    throw new SomeCustomException(Consts.ErrorConsts.UserInMainAppNotFound);
-                }
             }
 
-            var res = await _projectService.CreateUserAsync(request.ProjectId, request.UserName
-                , request.MainAppUserEmail, userIdForAdd, userId);
+            if (userIdForAdd == null)
+            {
+                throw new SomeCustomException(Consts.ErrorConsts.UserInMainAppNotFound);
+            }
+
+            var res = await _projectService.CreateUserAsync(request.ProjectId
+                , userIdForAdd, userId);
 
 
             return new JsonResult(new ProjectUserReturn(res ), GetJsonOptions());
@@ -85,9 +85,7 @@ namespace Menu.Controllers.TaskManagementApp
         {
             var userId = User.GetUserId();
 
-            request.Name = _apiHealper.StringValidator(request.Name);
-            request.Email = _apiHealper.StringValidator(request.Email);
-            var res = await _projectUserService.ChangeAsync(request.UserId, request.Name, request.Email, request.IsAdmin, request.Deactivated, userId);
+            var res = await _projectUserService.ChangeAsync(request.UserId, request.ProjectId, request.IsAdmin, request.Deactivated, userId);
 
             return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
         }
@@ -95,10 +93,10 @@ namespace Menu.Controllers.TaskManagementApp
         [Route("delete-user")]
         [HttpDelete]
         [CustomAuthorize]
-        public async Task<ActionResult<BoolResultNewReturn>> DeleteUser([FromForm] long userId)
+        public async Task<ActionResult<BoolResultNewReturn>> DeleteUser([FromForm] long userId, [FromForm] long projectId)
         {
             var currentUserId = User.GetUserId();
-            var res = await _projectUserService.DeleteAsync(userId, currentUserId);
+            var res = await _projectUserService.DeleteAsync(userId, projectId, currentUserId);
             return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
 
         }

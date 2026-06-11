@@ -16,24 +16,24 @@ namespace TaskManagementApp.Models.Services.Interfaces
         /// <param name="projectId"></param>
         /// <returns></returns>
         Task<List<ProjectUser>> GetProjectUsersAccessAsync(long projectId, long userId);
-        Task<List<ProjectUser>> GetProjectUsersAsync(long projectId, long userId);
+        Task<List<ProjectUser>> GetProjectUsersAsync(long projectId);
         /// <summary>
         /// не смотрит уровень доступа
         /// </summary>
         /// <param name="projectId"></param>
         /// <param name="usersId"></param>
         /// <returns></returns>
-        Task<List<ProjectUser>> GetProjectUserAsync(long projectId, List<long> usersId);
+        //Task<List<ProjectUser>> GetProjectUserByMainAppUserIdAsync(long projectId, List<long> usersId);
         Task<bool> ExistAsync(long projectId, long userId);
+        Task<bool> ExistByMainAppUserIdAsync(long projectId, long mainAppUserId);
 
 
-        Task<ProjectUser> ChangeAsync(long userIdForChange, string name, string email, bool isAdmin, bool deactivated, long userId);
-        Task<ProjectUser> DeleteAsync(long userIdForDel, long userId);
+        Task<ProjectUser> ChangeAsync(long userIdForChange, long projectId, bool isAdmin, bool deactivated, long userId);
+        Task<ProjectUser> DeleteAsync(long userIdForDel, long projectId, long userId);
         Task<ProjectUser> GetByMainAppIdAsync(long userId, long projectId);
         Task<ProjectUser> GetAdminByMainAppIdAsync(long userId, long projectId);
         Task<long?> GetIdByMainAppIdAsync(long userId, long projectId);
         Task<string> GetNotificationEmailAsync(long userId);
-        Task<(string email, long? mainAppId)> GetNotificationEmailWithMainAppIdAsync(long userId);
 
     }
 }

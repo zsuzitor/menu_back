@@ -111,7 +111,7 @@ namespace TaskManagementApp.Models.Services
 
             if (preset.ExecutorId != null && preset.ExecutorId != oldPreset.ExecutorId)
             {
-                var executorExist = await _projectUserService.ExistAsync(oldPreset.ProjectId, preset.ExecutorId.Value);
+                var executorExist = await _projectUserService.ExistByMainAppUserIdAsync(oldPreset.ProjectId, preset.ExecutorId.Value);
                 if (!executorExist)
                 {
                     throw new SomeCustomNotFoundException(Consts.ErrorConsts.UserNotFound);
@@ -120,7 +120,7 @@ namespace TaskManagementApp.Models.Services
 
             if (preset.CreatorId != null && preset.CreatorId != oldPreset.CreatorId)
             {
-                var creatorExist = await _projectUserService.ExistAsync(oldPreset.ProjectId, preset.CreatorId.Value);
+                var creatorExist = await _projectUserService.ExistByMainAppUserIdAsync(oldPreset.ProjectId, preset.CreatorId.Value);
                 if (!creatorExist)
                 {
                     throw new SomeCustomNotFoundException(Consts.ErrorConsts.UserNotFound);

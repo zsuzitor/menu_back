@@ -1,15 +1,12 @@
-﻿using BO.Models.Auth;
+﻿using BL.Models.Services.Interfaces;
+using BO.Models.TaskManagementApp.DAL;
 using BO.Models.TaskManagementApp.DAL.Domain;
-using TaskManagementApp.Models.DAL.Repositories;
-using TaskManagementApp.Models.DAL.Repositories.Interfaces;
-using TaskManagementApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
 using Menu.Models.Services.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using BL.Models.Services.Interfaces;
-using BO.Models.TaskManagementApp.DAL;
+using TaskManagementApp.Models.DAL.Repositories.Interfaces;
+using TaskManagementApp.Models.Services.Interfaces;
 
 namespace TaskManagementApp.Models.Services
 {
@@ -49,9 +46,7 @@ namespace TaskManagementApp.Models.Services
             var user = new ProjectUser()
             {
                 Role = UserRoleEnum.Admin,
-                UserName = string.IsNullOrEmpty(mainAppUserInfo.Name) ? mainAppUserInfo.Email : mainAppUserInfo.Name,
                 MainAppUserId = userId,
-                NotifyEmail = mainAppUserInfo.Email,
             };
             var project = await _projectCacheRepository.CreateAsync(name, user);
             return project;
@@ -88,25 +83,17 @@ namespace TaskManagementApp.Models.Services
         }
 
 
-        public async Task<ProjectUser> CreateUserAsync(long projectId, string userName, string email, long? mainAppUserId, long userId)
+        public async Task<ProjectUser> CreateUserAsync(long projectId, long? mainAppUserId, long userId)
         {
             if (!await ExistIfAccessAdminAsync(projectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
 
-            if (string.IsNullOrWhiteSpace(userName))
-            {
-                throw new SomeCustomException(Consts.ErrorConsts.EmptyUserName);
-
-            }
-
             var user = new ProjectUser()
             {
                 ProjectId = projectId,
-                UserName = userName,
                 MainAppUserId = mainAppUserId,
-                NotifyEmail = email
             };
             return await _projectUserService.CreateAsync(user);
 
@@ -120,17 +107,13 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomException(Consts.ErrorConsts.EmptyTaskName);
             }
 
-            var creator = await _projectUserService.GetByMainAppIdAsync(userId, task.ProjectId);
-            if (creator == null)
+            if (!await ExistIfAccessAdminAsync(task.ProjectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
-            //if (!(await ExistIfAccessAsync(task.ProjectId, userInfo)).access)
-            //{
-            //    throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
-            //}
 
-            task.CreatorId = creator.Id;
+
+            task.CreatorId = userId;
             //var creatorExist = await _projectUserService.ExistAsync(task.ProjectId, task.CreatorId);
             //if (!creatorExist)
             //{
@@ -139,11 +122,15 @@ namespace TaskManagementApp.Models.Services
 
             if (task.ExecutorId != null)
             {
-                var executorExist = await _projectUserService.ExistAsync(task.ProjectId, task.ExecutorId.Value);
+                var executorExist = await _projectUserService.ExistByMainAppUserIdAsync(task.ProjectId, task.ExecutorId.Value);
                 if (!executorExist)
                 {
                     throw new SomeCustomNotFoundException(Consts.ErrorConsts.UserNotFound);
                 }
+            }
+            else
+            {
+                task.ExecutorId = userId;
             }
 
 
@@ -161,7 +148,6 @@ namespace TaskManagementApp.Models.Services
                 Name = task.Name,
                 ProjectId = task.ProjectId,
                 ExecutorId = task.ExecutorId,
-                CreatorEntityId = userId,
                 CreateDate = _dateTimeProvider.CurrentDateTime(),
                 LastUpdateDate = _dateTimeProvider.CurrentDateTime(),
                 StatusId = task.StatusId,

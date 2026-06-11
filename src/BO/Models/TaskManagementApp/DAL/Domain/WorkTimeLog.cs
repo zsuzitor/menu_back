@@ -1,7 +1,6 @@
 ﻿using BO.Models.DAL;
+using BO.Models.DAL.Domain;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BO.Models.TaskManagementApp.DAL.Domain
 {
@@ -33,8 +32,8 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public WorkTask WorkTask { get; set; }
 
 
-        public long ProjectUserId { get; set; }
-        public ProjectUser ProjectUser { get; set; }
+        public long UserId { get; set; }
+        public User User { get; set; }
 
 
         public byte[] RowVersion { get; set; }

@@ -7,11 +7,11 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
 {
     public interface IProjectUserRepository : IGeneralRepository<ProjectUser, long>
     {
-        Task<List<ProjectUser>> GetProjectUsersAsync(long projectId);
+        Task<List<ProjectUser>> GetProjectUsersWithMainAppUserAsync(long projectId);
         Task<bool> ExistAsync(long projectId, long userId);
         Task<bool> ExistByMainIdAsync(long projectId, long mainAppUserId);
 
-        Task<List<ProjectUser>> GetProjectUserAsync(long projectId, List<long> usersId);
+        //Task<List<ProjectUser>> GetProjectUserAsync(long projectId, List<long> usersId);
 
 
         Task<ProjectUser> GetByMainAppUserIdAsync(long mainAppUserId, long projectId);
@@ -23,8 +23,6 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
         /// <param name="projectId"></param>
         /// <returns></returns>
         Task<long?> GetIdByMainAppIdAsync(long userId, long projectId);
-        Task<string> GetNotificationEmailAsync(long userId);
-        Task<(string email, long? mainAppId)> GetNotificationEmailWithMainAppIdAsync(long userId);
 
     }
 }

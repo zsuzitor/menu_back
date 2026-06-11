@@ -188,5 +188,11 @@ namespace DAL.Models.DAL.Repositories
             return await _db.Users.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.Email == email);
         }
+
+        public async Task<string> GetEmail(long userId)
+        {
+            var user = await _db.Users.Select(x=>new { x.Id,x.Email }).FirstOrDefaultAsync(x => x.Id == userId);
+            return user?.Email;
+        }
     }
 }

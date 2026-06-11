@@ -1,5 +1,6 @@
 ﻿
 using BO.Models.DAL;
+using BO.Models.DAL.Domain;
 using System;
 using System.Collections.Generic;
 
@@ -16,10 +17,6 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public string Description { get; set; }
 
 
-        /// <summary>
-        /// id main app пользака который именно завел задачу в приложение
-        /// </summary>
-        public long CreatorEntityId { get; set; }
         public long? StatusId { get; set; }
         public WorkTaskStatus Status { get; set; }
 
@@ -33,10 +30,10 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
         public long ProjectId { get; set; }
         public Project Project { get; set; }
         public long CreatorId { get; set; }
-        public ProjectUser Creator { get; set; }
+        public User Creator { get; set; }
         public long? ExecutorId { get; set; }
 
-        public ProjectUser Executor { get; set; }
+        public User Executor { get; set; }
 
         public List<WorkTaskComment> Comments { get; set; }
 
@@ -66,7 +63,6 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
             res.CreateDate = this.CreateDate;
             res.LastUpdateDate = this.LastUpdateDate;
             res.Description = this.Description;
-            res.CreatorEntityId = this.CreatorEntityId;
             res.StatusId = this.StatusId;
             res.ProjectId = this.ProjectId;
             res.CreatorId = this.CreatorId;

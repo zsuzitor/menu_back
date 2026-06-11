@@ -72158,15 +72158,10 @@ const AddTask = (props) => {
     const [newTaskName, setNewTaskName] = (0, react_1.useState)('');
     const [newTaskDescription, setNewTaskDescription] = (0, react_1.useState)('');
     let currentUser = props.ProjectUsers.find(x => { var _a; return x.MainAppUserId === ((_a = props.Auth.User) === null || _a === void 0 ? void 0 : _a.Id); });
-    const [newTaskCreator, setNewTaskCreator] = (0, react_1.useState)((currentUser === null || currentUser === void 0 ? void 0 : currentUser.Id) || -1);
     const [newTaskReviwer, setNewTaskReviwer] = (0, react_1.useState)(-1);
     const [taskStatus, setTaskStatus] = (0, react_1.useState)(-1);
     (0, react_1.useEffect)(() => {
-        if (newTaskCreator === -1) {
-            let firstUser = props.ProjectUsers.find(() => true);
-            setNewTaskCreator((firstUser === null || firstUser === void 0 ? void 0 : firstUser.Id) || -1);
-        }
-        let reviwerExist = props.ProjectUsers.some((x) => x.Id === newTaskReviwer);
+        let reviwerExist = props.ProjectUsers.some((x) => x.MainAppUserId === newTaskReviwer);
         if (!reviwerExist) {
             setNewTaskReviwer(-1);
         }
@@ -72186,7 +72181,6 @@ const AddTask = (props) => {
         }
         let tsk = new OneTask_1.OneTask();
         tsk.Name = newTaskName;
-        tsk.CreatorId = newTaskCreator;
         tsk.ExecutorId = newTaskReviwer;
         tsk.Description = newTaskDescription;
         tsk.StatusId = taskStatus;
@@ -72197,13 +72191,11 @@ const AddTask = (props) => {
     return react_1.default.createElement("div", null,
         react_1.default.createElement("input", { type: 'text', className: 'form-control-b persent-100-width', onChange: (e) => setNewTaskName(e.target.value), value: newTaskName, placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435' }),
         react_1.default.createElement("textarea", { className: 'form-control-b persent-100-width', onChange: (e) => setNewTaskDescription(e.target.value), value: newTaskDescription, placeholder: '\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435' }),
-        react_1.default.createElement("label", null, "\u0410\u0432\u0442\u043E\u0440:"),
-        react_1.default.createElement("select", { className: 'form-control-b', value: newTaskCreator, onChange: (e) => setNewTaskCreator(+e.target.value) }, props.ProjectUsers.map(x => react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name))),
         react_1.default.createElement("br", null),
         react_1.default.createElement("label", null, "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C:"),
         react_1.default.createElement("select", { className: 'form-control-b', value: newTaskReviwer, onChange: (e) => setNewTaskReviwer(+e.target.value) },
             react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-            props.ProjectUsers.map(x => react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name))),
+            props.ProjectUsers.map(x => react_1.default.createElement("option", { key: x.MainAppUserId, value: x.MainAppUserId }, x.Name))),
         react_1.default.createElement("br", null),
         react_1.default.createElement("span", null, "\u0421\u0442\u0430\u0442\u0443\u0441"),
         react_1.default.createElement("select", { className: 'form-select', onChange: e => setTaskStatus(+e.target.value), value: taskStatus },
@@ -72347,7 +72339,7 @@ const AddWorkTimeLog = (props) => {
         if (taskId && taskId > 0 && !props.TaskName) {
             var timerId = setTimeout(() => __awaiter(void 0, void 0, void 0, function* () {
                 var tName = yield props.GetTaskName(taskId);
-                setTaskName(tName);
+                setTaskName(tName || '');
             }), 1500);
             setLoadTasksTimerId(timerId);
         }
@@ -72588,11 +72580,11 @@ const EditPreset = (props) => {
             react_1.default.createElement("span", { className: 'filter-name' }, "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C:"),
             react_1.default.createElement("select", { className: 'filter-input', value: newCreatorId, onChange: (e) => setNewCreatorId(+e.target.value) },
                 react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                props.ProjectUsers.map(x => react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name))),
+                props.ProjectUsers.map(x => react_1.default.createElement("option", { key: x.MainAppUserId, value: x.MainAppUserId }, x.Name))),
             react_1.default.createElement("span", { className: 'filter-name' }, "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C:"),
             react_1.default.createElement("select", { className: 'filter-input', value: newExecutorId, onChange: (e) => setNewExecutorId(+e.target.value) },
                 react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                props.ProjectUsers.map(x => react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name))),
+                props.ProjectUsers.map(x => react_1.default.createElement("option", { key: x.MainAppUserId, value: x.MainAppUserId }, x.Name))),
             react_1.default.createElement("span", { className: 'filter-name' }, "\u0421\u0442\u0430\u0442\u0443\u0441:"),
             react_1.default.createElement("select", { className: 'filter-input', onChange: e => setNewStatusId(+e.target.value), value: newStatusId },
                 react_1.default.createElement("option", { value: -1 }, "\u041B\u044E\u0431\u043E\u0439"),
@@ -72614,9 +72606,14 @@ const EditPreset = (props) => {
                     }) })),
             react_1.default.createElement("button", { className: 'button button-grey', onClick: () => {
                     props.UpdatePreset({
-                        CreatorId: newCreatorId, Id: props.Preset.Id, LabelId: newLabels,
-                        Name: newName, ProjectId: props.Preset.ProjectId,
-                        SprintId: newSprintId, StatusId: newStatusId, ExecutorId: newExecutorId
+                        CreatorId: newCreatorId,
+                        Id: props.Preset.Id,
+                        LabelId: newLabels,
+                        Name: newName,
+                        ProjectId: props.Preset.ProjectId,
+                        SprintId: newSprintId,
+                        StatusId: newStatusId,
+                        ExecutorId: newExecutorId
                     });
                 } }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C")));
 };
@@ -73091,21 +73088,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-const AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 const ProjectUser_1 = __webpack_require__(/*! ../../Models/Entity/State/ProjectUser */ "./src/Apps/TaskManagementApp/Models/Entity/State/ProjectUser.ts");
 const OneProjectUserSetup_1 = __importDefault(__webpack_require__(/*! ./OneProjectUserSetup */ "./src/Apps/TaskManagementApp/Components/OneProjectUser/OneProjectUserSetup.tsx"));
 __webpack_require__(/*! ./OneProjectUser.css */ "./src/Apps/TaskManagementApp/Components/OneProjectUser/OneProjectUser.css");
 const OneProjectUser = (props) => {
-    const [userName, setUserName] = (0, react_1.useState)(props.User.Name);
-    const [userEmail, setUserEmail] = (0, react_1.useState)(props.User.Email || '');
     const [userIsAdmin, setUserIsAdmin] = (0, react_1.useState)(props.User.IsAdmin);
     const [userIsDeactivated, setUserIsDeactivated] = (0, react_1.useState)(props.User.Deactivated);
-    (0, react_1.useEffect)(() => {
-        setUserName(props.User.Name);
-    }, [props.User.Name]);
-    (0, react_1.useEffect)(() => {
-        setUserEmail(props.User.Email || '');
-    }, [props.User.Email]);
     (0, react_1.useEffect)(() => {
         setUserIsAdmin(props.User.IsAdmin);
     }, [props.User.IsAdmin]);
@@ -73113,30 +73101,15 @@ const OneProjectUser = (props) => {
         setUserIsDeactivated(props.User.Deactivated);
     }, [props.User.Deactivated]);
     const changeUser = () => {
-        if (!userName) {
-            let alertFactory = new AlertData_1.AlertData();
-            let alert = alertFactory.GetDefaultError("Введите имя пользователя");
-            window.G_AddAbsoluteAlertToState(alert);
-            return;
-        }
         let newUserData = new ProjectUser_1.ProjectUser();
-        newUserData.Id = props.User.Id;
-        newUserData.Name = userName;
-        newUserData.Email = userEmail;
+        newUserData.MainAppUserId = props.User.MainAppUserId;
         newUserData.IsAdmin = userIsAdmin;
         newUserData.Deactivated = userIsDeactivated;
-        props.ChangeUser(newUserData);
+        props.ChangeUser(newUserData, props.CurrentProjectId);
     };
-    let userHasChanges = userName !== props.User.Name ||
-        ((props.User.Email || userEmail) && userEmail !== props.User.Email) ||
-        userIsAdmin !== props.User.IsAdmin ||
+    let userHasChanges = userIsAdmin !== props.User.IsAdmin ||
         userIsDeactivated !== props.User.Deactivated;
     return react_1.default.createElement("div", { className: 'one-project-user-content' },
-        react_1.default.createElement("label", null, "\u0418\u043C\u044F"),
-        react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: userName, placeholder: "\u0418\u043C\u044F", onChange: e => setUserName(e.target.value) }),
-        react_1.default.createElement("br", null),
-        react_1.default.createElement("label", null, "\u041F\u043E\u0447\u0442\u0430 \u0434\u043B\u044F \u0443\u0432\u0435\u0434\u043E\u043C\u043B\u0435\u043D\u0438\u0439"),
-        react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: userEmail, placeholder: "\u041F\u043E\u0447\u0442\u0430", onChange: e => setUserEmail(e.target.value) }),
         react_1.default.createElement("label", null, "\u0420\u043E\u043B\u044C \u0410\u0434\u043C\u0438\u043D\u0430"),
         react_1.default.createElement("input", { type: "checkbox", checked: userIsAdmin, onChange: e => setUserIsAdmin(e.target.checked) }),
         react_1.default.createElement("label", null, "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C \u0434\u0435\u0430\u043A\u0442\u0438\u0432\u0438\u0440\u043E\u0432\u0430\u043D"),
@@ -73145,8 +73118,6 @@ const OneProjectUser = (props) => {
             react_1.default.createElement("div", { className: 'project-user-action-btn', onClick: () => changeUser() },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'save-icon.png', alt: "Save", title: '\u0441\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C' })),
             react_1.default.createElement("div", { className: 'project-user-action-btn', onClick: () => {
-                    setUserName(props.User.Name);
-                    setUserEmail(props.User.Email || '');
                     setUserIsAdmin(props.User.IsAdmin);
                     setUserIsDeactivated(props.User.Deactivated);
                 } },
@@ -73170,11 +73141,12 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 const mapStateToProps = (state, ownProps) => {
     let res = {};
+    res.CurrentProjectId = state.TaskManagementApp.CurrentProjectId;
     return res;
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
     let res = {};
-    res.ChangeUser = (user) => { dispatch(window.G_TaskManagementUserController.ChangeProjectUserRedux(user)); };
+    res.ChangeUser = (user, projectId) => { dispatch(window.G_TaskManagementUserController.ChangeProjectUserRedux(user, projectId)); };
     return res;
 };
 exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -73243,7 +73215,7 @@ const OneWorkTaskComment = (props) => {
     //     setEditMode(false);
     //     setChangedText(props.Comment.Text);
     // }
-    let user = props.ProjectUsers.find(x => x.Id == props.Comment.CreatorId);
+    let user = props.ProjectUsers.find(x => x.MainAppUserId == props.Comment.CreatorId);
     // let userCurrent = props.ProjectUsers.find(x => x.MainAppUserId == props.AuthInfo?.User?.Id);
     let commentOwner = user && user.MainAppUserId === ((_b = (_a = props.AuthInfo) === null || _a === void 0 ? void 0 : _a.User) === null || _b === void 0 ? void 0 : _b.Id);
     // let haveChenges = changedText !== props.Comment.Text;
@@ -73464,7 +73436,7 @@ const OneWorkTaskDetail = (props) => {
                 }, IsHeightWindow: false, Title: '\u0420\u0430\u0431\u043E\u0442\u0430', InnerContent: () => react_1.default.createElement(AddWorkTimeLog_1.default, { Close: () => {
                         setShowEditWorkTime(-1);
                         setShowAddWorkTimeNew(false);
-                    }, TaskId: props.Task.Id, TaskName: props.Task.Name, DefaultDate: null, CreateTimeLog: props.CreateTimeLog, TimeLog: showEditWorkTime > 1 ? props.Task.TimeLogs.find(x => x.Id == showEditWorkTime) : null, UpdateTimeLog: props.UpdateTimeLog, DeleteTimeLog: (i => {
+                    }, TaskId: props.Task.Id, TaskName: props.Task.Name, DefaultDate: null, CreateTimeLog: props.CreateTimeLog, TimeLog: showEditWorkTime > 1 ? props.Task.TimeLogs.find(x => x.Id == showEditWorkTime) || null : null, UpdateTimeLog: props.UpdateTimeLog, DeleteTimeLog: (i => {
                         props.DeleteTimeLog(i, props.Task.Id);
                         setShowEditWorkTime(-1);
                         setShowAddWorkTimeNew(false);
@@ -73480,7 +73452,7 @@ const OneWorkTaskDetail = (props) => {
                         setShowEditWorkTime(x.Id);
                         setShowAddWorkTimeNew(true);
                     } },
-                    react_1.default.createElement("div", { className: 'time-block-left' }, ((_a = props.ProjectUsers.find(u => u.Id === x.ProjectUserId)) === null || _a === void 0 ? void 0 : _a.Email) || ''),
+                    react_1.default.createElement("div", { className: 'time-block-left' }, ((_a = props.ProjectUsers.find(u => u.MainAppUserId === x.UserId)) === null || _a === void 0 ? void 0 : _a.Email) || ''),
                     react_1.default.createElement("div", { className: 'time-block-center' }, formatDate(x.DayOfLog)),
                     react_1.default.createElement("div", { className: 'time-block-right' }, renderWorkNum(x.TimeMinutes)));
             })));
@@ -73543,12 +73515,12 @@ const OneWorkTaskDetail = (props) => {
     if (!props.Task) {
         return react_1.default.createElement("div", null, "\u0417\u0430\u0433\u0440\u0443\u0436\u0430\u0435\u043C \u0434\u0430\u043D\u043D\u044B\u0435");
     }
-    let creator = props.ProjectUsers.find(x => x.Id === props.Task.CreatorId);
+    let creator = props.ProjectUsers.find(x => x.MainAppUserId === props.Task.CreatorId);
     let creatorsList = props.ProjectUsers.filter(us => !us.Deactivated);
     if (creator && creator.Deactivated) {
         creatorsList.push(creator);
     }
-    let executor = props.ProjectUsers.find(x => x.Id === props.Task.ExecutorId);
+    let executor = props.ProjectUsers.find(x => x.MainAppUserId === props.Task.ExecutorId);
     let executorList = props.ProjectUsers.filter(us => !us.Deactivated);
     if (executor && executor.Deactivated) {
         executorList.push(executor);
@@ -73568,6 +73540,7 @@ const OneWorkTaskDetail = (props) => {
                                 return false;
                             }
                             props.UpdateTaskName(props.Task.Id, val);
+                            return true;
                         }, Text: props.Task.Name })),
             react_1.default.createElement("div", { className: 'one-work-task-detail-buttons' },
                 react_1.default.createElement("div", { className: 'task-button', onClick: () => copyTask() },
@@ -73593,7 +73566,7 @@ const OneWorkTaskDetail = (props) => {
                                 }) })),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", { onClick: () => setTaskExecutorEditable(true), className: 'editable-by-click' }, "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C: "),
-                    !taskExecutorEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskExecutorEditable(true) }, ((_m = executorList.find(x => x.Id == props.Task.ExecutorId)) === null || _m === void 0 ? void 0 : _m.Name) || '')
+                    !taskExecutorEditable ? react_1.default.createElement("span", { className: 'editable-by-click', onClick: () => setTaskExecutorEditable(true) }, ((_m = executorList.find(x => x.MainAppUserId == props.Task.ExecutorId)) === null || _m === void 0 ? void 0 : _m.Name) || '')
                         :
                             react_1.default.createElement(SaveCancelInputSelect_1.default, { CancelEvent: () => setTaskExecutorEditable(false), SaveEvent: (id) => {
                                     if (!id || id == -1) {
@@ -73604,15 +73577,15 @@ const OneWorkTaskDetail = (props) => {
                                     }
                                     props.UpdateTaskExecutor(props.Task.Id, id);
                                     return true;
-                                }, Selected: props.Task.ExecutorId, ValuesWithId: executorList.map(x => ({
-                                    Id: x.Id,
+                                }, Selected: props.Task.ExecutorId || -1, ValuesWithId: executorList.map(x => ({
+                                    Id: x.MainAppUserId,
                                     Text: x.Name
                                 })) })),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", null,
                         "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C: ",
                         ((_o = creatorsList
-                            .find(x => x.Id == props.Task.CreatorId)) === null || _o === void 0 ? void 0 : _o.Name) || '')),
+                            .find(x => x.MainAppUserId == props.Task.CreatorId)) === null || _o === void 0 ? void 0 : _o.Name) || '')),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("p", null,
                         "\u0414\u0430\u0442\u0430 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u044F: ",
@@ -73797,11 +73770,10 @@ const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_m
 const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
 __webpack_require__(/*! ./OneWorkTask.css */ "./src/Apps/TaskManagementApp/Components/OneWorkTask/OneWorkTask.css");
 const OneWorkTask = (props) => {
+    var _a;
     const [taskName, setTaskName] = (0, react_1.useState)(props.Task.Name);
     const [taskStatus, setTaskStatus] = (0, react_1.useState)(props.Task.StatusId || -1);
     const [taskExecutorId, setTaskExecutorId] = (0, react_1.useState)(props.Task.ExecutorId || -1);
-    const [taskCreator, setTaskCreator] = (0, react_1.useState)(props.Task.CreatorId);
-    const [newCommentName, setNewCommentName] = (0, react_1.useState)('');
     // const [showComments, setShowComments] = useState(false);
     const [showFullTask, setShowFullTask] = (0, react_1.useState)(false);
     const navigate = (0, react_router_dom_1.useNavigate)();
@@ -73814,9 +73786,6 @@ const OneWorkTask = (props) => {
     (0, react_1.useEffect)(() => {
         setTaskExecutorId(props.Task.ExecutorId || -1);
     }, [props.Task.ExecutorId]);
-    (0, react_1.useEffect)(() => {
-        setTaskCreator(props.Task.CreatorId);
-    }, [props.Task.CreatorId]);
     const cancelTask = () => {
         if (!confirm('Отменить изменения?')) {
             return;
@@ -73825,7 +73794,6 @@ const OneWorkTask = (props) => {
         // setTaskLink(props.Task.Link || '');
         setTaskStatus(props.Task.StatusId);
         setTaskExecutorId(props.Task.ExecutorId || -1);
-        setTaskCreator(props.Task.CreatorId);
     };
     const updateTask = () => {
         if (!taskName) {
@@ -73839,7 +73807,6 @@ const OneWorkTask = (props) => {
         // forAdd.Link = taskLink;
         forAdd.StatusId = taskStatus;
         forAdd.ExecutorId = taskExecutorId;
-        forAdd.CreatorId = taskCreator;
         props.UpdateTask(forAdd);
     };
     const deleteTask = () => {
@@ -73851,14 +73818,13 @@ const OneWorkTask = (props) => {
     let taskHasChanges = taskName !== props.Task.Name ||
         // (taskLink !== props.Task.Link && (taskLink || props.Task.Link)) ||
         taskStatus !== props.Task.StatusId ||
-        ((props.Task.ExecutorId || taskExecutorId != -1) && taskExecutorId !== props.Task.ExecutorId) ||
-        taskCreator !== props.Task.CreatorId;
-    let creator = props.ProjectUsers.find(x => x.Id === taskCreator);
+        ((props.Task.ExecutorId || taskExecutorId != -1) && taskExecutorId !== props.Task.ExecutorId);
+    let creator = props.ProjectUsers.find(x => x.MainAppUserId === props.Task.CreatorId);
     let creatorsList = props.ProjectUsers.filter(us => !us.Deactivated);
     if (creator && creator.Deactivated) {
         creatorsList.push(creator);
     }
-    let executor = props.ProjectUsers.find(x => x.Id === taskExecutorId);
+    let executor = props.ProjectUsers.find(x => x.MainAppUserId === taskExecutorId);
     let executorList = props.ProjectUsers.filter(us => !us.Deactivated);
     if (executor && executor.Deactivated) {
         executorList.push(executor);
@@ -73883,12 +73849,12 @@ const OneWorkTask = (props) => {
                 react_1.default.createElement("br", null),
                 react_1.default.createElement("span", null,
                     "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C: ",
-                    creatorsList.find(x => x.Id == taskCreator).Name),
+                    ((_a = creatorsList.find(x => x.MainAppUserId == props.Task.CreatorId)) === null || _a === void 0 ? void 0 : _a.Name) || ''),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", null, "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C:"),
                     react_1.default.createElement("select", { className: 'form-select-v2', value: taskExecutorId, onChange: (e) => setTaskExecutorId(+e.target.value) },
                         react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                        executorList.map(x => react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name)))),
+                        executorList.map(x => react_1.default.createElement("option", { key: x.MainAppUserId, value: x.MainAppUserId }, x.Name)))),
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("span", null, "\u0421\u0442\u0430\u0442\u0443\u0441:"),
                     react_1.default.createElement("select", { className: 'form-select-v2', onChange: e => setTaskStatus(+e.target.value), value: taskStatus },
@@ -74365,11 +74331,11 @@ const ProjectDetail = (props) => {
         }
     }, [(_a = props.Project) === null || _a === void 0 ? void 0 : _a.Id]);
     (0, react_1.useEffect)(() => {
-        let filterCreatorExist = props.ProjectUsers.some((x) => x.Id === props.TasksFilters.CreatorId);
+        let filterCreatorExist = props.ProjectUsers.some((x) => x.MainAppUserId === props.TasksFilters.CreatorId);
         if (!filterCreatorExist) {
             props.SetFilterTaskCreator(-1);
         }
-        let filterExecutorExist = props.ProjectUsers.some((x) => x.Id === props.TasksFilters.ExecutorId);
+        let filterExecutorExist = props.ProjectUsers.some((x) => x.MainAppUserId === props.TasksFilters.ExecutorId);
         if (!filterExecutorExist) {
             props.SetFilterTaskExecutor(-1);
         }
@@ -74581,7 +74547,7 @@ const ProjectDetail = (props) => {
                                 react_1.default.createElement("span", { className: 'filter-name' }, "\u0421\u043E\u0437\u0434\u0430\u0442\u0435\u043B\u044C:"),
                                 react_1.default.createElement("select", { className: 'filter-input', value: props.TasksFilters.CreatorId, onChange: (e) => props.SetFilterTaskCreator(+e.target.value) },
                                     react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                                    props.ProjectUsers.map(x => react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name))),
+                                    props.ProjectUsers.map(x => react_1.default.createElement("option", { key: x.MainAppUserId, value: x.MainAppUserId }, x.Name))),
                                 react_1.default.createElement("button", { className: 'remove-filter', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0444\u0438\u043B\u044C\u0442\u0440', onClick: () => {
                                         props.SetFilterTaskCreator(-1);
                                         setFilterVisibilityCreator(false);
@@ -74590,7 +74556,7 @@ const ProjectDetail = (props) => {
                             react_1.default.createElement("span", { className: 'filter-name' }, "\u0418\u0441\u043F\u043E\u043B\u043D\u0438\u0442\u0435\u043B\u044C:"),
                             react_1.default.createElement("select", { className: 'filter-input', value: props.TasksFilters.ExecutorId, onChange: (e) => props.SetFilterTaskExecutor(+e.target.value) },
                                 react_1.default.createElement("option", { value: -1 }, "\u041D\u0435 \u0432\u044B\u0431\u0440\u0430\u043D\u043E"),
-                                props.ProjectUsers.map(x => react_1.default.createElement("option", { key: x.Id, value: x.Id }, x.Name))),
+                                props.ProjectUsers.map(x => react_1.default.createElement("option", { key: x.MainAppUserId, value: x.MainAppUserId }, x.Name))),
                             react_1.default.createElement("button", { className: 'remove-filter', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0444\u0438\u043B\u044C\u0442\u0440', onClick: () => {
                                     props.SetFilterTaskExecutor(-1);
                                     setFilterVisibilityReviwer(false);
@@ -74776,13 +74742,14 @@ const ProjectTimePage = (props) => {
     }
     const renderOneLine = (userId) => {
         return react_1.default.createElement("div", { className: 'one-line-times' }, datesForTable.map(x => {
-            let works = props.WorkTimeLog.filter(w => w.ProjectUserId == userId
+            let works = props.WorkTimeLog.filter(w => w.UserId == userId
                 && setClearDate(w.DayOfLog).getTime() == setClearDate(x).getTime());
             let minuteTotal = 0;
             let worksId = 'ids-';
             works.forEach(element => {
+                var _a;
                 worksId += element.Id + ',';
-                minuteTotal += element.TimeMinutes;
+                minuteTotal += (_a = element.TimeMinutes) !== null && _a !== void 0 ? _a : 0;
             });
             const helper = new Helper_1.Helper();
             let val = helper.MinutesToHours(minuteTotal);
@@ -74851,14 +74818,14 @@ const ProjectTimePage = (props) => {
         react_1.default.createElement("div", { className: 'project-time-time-block' },
             renderHeadLine(),
             props.ProjectUsers.map(x => {
-                const timeLogUrl = new RouteBuilder_1.default().TimeLogUserUrl(props.ProjectId, x.Id);
-                return react_1.default.createElement("div", { className: 'project-time-one-line', key: x.Id },
+                const timeLogUrl = new RouteBuilder_1.default().TimeLogUserUrl(props.ProjectId, x.MainAppUserId);
+                return react_1.default.createElement("div", { className: 'project-time-one-line', key: x.MainAppUserId },
                     react_1.default.createElement("div", { className: 'one-line-person' },
                         react_1.default.createElement("a", { href: timeLogUrl, onClick: (e) => {
                                 e.preventDefault();
                                 navigate(timeLogUrl);
                             } }, x.Email)),
-                    renderOneLine(x.Id));
+                    renderOneLine(x.MainAppUserId));
             })));
 };
 // and that function returns the connected, wrapper component:
@@ -74948,19 +74915,12 @@ const OneProjectUser_1 = __importDefault(__webpack_require__(/*! ../OneProjectUs
 const ProjectUsersSetup_1 = __importDefault(__webpack_require__(/*! ./ProjectUsersSetup */ "./src/Apps/TaskManagementApp/Components/ProjectUsers/ProjectUsersSetup.tsx"));
 __webpack_require__(/*! ./ProjectUsers.css */ "./src/Apps/TaskManagementApp/Components/ProjectUsers/ProjectUsers.css");
 const ProjectUsers = (props) => {
-    const [newUserName, setNewUserName] = (0, react_1.useState)('');
     const [userMainAppEmail, setUserMainAppEmail] = (0, react_1.useState)('');
     const [hideDeactivated, setHideDeactivated] = (0, react_1.useState)(true);
     const addNewUser = () => {
-        if (!newUserName) {
-            return;
-        }
-        props.AddUserToProject(newUserName, userMainAppEmail, props.ProjectId);
-        setNewUserName('');
+        props.AddUserToProject(userMainAppEmail, props.ProjectId);
     };
     return react_1.default.createElement("div", { className: 'project-management-user-list' },
-        react_1.default.createElement("span", null, "\u0418\u043C\u044F \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430"),
-        react_1.default.createElement("input", { className: 'form-control-b', type: 'text', placeholder: '\u0418\u043C\u044F \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430', onChange: (e) => setNewUserName(e.target.value), value: newUserName }),
         react_1.default.createElement("br", null),
         react_1.default.createElement("span", null, "\u041F\u043E\u0447\u0442\u0430 \u0438\u0437 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0433\u043E \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F"),
         react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: userMainAppEmail, placeholder: "\u041F\u043E\u0447\u0442\u0430  \u0438\u0437 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0433\u043E \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F", onChange: e => setUserMainAppEmail(e.target.value) }),
@@ -74971,7 +74931,7 @@ const ProjectUsers = (props) => {
         react_1.default.createElement("input", { type: "checkbox", checked: hideDeactivated, onChange: e => setHideDeactivated(e.target.checked) }),
         props.ProjectUsers.filter(x => !hideDeactivated || !x.Deactivated)
             .map(x => {
-            return react_1.default.createElement(OneProjectUser_1.default, { User: x, key: x.Id });
+            return react_1.default.createElement(OneProjectUser_1.default, { User: x, key: x.MainAppUserId });
         }));
 };
 // and that function returns the connected, wrapper component:
@@ -74998,8 +74958,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
     let res = {};
-    res.AddUserToProject = (newUserName, userMainAppEmail, projectId) => {
-        dispatch(window.G_TaskManagementUserController.AddUserToProjectRedux(newUserName, userMainAppEmail, projectId));
+    res.AddUserToProject = (userMainAppEmail, projectId) => {
+        dispatch(window.G_TaskManagementUserController.AddUserToProjectRedux(userMainAppEmail, projectId));
     };
     return res;
 };
@@ -77918,7 +77878,6 @@ class TaskManagementTaskController {
         this.AddTaskToProject = (task, projectId, onSuccess) => {
             let data = {
                 "taskName": task.Name,
-                "taskCreatorId": task.CreatorId,
                 "taskReviwerId": task.ExecutorId,
                 "description": task.Description,
                 "projectId": projectId,
@@ -78255,10 +78214,10 @@ const Consts_1 = __webpack_require__(/*! ../Consts */ "./src/Apps/TaskManagement
 const ProjectUser_1 = __webpack_require__(/*! ../Entity/State/ProjectUser */ "./src/Apps/TaskManagementApp/Models/Entity/State/ProjectUser.ts");
 class TaskManagementUserController {
     constructor() {
-        this.DeleteProjectUserRedux = (id) => {
+        this.DeleteProjectUserRedux = (id, projectId) => {
             return (dispatch, getState) => {
                 this.preloader(true);
-                this.DeleteProjectUser(id, (error, data) => {
+                this.DeleteProjectUser(id, projectId, (error, data) => {
                     this.preloader(false);
                     if (error) {
                         return;
@@ -78269,9 +78228,10 @@ class TaskManagementUserController {
                 });
             };
         };
-        this.DeleteProjectUser = (id, onSuccess) => {
+        this.DeleteProjectUser = (id, projectId, onSuccess) => {
             let data = {
                 "userId": id,
+                "projectId": projectId,
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
@@ -78283,10 +78243,10 @@ class TaskManagementUserController {
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiUserUrl}/delete-user`
             });
         };
-        this.AddUserToProjectRedux = (newUserName, mainAppUserEmail, projectId) => {
+        this.AddUserToProjectRedux = (mainAppUserEmail, projectId) => {
             return (dispatch, getState) => {
                 this.preloader(true);
-                this.AddUserToProject(newUserName, mainAppUserEmail, projectId, (error, data) => {
+                this.AddUserToProject(mainAppUserEmail, projectId, (error, data) => {
                     this.preloader(false);
                     if (error) {
                         return;
@@ -78299,9 +78259,8 @@ class TaskManagementUserController {
                 });
             };
         };
-        this.AddUserToProject = (newUserName, mainAppUserEmail, projectId, onSuccess) => {
+        this.AddUserToProject = (mainAppUserEmail, projectId, onSuccess) => {
             let data = {
-                "userName": newUserName,
                 "projectId": projectId,
                 "mainAppUserEmail": mainAppUserEmail,
             };
@@ -78316,10 +78275,10 @@ class TaskManagementUserController {
                 ContentType: 'body'
             });
         };
-        this.ChangeProjectUserRedux = (user) => {
+        this.ChangeProjectUserRedux = (user, projectId) => {
             return (dispatch, getState) => {
                 this.preloader(true);
-                this.ChangeProjectUser(user, (error, data) => {
+                this.ChangeProjectUser(user, projectId, (error, data) => {
                     this.preloader(false);
                     if (error) {
                         return;
@@ -78330,13 +78289,12 @@ class TaskManagementUserController {
                 });
             };
         };
-        this.ChangeProjectUser = (user, onSuccess) => {
+        this.ChangeProjectUser = (user, projectId, onSuccess) => {
             let data = {
-                "userId": user.Id,
-                "name": user.Name,
-                "email": user.Email,
+                "userId": user.MainAppUserId,
                 "isAdmin": user.IsAdmin,
                 "deactivated": user.Deactivated,
+                "projectId": projectId,
             };
             G_AjaxHelper.GoAjaxRequest({
                 Data: data,
@@ -79169,7 +79127,7 @@ class TimeLog {
         this.RangeStartOfLog = newData.RangeStartOfLog ? new Date(newData.RangeStartOfLog) : null;
         this.CreationTime = new Date(newData.CreationTime);
         this.WorkTaskId = newData.WorkTaskId;
-        this.ProjectUserId = newData.ProjectUserId;
+        this.UserId = newData.UserId;
         return this;
     }
     Copy(newData) {
@@ -79179,7 +79137,7 @@ class TimeLog {
         this.DayOfLog = newData.DayOfLog;
         this.CreationTime = newData.CreationTime;
         this.WorkTaskId = newData.WorkTaskId;
-        this.ProjectUserId = newData.ProjectUserId;
+        this.UserId = newData.UserId;
         this.RangeEndOfLog = newData.RangeEndOfLog;
         this.RangeStartOfLog = newData.RangeStartOfLog;
         return this;
@@ -80078,7 +80036,7 @@ function TaskManagementUserReducer(state = new AppState_1.AppState(), action) {
                 let newState = (0, cloneDeep_1.default)(state);
                 let userId = action.payload;
                 newState.TaskManagementApp.CurrentProjectUsers = newState.TaskManagementApp.CurrentProjectUsers
-                    .filter(x => x.Id != userId);
+                    .filter(x => x.MainAppUserId != userId);
                 return newState;
             }
         case UserActions_1.AddProjectUserActionName:
@@ -80092,10 +80050,8 @@ function TaskManagementUserReducer(state = new AppState_1.AppState(), action) {
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let user = action.payload;
-                let userState = newState.TaskManagementApp.CurrentProjectUsers.find(x => x.Id === user.Id);
+                let userState = newState.TaskManagementApp.CurrentProjectUsers.find(x => x.MainAppUserId === user.MainAppUserId);
                 if (userState) {
-                    userState.Email = user.Email;
-                    userState.Name = user.Name;
                     userState.IsAdmin = user.IsAdmin;
                     userState.Deactivated = user.Deactivated;
                 }
@@ -84834,7 +84790,7 @@ class Helper {
     GetElemById(arr, id) {
         let index = this.GetIndexById(arr, id);
         if (index < 0) {
-            return;
+            return null;
         }
         return arr[index];
     }
