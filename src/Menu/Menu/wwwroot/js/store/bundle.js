@@ -2765,7 +2765,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".new-preset-block .edit-labels {\r\n    color: black;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/EditPreset/EditPreset.css"],"names":[],"mappings":"AAAA;IACI,YAAY;AAChB","sourcesContent":[".new-preset-block .edit-labels {\r\n    color: black;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".new-preset-block .edit-labels {\r\n    color: black;\r\n}\r\n\r\n.edit-labels {\r\n    width: 200px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/EditPreset/EditPreset.css"],"names":[],"mappings":"AAAA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;AAChB","sourcesContent":[".new-preset-block .edit-labels {\r\n    color: black;\r\n}\r\n\r\n.edit-labels {\r\n    width: 200px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2792,7 +2792,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".work-task-status-create {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n\r\n}\r\n\r\n.work-task-status-create .status-create {}\r\n\r\n.work-task-status-create .status-input {\r\n    width: 200px;\r\n}\r\n\r\n.edit-project .task-statuses {\r\n    background-color: white;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/EditProject/EditProject.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,2BAA2B;IAC3B,SAAS;;AAEb;;AAEA,yCAAyC;;AAEzC;IACI,YAAY;AAChB;;AAEA;IACI,uBAAuB;AAC3B","sourcesContent":[".work-task-status-create {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n\r\n}\r\n\r\n.work-task-status-create .status-create {}\r\n\r\n.work-task-status-create .status-input {\r\n    width: 200px;\r\n}\r\n\r\n.edit-project .task-statuses {\r\n    background-color: white;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2819,7 +2819,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".task-status-elem {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n    \r\n    background-color: dimgray;\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.task-status-elem .status-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/EditTaskStatus/EditTaskStatus.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,2BAA2B;IAC3B,SAAS;;IAET,yBAAyB;IACzB,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB","sourcesContent":[".task-status-elem {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n    \r\n    background-color: dimgray;\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n}\r\n\r\n.task-status-elem .status-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".task-status-elem {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n    \r\n    background-color: dimgray;\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n    cursor: pointer;\r\n}\r\n\r\n.task-status-elem .status-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/EditTaskStatus/EditTaskStatus.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,2BAA2B;IAC3B,SAAS;;IAET,yBAAyB;IACzB,kBAAkB;IAClB,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB","sourcesContent":[".task-status-elem {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n    \r\n    background-color: dimgray;\r\n    border-radius: 3px;\r\n    padding: 2px;\r\n    cursor: pointer;\r\n}\r\n\r\n.task-status-elem .status-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3089,7 +3089,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".project-time-one-line {\r\n    /* height: 30px; */\r\n    display: flex;\r\n}\r\n\r\n.project-time-one-cell {\r\n    height: 45px;\r\n    width: 55px;\r\n    min-width: 55px;\r\n    border: 1px solid black;\r\n    /* padding: 5px; */\r\n    text-align: center;\r\n    overflow: hidden;\r\n    font-size: small;\r\n}\r\n\r\n.project-time-one-line .one-line-times {\r\n    display: flex;\r\n}\r\n\r\n.project-time-one-line .one-line-person {\r\n\r\n    width: 150px;\r\n    min-width: 150px;\r\n}\r\n\r\n.project-time-one-cell-header {\r\n    background-color: #a2cff6;\r\n}\r\n\r\n\r\n.project-time-page-main {\r\n    padding-top: 20px;\r\n    overflow-x: auto;\r\n}\r\n\r\n.project-time-time-block {\r\n    padding-top: 20px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/ProjectTimePage/ProjectTimePage.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,aAAa;AACjB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,eAAe;IACf,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;IAClB,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,aAAa;AACjB;;AAEA;;IAEI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,yBAAyB;AAC7B;;;AAGA;IACI,iBAAiB;IACjB,gBAAgB;AACpB;;AAEA;IACI,iBAAiB;AACrB","sourcesContent":[".project-time-one-line {\r\n    /* height: 30px; */\r\n    display: flex;\r\n}\r\n\r\n.project-time-one-cell {\r\n    height: 45px;\r\n    width: 55px;\r\n    min-width: 55px;\r\n    border: 1px solid black;\r\n    /* padding: 5px; */\r\n    text-align: center;\r\n    overflow: hidden;\r\n    font-size: small;\r\n}\r\n\r\n.project-time-one-line .one-line-times {\r\n    display: flex;\r\n}\r\n\r\n.project-time-one-line .one-line-person {\r\n\r\n    width: 150px;\r\n    min-width: 150px;\r\n}\r\n\r\n.project-time-one-cell-header {\r\n    background-color: #a2cff6;\r\n}\r\n\r\n\r\n.project-time-page-main {\r\n    padding-top: 20px;\r\n    overflow-x: auto;\r\n}\r\n\r\n.project-time-time-block {\r\n    padding-top: 20px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".project-time-one-line {\r\n    /* height: 30px; */\r\n    display: flex;\r\n}\r\n\r\n.project-time-one-cell {\r\n    height: 45px;\r\n    width: 55px;\r\n    min-width: 55px;\r\n    border: 1px solid black;\r\n    /* padding: 5px; */\r\n    text-align: center;\r\n    overflow: hidden;\r\n    font-size: small;\r\n}\r\n\r\n.project-time-one-line .one-line-times {\r\n    display: flex;\r\n}\r\n\r\n.project-time-one-line .one-line-person {\r\n\r\n    width: 150px;\r\n    min-width: 150px;\r\n}\r\n\r\n.project-time-one-cell-header {\r\n    background-color: #a2cff6;\r\n}\r\n\r\n\r\n.project-time-page-main {\r\n    padding-top: 20px;\r\n    overflow-x: auto;\r\n    width: 100%;\r\n    padding-top: 40px;\r\n}\r\n\r\n.project-time-time-block {\r\n    padding-top: 20px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/ProjectTimePage/ProjectTimePage.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,aAAa;AACjB;;AAEA;IACI,YAAY;IACZ,WAAW;IACX,eAAe;IACf,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;IAClB,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,aAAa;AACjB;;AAEA;;IAEI,YAAY;IACZ,gBAAgB;AACpB;;AAEA;IACI,yBAAyB;AAC7B;;;AAGA;IACI,iBAAiB;IACjB,gBAAgB;IAChB,WAAW;IACX,iBAAiB;AACrB;;AAEA;IACI,iBAAiB;AACrB","sourcesContent":[".project-time-one-line {\r\n    /* height: 30px; */\r\n    display: flex;\r\n}\r\n\r\n.project-time-one-cell {\r\n    height: 45px;\r\n    width: 55px;\r\n    min-width: 55px;\r\n    border: 1px solid black;\r\n    /* padding: 5px; */\r\n    text-align: center;\r\n    overflow: hidden;\r\n    font-size: small;\r\n}\r\n\r\n.project-time-one-line .one-line-times {\r\n    display: flex;\r\n}\r\n\r\n.project-time-one-line .one-line-person {\r\n\r\n    width: 150px;\r\n    min-width: 150px;\r\n}\r\n\r\n.project-time-one-cell-header {\r\n    background-color: #a2cff6;\r\n}\r\n\r\n\r\n.project-time-page-main {\r\n    padding-top: 20px;\r\n    overflow-x: auto;\r\n    width: 100%;\r\n    padding-top: 40px;\r\n}\r\n\r\n.project-time-time-block {\r\n    padding-top: 20px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3116,7 +3116,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".project-management-user-list {\r\n    transition: 1s;\r\n    overflow: hidden;\r\n    /* border: 1px solid black; */\r\n    /* max-height: 300px; */\r\n    overflow: auto;\r\n    /* height: 100%; */\r\n    /* background-color: slategray; */\r\n    /* box-shadow: 0px 0px 5px 1px black; */\r\n}\r\n\r\n\r\n.add-new-management-user-btn {\r\n    background-color: white !important;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/ProjectUsers/ProjectUsers.css"],"names":[],"mappings":"AAAA;IACI,cAAc;IACd,gBAAgB;IAChB,6BAA6B;IAC7B,uBAAuB;IACvB,cAAc;IACd,kBAAkB;IAClB,iCAAiC;IACjC,uCAAuC;AAC3C;;;AAGA;IACI,kCAAkC;AACtC","sourcesContent":[".project-management-user-list {\r\n    transition: 1s;\r\n    overflow: hidden;\r\n    /* border: 1px solid black; */\r\n    /* max-height: 300px; */\r\n    overflow: auto;\r\n    /* height: 100%; */\r\n    /* background-color: slategray; */\r\n    /* box-shadow: 0px 0px 5px 1px black; */\r\n}\r\n\r\n\r\n.add-new-management-user-btn {\r\n    background-color: white !important;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".project-management-user-list {\r\n    transition: 1s;\r\n    overflow: hidden;\r\n    /* border: 1px solid black; */\r\n    /* max-height: 300px; */\r\n    overflow: auto;\r\n    /* height: 100%; */\r\n    /* background-color: slategray; */\r\n    /* box-shadow: 0px 0px 5px 1px black; */\r\n    padding-top:40px;\r\n    width: 100%;\r\n}\r\n\r\n\r\n.add-new-management-user-btn {\r\n    background-color: white !important;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/ProjectUsers/ProjectUsers.css"],"names":[],"mappings":"AAAA;IACI,cAAc;IACd,gBAAgB;IAChB,6BAA6B;IAC7B,uBAAuB;IACvB,cAAc;IACd,kBAAkB;IAClB,iCAAiC;IACjC,uCAAuC;IACvC,gBAAgB;IAChB,WAAW;AACf;;;AAGA;IACI,kCAAkC;AACtC","sourcesContent":[".project-management-user-list {\r\n    transition: 1s;\r\n    overflow: hidden;\r\n    /* border: 1px solid black; */\r\n    /* max-height: 300px; */\r\n    overflow: auto;\r\n    /* height: 100%; */\r\n    /* background-color: slategray; */\r\n    /* box-shadow: 0px 0px 5px 1px black; */\r\n    padding-top:40px;\r\n    width: 100%;\r\n}\r\n\r\n\r\n.add-new-management-user-btn {\r\n    background-color: white !important;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3204,6 +3204,33 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".sprints-page-main {\r\n    padding-to
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/Statuses/Statuses.css":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/Statuses/Statuses.css ***!
+  \***********************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".work-task-status-create {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n    padding: 5px;\r\n\r\n}\r\n\r\n.work-task-status-create .status-create {}\r\n\r\n.work-task-status-create .status-input {\r\n    width: 200px;\r\n}\r\n\r\n.task-statuses {\r\n    background-color: white;\r\n    width: 100%;\r\n    padding-top: 40px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/Statuses/Statuses.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,2BAA2B;IAC3B,SAAS;IACT,YAAY;;AAEhB;;AAEA,yCAAyC;;AAEzC;IACI,YAAY;AAChB;;AAEA;IACI,uBAAuB;IACvB,WAAW;IACX,iBAAiB;AACrB","sourcesContent":[".work-task-status-create {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    gap: 10px;\r\n    padding: 5px;\r\n\r\n}\r\n\r\n.work-task-status-create .status-create {}\r\n\r\n.work-task-status-create .status-input {\r\n    width: 200px;\r\n}\r\n\r\n.task-statuses {\r\n    background-color: white;\r\n    width: 100%;\r\n    padding-top: 40px;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/TaskManagementMain/TaskManagementMain.css":
 /*!*******************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/TaskManagementMain/TaskManagementMain.css ***!
@@ -3224,7 +3251,34 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".task-management-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    width: 100%;\r\n    /* background-color: #666262; */\r\n}\r\n\r\n.code-management-projects-menu-main {\r\n    position: relative;\r\n    margin-right: 1rem;\r\n    padding: 0.75rem;\r\n    height: calc(100vh - 8.375rem);\r\n    background-color: #fff;\r\n    border-radius: 0.75rem;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    transition: 0.5s;\r\n}\r\n\r\n.code-management-projects-menu-main-visible {\r\n    width: 290px;\r\n    margin-right: 1rem;\r\n}\r\n\r\n.code-management-projects-menu-main-hide {\r\n    margin-right: -1.25rem;\r\n    width: 0;\r\n    transform: translateX(-250px);\r\n}\r\n\r\n.hide-management-projects-menu-button {\r\n    position: absolute;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: baseline;\r\n    text-align: center;\r\n    width: 2rem;\r\n    height: 2rem;\r\n    right: -2.5rem;\r\n    z-index: 2;\r\n    font-size: 20px;\r\n    color: #fff;\r\n    background-color: #99a2ad;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    transition: 0.5s;\r\n}\r\n\r\n.hide-management-projects-menu-button:hover {\r\n    background-color: #6c757d;\r\n}\r\n\r\n.code-management-projects-menu-main-hide .hide-management-projects-menu-button {\r\n    right: -16rem;\r\n}\r\n\r\n.code-management-project-info {\r\n    width: 100%;\r\n}\r\n\r\n.task-management-main-container .preloader {\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: black;\r\n    z-index: 40;\r\n    /* filter: blur(300px); */\r\n    opacity: 0.8;\r\n    /* transition: 1s; */\r\n    margin: -4.5rem -0.75rem;\r\n}\r\n\r\n\r\n.code-management-projects-menu-main .menu-main-inner .links {\r\n    display: flex;\r\n    gap: 5px;\r\n    flex-direction: column;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/TaskManagementMain/TaskManagementMain.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,WAAW;IACX,+BAA+B;AACnC;;AAEA;IACI,kBAAkB;IAClB,kBAAkB;IAClB,gBAAgB;IAChB,8BAA8B;IAC9B,sBAAsB;IACtB,sBAAsB;IACtB,oCAAoC;IACpC,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI,sBAAsB;IACtB,QAAQ;IACR,6BAA6B;AACjC;;AAEA;IACI,kBAAkB;IAClB,aAAa;IACb,uBAAuB;IACvB,qBAAqB;IACrB,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,cAAc;IACd,UAAU;IACV,eAAe;IACf,WAAW;IACX,yBAAyB;IACzB,kBAAkB;IAClB,eAAe;IACf,gBAAgB;AACpB;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,eAAe;IACf,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,WAAW;IACX,yBAAyB;IACzB,YAAY;IACZ,oBAAoB;IACpB,wBAAwB;AAC5B;;;AAGA;IACI,aAAa;IACb,QAAQ;IACR,sBAAsB;AAC1B","sourcesContent":[".task-management-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    width: 100%;\r\n    /* background-color: #666262; */\r\n}\r\n\r\n.code-management-projects-menu-main {\r\n    position: relative;\r\n    margin-right: 1rem;\r\n    padding: 0.75rem;\r\n    height: calc(100vh - 8.375rem);\r\n    background-color: #fff;\r\n    border-radius: 0.75rem;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    transition: 0.5s;\r\n}\r\n\r\n.code-management-projects-menu-main-visible {\r\n    width: 290px;\r\n    margin-right: 1rem;\r\n}\r\n\r\n.code-management-projects-menu-main-hide {\r\n    margin-right: -1.25rem;\r\n    width: 0;\r\n    transform: translateX(-250px);\r\n}\r\n\r\n.hide-management-projects-menu-button {\r\n    position: absolute;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: baseline;\r\n    text-align: center;\r\n    width: 2rem;\r\n    height: 2rem;\r\n    right: -2.5rem;\r\n    z-index: 2;\r\n    font-size: 20px;\r\n    color: #fff;\r\n    background-color: #99a2ad;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    transition: 0.5s;\r\n}\r\n\r\n.hide-management-projects-menu-button:hover {\r\n    background-color: #6c757d;\r\n}\r\n\r\n.code-management-projects-menu-main-hide .hide-management-projects-menu-button {\r\n    right: -16rem;\r\n}\r\n\r\n.code-management-project-info {\r\n    width: 100%;\r\n}\r\n\r\n.task-management-main-container .preloader {\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: black;\r\n    z-index: 40;\r\n    /* filter: blur(300px); */\r\n    opacity: 0.8;\r\n    /* transition: 1s; */\r\n    margin: -4.5rem -0.75rem;\r\n}\r\n\r\n\r\n.code-management-projects-menu-main .menu-main-inner .links {\r\n    display: flex;\r\n    gap: 5px;\r\n    flex-direction: column;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".task-management-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    width: 100%;\r\n    /* background-color: #666262; */\r\n}\r\n\r\n.code-management-projects-menu-main {\r\n    position: relative;\r\n    margin-right: 1rem;\r\n    padding: 0.75rem;\r\n    height: calc(100vh - 8.375rem);\r\n    background-color: #fff;\r\n    border-radius: 0.75rem;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    transition: 0.5s;\r\n    /* overflow: hidden; */\r\n}\r\n\r\n.code-management-projects-menu-main-visible {\r\n    width: 290px;\r\n    margin-right: 1rem;\r\n}\r\n\r\n.code-management-projects-menu-main-hide {\r\n    /* margin-right: -1.25rem;\r\n    width: 0;\r\n    transform: translateX(-250px); */\r\n    width: 50px;\r\n}\r\n\r\n.hide-management-projects-menu-button {\r\n    position: absolute;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: baseline;\r\n    text-align: center;\r\n    width: 2rem;\r\n    height: 2rem;\r\n    right: -2.5rem;\r\n    z-index: 2;\r\n    font-size: 20px;\r\n    color: #fff;\r\n    background-color: #99a2ad;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    transition: 0.5s;\r\n}\r\n\r\n.hide-management-projects-menu-button:hover {\r\n    background-color: #6c757d;\r\n}\r\n\r\n.code-management-projects-menu-main-hide .hide-management-projects-menu-button {\r\n    /* right: -16rem; */\r\n}\r\n\r\n.code-management-project-info {\r\n    width: 100%;\r\n}\r\n\r\n.task-management-main-container .preloader {\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: black;\r\n    z-index: 40;\r\n    /* filter: blur(300px); */\r\n    opacity: 0.8;\r\n    /* transition: 1s; */\r\n    margin: -4.5rem -0.75rem;\r\n}\r\n\r\n\r\n.code-management-projects-menu-main .menu-main-inner .links {\r\n    display: flex;\r\n    gap: 5px;\r\n    flex-direction: column;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/TaskManagementMain/TaskManagementMain.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,WAAW;IACX,+BAA+B;AACnC;;AAEA;IACI,kBAAkB;IAClB,kBAAkB;IAClB,gBAAgB;IAChB,8BAA8B;IAC9B,sBAAsB;IACtB,sBAAsB;IACtB,oCAAoC;IACpC,gBAAgB;IAChB,sBAAsB;AAC1B;;AAEA;IACI,YAAY;IACZ,kBAAkB;AACtB;;AAEA;IACI;;oCAEgC;IAChC,WAAW;AACf;;AAEA;IACI,kBAAkB;IAClB,aAAa;IACb,uBAAuB;IACvB,qBAAqB;IACrB,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,cAAc;IACd,UAAU;IACV,eAAe;IACf,WAAW;IACX,yBAAyB;IACzB,kBAAkB;IAClB,eAAe;IACf,gBAAgB;AACpB;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,mBAAmB;AACvB;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,eAAe;IACf,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,WAAW;IACX,yBAAyB;IACzB,YAAY;IACZ,oBAAoB;IACpB,wBAAwB;AAC5B;;;AAGA;IACI,aAAa;IACb,QAAQ;IACR,sBAAsB;AAC1B","sourcesContent":[".task-management-main-container {\r\n    display: flex;\r\n    flex-wrap: nowrap;\r\n    width: 100%;\r\n    /* background-color: #666262; */\r\n}\r\n\r\n.code-management-projects-menu-main {\r\n    position: relative;\r\n    margin-right: 1rem;\r\n    padding: 0.75rem;\r\n    height: calc(100vh - 8.375rem);\r\n    background-color: #fff;\r\n    border-radius: 0.75rem;\r\n    box-shadow: 0 0 5px rgb(0 0 0 / 25%);\r\n    transition: 0.5s;\r\n    /* overflow: hidden; */\r\n}\r\n\r\n.code-management-projects-menu-main-visible {\r\n    width: 290px;\r\n    margin-right: 1rem;\r\n}\r\n\r\n.code-management-projects-menu-main-hide {\r\n    /* margin-right: -1.25rem;\r\n    width: 0;\r\n    transform: translateX(-250px); */\r\n    width: 50px;\r\n}\r\n\r\n.hide-management-projects-menu-button {\r\n    position: absolute;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: baseline;\r\n    text-align: center;\r\n    width: 2rem;\r\n    height: 2rem;\r\n    right: -2.5rem;\r\n    z-index: 2;\r\n    font-size: 20px;\r\n    color: #fff;\r\n    background-color: #99a2ad;\r\n    border-radius: 50%;\r\n    cursor: pointer;\r\n    transition: 0.5s;\r\n}\r\n\r\n.hide-management-projects-menu-button:hover {\r\n    background-color: #6c757d;\r\n}\r\n\r\n.code-management-projects-menu-main-hide .hide-management-projects-menu-button {\r\n    /* right: -16rem; */\r\n}\r\n\r\n.code-management-project-info {\r\n    width: 100%;\r\n}\r\n\r\n.task-management-main-container .preloader {\r\n    position: fixed;\r\n    width: 100%;\r\n    height: 100%;\r\n    background-color: black;\r\n    z-index: 40;\r\n    /* filter: blur(300px); */\r\n    opacity: 0.8;\r\n    /* transition: 1s; */\r\n    margin: -4.5rem -0.75rem;\r\n}\r\n\r\n\r\n.code-management-projects-menu-main .menu-main-inner .links {\r\n    display: flex;\r\n    gap: 5px;\r\n    flex-direction: column;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/TasksUser/TasksUser.css":
+/*!*************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/TasksUser/TasksUser.css ***!
+  \*************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".tasks-user-main{\r\n    padding-top: 40px;\r\n    overflow-x: auto;\r\n    overflow-y: auto;\r\n}\r\n\r\n.tasks-user-main .one-status-column {\r\n    width: 130px;\r\n    height: 30px;\r\n}\r\n\r\n.tasks-user-main .one-status-empty {\r\n    width: 230px;\r\n}\r\n\r\n.tasks-user-main .user-name {\r\n    width: 230px;\r\n}\r\n\r\n.tasks-user-main .one-status-line {\r\n    display: flex;\r\n}\r\n\r\n.tasks-user-main .one-user-line {\r\n    display: flex;\r\n}\r\n\r\n.tasks-user-main .one-task {\r\n    border: 1px solid black;\r\n    width: 130px;\r\n    overflow: hidden;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/TasksUser/TasksUser.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,gBAAgB;IAChB,gBAAgB;AACpB;;AAEA;IACI,YAAY;IACZ,YAAY;AAChB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,uBAAuB;IACvB,YAAY;IACZ,gBAAgB;AACpB","sourcesContent":[".tasks-user-main{\r\n    padding-top: 40px;\r\n    overflow-x: auto;\r\n    overflow-y: auto;\r\n}\r\n\r\n.tasks-user-main .one-status-column {\r\n    width: 130px;\r\n    height: 30px;\r\n}\r\n\r\n.tasks-user-main .one-status-empty {\r\n    width: 230px;\r\n}\r\n\r\n.tasks-user-main .user-name {\r\n    width: 230px;\r\n}\r\n\r\n.tasks-user-main .one-status-line {\r\n    display: flex;\r\n}\r\n\r\n.tasks-user-main .one-user-line {\r\n    display: flex;\r\n}\r\n\r\n.tasks-user-main .one-task {\r\n    border: 1px solid black;\r\n    width: 130px;\r\n    overflow: hidden;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3251,7 +3305,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".tempo-time-column {\r\n    display: flex;\r\n    flex-direction: column;\r\n    width: 110px;\r\n    gap: 5px;\r\n    /* border-right: 1px solid black; */\r\n    /* background-color: lightsteelblue; */\r\n\r\n}\r\n\r\n.tempo-time-column-header {\r\n    width: 110px;\r\n    text-align: center;\r\n    display: flex;\r\n    flex-direction: column;\r\n    border-radius: 7px 7px 0 0;\r\n    background-color: white;\r\n}\r\n\r\n.tempo-time-column-tasks {\r\n    border-radius: 0px 0px 7px 7px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 2px;\r\n}\r\n\r\n.tempo-time-column-one-content {\r\n    width: 110px;\r\n    height: 90px;\r\n    /* border: 1px solid black; */\r\n    padding: 3px;\r\n    background-color: white;\r\n    display: flex;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.tempo-time-column-one-content .head {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.tempo-time-column-one-content .more-buttons {\r\n    display: none;\r\n    /* position: absolute; */\r\n    width: 10px;\r\n    height: 10px;\r\n    /* top: -30px;\r\n    right: -100px; */\r\n    cursor: pointer;\r\n    /* border-radius: 50%;\r\n    border: 2px solid #2d85e4;\r\n    height: 14px;\r\n    width: 14px; */\r\n}\r\n\r\n.tempo-time-column-one-content:hover .more-buttons {\r\n    display: flex;\r\n    justify-content: right;\r\n}\r\n\r\n.tempo-time-column-one-content .task-info {\r\n    font-weight: bold;\r\n    display: flex;\r\n    flex-grow: 2;\r\n}\r\n\r\n.tempo-time-column-one-content .time-more-block {\r\n\r\n    /* line-height: 0; */\r\n    display: flex;\r\n}\r\n\r\n.tempo-time-column-one-content .task-info a {\r\n    height: 16px;\r\n    width: 100%;\r\n}\r\n\r\n.tempo-time-column-one-content .comment {\r\n    height: 18px;\r\n    line-height: 1;\r\n    overflow: hidden;\r\n}\r\n\r\n.tempo-time-column-one-content .time {\r\n    font-size: 10px;\r\n    font-weight: bold;\r\n    text-align: right;\r\n}\r\n\r\n.tempo-time-column-one-content div {\r\n    /* overflow: hidden; */\r\n}\r\n\r\n.tempo-time-page-main {\r\n    padding-top: 20px;\r\n    overflow-x: auto;\r\n}\r\n\r\n\r\n.tempo-time-block {\r\n    display: flex;\r\n    padding-top: 30px;\r\n    gap: 2px;\r\n}\r\n\r\n.tempo-time-column-add-btn {\r\n    text-align: center;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,sBAAsB;IACtB,YAAY;IACZ,QAAQ;IACR,mCAAmC;IACnC,sCAAsC;;AAE1C;;AAEA;IACI,YAAY;IACZ,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,0BAA0B;IAC1B,uBAAuB;AAC3B;;AAEA;IACI,8BAA8B;IAC9B,aAAa;IACb,sBAAsB;IACtB,QAAQ;AACZ;;AAEA;IACI,YAAY;IACZ,YAAY;IACZ,6BAA6B;IAC7B,YAAY;IACZ,uBAAuB;IACvB,aAAa;IACb,sBAAsB;IACtB,kBAAkB;AACtB;;AAEA;;IAEI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,aAAa;IACb,wBAAwB;IACxB,WAAW;IACX,YAAY;IACZ;oBACgB;IAChB,eAAe;IACf;;;kBAGc;AAClB;;AAEA;IACI,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,iBAAiB;IACjB,aAAa;IACb,YAAY;AAChB;;AAEA;;IAEI,oBAAoB;IACpB,aAAa;AACjB;;AAEA;IACI,YAAY;IACZ,WAAW;AACf;;AAEA;IACI,YAAY;IACZ,cAAc;IACd,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,iBAAiB;IACjB,iBAAiB;AACrB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,iBAAiB;IACjB,gBAAgB;AACpB;;;AAGA;IACI,aAAa;IACb,iBAAiB;IACjB,QAAQ;AACZ;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".tempo-time-column {\r\n    display: flex;\r\n    flex-direction: column;\r\n    width: 110px;\r\n    gap: 5px;\r\n    /* border-right: 1px solid black; */\r\n    /* background-color: lightsteelblue; */\r\n\r\n}\r\n\r\n.tempo-time-column-header {\r\n    width: 110px;\r\n    text-align: center;\r\n    display: flex;\r\n    flex-direction: column;\r\n    border-radius: 7px 7px 0 0;\r\n    background-color: white;\r\n}\r\n\r\n.tempo-time-column-tasks {\r\n    border-radius: 0px 0px 7px 7px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 2px;\r\n}\r\n\r\n.tempo-time-column-one-content {\r\n    width: 110px;\r\n    height: 90px;\r\n    /* border: 1px solid black; */\r\n    padding: 3px;\r\n    background-color: white;\r\n    display: flex;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.tempo-time-column-one-content .head {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.tempo-time-column-one-content .more-buttons {\r\n    display: none;\r\n    /* position: absolute; */\r\n    width: 10px;\r\n    height: 10px;\r\n    /* top: -30px;\r\n    right: -100px; */\r\n    cursor: pointer;\r\n    /* border-radius: 50%;\r\n    border: 2px solid #2d85e4;\r\n    height: 14px;\r\n    width: 14px; */\r\n}\r\n\r\n.tempo-time-column-one-content:hover .more-buttons {\r\n    display: flex;\r\n    justify-content: right;\r\n}\r\n\r\n.tempo-time-column-one-content .task-info {\r\n    font-weight: bold;\r\n    display: flex;\r\n    flex-grow: 2;\r\n}\r\n\r\n.tempo-time-column-one-content .time-more-block {\r\n\r\n    /* line-height: 0; */\r\n    display: flex;\r\n}\r\n\r\n.tempo-time-column-one-content .task-info a {\r\n    height: 16px;\r\n    width: 100%;\r\n}\r\n\r\n.tempo-time-column-one-content .comment {\r\n    height: 18px;\r\n    line-height: 1;\r\n    overflow: hidden;\r\n}\r\n\r\n.tempo-time-column-one-content .time {\r\n    font-size: 10px;\r\n    font-weight: bold;\r\n    text-align: right;\r\n}\r\n\r\n.tempo-time-column-one-content div {\r\n    /* overflow: hidden; */\r\n}\r\n\r\n.tempo-time-page-main {\r\n    padding-top: 20px;\r\n    overflow-x: auto;\r\n}\r\n\r\n\r\n.tempo-time-block {\r\n    display: flex;\r\n    padding-top: 30px;\r\n    gap: 2px;\r\n}\r\n\r\n.tempo-time-column-add-btn {\r\n    text-align: center;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".tempo-time-column {\r\n    display: flex;\r\n    flex-direction: column;\r\n    width: 110px;\r\n    gap: 5px;\r\n    /* border-right: 1px solid black; */\r\n    /* background-color: lightsteelblue; */\r\n\r\n}\r\n\r\n.tempo-time-column-header {\r\n    width: 110px;\r\n    text-align: center;\r\n    display: flex;\r\n    flex-direction: column;\r\n    border-radius: 7px 7px 0 0;\r\n    background-color: white;\r\n}\r\n\r\n.tempo-time-column-tasks {\r\n    border-radius: 0px 0px 7px 7px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 2px;\r\n}\r\n\r\n.tempo-time-column-one-content {\r\n    width: 110px;\r\n    height: 90px;\r\n    /* border: 1px solid black; */\r\n    padding: 3px;\r\n    background-color: white;\r\n    display: flex;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.tempo-time-column-one-content .head {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.tempo-time-column-one-content .more-buttons {\r\n    display: none;\r\n    /* position: absolute; */\r\n    width: 10px;\r\n    height: 10px;\r\n    /* top: -30px;\r\n    right: -100px; */\r\n    cursor: pointer;\r\n    /* border-radius: 50%;\r\n    border: 2px solid #2d85e4;\r\n    height: 14px;\r\n    width: 14px; */\r\n}\r\n\r\n.tempo-time-column-one-content:hover .more-buttons {\r\n    display: flex;\r\n    justify-content: right;\r\n}\r\n\r\n.tempo-time-column-one-content .task-info {\r\n    font-weight: bold;\r\n    display: flex;\r\n    flex-grow: 2;\r\n}\r\n\r\n.tempo-time-column-one-content .time-more-block {\r\n\r\n    /* line-height: 0; */\r\n    display: flex;\r\n}\r\n\r\n.tempo-time-column-one-content .task-info a {\r\n    height: 16px;\r\n    width: 100%;\r\n}\r\n\r\n.tempo-time-column-one-content .comment {\r\n    height: 18px;\r\n    line-height: 1;\r\n    overflow: hidden;\r\n}\r\n\r\n.tempo-time-column-one-content .time {\r\n    font-size: 10px;\r\n    font-weight: bold;\r\n    text-align: right;\r\n}\r\n\r\n.tempo-time-column-one-content div {\r\n    /* overflow: hidden; */\r\n}\r\n\r\n.tempo-time-page-main {\r\n    padding-top: 20px;\r\n    overflow-x: auto;\r\n    padding-top: 40px;\r\n}\r\n\r\n\r\n.tempo-time-block {\r\n    display: flex;\r\n    padding-top: 30px;\r\n    gap: 2px;\r\n}\r\n\r\n.tempo-time-column-add-btn {\r\n    text-align: center;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,sBAAsB;IACtB,YAAY;IACZ,QAAQ;IACR,mCAAmC;IACnC,sCAAsC;;AAE1C;;AAEA;IACI,YAAY;IACZ,kBAAkB;IAClB,aAAa;IACb,sBAAsB;IACtB,0BAA0B;IAC1B,uBAAuB;AAC3B;;AAEA;IACI,8BAA8B;IAC9B,aAAa;IACb,sBAAsB;IACtB,QAAQ;AACZ;;AAEA;IACI,YAAY;IACZ,YAAY;IACZ,6BAA6B;IAC7B,YAAY;IACZ,uBAAuB;IACvB,aAAa;IACb,sBAAsB;IACtB,kBAAkB;AACtB;;AAEA;;IAEI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,aAAa;IACb,wBAAwB;IACxB,WAAW;IACX,YAAY;IACZ;oBACgB;IAChB,eAAe;IACf;;;kBAGc;AAClB;;AAEA;IACI,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,iBAAiB;IACjB,aAAa;IACb,YAAY;AAChB;;AAEA;;IAEI,oBAAoB;IACpB,aAAa;AACjB;;AAEA;IACI,YAAY;IACZ,WAAW;AACf;;AAEA;IACI,YAAY;IACZ,cAAc;IACd,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,iBAAiB;IACjB,iBAAiB;AACrB;;AAEA;IACI,sBAAsB;AAC1B;;AAEA;IACI,iBAAiB;IACjB,gBAAgB;IAChB,iBAAiB;AACrB;;;AAGA;IACI,aAAa;IACb,iBAAiB;IACjB,QAAQ;AACZ;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".tempo-time-column {\r\n    display: flex;\r\n    flex-direction: column;\r\n    width: 110px;\r\n    gap: 5px;\r\n    /* border-right: 1px solid black; */\r\n    /* background-color: lightsteelblue; */\r\n\r\n}\r\n\r\n.tempo-time-column-header {\r\n    width: 110px;\r\n    text-align: center;\r\n    display: flex;\r\n    flex-direction: column;\r\n    border-radius: 7px 7px 0 0;\r\n    background-color: white;\r\n}\r\n\r\n.tempo-time-column-tasks {\r\n    border-radius: 0px 0px 7px 7px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    gap: 2px;\r\n}\r\n\r\n.tempo-time-column-one-content {\r\n    width: 110px;\r\n    height: 90px;\r\n    /* border: 1px solid black; */\r\n    padding: 3px;\r\n    background-color: white;\r\n    display: flex;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.tempo-time-column-one-content .head {\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.tempo-time-column-one-content .more-buttons {\r\n    display: none;\r\n    /* position: absolute; */\r\n    width: 10px;\r\n    height: 10px;\r\n    /* top: -30px;\r\n    right: -100px; */\r\n    cursor: pointer;\r\n    /* border-radius: 50%;\r\n    border: 2px solid #2d85e4;\r\n    height: 14px;\r\n    width: 14px; */\r\n}\r\n\r\n.tempo-time-column-one-content:hover .more-buttons {\r\n    display: flex;\r\n    justify-content: right;\r\n}\r\n\r\n.tempo-time-column-one-content .task-info {\r\n    font-weight: bold;\r\n    display: flex;\r\n    flex-grow: 2;\r\n}\r\n\r\n.tempo-time-column-one-content .time-more-block {\r\n\r\n    /* line-height: 0; */\r\n    display: flex;\r\n}\r\n\r\n.tempo-time-column-one-content .task-info a {\r\n    height: 16px;\r\n    width: 100%;\r\n}\r\n\r\n.tempo-time-column-one-content .comment {\r\n    height: 18px;\r\n    line-height: 1;\r\n    overflow: hidden;\r\n}\r\n\r\n.tempo-time-column-one-content .time {\r\n    font-size: 10px;\r\n    font-weight: bold;\r\n    text-align: right;\r\n}\r\n\r\n.tempo-time-column-one-content div {\r\n    /* overflow: hidden; */\r\n}\r\n\r\n.tempo-time-page-main {\r\n    padding-top: 20px;\r\n    overflow-x: auto;\r\n    padding-top: 40px;\r\n}\r\n\r\n\r\n.tempo-time-block {\r\n    display: flex;\r\n    padding-top: 30px;\r\n    gap: 2px;\r\n}\r\n\r\n.tempo-time-column-add-btn {\r\n    text-align: center;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3819,6 +3873,33 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".editable-textarea-container .editable-textarea {\r\n    width: 100%;\r\n    border: none;\r\n    padding: 12px;\r\n    font-size: inherit;\r\n    font-family: inherit;\r\n    color: inherit;\r\n    min-height: 100px;\r\n    resize: vertical;\r\n    outline: none;\r\n    line-height: inherit;\r\n}\r\n\r\n.editable-textarea-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    background: white;\r\n    border: 2px solid #4C9AFF;\r\n    border-radius: 3px;\r\n    box-shadow: 0 1px 3px rgba(9, 30, 66, 0.15);\r\n    overflow: hidden;\r\n}\r\n\r\n.editable-textarea-container .editable-textarea {\r\n\r\n    border: none;\r\n    padding: 12px;\r\n    font-size: inherit;\r\n    font-family: inherit;\r\n    color: inherit;\r\n    min-height: 100px;\r\n    resize: vertical;\r\n    outline: none;\r\n    line-height: inherit;\r\n}\r\n\r\n.editable-textarea-container .input-editable-controls {\r\n    display: flex;\r\n    justify-content: flex-end;\r\n    gap: 8px;\r\n    padding: 8px;\r\n    background: #F4F5F7;\r\n    border-top: 1px solid #DFE1E6;\r\n}\r\n\r\n\r\n\r\n.editable-textarea-container .input-editable-controls .editable-button {\r\n    padding: 6px 12px;\r\n    border-radius: 3px;\r\n    font-weight: 500;\r\n    font-size: 14px;\r\n    cursor: pointer;\r\n    border: none;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.editable-textarea-container .input-editable-controls .cancel-button {\r\n    background: none;\r\n    color: #42526E;\r\n}\r\n\r\n\r\n.editable-textarea-container .input-editable-controls .cancel-button:hover {\r\n    background-color: #EBECF0;\r\n}\r\n\r\n.editable-textarea-container .input-editable-controls .save-button {\r\n    background-color: #0052CC;\r\n    color: white;\r\n}\r\n\r\n.editable-textarea-container .input-editable-controls .save-button:hover {\r\n    background-color: #0065FF;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/SaveCancelTextarea/SaveCancelTextarea.css"],"names":[],"mappings":"AAAA;IACI,WAAW;IACX,YAAY;IACZ,aAAa;IACb,kBAAkB;IAClB,oBAAoB;IACpB,cAAc;IACd,iBAAiB;IACjB,gBAAgB;IAChB,aAAa;IACb,oBAAoB;AACxB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,iBAAiB;IACjB,yBAAyB;IACzB,kBAAkB;IAClB,2CAA2C;IAC3C,gBAAgB;AACpB;;AAEA;;IAEI,YAAY;IACZ,aAAa;IACb,kBAAkB;IAClB,oBAAoB;IACpB,cAAc;IACd,iBAAiB;IACjB,gBAAgB;IAChB,aAAa;IACb,oBAAoB;AACxB;;AAEA;IACI,aAAa;IACb,yBAAyB;IACzB,QAAQ;IACR,YAAY;IACZ,mBAAmB;IACnB,6BAA6B;AACjC;;;;AAIA;IACI,iBAAiB;IACjB,kBAAkB;IAClB,gBAAgB;IAChB,eAAe;IACf,eAAe;IACf,YAAY;IACZ,iCAAiC;AACrC;;;AAGA;IACI,gBAAgB;IAChB,cAAc;AAClB;;;AAGA;IACI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;IACzB,YAAY;AAChB;;AAEA;IACI,yBAAyB;AAC7B","sourcesContent":[".editable-textarea-container .editable-textarea {\r\n    width: 100%;\r\n    border: none;\r\n    padding: 12px;\r\n    font-size: inherit;\r\n    font-family: inherit;\r\n    color: inherit;\r\n    min-height: 100px;\r\n    resize: vertical;\r\n    outline: none;\r\n    line-height: inherit;\r\n}\r\n\r\n.editable-textarea-container {\r\n    display: flex;\r\n    flex-direction: column;\r\n    background: white;\r\n    border: 2px solid #4C9AFF;\r\n    border-radius: 3px;\r\n    box-shadow: 0 1px 3px rgba(9, 30, 66, 0.15);\r\n    overflow: hidden;\r\n}\r\n\r\n.editable-textarea-container .editable-textarea {\r\n\r\n    border: none;\r\n    padding: 12px;\r\n    font-size: inherit;\r\n    font-family: inherit;\r\n    color: inherit;\r\n    min-height: 100px;\r\n    resize: vertical;\r\n    outline: none;\r\n    line-height: inherit;\r\n}\r\n\r\n.editable-textarea-container .input-editable-controls {\r\n    display: flex;\r\n    justify-content: flex-end;\r\n    gap: 8px;\r\n    padding: 8px;\r\n    background: #F4F5F7;\r\n    border-top: 1px solid #DFE1E6;\r\n}\r\n\r\n\r\n\r\n.editable-textarea-container .input-editable-controls .editable-button {\r\n    padding: 6px 12px;\r\n    border-radius: 3px;\r\n    font-weight: 500;\r\n    font-size: 14px;\r\n    cursor: pointer;\r\n    border: none;\r\n    transition: background-color 0.2s;\r\n}\r\n\r\n\r\n.editable-textarea-container .input-editable-controls .cancel-button {\r\n    background: none;\r\n    color: #42526E;\r\n}\r\n\r\n\r\n.editable-textarea-container .input-editable-controls .cancel-button:hover {\r\n    background-color: #EBECF0;\r\n}\r\n\r\n.editable-textarea-container .input-editable-controls .save-button {\r\n    background-color: #0052CC;\r\n    color: white;\r\n}\r\n\r\n.editable-textarea-container .input-editable-controls .save-button:hover {\r\n    background-color: #0065FF;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/SelectWithSearch/SelectWithSearch.css":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/components/Body/SelectWithSearch/SelectWithSearch.css ***!
+  \*********************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".select-with-search {\r\n    position: relative;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 8px;\r\n    width: 100%;\r\n}\r\n\r\n.select-with-search .editable-input-wrapper {\r\n    position: relative;\r\n    flex: 1;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.select-with-search .editable-input {\r\n    width: 100%;\r\n    padding: 8px 30px 8px 12px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    font-size: 14px;\r\n    height: 36px;\r\n    box-sizing: border-box;\r\n}\r\n\r\n.select-with-search .input-arrow {\r\n    position: absolute;\r\n    right: 10px;\r\n    cursor: pointer;\r\n    font-size: 12px;\r\n    color: #666;\r\n    user-select: none;\r\n    transition: transform 0.2s;\r\n}\r\n\r\n.select-with-search .dropdown-list {\r\n    position: absolute;\r\n    top: 100%;\r\n    left: 0;\r\n    right: 40px;\r\n    margin-top: 4px;\r\n    background: white;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    max-height: 200px;\r\n    overflow-y: auto;\r\n    z-index: 1000;\r\n    box-shadow: 0 2px 8px rgba(0,0,0,0.15);\r\n}\r\n\r\n.select-with-search .dropdown-item {\r\n    padding: 8px 12px;\r\n    cursor: pointer;\r\n    transition: background-color 0.2s;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n.select-with-search .dropdown-item:hover {\r\n    background-color: #f0f0f0;\r\n}\r\n\r\n.select-with-search .dropdown-item.selected {\r\n    background-color: #e3f2fd;\r\n    font-weight: 500;\r\n}\r\n\r\n.select-with-search .dropdown-item.no-results {\r\n    color: #999;\r\n    cursor: default;\r\n    text-align: center;\r\n}\r\n\r\n.select-with-search .dropdown-item.no-results:hover {\r\n    background-color: transparent;\r\n}\r\n\r\n/* .action-buttons {\r\n    display: flex;\r\n    gap: 4px;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.action-buttons button {\r\n    width: 36px;\r\n    height: 36px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    background: white;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    transition: all 0.2s;\r\n}\r\n\r\n.action-buttons button:hover {\r\n    background-color: #f0f0f0;\r\n    border-color: #999;\r\n}\r\n\r\n.save-button {\r\n    color: #4caf50;\r\n}\r\n\r\n.save-button:hover {\r\n    background-color: #e8f5e9 !important;\r\n    border-color: #4caf50 !important;\r\n}\r\n\r\n.cancel-button {\r\n    color: #f44336;\r\n}\r\n\r\n.cancel-button:hover {\r\n    background-color: #ffebee !important;\r\n    border-color: #f44336 !important;\r\n}\r\n\r\n.save-icon,\r\n.cancel-icon {\r\n    display: inline-block;\r\n    width: 16px;\r\n    height: 16px;\r\n}\r\n\r\n.save-icon {\r\n    background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234caf50'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E\") no-repeat center;\r\n    background-size: contain;\r\n}\r\n\r\n.cancel-icon {\r\n    background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f44336'%3E%3Cpath d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z'/%3E%3C/svg%3E\") no-repeat center;\r\n    background-size: contain;\r\n} */", "",{"version":3,"sources":["webpack://./src/components/Body/SelectWithSearch/SelectWithSearch.css"],"names":[],"mappings":"AAAA;IACI,kBAAkB;IAClB,aAAa;IACb,mBAAmB;IACnB,QAAQ;IACR,WAAW;AACf;;AAEA;IACI,kBAAkB;IAClB,OAAO;IACP,aAAa;IACb,mBAAmB;AACvB;;AAEA;IACI,WAAW;IACX,0BAA0B;IAC1B,sBAAsB;IACtB,kBAAkB;IAClB,eAAe;IACf,YAAY;IACZ,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,eAAe;IACf,eAAe;IACf,WAAW;IACX,iBAAiB;IACjB,0BAA0B;AAC9B;;AAEA;IACI,kBAAkB;IAClB,SAAS;IACT,OAAO;IACP,WAAW;IACX,eAAe;IACf,iBAAiB;IACjB,sBAAsB;IACtB,kBAAkB;IAClB,iBAAiB;IACjB,gBAAgB;IAChB,aAAa;IACb,sCAAsC;AAC1C;;AAEA;IACI,iBAAiB;IACjB,eAAe;IACf,iCAAiC;IACjC,mBAAmB;IACnB,gBAAgB;IAChB,uBAAuB;AAC3B;;AAEA;IACI,yBAAyB;AAC7B;;AAEA;IACI,yBAAyB;IACzB,gBAAgB;AACpB;;AAEA;IACI,WAAW;IACX,eAAe;IACf,kBAAkB;AACtB;;AAEA;IACI,6BAA6B;AACjC;;AAEA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;GAyDG","sourcesContent":[".select-with-search {\r\n    position: relative;\r\n    display: flex;\r\n    align-items: center;\r\n    gap: 8px;\r\n    width: 100%;\r\n}\r\n\r\n.select-with-search .editable-input-wrapper {\r\n    position: relative;\r\n    flex: 1;\r\n    display: flex;\r\n    align-items: center;\r\n}\r\n\r\n.select-with-search .editable-input {\r\n    width: 100%;\r\n    padding: 8px 30px 8px 12px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    font-size: 14px;\r\n    height: 36px;\r\n    box-sizing: border-box;\r\n}\r\n\r\n.select-with-search .input-arrow {\r\n    position: absolute;\r\n    right: 10px;\r\n    cursor: pointer;\r\n    font-size: 12px;\r\n    color: #666;\r\n    user-select: none;\r\n    transition: transform 0.2s;\r\n}\r\n\r\n.select-with-search .dropdown-list {\r\n    position: absolute;\r\n    top: 100%;\r\n    left: 0;\r\n    right: 40px;\r\n    margin-top: 4px;\r\n    background: white;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    max-height: 200px;\r\n    overflow-y: auto;\r\n    z-index: 1000;\r\n    box-shadow: 0 2px 8px rgba(0,0,0,0.15);\r\n}\r\n\r\n.select-with-search .dropdown-item {\r\n    padding: 8px 12px;\r\n    cursor: pointer;\r\n    transition: background-color 0.2s;\r\n    white-space: nowrap;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n\r\n.select-with-search .dropdown-item:hover {\r\n    background-color: #f0f0f0;\r\n}\r\n\r\n.select-with-search .dropdown-item.selected {\r\n    background-color: #e3f2fd;\r\n    font-weight: 500;\r\n}\r\n\r\n.select-with-search .dropdown-item.no-results {\r\n    color: #999;\r\n    cursor: default;\r\n    text-align: center;\r\n}\r\n\r\n.select-with-search .dropdown-item.no-results:hover {\r\n    background-color: transparent;\r\n}\r\n\r\n/* .action-buttons {\r\n    display: flex;\r\n    gap: 4px;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.action-buttons button {\r\n    width: 36px;\r\n    height: 36px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    background: white;\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    transition: all 0.2s;\r\n}\r\n\r\n.action-buttons button:hover {\r\n    background-color: #f0f0f0;\r\n    border-color: #999;\r\n}\r\n\r\n.save-button {\r\n    color: #4caf50;\r\n}\r\n\r\n.save-button:hover {\r\n    background-color: #e8f5e9 !important;\r\n    border-color: #4caf50 !important;\r\n}\r\n\r\n.cancel-button {\r\n    color: #f44336;\r\n}\r\n\r\n.cancel-button:hover {\r\n    background-color: #ffebee !important;\r\n    border-color: #f44336 !important;\r\n}\r\n\r\n.save-icon,\r\n.cancel-icon {\r\n    display: inline-block;\r\n    width: 16px;\r\n    height: 16px;\r\n}\r\n\r\n.save-icon {\r\n    background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234caf50'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E\") no-repeat center;\r\n    background-size: contain;\r\n}\r\n\r\n.cancel-icon {\r\n    background: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23f44336'%3E%3Cpath d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z'/%3E%3C/svg%3E\") no-repeat center;\r\n    background-size: contain;\r\n} */"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -65202,6 +65283,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/Apps/TaskManagementApp/Components/Statuses/Statuses.css":
+/*!*********************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/Statuses/Statuses.css ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_Statuses_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./Statuses.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/Statuses/Statuses.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_Statuses_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_Statuses_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_Statuses_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_Statuses_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/Apps/TaskManagementApp/Components/TaskManagementMain/TaskManagementMain.css":
 /*!*****************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Components/TaskManagementMain/TaskManagementMain.css ***!
@@ -65253,6 +65389,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_TaskManagementMain_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_TaskManagementMain_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_TaskManagementMain_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/Apps/TaskManagementApp/Components/TasksUser/TasksUser.css":
+/*!***********************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/TasksUser/TasksUser.css ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_TasksUser_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./TasksUser.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/TaskManagementApp/Components/TasksUser/TasksUser.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_TasksUser_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_TasksUser_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_TasksUser_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_TasksUser_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -66463,6 +66654,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_SaveCancelTextarea_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_SaveCancelTextarea_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_SaveCancelTextarea_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/components/Body/SelectWithSearch/SelectWithSearch.css":
+/*!*******************************************************************!*\
+  !*** ./src/components/Body/SelectWithSearch/SelectWithSearch.css ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_SelectWithSearch_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js!./SelectWithSearch.css */ "./node_modules/css-loader/dist/cjs.js!./src/components/Body/SelectWithSearch/SelectWithSearch.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_SelectWithSearch_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_SelectWithSearch_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_SelectWithSearch_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_SelectWithSearch_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -72286,13 +72532,14 @@ const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/re
 const AddWorkTimeLogSetup_1 = __importDefault(__webpack_require__(/*! ./AddWorkTimeLogSetup */ "./src/Apps/TaskManagementApp/Components/AddWorkTimeLog/AddWorkTimeLogSetup.tsx"));
 const AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
+const SelectWithSearch_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SelectWithSearch/SelectWithSearch */ "./src/components/Body/SelectWithSearch/SelectWithSearch.tsx"));
 __webpack_require__(/*! ./AddWorkTimeLog.css */ "./src/Apps/TaskManagementApp/Components/AddWorkTimeLog/AddWorkTimeLog.css");
 const AddWorkTimeLog = (props) => {
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
     let helper = new Helper_1.Helper();
     const [taskId, setTaskId] = (0, react_1.useState)(props.TaskId || ((_a = props.TimeLog) === null || _a === void 0 ? void 0 : _a.WorkTaskId) || 0);
     const [taskName, setTaskName] = (0, react_1.useState)('');
-    const [loadTasksTimerId, setLoadTasksTimerId] = (0, react_1.useState)(null);
+    // const [loadTasksTimerId, setLoadTasksTimerId] = useState(null);
     const [timeLogText, setTimeLogText] = (0, react_1.useState)(((_b = props.TimeLog) === null || _b === void 0 ? void 0 : _b.Comment) || '');
     const [range, setRange] = (0, react_1.useState)(((_c = props.TimeLog) === null || _c === void 0 ? void 0 : _c.RangeStartOfLog) ? true : false);
     const [timeLogVal, setTimeLogVal] = (0, react_1.useState)(((_d = props.TimeLog) === null || _d === void 0 ? void 0 : _d.TimeMinutes) ? helper.MinutesToHours2(props.TimeLog.TimeMinutes) : '');
@@ -72300,6 +72547,7 @@ const AddWorkTimeLog = (props) => {
     // const [rangeStart, setRangeStart] = useState<Date>(props.DefaultDate || new Date());
     // const [rangeEnd, setRangeEnd] = useState<Date>(props.DefaultDate || new Date());
     // const [timeLogValide, setTimeLogValide] = useState(false);
+    const [searchTasks, setSearchTasks] = (0, react_1.useState)([]);
     const [startTime, setStartTime] = (0, react_1.useState)(helper.DateToGetHMInput((_f = props.TimeLog) === null || _f === void 0 ? void 0 : _f.RangeStartOfLog) || '09:00');
     const [endTime, setEndTime] = (0, react_1.useState)(helper.DateToGetHMInput((_g = props.TimeLog) === null || _g === void 0 ? void 0 : _g.RangeEndOfLog) || '18:00');
     (0, react_1.useEffect)(() => {
@@ -72330,18 +72578,20 @@ const AddWorkTimeLog = (props) => {
     //     setTaskName(props.TaskName || '');
     // }, [props.TaskName]);
     (0, react_1.useEffect)(() => {
-        if (loadTasksTimerId) {
-            clearTimeout(loadTasksTimerId);
-        }
+        // if (loadTasksTimerId) {
+        //     clearTimeout(loadTasksTimerId);
+        // }
         if (props.TaskName != taskName) {
             setTaskName(props.TaskName || '');
         }
         if (taskId && taskId > 0 && !props.TaskName) {
-            var timerId = setTimeout(() => __awaiter(void 0, void 0, void 0, function* () {
-                var tName = yield props.GetTaskName(taskId);
-                setTaskName(tName || '');
-            }), 1500);
-            setLoadTasksTimerId(timerId);
+            let task = searchTasks.find(x => x.Id === taskId);
+            setTaskName((task === null || task === void 0 ? void 0 : task.Name) || '');
+            // var timerId = setTimeout(async () => {
+            //     var tName = await props.GetTaskName(taskId);
+            //     setTaskName(tName || '');
+            // }, 1500);
+            // setLoadTasksTimerId(timerId);
         }
     }, [taskId, props.TaskName]);
     (0, react_1.useEffect)(() => {
@@ -72411,7 +72661,15 @@ const AddWorkTimeLog = (props) => {
     return react_1.default.createElement("div", { className: 'add-work-time-window' },
         props.TaskId || react_1.default.createElement("div", null,
             react_1.default.createElement("span", null, "\u0417\u0430\u0434\u0430\u0447\u0430"),
-            react_1.default.createElement("input", { className: 'form-input-v2', type: 'number', onChange: (e) => setTaskId(+e.target.value), placeholder: '\u0417\u0430\u0434\u0430\u0447\u0430', value: taskId })),
+            react_1.default.createElement(SelectWithSearch_1.default, { CancelEvent: () => { }, SaveEvent: (id) => {
+                    setTaskId(id);
+                    setSearchTasks(searchTasks.filter(x => x.Id === id));
+                    return true;
+                }, Selected: taskId, ValuesWithId: searchTasks.map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` })), OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
+                    setTaskId(-1);
+                    let searchTasksBack = yield props.FindTask(props.ProjectId, text);
+                    setSearchTasks(searchTasksBack);
+                }) })),
         react_1.default.createElement("p", null, taskName),
         react_1.default.createElement("div", null,
             react_1.default.createElement("span", null, "\u041A\u043E\u043C\u043C\u0435\u043D\u0442\u0430\u0440\u0438\u0439"),
@@ -72502,12 +72760,16 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 const mapStateToProps = (state, ownProps) => {
     let res = {};
+    res.ProjectId = state.TaskManagementApp.CurrentProjectId;
     return res;
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
     let res = {};
     res.GetTaskName = (taskId) => __awaiter(void 0, void 0, void 0, function* () {
         return yield window.G_TaskManagementTaskController.GetTaskNameUI(taskId);
+    });
+    res.FindTask = (projectId, text) => __awaiter(void 0, void 0, void 0, function* () {
+        return yield window.G_TaskManagementTaskController.FindTaskUI(projectId, text);
     });
     return res;
 };
@@ -72593,6 +72855,7 @@ const EditPreset = (props) => {
             react_1.default.createElement("select", { className: 'filter-input', onChange: e => setNewSprintId(+e.target.value), value: newSprintId },
                 react_1.default.createElement("option", { value: -1 }, "\u041B\u044E\u0431\u043E\u0439"),
                 props.Sprints.map(sprint => react_1.default.createElement("option", { value: sprint.Id, key: sprint.Id }, sprint.Name))),
+            react_1.default.createElement("span", { className: 'filter-name' }, "\u041B\u0435\u0439\u0431\u043B\u044B:"),
             react_1.default.createElement("div", { className: 'edit-labels' },
                 react_1.default.createElement(SaveCancelInputMultiSelectWithSearch_1.default, { CancelEvent: () => {
                         // setTaskLabelEditable(false)
@@ -72601,7 +72864,7 @@ const EditPreset = (props) => {
                         // props.UpdateTaskLabels(props.Task.Id, id);
                         setNewLabels(id);
                         return true;
-                    }, Selected: newLabels, ValuesWithId: props.Labels.map(x => {
+                    }, CancelOnSaveNoChanges: true, Selected: newLabels, ValuesWithId: props.Labels.map(x => {
                         return { Id: x.Id, Text: x.Name };
                     }) })),
             react_1.default.createElement("button", { className: 'button button-grey', onClick: () => {
@@ -72658,48 +72921,15 @@ exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToPr
 
 "use strict";
 
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const EditProjectSetup_1 = __importDefault(__webpack_require__(/*! ./EditProjectSetup */ "./src/Apps/TaskManagementApp/Components/EditProject/EditProjectSetup.tsx"));
-const EditTaskStatus_1 = __importDefault(__webpack_require__(/*! ../EditTaskStatus/EditTaskStatus */ "./src/Apps/TaskManagementApp/Components/EditTaskStatus/EditTaskStatus.tsx"));
 __webpack_require__(/*! ./EditProject.css */ "./src/Apps/TaskManagementApp/Components/EditProject/EditProject.css");
 const EditProject = (props) => {
-    const [newStatusName, setNewStatusName] = (0, react_1.useState)('');
-    return react_1.default.createElement("div", { className: 'edit-project' },
-        react_1.default.createElement("div", { className: 'task-statuses' },
-            react_1.default.createElement("span", null, "\u0421\u0442\u0430\u0442\u0443\u0441\u044B \u043F\u0440\u043E\u0435\u043A\u0442\u0430"),
-            props.Statuses.map(status => react_1.default.createElement(EditTaskStatus_1.default, { key: status.Id, Status: status })),
-            react_1.default.createElement("div", { className: 'work-task-status-create' },
-                react_1.default.createElement("div", { className: 'status-input' },
-                    react_1.default.createElement("input", { className: 'form-input', value: newStatusName, placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043D\u043E\u0432\u043E\u0433\u043E \u0441\u0442\u0430\u0442\u0443\u0441\u0430', onChange: e => setNewStatusName(e.target.value) })),
-                react_1.default.createElement("div", { className: 'status-create' },
-                    react_1.default.createElement("button", { className: 'btn-b btn-border create-new-task-btn', onClick: () => props.CreateStatus(newStatusName, props.ProjectId) }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0441\u0442\u0430\u0442\u0443\u0441")))));
+    return react_1.default.createElement("div", { className: 'edit-project' });
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, EditProjectSetup_1.default)(EditProject);
@@ -72720,14 +72950,10 @@ const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/rea
 const mapStateToProps = (state, ownProps) => {
     let res = {};
     res.ProjectId = state.TaskManagementApp.CurrentProjectId;
-    res.Statuses = state.TaskManagementApp.CurrentProjectStatuses;
     return res;
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
     let res = {};
-    res.CreateStatus = (name, projectId) => {
-        dispatch(window.G_TaskManagementTaskStatusController.CreateStatusRedux(name, projectId));
-    };
     return res;
 };
 exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -72903,7 +73129,7 @@ const Labels = (props) => {
         react_1.default.createElement("div", { className: 'label-block' },
             react_1.default.createElement("div", { className: 'one-label' },
                 react_1.default.createElement("div", { className: 'one-label-info' },
-                    react_1.default.createElement("input", { type: 'text', className: 'new-name', onChange: (e) => setNewLabelText(e.target.value) })),
+                    react_1.default.createElement("input", { type: 'text', className: 'new-name form-control-b persent-100-width', placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043B\u0435\u0439\u0431\u043B\u0430', onChange: (e) => setNewLabelText(e.target.value) })),
                 react_1.default.createElement("div", { className: 'label-buttons' },
                     react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
                             setEditLabelId(0);
@@ -73110,9 +73336,11 @@ const OneProjectUser = (props) => {
     let userHasChanges = userIsAdmin !== props.User.IsAdmin ||
         userIsDeactivated !== props.User.Deactivated;
     return react_1.default.createElement("div", { className: 'one-project-user-content' },
-        react_1.default.createElement("label", null, "\u0420\u043E\u043B\u044C \u0410\u0434\u043C\u0438\u043D\u0430"),
+        react_1.default.createElement("label", null, "\u0418\u043C\u044F: "),
+        react_1.default.createElement("label", null, props.User.Name),
+        react_1.default.createElement("label", null, "\u0420\u043E\u043B\u044C \u0410\u0434\u043C\u0438\u043D\u0430: "),
         react_1.default.createElement("input", { type: "checkbox", checked: userIsAdmin, onChange: e => setUserIsAdmin(e.target.checked) }),
-        react_1.default.createElement("label", null, "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C \u0434\u0435\u0430\u043A\u0442\u0438\u0432\u0438\u0440\u043E\u0432\u0430\u043D"),
+        react_1.default.createElement("label", null, "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C \u0434\u0435\u0430\u043A\u0442\u0438\u0432\u0438\u0440\u043E\u0432\u0430\u043D: "),
         react_1.default.createElement("input", { type: "checkbox", checked: userIsDeactivated, onChange: e => setUserIsDeactivated(e.target.checked) }),
         userHasChanges ? react_1.default.createElement("div", { className: 'one-project-user-buttons' },
             react_1.default.createElement("div", { className: 'project-user-action-btn', onClick: () => changeUser() },
@@ -73601,7 +73829,7 @@ const OneWorkTaskDetail = (props) => {
                             react_1.default.createElement(SaveCancelInputMultiSelectWithSearch_1.default, { CancelEvent: () => setTaskSprintEditable(false), SaveEvent: (id) => {
                                     props.UpdateTaskSprints(props.Task.Id, id);
                                     return true;
-                                }, Selected: props.Task.SprintId, ValuesWithId: props.Sprints.map(x => {
+                                }, CancelOnSaveNoChanges: true, Selected: props.Task.SprintId, ValuesWithId: props.Sprints.map(x => {
                                     return { Id: x.Id, Text: x.Name };
                                 }) })),
                 react_1.default.createElement("div", null,
@@ -73612,7 +73840,7 @@ const OneWorkTaskDetail = (props) => {
                             react_1.default.createElement(SaveCancelInputMultiSelectWithSearch_1.default, { CancelEvent: () => setTaskLabelEditable(false), SaveEvent: (id) => {
                                     props.UpdateTaskLabels(props.Task.Id, id);
                                     return true;
-                                }, Selected: props.Task.LabelId, ValuesWithId: props.Labels.map(x => {
+                                }, CancelOnSaveNoChanges: true, Selected: props.Task.LabelId, ValuesWithId: props.Labels.map(x => {
                                     return { Id: x.Id, Text: x.Name };
                                 }) })))),
         react_1.default.createElement("div", null,
@@ -74176,11 +74404,11 @@ const Presets = (props) => {
     return react_1.default.createElement("div", { className: 'presets-page-main' },
         editPresetId > 0 ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => {
                 setEditPresetId(0);
-            }, IsHeightWindow: true, Title: '\u0421\u043F\u0440\u0438\u043D\u0442', InnerContent: () => react_1.default.createElement(EditPreset_1.default, { Preset: editPreset, UpdatePreset: props.UpdatePreset }) }) : react_1.default.createElement(react_1.default.Fragment, null),
+            }, IsHeightWindow: true, Title: '\u041F\u0440\u0435\u0441\u0435\u0442', InnerContent: () => react_1.default.createElement(EditPreset_1.default, { Preset: editPreset, UpdatePreset: props.UpdatePreset }) }) : react_1.default.createElement(react_1.default.Fragment, null),
         react_1.default.createElement("div", { className: 'preset-block' },
             react_1.default.createElement("div", { className: 'one-preset-block' },
                 react_1.default.createElement("div", { className: 'one-preset-info' },
-                    react_1.default.createElement("input", { type: 'text', placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: newPresetName, onChange: (e) => setNewPresetName(e.target.value) })),
+                    react_1.default.createElement("input", { type: 'text', className: 'form-control-b persent-100-width', placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u0435\u0441\u0435\u0442\u0430', value: newPresetName, onChange: (e) => setNewPresetName(e.target.value) })),
                 react_1.default.createElement("div", { className: 'one-preset-buttons' },
                     react_1.default.createElement("div", { className: 'action-btn', onClick: () => {
                             props.CreatePreset(props.ProjectId, newPresetName);
@@ -74289,7 +74517,6 @@ const AddTask_1 = __importDefault(__webpack_require__(/*! ../AddTask/AddTask */ 
 const PlaningPokerHelper_1 = __webpack_require__(/*! ../../../PlaningPoker/Models/PlaningPokerHelper */ "./src/Apps/PlaningPoker/Models/PlaningPokerHelper.ts");
 const AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
 const Paggination_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/Paggination/Paggination */ "./src/components/Body/Paggination/Paggination.tsx"));
-const ProjectUsers_1 = __importDefault(__webpack_require__(/*! ../ProjectUsers/ProjectUsers */ "./src/Apps/TaskManagementApp/Components/ProjectUsers/ProjectUsers.tsx"));
 const ProjectDetailSetup_1 = __importDefault(__webpack_require__(/*! ./ProjectDetailSetup */ "./src/Apps/TaskManagementApp/Components/ProjectDetail/ProjectDetailSetup.tsx"));
 const EditProject_1 = __importDefault(__webpack_require__(/*! ../EditProject/EditProject */ "./src/Apps/TaskManagementApp/Components/EditProject/EditProject.tsx"));
 const PopupWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/PopupWindow/PopupWindow */ "./src/components/Body/PopupWindow/PopupWindow.tsx"));
@@ -74300,7 +74527,6 @@ const ProjectDetail = (props) => {
     var _a, _b;
     const tasksOnPageCount = 5;
     const [loadTasksTimerId, setLoadTasksTimerId] = (0, react_1.useState)(null);
-    const [showUserList, setShowUserList] = (0, react_1.useState)(false);
     const [showEditProject, setShowEditProject] = (0, react_1.useState)(false);
     const [showAddNewTaskForm, setShowAddNewTaskForm] = (0, react_1.useState)(false);
     const [filterVisibilityName, setFilterVisibilityName] = (0, react_1.useState)(false);
@@ -74314,6 +74540,9 @@ const ProjectDetail = (props) => {
     (0, react_1.useEffect)(() => {
         return () => {
             props.ClearProjectState();
+            if (loadTasksTimerId) {
+                clearTimeout(loadTasksTimerId);
+            }
         };
     }, []);
     (0, react_1.useEffect)(() => {
@@ -74463,7 +74692,7 @@ const ProjectDetail = (props) => {
                 // props.UpdateTaskLabels(props.Task.Id, id);
                 props.SetFilterTaskLabel(id);
                 return true;
-            }, Selected: labels, ValuesWithId: props.Labels.map(x => {
+            }, CancelOnSaveNoChanges: false, Selected: labels, ValuesWithId: props.Labels.map(x => {
                 return { Id: x.Id, Text: x.Name };
             }) });
     };
@@ -74488,9 +74717,7 @@ const ProjectDetail = (props) => {
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: G_PathToBaseImages + 'delete-icon.png', alt: 'Delete', title: '\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u043F\u0440\u043E\u0435\u043A\u0442' })),
                 showEditProject ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowEditProject(false), IsHeightWindow: true, Title: '\u0420\u0435\u0434\u0430\u043A\u0442\u043E\u0440\u0438\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u0430', InnerContent: () => react_1.default.createElement(EditProject_1.default, null) }) : react_1.default.createElement(react_1.default.Fragment, null),
                 react_1.default.createElement("br", null),
-                react_1.default.createElement("div", { className: 'management-project-detail-main-header-buttons' },
-                    react_1.default.createElement("button", { className: 'button button-grey', onClick: () => setShowUserList(true) }, "\u041B\u044E\u0434\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"),
-                    showUserList ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowUserList(false), IsHeightWindow: true, Title: '\u041B\u044E\u0434\u0438 \u043F\u0440\u043E\u0435\u043A\u0442\u0430', InnerContent: () => react_1.default.createElement(ProjectUsers_1.default, null) }) : react_1.default.createElement(react_1.default.Fragment, null))),
+                react_1.default.createElement("div", { className: 'management-project-detail-main-header-buttons' })),
             react_1.default.createElement("div", { className: 'management-project-description' }, "\u043E\u043F\u0438\u0441\u0430\u043D\u0438\u0435"),
             react_1.default.createElement("div", { className: 'management-project-tasks' },
                 react_1.default.createElement("div", { className: 'tasks-header' },
@@ -74921,10 +75148,7 @@ const ProjectUsers = (props) => {
         props.AddUserToProject(userMainAppEmail, props.ProjectId);
     };
     return react_1.default.createElement("div", { className: 'project-management-user-list' },
-        react_1.default.createElement("br", null),
-        react_1.default.createElement("span", null, "\u041F\u043E\u0447\u0442\u0430 \u0438\u0437 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0433\u043E \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F"),
-        react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: userMainAppEmail, placeholder: "\u041F\u043E\u0447\u0442\u0430  \u0438\u0437 \u043E\u0441\u043D\u043E\u0432\u043D\u043E\u0433\u043E \u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F", onChange: e => setUserMainAppEmail(e.target.value) }),
-        react_1.default.createElement("br", null),
+        react_1.default.createElement("input", { className: 'form-control-b', type: 'text', value: userMainAppEmail, placeholder: "\u041F\u043E\u0447\u0442\u0430", onChange: e => setUserMainAppEmail(e.target.value) }),
         react_1.default.createElement("button", { className: 'btn-b btn-border add-new-management-user-btn', onClick: () => addNewUser() }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430"),
         react_1.default.createElement("br", null),
         react_1.default.createElement("label", null, "\u0421\u043A\u0440\u044B\u0432\u0430\u0442\u044C \u043D\u0435\u0430\u043A\u0442\u0438\u0432\u043D\u044B\u0445 \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439"),
@@ -75031,25 +75255,28 @@ const ProjectsList = (props) => {
     }
     const projectUrl = new RouteBuilder_1.default().ProjectUrl(props.CurrentProjectId);
     return react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("div", { className: 'code-management-projects-menu' }, (showProjectList || !currentProject) ? react_1.default.createElement(react_1.default.Fragment, null,
-            react_1.default.createElement("div", { className: 'management-project-new-block' },
-                react_1.default.createElement("input", { className: 'form-input', type: 'text', placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043D\u043E\u0432\u043E\u0433\u043E \u043F\u0440\u043E\u0435\u043A\u0442\u0430', onChange: (e => setNewProjectName(e.target.value)), value: newProjectName }),
-                react_1.default.createElement("button", { className: 'button button-grey', onClick: () => {
-                        if (!newProjectName) {
-                            let alertFactory = new AlertData_1.AlertData();
-                            let alert = alertFactory.GetDefaultError("Введите название проекта");
-                            window.G_AddAbsoluteAlertToState(alert);
-                            return;
-                        }
-                        props.AddNewProject(newProjectName);
-                        setNewProjectName('');
-                    } }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043F\u0440\u043E\u0435\u043A\u0442"),
-                react_1.default.createElement("button", { className: 'button button-grey', onClick: x => setShowProjectList(false) }, "\u0421\u043A\u0440\u044B\u0442\u044C")),
-            react_1.default.createElement("hr", null),
-            react_1.default.createElement("input", { className: 'form-input', type: "text", value: filterProjectName, placeholder: '\u0424\u0438\u043B\u044C\u0442\u0440', onChange: e => setFilterProjectName(e.target.value) }),
+        react_1.default.createElement("div", { className: 'code-management-projects-menu' }, ((showProjectList || !currentProject) && !props.OnlyCurrentProject) ? react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement(react_1.default.Fragment, null,
+                react_1.default.createElement("div", { className: 'management-project-new-block' },
+                    react_1.default.createElement("input", { className: 'form-input', type: 'text', placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043D\u043E\u0432\u043E\u0433\u043E \u043F\u0440\u043E\u0435\u043A\u0442\u0430', onChange: (e => setNewProjectName(e.target.value)), value: newProjectName }),
+                    react_1.default.createElement("button", { className: 'button button-grey', onClick: () => {
+                            if (!newProjectName) {
+                                let alertFactory = new AlertData_1.AlertData();
+                                let alert = alertFactory.GetDefaultError("Введите название проекта");
+                                window.G_AddAbsoluteAlertToState(alert);
+                                return;
+                            }
+                            props.AddNewProject(newProjectName);
+                            setNewProjectName('');
+                        } }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043F\u0440\u043E\u0435\u043A\u0442"),
+                    react_1.default.createElement("button", { className: 'button button-grey', onClick: x => setShowProjectList(false) }, "\u0421\u043A\u0440\u044B\u0442\u044C")),
+                react_1.default.createElement("hr", null),
+                react_1.default.createElement("input", { className: 'form-input', type: "text", value: filterProjectName, placeholder: '\u0424\u0438\u043B\u044C\u0442\u0440', onChange: e => setFilterProjectName(e.target.value) })),
             renderList())
             : react_1.default.createElement(react_1.default.Fragment, null,
-                react_1.default.createElement("button", { className: 'button button-grey', onClick: x => setShowProjectList(true) }, "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C"),
+                !props.OnlyCurrentProject ? react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement("button", { className: 'button button-grey', onClick: x => setShowProjectList(true) }, "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C"))
+                    : react_1.default.createElement(react_1.default.Fragment, null),
                 react_1.default.createElement("div", { className: 'selected-main-management-project' },
                     react_1.default.createElement("a", { href: projectUrl, onClick: (e) => {
                             e.preventDefault();
@@ -75348,6 +75575,90 @@ exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToPr
 
 /***/ }),
 
+/***/ "./src/Apps/TaskManagementApp/Components/Statuses/Statuses.tsx":
+/*!*********************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/Statuses/Statuses.tsx ***!
+  \*********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const StatusesSetup_1 = __importDefault(__webpack_require__(/*! ./StatusesSetup */ "./src/Apps/TaskManagementApp/Components/Statuses/StatusesSetup.tsx"));
+const EditTaskStatus_1 = __importDefault(__webpack_require__(/*! ../EditTaskStatus/EditTaskStatus */ "./src/Apps/TaskManagementApp/Components/EditTaskStatus/EditTaskStatus.tsx"));
+__webpack_require__(/*! ./Statuses.css */ "./src/Apps/TaskManagementApp/Components/Statuses/Statuses.css");
+const Statuses = (props) => {
+    const [newStatusName, setNewStatusName] = (0, react_1.useState)('');
+    return react_1.default.createElement("div", { className: 'task-statuses' },
+        react_1.default.createElement("div", { className: 'work-task-status-create' },
+            react_1.default.createElement("div", { className: 'status-input' },
+                react_1.default.createElement("input", { className: 'form-input', value: newStatusName, placeholder: '\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043D\u043E\u0432\u043E\u0433\u043E \u0441\u0442\u0430\u0442\u0443\u0441\u0430', onChange: e => setNewStatusName(e.target.value) }))),
+        react_1.default.createElement("div", { className: 'status-create' },
+            react_1.default.createElement("button", { className: 'btn-b btn-border create-new-task-btn', onClick: () => props.CreateStatus(newStatusName, props.ProjectId) }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0441\u0442\u0430\u0442\u0443\u0441")),
+        react_1.default.createElement("span", null, "\u0421\u0442\u0430\u0442\u0443\u0441\u044B \u043F\u0440\u043E\u0435\u043A\u0442\u0430"),
+        props.Statuses.map(status => react_1.default.createElement(EditTaskStatus_1.default, { key: status.Id, Status: status })));
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, StatusesSetup_1.default)(Statuses);
+
+
+/***/ }),
+
+/***/ "./src/Apps/TaskManagementApp/Components/Statuses/StatusesSetup.tsx":
+/*!**************************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/Statuses/StatusesSetup.tsx ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const mapStateToProps = (state, ownProps) => {
+    let res = {};
+    res.Statuses = state.TaskManagementApp.CurrentProjectStatuses;
+    res.ProjectId = state.TaskManagementApp.CurrentProjectId;
+    return res;
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    let res = {};
+    res.CreateStatus = (name, projectId) => {
+        dispatch(window.G_TaskManagementTaskStatusController.CreateStatusRedux(name, projectId));
+    };
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
 /***/ "./src/Apps/TaskManagementApp/Components/TaskManagementMain/TaskManagementMain.tsx":
 /*!*****************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Components/TaskManagementMain/TaskManagementMain.tsx ***!
@@ -75399,6 +75710,9 @@ const Sprint_1 = __importDefault(__webpack_require__(/*! ../Sprint/Sprint */ "./
 const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
 const Labels_1 = __importDefault(__webpack_require__(/*! ../Labels/Labels */ "./src/Apps/TaskManagementApp/Components/Labels/Labels.tsx"));
 const Presets_1 = __importDefault(__webpack_require__(/*! ../Presets/Presets */ "./src/Apps/TaskManagementApp/Components/Presets/Presets.tsx"));
+const Statuses_1 = __importDefault(__webpack_require__(/*! ../Statuses/Statuses */ "./src/Apps/TaskManagementApp/Components/Statuses/Statuses.tsx"));
+const ProjectUsers_1 = __importDefault(__webpack_require__(/*! ../ProjectUsers/ProjectUsers */ "./src/Apps/TaskManagementApp/Components/ProjectUsers/ProjectUsers.tsx"));
+const TasksUser_1 = __importDefault(__webpack_require__(/*! ../TasksUser/TasksUser */ "./src/Apps/TaskManagementApp/Components/TasksUser/TasksUser.tsx"));
 __webpack_require__(/*! ./TaskManagementMain.css */ "./src/Apps/TaskManagementApp/Components/TaskManagementMain/TaskManagementMain.css");
 const TaskManagementMain = (props) => {
     const [visibleList, setVisibleList] = (0, react_1.useState)(true);
@@ -75506,33 +75820,48 @@ const TaskManagementMain = (props) => {
     const sprintsUrl = new RouteBuilder_1.default().SprintsUrl(props.CurrentProjectId);
     const labelsUrl = new RouteBuilder_1.default().LabelsUrl(props.CurrentProjectId);
     const presetsUrl = new RouteBuilder_1.default().PresetsUrl(props.CurrentProjectId);
+    const projectsUsersUrl = new RouteBuilder_1.default().ProjectsUsersUrl(props.CurrentProjectId);
+    const statusesUrl = new RouteBuilder_1.default().StatusesUrl(props.CurrentProjectId);
+    const taskUsersUrl = new RouteBuilder_1.default().TaskUsersUrl(props.CurrentProjectId);
     return react_1.default.createElement("div", { className: 'task-management-main-container' },
         react_1.default.createElement("div", { className: 'preloader', id: Consts_1.TaskManagementPreloader }),
         react_1.default.createElement("div", { className: 'code-management-projects-menu-main' + mainClass },
             react_1.default.createElement("div", { onClick: () => setVisibleList(v => !v), className: "hide-management-projects-menu-button" }, visibleList ? '<' : '>'),
             react_1.default.createElement("div", { className: 'menu-main-inner' },
-                react_1.default.createElement(ProjectsList_1.default, { Projects: props.ProjectsList, CurrentProjectId: props.CurrentProjectId }),
+                react_1.default.createElement(ProjectsList_1.default, { Projects: props.ProjectsList, CurrentProjectId: props.CurrentProjectId, OnlyCurrentProject: !visibleList }),
                 props.CurrentProjectId > 0 && react_1.default.createElement("div", { className: 'links' },
-                    react_1.default.createElement("a", { href: timeLogUrl, onClick: (e) => {
-                            e.preventDefault();
-                            navigate(timeLogUrl);
-                        } }, "\u0420\u0430\u0431\u043E\u0442\u0430"),
                     react_1.default.createElement("a", { href: tempoUrl, onClick: (e) => {
                             e.preventDefault();
                             navigate(tempoUrl);
-                        } }, "\u0422\u0435\u043C\u043F\u043E"),
+                        } }, visibleList ? 'Темпо' : 'Т'),
+                    react_1.default.createElement("a", { href: projectsUsersUrl, onClick: (e) => {
+                            e.preventDefault();
+                            navigate(projectsUsersUrl);
+                        } }, visibleList ? 'Люди' : 'Л'),
+                    react_1.default.createElement("a", { href: timeLogUrl, onClick: (e) => {
+                            e.preventDefault();
+                            navigate(timeLogUrl);
+                        } }, visibleList ? 'Работа' : 'Р'),
                     react_1.default.createElement("a", { href: sprintsUrl, onClick: (e) => {
                             e.preventDefault();
                             navigate(sprintsUrl);
-                        } }, "\u0421\u043F\u0440\u0438\u043D\u0442\u044B"),
+                        } }, visibleList ? 'Спринты' : 'С'),
                     react_1.default.createElement("a", { href: labelsUrl, onClick: (e) => {
                             e.preventDefault();
                             navigate(labelsUrl);
-                        } }, "\u041B\u0435\u0439\u0431\u043B\u044B"),
+                        } }, visibleList ? 'Лейблы' : 'Л'),
                     react_1.default.createElement("a", { href: presetsUrl, onClick: (e) => {
                             e.preventDefault();
                             navigate(presetsUrl);
-                        } }, "\u041F\u0440\u0435\u0441\u0435\u0442\u044B")))),
+                        } }, visibleList ? 'Пресеты' : 'П'),
+                    react_1.default.createElement("a", { href: statusesUrl, onClick: (e) => {
+                            e.preventDefault();
+                            navigate(statusesUrl);
+                        } }, visibleList ? 'Статусы' : 'С'),
+                    react_1.default.createElement("a", { href: taskUsersUrl, onClick: (e) => {
+                            e.preventDefault();
+                            navigate(taskUsersUrl);
+                        } }, visibleList ? 'Задачи пользователей' : 'ЗП')))),
         react_1.default.createElement(react_router_dom_1.Routes, null,
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId`, element: react_1.default.createElement(ProjectDetail_1.default, { Project: props.ProjectsList.find(x => x.Id == props.CurrentProjectId), Tasks: props.Tasks }) }),
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementTaskRoute}:taskId`, element: react_1.default.createElement(OneWorkTaskDetail_1.default, null) }),
@@ -75542,7 +75871,10 @@ const TaskManagementMain = (props) => {
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementSprintsRoute}`, element: react_1.default.createElement(Sprints_1.default, null) }),
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementLabelsRoute}`, element: react_1.default.createElement(Labels_1.default, null) }),
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementSprintRoute}:sprintId`, element: react_1.default.createElement(Sprint_1.default, null) }),
-            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementPresetsRoute}`, element: react_1.default.createElement(Presets_1.default, null) })));
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementPresetsRoute}`, element: react_1.default.createElement(Presets_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementUsersRoute}`, element: react_1.default.createElement(ProjectUsers_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementStatusesRoute}`, element: react_1.default.createElement(Statuses_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.TaskManagementProjectRoute}:projectId/${Consts_1.TaskManagementTaskUsersRoute}`, element: react_1.default.createElement(TasksUser_1.default, null) })));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, TaskManagementMainSetup_1.default)(TaskManagementMain);
@@ -75610,6 +75942,149 @@ exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToPr
 
 /***/ }),
 
+/***/ "./src/Apps/TaskManagementApp/Components/TasksUser/TasksUser.tsx":
+/*!***********************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/TasksUser/TasksUser.tsx ***!
+  \***********************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const TasksUserSetup_1 = __importDefault(__webpack_require__(/*! ./TasksUserSetup */ "./src/Apps/TaskManagementApp/Components/TasksUser/TasksUserSetup.tsx"));
+const SaveCancelInputMultiSelectWithSearch_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputMultiSelectWithSearch */ "./src/components/Body/SaveCancelInput/SaveCancelInputMultiSelectWithSearch.tsx"));
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+__webpack_require__(/*! ./TasksUser.css */ "./src/Apps/TaskManagementApp/Components/TasksUser/TasksUser.css");
+const TasksUser = (props) => {
+    const [newSprintId, setNewSprintId] = (0, react_1.useState)(-1);
+    const [newLabels, setNewLabels] = (0, react_1.useState)([]);
+    const [newTasks, setTasks] = (0, react_1.useState)([]);
+    (0, react_1.useEffect)(() => {
+        let f = {
+            CreatorId: -1, ExecutorId: -1,
+            LabelIds: newLabels, Name: '', PresetId: -1, ProjectId: props.ProjectId,
+            SprintId: newSprintId, StatusId: -1, PageNumber: 0, PageSize: 500
+        };
+        if (props.ProjectId > 0)
+            props.ReloadTasks(f).then(d => setTasks(d));
+    }, [newSprintId, newLabels, props.ProjectId]);
+    const navigate = (0, react_router_dom_1.useNavigate)();
+    //лучше не выводить всех пользаков проекта потому что тогда нужно добавлять функционал команд
+    const uniqueUsers = [...new Set(newTasks.map(x => x.ExecutorId))];
+    const renderTasks = () => {
+        return react_1.default.createElement("div", null,
+            react_1.default.createElement("div", { className: 'one-status-line' },
+                react_1.default.createElement("div", { className: 'one-status-empty' }),
+                props.Statuses.map(s => react_1.default.createElement("div", { className: 'one-status-column', key: s.Id }, s.Name))),
+            uniqueUsers.map(u => {
+                var _a;
+                return react_1.default.createElement("div", { className: 'one-user-line', key: u },
+                    react_1.default.createElement("div", { className: 'user-name' }, (_a = props.Users.find(x => x.MainAppUserId === u)) === null || _a === void 0 ? void 0 : _a.Name),
+                    props.Statuses.map(s => react_1.default.createElement("div", { className: '', key: s.Id }, newTasks.filter(t => t.ExecutorId === u && t.StatusId === s.Id).map(t => {
+                        const taskUrl = new RouteBuilder_1.default().TaskUrl(props.ProjectId, t.Id);
+                        return react_1.default.createElement("div", { className: 'one-task', title: t.Name, key: t.Id },
+                            react_1.default.createElement("a", { href: taskUrl, onClick: (e) => {
+                                    e.preventDefault();
+                                    navigate(taskUrl);
+                                } }, t.Id),
+                            react_1.default.createElement("br", null),
+                            t.Name);
+                    }))));
+            }));
+    };
+    return react_1.default.createElement("div", { className: 'tasks-user-main' },
+        react_1.default.createElement("span", { className: 'filter-name' }, "\u0421\u043F\u0440\u0438\u043D\u0442:"),
+        react_1.default.createElement("select", { className: 'filter-input', onChange: e => setNewSprintId(+e.target.value), value: newSprintId },
+            react_1.default.createElement("option", { value: -1 }, "\u041B\u044E\u0431\u043E\u0439"),
+            props.Sprints.map(sprint => react_1.default.createElement("option", { value: sprint.Id, key: sprint.Id }, sprint.Name))),
+        react_1.default.createElement("span", { className: 'filter-name' }, "\u041B\u0435\u0439\u0431\u043B\u044B:"),
+        react_1.default.createElement("div", { className: 'edit-labels' },
+            react_1.default.createElement(SaveCancelInputMultiSelectWithSearch_1.default, { CancelEvent: () => {
+                    // setTaskLabelEditable(false)
+                    setNewLabels([]);
+                }, SaveEvent: (id) => {
+                    // props.UpdateTaskLabels(props.Task.Id, id);
+                    setNewLabels(id);
+                    return true;
+                }, CancelOnSaveNoChanges: true, Selected: newLabels, ValuesWithId: props.Labels.map(x => {
+                    return { Id: x.Id, Text: x.Name };
+                }) })),
+        !newTasks || newTasks.length == 0 ? react_1.default.createElement(react_1.default.Fragment, null, "\u0437\u0430\u0434\u0430\u0447\u0438 \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u044B") : renderTasks());
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, TasksUserSetup_1.default)(TasksUser);
+
+
+/***/ }),
+
+/***/ "./src/Apps/TaskManagementApp/Components/TasksUser/TasksUserSetup.tsx":
+/*!****************************************************************************!*\
+  !*** ./src/Apps/TaskManagementApp/Components/TasksUser/TasksUserSetup.tsx ***!
+  \****************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const mapStateToProps = (state, ownProps) => {
+    let res = {};
+    res.ProjectId = state.TaskManagementApp.CurrentProjectId;
+    res.Sprints = state.TaskManagementApp.CurrentProjectSprints;
+    res.Labels = state.TaskManagementApp.CurrentProjectLabels;
+    res.Users = state.TaskManagementApp.CurrentProjectUsers;
+    res.Statuses = state.TaskManagementApp.CurrentProjectStatuses;
+    return res;
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    let res = {};
+    res.ReloadTasks = (filter) => __awaiter(void 0, void 0, void 0, function* () {
+        return yield window.G_TaskManagementTaskController.LoadTasksUI(filter);
+    });
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
 /***/ "./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.tsx":
 /*!***********************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.tsx ***!
@@ -75653,6 +76128,7 @@ const AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../../../c
 const AddWorkTimeLog_1 = __importDefault(__webpack_require__(/*! ../AddWorkTimeLog/AddWorkTimeLog */ "./src/Apps/TaskManagementApp/Components/AddWorkTimeLog/AddWorkTimeLog.tsx"));
 const PopupWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/PopupWindow/PopupWindow */ "./src/components/Body/PopupWindow/PopupWindow.tsx"));
 const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/TaskManagementApp/Models/BL/RouteBuilder.ts"));
+const react_router_dom_2 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 __webpack_require__(/*! ./TempoPage.css */ "./src/Apps/TaskManagementApp/Components/TempoPage/TempoPage.css");
 const TempoPage = (props) => {
     const [showAddWorkTimeNew, setShowAddWorkTimeNew] = (0, react_1.useState)(-1); //-1 не показывать, 0 создание, >0 id лога для редактирования
@@ -75660,6 +76136,17 @@ const TempoPage = (props) => {
     // const [rageEnd, setRageEnd] = useState(19);
     const [defaultDate, setDefaultDate] = (0, react_1.useState)(new Date());
     const navigate = (0, react_router_dom_1.useNavigate)();
+    const [searchParams, setSearchParams] = (0, react_router_dom_2.useSearchParams)();
+    const setDatesToUrl = (from, to) => {
+        // Форматируем даты в ISO строку (YYYY-MM-DD)
+        const formatDate = (date) => {
+            return date.toISOString().split('T')[0]; // '2024-01-15'
+        };
+        setSearchParams({
+            datefrom: formatDate(from),
+            dateto: formatDate(to)
+        });
+    };
     (0, react_1.useEffect)(() => {
         return () => {
             props.ClearTimeState();
@@ -75669,6 +76156,27 @@ const TempoPage = (props) => {
         if (props.ProjectId > 0)
             props.LoadTime(props.ProjectId, props.DateFrom, props.DateTo);
     }, [props.DateFrom.getTime(), props.DateTo.getTime(), props.ProjectId]);
+    (0, react_1.useEffect)(() => {
+        const dateFrom = searchParams.get('datefrom');
+        const dateTo = searchParams.get('dateto');
+        // Преобразуем в объекты Date
+        const fromDate = dateFrom ? new Date(dateFrom) : null;
+        const toDate = dateTo ? new Date(dateTo) : null;
+        // Проверка на валидность
+        const isValidFrom = fromDate && !isNaN(fromDate.getTime());
+        const isValidTo = toDate && !isNaN(toDate.getTime());
+        if (isValidFrom && isValidTo) {
+            if (fromDate.getTime() !== props.DateFrom.getTime()) {
+                props.SetDateFrom(fromDate);
+            }
+            if (toDate.getTime() !== props.DateTo.getTime()) {
+                props.SetDateTo(toDate);
+            }
+        }
+        else {
+            setDatesToUrl(setClearDate(props.DateFrom), setClearDate(props.DateTo));
+        }
+    }, [window.location.href, props.DateFrom.getTime(), props.DateTo.getTime()]);
     if (!props.WorkTimeLog) {
         return react_1.default.createElement("div", null);
     }
@@ -75698,15 +76206,19 @@ const TempoPage = (props) => {
                     if (e.target.value) {
                         let dt = new Date(e.target.value);
                         if (dt > props.DateTo)
-                            props.SetDateFrom(setClearDate(props.DateTo));
+                            setDatesToUrl(setClearDate(props.DateTo), setClearDate(props.DateTo));
+                        // props.SetDateFrom(setClearDate(props.DateTo));
                         else
-                            props.SetDateFrom(setClearDate(dt));
+                            // props.SetDateFrom(setClearDate(dt));
+                            setDatesToUrl(setClearDate(dt), setClearDate(props.DateTo));
                     }
                     else {
                         if (new Date() > props.DateTo)
-                            props.SetDateFrom(setClearDate(props.DateTo));
+                            // props.SetDateFrom(setClearDate(props.DateTo));
+                            setDatesToUrl(setClearDate(props.DateTo), setClearDate(props.DateTo));
                         else
-                            props.SetDateFrom(setClearDate(new Date()));
+                            // props.SetDateFrom(setClearDate(new Date()));
+                            setDatesToUrl(setClearDate(new Date()), setClearDate(props.DateTo));
                     }
                 } }),
             react_1.default.createElement("span", null, "\u0414\u0430\u0442\u0430 \u0434\u043E"),
@@ -75718,15 +76230,19 @@ const TempoPage = (props) => {
                     if (e.target.value) {
                         let dt = new Date(e.target.value);
                         if (dt < props.DateFrom)
-                            props.SetDateTo(setClearDate(props.DateFrom));
+                            // props.SetDateTo(setClearDate(props.DateFrom));
+                            setDatesToUrl(setClearDate(props.DateFrom), setClearDate(props.DateFrom));
                         else
-                            props.SetDateTo(setClearDate(dt));
+                            // props.SetDateTo(setClearDate(dt));
+                            setDatesToUrl(setClearDate(props.DateFrom), setClearDate(dt));
                     }
                     else {
                         if (new Date() < props.DateFrom)
-                            props.SetDateTo(setClearDate(props.DateFrom));
+                            // props.SetDateTo(setClearDate(props.DateFrom));
+                            setDatesToUrl(setClearDate(props.DateFrom), setClearDate(props.DateFrom));
                         else
-                            props.SetDateTo(setClearDate(new Date()));
+                            // props.SetDateTo(setClearDate(new Date()));
+                            setDatesToUrl(setClearDate(props.DateFrom), setClearDate(new Date()));
                     }
                 } })),
         react_1.default.createElement("div", { className: 'tempo-time-block' },
@@ -76551,6 +77067,18 @@ class RouteBuilder {
         ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
         return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementPresetsRoute}`;
     }
+    ProjectsUsersUrl(projectId) {
+        ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
+        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementUsersRoute}`;
+    }
+    StatusesUrl(projectId) {
+        ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
+        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementStatusesRoute}`;
+    }
+    TaskUsersUrl(projectId) {
+        ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
+        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementTaskUsersRoute}`;
+    }
     SprintUrl(projectId, sprintId) {
         ///"/task-management/proj-" + props.ProjectId + '/sprint-' + x.Id
         return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementSprintRoute}${sprintId}`;
@@ -76574,7 +77102,7 @@ exports["default"] = RouteBuilder;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.TaskManagementApiWorkTimeUrl = exports.TaskManagementApiUserUrl = exports.TaskManagementApiStatusUrl = exports.TaskManagementApiPresetUrl = exports.TaskManagementApiSprintUrl = exports.TaskManagementApiProjectUrl = exports.TaskManagementApiLabelUrl = exports.TaskManagementApiCommentUrl = exports.TaskManagementApiTaskUrl = exports.TaskManagementApiUrl = exports.TaskManagementGetTaskRelationUrl = exports.TaskManagementDeleteTaskRelationUrl = exports.TaskManagementAddTaskRelationUrl = exports.TaskManagementTaskNameUrl = exports.TaskManagementTaskCopyUrl = exports.TaskManagementTaskDeleteUrl = exports.TaskManagementTaskGetUrl = exports.TaskManagementTasksGetUrl = exports.TaskManagementTaskUpdateUrl = exports.TaskManagementTaskAddNewUrl = exports.TaskManagementTaskUpdateExecutorUrl = exports.TaskManagementTaskUpdateStatusUrl = exports.TaskManagementTaskUpdateDescriptionUrl = exports.TaskManagementTaskUpdateNameUrl = exports.TaskManagementWorkTimeLogControllerUrl = exports.TaskManagementUserControllerUrl = exports.TaskManagementStatusControllerUrl = exports.TaskManagementPresetControllerUrl = exports.TaskManagementSprintControllerUrl = exports.TaskManagementProjectControllerUrl = exports.TaskManagementLabelControllerUrl = exports.TaskManagementCommentControllerUrl = exports.TaskManagementTaskControllerUrl = exports.TaskManagementAppUrl = exports.TaskManagementApiPrefUrl = exports.TaskManagementTempoRoute = exports.TaskManagementPresetsRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRute = exports.TaskManagementPreloader = void 0;
+exports.TaskManagementApiWorkTimeUrl = exports.TaskManagementApiUserUrl = exports.TaskManagementApiStatusUrl = exports.TaskManagementApiPresetUrl = exports.TaskManagementApiSprintUrl = exports.TaskManagementApiProjectUrl = exports.TaskManagementApiLabelUrl = exports.TaskManagementApiCommentUrl = exports.TaskManagementApiTaskUrl = exports.TaskManagementApiUrl = exports.TaskManagementGetTaskRelationUrl = exports.TaskManagementDeleteTaskRelationUrl = exports.TaskManagementAddTaskRelationUrl = exports.TaskManagementTaskNameUrl = exports.TaskManagementTaskCopyUrl = exports.TaskManagementTaskDeleteUrl = exports.TaskManagementTaskGetUrl = exports.TaskManagementTasksGetUrl = exports.TaskManagementTaskUpdateUrl = exports.TaskManagementTaskAddNewUrl = exports.TaskManagementTaskUpdateExecutorUrl = exports.TaskManagementTaskUpdateStatusUrl = exports.TaskManagementTaskUpdateDescriptionUrl = exports.TaskManagementTaskUpdateNameUrl = exports.TaskManagementWorkTimeLogControllerUrl = exports.TaskManagementUserControllerUrl = exports.TaskManagementStatusControllerUrl = exports.TaskManagementPresetControllerUrl = exports.TaskManagementSprintControllerUrl = exports.TaskManagementProjectControllerUrl = exports.TaskManagementLabelControllerUrl = exports.TaskManagementCommentControllerUrl = exports.TaskManagementTaskControllerUrl = exports.TaskManagementAppUrl = exports.TaskManagementApiPrefUrl = exports.TaskManagementTempoRoute = exports.TaskManagementTaskUsersRoute = exports.TaskManagementStatusesRoute = exports.TaskManagementUsersRoute = exports.TaskManagementPresetsRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRute = exports.TaskManagementPreloader = void 0;
 exports.TaskManagementPreloader = 'task_management_preloader';
 //Routes
 exports.TaskManagementAppRute = 'task-management';
@@ -76586,6 +77114,9 @@ exports.TaskManagementSprintsRoute = 'sprints';
 exports.TaskManagementLabelsRoute = 'labels';
 exports.TaskManagementSprintRoute = 'sprint-';
 exports.TaskManagementPresetsRoute = 'presets';
+exports.TaskManagementUsersRoute = 'users';
+exports.TaskManagementStatusesRoute = 'statuses';
+exports.TaskManagementTaskUsersRoute = 'users-tasks';
 exports.TaskManagementTempoRoute = 'tempo';
 //Routes
 //Api
@@ -76635,10 +77166,19 @@ exports.TaskManagementApiWorkTimeUrl = `${exports.TaskManagementApiUrl}/${export
 /*!******************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementCommentController.ts ***!
   \******************************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TaskManagementCommentController = void 0;
 const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
@@ -76650,127 +77190,126 @@ const Consts_1 = __webpack_require__(/*! ../Consts */ "./src/Apps/TaskManagement
 class TaskManagementCommentController {
     constructor() {
         this.UpdateCommentRedux = (comment) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.UpdateComment(comment.Id, comment.Text, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, CommentActions_1.UpdateCommentActionCreator)(comment));
-                    }
-                });
-            };
+                const backResult = yield this.UpdateCommentAsync(comment.Id, comment.Text);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, CommentActions_1.UpdateCommentActionCreator)(comment));
+                }
+            });
         };
-        this.UpdateComment = (id, text, onSuccess) => {
+        this.UpdateCommentAsync = (id, text) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "commentId": id,
                 "text": text,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiCommentUrl}/edit-comment`
             });
-        };
+            return backResult;
+        });
         this.DeleteCommentRedux = (dataForDel) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.DeleteComment(dataForDel.Id, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, CommentActions_1.DeleteCommentActionCreator)(dataForDel));
-                    }
-                });
-            };
+                const backResult = yield this.DeleteCommentAsync(dataForDel.Id);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, CommentActions_1.DeleteCommentActionCreator)(dataForDel));
+                }
+            });
         };
-        this.DeleteComment = (id, onSuccess) => {
+        this.DeleteCommentAsync = (id) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "commentId": id,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiCommentUrl}/delete-comment`
             });
-        };
+            return backResult;
+        });
         this.AddCommentRedux = (taskId, text) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.AddComment(taskId, text, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Id) {
-                        let forAdd = new CommentAdd_1.CommentAdd(data, taskId);
-                        dispatch((0, CommentActions_1.AddCommentActionCreator)(forAdd));
-                    }
-                });
-            };
+                const backResult = yield this.AddCommentAsync(taskId, text);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Id) {
+                    let forAdd = new CommentAdd_1.CommentAdd(backResult.Data, taskId);
+                    dispatch((0, CommentActions_1.AddCommentActionCreator)(forAdd));
+                }
+            });
         };
-        this.AddComment = (taskId, text, onSuccess) => {
+        this.AddCommentAsync = (taskId, text) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "taskId": taskId,
                 "text": text,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "PUT",
+                Type: ControllerHelper_1.ControllerHelper.PutHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiCommentUrl}/create-comment`
             });
-        };
+            return backResult;
+        });
         this.LoadCommentsRedux = (id) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                this.LoadComments(id, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data) {
-                        let forSet = new CommentSet_1.CommentSet();
-                        forSet.Comments = data.map(x => {
-                            let cm = new OneTaskWorkComment_1.OneWorkTaskComment();
-                            cm.FillByBackModel(x);
-                            return cm;
-                        });
-                        forSet.TaskId = id;
-                        dispatch((0, CommentActions_1.SetCommentsActionCreator)(forSet));
-                    }
-                });
-            };
+                const backResult = yield this.LoadCommentsAsync(id);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let forSet = new CommentSet_1.CommentSet();
+                    forSet.Comments = backResult.Data.map(x => {
+                        let cm = new OneTaskWorkComment_1.OneWorkTaskComment();
+                        cm.FillByBackModel(x);
+                        return cm;
+                    });
+                    forSet.TaskId = id;
+                    dispatch((0, CommentActions_1.SetCommentsActionCreator)(forSet));
+                }
+            });
         };
-        this.LoadComments = (id, onSuccess) => {
+        this.LoadCommentsAsync = (id) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "taskId": id,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiCommentUrl}/get-comments`
             });
-        };
+            return backResult;
+        });
     }
     mapWithResult(onSuccess) {
         return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
@@ -76789,10 +77328,19 @@ exports.TaskManagementCommentController = TaskManagementCommentController;
 /*!****************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementLabelController.ts ***!
   \****************************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TaskManagementLabelController = void 0;
 const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
@@ -76802,204 +77350,223 @@ const TaskLabel_1 = __webpack_require__(/*! ../Entity/State/TaskLabel */ "./src/
 class TaskManagementLabelController {
     constructor() {
         this.GetForProjectRedux = (projectId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                this.GetForProject(projectId, (error, data) => {
-                    this.preloader(false);
-                    if (data) {
-                        // dt.projectId = projectId;
-                        let dt = data.map(x => new TaskLabel_1.TaskLabel().FillByIProjectLabelDataBack(x));
-                        dispatch((0, LabelActions_1.GetTaskLabelsActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.GetForProjectAsync(projectId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = backResult.Data.map(x => new TaskLabel_1.TaskLabel().FillByIProjectLabelDataBack(x));
+                    dispatch((0, LabelActions_1.GetTaskLabelsActionCreator)(dt));
+                }
+            });
         };
-        this.GetForProject = (projectId, onSuccess) => {
+        this.GetForProjectAsync = (projectId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "projectId": projectId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiLabelUrl}/get-all`
             });
-        };
+            return backResult;
+        });
         this.CreateLabelRedux = (projectId, labelName) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.CreateLabel(projectId, labelName, (error, data) => {
-                    this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.Id) {
-                        let dt = new TaskLabel_1.TaskLabel().FillByIProjectLabelDataBack(data);
-                        dispatch((0, LabelActions_1.CreateProjectLabelActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.CreateLabelAsync(projectId, labelName);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Id) {
+                    let dt = new TaskLabel_1.TaskLabel().FillByIProjectLabelDataBack(backResult.Data);
+                    dispatch((0, LabelActions_1.CreateProjectLabelActionCreator)(dt));
+                }
+            });
         };
-        this.CreateLabel = (projectId, labelName, onSuccess) => {
+        this.CreateLabelAsync = (projectId, labelName) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "ProjectId": projectId,
                 "Name": labelName,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PutHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiLabelUrl}/create`,
                 ContentType: 'body'
             });
-        };
+            return backResult;
+        });
         this.UpdateLabelRedux = (id, labelName) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.UpdateLabel(id, labelName, (error, data) => {
-                    this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.Id) {
-                        let dt = new TaskLabel_1.TaskLabel().FillByIProjectLabelDataBack(data);
-                        dispatch((0, LabelActions_1.UpdateProjectLabelActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.UpdateLabelAsync(id, labelName);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Id) {
+                    let dt = new TaskLabel_1.TaskLabel().FillByIProjectLabelDataBack(backResult.Data);
+                    dispatch((0, LabelActions_1.UpdateProjectLabelActionCreator)(dt));
+                }
+            });
         };
-        this.UpdateLabel = (id, labelName, onSuccess) => {
+        this.UpdateLabelAsync = (id, labelName) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "Id": id,
                 "Name": labelName,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiLabelUrl}/update`,
                 ContentType: 'body'
             });
-        };
+            return backResult;
+        });
         this.DeleteLabelRedux = (id) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.DeleteLabel(id, (error, data) => {
-                    this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, LabelActions_1.DeleteProjectLabelActionCreator)(id));
-                    }
-                });
-            };
+                const backResult = yield this.DeleteLabelAsync(id);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, LabelActions_1.DeleteProjectLabelActionCreator)(id));
+                }
+            });
         };
-        this.DeleteLabel = (id, onSuccess) => {
+        this.DeleteLabelAsync = (id) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "Id": id,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiLabelUrl}/delete`,
                 ContentType: 'body'
             });
-        };
+            return backResult;
+        });
         this.UpdateTaskLabelsRedux = (taskId, labelId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.UpdateTaskLabels(taskId, labelId, (error, data) => {
-                    this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        let dt = new LabelActions_1.UpdateTaskLabelsActionDataType();
-                        dt.LabelId = labelId;
-                        dt.TaskId = taskId;
-                        dispatch((0, LabelActions_1.UpdateTaskLabelsActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.UpdateTaskLabelsAsync(taskId, labelId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    let dt = new LabelActions_1.UpdateTaskLabelsActionDataType();
+                    dt.LabelId = labelId;
+                    dt.TaskId = taskId;
+                    dispatch((0, LabelActions_1.UpdateTaskLabelsActionCreator)(dt));
+                }
+            });
         };
-        this.UpdateTaskLabels = (taskId, labelId, onSuccess) => {
+        this.UpdateTaskLabelsAsync = (taskId, labelId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "TaskId": taskId,
                 "LabelId": labelId
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PostHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiLabelUrl}/update-task-labels`,
                 ContentType: 'body'
             });
-        };
+            return backResult;
+        });
         this.AddLabelToTaskRedux = (taskId, labelId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.AddLabelToTask(taskId, labelId, (error, data) => {
-                    this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        let dt = new LabelActions_1.UpdateTaskLabelActionDataType();
-                        dt.LabelId = labelId;
-                        dt.TaskId = taskId;
-                        dispatch((0, LabelActions_1.AddLabelToTaskActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.AddLabelToTaskAsync(taskId, labelId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    let dt = new LabelActions_1.UpdateTaskLabelActionDataType();
+                    dt.LabelId = labelId;
+                    dt.TaskId = taskId;
+                    dispatch((0, LabelActions_1.AddLabelToTaskActionCreator)(dt));
+                }
+            });
         };
-        this.AddLabelToTask = (taskId, labelId, onSuccess) => {
+        this.AddLabelToTaskAsync = (taskId, labelId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "LabelId": taskId,
                 "TaskId": labelId
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PostHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiLabelUrl}/add-to-task`,
                 ContentType: 'body'
             });
-        };
+            return backResult;
+        });
         this.DeleteLabelFromTaskRedux = (taskId, labelId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.DeleteLabelFromTask(taskId, labelId, (error, data) => {
-                    this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        let dt = new LabelActions_1.DeleteLabelFromTaskActionDataType();
-                        dt.LabelId = labelId;
-                        dt.TaskId = taskId;
-                        dispatch((0, LabelActions_1.DeleteLabelFromTaskActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.DeleteLabelFromTaskAsync(taskId, labelId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    let dt = new LabelActions_1.DeleteLabelFromTaskActionDataType();
+                    dt.LabelId = labelId;
+                    dt.TaskId = taskId;
+                    dispatch((0, LabelActions_1.DeleteLabelFromTaskActionCreator)(dt));
+                }
+            });
         };
-        this.DeleteLabelFromTask = (taskId, labelId, onSuccess) => {
+        this.DeleteLabelFromTaskAsync = (taskId, labelId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "LabelId": taskId,
                 "TaskId": labelId
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PostHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiLabelUrl}/delete-from-task`,
                 ContentType: 'body'
             });
-        };
+            return backResult;
+        });
     }
     mapWithResult(onSuccess) {
         return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
@@ -77041,19 +77608,21 @@ class TaskManagementPresetController {
     constructor() {
         this.GetForProjectRedux = (projectId, dispatch) => __awaiter(this, void 0, void 0, function* () {
             this.preloader(true);
-            let backResult = yield this.GetForProject(projectId);
+            const backResult = yield this.GetForProjectAsync(projectId);
             this.preloader(false);
-            if (backResult) {
-                // dt.projectId = projectId;
-                let dt = backResult.map(x => new Preset_1.Preset().FillByIProjectTaskDataBack(x));
+            if (backResult.Error) {
+                return;
+            }
+            if (backResult.Data) {
+                let dt = backResult.Data.map(x => new Preset_1.Preset().FillByIProjectTaskDataBack(x));
                 dispatch((0, PresetActions_1.LoadPresetsActionCreator)(dt));
             }
         });
-        this.GetForProject = (projectId) => __awaiter(this, void 0, void 0, function* () {
+        this.GetForProjectAsync = (projectId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "projectId": projectId,
             };
-            let res = yield G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
@@ -77061,22 +77630,25 @@ class TaskManagementPresetController {
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiPresetUrl}/get-all`
             });
-            return res.Data;
+            return backResult;
         });
         this.DeleteRedux = (id, dispatch) => __awaiter(this, void 0, void 0, function* () {
+            var _a;
             this.preloader(true);
-            let backResult = yield this.Delete(id);
+            const backResult = yield this.DeleteAsync(id);
             this.preloader(false);
-            if (backResult === null || backResult === void 0 ? void 0 : backResult.Result) {
-                // dt.projectId = projectId;
+            if (backResult.Error) {
+                return;
+            }
+            if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
                 dispatch((0, PresetActions_1.DeletePresetActionCreator)(id));
             }
         });
-        this.Delete = (id) => __awaiter(this, void 0, void 0, function* () {
+        this.DeleteAsync = (id) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "presetId": id,
             };
-            let res = yield G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
@@ -77084,24 +77656,27 @@ class TaskManagementPresetController {
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiPresetUrl}/delete`
             });
-            return res.Data;
+            return backResult;
         });
         this.CreateRedux = (name, projectId, dispatch) => __awaiter(this, void 0, void 0, function* () {
+            var _b;
             this.preloader(true);
-            let backResult = yield this.Create(name, projectId);
+            const backResult = yield this.CreateAsync(name, projectId);
             this.preloader(false);
-            if (backResult === null || backResult === void 0 ? void 0 : backResult.Id) {
-                // dt.projectId = projectId;
-                let dt = new Preset_1.Preset().FillByIProjectTaskDataBack(backResult);
+            if (backResult.Error) {
+                return;
+            }
+            if ((_b = backResult.Data) === null || _b === void 0 ? void 0 : _b.Id) {
+                let dt = new Preset_1.Preset().FillByIProjectTaskDataBack(backResult.Data);
                 dispatch((0, PresetActions_1.CreatePresetActionCreator)(dt));
             }
         });
-        this.Create = (name, projectId) => __awaiter(this, void 0, void 0, function* () {
+        this.CreateAsync = (name, projectId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "name": name,
                 "projectId": projectId
             };
-            let res = yield G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PutHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
@@ -77110,19 +77685,21 @@ class TaskManagementPresetController {
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiPresetUrl}/create`,
                 ContentType: 'body'
             });
-            return res.Data;
+            return backResult;
         });
         this.UpdateRedux = (preset, dispatch) => __awaiter(this, void 0, void 0, function* () {
+            var _c;
             this.preloader(true);
-            let backResult = yield this.Update(preset);
+            const backResult = yield this.UpdateAsync(preset);
             this.preloader(false);
-            if (backResult === null || backResult === void 0 ? void 0 : backResult.Result) {
-                // dt.projectId = projectId;
-                // let dt = new Preset().FillByIProjectTaskDataBack(backResult);
+            if (backResult.Error) {
+                return;
+            }
+            if ((_c = backResult.Data) === null || _c === void 0 ? void 0 : _c.Result) {
                 dispatch((0, PresetActions_1.UpdatePresetActionCreator)(preset));
             }
         });
-        this.Update = (preset) => __awaiter(this, void 0, void 0, function* () {
+        this.UpdateAsync = (preset) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "id": preset.Id,
                 "name": preset.Name,
@@ -77132,7 +77709,7 @@ class TaskManagementPresetController {
                 "SprintId": preset.SprintId,
                 "Labels": preset.LabelId
             };
-            let res = yield G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
@@ -77141,7 +77718,7 @@ class TaskManagementPresetController {
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiPresetUrl}/update`,
                 ContentType: 'body'
             });
-            return res.Data;
+            return backResult;
         });
     }
     //todo вынести в какой то общий кусок
@@ -77162,10 +77739,19 @@ exports.TaskManagementPresetController = TaskManagementPresetController;
 /*!******************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementProjectController.ts ***!
   \******************************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TaskManagementProjectController = void 0;
 const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
@@ -77185,154 +77771,149 @@ const WorkTaskStatus_1 = __webpack_require__(/*! ../Entity/State/WorkTaskStatus 
 class TaskManagementProjectController {
     constructor() {
         this.DeleteProjectRedux = (projectId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.DeleteProject(projectId, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, ProjectActions_1.DeleteProjectActionCreator)(projectId));
-                    }
-                });
-            };
+                const backResult = yield this.DeleteProjectAsync(projectId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, ProjectActions_1.DeleteProjectActionCreator)(projectId));
+                }
+            });
         };
-        this.DeleteProject = (projectId, onSuccess) => {
+        this.DeleteProjectAsync = (projectId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "projectId": projectId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiProjectUrl}/delete-project`
             });
-        };
+            return backResult;
+        });
         this.GetProjectInfoRedux = (projectId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                this.GetProjectInfo(projectId, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data) {
-                        let dtUsers = data.Users.map(x => {
-                            let u = new ProjectUser_1.ProjectUser();
-                            u.FillByBackModel(x);
-                            return u;
-                        });
-                        let dtStatuses = data.Statuses.map(x => {
-                            let u = new WorkTaskStatus_1.WorkTaskStatus();
-                            u.FillByBackModel(x);
-                            return u;
-                        });
-                        let dtSprints = data.Sprints.map(x => {
-                            let u = new ProjectSprint_1.ProjectSprint();
-                            u.FillByIProjectSprintDataBack(x);
-                            return u;
-                        });
-                        let dtLabels = data.Labels.map(x => {
-                            let u = new TaskLabel_1.TaskLabel();
-                            u.FillByIProjectLabelDataBack(x);
-                            return u;
-                        });
-                        let dtPreset = data.Presets.map(x => {
-                            let u = new Preset_1.Preset();
-                            u.FillByIProjectTaskDataBack(x);
-                            return u;
-                        });
-                        dispatch((0, UserActions_1.SetCurrentProjectUsersActionCreator)(dtUsers));
-                        dispatch((0, TaskStatusActions_1.SetCurrentProjectStatusesActionCreator)(dtStatuses));
-                        let spr = new SprintActions_1.GetProjectSprintsActionType();
-                        // spr.projectId = projectId;
-                        spr.data = dtSprints;
-                        dispatch((0, SprintActions_1.GetProjectSprintsActionCreator)(spr));
-                        dispatch((0, LabelActions_1.GetTaskLabelsActionCreator)(dtLabels));
-                        dispatch((0, PresetActions_1.LoadPresetsActionCreator)(dtPreset));
-                    }
-                });
-            };
+                const backResult = yield this.GetProjectInfoAsync(projectId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dtUsers = backResult.Data.Users.map(x => {
+                        let u = new ProjectUser_1.ProjectUser();
+                        u.FillByBackModel(x);
+                        return u;
+                    });
+                    let dtStatuses = backResult.Data.Statuses.map(x => {
+                        let u = new WorkTaskStatus_1.WorkTaskStatus();
+                        u.FillByBackModel(x);
+                        return u;
+                    });
+                    let dtSprints = backResult.Data.Sprints.map(x => {
+                        let u = new ProjectSprint_1.ProjectSprint();
+                        u.FillByIProjectSprintDataBack(x);
+                        return u;
+                    });
+                    let dtLabels = backResult.Data.Labels.map(x => {
+                        let u = new TaskLabel_1.TaskLabel();
+                        u.FillByIProjectLabelDataBack(x);
+                        return u;
+                    });
+                    let dtPreset = backResult.Data.Presets.map(x => {
+                        let u = new Preset_1.Preset();
+                        u.FillByIProjectTaskDataBack(x);
+                        return u;
+                    });
+                    dispatch((0, UserActions_1.SetCurrentProjectUsersActionCreator)(dtUsers));
+                    dispatch((0, TaskStatusActions_1.SetCurrentProjectStatusesActionCreator)(dtStatuses));
+                    let spr = new SprintActions_1.GetProjectSprintsActionType();
+                    spr.data = dtSprints;
+                    dispatch((0, SprintActions_1.GetProjectSprintsActionCreator)(spr));
+                    dispatch((0, LabelActions_1.GetTaskLabelsActionCreator)(dtLabels));
+                    dispatch((0, PresetActions_1.LoadPresetsActionCreator)(dtPreset));
+                }
+            });
         };
-        this.GetProjectInfo = (projectId, onSuccess) => {
+        this.GetProjectInfoAsync = (projectId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "projectId": projectId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiProjectUrl}/get-project-info`
             });
-        };
+            return backResult;
+        });
         this.CreateNewProjectRedux = (newProjectName) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                this.CreateNewProject(newProjectName, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data) {
-                        let dt = new OneProjectInList_1.OneProjectInList();
-                        dt.FillByBackModel(data);
-                        dispatch((0, ProjectActions_1.AddNewProjectActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.CreateNewProjectAsync(newProjectName);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = new OneProjectInList_1.OneProjectInList();
+                    dt.FillByBackModel(backResult.Data);
+                    dispatch((0, ProjectActions_1.AddNewProjectActionCreator)(dt));
+                }
+            });
         };
-        this.CreateNewProject = (newProjectName, onSuccess) => {
+        this.CreateNewProjectAsync = (newProjectName) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "projectName": newProjectName,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: "PUT",
+                Type: ControllerHelper_1.ControllerHelper.PutHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiProjectUrl}/add-new-project`
             });
-        };
+            return backResult;
+        });
         this.GetUserProjectsRedux = () => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                this.GetUserProjects((error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data) {
-                        // dispatch(SetCurrentProjectIdActionCreator(-1));
-                        let dt = data.map(x => {
-                            let pr = new OneProjectInList_1.OneProjectInList();
-                            pr.FillByBackModel(x);
-                            return pr;
-                        });
-                        dispatch((0, ProjectActions_1.SetProjectsActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.GetUserProjectsAsync();
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = backResult.Data.map(x => {
+                        let pr = new OneProjectInList_1.OneProjectInList();
+                        pr.FillByBackModel(x);
+                        return pr;
+                    });
+                    dispatch((0, ProjectActions_1.SetProjectsActionCreator)(dt));
+                }
+            });
         };
-        this.GetUserProjects = (onSuccess) => {
-            G_AjaxHelper.GoAjaxRequest({
+        this.GetUserProjectsAsync = () => __awaiter(this, void 0, void 0, function* () {
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: {},
                 Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiProjectUrl}/get-projects`,
             });
-        };
+            return backResult;
+        });
     }
     //todo вынести в какой то общий кусок
     mapWithResult(onSuccess) {
@@ -77376,20 +77957,24 @@ class TaskManagementSprintController {
     constructor() {
         this.GetForProjectRedux = (projectId, dispatch) => __awaiter(this, void 0, void 0, function* () {
             this.preloader(true);
-            let backResult = yield this.GetForProject(projectId);
+            const backResult = yield this.GetForProjectAsync(projectId);
             this.preloader(false);
-            if (backResult) {
-                let dt = new SprintActions_1.GetProjectSprintsActionType();
-                // dt.projectId = projectId;
-                dt.data = backResult.map(x => new ProjectSprint_1.ProjectSprint().FillByIProjectSprintDataBack(x));
-                dispatch((0, SprintActions_1.GetProjectSprintsActionCreator)(dt));
+            if (backResult.Error) {
+                return null;
             }
+            if (backResult.Data) {
+                let dt = new SprintActions_1.GetProjectSprintsActionType();
+                dt.data = backResult.Data.map(x => new ProjectSprint_1.ProjectSprint().FillByIProjectSprintDataBack(x));
+                dispatch((0, SprintActions_1.GetProjectSprintsActionCreator)(dt));
+                return backResult.Data;
+            }
+            return null;
         });
-        this.GetForProject = (projectId) => __awaiter(this, void 0, void 0, function* () {
+        this.GetForProjectAsync = (projectId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "projectId": projectId,
             };
-            let res = yield G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
@@ -77397,239 +77982,229 @@ class TaskManagementSprintController {
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/get-for-project`
             });
-            return res.Data;
+            return backResult;
         });
-        // GetForProjectRedux = (projectId: number) => {
-        //     return (dispatch: any, getState: any) => {
-        //         this.preloader(true);
-        //         this.GetForProject(projectId, (error: MainErrorObjectBack, data: IProjectSprintDataBack[]) => {
-        //             this.preloader(false);
-        //             if (data) {
-        //                 let dt = new GetProjectSprintsActionType();
-        //                 // dt.projectId = projectId;
-        //                 dt.data = data.map(x => new ProjectSprint().FillByIProjectSprintDataBack(x));
-        //                 dispatch(GetProjectSprintsActionCreator(dt));
-        //             }
-        //         });
-        //     };
-        // }
-        // GetForProject = (projectId: number, onSuccess: GetSprints) => {
-        //     let data = {
-        //         "projectId": projectId,
-        //     };
-        //     G_AjaxHelper.GoAjaxRequest({
-        //         Data: data,
-        //         Type: ControllerHelper.GetHttp,
-        //         FuncSuccess: (xhr, status, jqXHR) => {
-        //             this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-        //         },
-        //         FuncError: (xhr, status, error) => { },
-        //         Url: `${G_PathToServer}${TaskManagementApiSprintUrl}/get-for-project`
-        //     });
-        // };
         this.GetTasksRedux = (sprintId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                this.GetTasks(sprintId, (error, data) => {
-                    this.preloader(false);
-                    if (data) {
-                        let dt = data.map(x => new OneTask_1.OneTask().FillByIProjectTaskDataBack(x));
-                        dispatch((0, SprintActions_1.GetSprintsTasksActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.GetTasksAsync(sprintId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = backResult.Data.map(x => new OneTask_1.OneTask().FillByIProjectTaskDataBack(x));
+                    dispatch((0, SprintActions_1.GetSprintsTasksActionCreator)(dt));
+                }
+            });
         };
-        this.GetTasks = (sprintId, onSuccess) => {
+        this.GetTasksAsync = (sprintId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "sprintId": sprintId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/get-tasks`
             });
-        };
+            return backResult;
+        });
         this.CreateSprintRedux = (req) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.CreateSprint(req, (error, data) => {
-                    this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.Id) {
-                        let dt = new ProjectSprint_1.ProjectSprint();
-                        dt.FillByIProjectSprintDataBack(data);
-                        dispatch((0, SprintActions_1.CreateSprintActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.CreateSprintAsync(req);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Id) {
+                    let dt = new ProjectSprint_1.ProjectSprint();
+                    dt.FillByIProjectSprintDataBack(backResult.Data);
+                    dispatch((0, SprintActions_1.CreateSprintActionCreator)(dt));
+                }
+            });
         };
-        this.CreateSprint = (req, onSuccess) => {
+        this.CreateSprintAsync = (req) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "ProjectId": req.ProjectId,
                 "Name": req.Name,
                 "StartDate": new ControllerHelper_1.ControllerHelper().ToZeroDate(req.StartDate).toISOString(),
                 "EndDate": new ControllerHelper_1.ControllerHelper().ToZeroDate(req.EndDate).toISOString()
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PutHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/create`,
                 ContentType: 'body'
             });
-        };
+            return backResult;
+        });
         this.UpdateSprintRedux = (req) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.UpdateSprint(req, (error, data) => {
-                    this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.Id) {
-                        let dt = new ProjectSprint_1.ProjectSprint();
-                        dt.FillByIProjectSprintDataBack(data);
-                        dispatch((0, SprintActions_1.UpdateSprintActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.UpdateSprintAsync(req);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Id) {
+                    let dt = new ProjectSprint_1.ProjectSprint();
+                    dt.FillByIProjectSprintDataBack(backResult.Data);
+                    dispatch((0, SprintActions_1.UpdateSprintActionCreator)(dt));
+                }
+            });
         };
-        this.UpdateSprint = (req, onSuccess) => {
+        this.UpdateSprintAsync = (req) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "Id": req.Id,
                 "Name": req.Name,
                 "StartDate": new ControllerHelper_1.ControllerHelper().ToZeroDate(req.StartDate).toISOString(),
                 "EndDate": new ControllerHelper_1.ControllerHelper().ToZeroDate(req.EndDate).toISOString()
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/update`,
                 ContentType: 'body'
             });
-        };
+            return backResult;
+        });
         this.DeleteSprintRedux = (id) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.DeleteSprint(id, (error, data) => {
-                    this.preloader(false);
-                    if (data.Result) {
-                        dispatch((0, SprintActions_1.DeleteSprintActionCreator)(id));
-                    }
-                });
-            };
+                const backResult = yield this.DeleteSprintAsync(id);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, SprintActions_1.DeleteSprintActionCreator)(id));
+                }
+            });
         };
-        this.DeleteSprint = (id, onSuccess) => {
+        this.DeleteSprintAsync = (id) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "id": id,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/delete`
             });
-        };
+            return backResult;
+        });
         this.AddTaskToSprintRedux = (sprintId, taskId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.AddTaskToSprint(sprintId, taskId, (error, data) => {
-                    this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        let dt = new SprintActions_1.TaskIdWithSprintIdActionType();
-                        dt.sprintId = sprintId;
-                        dt.taskId = taskId;
-                        dispatch((0, SprintActions_1.AddTaskToSprintActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.AddTaskToSprintAsync(sprintId, taskId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    let dt = new SprintActions_1.TaskIdWithSprintIdActionType();
+                    dt.sprintId = sprintId;
+                    dt.taskId = taskId;
+                    dispatch((0, SprintActions_1.AddTaskToSprintActionCreator)(dt));
+                }
+            });
         };
-        this.AddTaskToSprint = (sprintId, taskId, onSuccess) => {
+        this.AddTaskToSprintAsync = (sprintId, taskId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "sprintId": sprintId,
                 "taskId": taskId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PostHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/add-task-to-sprint`
             });
-        };
+            return backResult;
+        });
         this.DeleteTaskFromSprintRedux = (taskId, sprintId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.DeleteTaskFromSprint(taskId, sprintId, (error, data) => {
-                    this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        let dt = new SprintActions_1.TaskIdWithSprintIdActionType();
-                        dt.sprintId = null;
-                        dt.taskId = taskId;
-                        dispatch((0, SprintActions_1.DeleteTaskFromSprintActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.DeleteTaskFromSprintAsync(taskId, sprintId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    let dt = new SprintActions_1.TaskIdWithSprintIdActionType();
+                    dt.sprintId = null;
+                    dt.taskId = taskId;
+                    dispatch((0, SprintActions_1.DeleteTaskFromSprintActionCreator)(dt));
+                }
+            });
         };
-        this.DeleteTaskFromSprint = (taskId, sprintId, onSuccess) => {
+        this.DeleteTaskFromSprintAsync = (taskId, sprintId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
-                // "sprintId": sprintId,
                 "taskId": taskId,
                 "sprintId": sprintId
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PostHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/delete-task-from-sprint`
             });
-        };
+            return backResult;
+        });
         this.UpdateTaskFromSprintRedux = (taskId, sprintId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.UpdateTaskFromSprint(taskId, sprintId, (error, data) => {
-                    this.preloader(false);
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        let dt = new SprintActions_1.TaskIdWithSprintIdsActionType();
-                        dt.sprintId = sprintId;
-                        dt.taskId = taskId;
-                        dispatch((0, SprintActions_1.UpdateTaskSprintActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.UpdateTaskFromSprintAsync(taskId, sprintId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    let dt = new SprintActions_1.TaskIdWithSprintIdsActionType();
+                    dt.sprintId = sprintId;
+                    dt.taskId = taskId;
+                    dispatch((0, SprintActions_1.UpdateTaskSprintActionCreator)(dt));
+                }
+            });
         };
-        this.UpdateTaskFromSprint = (taskId, sprintId, onSuccess) => {
+        this.UpdateTaskFromSprintAsync = (taskId, sprintId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
-                // "sprintId": sprintId,
                 "taskId": taskId,
                 "sprintId": sprintId
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PostHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiSprintUrl}/update-task-sprints`,
                 ContentType: 'body'
             });
-        };
+            return backResult;
+        });
     }
     mapWithResult(onSuccess) {
         return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
@@ -77673,16 +78248,16 @@ class TaskManagementTaskController {
     constructor() {
         this.AddTaskRelationRedux = (mainTaskid, subTaskid, type, dispatch) => __awaiter(this, void 0, void 0, function* () {
             this.preloader(true);
-            let res = yield this.AddTaskRelation(mainTaskid, subTaskid, type);
+            let res = yield this.AddTaskRelationAsync(mainTaskid, subTaskid, type);
             this.preloader(false);
-            if (res) {
-                var result = new TaskRelation_1.TaskRelation().FillByDataBack(res);
+            if (res.Data) {
+                var result = new TaskRelation_1.TaskRelation().FillByDataBack(res.Data);
                 dispatch((0, TaskActions_1.AddTaskRelationStateActionCreator)(result));
                 return result;
             }
             return null;
         });
-        this.AddTaskRelation = (mainTaskid, subTaskid, type) => __awaiter(this, void 0, void 0, function* () {
+        this.AddTaskRelationAsync = (mainTaskid, subTaskid, type) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "mainTaskid": mainTaskid,
                 "subTaskid": subTaskid,
@@ -77696,19 +78271,19 @@ class TaskManagementTaskController {
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementAddTaskRelationUrl}`,
                 ContentType: 'body'
             });
-            return backResult.Data;
+            return backResult;
         });
         this.DeleteTaskRelationRedux = (id, dispatch) => __awaiter(this, void 0, void 0, function* () {
-            var _a;
+            var _a, _b, _c;
             this.preloader(true);
-            let res = yield this.DeleteTaskRelation(id);
+            let res = yield this.DeleteTaskRelationAsync(id);
             this.preloader(false);
-            if (res === null || res === void 0 ? void 0 : res.Result) {
+            if ((_a = res.Data) === null || _a === void 0 ? void 0 : _a.Result) {
                 dispatch((0, TaskActions_1.DeleteTaskRelationStateActionCreator)(id));
             }
-            return (_a = res === null || res === void 0 ? void 0 : res.Result) !== null && _a !== void 0 ? _a : false;
+            return (_c = (_b = res.Data) === null || _b === void 0 ? void 0 : _b.Result) !== null && _c !== void 0 ? _c : false;
         });
-        this.DeleteTaskRelation = (id) => __awaiter(this, void 0, void 0, function* () {
+        this.DeleteTaskRelationAsync = (id) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "id": id
             };
@@ -77719,20 +78294,20 @@ class TaskManagementTaskController {
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementDeleteTaskRelationUrl}`
             });
-            return backResult.Data;
+            return backResult;
         });
         this.LoadRelationsForTaskRedux = (id, dispatch) => __awaiter(this, void 0, void 0, function* () {
             this.preloader(true);
-            let res = yield this.LoadRelationsForTask(id);
+            let res = yield this.LoadRelationsForTaskAsync(id);
             this.preloader(false);
-            if (res) {
-                var result = res.map(x => new TaskRelation_1.TaskRelation().FillByDataBack(x));
+            if (res.Data) {
+                var result = res.Data.map(x => new TaskRelation_1.TaskRelation().FillByDataBack(x));
                 dispatch((0, TaskActions_1.LoadTaskRelationStateActionCreator)(result));
                 return result;
             }
             return null;
         });
-        this.LoadRelationsForTask = (id) => __awaiter(this, void 0, void 0, function* () {
+        this.LoadRelationsForTaskAsync = (id) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "taskId": id
             };
@@ -77743,139 +78318,138 @@ class TaskManagementTaskController {
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementGetTaskRelationUrl}`
             });
-            return backResult.Data;
+            return backResult;
         });
         this.UpdateTaskNameRedux = (id, text) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.UpdateTaskName(id, text, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, TaskActions_1.UpdateTaskNameActionCreator)({ Id: id, Text: text }));
-                    }
-                });
-            };
+                const backResult = yield this.UpdateTaskNameAsync(id, text);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, TaskActions_1.UpdateTaskNameActionCreator)({ Id: id, Text: text }));
+                }
+            });
         };
-        this.UpdateTaskName = (id, text, onSuccess) => {
+        this.UpdateTaskNameAsync = (id, text) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "name": text,
                 "id": id,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskUpdateNameUrl}`
             });
-        };
+            return backResult;
+        });
         this.UpdateTaskDescriptionRedux = (id, text) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.UpdateTaskDescription(id, text, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, TaskActions_1.UpdateTaskDescriptionActionCreator)({ Id: id, Text: text }));
-                    }
-                });
-            };
+                const backResult = yield this.UpdateTaskDescriptionAsync(id, text);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, TaskActions_1.UpdateTaskDescriptionActionCreator)({ Id: id, Text: text }));
+                }
+            });
         };
-        this.UpdateTaskDescription = (id, text, onSuccess) => {
+        this.UpdateTaskDescriptionAsync = (id, text) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "description": text,
                 "id": id,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskUpdateDescriptionUrl}`
             });
-        };
+            return backResult;
+        });
         this.UpdateTaskStatusRedux = (id, idStatus) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.UpdateTaskStatus(id, idStatus, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, TaskActions_1.UpdateTaskStatusActionCreator)({ Id: id, IdStatus: idStatus }));
-                    }
-                });
-            };
+                const backResult = yield this.UpdateTaskStatusAsync(id, idStatus);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, TaskActions_1.UpdateTaskStatusActionCreator)({ Id: id, IdStatus: idStatus }));
+                }
+            });
         };
-        this.UpdateTaskStatus = (id, idStatus, onSuccess) => {
+        this.UpdateTaskStatusAsync = (id, idStatus) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "statusId": idStatus,
                 "id": id,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskUpdateStatusUrl}`
             });
-        };
+            return backResult;
+        });
         this.UpdateTaskExecutorRedux = (id, personId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.UpdateTaskExecutor(id, personId, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, TaskActions_1.UpdateTaskExecutorActionCreator)({ Id: id, PersonId: personId }));
-                    }
-                });
-            };
+                const backResult = yield this.UpdateTaskExecutorAsync(id, personId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, TaskActions_1.UpdateTaskExecutorActionCreator)({ Id: id, PersonId: personId }));
+                }
+            });
         };
-        this.UpdateTaskExecutor = (id, personId, onSuccess) => {
+        this.UpdateTaskExecutorAsync = (id, personId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "personId": personId,
                 "id": id,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskUpdateExecutorUrl}`
             });
-        };
+            return backResult;
+        });
         this.AddTaskToProjectRedux = (task, projectId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                this.AddTaskToProject(task, projectId, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data) {
-                        dispatch((0, TaskActions_1.AddLoadTriggerActionCreator)());
-                    }
-                });
-            };
+                const backResult = yield this.AddTaskToProjectAsync(task, projectId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    dispatch((0, TaskActions_1.AddLoadTriggerActionCreator)());
+                }
+            });
         };
-        this.AddTaskToProject = (task, projectId, onSuccess) => {
+        this.AddTaskToProjectAsync = (task, projectId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "taskName": task.Name,
                 "taskReviwerId": task.ExecutorId,
@@ -77883,68 +78457,58 @@ class TaskManagementTaskController {
                 "projectId": projectId,
                 "statusId": task.StatusId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PutHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskAddNewUrl}`,
                 ContentType: 'body'
             });
-        };
+            return backResult;
+        });
         this.UpdateTaskRedux = (task) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.UpdateTask(task, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, TaskActions_1.UpdateTaskActionCreator)(task));
-                    }
-                });
-            };
+                const backResult = yield this.UpdateTaskAsync(task);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, TaskActions_1.UpdateTaskActionCreator)(task));
+                }
+            });
         };
-        this.UpdateTask = (task, onSuccess) => {
+        this.UpdateTaskAsync = (task) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "taskId": task.Id,
                 "name": task.Name,
                 "statusId": task.StatusId,
-                // "creatorId": task.CreatorId,
                 "executorId": task.ExecutorId,
-                // "description": task.Description,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskUpdateUrl}`,
                 ContentType: 'body'
             });
-        };
-        this.LoadTasksRedux = (taskFilter) => {
-            return (dispatch, getState) => {
-                this.preloader(true);
-                this.LoadTasks(taskFilter, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data) {
-                        let dt = new LoadWorkTasksResult_1.LoadWorkTasksResult();
-                        dt.FillByBackModel(data);
-                        dispatch((0, TaskActions_1.LoadTasksActionCreator)(dt));
-                    }
-                });
-            };
-        };
-        this.LoadTasks = (taskFilter, onSuccess) => {
+            return backResult;
+        });
+        this.LoadTasksUI = (taskFilter) => __awaiter(this, void 0, void 0, function* () {
+            this.preloader(true);
+            let backResult = yield this.LoadTasksAsync(taskFilter);
+            this.preloader(false);
+            let dt = new LoadWorkTasksResult_1.LoadWorkTasksResult();
+            dt.FillByBackModel(backResult);
+            return dt.Tasks;
+        });
+        this.LoadTasksAsync = (taskFilter) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "projectId": taskFilter.ProjectId,
                 "nameLike": taskFilter.Name,
@@ -77957,99 +78521,135 @@ class TaskManagementTaskController {
                 "labelId": taskFilter.LabelIds,
                 "presetId": taskFilter.PresetId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            let backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PostHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTasksGetUrl}`,
                 ContentType: 'body'
             });
+            return backResult.Data;
+        });
+        this.LoadTasksRedux = (taskFilter) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                this.preloader(true);
+                var data = yield this.LoadTasksAsync(taskFilter);
+                this.preloader(false);
+                if (data) {
+                    let dt = new LoadWorkTasksResult_1.LoadWorkTasksResult();
+                    dt.FillByBackModel(data);
+                    dispatch((0, TaskActions_1.LoadTasksActionCreator)(dt));
+                }
+            });
         };
         this.LoadTaskRedux = (taskId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                this.LoadTask(taskId, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data) {
-                        let dt = new OneTask_1.OneTask();
-                        dt.FillByIProjectTaskDataBack(data);
-                        dispatch((0, TaskActions_1.LoadTaskActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.LoadTaskAsync(taskId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = new OneTask_1.OneTask();
+                    dt.FillByIProjectTaskDataBack(backResult.Data);
+                    dispatch((0, TaskActions_1.LoadTaskActionCreator)(dt));
+                }
+            });
         };
-        this.LoadTask = (taskId, onSuccess) => {
+        this.LoadTaskAsync = (taskId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "id": taskId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskGetUrl}`
             });
-        };
+            return backResult;
+        });
         this.DeleteTaskRedux = (id) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.DeleteTask(id, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, TaskActions_1.DeleteTaskActionCreator)(id));
-                    }
-                });
-            };
+                const backResult = yield this.DeleteTaskAsync(id);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, TaskActions_1.DeleteTaskActionCreator)(id));
+                }
+            });
         };
-        this.DeleteTask = (id, onSuccess) => {
+        this.DeleteTaskAsync = (id) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "taskId": id,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskDeleteUrl}`
             });
-        };
+            return backResult;
+        });
         this.CopyTaskUI = (id) => __awaiter(this, void 0, void 0, function* () {
+            var _d, _e;
             this.preloader(true);
-            let backResult = yield this.CopyTaskAsync(id);
+            const backResult = yield this.CopyTaskAsync(id);
             this.preloader(false);
-            return backResult === null || backResult === void 0 ? void 0 : backResult.Id;
+            return (_e = (_d = backResult.Data) === null || _d === void 0 ? void 0 : _d.Id) !== null && _e !== void 0 ? _e : 0;
         });
         this.CopyTaskAsync = (id) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "id": id,
             };
-            let backResult = yield G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PutHttp,
                 FuncSuccess: (xhr, status, jqXHR) => { },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskCopyUrl}`
             });
-            return backResult.Data;
+            return backResult;
+        });
+        this.FindTaskUI = (projectId, text) => __awaiter(this, void 0, void 0, function* () {
+            this.preloader(true);
+            let res = yield this.FindTaskAsync(projectId, text);
+            this.preloader(false);
+            if (res.Data) {
+                return res.Data;
+            }
+            return [];
+        });
+        this.FindTaskAsync = (projectId, text) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "projectId": projectId,
+                "text": text,
+            };
+            let backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                FuncSuccess: (xhr, status, jqXHR) => { },
+                FuncError: (xhr, status, error) => { },
+                Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/find-task`,
+            });
+            return backResult;
         });
         this.GetTaskNameUI = (id) => __awaiter(this, void 0, void 0, function* () {
+            var _f;
             this.preloader(true);
             let backResult = yield this.GetTaskNameAsync(id);
             this.preloader(false);
-            return backResult === null || backResult === void 0 ? void 0 : backResult.Name;
+            return (_f = backResult === null || backResult === void 0 ? void 0 : backResult.Data) === null || _f === void 0 ? void 0 : _f.Name;
         });
         this.GetTaskNameAsync = (id) => __awaiter(this, void 0, void 0, function* () {
             let data = {
@@ -78062,7 +78662,7 @@ class TaskManagementTaskController {
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiTaskUrl}/${Consts_1.TaskManagementTaskNameUrl}`
             });
-            return backResult.Data;
+            return backResult;
         });
     }
     mapWithResult(onSuccess) {
@@ -78082,10 +78682,19 @@ exports.TaskManagementTaskController = TaskManagementTaskController;
 /*!*********************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementTaskStatusController.ts ***!
   \*********************************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TaskManagementTaskStatusController = void 0;
 const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
@@ -78095,95 +78704,95 @@ const WorkTaskStatus_1 = __webpack_require__(/*! ../Entity/State/WorkTaskStatus 
 class TaskManagementTaskStatusController {
     constructor() {
         this.DeleteStatusRedux = (statusId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.DeleteStatus(statusId, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, TaskStatusActions_1.DeleteCurrentProjectTaskStatusActionCreator)(statusId));
-                    }
-                });
-            };
+                const backResult = yield this.DeleteStatusAsync(statusId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, TaskStatusActions_1.DeleteCurrentProjectTaskStatusActionCreator)(statusId));
+                }
+            });
         };
-        this.DeleteStatus = (statusId, onSuccess) => {
+        this.DeleteStatusAsync = (statusId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "statusId": statusId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiStatusUrl}/delete-status`
             });
-        };
+            return backResult;
+        });
         this.CreateStatusRedux = (name, projectId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.CreateStatus(name, projectId, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Id) {
-                        let forAdd = new WorkTaskStatus_1.WorkTaskStatus();
-                        forAdd.FillByBackModel(data);
-                        dispatch((0, TaskStatusActions_1.CreateCurrentProjectTaskStatusActionCreator)(forAdd));
-                    }
-                });
-            };
+                const backResult = yield this.CreateStatusAsync(name, projectId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Id) {
+                    let forAdd = new WorkTaskStatus_1.WorkTaskStatus();
+                    forAdd.FillByBackModel(backResult.Data);
+                    dispatch((0, TaskStatusActions_1.CreateCurrentProjectTaskStatusActionCreator)(forAdd));
+                }
+            });
         };
-        this.CreateStatus = (name, projectId, onSuccess) => {
+        this.CreateStatusAsync = (name, projectId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "status": name,
                 "projectId": projectId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PutHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiStatusUrl}/create-status`
             });
-        };
+            return backResult;
+        });
         this.UpdateStatusRedux = (statusId, status) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.UpdateStatus(statusId, status, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Id) {
-                        let st = new WorkTaskStatus_1.WorkTaskStatus();
-                        st.FillByBackModel(data);
-                        dispatch((0, TaskStatusActions_1.UpdateCurrentProjectTaskStatusActionCreator)(st));
-                    }
-                });
-            };
+                const backResult = yield this.UpdateStatusAsync(statusId, status);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Id) {
+                    let st = new WorkTaskStatus_1.WorkTaskStatus();
+                    st.FillByBackModel(backResult.Data);
+                    dispatch((0, TaskStatusActions_1.UpdateCurrentProjectTaskStatusActionCreator)(st));
+                }
+            });
         };
-        this.UpdateStatus = (statusId, status, onSuccess) => {
+        this.UpdateStatusAsync = (statusId, status) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "status": status,
                 "statusId": statusId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiStatusUrl}/update-status`
             });
-        };
+            return backResult;
+        });
     }
     mapWithResult(onSuccess) {
         return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
@@ -78202,10 +78811,19 @@ exports.TaskManagementTaskStatusController = TaskManagementTaskStatusController;
 /*!***************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementUserController.ts ***!
   \***************************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TaskManagementUserController = void 0;
 const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
@@ -78215,98 +78833,97 @@ const ProjectUser_1 = __webpack_require__(/*! ../Entity/State/ProjectUser */ "./
 class TaskManagementUserController {
     constructor() {
         this.DeleteProjectUserRedux = (id, projectId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.DeleteProjectUser(id, projectId, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, UserActions_1.DeleteProjectUserActionCreator)(id));
-                    }
-                });
-            };
+                const backResult = yield this.DeleteProjectUserAsync(id, projectId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, UserActions_1.DeleteProjectUserActionCreator)(id));
+                }
+            });
         };
-        this.DeleteProjectUser = (id, projectId, onSuccess) => {
+        this.DeleteProjectUserAsync = (id, projectId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "userId": id,
                 "projectId": projectId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiUserUrl}/delete-user`
             });
-        };
+            return backResult;
+        });
         this.AddUserToProjectRedux = (mainAppUserEmail, projectId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                this.AddUserToProject(mainAppUserEmail, projectId, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data) {
-                        let dt = new ProjectUser_1.ProjectUser();
-                        dt.FillByBackModel(data);
-                        dispatch((0, UserActions_1.AddProjectUserActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.AddUserToProjectAsync(mainAppUserEmail, projectId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = new ProjectUser_1.ProjectUser();
+                    dt.FillByBackModel(backResult.Data);
+                    dispatch((0, UserActions_1.AddProjectUserActionCreator)(dt));
+                }
+            });
         };
-        this.AddUserToProject = (mainAppUserEmail, projectId, onSuccess) => {
+        this.AddUserToProjectAsync = (mainAppUserEmail, projectId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "projectId": projectId,
                 "mainAppUserEmail": mainAppUserEmail,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PutHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiUserUrl}/add-new-user`,
                 ContentType: 'body'
             });
-        };
+            return backResult;
+        });
         this.ChangeProjectUserRedux = (user, projectId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.ChangeProjectUser(user, projectId, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, UserActions_1.ChangeProjectUserActionCreator)(user));
-                    }
-                });
-            };
+                const backResult = yield this.ChangeProjectUserAsync(user, projectId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, UserActions_1.ChangeProjectUserActionCreator)(user));
+                }
+            });
         };
-        this.ChangeProjectUser = (user, projectId, onSuccess) => {
+        this.ChangeProjectUserAsync = (user, projectId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "userId": user.MainAppUserId,
                 "isAdmin": user.IsAdmin,
                 "deactivated": user.Deactivated,
                 "projectId": projectId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiUserUrl}/change-user`,
                 ContentType: 'body'
             });
-        };
+            return backResult;
+        });
     }
     mapWithResult(onSuccess) {
         return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
@@ -78325,10 +78942,19 @@ exports.TaskManagementUserController = TaskManagementUserController;
 /*!*******************************************************************************************!*\
   !*** ./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementWorkTimeController.ts ***!
   \*******************************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TaskManagementWorkTimeController = void 0;
 const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
@@ -78338,38 +78964,38 @@ const TimeLog_1 = __webpack_require__(/*! ../Entity/State/TimeLog */ "./src/Apps
 class TaskManagementWorkTimeController {
     constructor() {
         this.CreateTimeLogRedux = (taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.CreateTimeLog(taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Id) {
-                        // console.log(data);
-                        let dt = new TimeLog_1.TimeLog().FillByBackModel(data);
-                        // console.log(dt);
-                        dispatch((0, TimeLogAction_1.AddNewTimeLogTaskActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.CreateTimeLogAsync(taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Id) {
+                    // console.log(data);
+                    let dt = new TimeLog_1.TimeLog().FillByBackModel(backResult.Data);
+                    // console.log(dt);
+                    dispatch((0, TimeLogAction_1.AddNewTimeLogTaskActionCreator)(dt));
+                }
+            });
         };
         this.CreateTimeTempoLogRedux = (taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.CreateTimeLog(taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Id) {
-                        let dt = new TimeLog_1.TimeLog().FillByBackModel(data);
-                        dispatch((0, TimeLogAction_1.AddNewTimeLogTempoActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.CreateTimeLogAsync(taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Id) {
+                    let dt = new TimeLog_1.TimeLog().FillByBackModel(backResult.Data);
+                    dispatch((0, TimeLogAction_1.AddNewTimeLogTempoActionCreator)(dt));
+                }
+            });
         };
-        this.CreateTimeLog = (taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog, onSuccess) => {
+        this.CreateTimeLogAsync = (taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "taskId": taskId,
                 "text": text,
@@ -78378,33 +79004,33 @@ class TaskManagementWorkTimeController {
                 "rangeEndOfLog": rangeEndOfLog ? new ControllerHelper_1.ControllerHelper().ToZeroDate(rangeEndOfLog).toISOString() : null,
                 "rangeStartOfLog": rangeStartOfLog ? new ControllerHelper_1.ControllerHelper().ToZeroDate(rangeStartOfLog).toISOString() : null,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PutHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiWorkTimeUrl}/create`,
                 ContentType: 'body'
             });
-        };
+            return backResult;
+        });
         this.UpdateTimeTempoLogRedux = (id, taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.UpdateTimeLog(id, taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Id) {
-                        let dt = new TimeLog_1.TimeLog().FillByBackModel(data);
-                        dispatch((0, TimeLogAction_1.UpdateTimeLogTempoActionCreator)(dt));
-                    }
-                });
-            };
+                const backResult = yield this.UpdateTimeLogAsync(id, taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Id) {
+                    let dt = new TimeLog_1.TimeLog().FillByBackModel(backResult.Data);
+                    dispatch((0, TimeLogAction_1.UpdateTimeLogTempoActionCreator)(dt));
+                }
+            });
         };
-        this.UpdateTimeLog = (id, taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog, onSuccess) => {
+        this.UpdateTimeLogAsync = (id, taskId, text, minutes, dayOfLog, rangeEndOfLog, rangeStartOfLog) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "id": id,
                 "taskId": taskId,
@@ -78414,193 +79040,189 @@ class TaskManagementWorkTimeController {
                 "rangeEndOfLog": rangeEndOfLog ? new ControllerHelper_1.ControllerHelper().ToZeroDate(rangeEndOfLog).toISOString() : null,
                 "rangeStartOfLog": rangeStartOfLog ? new ControllerHelper_1.ControllerHelper().ToZeroDate(rangeStartOfLog).toISOString() : null,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.PatchHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiWorkTimeUrl}/update`,
                 ContentType: 'body'
             });
-        };
+            return backResult;
+        });
         this.DeleteTimeTempoLogRedux = (timeId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.DeleteTimeLog(timeId, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        dispatch((0, TimeLogAction_1.DeleteTimeLogTempoActionCreator)(timeId));
-                    }
-                });
-            };
+                var backResult = yield this.DeleteTimeLogAsync(timeId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, TimeLogAction_1.DeleteTimeLogTempoActionCreator)(timeId));
+                }
+            });
         };
         this.DeleteTimeTaskLogRedux = (timeId, taskId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 this.preloader(true);
-                this.DeleteTimeLog(timeId, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data === null || data === void 0 ? void 0 : data.Result) {
-                        let d = new TimeLogAction_1.DeleteTimeLogActionParam();
-                        d.Id = timeId;
-                        d.TaskId = taskId;
-                        dispatch((0, TimeLogAction_1.DeleteTimeLogActionCreator)(d));
-                    }
-                });
-            };
+                const backResult = yield this.DeleteTimeLogAsync(timeId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    let d = new TimeLogAction_1.DeleteTimeLogActionParam();
+                    d.Id = timeId;
+                    d.TaskId = taskId;
+                    dispatch((0, TimeLogAction_1.DeleteTimeLogActionCreator)(d));
+                }
+            });
         };
         this.CopyTimeTempoLogRedux = (timeId) => {
-            return (dispatch, getState) => {
-                this.preloader(true);
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
                 let state = getState();
                 var oldTime = state.TaskManagementApp.TempoState.TimeLogs.find(x => x.Id == timeId);
                 if (oldTime) {
                     // let newTime = new TimeLog();
                     // newTime.Copy(oldTime);
-                    this.CreateTimeLog(oldTime.WorkTaskId, oldTime.Comment, oldTime.TimeMinutes, oldTime.DayOfLog, oldTime.RangeEndOfLog, oldTime.RangeStartOfLog, (error, data) => {
-                        this.preloader(false);
-                        if (error) {
-                            return;
-                        }
-                        if (data === null || data === void 0 ? void 0 : data.Id) {
-                            let dt = new TimeLog_1.TimeLog().FillByBackModel(data);
-                            dispatch((0, TimeLogAction_1.AddNewTimeLogTempoActionCreator)(dt));
-                        }
-                    });
+                    this.preloader(true);
+                    const backResult = yield this.CreateTimeLogAsync(oldTime.WorkTaskId, oldTime.Comment, oldTime.TimeMinutes, oldTime.DayOfLog, oldTime.RangeEndOfLog, oldTime.RangeStartOfLog);
+                    this.preloader(false);
+                    if (backResult.Error) {
+                        return;
+                    }
+                    if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Id) {
+                        let dt = new TimeLog_1.TimeLog().FillByBackModel(backResult.Data);
+                        dispatch((0, TimeLogAction_1.AddNewTimeLogTempoActionCreator)(dt));
+                    }
                 }
-            };
+            });
         };
-        this.DeleteTimeLog = (timeId, onSuccess) => {
+        this.DeleteTimeLogAsync = (timeId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "id": timeId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiWorkTimeUrl}/delete`
             });
-        };
+            return backResult;
+        });
         this.LoadTimeLogsForTaskRedux = (taskId) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                this.LoadTimeLogsForTask(taskId, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data) {
-                        // console.log(data);
-                        let mapped = data.map(x => new TimeLog_1.TimeLog().FillByBackModel(x));
-                        // console.log(mapped);
-                        dispatch((0, TimeLogAction_1.SetTaskTimeLogActionCreator)({ TaskId: taskId, Time: mapped }));
-                    }
-                });
-            };
+                const backResult = yield this.LoadTimeLogsForTaskAsync(taskId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    // console.log(data);
+                    let mapped = backResult.Data.map(x => new TimeLog_1.TimeLog().FillByBackModel(x));
+                    // console.log(mapped);
+                    dispatch((0, TimeLogAction_1.SetTaskTimeLogActionCreator)({ TaskId: taskId, Time: mapped }));
+                }
+            });
         };
-        this.LoadTimeLogsForTask = (taskId, onSuccess) => {
+        this.LoadTimeLogsForTaskAsync = (taskId) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "taskId": taskId,
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiWorkTimeUrl}/task-time`
             });
-        };
+            return backResult;
+        });
         this.LoadTimeLogsForProjectRedux = (projectId, dateFrom, dateTo) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                this.LoadTimeLogsForProject(projectId, null, dateFrom, dateTo, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data) {
-                        let mapped = data.map(x => new TimeLog_1.TimeLog().FillByBackModel(x));
-                        dispatch((0, TimeLogAction_1.SetProjectTimeLogDataActionCreator)(mapped));
-                    }
-                });
-            };
+                const backResult = yield this.LoadTimeLogsForProjectAsync(projectId, null, dateFrom, dateTo);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let mapped = backResult.Data.map(x => new TimeLog_1.TimeLog().FillByBackModel(x));
+                    dispatch((0, TimeLogAction_1.SetProjectTimeLogDataActionCreator)(mapped));
+                }
+            });
         };
-        this.LoadTimeLogsForProject = (projectId, userId, dateFrom, dateTo, onSuccess) => {
+        this.LoadTimeLogsForProjectAsync = (projectId, userId, dateFrom, dateTo) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "id": projectId,
                 "dateFrom": new ControllerHelper_1.ControllerHelper().ToZeroDate(dateFrom).toISOString(),
                 "dateTo": new ControllerHelper_1.ControllerHelper().ToZeroDate(dateTo).toISOString(),
                 "userId": userId || null
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiWorkTimeUrl}/project-time`
             });
-        };
+            return backResult;
+        });
         this.LoadTimeLogsForUserRedux = (projectId, userId, dateFrom, dateTo) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                this.LoadTimeLogsForUser(projectId, userId, dateFrom, dateTo, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data) {
-                        let mapped = data.map(x => new TimeLog_1.TimeLog().FillByBackModel(x));
-                        dispatch((0, TimeLogAction_1.SetUserTimeLogDataActionCreator)(mapped));
-                    }
-                });
-            };
+                const backResult = yield this.LoadTimeLogsForUserAsync(projectId, userId, dateFrom, dateTo);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let mapped = backResult.Data.map(x => new TimeLog_1.TimeLog().FillByBackModel(x));
+                    dispatch((0, TimeLogAction_1.SetUserTimeLogDataActionCreator)(mapped));
+                }
+            });
         };
         this.LoadTimeLogsForUserTempoRedux = (projectId, userId, dateFrom, dateTo) => {
-            return (dispatch, getState) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                this.LoadTimeLogsForUser(projectId, userId, dateFrom, dateTo, (error, data) => {
-                    this.preloader(false);
-                    if (error) {
-                        return;
-                    }
-                    if (data) {
-                        let mapped = data.map(x => new TimeLog_1.TimeLog().FillByBackModel(x));
-                        dispatch((0, TimeLogAction_1.SetUserTempoTimeLogDataActionCreator)(mapped));
-                    }
-                });
-            };
+                const backResult = yield this.LoadTimeLogsForUserAsync(projectId, userId, dateFrom, dateTo);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let mapped = backResult.Data.map(x => new TimeLog_1.TimeLog().FillByBackModel(x));
+                    dispatch((0, TimeLogAction_1.SetUserTempoTimeLogDataActionCreator)(mapped));
+                }
+            });
         };
-        this.LoadTimeLogsForUser = (projectId, userId, dateFrom, dateTo, onSuccess) => {
+        this.LoadTimeLogsForUserAsync = (projectId, userId, dateFrom, dateTo) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "projectId": projectId || null,
                 "dateFrom": new ControllerHelper_1.ControllerHelper().ToZeroDate(dateFrom).toISOString(),
                 "dateTo": new ControllerHelper_1.ControllerHelper().ToZeroDate(dateTo).toISOString(),
                 "userId": userId
             };
-            G_AjaxHelper.GoAjaxRequest({
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
                 Type: ControllerHelper_1.ControllerHelper.GetHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
-                    this.mapWithResult(onSuccess)(xhr, status, jqXHR);
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.TaskManagementApiWorkTimeUrl}/user-time`
             });
-        };
+            return backResult;
+        });
     }
     mapWithResult(onSuccess) {
         return new ControllerHelper_1.ControllerHelper().MapWithResult(onSuccess);
@@ -79039,6 +79661,7 @@ class TaskManagementAppState {
         this.CurrentProjectTimes = new ProjectTimes_1.ProjectTimes();
         this.PersonTimes = new ProjectTimes_1.ProjectTimes();
         this.TempoState = new ProjectTimes_1.ProjectTimes();
+        this.CurrentSprint = null;
     }
 }
 exports.TaskManagementAppState = TaskManagementAppState;
@@ -84284,6 +84907,7 @@ class FetchHelper {
     }
     GoAjaxRequest(obj, fileLoad) {
         return __awaiter(this, void 0, void 0, function* () {
+            // async GoAjaxRequest(obj: IAjaxInputObject, fileLoad?: boolean): Promise<any> {
             if (!obj.Type)
                 obj.Type = 'GET';
             if (!obj.DataType)
@@ -86515,7 +87139,7 @@ const SaveCancelInputMultiSelectWithSearch = (props) => {
                     if (hasChanged) {
                         props.SaveEvent(selected);
                     }
-                    else {
+                    else if (props.CancelOnSaveNoChanges) {
                         props.CancelEvent();
                     }
                 } },
@@ -86527,6 +87151,328 @@ const SaveCancelInputMultiSelectWithSearch = (props) => {
                 react_1.default.createElement("span", { className: "cancel-icon" })))));
 };
 exports["default"] = SaveCancelInputMultiSelectWithSearch;
+// есть такой контрол, это дроплист с мультиселектом и поиском, как мне сделать что бы дроплист открывался при клике по полю для ввода, а в остальное время был скрыт?
+// import React, { useEffect, useMemo, useState, useRef } from "react";
+// import cloneDeep from 'lodash/cloneDeep';
+// require('./SaveCancelInput.css');
+// export interface ISaveCancelInputMultiSelectWithSearchProps {
+//     CancelEvent: () => void;
+//     SaveEvent: (ids: number[]) => boolean;
+//     ValuesWithId: { Id: number, Text: string }[];
+//     Selected: number[];
+// }
+// const SaveCancelInputMultiSelectWithSearch = (props: ISaveCancelInputMultiSelectWithSearchProps) => {
+//     const [selected, setSelected] = useState<number[]>([]);
+//     const [searchTerm, setSearchTerm] = useState<string>('');
+//     const [isOpen, setIsOpen] = useState<boolean>(false);
+//     const containerRef = useRef<HTMLDivElement>(null);
+//     const inputRef = useRef<HTMLInputElement>(null);
+//     useEffect(() => {
+//         setSelected(props.Selected || []);
+//     }, [props.Selected]);
+//     // Закрытие дроплиста при клике вне компонента
+//     useEffect(() => {
+//         const handleClickOutside = (event: MouseEvent) => {
+//             if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+//                 setIsOpen(false);
+//                 setSearchTerm(''); // Опционально: очищать поиск при закрытии
+//             }
+//         };
+//         document.addEventListener('mousedown', handleClickOutside);
+//         return () => {
+//             document.removeEventListener('mousedown', handleClickOutside);
+//         };
+//     }, []);
+//     // Фильтрация элементов по поисковому запросу
+//     const filteredItems = useMemo(() => {
+//         if (!searchTerm.trim()) {
+//             return props.ValuesWithId;
+//         }
+//         const term = searchTerm.toLowerCase();
+//         return props.ValuesWithId.filter(item =>
+//             item.Text.toLowerCase().includes(term)
+//         );
+//     }, [props.ValuesWithId, searchTerm]);
+//     const handleSelectionChange = (id: number) => {
+//         setSelected(prev => {
+//             if (prev.includes(id)) {
+//                 return prev.filter(item => item !== id);
+//             } else {
+//                 return [...prev, id];
+//             }
+//         });
+//     };
+//     const clearSearch = () => {
+//         setSearchTerm('');
+//     };
+//     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//         setSearchTerm(e.target.value);
+//     };
+//     const isSelected = (id: number) => selected.includes(id);
+//     const handleInputClick = () => {
+//         setIsOpen(!isOpen);
+//         if (!isOpen) {
+//             // Фокусируемся на поле ввода при открытии
+//             setTimeout(() => {
+//                 inputRef.current?.focus();
+//             }, 0);
+//         }
+//     };
+//     const handleSave = () => {
+//         const currentSorted = [...selected].sort();
+//         const originalSorted = [...props.Selected].sort();
+//         const hasChanged = JSON.stringify(currentSorted) !== JSON.stringify(originalSorted);
+//         if (hasChanged) {
+//             props.SaveEvent(selected);
+//         } else {
+//             props.CancelEvent();
+//         }
+//         setIsOpen(false);
+//     };
+//     const handleCancel = () => {
+//         setSelected(props.Selected || []);
+//         props.CancelEvent();
+//         setIsOpen(false);
+//     };
+//     // Форматирование отображения выбранных элементов
+//     const getSelectedText = () => {
+//         if (selected.length === 0) return 'Выберите значения...';
+//         if (selected.length === 1) {
+//             const selectedItem = props.ValuesWithId.find(item => item.Id === selected[0]);
+//             return selectedItem ? selectedItem.Text : 'Выбрано 1 значение';
+//         }
+//         return `Выбрано ${selected.length} значений`;
+//     };
+//     return (
+//         <div className="save-cancel-input editable-multiselect-container" ref={containerRef}>
+//             {/* Поле ввода для открытия дроплиста */}
+//             <div className="multiselect-input-field" onClick={handleInputClick}>
+//                 <input
+//                     type="text"
+//                     value={getSelectedText()}
+//                     readOnly
+//                     className="multiselect-trigger-input"
+//                     placeholder="Нажмите для выбора..."
+//                 />
+//                 <span className={`multiselect-arrow ${isOpen ? 'open' : ''}`}>▼</span>
+//             </div>
+//             {/* Дроплист, который показывается только при isOpen === true */}
+//             {isOpen && (
+//                 <div className="multiselect-dropdown">
+//                     <div className="multiselect-search-container">
+//                         <input
+//                             ref={inputRef}
+//                             type="text"
+//                             placeholder="Поиск..."
+//                             value={searchTerm}
+//                             onChange={handleSearchChange}
+//                             className="multiselect-search-input"
+//                         />
+//                         {searchTerm && (
+//                             <button
+//                                 type="button"
+//                                 className="multiselect-search-clear"
+//                                 onClick={clearSearch}
+//                                 title="Очистить поиск"
+//                             >
+//                                 ×
+//                             </button>
+//                         )}
+//                     </div>
+//                     <div className="multiselect-options">
+//                         {filteredItems.length > 0 ? (
+//                             filteredItems.map(item => (
+//                                 <label key={item.Id} className="multiselect-option">
+//                                     <input
+//                                         type="checkbox"
+//                                         checked={isSelected(item.Id)}
+//                                         onChange={() => handleSelectionChange(item.Id)}
+//                                         className="multiselect-checkbox"
+//                                     />
+//                                     <span className="multiselect-text">{item.Text}</span>
+//                                 </label>
+//                             ))
+//                         ) : (
+//                             <div className="multiselect-no-results">
+//                                 Ничего не найдено
+//                             </div>
+//                         )}
+//                     </div>
+//                     <div className="action-buttons">
+//                         <button
+//                             type="button"
+//                             className="save-button"
+//                             title="Сохранить"
+//                             onClick={handleSave}
+//                         >
+//                             <span className="save-icon"></span>
+//                         </button>
+//                         <button
+//                             type="button"
+//                             className="cancel-button"
+//                             title="Отменить"
+//                             onClick={handleCancel}
+//                         >
+//                             <span className="cancel-icon"></span>
+//                         </button>
+//                     </div>
+//                 </div>
+//             )}
+//         </div>
+//     );
+// };
+// export default SaveCancelInputMultiSelectWithSearch;
+// .editable-multiselect-container {
+//     position: relative;
+//     width: 100%;
+// }
+// .multiselect-input-field {
+//     display: flex;
+//     align-items: center;
+//     border: 1px solid #ccc;
+//     border-radius: 4px;
+//     cursor: pointer;
+//     background-color: white;
+// }
+// .multiselect-trigger-input {
+//     flex: 1;
+//     padding: 8px 12px;
+//     border: none;
+//     outline: none;
+//     cursor: pointer;
+//     background: transparent;
+// }
+// .multiselect-arrow {
+//     padding: 0 8px;
+//     font-size: 12px;
+//     transition: transform 0.2s;
+//     color: #666;
+// }
+// .multiselect-arrow.open {
+//     transform: rotate(180deg);
+// }
+// .multiselect-dropdown {
+//     position: absolute;
+//     top: 100%;
+//     left: 0;
+//     right: 0;
+//     margin-top: 4px;
+//     background-color: white;
+//     border: 1px solid #ccc;
+//     border-radius: 4px;
+//     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+//     z-index: 1000;
+//     max-height: 300px;
+//     overflow-y: auto;
+// }
+// .multiselect-search-container {
+//     position: sticky;
+//     top: 0;
+//     padding: 8px;
+//     background-color: white;
+//     border-bottom: 1px solid #eee;
+// }
+// .multiselect-search-input {
+//     width: 100%;
+//     padding: 6px 30px 6px 10px;
+//     border: 1px solid #ddd;
+//     border-radius: 4px;
+//     outline: none;
+//     box-sizing: border-box;
+// }
+// .multiselect-search-input:focus {
+//     border-color: #007bff;
+// }
+// .multiselect-search-clear {
+//     position: absolute;
+//     right: 12px;
+//     top: 50%;
+//     transform: translateY(-50%);
+//     background: none;
+//     border: none;
+//     cursor: pointer;
+//     font-size: 18px;
+//     color: #999;
+//     padding: 0 4px;
+// }
+// .multiselect-search-clear:hover {
+//     color: #333;
+// }
+// .multiselect-options {
+//     max-height: 200px;
+//     overflow-y: auto;
+// }
+// .multiselect-option {
+//     display: flex;
+//     align-items: center;
+//     padding: 8px 12px;
+//     cursor: pointer;
+//     transition: background-color 0.2s;
+// }
+// .multiselect-option:hover {
+//     background-color: #f5f5f5;
+// }
+// .multiselect-checkbox {
+//     margin-right: 8px;
+//     cursor: pointer;
+// }
+// .multiselect-text {
+//     flex: 1;
+//     cursor: pointer;
+//     user-select: none;
+// }
+// .multiselect-no-results {
+//     padding: 16px;
+//     text-align: center;
+//     color: #999;
+// }
+// .action-buttons {
+//     display: flex;
+//     gap: 8px;
+//     padding: 8px;
+//     border-top: 1px solid #eee;
+//     background-color: white;
+//     position: sticky;
+//     bottom: 0;
+// }
+// .save-button,
+// .cancel-button {
+//     flex: 1;
+//     padding: 6px 12px;
+//     border: none;
+//     border-radius: 4px;
+//     cursor: pointer;
+//     transition: background-color 0.2s;
+// }
+// .save-button {
+//     background-color: #28a745;
+//     color: white;
+// }
+// .save-button:hover {
+//     background-color: #218838;
+// }
+// .cancel-button {
+//     background-color: #dc3545;
+//     color: white;
+// }
+// .cancel-button:hover {
+//     background-color: #c82333;
+// }
+// /* Если у вас иконки, оставьте их */
+// .save-icon, .cancel-icon {
+//     display: inline-block;
+//     width: 16px;
+//     height: 16px;
+//     background-size: contain;
+//     background-repeat: no-repeat;
+//     background-position: center;
+// }
+// .save-icon {
+//     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>');
+// }
+// .cancel-icon {
+//     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>');
+// }
 
 
 /***/ }),
@@ -86718,6 +87664,147 @@ const SaveCancelTextarea = (props) => {
                 } }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C")));
 };
 exports["default"] = SaveCancelTextarea;
+
+
+/***/ }),
+
+/***/ "./src/components/Body/SelectWithSearch/SelectWithSearch.tsx":
+/*!*******************************************************************!*\
+  !*** ./src/components/Body/SelectWithSearch/SelectWithSearch.tsx ***!
+  \*******************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+__webpack_require__(/*! ./SelectWithSearch.css */ "./src/components/Body/SelectWithSearch/SelectWithSearch.css");
+const SelectWithSearch = (props) => {
+    const [selected, setSelected] = (0, react_1.useState)(-1);
+    const [searchText, setSearchText] = (0, react_1.useState)('');
+    const [isOpen, setIsOpen] = (0, react_1.useState)(false);
+    const [filteredValues, setFilteredValues] = (0, react_1.useState)(props.ValuesWithId);
+    const loadTasksTimerId = (0, react_1.useRef)(null);
+    const wrapperRef = (0, react_1.useRef)(null);
+    (0, react_1.useEffect)(() => {
+        setSelected(props.Selected || -1);
+    }, [props.Selected]);
+    // Обновляем отфильтрованные значения при изменении списка
+    (0, react_1.useEffect)(() => {
+        setFilteredValues(props.ValuesWithId);
+    }, [props.ValuesWithId]);
+    // Обработка клика вне компонента для закрытия селекта
+    (0, react_1.useEffect)(() => {
+        const handleClickOutside = (event) => {
+            if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+    // Фильтрация значений по тексту поиска
+    // const filterValues = useCallback((searchText: string) => {
+    //     if (!searchText.trim()) {
+    //         setFilteredValues(props.ValuesWithId);
+    //         return;
+    //     }
+    //     const filtered = props.ValuesWithId.filter(item =>
+    //         item.Text.toLowerCase().includes(searchText.toLowerCase())
+    //     );
+    //     setFilteredValues(filtered);
+    // }, [props.ValuesWithId]);
+    // Обработка изменения текста поиска с таймером
+    const handleSearchChange = (e) => {
+        const text = e.target.value;
+        setSearchText(text);
+        setIsOpen(true);
+        // Очищаем предыдущий таймер
+        if (loadTasksTimerId.current) {
+            clearTimeout(loadTasksTimerId.current);
+        }
+        // Устанавливаем новый таймер
+        loadTasksTimerId.current = setTimeout(() => {
+            if (props.OnSearchChange) {
+                props.OnSearchChange(text);
+            }
+            // filterValues(text);
+        }, 1500);
+        // Мгновенная фильтрация для отображения
+        // filterValues(text);
+    };
+    // Обработка выбора значения
+    const handleSelectValue = (id) => {
+        setSelected(id);
+        setIsOpen(false);
+        // Находим выбранный текст для отображения в поле ввода
+        const selectedItem = props.ValuesWithId.find(item => item.Id === id);
+        if (selectedItem) {
+            setSearchText(selectedItem.Text);
+        }
+        // Вызываем метод сохранения с ID
+        if (id !== props.Selected) {
+            props.SaveEvent(id);
+        }
+        else {
+            props.CancelEvent();
+        }
+    };
+    // Очистка таймера при размонтировании
+    (0, react_1.useEffect)(() => {
+        return () => {
+            if (loadTasksTimerId.current) {
+                clearTimeout(loadTasksTimerId.current);
+            }
+        };
+    }, []);
+    // Отображение выбранного значения в поле ввода
+    (0, react_1.useEffect)(() => {
+        // console.log(props.ValuesWithId);
+        // console.log(selected);
+        if (selected && selected > 0) {
+            //если значение выбрано то меняем текст, иначе нет
+            const selectedItem = props.ValuesWithId.find(item => item.Id === selected);
+            if (selectedItem) {
+                setSearchText(selectedItem.Text);
+            }
+            else if (selected === -1) {
+                setSearchText('');
+            }
+        }
+    }, [selected, props.ValuesWithId]);
+    return (react_1.default.createElement("div", { className: "select-with-search", ref: wrapperRef },
+        react_1.default.createElement("div", { className: "editable-input-wrapper" },
+            react_1.default.createElement("input", { type: "text", className: "editable-input", value: searchText, onChange: handleSearchChange, onFocus: () => setIsOpen(true), placeholder: "\u041F\u043E\u0438\u0441\u043A..." }),
+            react_1.default.createElement("div", { className: "input-arrow", onClick: () => setIsOpen(!isOpen) }, "\u25BC")),
+        isOpen && (react_1.default.createElement("div", { className: "dropdown-list" }, filteredValues.length > 0 ? (filteredValues.map(item => (react_1.default.createElement("div", { key: item.Id, className: `dropdown-item ${selected === item.Id ? 'selected' : ''}`, onClick: () => handleSelectValue(item.Id) }, item.Text)))) : (react_1.default.createElement("div", { className: "dropdown-item no-results" }, "\u041D\u0435\u0442 \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u043E\u0432"))))));
+};
+exports["default"] = SelectWithSearch;
 
 
 /***/ }),

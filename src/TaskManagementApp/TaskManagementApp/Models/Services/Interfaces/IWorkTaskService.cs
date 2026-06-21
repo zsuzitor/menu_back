@@ -18,6 +18,7 @@ namespace TaskManagementApp.Models.Services.Interfaces
         Task<WorkTask> GetTaskFullAsync(long id);
         Task<WorkTask> CopyAsync(long id, long userId);
         Task<TaskName> GetTaskNameAsync(long id, long userId);
+        Task<List<GetProjectTaskSelectInfo>> GetTaskByNameIdAsync(long projectId, string text, long userId);
         Task<TaskRelation> CreateRelationAsync(TaskRelation req, long userId);
         Task<List<TaskRelation>> GetRelationsAsync(long taskId, long userId);
         Task<TaskRelation> DeleteRelationAsync(long relationId, long userId);

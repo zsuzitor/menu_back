@@ -1,14 +1,15 @@
-﻿using Microsoft.AspNetCore.Http;
-using System.Threading.Tasks;
-using System;
+﻿using BL.Models.Services.Interfaces;
+using Common.Models;
+using Common.Models.Error;
 using Common.Models.Error.services.Interfaces;
 using Common.Models.Exceptions;
 using Common.Models.Return;
-using BL.Models.Services.Interfaces;
-using Common.Models.Error;
-using System.Text.Json;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Common.Models;
+using System;
+using System.Net;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace Menu.Middleware
 {
@@ -48,33 +49,33 @@ namespace Menu.Middleware
             switch(exception)
             {
                 case SomeCustomNotAllowedException e:
-                    context.Response.StatusCode = 403;
+                    context.Response.StatusCode = (int)HttpStatusCode.Forbidden;
                     await ErrorFromCustomException(e, errorService, configurationService);
                     break;
                 case SomeCustomNotFoundException e:
-                    context.Response.StatusCode = 404;
+                    context.Response.StatusCode = (int)HttpStatusCode.NotFound;
                     await ErrorFromCustomException(e, errorService, configurationService);
                     break;
                 case SomeCustomBadRequestException e:
-                    context.Response.StatusCode = 400;
+                    context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                     await ErrorFromCustomException(e, errorService, configurationService);
                     break;
                 case SomeCustomException e:
-                    context.Response.StatusCode = 406;
+                    context.Response.StatusCode = (int)HttpStatusCode.NotAcceptable;
                     await ErrorFromCustomException(e, errorService, configurationService);
                     break;
                 case StopException e:
                     break;
                 case NotAuthException e:
                     {
-                        context.Response.StatusCode = 401;
+                        context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                         var error = await configurationService.GetAsync(ErrorConsts.NotAuthorized);
                         errorService.AddError(ErrorConsts.NotAuthorized, error.Value);
                         break;
                     }
                 default :
                     {
-                        context.Response.StatusCode = 500;
+                        context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                         var error = await configurationService.GetAsync(ErrorConsts.SomeError);
                         errorService.AddError(ErrorConsts.SomeError, error.Value);
                         logger?.LogError(exception, ErrorConsts.SomeError);

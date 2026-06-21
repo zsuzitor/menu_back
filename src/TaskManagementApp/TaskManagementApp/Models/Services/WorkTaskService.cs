@@ -1,9 +1,8 @@
 ﻿
 using BL.Models.Services;
-using BO.Models.Auth;
+using BL.Models.Services.Interfaces;
+using BO.Models.DAL.Domain;
 using BO.Models.TaskManagementApp.DAL.Domain;
-using TaskManagementApp.Models.DAL.Repositories.Interfaces;
-using TaskManagementApp.Models.Services.Interfaces;
 using Common.Models.Exceptions;
 using Microsoft.Extensions.Configuration;
 using Pipelines.Sockets.Unofficial.Arenas;
@@ -11,9 +10,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TaskManagementApp.Models.DTO;
-using BL.Models.Services.Interfaces;
-using TaskManagementApp.Models.Returns;
+using TaskManagementApp.Models.Services.Interfaces;
 
 namespace TaskManagementApp.Models.Services
 {
@@ -313,7 +312,7 @@ namespace TaskManagementApp.Models.Services
             var task = await _workTaskRepository.GetAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
 
             var canAddToProject = await _projectCacheRepository.ExistIfAccessAsync(task.ProjectId, userId);
-            if (!canAddToProject.access)
+            if (!canAddToProject.isAdmin)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectHaveNoAccess);
             }
@@ -412,6 +411,24 @@ namespace TaskManagementApp.Models.Services
         public async Task<GetProjectTaskSelectInfo> GetProjectTaskSelectInfoAsync(long id, long userId)
         {
             return await _workTaskRepository.GetAccessSelectInfoAsync(id, userId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
+        }
+
+
+        public async Task<List<GetProjectTaskSelectInfo>> GetTaskByNameIdAsync(long projectId, string text, long userId)
+        {
+            var canAddToProject = await _projectCacheRepository.ExistIfAccessAsync(projectId, userId);
+            if (!canAddToProject.isAdmin)
+            {
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectHaveNoAccess);
+            }
+
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return new List<GetProjectTaskSelectInfo>();
+            }
+
+            return await _workTaskRepository.GetTaskByNameIdAsync(projectId,text);
+
         }
 
 
@@ -566,6 +583,8 @@ namespace TaskManagementApp.Models.Services
         {
             return await _workTaskRepository.GetNameAccessAsync(id, userId);
         }
+
+
 
 
 

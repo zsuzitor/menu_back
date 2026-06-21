@@ -184,6 +184,18 @@ namespace Menu.Controllers.TaskManagementApp
 
         }
 
+
+        [Route("find-task")]
+        [HttpGet]
+        [CustomAuthorize]
+        public async Task<ActionResult<GetProjectTaskSelectInfoReturn>> GetProjectTaskName([FromQuery] long projectId, [FromQuery] string text)
+        {
+            var userId = User.GetUserId();
+            var task = await _workTaskService.GetTaskByNameIdAsync(projectId, text, userId);
+            return new JsonResult(task.Select(x => new GetProjectTaskSelectInfoReturn() { Id = x.Id, Name = x.Name }), GetJsonOptions());
+
+        }
+
         [Route("add-task-relation")]
         [HttpPut]
         [CustomAuthorize]

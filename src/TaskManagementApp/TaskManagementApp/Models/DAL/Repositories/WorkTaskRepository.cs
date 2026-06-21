@@ -1,12 +1,13 @@
 ﻿using BO.Models.TaskManagementApp.DAL.Domain;
-using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
+using MailKit.Search;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TaskManagementApp.Models.DTO;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
@@ -184,9 +185,20 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 .Select(x => new GetProjectTaskSelectInfo() { Id = x.Id, Name = x.Name }).FirstOrDefaultAsync());
         }
 
+        public async Task<List<GetProjectTaskSelectInfo>> GetTaskByNameIdAsync(long projectId, string text)
+        {
+            return await _db.TaskManagementTasks.OrderBy(x=>x.Id)
+                .Where(x => EF.Functions.Like(x.IdString, $"%{text}%")
+                || EF.Functions.Like(x.Name, $"%{text}%"))
+                .Take(10)
+                .Select(x => new GetProjectTaskSelectInfo() { Id = x.Id, Name = x.Name }).ToListAsync();
+        }
+
         public async Task<TaskName> GetNameAccessAsync(long taskId, long mainAppUserId)
         {
             return (await GetAccessedIQuer(taskId, mainAppUserId).Select(x => new TaskName() {Id=x.Id,Name=x.Name }).FirstOrDefaultAsync());
         }
+
+
     }
 }

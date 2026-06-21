@@ -10,6 +10,7 @@ namespace BO.Models.TaskManagementApp.DAL.Domain
     public sealed class WorkTask : IDomainRecord<long>
     {
         public long Id { get; set; }
+        public string IdString { get; set; }
         public string Name { get; set; }
         //public string Link { get; set; }
         public DateTime CreateDate { get; set; }

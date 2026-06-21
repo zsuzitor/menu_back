@@ -10,6 +10,18 @@ namespace DAL.Models.DAL.ContextSetup.TaskManagementApp
             modelBuilder.Entity<WorkTask>(entity =>
             {
                 entity.HasKey(x => x.Id);
+                //entity.Property(e => e.IdString)
+                //.IsRequired();
+
+                // Создаем вычисляемую колонку
+                entity.Property(e => e.IdString)
+                    .HasComputedColumnSql("CAST([Id] AS NVARCHAR(20))", stored: true);
+
+                // Создаем индекс для быстрого поиска
+                entity.HasIndex(e => e.IdString);
+                    //.HasDatabaseName("IX_YourEntity_YourLongColumnSearch");
+
+
                 entity.HasMany(x => x.Comments).WithOne(x => x.Task)
                     .HasForeignKey(x => x.TaskId).OnDelete(DeleteBehavior.Cascade);
                 entity.HasOne(x => x.Status).WithMany(x => x.Tasks)

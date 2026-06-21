@@ -559,6 +559,11 @@ namespace DAL.Migrations
                     b.Property<long?>("ExecutorId")
                         .HasColumnType("bigint");
 
+                    b.Property<string>("IdString")
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("nvarchar(450)")
+                        .HasComputedColumnSql("CAST([Id] AS NVARCHAR(20))", true);
+
                     b.Property<DateTime>("LastUpdateDate")
                         .HasColumnType("datetime2");
 
@@ -581,6 +586,8 @@ namespace DAL.Migrations
                     b.HasIndex("CreatorId");
 
                     b.HasIndex("ExecutorId");
+
+                    b.HasIndex("IdString");
 
                     b.HasIndex("ProjectId");
 
