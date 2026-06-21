@@ -26,8 +26,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.WebEncoders;
 using NLog;
-using PlanitPoker.Models;
-using PlanitPoker.Models.Hubs;
+using PlaningPoker.Models;
+using PlaningPoker.Models.Hubs;
 using System;
 using System.Collections.Generic;
 using System.Text.Encodings.Web;
@@ -53,7 +53,7 @@ namespace Menu
                 new AuthInitializer(configuration),
                 new MenuAppInitializer(),
                 new WordsCardsAppInitializer(),
-                new PlanitPokerInitializer(),
+                new PlaningPokerInitializer(),
                 new TaskManagementAppInitializer(),
                 new VaultAppInitializer(),
             };
@@ -321,13 +321,13 @@ namespace Menu
             app.UseCookiePolicy();
             app.UseRouting();
 
-            #region planitPoker
+            #region PlaningPoker
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapHub<PlanitPokerHub>("/planing-poker-hub");
+                endpoints.MapHub<PlaningPokerHub>("/planing-poker-hub");
             });
 
-            #endregion planitPoker
+            #endregion PlaningPoker
 
 
             app.UseMiddleware<ExceptionHandlingMiddleware>();

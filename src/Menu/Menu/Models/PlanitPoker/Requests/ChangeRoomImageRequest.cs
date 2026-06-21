@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Menu.Host.Models.PlanitPoker.Requests
+namespace Menu.Host.Models.PlaningPoker.Requests
 {
     public class ChangeRoomImageRequest
     {

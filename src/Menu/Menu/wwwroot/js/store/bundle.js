@@ -2576,7 +2576,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-header {\r\n    display: flex;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n    padding-right: 10px;\r\n    justify-content: space-between;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    padding-right: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 25px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-name-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-name-block-input-block {\r\n    flex-grow: 2;\r\n}\r\n\r\n.room-image {\r\n    width: 150px;\r\n    height: 150px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.room-top-info {\r\n    padding-left: 20px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/PlaningPoker/Components/Room/Room.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,oBAAoB;IACpB,mBAAmB;IACnB,8BAA8B;;AAElC;;AAEA;IACI,6BAA6B;IAC7B;;kEAE8D;IAC9D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B;;8DAE0D;IAC1D,iBAAiB;IACjB,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;IAClB,mBAAmB;IACnB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,cAAc;IACd,eAAe;AACnB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;IACI,gCAAgC;IAChC,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,+BAA+B;AACnC;;;AAGA;IACI,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,6BAA6B;IAC7B,2BAA2B;IAC3B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,kBAAkB;IAClB,gBAAgB;IAChB,cAAc;AAClB;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".planing-room-header {\r\n    display: flex;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n    padding-right: 10px;\r\n    justify-content: space-between;\r\n\r\n}\r\n\r\n.planit-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planit-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    padding-right: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 25px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planit-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-name-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-name-block-input-block {\r\n    flex-grow: 2;\r\n}\r\n\r\n.room-image {\r\n    width: 150px;\r\n    height: 150px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.room-top-info {\r\n    padding-left: 20px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".planing-room-header {\r\n    display: flex;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n    padding-right: 10px;\r\n    justify-content: space-between;\r\n\r\n}\r\n\r\n.planing-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    padding-right: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 25px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-name-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-name-block-input-block {\r\n    flex-grow: 2;\r\n}\r\n\r\n.room-image {\r\n    width: 150px;\r\n    height: 150px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.room-top-info {\r\n    padding-left: 20px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/PlaningPoker/Components/Room/Room.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,iBAAiB;IACjB,oBAAoB;IACpB,mBAAmB;IACnB,8BAA8B;;AAElC;;AAEA;IACI,6BAA6B;IAC7B;;kEAE8D;IAC9D,cAAc;IACd,iBAAiB;AACrB;;AAEA;IACI,6BAA6B;IAC7B;;8DAE0D;IAC1D,iBAAiB;IACjB,iBAAiB;AACrB;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,kBAAkB;IAClB,mBAAmB;IACnB,gBAAgB;AACpB;;AAEA;IACI,kBAAkB;IAClB,WAAW;IACX,YAAY;IACZ,yBAAyB;IACzB,oBAAoB;IACpB,kBAAkB;IAClB,YAAY;IACZ,yBAAyB;IACzB,cAAc;IACd,eAAe;AACnB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,cAAc;AAClB;;AAEA;IACI,gCAAgC;IAChC,aAAa;AACjB;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,+BAA+B;AACnC;;;AAGA;IACI,oBAAoB;IACpB,oBAAoB;IACpB,aAAa;IACb,mBAAmB;IACnB,eAAe;IACf,yBAAyB;IACzB,6BAA6B;IAC7B,2BAA2B;IAC3B,4BAA4B;IAC5B,SAAS;IACT,iBAAiB;IACjB,WAAW;AACf;;AAEA;IACI,WAAW;AACf;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,kBAAkB;IAClB,gBAAgB;IAChB,cAAc;AAClB;;AAEA;IACI,kBAAkB;AACtB","sourcesContent":[".planing-room-header {\r\n    display: flex;\r\n    padding-top: 10px;\r\n    padding-bottom: 10px;\r\n    padding-right: 10px;\r\n    justify-content: space-between;\r\n\r\n}\r\n\r\n.planing-room-left-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, left top, right top, from(transparent), to(#745959));\r\n    background: -o-linear-gradient(left, transparent, #745959);\r\n    background: linear-gradient(to right, transparent, #745959); */\r\n    /* #2a4061); */\r\n    min-height: 500px;\r\n}\r\n\r\n.planing-room-right-part {\r\n    /* border: 2px solid black; */\r\n    /* background: -webkit-gradient(linear, right top, left top, from(transparent), to(gray));\r\n    background: -o-linear-gradient(right, transparent, gray);\r\n    background: linear-gradient(to left, transparent, gray); */\r\n    min-height: 500px;\r\n    padding-top: 10px;\r\n}\r\n\r\n.planing-poker-left-one-section {\r\n    background-color: white;\r\n    border-radius: 7px;\r\n    padding-left: 10px;\r\n    padding-right: 10px;\r\n    overflow: hidden;\r\n}\r\n\r\n.planing-room-not-auth {\r\n    border-radius: 50%;\r\n    width: 25px;\r\n    height: 25px;\r\n    border: 1px solid #07135c;\r\n    /* display: block; */\r\n    text-align: center;\r\n    color: white;\r\n    background-color: #e53535;\r\n    font-size: 95%;\r\n    cursor: default;\r\n}\r\n\r\n\r\n.planing-people-refresh {\r\n    width: 15px;\r\n    height: 15px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-name-change-but {\r\n    width: 20px;\r\n    height: 25px;\r\n    cursor: pointer;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.planning-vote-settings {\r\n    border-bottom: 1px solid #db5353;\r\n    display: flex;\r\n}\r\n\r\n.planing-vote-show-but {\r\n    width: 20px;\r\n    height: 20px;\r\n    cursor: pointer;\r\n}\r\n\r\n.people-room-header {\r\n    display: flex;\r\n}\r\n\r\n\r\n.room-action-btn {\r\n    width: 30px;\r\n    height: 30px;\r\n    cursor: pointer;\r\n}\r\n\r\n.planing-room-buttons {\r\n    display: flex;\r\n    justify-content: space-between;\r\n    width: 170px;\r\n}\r\n\r\n.room-action-btn-del {\r\n    /* background-color: #dc3545; */\r\n}\r\n\r\n\r\n.planing-cards-container {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -ms-flex-wrap: wrap;\r\n    flex-wrap: wrap;\r\n    -ms-flex-pack: distribute;\r\n    justify-content: space-around;\r\n    -ms-flex-line-pack: justify;\r\n    align-content: space-between;\r\n    gap: 12px;\r\n    padding-top: 10px;\r\n    /* calc() */\r\n}\r\n\r\n.planing-cards-container>div {\r\n    margin: 6px;\r\n}\r\n\r\n.planing-name-block {\r\n    display: flex;\r\n}\r\n\r\n.planing-name-block-input-block {\r\n    flex-grow: 2;\r\n}\r\n\r\n.room-image {\r\n    width: 150px;\r\n    height: 150px;\r\n    border-radius: 50%;\r\n    overflow: hidden;\r\n    flex-shrink: 0;\r\n}\r\n\r\n.room-top-info {\r\n    padding-left: 20px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -70054,7 +70054,7 @@ const Room = (props) => {
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/save-icon.png" }));
         }
         if (currentUserIsAdmin) {
-            return react_1.default.createElement("div", { className: 'planit-room-buttons' },
+            return react_1.default.createElement("div", { className: 'planing-room-buttons' },
                 react_1.default.createElement("div", { className: 'room-action-btn', onClick: () => tryStartVote(), title: '\u041D\u0430\u0447\u0430\u0442\u044C \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u0435' },
                     react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/vote2.png" })),
                 react_1.default.createElement("div", { className: 'room-action-btn', onClick: () => tryEndVote(), title: '\u0417\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u0433\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u043D\u0438\u0435' },
@@ -70117,12 +70117,12 @@ const Room = (props) => {
             react_1.default.createElement("div", { className: 'room-image' },
                 react_1.default.createElement("img", { className: 'persent-100-width-height', src: props.RoomInfo.ImagePath || G_EmptyImagePath, alt: '\u0410\u0432\u0430\u0442\u0430\u0440 \u0433\u0440\u0443\u043F\u043F\u044B', title: '\u0410\u0432\u0430\u0442\u0430\u0440 \u0433\u0440\u0443\u043F\u043F\u044B' }))),
         react_1.default.createElement("div", { className: "row" },
-            react_1.default.createElement("div", { className: "planit-room-left-part col-12 col-md-9" },
+            react_1.default.createElement("div", { className: "planing-room-left-part col-12 col-md-9" },
                 react_1.default.createElement("div", null,
                     renderVotePlaceIfNeed(),
                     renderVoteResultIfNeed()),
                 react_1.default.createElement(StoriesSection_1.default, { MyHubConnection: props.MyHubConnection, IsAdmin: currentUserIsAdmin })),
-            react_1.default.createElement("div", { className: "planit-room-right-part col-12 col-md-3" },
+            react_1.default.createElement("div", { className: "planing-room-right-part col-12 col-md-3" },
                 react_1.default.createElement("div", null, settingsUpUserListRender()),
                 react_1.default.createElement("div", { className: "padding-10-top" }),
                 react_1.default.createElement("div", { className: 'people-room-header' },
@@ -71089,7 +71089,7 @@ class PlaningPokerController {
                 this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/PlanitPoker/get-my-rooms',
+            Url: G_PathToServer + 'api/PlaningPoker/get-my-rooms',
         });
     }
     GetNotActualStoriesRedux(roomname, userId, page, countOnPage) {
@@ -71122,7 +71122,7 @@ class PlaningPokerController {
                 this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/PlanitPoker/get-not-actual-stories',
+            Url: G_PathToServer + 'api/PlaningPoker/get-not-actual-stories',
         });
     }
     UpdateRoomImageRedux(roomname, mainImageSave) {
@@ -71153,7 +71153,7 @@ class PlaningPokerController {
                 this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/PlanitPoker/change-room-image',
+            Url: G_PathToServer + 'api/PlaningPoker/change-room-image',
         }, true);
     }
     // ChangeRoomPasswordRedux(roomname: string, userConnectionId: string, oldPassword: string, newPassword: string) {
@@ -71187,7 +71187,7 @@ class PlaningPokerController {
                 this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/PlanitPoker/room-password-change',
+            Url: G_PathToServer + 'api/PlaningPoker/room-password-change',
         });
     }
     GetUsersIsRoomRedux(roomname, userId) {
@@ -71215,7 +71215,7 @@ class PlaningPokerController {
                 this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/PlanitPoker/get-users-in-room',
+            Url: G_PathToServer + 'api/PlaningPoker/get-users-in-room',
         });
     }
     GetRoomInfoRedux(roomname, userId) {
@@ -71264,7 +71264,7 @@ class PlaningPokerController {
                 this.mapWithResult(onSuccess)(xhr, status, jqXHR);
             },
             FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/PlanitPoker/get-room-info',
+            Url: G_PathToServer + 'api/PlaningPoker/get-room-info',
         });
     }
     mapWithResult(onSuccess) {
@@ -72665,8 +72665,8 @@ const AddWorkTimeLog = (props) => {
                     setTaskId(id);
                     setSearchTasks(searchTasks.filter(x => x.Id === id));
                     return true;
-                }, Selected: taskId, ValuesWithId: searchTasks.map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` })), OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
-                    setTaskId(-1);
+                }, Selected: { Id: taskId, Text: `${taskId}-${taskName}` }, ValuesWithId: searchTasks.map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` })), OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
+                    // setTaskId(-1);
                     let searchTasksBack = yield props.FindTask(props.ProjectId, text);
                     setSearchTasks(searchTasksBack);
                 }) })),
@@ -87703,19 +87703,41 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 __webpack_require__(/*! ./SelectWithSearch.css */ "./src/components/Body/SelectWithSearch/SelectWithSearch.css");
 const SelectWithSearch = (props) => {
-    const [selected, setSelected] = (0, react_1.useState)(-1);
-    const [searchText, setSearchText] = (0, react_1.useState)('');
+    var _a, _b, _c, _d;
+    const [selected, setSelected] = (0, react_1.useState)(((_a = props.Selected) === null || _a === void 0 ? void 0 : _a.Id) || -1);
+    const [searchText, setSearchText] = (0, react_1.useState)(((_b = props.Selected) === null || _b === void 0 ? void 0 : _b.Text) || '');
     const [isOpen, setIsOpen] = (0, react_1.useState)(false);
     const [filteredValues, setFilteredValues] = (0, react_1.useState)(props.ValuesWithId);
     const loadTasksTimerId = (0, react_1.useRef)(null);
     const wrapperRef = (0, react_1.useRef)(null);
+    // console.log(selected);
     (0, react_1.useEffect)(() => {
-        setSelected(props.Selected || -1);
-    }, [props.Selected]);
+        var _a;
+        setSelected(((_a = props.Selected) === null || _a === void 0 ? void 0 : _a.Id) || -1);
+    }, [(_c = props.Selected) === null || _c === void 0 ? void 0 : _c.Id]);
+    (0, react_1.useEffect)(() => {
+        var _a;
+        setSearchText(((_a = props.Selected) === null || _a === void 0 ? void 0 : _a.Text) || '');
+    }, [(_d = props.Selected) === null || _d === void 0 ? void 0 : _d.Text]);
     // Обновляем отфильтрованные значения при изменении списка
     (0, react_1.useEffect)(() => {
         setFilteredValues(props.ValuesWithId);
     }, [props.ValuesWithId]);
+    (0, react_1.useEffect)(() => {
+        var _a, _b;
+        if (!isOpen) {
+            setSelected(((_a = props.Selected) === null || _a === void 0 ? void 0 : _a.Id) || -1);
+            setFilteredValues(props.ValuesWithId);
+            setSearchText(((_b = props.Selected) === null || _b === void 0 ? void 0 : _b.Text) || '');
+            // const selectedItem = props.ValuesWithId.find(item => item.Id === props.Selected?.Id);
+            // if (selectedItem) {
+            //     setSearchText(selectedItem.Text);
+            // }
+            // else {
+            //     setSearchText('');
+            // }
+        }
+    }, [isOpen, props.Selected, props.ValuesWithId]);
     // Обработка клика вне компонента для закрытия селекта
     (0, react_1.useEffect)(() => {
         const handleClickOutside = (event) => {
@@ -87726,6 +87748,9 @@ const SelectWithSearch = (props) => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
+            if (loadTasksTimerId.current) {
+                clearTimeout(loadTasksTimerId.current);
+            }
         };
     }, []);
     // Фильтрация значений по тексту поиска
@@ -87739,11 +87764,30 @@ const SelectWithSearch = (props) => {
     //     );
     //     setFilteredValues(filtered);
     // }, [props.ValuesWithId]);
-    // Обработка изменения текста поиска с таймером
+    // Отображение выбранного значения в поле ввода
+    (0, react_1.useEffect)(() => {
+        // console.log(props.ValuesWithId);
+        // console.log(selected);
+        if (selected && selected > 0) {
+            // console.log('!!');
+            //если значение выбрано то меняем текст, иначе нет
+            const selectedItem = props.ValuesWithId.find(item => item.Id === selected);
+            if (selectedItem) {
+                setSearchText(selectedItem.Text);
+            }
+            else if (props.Selected.Id == selected) {
+                setSearchText(props.Selected.Text || '');
+            }
+            else {
+                setSearchText('');
+            }
+        }
+    }, [selected, props.ValuesWithId, props.Selected]);
     const handleSearchChange = (e) => {
         const text = e.target.value;
         setSearchText(text);
         setIsOpen(true);
+        setSelected(-1);
         // Очищаем предыдущий таймер
         if (loadTasksTimerId.current) {
             clearTimeout(loadTasksTimerId.current);
@@ -87760,6 +87804,7 @@ const SelectWithSearch = (props) => {
     };
     // Обработка выбора значения
     const handleSelectValue = (id) => {
+        var _a;
         setSelected(id);
         setIsOpen(false);
         // Находим выбранный текст для отображения в поле ввода
@@ -87768,36 +87813,13 @@ const SelectWithSearch = (props) => {
             setSearchText(selectedItem.Text);
         }
         // Вызываем метод сохранения с ID
-        if (id !== props.Selected) {
+        if (id !== ((_a = props.Selected) === null || _a === void 0 ? void 0 : _a.Id)) {
             props.SaveEvent(id);
         }
         else {
             props.CancelEvent();
         }
     };
-    // Очистка таймера при размонтировании
-    (0, react_1.useEffect)(() => {
-        return () => {
-            if (loadTasksTimerId.current) {
-                clearTimeout(loadTasksTimerId.current);
-            }
-        };
-    }, []);
-    // Отображение выбранного значения в поле ввода
-    (0, react_1.useEffect)(() => {
-        // console.log(props.ValuesWithId);
-        // console.log(selected);
-        if (selected && selected > 0) {
-            //если значение выбрано то меняем текст, иначе нет
-            const selectedItem = props.ValuesWithId.find(item => item.Id === selected);
-            if (selectedItem) {
-                setSearchText(selectedItem.Text);
-            }
-            else if (selected === -1) {
-                setSearchText('');
-            }
-        }
-    }, [selected, props.ValuesWithId]);
     return (react_1.default.createElement("div", { className: "select-with-search", ref: wrapperRef },
         react_1.default.createElement("div", { className: "editable-input-wrapper" },
             react_1.default.createElement("input", { type: "text", className: "editable-input", value: searchText, onChange: handleSearchChange, onFocus: () => setIsOpen(true), placeholder: "\u041F\u043E\u0438\u0441\u043A..." }),

@@ -1,7 +1,7 @@
-﻿using PlanitPoker.Models.Entity;
+﻿using PlaningPoker.Models.Entity;
 using System.Text.Json.Serialization;
 
-namespace Menu.Models.PlanitPoker.Returns
+namespace Menu.Models.PlaningPoker.Returns
 {
     public sealed class RoomShort
     {

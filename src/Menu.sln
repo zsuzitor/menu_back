@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.3.11505.172 d18.3
+VisualStudioVersion = 18.3.11505.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Menu.Host", "Menu\Menu\Menu.Host.csproj", "{EF9D2655-E184-4E70-B8F8-5F13CA2B1CBA}"
 EndProject
@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TaskManagementApp", "TaskMa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlaningPokerApp", "PlaningPokerApp", "{92A5ADB1-BEB6-413F-9FE0-55244236F218}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlanitPoker", "PlaningPokerApp\PlanitPoker\PlanitPoker.csproj", "{ACA8C501-5B28-4EF8-9A86-67E0203F5B3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaningPoker", "PlaningPokerApp\PlaningPoker\PlaningPoker.csproj", "{ACA8C501-5B28-4EF8-9A86-67E0203F5B3E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WordsCardsApp", "WordsCardsApp", "{E0E55C04-A1DE-45B2-BFBD-AE3CD2BA029E}"
 EndProject

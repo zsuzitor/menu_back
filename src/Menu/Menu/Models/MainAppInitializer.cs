@@ -12,7 +12,7 @@ using Menu.Models.Services;
 using Menu.Models.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PlanitPoker.Models.Services;
+using PlaningPoker.Models.Services;
 using System;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
