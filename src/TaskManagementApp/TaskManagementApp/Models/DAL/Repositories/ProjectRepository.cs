@@ -16,12 +16,15 @@ namespace TaskManagementApp.Models.DAL.Repositories
     public sealed class ProjectCachedRepository : ProjectRepository, IProjectCachedRepository
     {
         private readonly ICacheService _cache;
+        private readonly ITasksManagmentAuthCachedRepository _auth;
         public ProjectCachedRepository(MenuDbContext db,
             IGeneralRepositoryStrategy repo,
-            ICacheService cache) : base(db, repo, cache)
+            ICacheService cache,
+            ITasksManagmentAuthCachedRepository auth) : base(db, repo, cache)
         {
             //_projectRepository = projectRepository;
             _cache = cache;
+            _auth = auth;
         }
 
         //public override async Task<Project> AddAsync(Project newRecord)
@@ -99,14 +102,16 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public override async Task<bool> ExistIfAccessAdminAsync(long id, long mainAppUserId)
         {
-            var users = await _cache.GetOrSetAsync(Consts.CacheKeys.UsersByProjectId + id,
-            async () =>
-            {
-                return await base.GetProjectUsersAsync(id);
-            },
-            Consts.CacheKeys.CacheTime);
+            //var users = await _cache.GetOrSetAsync(Consts.CacheKeys.UsersByProjectId + id,
+            //async () =>
+            //{
+            //    return await base.GetProjectUsersAsync(id);
+            //},
+            //Consts.CacheKeys.CacheTime);
 
-            if (!users.Item2.Exists(u => u.MainAppUserId == mainAppUserId && u.Role == UserRoleEnum.Admin))
+            //if (!users.Item2.Exists(u => u.MainAppUserId == mainAppUserId && u.Role == UserRoleEnum.Admin))
+            //    return false;
+            if(!await _auth.CanEditProject(id,mainAppUserId))
                 return false;
 
             var result = await _cache.GetOrSetAsync(Consts.CacheKeys.Project + id,
@@ -130,17 +135,21 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public override async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, long mainAppUserId)
         {
-            var users = await _cache.GetOrSetAsync(Consts.CacheKeys.UsersByProjectId + id,
-            async () =>
-            {
-                return await base.GetProjectUsersAsync(id);
-            },
-            Consts.CacheKeys.CacheTime);
+            //var users = await _cache.GetOrSetAsync(Consts.CacheKeys.UsersByProjectId + id,
+            //async () =>
+            //{
+            //    return await base.GetProjectUsersAsync(id);
+            //},
+            //Consts.CacheKeys.CacheTime);
 
-            var user = users.Item2.FirstOrDefault(u => u.MainAppUserId == mainAppUserId && u.Role != UserRoleEnum.Deactivated);
-            var result = (user != null, user.Role == UserRoleEnum.Admin);
-            if (!result.Item1)
+            //var user = users.Item2.FirstOrDefault(u => u.MainAppUserId == mainAppUserId && u.Role != UserRoleEnum.Deactivated);
+            //var result = (user != null, user.Role == UserRoleEnum.Admin);
+            //if (!result.Item1)
+            //    return result;
+            var result = await _auth.CanAccessProject(id, mainAppUserId);
+            if (!result.access)
                 return result;
+
             var (_, project) = await _cache.GetOrSetAsync(Consts.CacheKeys.Project + id,
             async () =>
             {
@@ -178,14 +187,16 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public override async Task<Project> GetByIdIfAccessAdminAsync(long id, long mainAppUserId)
         {
 
-            var users = await _cache.GetOrSetAsync(Consts.CacheKeys.UsersByProjectId + id,
-            async () =>
-            {
-                return await base.GetProjectUsersAsync(id);
-            },
-            Consts.CacheKeys.CacheTime);
+            //var users = await _cache.GetOrSetAsync(Consts.CacheKeys.UsersByProjectId + id,
+            //async () =>
+            //{
+            //    return await base.GetProjectUsersAsync(id);
+            //},
+            //Consts.CacheKeys.CacheTime);
 
-            if (!users.Item2.Exists(u => u.MainAppUserId == mainAppUserId && u.Role == UserRoleEnum.Admin))
+            //if (!users.Item2.Exists(u => u.MainAppUserId == mainAppUserId && u.Role == UserRoleEnum.Admin))
+            //    return null;
+            if (!await _auth.CanEditProject(id, mainAppUserId))
                 return null;
 
             var result = await _cache.GetOrSetAsync(Consts.CacheKeys.Project + id,
@@ -207,18 +218,20 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public override async Task<Project> GetByIdIfAccessAsync(long id, long mainAppUserId)
         {
 
-            var users = await _cache.GetOrSetAsync(Consts.CacheKeys.UsersByProjectId + id,
-            async () =>
-            {
-                return await base.GetProjectUsersAsync(id);
-            },
-            Consts.CacheKeys.CacheTime);
+            //var users = await _cache.GetOrSetAsync(Consts.CacheKeys.UsersByProjectId + id,
+            //async () =>
+            //{
+            //    return await base.GetProjectUsersAsync(id);
+            //},
+            //Consts.CacheKeys.CacheTime);
 
-            var user = users.Item2.FirstOrDefault(u => u.MainAppUserId == mainAppUserId && u.Role != UserRoleEnum.Deactivated);
-            if (user == null)
-            {
+            //var user = users.Item2.FirstOrDefault(u => u.MainAppUserId == mainAppUserId && u.Role != UserRoleEnum.Deactivated);
+            //if (user == null)
+            //{
+            //    return null;
+            //}
+            if (!await _auth.CanEditProject(id, mainAppUserId))
                 return null;
-            }
 
             var result = await _cache.GetOrSetAsync(Consts.CacheKeys.Project + id,
             async () =>
@@ -283,11 +296,13 @@ namespace TaskManagementApp.Models.DAL.Repositories
     public class ProjectRepository : GeneralRepository<Project, long>, IProjectRepository
     {
         private readonly ICacheService _cache;
+        private readonly ITasksManagmentAuthRepository _auth;
 
         public ProjectRepository(MenuDbContext db, IGeneralRepositoryStrategy repo,
-            ICacheService cache) : base(db, repo)
+            ICacheService cache, ITasksManagmentAuthRepository auth) : base(db, repo)
         {
             _cache = cache;
+            _auth = auth;
         }
 
         public virtual async Task<Project> CreateAsync(string name, ProjectUser user)
@@ -301,32 +316,50 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public virtual async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, long mainAppUserId)
         {
-            var user = await _db.TaskManagementProjectUsers.AsNoTracking().Include(x => x.Project)
-                .Where(u => u.MainAppUserId == mainAppUserId && u.Role != UserRoleEnum.Deactivated
-                && u.Project.Id == id && !u.Project.IsDeleted)
-                .Select(x => new { x.Id, isAdmin = (x.Role == UserRoleEnum.Admin) }).FirstOrDefaultAsync();
-
-            //var user = await _db.TaskManagementTaskProject.AsNoTracking().Include(x => x.Users)
-            //    .Where(x => x.Id == id && !x.IsDeleted
-            //        && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId && !u.Deactivated) != null)
-            //    .Select(x => x.Users.FirstOrDefault()).FirstOrDefaultAsync();
-            //user.IsAdmin;
-            //.FirstOrDefaultAsync() != null;
-            if (user == null || user.Id == 0)
+            var projExist = await _db.TaskManagementTaskProject.AnyAsync(x => x.Id == id && !x.IsDeleted);
+            if (!projExist)
             {
                 return (false, false);
             }
 
-            return (true, user.isAdmin);
+            var result = await _auth.CanAccessProject(id, mainAppUserId);
+                return result;
+
+            
+            //var user = await _db.TaskManagementProjectUsers.AsNoTracking().Include(x => x.Project)
+            //    .Where(u => u.MainAppUserId == mainAppUserId && u.Role != UserRoleEnum.Deactivated
+            //    && u.Project.Id == id && !u.Project.IsDeleted)
+            //    .Select(x => new { x.Id, isAdmin = (x.Role == UserRoleEnum.Admin) }).FirstOrDefaultAsync();
+
+            ////var user = await _db.TaskManagementTaskProject.AsNoTracking().Include(x => x.Users)
+            ////    .Where(x => x.Id == id && !x.IsDeleted
+            ////        && x.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId && !u.Deactivated) != null)
+            ////    .Select(x => x.Users.FirstOrDefault()).FirstOrDefaultAsync();
+            ////user.IsAdmin;
+            ////.FirstOrDefaultAsync() != null;
+            //if (user == null || user.Id == 0)
+            //{
+            //    return (false, false);
+            //}
+
+            //return (true, user.isAdmin);
         }
 
         public virtual async Task<Project> GetByIdIfAccessAsync(long id, long mainAppUserId)
         {
+            var result = await _auth.CanAccessProject(id, mainAppUserId);
+            if (result.access)
+            {
+                return await _db.TaskManagementTaskProject.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
+            }
 
-            return await _db.TaskManagementProjectUsers.AsNoTracking().Include(x => x.Project)
-                .Where(u => u.MainAppUserId == mainAppUserId && u.Role != UserRoleEnum.Deactivated
-                && u.Project.Id == id && !u.Project.IsDeleted)
-                .Select(x => x.Project).FirstOrDefaultAsync();
+            return null;
+
+
+            //return await _db.TaskManagementProjectUsers.AsNoTracking().Include(x => x.Project)
+            //    .Where(u => u.MainAppUserId == mainAppUserId && u.Role != UserRoleEnum.Deactivated
+            //    && u.Project.Id == id && !u.Project.IsDeleted)
+            //    .Select(x => x.Project).FirstOrDefaultAsync();
 
             //todo загрузит скорее всего с пользаками
             //return await _db.TaskManagementTaskProject.AsNoTracking().Include(x => x.Users)
@@ -345,10 +378,19 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public virtual async Task<Project> GetByIdIfAccessAdminAsync(long id, long mainAppUserId)
         {
-            return await _db.TaskManagementProjectUsers.AsNoTracking().Include(x => x.Project)
-                .Where(u => u.MainAppUserId == mainAppUserId && u.Role == UserRoleEnum.Admin
-                && u.Project.Id == id && !u.Project.IsDeleted)
-                .Select(x => x.Project).FirstOrDefaultAsync();
+
+            var result = await _auth.CanAccessProject(id, mainAppUserId);
+            if (result.isAdmin)
+            {
+                return await _db.TaskManagementTaskProject.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
+            }
+
+            return null;
+
+            //return await _db.TaskManagementProjectUsers.AsNoTracking().Include(x => x.Project)
+            //    .Where(u => u.MainAppUserId == mainAppUserId && u.Role == UserRoleEnum.Admin
+            //    && u.Project.Id == id && !u.Project.IsDeleted)
+            //    .Select(x => x.Project).FirstOrDefaultAsync();
             //todo загрузит скорее всего с пользаками
             //return await _db.TaskManagementTaskProject.AsNoTracking().Include(x => x.Users)
             //                .Where(x => x.Id == id && !x.IsDeleted
@@ -399,8 +441,9 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public virtual async Task<List<Project>> GetProjectsByMainAppUserIdAsync(long userId)
         {
+            var access = _auth.IsAccess(userId);
             return await _db.TaskManagementProjectUsers.AsNoTracking()
-                .Where(x => x.MainAppUserId == userId && x.Role != UserRoleEnum.Deactivated)
+                .Where(access)
                 .Include(x => x.Project).Select(x => x.Project).Where(x => !x.IsDeleted).ToListAsync();
 
 

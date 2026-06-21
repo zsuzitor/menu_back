@@ -78,15 +78,15 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         }
 
-        public override async Task<Preset> GetWithLabelsAsync(long presetId)
-        {
-            return await this.GetWithLabelsAsync(presetId);
-        }
-        public override async Task<List<Preset>> GetWithLabelsForProjectsync(long projectId)
-        {
-            return await this.GetWithLabelsForProjectsync(projectId);
+        //public override async Task<Preset> GetWithLabelsAsync(long presetId)
+        //{
+        //    return await base.GetWithLabelsAsync(presetId);
+        //}
+        //public override async Task<List<Preset>> GetWithLabelsForProjectsync(long projectId)
+        //{
+        //    return await base.GetWithLabelsForProjectsync(projectId);
 
-        }
+        //}
 
     }
 

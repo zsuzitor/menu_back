@@ -1,5 +1,4 @@
-﻿using BO.Models.Auth;
-using BO.Models.TaskManagementApp.DAL.Domain;
+﻿using BO.Models.TaskManagementApp.DAL.Domain;
 using Common.Models.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,17 +12,18 @@ namespace TaskManagementApp.Models.Services
     {
 
         private readonly IWorkTaskLabelRepository _labelRepository;
-        private readonly IProjectRepository _projectRepository;
         private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly IWorkTaskRepository _workTaskRepository;
+        private readonly ITasksManagmentAuthRepository _authRepository;
         public LabelService(IWorkTaskRepository workTaskRepository
-            , IWorkTaskLabelRepository labelRepository, IProjectRepository projectRepository
-            , IProjectCachedRepository projectCacheRepository)
+            , IWorkTaskLabelRepository labelRepository
+            , IProjectCachedRepository projectCacheRepository,
+ITasksManagmentAuthRepository authRepository)
         {
             _labelRepository = labelRepository;
-            _projectRepository = projectRepository;
             _workTaskRepository = workTaskRepository;
             _projectCacheRepository = projectCacheRepository;
+            _authRepository = authRepository;
         }
 
         public async Task<bool> AddToTask(long labelId, long taskId, long userId)
@@ -194,7 +194,7 @@ namespace TaskManagementApp.Models.Services
 
         private async Task<bool> ExistIfAccessAdminAsync(long id, long userId)
         {
-            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userId);
+            return await _authRepository.CanEditProject(id, userId);
         }
     }
 }

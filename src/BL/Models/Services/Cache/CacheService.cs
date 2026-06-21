@@ -29,6 +29,11 @@ namespace BL.Models.Services.Cache
             return _cacheAccessor.Get(key, out res);
         }
 
+        public async Task<(bool, T)> GetAsync<T>(string key)
+        {
+            return await _cacheAccessor.GetAsync<T>(key);
+        }
+
         public void Set<T>(string key, T value, TimeSpan time)
         {
             _cacheAccessor.Set(key, value, time);
@@ -59,5 +64,7 @@ namespace BL.Models.Services.Cache
 
             return (true, result);
         }
+
+
     }
 }

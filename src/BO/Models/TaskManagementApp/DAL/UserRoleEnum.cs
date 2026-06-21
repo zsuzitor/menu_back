@@ -7,7 +7,7 @@ namespace BO.Models.TaskManagementApp.DAL
     {
         Viewer = 1,
         Editor = 2,
-        Admin = 3,
-        Deactivated = 4,
+        Admin = 4,
+        Deactivated = 8,
     }
 }

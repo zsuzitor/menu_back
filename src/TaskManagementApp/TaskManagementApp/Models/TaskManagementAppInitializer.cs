@@ -66,7 +66,13 @@ namespace TaskManagementApp.Models
         {
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<IProjectCachedRepository, ProjectCachedRepository>();
-            
+            services.AddScoped<IPresetCachedRepository, PresetCachedRepository>();
+
+            services.AddScoped<ITasksManagmentAuthRepository, TasksManagmentAuthRepository>();
+            services.AddScoped<ITasksManagmentAuthCachedRepository, TasksManagmentAuthCachedRepository>();
+
+
+
             services.AddScoped<IWorkTaskRepository, WorkTaskRepository>();
             services.AddScoped<IProjectUserRepository, UserRepository>();
             services.AddScoped<IWorkTaskCommentRepository, WorkTaskCommentRepository>();
