@@ -1,6 +1,5 @@
 ﻿
 using BL.Models.Services.Interfaces;
-using BO.Models.DAL.Domain;
 using BO.Models.TaskManagementApp.DAL;
 using BO.Models.TaskManagementApp.DAL.Domain;
 using DAL.Models.DAL;
@@ -17,9 +16,11 @@ namespace TaskManagementApp.Models.DAL.Repositories
     internal sealed class UserRepository : GeneralRepository<ProjectUser, long>, IProjectUserRepository
     {
         private readonly ICacheService _cache;
-        public UserRepository(MenuDbContext db, IGeneralRepositoryStrategy repo, ICacheService cache) : base(db, repo)
+        private readonly ITasksManagmentAuthRepository _auth;
+        public UserRepository(MenuDbContext db, IGeneralRepositoryStrategy repo, ICacheService cache, ITasksManagmentAuthRepository auth) : base(db, repo)
         {
             _cache = cache;
+            _auth = auth;
         }
 
 
@@ -41,8 +42,9 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async Task<long?> GetIdByMainAppIdAsync(long userId, long projectId)
         {
+            var access = _auth.IsAccess(userId, projectId);
             return (await _db.TaskManagementProjectUsers
-                .Where(x => x.MainAppUserId == userId && x.ProjectId == projectId && x.Role != UserRoleEnum.Deactivated)
+                .Where(access)
                 .Select(x => new { x.Id, x.MainAppUserId })
                 .FirstOrDefaultAsync())?.Id;
         }

@@ -33,13 +33,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
                     return false;
             }
 
-            //было бы конечно хорошо тут засовывать в кеш, но тогда тут будет дублирование логики из репозитория, либо репо как зависимость подключать что все сильно условжняет
-            return await _db.TaskManagementProjectUsers.AnyAsync(u => u.MainAppUserId == userId && u.Role == UserRoleEnum.Admin);
+            return await base.CanEditProject(projectId, userId);
         }
 
         public override async Task<bool> CanEditTask(long taskId, long userId)
         {
-
+            return await base.CanEditTask(taskId, userId);
         }
 
         public override async Task<(bool access, bool isAdmin)> CanAccessProject(long projectId, long userId)
@@ -54,20 +53,10 @@ namespace TaskManagementApp.Models.DAL.Repositories
             }
             else
             {
-                user = await _db.TaskManagementProjectUsers.FirstOrDefaultAsync(u => u.MainAppUserId == userId);
+                user = await _db.TaskManagementProjectUsers.FirstOrDefaultAsync(u => u.MainAppUserId == userId && u.ProjectId == projectId);
             }
 
-            if (user?.Role == UserRoleEnum.Admin)
-            {
-                return (true, true);
-            }
-
-            if (user != null && user.Role != UserRoleEnum.Deactivated)
-            {
-                return (true, false);
-            }
-
-            return (false, false);
+            return CanAccessUser(user);
 
         }
 
@@ -88,17 +77,31 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public virtual async Task<(bool access, bool isAdmin)> CanAccessProject(long projectId, long userId)
         {
+            var user = await _db.TaskManagementProjectUsers.FirstOrDefaultAsync(u => u.MainAppUserId == userId && u.ProjectId == projectId);
+            return CanAccessUser(user);
 
+        }
+
+        public Task<(bool access, bool isAdmin)> CanAccessTask(long taskId, long userId)
+        {
+            throw new NotImplementedException();
         }
 
         public virtual async Task<bool> CanEditProject(long projectId, long userId)
         {
+            //было бы конечно хорошо тут засовывать в кеш, но тогда тут будет дублирование логики из репозитория, либо репо как зависимость подключать что все сильно условжняет
+            return await _db.TaskManagementProjectUsers.AnyAsync(u => u.MainAppUserId == userId && u.Role == UserRoleEnum.Admin && u.ProjectId == projectId);
 
         }
 
         public virtual async Task<bool> CanEditTask(long taskId, long userId)
         {
-
+            var task = await _db.TaskManagementTasks.FirstOrDefaultAsync(x => x.Id == taskId);
+            if (task == null)
+            {
+                return false;
+            }
+            return await this.CanEditProject(task.ProjectId, userId);
         }
 
         public Expression<Func<ProjectUser, bool>> IsAccess(long userId)
@@ -106,9 +109,30 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return user => user.MainAppUserId == userId && user.Role != UserRoleEnum.Deactivated;
         }
 
+        public Expression<Func<ProjectUser, bool>> IsAccess(long userId, long projectId)
+        {
+            return user => user.MainAppUserId == userId && user.Role != UserRoleEnum.Deactivated && user.ProjectId == projectId;
+        }
+
         public Expression<Func<ProjectUser, bool>> IsAdmin(long userId)
         {
             return user => user.MainAppUserId == userId && user.Role == UserRoleEnum.Admin;
+        }
+
+        protected (bool access, bool isAdmin) CanAccessUser(ProjectUser user)
+        {
+
+            if (user?.Role == UserRoleEnum.Admin)
+            {
+                return (true, true);
+            }
+
+            if (user != null && user.Role != UserRoleEnum.Deactivated)
+            {
+                return (true, false);
+            }
+
+            return (false, false);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public ProjectCachedRepository(MenuDbContext db,
             IGeneralRepositoryStrategy repo,
             ICacheService cache,
-            ITasksManagmentAuthCachedRepository auth) : base(db, repo, cache)
+            ITasksManagmentAuthCachedRepository auth) : base(db, repo, cache, auth)
         {
             //_projectRepository = projectRepository;
             _cache = cache;

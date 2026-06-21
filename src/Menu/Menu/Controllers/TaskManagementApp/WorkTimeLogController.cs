@@ -109,7 +109,7 @@ namespace Menu.Controllers.TaskManagementApp
         [Route("user-time")]
         [HttpGet]
         [CustomAuthorize]
-        public async Task<ActionResult<WorkTimeLogReturn>> GetUserTime(long? projectId, DateTime dateFrom, DateTime dateTo, long? userId)
+        public async Task<ActionResult<WorkTimeLogReturn>> GetUserTime( DateTime dateFrom, DateTime dateTo, long? userId)
         {
             var currentUserId = User.GetUserId();
             userId = userId ?? currentUserId;
