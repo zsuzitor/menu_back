@@ -11,11 +11,11 @@ namespace TaskManagementApp.Models.Services
 {
     public sealed class ProjectUserService : IProjectUserService
     {
-        private readonly IProjectUserRepository _projectUserRepository;
+        private readonly IProjectUserCahcedRepository _projectUserRepository;
         private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly IUserRepository _userRepo;
 
-        public ProjectUserService(IProjectUserRepository projectUserRepository
+        public ProjectUserService(IProjectUserCahcedRepository projectUserRepository
             , IProjectCachedRepository projectCacheRepository, IUserRepository userRepo)
         {
             _projectUserRepository = projectUserRepository;
@@ -51,10 +51,7 @@ namespace TaskManagementApp.Models.Services
         }
 
 
-        public async Task<bool> ExistAsync(long projectId, long userId)
-        {
-            return await _projectUserRepository.ExistAsync(projectId, userId);
-        }
+
         public async Task<bool> ExistByMainAppUserIdAsync(long projectId, long mainAppUserId)
         {
             return await _projectUserRepository.ExistByMainIdAsync(projectId, mainAppUserId);
@@ -144,10 +141,6 @@ namespace TaskManagementApp.Models.Services
             return user;
         }
 
-        public async Task<long?> GetIdByMainAppIdAsync(long userId, long projectId)
-        {
-            return await _projectUserRepository.GetIdByMainAppIdAsync(userId, projectId);
-        }
 
         public async Task<string> GetNotificationEmailAsync(long userId)
         {

@@ -24,7 +24,6 @@ namespace TaskManagementApp.Models.Services.Interfaces
         /// <param name="usersId"></param>
         /// <returns></returns>
         //Task<List<ProjectUser>> GetProjectUserByMainAppUserIdAsync(long projectId, List<long> usersId);
-        Task<bool> ExistAsync(long projectId, long userId);
         Task<bool> ExistByMainAppUserIdAsync(long projectId, long mainAppUserId);
 
 
@@ -32,7 +31,6 @@ namespace TaskManagementApp.Models.Services.Interfaces
         Task<ProjectUser> DeleteAsync(long userIdForDel, long projectId, long userId);
         Task<ProjectUser> GetByMainAppIdAsync(long userId, long projectId);
         Task<ProjectUser> GetAdminByMainAppIdAsync(long userId, long projectId);
-        Task<long?> GetIdByMainAppIdAsync(long userId, long projectId);
         Task<string> GetNotificationEmailAsync(long userId);
 
     }

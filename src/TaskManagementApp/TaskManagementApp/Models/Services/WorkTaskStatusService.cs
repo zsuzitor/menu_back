@@ -13,10 +13,10 @@ namespace TaskManagementApp.Models.Services
 
         private readonly IProjectRepository _projectRepository;
         private readonly IProjectCachedRepository _projectCacheRepository;
-        private readonly ITaskStatusRepository _taskStatusRepository;
+        private readonly ITaskStatusCachedRepository _taskStatusRepository;
         private readonly IWorkTaskRepository _workTaskRepository;
 
-        public WorkTaskStatusService(IProjectRepository projectRepository, ITaskStatusRepository taskStatusRepository
+        public WorkTaskStatusService(IProjectRepository projectRepository, ITaskStatusCachedRepository taskStatusRepository
             , IWorkTaskRepository workTaskRepository, IProjectCachedRepository projectCacheRepository)
         {
             _projectRepository = projectRepository;

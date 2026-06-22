@@ -37,21 +37,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return result.Item2;
         }
 
-        public override async Task<List<Preset>> GetAsync(List<long> ids)
-        {
-            return await base.GetAsync(ids);
-        }
-
 
         public override async Task<Preset> GetNoTrackAsync(long id)
         {
             return await this.GetAsync(id);
         }
 
-        public override async Task<List<Preset>> GetNoTrackAsync(List<long> ids)
-        {
-            return await base.GetNoTrackAsync(ids);
-        }
 
         public override async Task<bool> ExistAsync(long id)
         {

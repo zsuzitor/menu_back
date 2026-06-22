@@ -1,7 +1,6 @@
 ﻿
 using BL.Models.Services;
 using BL.Models.Services.Interfaces;
-using BO.Models.DAL.Domain;
 using BO.Models.TaskManagementApp.DAL.Domain;
 using Common.Models.Exceptions;
 using Microsoft.Extensions.Configuration;
@@ -19,37 +18,29 @@ namespace TaskManagementApp.Models.Services
     public sealed class WorkTaskService : IWorkTaskService
     {
         private readonly IWorkTaskRepository _workTaskRepository;
-        private readonly IProjectRepository _projectRepository;
         private readonly IProjectCachedRepository _projectCacheRepository;
-        private readonly IPresetRepository _presetRepository;
-        private readonly ISprintRepository _sprintRepository;
-        private readonly IWorkTaskLabelRepository _labelRepository;
+        private readonly IPresetCachedRepository _presetRepository;
         private readonly IProjectUserService _projectUserService;
         private readonly IWorkTaskCommentService _workTaskCommentService;
         private readonly ITaskManagementAppEmailService _taskManagementAppEmailService;
-        private readonly ITaskStatusRepository _taskStatusRepository;
+        private readonly ITaskStatusCachedRepository _taskStatusRepository;
         private readonly IConfiguration _configuration;
         private readonly IDateTimeProvider _dateTimeProvider;
 
-        public WorkTaskService(IWorkTaskRepository workTaskRepository,
-            IProjectRepository projectRepository, IProjectUserService projectUserService
+        public WorkTaskService(IWorkTaskRepository workTaskRepository, IProjectUserService projectUserService
             , IWorkTaskCommentService workTaskCommentService
             , ITaskManagementAppEmailService taskManagementAppEmailService
-            , ITaskStatusRepository taskStatusRepository
+            , ITaskStatusCachedRepository taskStatusRepository
             , IConfiguration configuration, IDateTimeProvider dateTimeProvider
-            , ISprintRepository sprintRepository, IWorkTaskLabelRepository labelRepository
-            , IPresetRepository presetRepository, IProjectCachedRepository projectCacheRepository)
+            , IPresetCachedRepository presetRepository, IProjectCachedRepository projectCacheRepository)
         {
             _workTaskRepository = workTaskRepository;
-            _projectRepository = projectRepository;
             _projectUserService = projectUserService;
             _workTaskCommentService = workTaskCommentService;
             _taskManagementAppEmailService = taskManagementAppEmailService;
             _taskStatusRepository = taskStatusRepository;
             _configuration = configuration;
             _dateTimeProvider = dateTimeProvider;
-            _sprintRepository = sprintRepository;
-            _labelRepository = labelRepository;
             _presetRepository = presetRepository;
             _projectCacheRepository = projectCacheRepository;
         }

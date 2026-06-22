@@ -11,12 +11,12 @@ namespace TaskManagementApp.Models.Services
     public class LabelService : ILabelService
     {
 
-        private readonly IWorkTaskLabelRepository _labelRepository;
+        private readonly IWorkTaskLabelCachedRepository _labelRepository;
         private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly IWorkTaskRepository _workTaskRepository;
         private readonly ITasksManagmentAuthRepository _authRepository;
         public LabelService(IWorkTaskRepository workTaskRepository
-            , IWorkTaskLabelRepository labelRepository
+            , IWorkTaskLabelCachedRepository labelRepository
             , IProjectCachedRepository projectCacheRepository,
 ITasksManagmentAuthRepository authRepository)
         {

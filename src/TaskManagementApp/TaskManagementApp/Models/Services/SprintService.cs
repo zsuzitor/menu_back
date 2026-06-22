@@ -12,11 +12,11 @@ namespace TaskManagementApp.Models.Services
 {
     internal class SprintService : ISprintService
     {
-        private readonly ISprintRepository _sprintRepository;
+        private readonly ISprintCachedRepository _sprintRepository;
         private readonly IProjectRepository _projectRepository;
         private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly IWorkTaskRepository _workTaskRepository;
-        public SprintService(ISprintRepository sprintRepository, IProjectRepository projectRepository
+        public SprintService(ISprintCachedRepository sprintRepository, IProjectRepository projectRepository
             , IWorkTaskRepository workTaskRepository, IProjectCachedRepository projectCacheRepository)
         {
             _sprintRepository = sprintRepository;

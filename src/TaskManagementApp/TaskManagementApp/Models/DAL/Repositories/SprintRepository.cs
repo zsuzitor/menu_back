@@ -11,9 +11,29 @@ using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace TaskManagementApp.Models.DAL.Repositories
 {
+    public class SprintCachedRepository : SprintRepository, ISprintCachedRepository
+    {
+        public SprintCachedRepository(MenuDbContext db, IGeneralRepositoryStrategy repo, ICacheService cache) : base(db, repo, cache)
+        {
+        }
+
+        public override async Task<List<ProjectSprint>> GetForProject(long projectId)
+        {
+
+            var result = await _cache.GetOrSetAsync(Consts.CacheKeys.SprintsByProjectId + projectId,
+            async () =>
+            {
+                return await base.GetForProject(projectId);
+            },
+            Consts.CacheKeys.CacheTime);
+            return result.Item2;
+        }
+
+    }
+
     public class SprintRepository : GeneralRepository<ProjectSprint, long>, ISprintRepository
     {
-        private readonly ICacheService _cache;
+        protected readonly ICacheService _cache;
 
         public SprintRepository(MenuDbContext db, IGeneralRepositoryStrategy repo
             , ICacheService cache) : base(db, repo)
@@ -21,7 +41,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             _cache = cache;
         }
 
-        public async Task<List<ProjectSprint>> GetForProject(long projectId)
+        public virtual async Task<List<ProjectSprint>> GetForProject(long projectId)
         {
             return await _db.TaskManagementWorkTaskSprint.Where(x => x.ProjectId == projectId)
                 .AsNoTracking().ToListAsync();
@@ -43,6 +63,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 await t.CommitAsync();
             }
             _cache.Remove(Consts.CacheKeys.SprintsByProjectId + record.ProjectId);
+            _cache.Remove(Consts.CacheKeys.PresetsByProjectId + record.ProjectId);
             return record;
         }
 
@@ -130,6 +151,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 await t.CommitAsync();
             }
             _cache.Remove(Consts.CacheKeys.SprintsByProjectId + result.ProjectId);
+            _cache.Remove(Consts.CacheKeys.PresetsByProjectId + result.ProjectId);
             return result;
         }
     }

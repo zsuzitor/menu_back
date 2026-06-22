@@ -1,7 +1,6 @@
 ﻿
 using BO.Models.DAL;
 using BO.Models.DAL.Domain;
-using System.Collections.Generic;
 
 namespace BO.Models.TaskManagementApp.DAL.Domain
 {

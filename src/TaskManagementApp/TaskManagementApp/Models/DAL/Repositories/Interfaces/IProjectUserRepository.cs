@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
 {
+    public interface IProjectUserCahcedRepository : IProjectUserRepository;
     public interface IProjectUserRepository : IGeneralRepository<ProjectUser, long>
     {
         Task<List<ProjectUser>> GetProjectUsersWithMainAppUserAsync(long projectId);
-        Task<bool> ExistAsync(long projectId, long userId);
         Task<bool> ExistByMainIdAsync(long projectId, long mainAppUserId);
 
         //Task<List<ProjectUser>> GetProjectUserAsync(long projectId, List<long> usersId);
@@ -16,13 +16,7 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
 
         Task<ProjectUser> GetByMainAppUserIdAsync(long mainAppUserId, long projectId);
 
-        /// <summary>
-        /// только активные пользователи
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="projectId"></param>
-        /// <returns></returns>
-        Task<long?> GetIdByMainAppIdAsync(long userId, long projectId);
+
 
     }
 }

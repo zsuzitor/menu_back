@@ -68,6 +68,7 @@ namespace TaskManagementApp.Models
             public const string SprintsByProjectId = $"{ProjectPrefix}Sprints_";
             public const string UsersByProjectId = $"{ProjectPrefix}Users_";
             public const string TaskStatusesByProjectId = $"{ProjectPrefix}TaskStatuses_";
+            public const string TaskLabelsByProjectId = $"{ProjectPrefix}TaskLabels_";
 
             public const string PresetsByProjectId = $"{ProjectPrefix}Presets_";
             public const string Preset = $"{ProjectPrefix}Preset_";
@@ -80,6 +81,7 @@ namespace TaskManagementApp.Models
                 cache?.Remove(Consts.CacheKeys.UsersByProjectId + projectId);
                 cache?.Remove(Consts.CacheKeys.TaskStatusesByProjectId + projectId);
                 cache?.Remove(Consts.CacheKeys.PresetsByProjectId + projectId);
+                cache?.Remove(Consts.CacheKeys.TaskLabelsByProjectId + projectId);
             }
 
             //.Include(x => x.Sprints).Include(x => x.Users).Include(x => x.TaskStatuses)

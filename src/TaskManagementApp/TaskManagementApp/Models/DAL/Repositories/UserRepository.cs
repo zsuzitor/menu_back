@@ -13,9 +13,41 @@ using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace TaskManagementApp.Models.DAL.Repositories
 {
-    internal sealed class UserRepository : GeneralRepository<ProjectUser, long>, IProjectUserRepository
+    public class UserCachedRepository : UserRepository, IProjectUserCahcedRepository
     {
-        private readonly ICacheService _cache;
+        public UserCachedRepository(MenuDbContext db, IGeneralRepositoryStrategy repo, ICacheService cache, ITasksManagmentAuthRepository auth) : base(db, repo, cache, auth)
+        {
+        }
+
+
+        public override async Task<List<ProjectUser>> GetProjectUsersWithMainAppUserAsync(long projectId)
+        {
+            var result = await _cache.GetOrSetAsync(Consts.CacheKeys.UsersByProjectId + projectId,
+            async () =>
+            {
+                return await base.GetProjectUsersWithMainAppUserAsync(projectId);
+            },
+            Consts.CacheKeys.CacheTime);
+            return result.Item2;
+        }
+
+        public override async Task<ProjectUser> GetByMainAppUserIdAsync(long mainAppUserId, long projectId)
+        {
+            var users = await this.GetProjectUsersWithMainAppUserAsync(projectId);
+            return users.FirstOrDefault(x => x.MainAppUserId == mainAppUserId);
+        }
+
+        public override async Task<bool> ExistByMainIdAsync(long projectId, long mainAppUserId)
+        {
+            return (await this.GetByMainAppUserIdAsync(mainAppUserId, projectId)) != null;
+
+        }
+    }
+
+
+    public class UserRepository : GeneralRepository<ProjectUser, long>, IProjectUserRepository
+    {
+        protected readonly ICacheService _cache;
         private readonly ITasksManagmentAuthRepository _auth;
         public UserRepository(MenuDbContext db, IGeneralRepositoryStrategy repo, ICacheService cache, ITasksManagmentAuthRepository auth) : base(db, repo)
         {
@@ -24,30 +56,26 @@ namespace TaskManagementApp.Models.DAL.Repositories
         }
 
 
-        public async Task<List<ProjectUser>> GetProjectUsersAsync(long projectId)
-        {
-            return await _db.TaskManagementProjectUsers.AsNoTracking().Where(x => x.ProjectId == projectId).ToListAsync();
-        }
 
-        public async Task<List<ProjectUser>> GetProjectUsersWithMainAppUserAsync(long projectId)
+        public virtual async Task<List<ProjectUser>> GetProjectUsersWithMainAppUserAsync(long projectId)
         {
             return await _db.TaskManagementProjectUsers.AsNoTracking().Include(x => x.MainAppUser).Where(x => x.ProjectId == projectId).ToListAsync();
         }
 
-        public async Task<ProjectUser> GetByMainAppUserIdAsync(long mainAppUserId, long projectId)
+        public virtual async Task<ProjectUser> GetByMainAppUserIdAsync(long mainAppUserId, long projectId)
         {
             return await _db.TaskManagementProjectUsers.AsNoTracking()
                 .FirstOrDefaultAsync(x => x.ProjectId == projectId && x.MainAppUserId == mainAppUserId);
         }
 
-        public async Task<long?> GetIdByMainAppIdAsync(long userId, long projectId)
-        {
-            var access = _auth.IsAccess(userId, projectId);
-            return (await _db.TaskManagementProjectUsers
-                .Where(access)
-                .Select(x => new { x.Id, x.MainAppUserId })
-                .FirstOrDefaultAsync())?.Id;
-        }
+        //public async Task<long?> GetIdByMainAppIdAsync(long userId, long projectId)
+        //{
+        //    var access = _auth.IsAccess(userId, projectId);
+        //    return (await _db.TaskManagementProjectUsers
+        //        .Where(access)
+        //        .Select(x => new { x.Id, x.MainAppUserId })
+        //        .FirstOrDefaultAsync())?.Id;
+        //}
 
 
 
@@ -95,12 +123,9 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return record;
         }
 
-        public async Task<bool> ExistAsync(long projectId, long userId)
-        {
-            return await _db.TaskManagementProjectUsers.AnyAsync(x => x.Id == userId && x.ProjectId == projectId);
-        }
 
-        public async Task<bool> ExistByMainIdAsync(long projectId, long mainAppUserId)
+
+        public virtual async Task<bool> ExistByMainIdAsync(long projectId, long mainAppUserId)
         {
             return await _db.TaskManagementProjectUsers.AnyAsync(x => x.MainAppUserId == mainAppUserId && x.ProjectId == projectId);
 

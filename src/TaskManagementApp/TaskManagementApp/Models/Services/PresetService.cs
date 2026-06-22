@@ -15,15 +15,15 @@ namespace TaskManagementApp.Models.Services
 {
     public class PresetService : IPresetService
     {
-        private readonly IPresetRepository _presetRepo;
+        private readonly IPresetCachedRepository _presetRepo;
         private readonly IProjectRepository _projectRepository;
         private readonly IProjectCachedRepository _projectCacheRepository;
-        private readonly IWorkTaskLabelRepository _labelRepository;
-        private readonly ITaskStatusRepository _taskStatusRepository;
+        private readonly IWorkTaskLabelCachedRepository _labelRepository;
+        private readonly ITaskStatusCachedRepository _taskStatusRepository;
         private readonly IProjectUserService _projectUserService;
 
-        public PresetService(IPresetRepository presetRepo, IProjectRepository projectRepository
-            , IWorkTaskLabelRepository labelRepository, ITaskStatusRepository taskStatusRepository
+        public PresetService(IPresetCachedRepository presetRepo, IProjectRepository projectRepository
+            , IWorkTaskLabelCachedRepository labelRepository, ITaskStatusCachedRepository taskStatusRepository
             , IProjectUserService projectUserService, IProjectCachedRepository projectCacheRepository)
         {
             _presetRepo = presetRepo;

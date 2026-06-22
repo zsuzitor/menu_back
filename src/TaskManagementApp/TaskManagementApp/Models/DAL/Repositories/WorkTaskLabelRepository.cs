@@ -1,4 +1,5 @@
-﻿using BO.Models.TaskManagementApp.DAL.Domain;
+﻿using BL.Models.Services.Interfaces;
+using BO.Models.TaskManagementApp.DAL.Domain;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
@@ -10,10 +11,43 @@ using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace TaskManagementApp.Models.DAL.Repositories
 {
-    internal class WorkTaskLabelRepository : GeneralRepository<WorkTaskLabel, long>, IWorkTaskLabelRepository
+    public class WorkTaskLabelCachedRepository : WorkTaskLabelRepository, IWorkTaskLabelCachedRepository
     {
-        public WorkTaskLabelRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
+        public WorkTaskLabelCachedRepository(MenuDbContext db, IGeneralRepositoryStrategy repo, ICacheService cache) : base(db, repo, cache)
         {
+        }
+
+
+        public override async Task<bool> ExistsAsync(string name, long projectId)
+        {
+            var labels = await this.GetForProjectAsync(projectId);
+            return labels.Any(x => x.Name == name);
+
+        }
+
+
+        public override async Task<List<WorkTaskLabel>> GetForProjectAsync(long projectId)
+        {
+
+            var result = await _cache.GetOrSetAsync(Consts.CacheKeys.TaskLabelsByProjectId + projectId,
+            async () =>
+            {
+                return await base.GetForProjectAsync(projectId);
+            },
+            Consts.CacheKeys.CacheTime);
+            return result.Item2;
+        }
+
+    }
+
+
+
+    public class WorkTaskLabelRepository : GeneralRepository<WorkTaskLabel, long>, IWorkTaskLabelRepository
+    {
+        protected readonly ICacheService _cache;
+        public WorkTaskLabelRepository(MenuDbContext db, IGeneralRepositoryStrategy repo, ICacheService cache) : base(db, repo)
+        {
+            _cache = cache;
         }
 
         public async Task<WorkTaskLabelTaskRelation> CreateAsync(WorkTaskLabelTaskRelation obj)
@@ -23,19 +57,19 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return obj;
         }
 
-        public async Task<bool> ExistsAsync(long labelId, long taskId)
+        public virtual async Task<bool> ExistsAsync(long labelId, long taskId)
         {
             return await _db.TaskManagementWorkTaskLabelTaskRelation.Where(x => x.TaskId == taskId && x.LabelId == labelId).AnyAsync();
 
         }
 
-        public async Task<bool> ExistsAsync(string name, long projectId)
+        public virtual async Task<bool> ExistsAsync(string name, long projectId)
         {
             return await _db.TaskManagementWorkTaskLabel.Where(x => x.ProjectId == projectId && x.Name == name).AnyAsync();
 
         }
 
-        public async Task<List<WorkTaskLabel>> GetForProjectAsync(long projectId)
+        public virtual async Task<List<WorkTaskLabel>> GetForProjectAsync(long projectId)
         {
             return await _db.TaskManagementWorkTaskLabel.Where(x => x.ProjectId == projectId).ToListAsync();
         }
@@ -67,15 +101,77 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 _db.Remove(record);
                 await _db.SaveChangesAsync();
                 await t.CommitAsync();
+                _cache.Remove(Consts.CacheKeys.TaskLabelsByProjectId + record.ProjectId);
                 return record;
             }
         }
+
+
+        public override async Task<IEnumerable<WorkTaskLabel>> DeleteAsync(IEnumerable<WorkTaskLabel> records)
+        {
+            //todo плохо
+            foreach (var record in records)
+            {
+                await this.DeleteAsync(record);
+            }
+            return records;
+        }
+
+        public override async Task<WorkTaskLabel> DeleteAsync(long recordId)
+        {
+            var result = await base.DeleteAsync(recordId);
+
+            if (result != null)
+            {
+                _cache.Remove(Consts.CacheKeys.TaskLabelsByProjectId + result.ProjectId);
+            }
+            return result;
+        }
+
 
         public async Task<List<WorkTaskLabelTaskRelation>> DeleteAsync(List<WorkTaskLabelTaskRelation> list)
         {
             _db.RemoveRange(list);
             await _db.SaveChangesAsync();
             return list;
+        }
+
+
+
+        public override async Task<WorkTaskLabel> AddAsync(WorkTaskLabel newRecord)
+        {
+            var result = await base.AddAsync(newRecord);
+            _cache.Remove(Consts.CacheKeys.TaskLabelsByProjectId + result.ProjectId);
+            return result;
+        }
+
+        public override async Task<IEnumerable<WorkTaskLabel>> AddAsync(IEnumerable<WorkTaskLabel> newRecords)
+        {
+            var result = await base.AddAsync(newRecords);
+            foreach (var record in result.Select(x => x.ProjectId).Distinct())
+            {
+                _cache.Remove(Consts.CacheKeys.TaskLabelsByProjectId + record);
+            }
+            return result;
+        }
+
+        public override async Task<WorkTaskLabel> UpdateAsync(WorkTaskLabel record)
+        {
+            var result = await base.UpdateAsync(record);
+            _cache.Remove(Consts.CacheKeys.TaskLabelsByProjectId + result.ProjectId);
+            return result;
+        }
+
+        public override async Task<IEnumerable<WorkTaskLabel>> UpdateAsync(IEnumerable<WorkTaskLabel> records)
+        {
+            var result = await base.UpdateAsync(records);
+            foreach (var record in result.Select(x => x.ProjectId).Distinct())
+            {
+                _cache.Remove(Consts.CacheKeys.TaskLabelsByProjectId + record);
+            }
+
+
+            return result;
         }
     }
 }

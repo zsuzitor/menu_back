@@ -14,14 +14,14 @@ namespace TaskManagementApp.Models.Services
     {
         private readonly IProjectRepository _projectRepository;
         private readonly IProjectCachedRepository _projectCacheRepository;
-        private readonly ITaskStatusRepository _taskStatusRepository;
+        private readonly ITaskStatusCachedRepository _taskStatusRepository;
         private readonly IProjectUserService _projectUserService;
         private readonly IWorkTaskService _workTaskService;
         private readonly IUserService _mainAppUserService;
         private readonly IDateTimeProvider _dateTimeProvider;
         public ProjectService(IProjectRepository projectRepository, IProjectUserService userService,
             IWorkTaskService workTaskService, IUserService mainAppUserService
-            , ITaskStatusRepository taskStatusRepository, IDateTimeProvider dateTimeProvider
+            , ITaskStatusCachedRepository taskStatusRepository, IDateTimeProvider dateTimeProvider
             , IProjectCachedRepository projectCacheRepository)
         {
             _projectRepository = projectRepository;

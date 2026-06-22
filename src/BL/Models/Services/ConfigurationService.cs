@@ -2,8 +2,6 @@
 using BO.Models.DAL.Domain;
 using DAL.Models.DAL.Repositories.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BL.Models.Services

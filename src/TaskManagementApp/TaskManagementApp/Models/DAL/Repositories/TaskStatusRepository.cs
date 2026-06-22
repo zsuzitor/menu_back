@@ -4,24 +4,43 @@ using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace TaskManagementApp.Models.DAL.Repositories
 {
+    public class TaskStatusCachedRepository : TaskStatusRepository, ITaskStatusCachedRepository
+    {
+        public TaskStatusCachedRepository(MenuDbContext db, IGeneralRepositoryStrategy repo, ICacheService cache) : base(db, repo, cache)
+        {
+        }
+
+        public override async Task<List<WorkTaskStatus>> GetForProjectAsync(long projectId)
+        {
+
+            var result = await _cache.GetOrSetAsync(Consts.CacheKeys.TaskStatusesByProjectId + projectId,
+            async () =>
+            {
+                return await base.GetForProjectAsync(projectId);
+            },
+            Consts.CacheKeys.CacheTime);
+            return result.Item2;
+        }
+    }
+
+
+
     public class TaskStatusRepository : GeneralRepository<WorkTaskStatus, long>, ITaskStatusRepository
     {
-        private readonly ICacheService _cache;
+        protected readonly ICacheService _cache;
         public TaskStatusRepository(MenuDbContext db, IGeneralRepositoryStrategy repo, ICacheService cache) : base(db, repo)
         {
             _cache = cache;
         }
 
-        public async Task<List<WorkTaskStatus>> GetForProjectAsync(long projectId)
+        public virtual async Task<List<WorkTaskStatus>> GetForProjectAsync(long projectId)
         {
             return await _db.TaskManagementTaskStatus.AsNoTracking().Where(x => x.ProjectId == projectId).ToListAsync();
         }
@@ -66,7 +85,11 @@ namespace TaskManagementApp.Models.DAL.Repositories
         {
             var result = await base.DeleteAsync(record);
 
-            _cache.Remove(Consts.CacheKeys.TaskStatusesByProjectId + result.ProjectId);
+            if (result != null)
+            {
+                _cache.Remove(Consts.CacheKeys.TaskStatusesByProjectId + result.ProjectId);
+                _cache.Remove(Consts.CacheKeys.PresetsByProjectId + result.ProjectId);
+            }
             return result;
         }
 
@@ -76,6 +99,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             foreach (var record in result.Select(x => x.ProjectId).Distinct())
             {
                 _cache.Remove(Consts.CacheKeys.TaskStatusesByProjectId + record);
+                _cache.Remove(Consts.CacheKeys.PresetsByProjectId + record);
             }
             return result;
         }
@@ -83,8 +107,11 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public override async Task<WorkTaskStatus> DeleteAsync(long recordId)
         {
             var result = await base.DeleteAsync(recordId);
-
-            _cache.Remove(Consts.CacheKeys.TaskStatusesByProjectId + result.ProjectId);
+            if(result!= null)
+            {
+                _cache.Remove(Consts.CacheKeys.TaskStatusesByProjectId + result.ProjectId);
+                _cache.Remove(Consts.CacheKeys.PresetsByProjectId + result.ProjectId);
+            }
             return result;
         }
     }
