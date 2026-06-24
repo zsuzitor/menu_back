@@ -131,7 +131,7 @@ namespace VaultApp.Models.Services.Implementation
                     throw new SomeCustomException(Constants.VaultErrorConstants.VaultBadAuth);
                 }
 
-                _cache.Remove(VaultUsersCache + vault.Id);
+                await _cache.RemoveAsync(VaultUsersCache + vault.Id);
                 _ = await _vaultRepository.LoadUsersAsync(oldVault);
                 oldVault.Users = oldVault.Users.Where(x => !vault.UsersForDelete.Contains(x.Id)).ToList();
 

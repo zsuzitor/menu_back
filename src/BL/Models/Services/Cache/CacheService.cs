@@ -1,7 +1,5 @@
 ﻿using BL.Models.Services.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BL.Models.Services.Cache
@@ -22,6 +20,11 @@ namespace BL.Models.Services.Cache
         public void Remove(string key)
         {
             _cacheAccessor.Remove(key);
+        }
+
+        public async Task RemoveAsync(string key)
+        {
+            await _cacheAccessor.RemoveAsync(key);
         }
 
         public bool Get<T>(string key, out T res)

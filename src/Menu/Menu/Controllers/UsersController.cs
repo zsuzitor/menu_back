@@ -9,7 +9,6 @@ using jwtLib.JWTAuth.Interfaces;
 using Menu.Host.Models.Requests;
 using Menu.Models.Returns.Types;
 using Menu.Models.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;

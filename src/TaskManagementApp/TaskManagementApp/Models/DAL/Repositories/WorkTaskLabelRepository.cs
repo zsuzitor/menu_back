@@ -101,7 +101,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 _db.Remove(record);
                 await _db.SaveChangesAsync();
                 await t.CommitAsync();
-                _cache.Remove(Consts.CacheKeys.TaskLabelsByProjectId + record.ProjectId);
+                await _cache.RemoveAsync(Consts.CacheKeys.TaskLabelsByProjectId + record.ProjectId);
                 return record;
             }
         }
@@ -123,7 +123,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
             if (result != null)
             {
-                _cache.Remove(Consts.CacheKeys.TaskLabelsByProjectId + result.ProjectId);
+                await _cache.RemoveAsync(Consts.CacheKeys.TaskLabelsByProjectId + result.ProjectId);
             }
             return result;
         }
@@ -141,7 +141,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public override async Task<WorkTaskLabel> AddAsync(WorkTaskLabel newRecord)
         {
             var result = await base.AddAsync(newRecord);
-            _cache.Remove(Consts.CacheKeys.TaskLabelsByProjectId + result.ProjectId);
+            await _cache.RemoveAsync(Consts.CacheKeys.TaskLabelsByProjectId + result.ProjectId);
             return result;
         }
 
@@ -150,7 +150,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             var result = await base.AddAsync(newRecords);
             foreach (var record in result.Select(x => x.ProjectId).Distinct())
             {
-                _cache.Remove(Consts.CacheKeys.TaskLabelsByProjectId + record);
+                await _cache.RemoveAsync(Consts.CacheKeys.TaskLabelsByProjectId + record);
             }
             return result;
         }
@@ -158,7 +158,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public override async Task<WorkTaskLabel> UpdateAsync(WorkTaskLabel record)
         {
             var result = await base.UpdateAsync(record);
-            _cache.Remove(Consts.CacheKeys.TaskLabelsByProjectId + result.ProjectId);
+            await _cache.RemoveAsync(Consts.CacheKeys.TaskLabelsByProjectId + result.ProjectId);
             return result;
         }
 
@@ -167,7 +167,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             var result = await base.UpdateAsync(records);
             foreach (var record in result.Select(x => x.ProjectId).Distinct())
             {
-                _cache.Remove(Consts.CacheKeys.TaskLabelsByProjectId + record);
+                await _cache.RemoveAsync(Consts.CacheKeys.TaskLabelsByProjectId + record);
             }
 
 

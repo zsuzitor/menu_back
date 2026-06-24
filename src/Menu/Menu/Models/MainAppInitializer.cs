@@ -12,13 +12,9 @@ using Menu.Models.Services;
 using Menu.Models.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PlaningPoker.Models.Services;
 using System;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using TaskManagementApp.Models;
-using TaskManagementApp.Models.Services.Interfaces;
-using static Org.BouncyCastle.Math.EC.ECCurve;
 
 namespace Menu.Models
 {

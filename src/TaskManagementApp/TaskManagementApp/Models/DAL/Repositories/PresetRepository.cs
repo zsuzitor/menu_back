@@ -119,7 +119,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public override async Task<Preset> AddAsync(Preset newRecord)
         {
             var result = await base.AddAsync(newRecord);
-            _cache.Remove(Consts.CacheKeys.PresetsByProjectId + result.ProjectId);
+            await _cache.RemoveAsync(Consts.CacheKeys.PresetsByProjectId + result.ProjectId);
             return result;
         }
 
@@ -128,7 +128,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             var result = await base.AddAsync(newRecords);
             foreach (var record in result.Select(x => x.ProjectId).Distinct())
             {
-                _cache.Remove(Consts.CacheKeys.PresetsByProjectId + record);
+                await _cache.RemoveAsync(Consts.CacheKeys.PresetsByProjectId + record);
             }
             return result;
         }
@@ -136,8 +136,8 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public override async Task<Preset> UpdateAsync(Preset record)
         {
             var result = await base.UpdateAsync(record);
-            _cache.Remove(Consts.CacheKeys.PresetsByProjectId + result.ProjectId);
-            _cache.Remove(Consts.CacheKeys.Preset + result.Id);
+            await _cache.RemoveAsync(Consts.CacheKeys.PresetsByProjectId + result.ProjectId);
+            await _cache.RemoveAsync(Consts.CacheKeys.Preset + result.Id);
             return result;
         }
 
@@ -146,12 +146,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
             var result = await base.UpdateAsync(records);
             foreach (var record in result.Select(x => x.ProjectId).Distinct())
             {
-                _cache.Remove(Consts.CacheKeys.PresetsByProjectId + record);
+                await _cache.RemoveAsync(Consts.CacheKeys.PresetsByProjectId + record);
             }
 
             foreach (var record in result)
             {
-                _cache.Remove(Consts.CacheKeys.Preset + record.Id);
+                await _cache.RemoveAsync(Consts.CacheKeys.Preset + record.Id);
             }
 
 
@@ -163,8 +163,8 @@ namespace TaskManagementApp.Models.DAL.Repositories
         {
             var result = await base.DeleteAsync(record);
 
-            _cache.Remove(Consts.CacheKeys.PresetsByProjectId + result.ProjectId);
-            _cache.Remove(Consts.CacheKeys.Preset + result.Id);
+            await _cache.RemoveAsync(Consts.CacheKeys.PresetsByProjectId + result.ProjectId);
+            await _cache.RemoveAsync(Consts.CacheKeys.Preset + result.Id);
             return result;
         }
 
@@ -173,12 +173,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
             var result = await base.DeleteAsync(records);
             foreach (var record in result.Select(x => x.ProjectId).Distinct())
             {
-                _cache.Remove(Consts.CacheKeys.PresetsByProjectId + record);
+                await _cache.RemoveAsync(Consts.CacheKeys.PresetsByProjectId + record);
             }
 
             foreach (var record in result)
             {
-                _cache.Remove(Consts.CacheKeys.Preset + record.Id);
+                await _cache.RemoveAsync(Consts.CacheKeys.Preset + record.Id);
             }
             return result;
         }
@@ -187,8 +187,8 @@ namespace TaskManagementApp.Models.DAL.Repositories
         {
             var result = await base.DeleteAsync(recordId);
 
-            _cache.Remove(Consts.CacheKeys.PresetsByProjectId + result.ProjectId);
-            _cache.Remove(Consts.CacheKeys.Preset + recordId);
+            await _cache.RemoveAsync(Consts.CacheKeys.PresetsByProjectId + result.ProjectId);
+            await _cache.RemoveAsync(Consts.CacheKeys.Preset + recordId);
             return result;
         }
     }

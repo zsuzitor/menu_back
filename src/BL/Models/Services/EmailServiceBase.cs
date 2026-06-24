@@ -56,11 +56,13 @@ namespace BL.Models.Services
                 Subject = subject,
                 Type = BO.Models.DAL.Domain.NotificationType.Email,
                 Group = group,
+                SendTryCount = 0,
             });
 
             await _emailService.SendEmailAsync(email, subject, message, _config);
 
             rec.SendedDate = _dateTimeProvider.CurrentDateTime();
+            rec.SendTryCount = rec.SendTryCount + 1;
             await _notificationRepository.UpdateAsync(rec);
         }
 
@@ -103,6 +105,7 @@ namespace BL.Models.Services
                 Subject = subject,
                 Type = BO.Models.DAL.Domain.NotificationType.Email,
                 Group = group,
+                SendTryCount = 0,
             }).ToList();
 
             await _notificationRepository.AddAsync(mails);
@@ -143,7 +146,10 @@ namespace BL.Models.Services
             }
 
             await _emailService.SendEmailAsync(combinedForSend, _config);
-            localForSend.ForEach(x => x.SendedDate = _dateTimeProvider.CurrentDateTime());
+            localForSend.ForEach(x => {
+                x.SendedDate = _dateTimeProvider.CurrentDateTime();
+                x.SendTryCount = x.SendTryCount + 1;
+            });
             await _notificationRepository.UpdateAsync(localForSend);
         }
         public virtual async Task SendQueueAsync()

@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BO.Models.DAL.Domain
 {
     public enum NotificationType
     {
         Email = 1,
-        SMS
+        SMS = 2,
     }
 
     public class Notification : IDomainRecord<long>
@@ -24,6 +22,7 @@ namespace BO.Models.DAL.Domain
         public NotificationType Type { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? SendedDate { get; set; }
+        public int SendTryCount { get; set; }
 
 
     }

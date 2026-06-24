@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace BO.Models.DAL.Domain
 {
     public sealed class Configuration : IDomainRecord<long>
@@ -12,5 +9,6 @@ namespace BO.Models.DAL.Domain
         public string Group { get; set; }
         public string Type { get; set; }
         public string Lang { get; set; }
+        public bool Public { get; set; }
     }
 }

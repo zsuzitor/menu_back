@@ -91,6 +91,7 @@ namespace BL.Models.Services
             {
                 _logger.LogError(e, "ошибка отправки email");
                 //todo хотя бы логи записать
+                throw;
             }
         }
     }

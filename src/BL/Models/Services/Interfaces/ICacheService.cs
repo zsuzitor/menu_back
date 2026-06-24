@@ -14,5 +14,6 @@ namespace BL.Models.Services.Interfaces
         bool Exist(string key);
         void Set<T>(string key, T value, TimeSpan time);
         void Remove(string key);
+        Task RemoveAsync(string key);
     }
 }
