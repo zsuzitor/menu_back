@@ -2,7 +2,6 @@
 using BO.Models.TaskManagementApp.DAL.Domain;
 using DAL.Models.DAL.Repositories.Interfaces;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
@@ -14,7 +13,6 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
         Task<List<Project>> GetProjectsByMainAppUserIdAsync(long userId);
         Task<Project> GetByIdIfAccessAsync(long id, long mainAppUserId);
         Task<Project> GetByIdIfAccessAdminAsync(long id, long mainAppUserId);
-        Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, long mainAppUserId);
         Task<bool> ExistIfAccessAdminAsync(long id, long mainAppUserId);
         //Task<Project> GetNoTrackForCacheAsync(long id);
 

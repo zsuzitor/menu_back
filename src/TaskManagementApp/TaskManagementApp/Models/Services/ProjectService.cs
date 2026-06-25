@@ -19,10 +19,11 @@ namespace TaskManagementApp.Models.Services
         private readonly IWorkTaskService _workTaskService;
         private readonly IUserService _mainAppUserService;
         private readonly IDateTimeProvider _dateTimeProvider;
+        private readonly ITasksManagmentAuthRepository _auth;
         public ProjectService(IProjectRepository projectRepository, IProjectUserService userService,
             IWorkTaskService workTaskService, IUserService mainAppUserService
             , ITaskStatusCachedRepository taskStatusRepository, IDateTimeProvider dateTimeProvider
-            , IProjectCachedRepository projectCacheRepository)
+            , IProjectCachedRepository projectCacheRepository, ITasksManagmentAuthRepository auth)
         {
             _projectRepository = projectRepository;
             _projectCacheRepository = projectCacheRepository;
@@ -31,7 +32,7 @@ namespace TaskManagementApp.Models.Services
             _mainAppUserService = mainAppUserService;
             _taskStatusRepository = taskStatusRepository;
             _dateTimeProvider = dateTimeProvider;
-
+            _auth = auth;
         }
 
         public async Task<Project> CreateAsync(string name, long userId)
@@ -72,10 +73,7 @@ namespace TaskManagementApp.Models.Services
             return await _projectCacheRepository.GetByIdIfAccessAdminAsync(id, userId);
         }
 
-        public async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, long userId)
-        {
-            return await _projectCacheRepository.ExistIfAccessAsync(id, userId);
-        }
+
 
         public async Task<bool> ExistIfAccessAdminAsync(long id, long userId)
         {
@@ -107,7 +105,7 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomException(Consts.ErrorConsts.EmptyTaskName);
             }
 
-            if (!await ExistIfAccessAdminAsync(task.ProjectId, userId))
+            if (!(await _auth.CanEditProject(task.ProjectId, userId)))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }

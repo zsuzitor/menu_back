@@ -16,6 +16,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using TaskManagementApp.Models;
+using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TaskManagementApp.Models.DTO;
 using TaskManagementApp.Models.Returns;
 using TaskManagementApp.Models.Services;
@@ -38,11 +39,12 @@ namespace Menu.Controllers.TaskManagementApp
 
         private readonly IProjectService _projectService;
         private readonly IWorkTaskService _workTaskService;
+        private readonly ITasksManagmentAuthRepository _authRepository;
 
 
         public TaskController(
              IJWTService jwtService, IApiHelper apiHealper
-            , ILoggerFactory loggerFactory, IProjectService projectService, IWorkTaskService workTaskService
+            , ILoggerFactory loggerFactory, IProjectService projectService, IWorkTaskService workTaskService, ITasksManagmentAuthRepository authRepository
             )
         {
             _jwtService = jwtService;
@@ -51,6 +53,7 @@ namespace Menu.Controllers.TaskManagementApp
 
             _projectService = projectService;
             _workTaskService = workTaskService;
+            _authRepository = authRepository;
         }
 
         [Route("get-task-select-info")]
@@ -106,8 +109,7 @@ namespace Menu.Controllers.TaskManagementApp
 
             var userId = User.GetUserId();
 
-            var res = await _projectService.ExistIfAccessAsync(request.ProjectId, userId);
-            if (!res.access)
+            if (!await _authRepository.CanViewProject(request.ProjectId, userId))
             {
                 throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFound);
             }
@@ -150,8 +152,8 @@ namespace Menu.Controllers.TaskManagementApp
             var userId = User.GetUserId();
 
             var task = await _workTaskService.GetTaskFullAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
-            var res = await _projectService.ExistIfAccessAsync(task.ProjectId, userId);
-            if (!res.access)
+
+            if (!await _authRepository.CanViewProject(task.ProjectId, userId))
             {
                 throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFound);
             }

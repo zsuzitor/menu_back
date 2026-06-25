@@ -11,7 +11,6 @@ namespace TaskManagementApp.Models.Services.Interfaces
     public interface IWorkTaskService
     {
         Task<WorkTask> CreateAsync(WorkTask task, long userId);
-        Task<List<WorkTask>> GetTasksAsync(long projectId);
         Task<WorkTask> GetTaskAsync(long id);
         Task<GetProjectTaskSelectInfo> GetProjectTaskSelectInfoAsync(long id, long userId);
         Task<WorkTask> GetTaskWithCommentsAsync(long id);
@@ -33,7 +32,6 @@ namespace TaskManagementApp.Models.Services.Interfaces
         Task<WorkTask> DeleteIfAccess(long id, long userId);
         Task<WorkTask> GetIfEditAccess(long id, long userId);
         Task<List<WorkTaskComment>> GetCommentsAsync(long taskId, long userId);
-        Task<WorkTask> GetByIdIfAccessAsync(long id, long userId);
         Task<WorkTaskComment> CreateCommentAsync(long taskId, string text, long userId);
 
     }

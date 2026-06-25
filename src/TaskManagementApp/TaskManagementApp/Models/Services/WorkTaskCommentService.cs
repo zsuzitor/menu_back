@@ -1,5 +1,5 @@
 ﻿
-using BO.Models.Auth;
+
 using BO.Models.TaskManagementApp.DAL.Domain;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TaskManagementApp.Models.Services.Interfaces;
@@ -12,16 +12,15 @@ namespace TaskManagementApp.Models.Services
     {
 
         private readonly IWorkTaskCommentRepository _workTaskCommentRepository;
-        private readonly IProjectUserService _projectUserService;
         private readonly IWorkTaskRepository _workTaskRepository;
+        private readonly ITasksManagmentAuthRepository _auth;
 
 
-        public WorkTaskCommentService(IWorkTaskCommentRepository workTaskCommentRepository,
-            IProjectUserService projectUserService, IWorkTaskRepository workTaskRepository)
+        public WorkTaskCommentService(IWorkTaskCommentRepository workTaskCommentRepository, IWorkTaskRepository workTaskRepository, ITasksManagmentAuthRepository auth)
         {
             _workTaskCommentRepository = workTaskCommentRepository;
-            _projectUserService = projectUserService;
             _workTaskRepository = workTaskRepository;
+            _auth = auth;
         }
 
         public async Task<WorkTaskComment> CreateAsync(WorkTaskComment comment)
@@ -38,7 +37,10 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.CommentNotFound);
             }
 
-            var task = await _workTaskRepository.GetAccessNoTrackAsync(comment.TaskId, userId);
+            if (!await _auth.CanEditTask(comment.TaskId, userId))
+                throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
+
+            var task = await _workTaskRepository.GetAsync(comment.TaskId, userId);
             if (task == null)
             {
                 throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
@@ -70,7 +72,11 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.CommentNotFound);
             }
 
-            var task = await _workTaskRepository.GetAccessNoTrackAsync(comment.TaskId, userId);
+
+            if (!await _auth.CanEditTask(comment.TaskId, userId))
+                throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
+
+            var task = await _workTaskRepository.GetAsync(comment.TaskId, userId);
             if (task == null)
             {
                 throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);

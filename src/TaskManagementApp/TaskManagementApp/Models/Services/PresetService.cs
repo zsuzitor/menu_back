@@ -1,13 +1,10 @@
-﻿using BO.Models.Auth;
+﻿
 using BO.Models.TaskManagementApp.DAL.Domain;
 using Common.Models.Exceptions;
 using Pipelines.Sockets.Unofficial.Arenas;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using TaskManagementApp.Models.DAL.Repositories;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TaskManagementApp.Models.Services.Interfaces;
 
@@ -16,22 +13,20 @@ namespace TaskManagementApp.Models.Services
     public class PresetService : IPresetService
     {
         private readonly IPresetCachedRepository _presetRepo;
-        private readonly IProjectRepository _projectRepository;
-        private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly IWorkTaskLabelCachedRepository _labelRepository;
         private readonly ITaskStatusCachedRepository _taskStatusRepository;
         private readonly IProjectUserService _projectUserService;
+        private readonly ITasksManagmentAuthRepository _auth;
 
-        public PresetService(IPresetCachedRepository presetRepo, IProjectRepository projectRepository
+        public PresetService(IPresetCachedRepository presetRepo
             , IWorkTaskLabelCachedRepository labelRepository, ITaskStatusCachedRepository taskStatusRepository
-            , IProjectUserService projectUserService, IProjectCachedRepository projectCacheRepository)
+            , IProjectUserService projectUserService,  ITasksManagmentAuthRepository auth)
         {
             _presetRepo = presetRepo;
-            _projectRepository = projectRepository;
             _labelRepository = labelRepository;
             _taskStatusRepository = taskStatusRepository;
             _projectUserService = projectUserService;
-            _projectCacheRepository = projectCacheRepository;
+            _auth = auth;
         }
 
         public async Task<Preset> CreateAsync(long projectId, string name, long userId)
@@ -41,7 +36,7 @@ namespace TaskManagementApp.Models.Services
                 throw new SomeCustomBadRequestException(Consts.ErrorConsts.PresetNotValide);
             }
 
-            var s = await ExistIfAccessAdminAsync(projectId, userId);
+            var s = await ExistIfAccessEditAsync(projectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -60,7 +55,7 @@ namespace TaskManagementApp.Models.Services
         {
             var oldPreset = await _presetRepo.GetAsync(presetId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.PresetNotFound);
 
-            var s = await ExistIfAccessAdminAsync(oldPreset.ProjectId, userId);
+            var s = await ExistIfAccessEditAsync(oldPreset.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -77,7 +72,7 @@ namespace TaskManagementApp.Models.Services
             }
             var oldPreset = await _presetRepo.GetWithLabelsAsync(preset.Id) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.PresetNotFound);
 
-            var s = await ExistIfAccessAdminAsync(oldPreset.ProjectId, userId);
+            var s = await ExistIfAccessEditAsync(oldPreset.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -170,8 +165,8 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<List<Preset>> GetAllAsync(long projectId, long userId)
         {
-            var s = await ExistIfAccessAdminAsync(projectId, userId);
-            if (!s)
+            var s = await _auth.CanAccessProject(projectId, userId);
+            if (!s.access)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -189,9 +184,9 @@ namespace TaskManagementApp.Models.Services
             return await _presetRepo.GetWithLabelsForProjectsync(projectId);
         }
 
-        private async Task<bool> ExistIfAccessAdminAsync(long id, long userId)
+        private async Task<bool> ExistIfAccessEditAsync(long id, long userId)
         {
-            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userId);
+            return await _auth.CanAdminEditProject(id, userId);
         }
     }
 }

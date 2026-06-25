@@ -1,6 +1,7 @@
 ﻿
 using BL.Models.Services;
 using BL.Models.Services.Interfaces;
+using BO.Models.DAL.Domain;
 using BO.Models.TaskManagementApp.DAL.Domain;
 using Common.Models.Exceptions;
 using Microsoft.Extensions.Configuration;
@@ -26,13 +27,14 @@ namespace TaskManagementApp.Models.Services
         private readonly ITaskStatusCachedRepository _taskStatusRepository;
         private readonly IConfiguration _configuration;
         private readonly IDateTimeProvider _dateTimeProvider;
+        private readonly ITasksManagmentAuthRepository _auth;
 
         public WorkTaskService(IWorkTaskRepository workTaskRepository, IProjectUserService projectUserService
             , IWorkTaskCommentService workTaskCommentService
             , ITaskManagementAppEmailService taskManagementAppEmailService
             , ITaskStatusCachedRepository taskStatusRepository
             , IConfiguration configuration, IDateTimeProvider dateTimeProvider
-            , IPresetCachedRepository presetRepository, IProjectCachedRepository projectCacheRepository)
+            , IPresetCachedRepository presetRepository, IProjectCachedRepository projectCacheRepository, ITasksManagmentAuthRepository auth)
         {
             _workTaskRepository = workTaskRepository;
             _projectUserService = projectUserService;
@@ -43,6 +45,7 @@ namespace TaskManagementApp.Models.Services
             _dateTimeProvider = dateTimeProvider;
             _presetRepository = presetRepository;
             _projectCacheRepository = projectCacheRepository;
+            _auth = auth;
         }
 
         public async Task<WorkTask> CreateAsync(WorkTask task, long userId)
@@ -64,11 +67,6 @@ namespace TaskManagementApp.Models.Services
             return addedTask;
         }
 
-        public async Task<List<WorkTask>> GetTasksAsync(long projectId)
-        {
-            return await _workTaskRepository.GetTasksByProjectIdAsync(projectId);
-
-        }
 
         /// <summary>
         /// без валидации
@@ -125,6 +123,7 @@ namespace TaskManagementApp.Models.Services
 
 
             var oldTask = await GetIfEditAccess(task.Id, userId);
+
             var prevTask = oldTask.CopyPlaneProp();
 
             if (task.StatusId != oldTask.StatusId)
@@ -234,7 +233,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<WorkTask> DeleteIfAccess(long id, long userId)
         {
-            var task = await GetByIdIfAccessAsync(id, userId);
+            var task = await GetIfEditAccess(id, userId);
             return await _workTaskRepository.DeleteAsync(task);
         }
 
@@ -242,8 +241,7 @@ namespace TaskManagementApp.Models.Services
         {
             var task = await _workTaskRepository.GetTaskWithCommentsAsync(taskId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
 
-            var projectAccessed = await _projectCacheRepository.ExistIfAccessAsync(task.ProjectId, userId);
-            if (!projectAccessed.access)
+            if (!await _auth.CanViewProject(task.ProjectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -251,19 +249,7 @@ namespace TaskManagementApp.Models.Services
             return task.Comments;
         }
 
-        public async Task<WorkTask> GetByIdIfAccessAsync(long id, long userId)
-        {
-            var task = await _workTaskRepository.GetAccessAsync(id, userId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
-            //var task = await _workTaskRepository.GetNoTrackAsync(id);
 
-            //var projectAccessed = await _projectRepository.ExistIfAccessAsync(task.ProjectId, userInfo.UserId);
-            //if (!projectAccessed.access)
-            //{
-            //    throw new SomeCustomException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
-            //}
-
-            return task;
-        }
 
         public async Task<WorkTaskComment> CreateCommentAsync(long taskId, string text, long userId)
         {
@@ -273,7 +259,7 @@ namespace TaskManagementApp.Models.Services
             }
 
             //todo много запросов что то получается
-            var task = await GetByIdIfAccessAsync(taskId, userId);
+            var task = await GetIfEditAccess(taskId, userId);
 
             var newComment = new WorkTaskComment() { CreatorId = userId, TaskId = taskId, Text = text, CreateDate = _dateTimeProvider.CurrentDateTime() };
             var comment = await _workTaskCommentService.CreateAsync(newComment);
@@ -302,11 +288,11 @@ namespace TaskManagementApp.Models.Services
         {
             var task = await _workTaskRepository.GetAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
 
-            var canAddToProject = await _projectCacheRepository.ExistIfAccessAsync(task.ProjectId, userId);
-            if (!canAddToProject.isAdmin)
+            if (!await _auth.CanEditProject(task.ProjectId, userId))
             {
-                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectHaveNoAccess);
+                throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
             }
+
 
             //тк любой человек в проекте должен иметь возможноть поменять название или исполнителя, это убрал
             //if (task.CreatorEntityId != userInfo.UserId && !canAddToProject.isAdmin)
@@ -326,8 +312,7 @@ namespace TaskManagementApp.Models.Services
         public async Task<WorkTask> CopyAsync(long id, long userId)
         {
             var task = await _workTaskRepository.GetTaskFullAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
-            var s = await ExistIfAccessAdminAsync(task.ProjectId, userId);
-            if (!s)
+            if (!await _auth.CanEditProject(task.ProjectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -407,8 +392,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<List<GetProjectTaskSelectInfo>> GetTaskByNameIdAsync(long projectId, string text, long userId)
         {
-            var canAddToProject = await _projectCacheRepository.ExistIfAccessAsync(projectId, userId);
-            if (!canAddToProject.isAdmin)
+            if (!await _auth.CanViewProject(projectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectHaveNoAccess);
             }
@@ -418,7 +402,7 @@ namespace TaskManagementApp.Models.Services
                 return new List<GetProjectTaskSelectInfo>();
             }
 
-            return await _workTaskRepository.GetTaskByNameIdAsync(projectId,text);
+            return await _workTaskRepository.GetTaskByNameIdAsync(projectId, text);
 
         }
 
@@ -565,10 +549,6 @@ namespace TaskManagementApp.Models.Services
             return fullUri;
         }
 
-        private async Task<bool> ExistIfAccessAdminAsync(long id, long userId)
-        {
-            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userId);
-        }
 
         public async Task<TaskName> GetTaskNameAsync(long id, long userId)
         {

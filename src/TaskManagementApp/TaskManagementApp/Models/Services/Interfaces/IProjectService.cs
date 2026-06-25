@@ -13,7 +13,6 @@ namespace TaskManagementApp.Models.Services.Interfaces
         Task<Project> GetByIdIfAccessAsync(long id, long userId);
         Task<Project> GetByIdIfAccessAdminAsync(long id, long userId);
 
-        Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, long userId);
         Task<bool> ExistIfAccessAdminAsync(long id, long userId);
 
         Task<Project> CreateAsync(string name, long userId);

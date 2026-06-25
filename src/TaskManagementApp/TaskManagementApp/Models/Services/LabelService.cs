@@ -12,17 +12,16 @@ namespace TaskManagementApp.Models.Services
     {
 
         private readonly IWorkTaskLabelCachedRepository _labelRepository;
-        private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly IWorkTaskRepository _workTaskRepository;
         private readonly ITasksManagmentAuthRepository _authRepository;
+
+
         public LabelService(IWorkTaskRepository workTaskRepository
-            , IWorkTaskLabelCachedRepository labelRepository
-            , IProjectCachedRepository projectCacheRepository,
+            , IWorkTaskLabelCachedRepository labelRepository,
 ITasksManagmentAuthRepository authRepository)
         {
             _labelRepository = labelRepository;
             _workTaskRepository = workTaskRepository;
-            _projectCacheRepository = projectCacheRepository;
             _authRepository = authRepository;
         }
 
@@ -30,7 +29,7 @@ ITasksManagmentAuthRepository authRepository)
         {
             var label = await _labelRepository.GetNoTrackAsync(labelId) ?? throw new SomeCustomException(Consts.ErrorConsts.LabelNotFound);
 
-            var s = await ExistIfAccessAdminAsync(label.ProjectId, userId);
+            var s = await ExistIfAccessEditAsync(label.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -55,7 +54,7 @@ ITasksManagmentAuthRepository authRepository)
 
         public async Task<WorkTaskLabel> Create(WorkTaskLabel req, long userId)
         {
-            var s = await ExistIfAccessAdminAsync(req.ProjectId, userId);
+            var s = await ExistIfAccessEditAsync(req.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -80,7 +79,7 @@ ITasksManagmentAuthRepository authRepository)
 
             var label = await _labelRepository.GetAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.LabelNotFound);
 
-            var s = await ExistIfAccessAdminAsync(label.ProjectId, userId);
+            var s = await ExistIfAccessEditAsync(label.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -92,8 +91,8 @@ ITasksManagmentAuthRepository authRepository)
 
         public async Task<List<WorkTaskLabel>> Get(long projectId, long userId)
         {
-            var s = await ExistIfAccessAdminAsync(projectId, userId);
-            if (!s)
+            var s = await _authRepository.CanAccessProject(projectId, userId);
+            if (!s.access)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -110,7 +109,7 @@ ITasksManagmentAuthRepository authRepository)
 
             var label = await _labelRepository.GetNoTrackAsync(labelId) ?? throw new SomeCustomException(Consts.ErrorConsts.LabelNotFound);
 
-            var s = await ExistIfAccessAdminAsync(label.ProjectId, userId);
+            var s = await ExistIfAccessEditAsync(label.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -124,7 +123,7 @@ ITasksManagmentAuthRepository authRepository)
         {
             var old = await _labelRepository.GetAsync(req.Id);
 
-            var s = await ExistIfAccessAdminAsync(old.ProjectId, userId);
+            var s = await ExistIfAccessEditAsync(old.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -153,7 +152,7 @@ ITasksManagmentAuthRepository authRepository)
 
             var task = await _workTaskRepository.GetWithLabelRelationAsync(taskId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
 
-            var s = await ExistIfAccessAdminAsync(task.ProjectId, userId);
+            var s = await ExistIfAccessEditAsync(task.ProjectId, userId);
             if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
@@ -192,7 +191,7 @@ ITasksManagmentAuthRepository authRepository)
             return true;
         }
 
-        private async Task<bool> ExistIfAccessAdminAsync(long id, long userId)
+        private async Task<bool> ExistIfAccessEditAsync(long id, long userId)
         {
             return await _authRepository.CanEditProject(id, userId);
         }

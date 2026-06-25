@@ -42,6 +42,9 @@ clear-cache - как то проверять роли
 конфиги все таки вынести под 1 ключ кеша?
 _emailService.SendEmailAsync(combinedForSend, _config); - обработка исключений и количество попыток SendTryCount
 отправка смс
+есть проблема - я проверяю роли пользаков что бы посомтреть могу ли я редачить что либо, но не проверяю активен ли проект - хотя в проджект репе(некоторые места) я на него смотрю, либо выпилить везде либо везде проверять
+askManagementApp\Models\DAL\Repositories\WorkTaskRepository.cs - GetAccessedIQuer рои недовынесены
+
 
 проверить var context = GlobalHost.ConnectionManager.GetHubContext<ChatHub>();
 

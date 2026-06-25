@@ -1,5 +1,4 @@
 ﻿using BL.Models.Services.Interfaces;
-using BO.Models.DAL.Domain;
 using BO.Models.TaskManagementApp.DAL;
 using BO.Models.TaskManagementApp.DAL.Domain;
 using DAL.Models.DAL;
@@ -24,6 +23,19 @@ namespace TaskManagementApp.Models.DAL.Repositories
         }
 
         public override async Task<bool> CanEditProject(long projectId, long userId)
+        {
+
+            var users = await _cache.GetAsync<List<ProjectUser>>(Consts.CacheKeys.UsersByProjectId + projectId);
+            if (users.Item1)
+            {
+                if (!users.Item2.Exists(u => u.MainAppUserId == userId && (u.Role == UserRoleEnum.Admin || u.Role == UserRoleEnum.Editor)))
+                    return false;
+            }
+
+            return await base.CanEditProject(projectId, userId);
+        }
+
+        public override async Task<bool> CanAdminEditProject(long projectId, long userId)
         {
 
             var users = await _cache.GetAsync<List<ProjectUser>>(Consts.CacheKeys.UsersByProjectId + projectId);
@@ -87,11 +99,24 @@ namespace TaskManagementApp.Models.DAL.Repositories
             throw new NotImplementedException();
         }
 
+
+
         public virtual async Task<bool> CanEditProject(long projectId, long userId)
         {
             //было бы конечно хорошо тут засовывать в кеш, но тогда тут будет дублирование логики из репозитория, либо репо как зависимость подключать что все сильно условжняет
-            return await _db.TaskManagementProjectUsers.AnyAsync(u => u.MainAppUserId == userId && u.Role == UserRoleEnum.Admin && u.ProjectId == projectId);
+            return await _db.TaskManagementProjectUsers.AnyAsync(u => u.MainAppUserId == userId && (u.Role == UserRoleEnum.Admin || u.Role == UserRoleEnum.Editor) && u.ProjectId == projectId);
 
+        }
+
+        public virtual async Task<bool> CanAdminEditProject(long projectId, long userId)
+        {
+            //было бы конечно хорошо тут засовывать в кеш, но тогда тут будет дублирование логики из репозитория, либо репо как зависимость подключать что все сильно условжняет
+            return await _db.TaskManagementProjectUsers.AnyAsync(u => u.MainAppUserId == userId && u.Role == UserRoleEnum.Admin && u.ProjectId == projectId);
+        }
+
+        public async Task<bool> CanViewProject(long projectId, long userId)
+        {
+            return await _db.TaskManagementProjectUsers.AnyAsync(u => u.MainAppUserId == userId && u.Role != UserRoleEnum.Deactivated && u.ProjectId == projectId);
         }
 
         public virtual async Task<bool> CanEditTask(long taskId, long userId)
@@ -102,6 +127,18 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return false;
             }
             return await this.CanEditProject(task.ProjectId, userId);
+        }
+
+
+
+        public async Task<bool> CanViewTask(long taskId, long userId)
+        {
+            var task = await _db.TaskManagementTasks.FirstOrDefaultAsync(x => x.Id == taskId);
+            if (task == null)
+            {
+                return false;
+            }
+            return await this.CanViewProject(task.ProjectId, userId);
         }
 
         public Expression<Func<ProjectUser, bool>> IsAccess(long userId)
@@ -134,5 +171,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
             return (false, false);
         }
+
+
     }
 }

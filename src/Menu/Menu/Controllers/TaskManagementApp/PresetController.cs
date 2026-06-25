@@ -42,7 +42,7 @@ namespace Menu.Controllers.TaskManagementApp
         [Route("get-all")]
         [HttpGet]
         [CustomAuthorize]
-        public async Task<ActionResult<List<PresetReturn>>> GetLabels(long projectId)
+        public async Task<ActionResult<List<PresetReturn>>> GetPresets(long projectId)
         {
             var userId = User.GetUserId();
             var res = await _presetService.GetAllAsync(projectId, userId);

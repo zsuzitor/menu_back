@@ -12,15 +12,14 @@ namespace TaskManagementApp.Models.Services
     public sealed class ProjectUserService : IProjectUserService
     {
         private readonly IProjectUserCahcedRepository _projectUserRepository;
-        private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly IUserRepository _userRepo;
+        private readonly ITasksManagmentAuthRepository _auth;
 
-        public ProjectUserService(IProjectUserCahcedRepository projectUserRepository
-            , IProjectCachedRepository projectCacheRepository, IUserRepository userRepo)
+        public ProjectUserService(IProjectUserCahcedRepository projectUserRepository, IUserRepository userRepo, ITasksManagmentAuthRepository auth)
         {
             _projectUserRepository = projectUserRepository;
-            _projectCacheRepository = projectCacheRepository;
             _userRepo = userRepo;
+            _auth = auth;
         }
 
         public async Task<ProjectUser> CreateAsync(ProjectUser user)
@@ -37,13 +36,7 @@ namespace TaskManagementApp.Models.Services
             return await _projectUserRepository.AddAsync(user);
         }
 
-        public async Task<List<ProjectUser>> GetProjectUsersAccessAsync(long projectId, long userId)
-        {
 
-            await ThrowIfNotAccessToProject(projectId, userId, false);
-
-            return await _projectUserRepository.GetProjectUsersWithMainAppUserAsync(projectId);
-        }
 
         public async Task<List<ProjectUser>> GetProjectUsersAsync(long projectId)
         {
@@ -59,7 +52,8 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<ProjectUser> ChangeAsync(long userIdForChange, long projectId,  bool isAdmin, bool deactivated, long userId)
         {
-            await ThrowIfNotAccessToProject(userId, projectId, true);
+            if (!await _auth.CanAdminEditProject(projectId, userId))
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
 
             var user = await _projectUserRepository.GetByMainAppUserIdAsync(userIdForChange, projectId);
             if (user == null)
@@ -95,7 +89,8 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<ProjectUser> DeleteAsync(long userIdForDel, long projectId, long userId)
         {
-            await ThrowIfNotAccessToProject(userId, projectId, true);
+            if (!await _auth.CanAdminEditProject(projectId, userId))
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
 
             var user = await _projectUserRepository.GetByMainAppUserIdAsync(userIdForDel, projectId);
             if (user == null)
@@ -118,29 +113,6 @@ namespace TaskManagementApp.Models.Services
             return user;
         }
 
-        public async Task<ProjectUser> GetByMainAppIdAsync(long userId, long projectId)
-        {
-            var user = await _projectUserRepository.GetByMainAppUserIdAsync(userId, projectId);
-            if (user.Role == UserRoleEnum.Deactivated)
-            {
-                return null;
-            }
-
-            return user;
-        }
-
-
-        public async Task<ProjectUser> GetAdminByMainAppIdAsync(long userId, long projectId)
-        {
-            var user = await _projectUserRepository.GetByMainAppUserIdAsync(userId, projectId);
-            if (user.Role != UserRoleEnum.Admin)
-            {
-                return null;
-            }
-
-            return user;
-        }
-
 
         public async Task<string> GetNotificationEmailAsync(long userId)
         {
@@ -149,24 +121,6 @@ namespace TaskManagementApp.Models.Services
 
 
 
-        private async Task ThrowIfNotAccessToProject(long mainAppUserId, long projectId, bool isAdmin)
-        {
-            var res = await _projectCacheRepository.ExistIfAccessAsync(projectId, mainAppUserId);
-            //var userCurrent = await _projectUserRepository.GetByMainAppUserIdAsync(mainAppUserId, projectId);
-            //if (userCurrent == null || !userCurrent.IsAdmin || userCurrent.Deactivated)
-            //{
-            //    throw new SomeCustomException(Consts.ErrorConsts.HaveNoAccessToEditProject);
-            //}
-            if (!res.access || (isAdmin && !res.isAdmin))
-            {
-                throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
-            }
-        }
-
-        //public async Task<List<ProjectUser>> GetProjectUserAsync(long projectId, List<long> usersId)
-        //{
-        //    return await _projectUserRepository.GetProjectUserAsync(projectId, usersId);
-        //}
 
 
     }

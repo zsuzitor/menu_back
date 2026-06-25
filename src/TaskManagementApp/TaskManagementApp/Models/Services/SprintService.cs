@@ -13,24 +13,21 @@ namespace TaskManagementApp.Models.Services
     internal class SprintService : ISprintService
     {
         private readonly ISprintCachedRepository _sprintRepository;
-        private readonly IProjectRepository _projectRepository;
-        private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly IWorkTaskRepository _workTaskRepository;
-        public SprintService(ISprintCachedRepository sprintRepository, IProjectRepository projectRepository
-            , IWorkTaskRepository workTaskRepository, IProjectCachedRepository projectCacheRepository)
+        private readonly ITasksManagmentAuthRepository _auth;
+        public SprintService(ISprintCachedRepository sprintRepository
+            , IWorkTaskRepository workTaskRepository, ITasksManagmentAuthRepository auth)
         {
             _sprintRepository = sprintRepository;
-            _projectRepository = projectRepository;
             _workTaskRepository = workTaskRepository;
-            _projectCacheRepository = projectCacheRepository;
+            _auth = auth;
         }
 
         public async Task<bool> AddTaskToSprint(long sprintId, long taskId, long userId)
         {
             var sprint = await _sprintRepository.GetNoTrackAsync(sprintId) ?? throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
 
-            var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userId);
-            if (!s)
+            if (!await _auth.CanEditProject(sprint.ProjectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -54,9 +51,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<ProjectSprint> Create(ProjectSprint req, long userId)
         {
-
-            var s = await ExistIfAccessAdminAsync(req.ProjectId, userId);
-            if (!s)
+            if (!await _auth.CanEditProject(req.ProjectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -73,8 +68,7 @@ namespace TaskManagementApp.Models.Services
         public async Task<ProjectSprint> Update(ProjectSprint req, long userId)
         {
             var sprint = await _sprintRepository.GetAsync(req.Id) ?? throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
-            var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userId);
-            if (!s)
+            if (!await _auth.CanEditProject(sprint.ProjectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -91,8 +85,7 @@ namespace TaskManagementApp.Models.Services
         {
             var sprint = await _sprintRepository.GetAsync(id) ?? throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
 
-            var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userId);
-            if (!s)
+            if (!await _auth.CanEditProject(sprint.ProjectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -106,8 +99,7 @@ namespace TaskManagementApp.Models.Services
 
             var sprint = await _sprintRepository.GetNoTrackAsync(sprintId) ?? throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
 
-            var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userId);
-            if (!s)
+            if (!await _auth.CanEditProject(sprint.ProjectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -120,9 +112,7 @@ namespace TaskManagementApp.Models.Services
         {
             var sprint = await _sprintRepository.GetNoTrackAsync(sprintId) ?? throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
 
-
-            var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userId);
-            if (!s)
+            if (!await _auth.CanViewProject(sprint.ProjectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -135,8 +125,7 @@ namespace TaskManagementApp.Models.Services
 
             var sprint = await _sprintRepository.GetWithTasks(sprintId) ?? throw new SomeCustomException(Consts.ErrorConsts.SprintNotFound);
 
-            var s = await ExistIfAccessAdminAsync(sprint.ProjectId, userId);
-            if (!s)
+            if (!await _auth.CanViewProject(sprint.ProjectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -154,8 +143,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<List<ProjectSprint>> GetForProjectWithRights(long projectId, long userId)
         {
-            var s = await ExistIfAccessAdminAsync(projectId, userId);
-            if (!s)
+            if (!await _auth.CanViewProject(projectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -180,8 +168,7 @@ namespace TaskManagementApp.Models.Services
 
             var task = await _workTaskRepository.GetWithSprintRelationAsync(taskId) ?? throw new SomeCustomException(Consts.ErrorConsts.TaskNotFound);
 
-            var s = await ExistIfAccessAdminAsync(task.ProjectId, userId);
-            if (!s)
+            if (!await _auth.CanEditProject(task.ProjectId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }
@@ -215,18 +202,6 @@ namespace TaskManagementApp.Models.Services
             return true;
         }
 
-
-
-
-        private async Task<(bool access, bool isAdmin)> ExistIfAccessAsync(long id, long userId)
-        {
-            return await _projectCacheRepository.ExistIfAccessAsync(id, userId);
-        }
-
-        private async Task<bool> ExistIfAccessAdminAsync(long id, long userId)
-        {
-            return await _projectCacheRepository.ExistIfAccessAdminAsync(id, userId);
-        }
 
  
     }

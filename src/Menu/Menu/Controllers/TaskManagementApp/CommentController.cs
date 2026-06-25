@@ -1,17 +1,14 @@
 ﻿using Auth.Models.Auth;
-using Common.Models;
 using Common.Models.Return;
 using jwtLib.JWTAuth.Interfaces;
 using Menu.Host.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using TaskManagementApp.Models.Returns;
-using TaskManagementApp.Models.Services;
 using TaskManagementApp.Models.Services.Interfaces;
 using WEB.Common.Models.Helpers.Interfaces;
 
@@ -25,19 +22,16 @@ namespace Menu.Controllers.TaskManagementApp
     public class CommentController : ControllerBase
     {
 
-        private readonly IJWTService _jwtService;
         private readonly IApiHelper _apiHealper;
 
         private readonly IWorkTaskService _workTaskService;
         private readonly IWorkTaskCommentService _workTaskCommentService;
 
 
-        public CommentController(
-             IJWTService jwtService, IApiHelper apiHealper
+        public CommentController(  IApiHelper apiHealper
             , IWorkTaskService workTaskService,
              IWorkTaskCommentService workTaskCommentService)
         {
-            _jwtService = jwtService;
             _apiHealper = apiHealper;
 
             _workTaskService = workTaskService;

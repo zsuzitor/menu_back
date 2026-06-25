@@ -1,6 +1,7 @@
 ﻿using BL.Models.Services.Interfaces;
 using BO.Models.TaskManagementApp.DAL.Domain;
 using Common.Models.Exceptions;
+using Pipelines.Sockets.Unofficial.Arenas;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -16,24 +17,25 @@ namespace TaskManagementApp.Models.Services
         private readonly IProjectCachedRepository _projectCacheRepository;
         private readonly IWorkTaskRepository _workTaskRepository;
         private readonly IDateTimeProvider _dateTimeProvider;
+        private readonly ITasksManagmentAuthRepository _auth;
 
 
         public WorkTimeLogService(IWorkTimeLogRepository workTimeLogRepository, IProjectRepository projectRepository
             , IWorkTaskRepository workTaskRepository
-            , IDateTimeProvider dateTimeProvider, IProjectCachedRepository projectCacheRepository)
+            , IDateTimeProvider dateTimeProvider, IProjectCachedRepository projectCacheRepository, ITasksManagmentAuthRepository auth)
         {
             _workTimeLogRepository = workTimeLogRepository;
             _projectRepository = projectRepository;
             _workTaskRepository = workTaskRepository;
             _dateTimeProvider = dateTimeProvider;
             _projectCacheRepository = projectCacheRepository;
+            _auth = auth;
         }
 
         public async Task<WorkTimeLog> CreateAsync(WorkTimeLog obj, long userId)
         {
             ValidateTimeLog(obj);
-            var access = await _workTaskRepository.HaveAccessAsync(obj.WorkTaskId, userId);
-            if (!access)
+            if (!await _auth.CanEditTask(obj.WorkTaskId, userId))
             {
                 throw new SomeCustomException(Consts.ErrorConsts.TaskLogTimeNotFound);
             }
@@ -115,8 +117,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<List<WorkTimeLog>> GetTimeForProjectAsync(long projectId, DateTime startDate, DateTime endDate, long currentUserId, long? userId)
         {
-            var access = await _projectCacheRepository.ExistIfAccessAsync(projectId, currentUserId);
-            if (!access.access)
+            if (!await _auth.CanViewProject(projectId, currentUserId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectHaveNoAccess);
             }
@@ -126,8 +127,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<List<WorkTimeLog>> GetTimeForTaskAsync(long taskId, long userId)
         {
-            var access = await _workTaskRepository.HaveAccessAsync(taskId, userId);
-            if (!access)
+            if (!await _auth.CanViewTask(taskId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectHaveNoAccess);
             }
