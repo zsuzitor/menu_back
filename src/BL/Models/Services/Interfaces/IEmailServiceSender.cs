@@ -11,15 +11,22 @@ namespace BL.Models.Services.Interfaces
     /// </summary>
     public interface IEmailServiceSender
     {
-        Task SendEmailAsync(string nameFrom, string emailFrom
+        Task<bool> SendEmailAsync(string nameFrom, string emailFrom
             , string email, string subject, string message,
             string mailingHost, int mailingPort, string mailingLogin, string mailingPassword);
-        Task SendEmailAsync(string email, string subject, string message,
+        Task<bool> SendEmailAsync(string email, string subject, string message,
             MailSendingInstanceConfig config);
 
-        Task SendEmailAsync(OneMail oneMail,
+        Task<bool> SendEmailAsync(OneMail oneMail,
             MailSendingInstanceConfig config);
-        Task SendEmailAsync(List<OneMail> mails,
+
+        /// <summary>
+        /// отправить письма
+        /// </summary>
+        /// <param name="mails"></param>
+        /// <param name="config"></param>
+        /// <returns>Письма отправка которых завершилась с ошибкой</returns>
+        Task<List<long>> SendEmailAsync(List<OneMail> mails,
             MailSendingInstanceConfig config);
 
     }

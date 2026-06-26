@@ -59,10 +59,20 @@ namespace BL.Models.Services
                 SendTryCount = 0,
             });
 
-            await _emailService.SendEmailAsync(email, subject, message, _config);
+            try
+            {
+                var complete = await _emailService.SendEmailAsync(email, subject, message, _config);
+                rec.SendTryCount = rec.SendTryCount + 1;
+                if (complete)
+                {
+                    rec.SendedDate = _dateTimeProvider.CurrentDateTime();
+                }
+            }
+            catch
+            {
+                //rec.SendTryCount = rec.SendTryCount + 1;//хз надо или нет
+            }
 
-            rec.SendedDate = _dateTimeProvider.CurrentDateTime();
-            rec.SendTryCount = rec.SendTryCount + 1;
             await _notificationRepository.UpdateAsync(rec);
         }
 
@@ -127,29 +137,44 @@ namespace BL.Models.Services
                 return;
             }
 
-            var combinedForSend = new List<OneMail>();
-            var groupedByEmail = localForSend.GroupBy(x => x.Email);
-            foreach (var groupByMail in groupedByEmail)
+            var combinedForSend = localForSend.Select(x => new OneMail()
             {
-                var groupedBySubject = groupByMail.ToList().GroupBy(x => x.Subject);
-                foreach (var groupBySubject in groupedBySubject)
-                {
-                    var messagesBody = groupBySubject.ToList().Select(x => x.Message).Distinct();
+                Email = x.Email,
+                Subject = x.Subject,
+                Message = x.Message,
+                Id = x.Id,
+            }).ToList();
+            //var combinedForSend = new List<OneMail>();
+            //var groupedByEmail = localForSend.GroupBy(x => x.Email);
+            //foreach (var groupByMail in groupedByEmail)
+            //{
+            //    var groupedBySubject = groupByMail.ToList().GroupBy(x => x.Subject);
+            //    foreach (var groupBySubject in groupedBySubject)
+            //    {
+            //        var messagesBody = groupBySubject.ToList().Select(x => x.Message).Distinct();
 
-                    combinedForSend.Add(new OneMail()
-                    {
-                        Email = groupByMail.Key,
-                        Subject = groupBySubject.Key,
-                        Message = string.Join('\n', messagesBody),
-                    });
+            //        combinedForSend.Add(new OneMail()
+            //        {
+            //            Email = groupByMail.Key,
+            //            Subject = groupBySubject.Key,
+            //            Message = string.Join('\n', messagesBody),
+            //        });
+            //    }
+            //}
+
+            var errors = await _emailService.SendEmailAsync(combinedForSend, _config);
+            foreach (var mail in localForSend)
+            {
+                mail.SendTryCount = mail.SendTryCount + 1;
+                if (!errors.Any(x=>x == mail.Id))
+                {
+                    mail.SendedDate = _dateTimeProvider.CurrentDateTime();
                 }
             }
 
-            await _emailService.SendEmailAsync(combinedForSend, _config);
-            localForSend.ForEach(x => {
-                x.SendedDate = _dateTimeProvider.CurrentDateTime();
-                x.SendTryCount = x.SendTryCount + 1;
-            });
+            //localForSend.ForEach(x => {
+            //    x.SendedDate = _dateTimeProvider.CurrentDateTime();
+            //});
             await _notificationRepository.UpdateAsync(localForSend);
         }
         public virtual async Task SendQueueAsync()
