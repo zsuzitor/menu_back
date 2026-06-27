@@ -5,17 +5,17 @@ using System.Threading.Tasks;
 
 namespace DAL.Models.DAL.Repositories
 {
-    public class ImageDataIOStorage : IImageDataStorage
+    public class FileDataIOStorage : IFileDataStorage
     {
 
-        private readonly IFileService _fileService;
+        private readonly IPhysicalFileService _fileService;
         //private readonly IWebHostEnvironment _webHostEnvironment;//не хочу тут на это ссылаться, поэтому просто static строкой. _webHostEnvironment.WebRootPath
         private static string WebRootPath;
 
-        const string PathFiles = "Files";
+        const string PathFiles = "files";
 
 
-        public ImageDataIOStorage(IFileService fileService, ImageConfig settings)
+        public FileDataIOStorage(IPhysicalFileService fileService, ImageConfig settings)
         {
             _fileService = fileService;
             WebRootPath = settings.PhysicalPath;

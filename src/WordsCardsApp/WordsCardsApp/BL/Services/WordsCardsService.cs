@@ -22,11 +22,11 @@ namespace WordsCardsApp.BL.Services
     {
         private readonly IWordsCardsRepository _wordCardRepository;
         private readonly IWordsListRepository _wordCardListsRepository;
-        private readonly IImageService _imageService;
+        private readonly IFileService _imageService;
         private readonly IDBHelper _dbHelper;
         private readonly MenuDbContext _db;
 
-        public WordsCardsService(IWordsCardsRepository repository, IImageService imageService
+        public WordsCardsService(IWordsCardsRepository repository, IFileService imageService
             , IWordsListRepository wordCardListsRepository, IDBHelper dbHelper, MenuDbContext db)
         {
             _wordCardRepository = repository;
@@ -240,7 +240,7 @@ namespace WordsCardsApp.BL.Services
                     WordAnswer = strData[1].Trim(),
                     Description = strData[2].Trim(),
                     Hided = bool.Parse(strData[3].Trim()),
-                    Image = new CustomImage() { Path = strData[4].Trim() },
+                    Image = new CustomFile() { Path = strData[4].Trim() },
                     UserId = userInfo.UserId,
                 });
             }

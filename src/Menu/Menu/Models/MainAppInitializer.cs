@@ -44,7 +44,7 @@ namespace Menu.Models
         public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IImageRepository, ImageRepository>();
+            services.AddScoped<IFileRepository, FileRepository>();
             services.AddScoped<IGeneralRepositoryStrategy, GeneralRepositoryStrategy>();
             services.AddScoped<INotificationRepository, NotificationRepository>();
             services.AddScoped<IConfigurationRepository, ConfigurationRepository>();
@@ -53,9 +53,9 @@ namespace Menu.Models
 
         public IStartUpInitializer ServicesInitialize(IServiceCollection services)
         {
-            services.AddSingleton<IFileService, PhysicalFileService>();
+            services.AddSingleton<DAL.Models.DAL.Repositories.Interfaces.IPhysicalFileService, PhysicalFileService>();
             services.AddScoped<IErrorService, ErrorService>();
-            services.AddScoped<IImageService, ImageService>();
+            services.AddScoped<Services.Interfaces.IFileService, FileService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IConfigurationService, ConfigurationService>();
             services.AddScoped<DefaultEmailService, DefaultEmailService>();
@@ -73,14 +73,14 @@ namespace Menu.Models
         public IStartUpInitializer WorkersInitialize(IServiceProvider serviceProvider)
         {
 
-            Expression<Action<IImageService>> actClean = imgSrv => imgSrv.DeleteNotActualFiles();//.Wait();
+            Expression<Action<Services.Interfaces.IFileService>> actClean = imgSrv => imgSrv.DeleteNotActualFiles();//.Wait();
             var worker = serviceProvider.GetRequiredService<IWorker>();
             var conf = serviceProvider.GetRequiredService<IConfiguration>();
             worker.Recurring("phys_images_clean", conf["ImageSettings:PhysImagesCleanCron"], actClean);
 
             var mailConfigs = serviceProvider.GetRequiredService<MailSendingConfig>();
             var mailConfig = mailConfigs.Values["DefaultMailSettings"];
-            Expression<Action<DefaultEmailService>> actAlert = prSrv => prSrv.SendQueueAsync().GetAwaiter().GetResult();//.Wait();
+            Expression<Action<DefaultEmailService>> actAlert = prSrv => prSrv.SendQueue();//.Wait();
             worker.Recurring("main_app_alert", mailConfig.NotificationJobCron, actAlert);
 
 

@@ -11,7 +11,7 @@ namespace PlaningPoker.Models.Entity
         public long? Id { get; set; }//только для уже существующих в бд записей
         public string Name { get; set; }
         public string Password { get; set; }
-        public CustomImage Image { get; set; }//todo можно создать укороченный тип
+        public CustomFile Image { get; set; }//todo можно создать укороченный тип
 
 
         public DateTime DieDate { get; set; }

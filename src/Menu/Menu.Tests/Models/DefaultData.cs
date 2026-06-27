@@ -54,20 +54,20 @@ namespace Menu.Tests.Models
 
             db.Articles.AddRange(articlesForAdd);
             db.SaveChanges();
-            var imagesForAdd = new List<CustomImage>()
+            var imagesForAdd = new List<CustomFile>()
             {
-                new CustomImage()
+                new CustomFile()
                 {
                     Path = "test_path_1",
                     ArticleId = articlesForAdd[0].Id,
                 },
-                new CustomImage()
+                new CustomFile()
                 {
                     Path = "test_path_2",
                     ArticleId = articlesForAdd[0].Id,
                 },
             };
-            db.Images.AddRange(imagesForAdd);
+            db.Files.AddRange(imagesForAdd);
             db.SaveChanges();
 
 

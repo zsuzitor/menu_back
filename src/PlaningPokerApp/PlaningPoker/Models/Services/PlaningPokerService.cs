@@ -39,7 +39,7 @@ namespace PlaningPoker.Models.Services
         private readonly IErrorService _errorService;
         private readonly IConfigurationService _configurationService;
         private readonly IHasher _hasher;
-        private readonly IImageService _imageService;
+        private readonly IFileService _imageService;
         private readonly IDateTimeProvider _dateTimeProvider;
 
 
@@ -61,7 +61,7 @@ namespace PlaningPoker.Models.Services
                  IHasher hasher,
                 IDBHelper dbHelper, MenuDbContext db,
                 IPlaningUserRepository planingUserRepository,
-                IImageService imageService,
+                IFileService imageService,
                 IDateTimeProvider dateTimeProvider
             )
         {
@@ -1274,7 +1274,7 @@ namespace PlaningPoker.Models.Services
                 {
                     var roomDb = await _roomRepository.GetByNameAsync(roomName);
 
-                    CustomImage imageRecord = null;
+                    CustomFile imageRecord = null;
                     if (image != null)
                     {
                         imageRecord = await _imageService.Upload(image);

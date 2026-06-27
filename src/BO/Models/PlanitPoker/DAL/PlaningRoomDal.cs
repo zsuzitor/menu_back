@@ -12,7 +12,7 @@ namespace BO.Models.PlaningPoker.DAL
         public string Name { get; set; }
         public string Password { get; set; }
         public long? ImageId { get; set; }
-        public CustomImage Image { get; set; }
+        public CustomFile Image { get; set; }
 
 
         public List<PlaningStoryDal> Stories { get; set; }

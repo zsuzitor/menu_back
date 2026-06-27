@@ -1,16 +1,13 @@
 ﻿using BO.Models.DAL.Domain;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DAL.Models.DAL.ContextSetup
 {
-    internal static class CustomImageBuilder
+    internal static class CustomFileBuilder
     {
-        public static void CustomImageBuild(this ModelBuilder modelBuilder)
+        public static void CustomFileBuild(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CustomImage>(entity =>
+            modelBuilder.Entity<CustomFile>(entity =>
             {
                 entity.HasKey(x => x.Id);
 
@@ -18,7 +15,7 @@ namespace DAL.Models.DAL.ContextSetup
                 entity.Property(p => p.RowVersion)
                     .IsRowVersion() // Автоматически обновляется SQL Server
                     .IsConcurrencyToken(); // Включает проверку на конфликты
-                entity.ToTable("Images");
+                entity.ToTable("Files");
             });
 
         }

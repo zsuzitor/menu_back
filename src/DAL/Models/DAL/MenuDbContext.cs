@@ -30,7 +30,7 @@ namespace DAL.Models.DAL
 
         #region menu
         public DbSet<User> Users { get; set; }
-        public DbSet<CustomImage> Images { get; set; }
+        public DbSet<CustomFile> Files { get; set; }
         #endregion menu
 
         #region menuApp
@@ -98,7 +98,7 @@ namespace DAL.Models.DAL
             modelBuilder.MainNLogEntityBuild();
             modelBuilder.UserBuild();
             modelBuilder.ArticleBuild();
-            modelBuilder.CustomImageBuild();
+            modelBuilder.CustomFileBuild();
             modelBuilder.NotificationBuild();
             modelBuilder.ConfigurationBuild();
 

@@ -13,7 +13,7 @@ namespace BO.Models.Return
         [JsonPropertyName("article_id")]
         public long? ArticleId { get; set; }
 
-        public CustomImageReturn(CustomImage obj)
+        public CustomImageReturn(CustomFile obj)
         {
             Id = obj?.Id?? 0;
             Path = obj?.Path;

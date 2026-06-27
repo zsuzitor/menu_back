@@ -90,7 +90,7 @@ namespace Auth.Models.Auth
             var worker = serviceProvider.GetRequiredService<IWorker>();
             var mailConfigs = serviceProvider.GetRequiredService<MailSendingConfig>();
             var mailConfig = mailConfigs.Values["AuthMailSettings"];
-            Expression<Action<AuthEmailService>> actAlert = prSrv => prSrv.SendQueueAsync().GetAwaiter().GetResult();//.Wait();
+            Expression<Action<AuthEmailService>> actAlert = prSrv => prSrv.SendQueue();//.Wait();
             worker.Recurring("main_app_auth_alert", mailConfig.NotificationJobCron, actAlert);
             
 

@@ -4,7 +4,6 @@
 using BL.Models.Services.Interfaces;
 using BO.Models.DAL.Domain;
 using DAL.Models.DAL.Repositories.Interfaces;
-using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -13,22 +12,22 @@ using System.Threading.Tasks;
 
 namespace Menu.Models.Services
 {
-    public sealed class ImageService : IImageService
+    public sealed class FileService : Interfaces.IFileService
     {
 
-        private readonly IImageRepository _imageRepository;
-        private readonly IImageDataStorage _imageDataStorage;
+        private readonly IFileRepository _imageRepository;
+        private readonly IFileDataStorage _imageDataStorage;
         private readonly IDateTimeProvider _dateTimeProvider;
 
 
-        public ImageService(IImageRepository imgRep, IImageDataStorage imageDataStorage, IDateTimeProvider dateTimeProvider)
+        public FileService(IFileRepository imgRep, IFileDataStorage imageDataStorage, IDateTimeProvider dateTimeProvider)
         {
             _imageRepository = imgRep;
             _imageDataStorage = imageDataStorage;
             _dateTimeProvider = dateTimeProvider;
         }
 
-        public  async Task<CustomImage> Upload(IFormFile image, Action<CustomImage> beforeCreate)
+        public  async Task<CustomFile> Upload(IFormFile image, Action<CustomFile> beforeCreate)
         {
             if (image == null)
             {
@@ -37,7 +36,7 @@ namespace Menu.Models.Services
 
             var physImg = await CreateUploadFileWithOutDbRecord(image);
 
-            var res = new CustomImage()
+            var res = new CustomFile()
             {
                 Path = physImg,
             };
@@ -54,14 +53,14 @@ namespace Menu.Models.Services
         /// <param name="images"></param>
         /// <param name="beforeCreate"></param>
         /// <returns></returns>
-        public async Task<List<CustomImage>> GetCreatableUploadObjects(List<IFormFile> images, Action<CustomImage> beforeCreate)
+        public async Task<List<CustomFile>> GetCreatableUploadObjects(List<IFormFile> images, Action<CustomFile> beforeCreate)
         {
             if (images == null || images.Count == 0)
             {
                 return null;
             }
 
-            List<CustomImage> imagesForAdd = new List<CustomImage>();
+            List<CustomFile> imagesForAdd = new List<CustomFile>();
             foreach (var uploadedImg in images)
             {
                 var img = await GetCreatableUploadObjects(uploadedImg, beforeCreate);
@@ -72,7 +71,7 @@ namespace Menu.Models.Services
             return imagesForAdd;
         }
 
-        public async Task<CustomImage> GetCreatableUploadObjects(IFormFile image, Action<CustomImage> beforeCreate)
+        public async Task<CustomFile> GetCreatableUploadObjects(IFormFile image, Action<CustomFile> beforeCreate)
         {
             if (image == null)
             {
@@ -80,7 +79,7 @@ namespace Menu.Models.Services
             }
 
             var physImg = await CreateUploadFileWithOutDbRecord(image);
-            var img = new CustomImage()
+            var img = new CustomFile()
             {
                 Path = physImg,
             };
@@ -96,12 +95,12 @@ namespace Menu.Models.Services
         /// <param name="images"></param>
         /// <param name="beforeCreate"></param>
         /// <returns></returns>
-        public async Task<List<CustomImage>> Upload(List<IFormFile> images, Action<CustomImage> beforeCreate)
+        public async Task<List<CustomFile>> Upload(List<IFormFile> images, Action<CustomFile> beforeCreate)
         {
             var res = await GetCreatableUploadObjects(images, beforeCreate);
             if (res == null || res.Count == 0)
             {
-                return new List<CustomImage>();
+                return new List<CustomFile>();
             }
 
             await _imageRepository.AddAsync(res);
@@ -152,14 +151,14 @@ namespace Menu.Models.Services
         }
 
 
-        public async Task<CustomImage> DeleteById(long idImage)
+        public async Task<CustomFile> DeleteById(long idImage)
         {
             var imgFromDb = await _imageRepository.GetAsync(idImage);
             if (imgFromDb == null)
             {
                 return null;
             }
-            return (await DeleteFull(new List<CustomImage>() { imgFromDb })).FirstOrDefault();
+            return (await DeleteFull(new List<CustomFile>() { imgFromDb })).FirstOrDefault();
         }
 
         public async Task<List<long>> GetIdsByArticleId(long idArticle)
@@ -168,22 +167,22 @@ namespace Menu.Models.Services
         }
 
         //до вызова надо проверить можно ли получить доступ
-        public async Task<List<CustomImage>> DeleteById(List<long> idImages)
+        public async Task<List<CustomFile>> DeleteById(List<long> idImages)
         {
             if (idImages == null || idImages.Count == 0)
             {
-                return new List<CustomImage>();
+                return new List<CustomFile>();
             }
 
             var imgFromDb = await _imageRepository.GetAsync(idImages);
             return await DeleteFull(imgFromDb);
         }
 
-        public async Task<List<CustomImage>> DeleteFull(List<CustomImage> images)
+        public async Task<List<CustomFile>> DeleteFull(List<CustomFile> images)
         {
             if (images == null || images?.Count == 0)
             {
-                return new List<CustomImage>();
+                return new List<CustomFile>();
             }
 
             await _imageRepository.DeleteAsync(images);
@@ -196,7 +195,7 @@ namespace Menu.Models.Services
             return images;
         }
 
-        public async Task<CustomImage> Upload(IFormFile image)
+        public async Task<CustomFile> Upload(IFormFile image)
         {
             var res = await GetCreatableUploadObjects(image, null);
 
@@ -204,7 +203,7 @@ namespace Menu.Models.Services
             return res;
         }
 
-        public async Task<CustomImage> GetById(long idImage)
+        public async Task<CustomFile> GetById(long idImage)
         {
             return await _imageRepository.GetAsync(idImage);
         }

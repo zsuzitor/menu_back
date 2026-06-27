@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models.DAL.Repositories
 {
-    public class PhysicalFileService : IFileService
+    public class PhysicalFileService : IPhysicalFileService
     {
         public async Task<bool> Create(Stream readStream, string filePath)
         {

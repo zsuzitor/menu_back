@@ -16,13 +16,13 @@ namespace Menu.Models.Services
     {
         private readonly IJWTHasher _hasher;
         private readonly IUserRepository _userRepository;
-        private readonly IImageService _imageService;
+        private readonly Interfaces.IFileService _imageService;
         private readonly IDBHelper _dbHelper;
         private readonly MenuDbContext _db;
 
 
         public UserService(IUserRepository userRepository, IJWTHasher hasher
-            , IImageService imageService, IDBHelper dbHelper, MenuDbContext db)
+            , Interfaces.IFileService imageService, IDBHelper dbHelper, MenuDbContext db)
         {
             _userRepository = userRepository;
             _hasher = hasher;
@@ -196,7 +196,7 @@ namespace Menu.Models.Services
             await _dbHelper.ActionInTransaction(_db, async () =>
             {
 
-                CustomImage imageRecord = null;
+                CustomFile imageRecord = null;
                 if (image != null)
                 {
                     //throw new SomeCustomException(ErrorConsts.FileError);

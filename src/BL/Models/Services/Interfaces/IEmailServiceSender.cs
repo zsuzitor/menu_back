@@ -45,5 +45,6 @@ namespace BL.Models.Services.Interfaces
         /// </summary>
         /// <returns></returns>
         Task SendQueueAsync();
+        void SendQueue();
     }
 }

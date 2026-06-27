@@ -19,12 +19,12 @@ namespace MenuApp.Models.BL.Services
     public sealed class ArticleService : IArticleService
     {
         private readonly IArticleRepository _articleRepository;
-        private readonly IImageService _imageService;
+        private readonly IFileService _imageService;
         private readonly IDBHelper _dbHelper;
         private readonly MenuDbContext _db;
 
 
-        public ArticleService(IArticleRepository articleRepository, IImageService imageService
+        public ArticleService(IArticleRepository articleRepository, IFileService imageService
             , IDBHelper dbHelper, MenuDbContext db)
         {
             _articleRepository = articleRepository;

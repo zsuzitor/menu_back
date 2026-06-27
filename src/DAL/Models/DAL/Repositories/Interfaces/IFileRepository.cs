@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace DAL.Models.DAL.Repositories.Interfaces
 {
-    public interface IImageRepository:IGeneralRepository<CustomImage,long>
+    public interface IFileRepository:IGeneralRepository<CustomFile,long>
     {
         Task<List<long>> GetImagesIdsByArticleId(long articleId);
-        Task<List<CustomImage>> GetNotActualFiles();
+        Task<List<CustomFile>> GetNotActualFiles();
 
         
     }

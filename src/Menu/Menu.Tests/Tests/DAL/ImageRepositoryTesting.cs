@@ -28,7 +28,7 @@ namespace Menu.Tests.Tests.Dal
             using var db = GetDbContext();
 
             new DefaultData().InitDbDefault(db);
-            ImageRepository imgRepo = new ImageRepository(db, new GeneralRepositoryStrategy(db));
+            FileRepository imgRepo = new FileRepository(db, new GeneralRepositoryStrategy(db));
             var newArticle = new Article()
             {
                 Body = "body1",
@@ -38,14 +38,14 @@ namespace Menu.Tests.Tests.Dal
             db.Articles.Add(newArticle);
             db.SaveChanges();
 
-            var imgForAdd = new CustomImage()
+            var imgForAdd = new CustomFile()
             {
                 Path = "10",
                 ArticleId = newArticle.Id,
             };
 
             await imgRepo.AddAsync(imgForAdd);
-            var addedImg = db.Images.FirstOrDefault(x => x.Id == imgForAdd.Id);
+            var addedImg = db.Files.FirstOrDefault(x => x.Id == imgForAdd.Id);
             Assert.NotNull(addedImg);
             Assert.Equal(imgForAdd.Path, addedImg.Path);
             Assert.Equal(imgForAdd.ArticleId, addedImg.ArticleId);
@@ -59,7 +59,7 @@ namespace Menu.Tests.Tests.Dal
             using var db = GetDbContext();
 
             new DefaultData().InitDbDefault(db);
-            ImageRepository imgRepo = new ImageRepository(db, new GeneralRepositoryStrategy(db));
+            FileRepository imgRepo = new FileRepository(db, new GeneralRepositoryStrategy(db));
 
             var articlesForAdd = new List<Article>()
             {
@@ -79,14 +79,14 @@ namespace Menu.Tests.Tests.Dal
             db.Articles.AddRange(articlesForAdd);
             db.SaveChanges();
 
-            var imagesForAdd = new List<CustomImage>()
+            var imagesForAdd = new List<CustomFile>()
             {
-                new CustomImage()
+                new CustomFile()
                 {
                     Path = "10",
                     ArticleId = articlesForAdd[0].Id,
                 },
-                new CustomImage()
+                new CustomFile()
                 {
                     Path = "11",
                     ArticleId = articlesForAdd[1].Id,
@@ -94,8 +94,8 @@ namespace Menu.Tests.Tests.Dal
             };
 
             await imgRepo.AddAsync(imagesForAdd);
-            var addedImg1 = db.Images.FirstOrDefault(x => x.Id == imagesForAdd[0].Id);
-            var addedImg2 = db.Images.FirstOrDefault(x => x.Id == imagesForAdd[1].Id);
+            var addedImg1 = db.Files.FirstOrDefault(x => x.Id == imagesForAdd[0].Id);
+            var addedImg2 = db.Files.FirstOrDefault(x => x.Id == imagesForAdd[1].Id);
             Assert.NotNull(addedImg1);
             Assert.Equal(addedImg1.Path, imagesForAdd[0].Path);
             Assert.Equal(addedImg1.ArticleId, imagesForAdd[0].ArticleId);
@@ -114,10 +114,10 @@ namespace Menu.Tests.Tests.Dal
             using var db = GetDbContext();
 
             new DefaultData().InitDbDefault(db);
-            ImageRepository imgRepo = new ImageRepository(db, new GeneralRepositoryStrategy(db));
+            FileRepository imgRepo = new FileRepository(db, new GeneralRepositoryStrategy(db));
 
-            var delImg = db.Images.OrderBy(x => x.Id).Skip(1).First();
-            var deleted = (await imgRepo.DeleteAsync(new List<CustomImage>() { delImg })).ToList();
+            var delImg = db.Files.OrderBy(x => x.Id).Skip(1).First();
+            var deleted = (await imgRepo.DeleteAsync(new List<CustomFile>() { delImg })).ToList();
 
             Assert.NotNull(deleted);
             Assert.Single(deleted);

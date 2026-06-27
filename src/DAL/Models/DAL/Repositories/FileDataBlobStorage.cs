@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace DAL.Models.DAL.Repositories
 {
-    public class ImageDataBlobStorage : IImageDataStorage
+    public class FileDataBlobStorage : IFileDataStorage
     {
         private readonly string _connectionString;
         private readonly string _containerImagesName;
         private readonly string _containerUploadedImagesName;
 
-        public ImageDataBlobStorage(ImageConfig settings)
+        public FileDataBlobStorage(ImageConfig settings)
         {
             _connectionString = settings.ConnectionString;//TODO остальное тоже в конфиги?
             string dbGuid = "8e188595-ae55-42f6-bca2-a88814e5f2b8";

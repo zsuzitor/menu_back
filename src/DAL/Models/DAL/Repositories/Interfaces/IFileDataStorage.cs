@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models.DAL.Repositories.Interfaces
 {
-    public interface IImageDataStorage
+    public interface IFileDataStorage
     {
         Task Init();
         Task<bool> DeleteAsync(string path);

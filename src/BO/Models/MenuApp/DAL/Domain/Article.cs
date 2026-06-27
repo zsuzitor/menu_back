@@ -14,7 +14,7 @@ namespace BO.Models.MenuApp.DAL.Domain
         public string Body { get; set; }
 
         public long? ImageId { get; set; }
-        public CustomImage Image { get; set; }
+        public CustomFile Image { get; set; }
 
 
         public bool Followed { get; set; }
@@ -24,14 +24,14 @@ namespace BO.Models.MenuApp.DAL.Domain
         public User User { get; set; }
 
 
-        public List<CustomImage> AdditionalImages { get; set; }
+        public List<CustomFile> AdditionalImages { get; set; }
 
         public byte[] RowVersion { get; set; }
 
 
         public Article()
         {
-            AdditionalImages = new List<CustomImage>();
+            AdditionalImages = new List<CustomFile>();
         }
 
     }

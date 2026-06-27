@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace DAL.Models.DAL.Repositories
 {
-    public class ImageRepository: GeneralRepository<CustomImage, long>, IImageRepository
+    public class FileRepository: GeneralRepository<CustomFile, long>, IFileRepository
     {
 
-        public ImageRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) :base(db, repo)
+        public FileRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) :base(db, repo)
         {
         }
 
 
-        public override async Task<IEnumerable<CustomImage>> DeleteAsync(IEnumerable<CustomImage> records)
+        public override async Task<IEnumerable<CustomFile>> DeleteAsync(IEnumerable<CustomFile> records)
         {
             if (records != null)
             {
@@ -29,7 +29,7 @@ namespace DAL.Models.DAL.Repositories
             return await base.UpdateAsync(records);
         }
 
-        public override async Task<CustomImage> DeleteAsync(CustomImage record)
+        public override async Task<CustomFile> DeleteAsync(CustomFile record)
         {
             if (record != null)
             {
@@ -41,7 +41,7 @@ namespace DAL.Models.DAL.Repositories
             return record;
         }
 
-        public override async Task<CustomImage> DeleteAsync(long recordId)
+        public override async Task<CustomFile> DeleteAsync(long recordId)
         {
             var record = await base.GetAsync(recordId);
             if (record != null)
@@ -58,12 +58,12 @@ namespace DAL.Models.DAL.Repositories
 
         public async Task<List<long>> GetImagesIdsByArticleId(long articleId)
         {
-           return await _db.Images.Where(x => x.ArticleId == articleId).Select(x => x.Id).ToListAsync();
+           return await _db.Files.Where(x => x.ArticleId == articleId).Select(x => x.Id).ToListAsync();
         }
 
-        public async Task<List<CustomImage>> GetNotActualFiles()
+        public async Task<List<CustomFile>> GetNotActualFiles()
         {
-            return await _db.Images.Where(x => x.IsDeleted == true && !x.PhysFileDeleted && x.PhysFileShouldBeDeleted).ToListAsync();
+            return await _db.Files.Where(x => x.IsDeleted == true && !x.PhysFileDeleted && x.PhysFileShouldBeDeleted).ToListAsync();
         }
     }
 }

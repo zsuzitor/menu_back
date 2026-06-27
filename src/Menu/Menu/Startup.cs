@@ -185,12 +185,12 @@ namespace Menu
             Configuration.GetSection("ImageSettings").Bind(imageConfig);
             if (imageConfig.TypeOfStorage == "blob")
             {
-                services.AddSingleton<IImageDataStorage, ImageDataBlobStorage>(x => new ImageDataBlobStorage(imageConfig));
+                services.AddSingleton<IFileDataStorage, FileDataBlobStorage>(x => new FileDataBlobStorage(imageConfig));
             }
             else
             {
-                services.AddSingleton<IImageDataStorage, ImageDataIOStorage>(x =>
-                    new ImageDataIOStorage(x.GetService<IFileService>(), imageConfig));
+                services.AddSingleton<IFileDataStorage, FileDataIOStorage>(x =>
+                    new FileDataIOStorage(x.GetService<IPhysicalFileService>(), imageConfig));
             }
             
 
@@ -296,7 +296,7 @@ namespace Menu
             }
 
 
-            ImageDataIOStorage.Init(env.WebRootPath);
+            FileDataIOStorage.Init(env.WebRootPath);
 
             foreach (var init in _appsInitializers)
             {

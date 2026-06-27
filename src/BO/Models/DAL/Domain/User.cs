@@ -21,7 +21,7 @@ namespace BO.Models.DAL.Domain
         public string RefreshTokenHash { get; set; }
 
         public long? ImageId { get; set; }
-        public CustomImage Image { get; set; }
+        public CustomFile Image { get; set; }
 
         public List<Article> Articles { get; set; }
         public List<WordCard> WordsCards { get; set; }

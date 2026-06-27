@@ -68,6 +68,11 @@ namespace BL.Models.Services
 
         }
 
+        public virtual void SendQueue()
+        {
+            this.SendQueueAsync().GetAwaiter().GetResult();
+        }
+
         public virtual async Task<List<long>> QueueEmailAsync(List<string> email, string subject, string message)
         {
             return await QueueEmailAsync(email, subject, message, Group);
