@@ -80,7 +80,7 @@ namespace Menu.Models
 
             var mailConfigs = serviceProvider.GetRequiredService<MailSendingConfig>();
             var mailConfig = mailConfigs.Values["DefaultMailSettings"];
-            Expression<Action<DefaultEmailService>> actAlert = prSrv => prSrv.SendQueueAsync();//.Wait();
+            Expression<Action<DefaultEmailService>> actAlert = prSrv => prSrv.SendQueueAsync().GetAwaiter().GetResult();//.Wait();
             worker.Recurring("main_app_alert", mailConfig.NotificationJobCron, actAlert);
 
 

@@ -22,5 +22,15 @@ namespace DAL.Models.DAL.Repositories
                 && (x.Group == group || string.IsNullOrWhiteSpace(group)))
                 .ToListAsync();
         }
+
+        public async Task<List<Notification>> GetActual(NotificationType type, List<string> excludedGroup)
+        {
+            excludedGroup = excludedGroup ?? new List<string>();
+            return await _db.Notifications.Where(x => x.SendedDate == null
+                && x.SendTryCount < 10
+                && x.Type == type
+                && !excludedGroup.Contains(x.Group))
+                .ToListAsync();
+        }
     }
 }

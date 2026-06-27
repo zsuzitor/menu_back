@@ -25,7 +25,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.WebEncoders;
-using NLog;
 using PlaningPoker.Models;
 using PlaningPoker.Models.Hubs;
 using System;

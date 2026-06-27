@@ -85,7 +85,7 @@ namespace BL.Models.Services
                             }
                             catch (Exception e)
                             {
-                                _logger.LogError(e, "ошибка отправки email id={id}", mail.Id);
+                                _logger.LogError(e, "ошибка отправки email id={Id}", mail.Id);
                                 errors.Add(mail.Id);
                             }
 

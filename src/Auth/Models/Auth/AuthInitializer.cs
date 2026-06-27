@@ -1,14 +1,18 @@
 ﻿using Auth.Models.Auth.Services;
 using Auth.Models.Auth.Services.Interfaces;
 using Auth.Models.Auth.Settings;
+using BL.Models.Services;
 using BL.Models.Services.Interfaces;
+using BO.Models.Configs;
 using Common.Models;
 using Common.Models.Error;
+using Hangfire.Server;
 using jwtLib.JWTAuth.Interfaces;
 using jwtLib.JWTAuth.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace Auth.Models.Auth
@@ -83,8 +87,29 @@ namespace Auth.Models.Auth
 
         public IStartUpInitializer WorkersInitialize(IServiceProvider serviceProvider)
         {
+            var worker = serviceProvider.GetRequiredService<IWorker>();
+            var mailConfigs = serviceProvider.GetRequiredService<MailSendingConfig>();
+            var mailConfig = mailConfigs.Values["AuthMailSettings"];
+            Expression<Action<AuthEmailService>> actAlert = prSrv => prSrv.SendQueueAsync().GetAwaiter().GetResult();//.Wait();
+            worker.Recurring("main_app_auth_alert", mailConfig.NotificationJobCron, actAlert);
+            
+
             return this;
 
+        }
+
+
+        private void Execute(AuthEmailService prSrv)
+        {
+            try
+            {
+                prSrv.SendQueueAsync().GetAwaiter().GetResult();
+            }
+            catch (Exception ex)
+            {
+                //_logger.LogError(ex, "AuthEmail recurring job failed");
+                throw; // Hangfire запишет как Failed и повторит по расписанию
+            }
         }
     }
 

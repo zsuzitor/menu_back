@@ -39,9 +39,20 @@ namespace BL.Models.Services
             await base.QueueEmailAsync(email, subject, message, group);
         }
 
-        new public async Task SendQueueAsync(string group)
+         public async Task SendQueueAsync(string group)
         {
-            await base.SendQueueAsync(group);
+
+            var localForSend = await _notificationRepository.GetActual(
+                BO.Models.DAL.Domain.NotificationType.Email, group);
+            await base.SendQueueAsync(localForSend);
+        }
+
+        public override async Task SendQueueAsync()
+        {
+            var localForSend = await _notificationRepository.GetActual(
+                BO.Models.DAL.Domain.NotificationType.Email, new List<string>() { "AuthEmail" });
+            await base.SendQueueAsync(localForSend);
+
         }
 
     }

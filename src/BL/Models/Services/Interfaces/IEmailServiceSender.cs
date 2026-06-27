@@ -36,11 +36,12 @@ namespace BL.Models.Services.Interfaces
     /// </summary>
     public interface IEmailService
     {
-        Task SendEmailAsync(string email, string subject, string message);
-        Task QueueEmailAsync(string email, string subject, string message);
-        Task QueueEmailAsync(List<string> email, string subject, string message);
+        Task<long> SendEmailAsync(string email, string subject, string message);
+        Task ReSendEmailAsync(long notificationId);
+        Task<long> QueueEmailAsync(string email, string subject, string message);
+        Task<List<long>> QueueEmailAsync(List<string> email, string subject, string message);
         /// <summary>
-        /// для несрочных сообщений, склеивает несколько писем в 1
+        /// отправляет то что накопилось
         /// </summary>
         /// <returns></returns>
         Task SendQueueAsync();

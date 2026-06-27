@@ -5,10 +5,8 @@ using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TaskManagementApp.Models.Services;
 using TaskManagementApp.Models.Services.Interfaces;
 using Common.Models;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace TaskManagementApp.Models
