@@ -157,7 +157,7 @@ namespace TaskManagementApp.Models.Services
 
         public async Task<bool> DeleteAsync(long projectId, long userId)
         {
-            var project = await _projectRepository.GetByIdIfAccessAdminAsync(projectId, userId);
+            var project = await GetByIdIfAccessAdminAsync(projectId, userId);
             if (project == null)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);

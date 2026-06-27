@@ -220,9 +220,9 @@ namespace WordsCardsApp.BL.Services
             //string strFile = null;
             List<WordCard> dataForAdd = new List<WordCard>();
             using var reader = new StreamReader(file.OpenReadStream());
-            while (!reader.EndOfStream)
+            string tmpStr;
+            while ((tmpStr = await reader.ReadLineAsync()) != null)
             {
-                var tmpStr = await reader.ReadLineAsync();
                 if (string.IsNullOrWhiteSpace(tmpStr))
                 {
                     continue;

@@ -12,6 +12,9 @@ namespace DAL.Models.DAL.Repositories
         //private readonly IWebHostEnvironment _webHostEnvironment;//не хочу тут на это ссылаться, поэтому просто static строкой. _webHostEnvironment.WebRootPath
         private static string WebRootPath;
 
+        const string PathFiles = "Files";
+
+
         public ImageDataIOStorage(IFileService fileService, ImageConfig settings)
         {
             _fileService = fileService;
@@ -31,7 +34,7 @@ namespace DAL.Models.DAL.Repositories
             }
 
 
-            string filePath = _fileService.PathCombine(WebRootPath, "images", fileName);
+            string filePath = _fileService.PathCombine(WebRootPath, PathFiles, fileName);
             //using (MemoryStream memStream = new MemoryStream((int)image.Length))//todo ing??
             //{
             //    image.OpenReadStream();
@@ -53,7 +56,7 @@ namespace DAL.Models.DAL.Repositories
                 return null;
             }
 
-            string resPath = _fileService.PathCombine("images", "uploads", fileName);
+            string resPath = _fileService.PathCombine(PathFiles, "uploads", fileName);
             string filePath = _fileService.PathCombine(WebRootPath, resPath);
             await _fileService.Create(readStream, filePath);
             return "\\" + resPath;
