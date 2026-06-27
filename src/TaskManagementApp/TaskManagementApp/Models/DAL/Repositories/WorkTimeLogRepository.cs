@@ -34,7 +34,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             }
 
             var access = await _auth.CanAccessTask(result.WorkTaskId, userId);
-            if (!access.access)
+            if (!access)
                 return null;
 
             return result;
@@ -44,7 +44,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         {
             //_db.TaskManagementProjectUsers.Where(u => u.ProjectId == projectId && u.MainAppUserId == userInfo.UserId).Include(x=>x.);
             var access = await _auth.CanAccessProject(projectId, userId);
-            if(!access.access)
+            if(!access)
                 return new List<WorkTimeLog>();
 
             return await _db.TaskManagementWorkTimeLog.AsNoTracking()
@@ -64,7 +64,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public async Task<List<WorkTimeLog>> GetTimeForOneUserTaskAsync(long taskId, long userId)
         {
             var access = await _auth.CanAccessTask(taskId, userId);
-            if (!access.access)
+            if (!access)
                 return new List<WorkTimeLog>();
 
             return await _db.TaskManagementWorkTimeLog.AsNoTracking().ToListAsync();

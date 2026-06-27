@@ -92,7 +92,7 @@ ITasksManagmentAuthRepository authRepository)
         public async Task<List<WorkTaskLabel>> Get(long projectId, long userId)
         {
             var s = await _authRepository.CanAccessProject(projectId, userId);
-            if (!s.access)
+            if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }

@@ -166,7 +166,7 @@ namespace TaskManagementApp.Models.Services
         public async Task<List<Preset>> GetAllAsync(long projectId, long userId)
         {
             var s = await _auth.CanAccessProject(projectId, userId);
-            if (!s.access)
+            if (!s)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.ProjectNotFoundOrNotAccesible);
             }

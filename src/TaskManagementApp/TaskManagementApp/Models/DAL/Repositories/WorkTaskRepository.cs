@@ -13,8 +13,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
 {
     public sealed class WorkTaskRepository : GeneralRepository<WorkTask, long>, IWorkTaskRepository
     {
-        public WorkTaskRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
+
+        private readonly ITasksManagmentAuthRepository _auth;
+
+        public WorkTaskRepository(MenuDbContext db, IGeneralRepositoryStrategy repo, ITasksManagmentAuthCachedRepository auth) : base(db, repo)
         {
+            _auth = auth;
         }
 
         public async Task<WorkTask> CreateAsync(WorkTask task)
@@ -90,7 +94,11 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async Task<bool> HaveAccessAsync(long taskId, long mainAppUserId)
         {
-            return (await GetAccessedIQuer(taskId, mainAppUserId).Select(x => x.Id).FirstOrDefaultAsync()) > 0;
+            if (!await _auth.CanAccessTask(taskId, mainAppUserId))
+            {
+                return false;
+            }
+            return (await _db.TaskManagementTasks.AsNoTracking().Select(x => x.Id).FirstOrDefaultAsync()) > 0;
             //return (await _db.TaskManagementTasks.AsNoTracking().Include(x => x.Project).ThenInclude(x => x.Users)
             //    .Where(x => x.Id == taskId && x.Project.Users.Any(pu => pu.MainAppUserId == mainAppUserId))
             //    .Select(x => x.Id).FirstOrDefaultAsync()) > 0;
@@ -98,30 +106,44 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async Task<WorkTask> GetAccessAsync(long taskId, long mainAppUserId)
         {
-            return (await GetAccessedIQuer(taskId, mainAppUserId).Select(x => x).FirstOrDefaultAsync());
+            if (!await _auth.CanAccessTask(taskId, mainAppUserId))
+            {
+                return null;
+            }
+
+            return (await _db.TaskManagementTasks.AsNoTracking().Select(x => x).FirstOrDefaultAsync());
         }
 
         public async Task<WorkTask> GetAccessNoTrackAsync(long taskId, long mainAppUserId)
         {
-            return (await GetAccessedIQuer(taskId, mainAppUserId).Select(x => x).FirstOrDefaultAsync());
+            if (!await _auth.CanAccessTask(taskId, mainAppUserId))
+            {
+                return null;
+            }
+
+            return (await _db.TaskManagementTasks.AsNoTracking().Select(x => x).FirstOrDefaultAsync());
         }
 
         public async Task<WorkTask> GetAccessRelationsAsync(long taskId, long mainAppUserId)
         {
-            return (await GetAccessedIQuer(taskId, mainAppUserId)
+            if (!await _auth.CanAccessTask(taskId, mainAppUserId))
+            {
+                return null;
+            }
+
+            return (await _db.TaskManagementTasks.AsNoTracking()
                 .Include(x => x.MainWorkTasksRelation).Include(x => x.SubWorkTasksRelation).Select(x => x).FirstOrDefaultAsync());
         }
 
-        private IQueryable<WorkTask> GetAccessedIQuer(long taskId, long mainAppUserId)
-        {
-            return _db.TaskManagementTasks.AsNoTracking().Include(x => x.Project).ThenInclude(x => x.Users)
-                .Where(x => x.Id == taskId && x.Project.Users.Any(pu => pu.MainAppUserId == mainAppUserId))
-                ;//.Select(x => x);
-        }
 
         public async Task<long> GetUserIdAccessAsync(long taskId, long mainAppUserId)
         {
-            var res = (await GetAccessedIQuer(taskId, mainAppUserId)
+            if (!await _auth.CanAccessTask(taskId, mainAppUserId))
+            {
+                return 0;
+            }
+
+            var res = (await _db.TaskManagementTasks.AsNoTracking()
                 .Select(x => new { x.Id, User = x.Project.Users.FirstOrDefault(u => u.MainAppUserId == mainAppUserId) }).FirstOrDefaultAsync());
             if (res.Id > 0)
             {
@@ -179,7 +201,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async Task<GetProjectTaskSelectInfo> GetAccessSelectInfoAsync(long taskId, long mainAppUserId)
         {
-            return (await GetAccessedIQuer(taskId, mainAppUserId)
+            if (!await _auth.CanAccessTask(taskId, mainAppUserId))
+            {
+                return null;
+            }
+
+            return (await _db.TaskManagementTasks.AsNoTracking()
                 .Select(x => new GetProjectTaskSelectInfo() { Id = x.Id, Name = x.Name }).FirstOrDefaultAsync());
         }
 
@@ -194,7 +221,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public async Task<TaskName> GetNameAccessAsync(long taskId, long mainAppUserId)
         {
-            return (await GetAccessedIQuer(taskId, mainAppUserId).Select(x => new TaskName() {Id=x.Id,Name=x.Name }).FirstOrDefaultAsync());
+            if(!await _auth.CanAccessTask(taskId, mainAppUserId))
+            {
+                return null;
+            }
+
+            return (await _db.TaskManagementTasks.AsNoTracking().Select(x => new TaskName() { Id = x.Id, Name = x.Name }).FirstOrDefaultAsync());
         }
 
 

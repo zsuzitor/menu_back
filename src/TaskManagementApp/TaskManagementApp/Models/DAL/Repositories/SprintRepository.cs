@@ -26,7 +26,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return await base.GetForProject(projectId);
             },
             Consts.CacheKeys.CacheTime);
-            return result.Item2;
+            return result;
         }
 
     }

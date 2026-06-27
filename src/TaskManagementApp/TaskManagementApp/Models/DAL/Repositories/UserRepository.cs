@@ -28,7 +28,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return await base.GetProjectUsersWithMainAppUserAsync(projectId);
             },
             Consts.CacheKeys.CacheTime);
-            return result.Item2;
+            return result;
         }
 
         public override async Task<ProjectUser> GetByMainAppUserIdAsync(long mainAppUserId, long projectId)

@@ -34,7 +34,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return await base.GetNoTrackAsync(id);
             },
             Consts.CacheKeys.CacheTime);
-            return result.Item2;
+            return result;
         }
 
 
@@ -52,7 +52,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return await base.GetNoTrackAsync(id);
             },
             Consts.CacheKeys.CacheTime);
-            return result.Item2 != null;
+            return result != null;
         }
         #endregion GeneralRepositoryCache
 
@@ -65,7 +65,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return await base.GetAllAsync(projectId);
             },
             Consts.CacheKeys.CacheTime);
-            return result.Item2;
+            return result;
 
         }
 

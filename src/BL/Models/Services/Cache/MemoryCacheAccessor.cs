@@ -38,8 +38,8 @@ namespace BL.Models.Services.Cache
         public void Set<T>(string key, T value, TimeSpan time)
         {
             var cacheEntryOptions = new MemoryCacheEntryOptions()
-                .SetSlidingExpiration(time)
-                .SetAbsoluteExpiration(time);//todo может расширить потом
+                .SetSlidingExpiration(time);
+                //.SetAbsoluteExpiration(time);//todo может расширить потом
             _memoryCache.Set(key, value, cacheEntryOptions);
         }
 

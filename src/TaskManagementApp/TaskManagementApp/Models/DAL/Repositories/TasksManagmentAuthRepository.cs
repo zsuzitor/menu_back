@@ -48,12 +48,8 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return await base.CanEditProject(projectId, userId);
         }
 
-        public override async Task<bool> CanEditTask(long taskId, long userId)
-        {
-            return await base.CanEditTask(taskId, userId);
-        }
 
-        public override async Task<(bool access, bool isAdmin)> CanAccessProject(long projectId, long userId)
+        public override async Task<bool> CanAccessProject(long projectId, long userId)
         {
 
             var users = await _cache.GetAsync<List<ProjectUser>>(Consts.CacheKeys.UsersByProjectId + projectId);
@@ -87,18 +83,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
             _db = db;
         }
 
-        public virtual async Task<(bool access, bool isAdmin)> CanAccessProject(long projectId, long userId)
+        public virtual async Task<bool> CanAccessProject(long projectId, long userId)
         {
             var user = await _db.TaskManagementProjectUsers.FirstOrDefaultAsync(u => u.MainAppUserId == userId && u.ProjectId == projectId);
             return CanAccessUser(user);
 
         }
-
-        public Task<(bool access, bool isAdmin)> CanAccessTask(long taskId, long userId)
-        {
-            throw new NotImplementedException();
-        }
-
 
 
         public virtual async Task<bool> CanEditProject(long projectId, long userId)
@@ -121,15 +111,24 @@ namespace TaskManagementApp.Models.DAL.Repositories
 
         public virtual async Task<bool> CanEditTask(long taskId, long userId)
         {
-            var task = await _db.TaskManagementTasks.FirstOrDefaultAsync(x => x.Id == taskId);
-            if (task == null)
+            var task = await _db.TaskManagementTasks.Where(x => x.Id == taskId).Select(x => x.ProjectId).FirstOrDefaultAsync();
+            if (task == default)
             {
                 return false;
             }
-            return await this.CanEditProject(task.ProjectId, userId);
+            return await this.CanEditProject(task, userId);
         }
 
+        public virtual async Task<bool> CanAccessTask(long taskId, long userId)
+        {
 
+            var task = await _db.TaskManagementTasks.Where(x=> x.Id == taskId).Select(x=>x.ProjectId).FirstOrDefaultAsync();
+            if (task == default)
+            {
+                return false;
+            }
+            return await this.CanAccessProject(task, userId);
+        }
 
         public async Task<bool> CanViewTask(long taskId, long userId)
         {
@@ -156,20 +155,20 @@ namespace TaskManagementApp.Models.DAL.Repositories
             return user => user.MainAppUserId == userId && user.Role == UserRoleEnum.Admin;
         }
 
-        protected (bool access, bool isAdmin) CanAccessUser(ProjectUser user)
+        protected bool CanAccessUser(ProjectUser user)
         {
 
-            if (user?.Role == UserRoleEnum.Admin)
-            {
-                return (true, true);
-            }
+            //if (user?.Role == UserRoleEnum.Admin)
+            //{
+            //    return (true, true);
+            //}
 
             if (user != null && user.Role != UserRoleEnum.Deactivated)
             {
-                return (true, false);
+                return true;// (true, false);
             }
 
-            return (false, false);
+            return false;// (false, false);
         }
 
 

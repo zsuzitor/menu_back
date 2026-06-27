@@ -11,7 +11,7 @@ namespace BL.Models.Services
         protected readonly IConfigurationRepository _configurationRepository;
         protected readonly ICacheService _cacheService;
 
-        private const string ConfigurationCacheKey = "confg_";
+        private const string ConfigurationCacheKey = "AppConfigurations";
         public ConfigurationService(IConfigurationRepository repo, ICacheService cahce)
         {
             _configurationRepository = repo;
@@ -26,29 +26,36 @@ namespace BL.Models.Services
             }
 
             await _configurationRepository.AddAsync(new BO.Models.DAL.Domain.Configuration()
-            { Key = key, Value = value, Group = group, Type = type , Public = isPublic });
-            _cacheService.Set(ConfigurationCacheKey + key, value, TimeSpan.FromHours(1));
+            { Key = key, Value = value, Group = group, Type = type, Public = isPublic });
+            //_cacheService.Set(ConfigurationCacheKey + key, value, TimeSpan.FromHours(1));
+            _cacheService.Remove(ConfigurationCacheKey);
         }
 
         public async Task<Configuration> GetAsync(string key)
         {
-            var res = await _cacheService.GetOrSetAsync(ConfigurationCacheKey + key, async () =>
+            var res = await _cacheService.GetOrSetAsync(ConfigurationCacheKey, async () =>
             {
-                return await _configurationRepository.GetByKey(key);
+                return await _configurationRepository.GetAll();
             }, TimeSpan.FromHours(1));
-            return res.Item2;
+
+            if (res.TryGetValue(key, out var elem) && elem != null)
+            {
+                return elem;
+            }
+
+            return null;
         }
 
         public async Task<Configuration> GetPublicAsync(string key)
         {
-            var res = await _cacheService.GetOrSetAsync(ConfigurationCacheKey + key, async () =>
+            var res = await _cacheService.GetOrSetAsync(ConfigurationCacheKey, async () =>
             {
-                return await _configurationRepository.GetByKey(key);
+                return await _configurationRepository.GetAll();
             }, TimeSpan.FromHours(1));
 
-            if(res.Item2 != null && res.Item2.Public)
+            if (res.TryGetValue(key, out var elem) && elem != null && elem.Public)
             {
-                return res.Item2;
+                return elem;
             }
 
             return null;

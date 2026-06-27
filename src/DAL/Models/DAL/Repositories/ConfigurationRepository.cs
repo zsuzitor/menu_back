@@ -1,6 +1,7 @@
 ﻿using BO.Models.DAL.Domain;
 using DAL.Models.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,11 @@ namespace DAL.Models.DAL.Repositories
         public async Task<bool> ExistsByKey(string key)
         {
             return await _db.Configurations.Where(x => x.Key == key).AnyAsync();
+        }
+
+        public async Task<Dictionary<string, Configuration>> GetAll()
+        {
+            return (await _db.Configurations.ToListAsync()).ToDictionary(x => x.Key);
         }
 
         public async Task<Configuration> GetByKey(string key)

@@ -96,7 +96,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return await base.GetNoTrackAsync(id);
             },
             Consts.CacheKeys.CacheTime);
-            return result.Item2 != null;
+            return result != null;
             //return await _projectRepository.ExistAsync(id);
         }
 
@@ -121,7 +121,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             },
             Consts.CacheKeys.CacheTime);
 
-            if (result.Item2 == null || result.Item2.IsDeleted)
+            if (result == null || result.IsDeleted)
             {
                 return false;
             }
@@ -176,7 +176,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return await base.GetNoTrackAsync(id);
             },
             Consts.CacheKeys.CacheTime);
-            return result.Item2;
+            return result;
         }
 
         public override async Task<List<Project>> GetAsync(List<long> ids)
@@ -206,12 +206,12 @@ namespace TaskManagementApp.Models.DAL.Repositories
             },
             Consts.CacheKeys.CacheTime);
 
-            if (result.Item2 == null || result.Item2.IsDeleted)
+            if (result == null || result.IsDeleted)
             {
                 return null;
             }
 
-            return result.Item2;
+            return result;
             //return await _projectRepository.GetByIdIfAccessAdminAsync(id, mainAppUserId);
         }
 
@@ -230,7 +230,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
             //{
             //    return null;
             //}
-            if (!(await _auth.CanAccessProject(id, mainAppUserId)).access)
+            if (!(await _auth.CanAccessProject(id, mainAppUserId)))
                 return null;
 
             var result = await _cache.GetOrSetAsync(Consts.CacheKeys.Project + id,
@@ -240,13 +240,13 @@ namespace TaskManagementApp.Models.DAL.Repositories
             },
             Consts.CacheKeys.CacheTime);
 
-            if (result.Item2 == null || result.Item2.IsDeleted)
+            if (result == null || result.IsDeleted)
             {
                 return null;
             }
 
 
-            return result.Item2;
+            return result;
         }
 
         public override async Task<Project> GetNoTrackAsync(long id)
@@ -258,7 +258,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
                 return await base.GetNoTrackAsync(id);
             },
             Consts.CacheKeys.CacheTime);
-            return result.Item2;
+            return result;
         }
 
         //public async Task<List<Project>> GetNoTrackAsync(List<long> ids)
@@ -348,7 +348,7 @@ namespace TaskManagementApp.Models.DAL.Repositories
         public virtual async Task<Project> GetByIdIfAccessAsync(long id, long mainAppUserId)
         {
             var result = await _auth.CanAccessProject(id, mainAppUserId);
-            if (result.access)
+            if (result)
             {
                 return await _db.TaskManagementTaskProject.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id && !x.IsDeleted);
             }
