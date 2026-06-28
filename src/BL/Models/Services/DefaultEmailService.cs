@@ -1,5 +1,6 @@
 ﻿using BL.Models.Services.Interfaces;
 using BO.Models.Configs;
+using BO.Models.DAL.Domain;
 using DAL.Models.DAL.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -42,17 +43,16 @@ namespace BL.Models.Services
          public async Task SendQueueAsync(string group)
         {
 
-            var localForSend = await _notificationRepository.GetActual(
-                BO.Models.DAL.Domain.NotificationType.Email, group);
+            var localForSend = await GetNotificationsForSend(group);
             await base.SendQueueAsync(localForSend);
         }
 
-        public override async Task SendQueueAsync()
-        {
-            var localForSend = await _notificationRepository.GetActual(
-                BO.Models.DAL.Domain.NotificationType.Email, new List<string>() { "AuthEmail" });
-            await base.SendQueueAsync(localForSend);
 
+
+        protected override async Task<List<Notification>> GetNotificationsForSend()
+        {
+            return await _notificationRepository.GetActual(
+                NotificationType.Email, new List<string>() { "AuthEmail" });
         }
 
     }
