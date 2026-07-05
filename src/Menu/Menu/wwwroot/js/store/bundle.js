@@ -3413,7 +3413,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".vault-secrets {\r\n    /* display: flex; */\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n}\r\n\r\n.vault-secrets input.form-control {\r\n    height: 30px;\r\n}\r\n\r\n.vault-secrets .search-area {\r\n    width: 300px;\r\n    padding-top: 15px;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.vault-secrets-list {\r\n    display: flex;\r\n    gap: 5px;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.vault-auth {\r\n    display: flex;\r\n}\r\n\r\n.vault-auth input {\r\n    width: 200px;\r\n}\r\n\r\n.vault-header {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.vault-header .buttons-block .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n.vault-header .buttons-block {\r\n    display: flex;\r\n    gap: 5px;\r\n}\r\n\r\n.vault-header .vault-name {\r\n    font-size: x-large;\r\n    font-weight: bold;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/OneVault/OneVault.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB,aAAa;IACb,eAAe;IACf,iBAAiB;AACrB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,iBAAiB;IACjB,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,QAAQ;IACR,eAAe;AACnB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,QAAQ;AACZ;;AAEA;IACI,kBAAkB;IAClB,iBAAiB;AACrB","sourcesContent":[".vault-secrets {\r\n    /* display: flex; */\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n}\r\n\r\n.vault-secrets input.form-control {\r\n    height: 30px;\r\n}\r\n\r\n.vault-secrets .search-area {\r\n    width: 300px;\r\n    padding-top: 15px;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.vault-secrets-list {\r\n    display: flex;\r\n    gap: 5px;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.vault-auth {\r\n    display: flex;\r\n}\r\n\r\n.vault-auth input {\r\n    width: 200px;\r\n}\r\n\r\n.vault-header {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.vault-header .buttons-block .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n.vault-header .buttons-block {\r\n    display: flex;\r\n    gap: 5px;\r\n}\r\n\r\n.vault-header .vault-name {\r\n    font-size: x-large;\r\n    font-weight: bold;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".vault-secrets {\r\n    /* display: flex; */\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n}\r\n\r\n.vault-secrets input.form-control {\r\n    height: 30px;\r\n}\r\n\r\n.vault-secrets .search-area {\r\n    width: 300px;\r\n    padding-top: 15px;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.vault-secrets-list {\r\n    display: flex;\r\n    gap: 5px;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.vault-auth {\r\n    display: flex;\r\n    background-color: #f9dc40;\r\n    height: 50px;\r\n    text-align: center;\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n\r\n.vault-auth input {\r\n    width: 200px;\r\n}\r\n\r\n.vault-header {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.vault-header .buttons-block .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n.vault-header .buttons-block {\r\n    display: flex;\r\n    gap: 5px;\r\n}\r\n\r\n.vault-header .vault-name {\r\n    font-size: x-large;\r\n    font-weight: bold;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/Vault/Components/OneVault/OneVault.css"],"names":[],"mappings":"AAAA;IACI,mBAAmB;IACnB,aAAa;IACb,eAAe;IACf,iBAAiB;AACrB;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,YAAY;IACZ,iBAAiB;IACjB,mBAAmB;AACvB;;AAEA;IACI,aAAa;IACb,QAAQ;IACR,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,yBAAyB;IACzB,YAAY;IACZ,kBAAkB;IAClB,aAAa;IACb,uBAAuB;AAC3B;;AAEA;IACI,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,8BAA8B;AAClC;;AAEA;IACI,WAAW;IACX,YAAY;IACZ,uBAAuB;IACvB,eAAe;IACf,mCAAmC;IACnC,kBAAkB;AACtB;;AAEA;IACI,aAAa;IACb,QAAQ;AACZ;;AAEA;IACI,kBAAkB;IAClB,iBAAiB;AACrB","sourcesContent":[".vault-secrets {\r\n    /* display: flex; */\r\n    row-gap: 10px;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n}\r\n\r\n.vault-secrets input.form-control {\r\n    height: 30px;\r\n}\r\n\r\n.vault-secrets .search-area {\r\n    width: 300px;\r\n    padding-top: 15px;\r\n    padding-bottom: 5px;\r\n}\r\n\r\n.vault-secrets-list {\r\n    display: flex;\r\n    gap: 5px;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.vault-auth {\r\n    display: flex;\r\n    background-color: #f9dc40;\r\n    height: 50px;\r\n    text-align: center;\r\n    display: flex;\r\n    justify-content: center;\r\n}\r\n\r\n.vault-auth input {\r\n    width: 200px;\r\n}\r\n\r\n.vault-header {\r\n    display: flex;\r\n    justify-content: space-between;\r\n}\r\n\r\n.vault-header .buttons-block .but {\r\n    width: 30px;\r\n    height: 30px;\r\n    border: 1px solid black;\r\n    cursor: pointer;\r\n    box-shadow: 0px 0px 3px 0px #474343;\r\n    border-radius: 5px;\r\n}\r\n\r\n.vault-header .buttons-block {\r\n    display: flex;\r\n    gap: 5px;\r\n}\r\n\r\n.vault-header .vault-name {\r\n    font-size: x-large;\r\n    font-weight: bold;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3575,7 +3575,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".additional-window-main-full {\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n    position: fixed;\r\n    left: 0px;\r\n    display: flex;\r\n    z-index: 2;\r\n    top: 0px;\r\n    justify-content: center;\r\n\r\n\r\n    padding-top: 65px;\r\n    align-items: flex-start;\r\n}\r\n\r\n.additional-window-main {\r\n    /* z-index: 2; */\r\n    color: white;\r\n    /* position: absolute; */\r\n    /* position: fixed; */\r\n    /* top: 50px; */\r\n    padding: 30px;\r\n    min-height: 200px;\r\n    /* left: 0; */\r\n    background: #232323;\r\n    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.07), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 10px 50px rgba(0, 0, 0, 0.05);\r\n    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */\r\n    border-radius: 10px;\r\n\r\n    /* display: flex;\r\n    flex-direction: column; */\r\n\r\n    height: auto;\r\n    max-height: 100%;\r\n    overflow-y: auto;\r\n}\r\n\r\n\r\n@media screen and (min-width: 550px) {\r\n    /* .additional-window-main {\r\n        width: 80%;\r\n        left: 10%;\r\n    } */\r\n\r\n    .additional-window-main-full {\r\n\r\n        padding-left: 10%;\r\n        padding-right: 10%;\r\n    }\r\n}\r\n\r\n.additional-window-main-height {\r\n    /* overflow: auto;\r\n    bottom: 0; */\r\n}\r\n\r\n.additional-window-close {\r\n    transform: matrix(-0.71, -0.71, -0.71, 0.71, 0, 0);\r\n    float: right;\r\n    font-size: 50px;\r\n    cursor: pointer;\r\n    margin-top: -15px;\r\n    line-height: 30px;\r\n}\r\n\r\n.additional-window-inner {\r\n    /* position: relative;\r\n    height: auto; */\r\n    overflow-y: auto;\r\n}\r\n\r\n.additional-window-main .title {\r\n    font-size: 30px;\r\n    color: goldenrod;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/AdditionalWindow/AdditionalWindow.css"],"names":[],"mappings":"AAAA;;IAEI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,SAAS;IACT,aAAa;IACb,UAAU;IACV,QAAQ;IACR,uBAAuB;;;IAGvB,iBAAiB;IACjB,uBAAuB;AAC3B;;AAEA;IACI,gBAAgB;IAChB,YAAY;IACZ,wBAAwB;IACxB,qBAAqB;IACrB,eAAe;IACf,aAAa;IACb,iBAAiB;IACjB,aAAa;IACb,mBAAmB;IACnB,kJAAkJ;IAClJ,6CAA6C;IAC7C,mBAAmB;;IAEnB;6BACyB;;IAEzB,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;;AAGA;IACI;;;OAGG;;IAEH;;QAEI,iBAAiB;QACjB,kBAAkB;IACtB;AACJ;;AAEA;IACI;gBACY;AAChB;;AAEA;IACI,kDAAkD;IAClD,YAAY;IACZ,eAAe;IACf,eAAe;IACf,iBAAiB;IACjB,iBAAiB;AACrB;;AAEA;IACI;mBACe;IACf,gBAAgB;AACpB;;AAEA;IACI,eAAe;IACf,gBAAgB;AACpB","sourcesContent":[".additional-window-main-full {\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n    position: fixed;\r\n    left: 0px;\r\n    display: flex;\r\n    z-index: 2;\r\n    top: 0px;\r\n    justify-content: center;\r\n\r\n\r\n    padding-top: 65px;\r\n    align-items: flex-start;\r\n}\r\n\r\n.additional-window-main {\r\n    /* z-index: 2; */\r\n    color: white;\r\n    /* position: absolute; */\r\n    /* position: fixed; */\r\n    /* top: 50px; */\r\n    padding: 30px;\r\n    min-height: 200px;\r\n    /* left: 0; */\r\n    background: #232323;\r\n    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.07), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 10px 50px rgba(0, 0, 0, 0.05);\r\n    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */\r\n    border-radius: 10px;\r\n\r\n    /* display: flex;\r\n    flex-direction: column; */\r\n\r\n    height: auto;\r\n    max-height: 100%;\r\n    overflow-y: auto;\r\n}\r\n\r\n\r\n@media screen and (min-width: 550px) {\r\n    /* .additional-window-main {\r\n        width: 80%;\r\n        left: 10%;\r\n    } */\r\n\r\n    .additional-window-main-full {\r\n\r\n        padding-left: 10%;\r\n        padding-right: 10%;\r\n    }\r\n}\r\n\r\n.additional-window-main-height {\r\n    /* overflow: auto;\r\n    bottom: 0; */\r\n}\r\n\r\n.additional-window-close {\r\n    transform: matrix(-0.71, -0.71, -0.71, 0.71, 0, 0);\r\n    float: right;\r\n    font-size: 50px;\r\n    cursor: pointer;\r\n    margin-top: -15px;\r\n    line-height: 30px;\r\n}\r\n\r\n.additional-window-inner {\r\n    /* position: relative;\r\n    height: auto; */\r\n    overflow-y: auto;\r\n}\r\n\r\n.additional-window-main .title {\r\n    font-size: 30px;\r\n    color: goldenrod;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".additional-window-main-full {\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n    position: fixed;\r\n    left: 0px;\r\n    display: flex;\r\n    z-index: 2;\r\n    top: 0px;\r\n    justify-content: center;\r\n\r\n\r\n    padding-top: 65px;\r\n    align-items: flex-start;\r\n}\r\n\r\n.additional-window-main {\r\n    /* z-index: 2; */\r\n    color: white;\r\n    /* position: absolute; */\r\n    /* position: fixed; */\r\n    /* top: 50px; */\r\n    padding: 30px;\r\n    min-height: 200px;\r\n    /* left: 0; */\r\n    background: #232323;\r\n    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.07), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 10px 50px rgba(0, 0, 0, 0.05);\r\n    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */\r\n    border-radius: 10px;\r\n\r\n    /* display: flex;\r\n    flex-direction: column; */\r\n\r\n    height: auto;\r\n    max-height: 100%;\r\n    overflow-y: auto;\r\n}\r\n\r\n\r\n@media screen and (min-width: 550px) {\r\n    /* .additional-window-main {\r\n        width: 80%;\r\n        left: 10%;\r\n    } */\r\n\r\n    .additional-window-main-full {\r\n\r\n        padding-left: 10%;\r\n        padding-right: 10%;\r\n    }\r\n}\r\n\r\n.additional-window-main-height {\r\n    /* overflow: auto;\r\n    bottom: 0; */\r\n}\r\n\r\n.additional-window-close {\r\n    transform: matrix(-0.71, -0.71, -0.71, 0.71, 0, 0);\r\n    float: right;\r\n    font-size: 50px;\r\n    cursor: pointer;\r\n    margin-top: -15px;\r\n    line-height: 30px;\r\n}\r\n\r\n.additional-window-inner {\r\n    /* position: relative;\r\n    height: auto; */\r\n    overflow-y: auto;\r\n    min-height: 400px;\r\n}\r\n\r\n.additional-window-main .title {\r\n    font-size: 30px;\r\n    color: goldenrod;\r\n}", "",{"version":3,"sources":["webpack://./src/components/Body/AdditionalWindow/AdditionalWindow.css"],"names":[],"mappings":"AAAA;;IAEI,WAAW;IACX,YAAY;IACZ,eAAe;IACf,SAAS;IACT,aAAa;IACb,UAAU;IACV,QAAQ;IACR,uBAAuB;;;IAGvB,iBAAiB;IACjB,uBAAuB;AAC3B;;AAEA;IACI,gBAAgB;IAChB,YAAY;IACZ,wBAAwB;IACxB,qBAAqB;IACrB,eAAe;IACf,aAAa;IACb,iBAAiB;IACjB,aAAa;IACb,mBAAmB;IACnB,kJAAkJ;IAClJ,6CAA6C;IAC7C,mBAAmB;;IAEnB;6BACyB;;IAEzB,YAAY;IACZ,gBAAgB;IAChB,gBAAgB;AACpB;;;AAGA;IACI;;;OAGG;;IAEH;;QAEI,iBAAiB;QACjB,kBAAkB;IACtB;AACJ;;AAEA;IACI;gBACY;AAChB;;AAEA;IACI,kDAAkD;IAClD,YAAY;IACZ,eAAe;IACf,eAAe;IACf,iBAAiB;IACjB,iBAAiB;AACrB;;AAEA;IACI;mBACe;IACf,gBAAgB;IAChB,iBAAiB;AACrB;;AAEA;IACI,eAAe;IACf,gBAAgB;AACpB","sourcesContent":[".additional-window-main-full {\r\n\r\n    width: 100%;\r\n    height: 100%;\r\n    position: fixed;\r\n    left: 0px;\r\n    display: flex;\r\n    z-index: 2;\r\n    top: 0px;\r\n    justify-content: center;\r\n\r\n\r\n    padding-top: 65px;\r\n    align-items: flex-start;\r\n}\r\n\r\n.additional-window-main {\r\n    /* z-index: 2; */\r\n    color: white;\r\n    /* position: absolute; */\r\n    /* position: fixed; */\r\n    /* top: 50px; */\r\n    padding: 30px;\r\n    min-height: 200px;\r\n    /* left: 0; */\r\n    background: #232323;\r\n    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.07), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 10px 50px rgba(0, 0, 0, 0.05);\r\n    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */\r\n    border-radius: 10px;\r\n\r\n    /* display: flex;\r\n    flex-direction: column; */\r\n\r\n    height: auto;\r\n    max-height: 100%;\r\n    overflow-y: auto;\r\n}\r\n\r\n\r\n@media screen and (min-width: 550px) {\r\n    /* .additional-window-main {\r\n        width: 80%;\r\n        left: 10%;\r\n    } */\r\n\r\n    .additional-window-main-full {\r\n\r\n        padding-left: 10%;\r\n        padding-right: 10%;\r\n    }\r\n}\r\n\r\n.additional-window-main-height {\r\n    /* overflow: auto;\r\n    bottom: 0; */\r\n}\r\n\r\n.additional-window-close {\r\n    transform: matrix(-0.71, -0.71, -0.71, 0.71, 0, 0);\r\n    float: right;\r\n    font-size: 50px;\r\n    cursor: pointer;\r\n    margin-top: -15px;\r\n    line-height: 30px;\r\n}\r\n\r\n.additional-window-inner {\r\n    /* position: relative;\r\n    height: auto; */\r\n    overflow-y: auto;\r\n    min-height: 400px;\r\n}\r\n\r\n.additional-window-main .title {\r\n    font-size: 30px;\r\n    color: goldenrod;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -72281,6 +72281,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -72288,17 +72297,20 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const AddTaskRelationSetup_1 = __importDefault(__webpack_require__(/*! ./AddTaskRelationSetup */ "./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelationSetup.tsx"));
 const TaskRelation_1 = __webpack_require__(/*! ../../Models/Entity/State/TaskRelation */ "./src/Apps/TaskManagementApp/Models/Entity/State/TaskRelation.ts");
+const SelectWithSearch_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SelectWithSearch/SelectWithSearch */ "./src/components/Body/SelectWithSearch/SelectWithSearch.tsx"));
 __webpack_require__(/*! ./AddTaskRelation.css */ "./src/Apps/TaskManagementApp/Components/AddTaskRelation/AddTaskRelation.css");
 const AddTaskRelation = (props) => {
-    const [mainTaskId, setMainTaskId] = (0, react_1.useState)(props.TaskId || 0);
     const [subTaskId, setSubTaskId] = (0, react_1.useState)(0);
+    const [taskName, setTaskName] = (0, react_1.useState)('');
     const [type, setType] = (0, react_1.useState)(0);
+    const [searchTasks, setSearchTasks] = (0, react_1.useState)([]);
     (0, react_1.useEffect)(() => {
-        setMainTaskId(props.TaskId || 0);
-    }, [props.TaskId]);
+        if (subTaskId && subTaskId > 0) {
+            let task = searchTasks.find(x => x.Id === subTaskId);
+            setTaskName((task === null || task === void 0 ? void 0 : task.Name) || '');
+        }
+    }, [subTaskId]);
     return react_1.default.createElement("div", { className: 'add-task-relation' },
-        react_1.default.createElement("span", null, "\u0417\u0430\u0434\u0430\u0447\u0430"),
-        react_1.default.createElement("input", { className: 'form-input-v2', type: 'number', onChange: (e) => setMainTaskId(+e.target.value), placeholder: '\u0417\u0430\u0434\u0430\u0447\u0430', value: mainTaskId }),
         react_1.default.createElement("select", { className: "form-control", value: type, onChange: (e) => {
                 setType(prevState => {
                     return +e.target.value;
@@ -72309,8 +72321,16 @@ const AddTaskRelation = (props) => {
             react_1.default.createElement("option", { value: TaskRelation_1.TaskRelationType.MainTask }, "\u0417\u0430\u0432\u0438\u0441\u0438\u043C\u0430\u044F \u0434\u043B\u044F"),
             react_1.default.createElement("option", { value: TaskRelation_1.TaskRelationType.Link }, "\u0421\u0432\u044F\u0437\u0430\u043D\u0430 \u0441")),
         react_1.default.createElement("span", null, "\u0417\u0430\u0434\u0430\u0447\u0430"),
-        react_1.default.createElement("input", { className: 'form-input-v2', type: 'number', onChange: (e) => setSubTaskId(+e.target.value), placeholder: '\u0417\u0430\u0434\u0430\u0447\u0430', value: subTaskId }),
-        react_1.default.createElement("button", { className: 'btn-b btn-border create-new-task-btn', onClick: () => props.Create(mainTaskId, subTaskId, type) }, "\u0421\u0432\u044F\u0437\u0430\u0442\u044C"));
+        react_1.default.createElement(SelectWithSearch_1.default, { CancelEvent: () => { }, SaveEvent: (id) => {
+                setSubTaskId(id);
+                setSearchTasks(searchTasks.filter(x => x.Id === id));
+                return true;
+            }, Selected: { Id: subTaskId, Text: subTaskId > 0 ? `${subTaskId}-${taskName}` : '' }, ValuesWithId: searchTasks.map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` })), OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
+                // setTaskId(-1);
+                let searchTasksBack = yield props.FindTask(props.ProjectId, text);
+                setSearchTasks(searchTasksBack);
+            }) }),
+        react_1.default.createElement("button", { className: 'btn-b btn-border create-new-task-btn', onClick: () => props.Create(props.TaskId, subTaskId, type) }, "\u0421\u0432\u044F\u0437\u0430\u0442\u044C"));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, AddTaskRelationSetup_1.default)(AddTaskRelation);
@@ -72340,6 +72360,7 @@ const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/rea
 const TaskRelation_1 = __webpack_require__(/*! ../../Models/Entity/State/TaskRelation */ "./src/Apps/TaskManagementApp/Models/Entity/State/TaskRelation.ts");
 const mapStateToProps = (state, ownProps) => {
     let res = {};
+    res.ProjectId = state.TaskManagementApp.CurrentProjectId;
     return res;
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -72352,6 +72373,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             subTaskid = f;
         }
         yield window.G_TaskManagementTaskController.AddTaskRelationRedux(mainTaskid, subTaskid, type, dispatch);
+    });
+    res.FindTask = (projectId, text) => __awaiter(void 0, void 0, void 0, function* () {
+        return yield window.G_TaskManagementTaskController.FindTaskUI(projectId, text);
     });
     return res;
 };
@@ -72665,7 +72689,7 @@ const AddWorkTimeLog = (props) => {
                     setTaskId(id);
                     setSearchTasks(searchTasks.filter(x => x.Id === id));
                     return true;
-                }, Selected: { Id: taskId, Text: `${taskId}-${taskName}` }, ValuesWithId: searchTasks.map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` })), OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
+                }, Selected: { Id: taskId, Text: taskId > 0 ? `${taskId}-${taskName}` : '' }, ValuesWithId: searchTasks.map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` })), OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
                     // setTaskId(-1);
                     let searchTasksBack = yield props.FindTask(props.ProjectId, text);
                     setSearchTasks(searchTasksBack);
@@ -76154,7 +76178,7 @@ const TempoPage = (props) => {
     }, []);
     (0, react_1.useEffect)(() => {
         if (props.ProjectId > 0)
-            props.LoadTime(props.ProjectId, props.DateFrom, props.DateTo);
+            props.LoadTime(props.DateFrom, props.DateTo);
     }, [props.DateFrom.getTime(), props.DateTo.getTime(), props.ProjectId]);
     (0, react_1.useEffect)(() => {
         const dateFrom = searchParams.get('datefrom');
@@ -76320,8 +76344,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     res.SetDateTo = (date) => {
         dispatch((0, TimeLogAction_1.SetUserTempoTimeLogDateToActionCreator)(date));
     };
-    res.LoadTime = (projectId, dateFrom, dateTo) => {
-        dispatch(window.G_TaskManagementWorkTimeController.LoadTimeLogsForUserTempoRedux(projectId, null, dateFrom, dateTo));
+    res.LoadTime = (dateFrom, dateTo) => {
+        dispatch(window.G_TaskManagementWorkTimeController.LoadTimeLogsForUserTempoRedux(null, dateFrom, dateTo));
     };
     res.ClearTimeState = () => {
         dispatch((0, TimeLogAction_1.ClearUserTempoTimeLogActionCreator)());
@@ -79181,7 +79205,7 @@ class TaskManagementWorkTimeController {
         this.LoadTimeLogsForUserRedux = (projectId, userId, dateFrom, dateTo) => {
             return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                const backResult = yield this.LoadTimeLogsForUserAsync(projectId, userId, dateFrom, dateTo);
+                const backResult = yield this.LoadTimeLogsForProjectAsync(projectId, userId, dateFrom, dateTo);
                 this.preloader(false);
                 if (backResult.Error) {
                     return;
@@ -79192,10 +79216,10 @@ class TaskManagementWorkTimeController {
                 }
             });
         };
-        this.LoadTimeLogsForUserTempoRedux = (projectId, userId, dateFrom, dateTo) => {
+        this.LoadTimeLogsForUserTempoRedux = (userId, dateFrom, dateTo) => {
             return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                const backResult = yield this.LoadTimeLogsForUserAsync(projectId, userId, dateFrom, dateTo);
+                const backResult = yield this.LoadTimeLogsForUserAsync(userId, dateFrom, dateTo);
                 this.preloader(false);
                 if (backResult.Error) {
                     return;
@@ -79206,9 +79230,9 @@ class TaskManagementWorkTimeController {
                 }
             });
         };
-        this.LoadTimeLogsForUserAsync = (projectId, userId, dateFrom, dateTo) => __awaiter(this, void 0, void 0, function* () {
+        this.LoadTimeLogsForUserAsync = (userId, dateFrom, dateTo) => __awaiter(this, void 0, void 0, function* () {
             let data = {
-                "projectId": projectId || null,
+                // "projectId": projectId || null,
                 "dateFrom": new ControllerHelper_1.ControllerHelper().ToZeroDate(dateFrom).toISOString(),
                 "dateTo": new ControllerHelper_1.ControllerHelper().ToZeroDate(dateTo).toISOString(),
                 "userId": userId
@@ -81802,8 +81826,14 @@ const VaultSecret = (props) => {
                     react_1.default.createElement("div", { className: 'but vault-secret-show-val', title: showValueTitle, onClick: () => setShowSecretValue(!showSecretValue) },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + showValueImage })),
                     react_1.default.createElement("div", { className: 'but vault-secret-copy', title: '\u0421\u043A\u043E\u043F\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0435', onClick: () => __awaiter(void 0, void 0, void 0, function* () {
-                            yield helper.CopyText(secretValue);
-                            G_AddAbsoluteAlertToState(new AlertData_1.AlertData().GetDefaultNotify("Скопировано"));
+                            var _d;
+                            if (((_d = props.Secret) === null || _d === void 0 ? void 0 : _d.IsCoded) && !props.VaultIsAuthorized) {
+                                G_AddAbsoluteAlertToState(new AlertData_1.AlertData().GetDefaultError("Vault не авторизован"));
+                            }
+                            else {
+                                yield helper.CopyText(secretValue);
+                                G_AddAbsoluteAlertToState(new AlertData_1.AlertData().GetDefaultNotify("Скопировано"));
+                            }
                         }) },
                         react_1.default.createElement("img", { className: 'persent-100-width-height', src: "/images/" + 'copy.png' })),
                     react_1.default.createElement("div", { className: 'but vault-secret-more-but' + showMoreButtonClass, title: '\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0431\u043E\u043B\u044C\u0448\u0435', onClick: () => setShowMoreInfo(!showMoreInfo) },
@@ -82097,10 +82127,19 @@ exports.VaultPreloader = 'vault_preloader';
 /*!**************************************************************!*\
   !*** ./src/Apps/Vault/Models/Controllers/VaultController.ts ***!
   \**************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.VaultController = void 0;
 const VaultActions_1 = __webpack_require__(/*! ../Actions/VaultActions */ "./src/Apps/Vault/Models/Actions/VaultActions.ts");
@@ -82119,368 +82158,395 @@ class VaultController {
         this.RouteUrlOneSecret = "/secret/";
     }
     GetVaultsRedux() {
-        return (dispatch, getState) => {
+        return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
             this.preloader(true);
-            this.GetVaults((error, data) => {
+            try {
+                const backResult = yield this.GetVaultsAsync();
                 this.preloader(false);
-                if (data) {
-                    let newData = data.map(x => {
+                if (backResult.Data) {
+                    let newData = backResult.Data.map(x => {
                         let us = new OneVaultInList_1.OneVaultInList();
                         us.FillByBackModel(x);
                         return us;
                     });
                     dispatch((0, VaultActions_1.SetVaultsListActionCreator)(newData));
                 }
-            });
-        };
+            }
+            catch (error) {
+                this.preloader(false);
+                console.error("GetVaultsRedux error:", error);
+            }
+        });
     }
-    GetVaults(onSuccess) {
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {},
-            Type: ControllerHelper_1.ControllerHelper.GetHttp,
-            FuncSuccess: (xhr, status, jqXHR) => {
-                this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-            },
-            FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/vault/get-my-vaults',
+    GetVaultsAsync() {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield G_AjaxHelper.GoAjaxRequest({
+                Data: {},
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                Url: G_PathToServer + 'api/vault/get-my-vaults',
+            });
         });
     }
     GetVaultSecretsRedux(vaultId) {
-        return (dispatch, getState) => {
+        return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
             this.preloader(true);
-            this.GetVaultSecrets(vaultId, (error, data) => {
+            try {
+                const backResult = yield this.GetVaultSecretsAsync(vaultId);
                 this.preloader(false);
-                if (data) {
-                    let newData = data.map(x => {
+                if (backResult.Data) {
+                    let newData = backResult.Data.map(x => {
                         let us = new OneVaultSecret_1.OneVaultSecret();
                         us.FillByBackModel(x);
                         return us;
                     });
                     dispatch((0, VaultActions_1.SetVaultsSecretsActionCreator)({ VaultId: vaultId, Secrets: newData }));
                 }
-            });
-        };
+            }
+            catch (error) {
+                this.preloader(false);
+                console.error("GetVaultSecretsRedux error:", error);
+            }
+        });
     }
-    GetVaultSecrets(vaultId, onSuccess) {
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {
-                'vaultId': vaultId
-            },
-            Type: ControllerHelper_1.ControllerHelper.GetHttp,
-            FuncSuccess: (xhr, status, jqXHR) => {
-                this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-            },
-            FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/VaultSecret/get-vault-secrets',
+    GetVaultSecretsAsync(vaultId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield G_AjaxHelper.GoAjaxRequest({
+                Data: { vaultId: vaultId },
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                Url: G_PathToServer + 'api/VaultSecret/get-vault-secrets',
+            });
         });
     }
     GetCurrentVaultRedux(vaultId) {
-        return (dispatch, getState) => {
+        return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
             this.preloader(true);
-            this.GetVault(vaultId, (error, data) => {
+            try {
+                const backResult = yield this.GetVaultAsync(vaultId);
                 this.preloader(false);
-                if (data) {
+                if (backResult.Data) {
                     let newData = new OneVault_1.OneVault();
-                    newData.FillByBackModel(data);
+                    newData.FillByBackModel(backResult.Data);
                     dispatch((0, VaultActions_1.SetCurrentVaultActionCreator)(newData));
                 }
-            });
-        };
+            }
+            catch (error) {
+                this.preloader(false);
+                console.error("GetCurrentVaultRedux error:", error);
+            }
+        });
     }
-    GetVault(vaultId, onSuccess) {
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {
-                'vaultId': vaultId
-            },
-            Type: ControllerHelper_1.ControllerHelper.GetHttp,
-            FuncSuccess: (xhr, status, jqXHR) => {
-                this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-            },
-            FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/vault/get-vault',
+    GetVaultAsync(vaultId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield G_AjaxHelper.GoAjaxRequest({
+                Data: { vaultId: vaultId },
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                Url: G_PathToServer + 'api/vault/get-vault',
+            });
         });
     }
     LoadVaultPeopleRedux(vaultId) {
-        return (dispatch, getState) => {
+        return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
             this.preloader(true);
-            this.LoadVaultPeople(vaultId, (error, data) => {
+            try {
+                const backResult = yield this.LoadVaultPeopleAsync(vaultId);
                 this.preloader(false);
-                if (data) {
-                    let newData = data.map(x => {
+                if (backResult.Data) {
+                    let newData = backResult.Data.map(x => {
                         let us = new VaultUser_1.VaultUser();
                         us.FillByBackModel(x);
                         return us;
                     });
                     dispatch((0, VaultActions_1.SetVaultsPeopleActionCreator)({ VaultId: vaultId, People: newData }));
                 }
-            });
-        };
+            }
+            catch (error) {
+                this.preloader(false);
+                console.error("LoadVaultPeopleRedux error:", error);
+            }
+        });
     }
-    LoadVaultPeople(vaultId, onSuccess) {
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {
-                'vaultId': vaultId
-            },
-            Type: ControllerHelper_1.ControllerHelper.GetHttp,
-            FuncSuccess: (xhr, status, jqXHR) => {
-                this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-            },
-            FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/vault/get-vault-people',
+    LoadVaultPeopleAsync(vaultId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield G_AjaxHelper.GoAjaxRequest({
+                Data: { vaultId: vaultId },
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                Url: G_PathToServer + 'api/vault/get-vault-people',
+            });
         });
     }
     DeleteSecretRedux(secretId) {
-        return (dispatch, getState) => {
+        return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+            var _a;
             this.preloader(true);
-            this.DeleteSecret(secretId, (error, data) => {
+            try {
+                const backResult = yield this.DeleteSecretAsync(secretId);
                 this.preloader(false);
-                if (data === null || data === void 0 ? void 0 : data.result) {
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.result) {
                     dispatch((0, VaultActions_1.DeleteSecretActionCreator)({ SecretId: secretId }));
                 }
-            });
-        };
+            }
+            catch (error) {
+                this.preloader(false);
+                console.error("DeleteSecretRedux error:", error);
+            }
+        });
     }
-    DeleteSecret(secretId, onSuccess) {
-        // onSuccess(null, { result: true });
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {
-                'secretId': secretId
-            },
-            Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
-            FuncSuccess: (xhr, status, jqXHR) => {
-                this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-            },
-            FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/VaultSecret/delete-secret',
+    DeleteSecretAsync(secretId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield G_AjaxHelper.GoAjaxRequest({
+                Data: { secretId: secretId },
+                Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
+                Url: G_PathToServer + 'api/VaultSecret/delete-secret',
+            });
         });
     }
     CreateSecretRedux(secret, successCallBack) {
-        return (dispatch, getState) => {
+        return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
             this.preloader(true);
-            this.CreateSecret(secret, (error, data) => {
+            try {
+                const backResult = yield this.CreateSecretAsync(secret);
                 this.preloader(false);
-                if (data) {
+                if (backResult.Data) {
                     let newData = new OneVaultSecret_1.OneVaultSecret();
-                    newData.FillByBackModel(data);
+                    newData.FillByBackModel(backResult.Data);
                     dispatch((0, VaultActions_1.CreateSecretActionCreator)(newData));
                     if (successCallBack) {
                         successCallBack();
                     }
                 }
-            });
-        };
+            }
+            catch (error) {
+                this.preloader(false);
+                console.error("CreateSecretRedux error:", error);
+            }
+        });
     }
-    CreateSecret(secret, onSuccess) {
-        let data = {
-            'VaultId': secret.VaultId,
-            'Key': secret.Key,
-            'Value': secret.Value,
-            'IsCoded': secret.IsCoded,
-            'IsPublic': secret.IsPublic,
-        };
-        if (secret.DieDate) {
-            data.DieDate = secret.DieDate.toJSON();
-        }
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: "PUT",
-            FuncSuccess: (xhr, status, jqXHR) => {
-                this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-            },
-            FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/VaultSecret/create-secret',
+    CreateSecretAsync(secret) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                VaultId: secret.VaultId,
+                Key: secret.Key,
+                Value: secret.Value,
+                IsCoded: secret.IsCoded,
+                IsPublic: secret.IsPublic,
+            };
+            if (secret.DieDate) {
+                data.DieDate = secret.DieDate.toJSON();
+            }
+            return yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: "PUT",
+                Url: G_PathToServer + 'api/VaultSecret/create-secret',
+            });
         });
     }
     UpdateSecretRedux(secret) {
-        return (dispatch, getState) => {
+        return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
             this.preloader(true);
-            this.UpdateSecret(secret, (error, data) => {
+            try {
+                const backResult = yield this.UpdateSecretAsync(secret);
                 this.preloader(false);
-                if (data) {
+                if (backResult.Data) {
                     let newData = new OneVaultSecret_1.OneVaultSecret();
-                    newData.FillByBackModel(data);
+                    newData.FillByBackModel(backResult.Data);
                     dispatch((0, VaultActions_1.UpdateSecretActionCreator)(newData));
                 }
-            });
-        };
+            }
+            catch (error) {
+                this.preloader(false);
+                console.error("UpdateSecretRedux error:", error);
+            }
+        });
     }
-    UpdateSecret(secret, onSuccess) {
-        let data = {
-            'Id': secret.Id,
-            'VaultId': secret.VaultId,
-            'Key': secret.Key,
-            'Value': secret.Value,
-            'IsCoded': secret.IsCoded,
-            'IsPublic': secret.IsPublic,
-        };
-        if (secret.DieDate) {
-            data.DieDate = secret.DieDate.toJSON();
-        }
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: ControllerHelper_1.ControllerHelper.PatchHttp,
-            FuncSuccess: (xhr, status, jqXHR) => {
-                this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-            },
-            FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/VaultSecret/update-secret',
+    UpdateSecretAsync(secret) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                Id: secret.Id,
+                VaultId: secret.VaultId,
+                Key: secret.Key,
+                Value: secret.Value,
+                IsCoded: secret.IsCoded,
+                IsPublic: secret.IsPublic,
+            };
+            if (secret.DieDate) {
+                data.DieDate = secret.DieDate.toJSON();
+            }
+            return yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
+                Url: G_PathToServer + 'api/VaultSecret/update-secret',
+            });
         });
     }
     GetSingleSecretRedux(secretId) {
-        return (dispatch, getState) => {
+        return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
             this.preloader(true);
-            this.GetOneSecret(secretId, (error, data) => {
+            try {
+                const backResult = yield this.GetOneSecretAsync(secretId);
                 this.preloader(false);
-                if (data) {
+                if (backResult.Data) {
                     let newData = new OneVaultSecret_1.OneVaultSecret();
-                    newData.FillByBackModel(data);
+                    newData.FillByBackModel(backResult.Data);
                     dispatch((0, VaultActions_1.SetSingleSecretActionCreator)(newData));
                 }
-            });
-        };
+            }
+            catch (error) {
+                this.preloader(false);
+                console.error("GetSingleSecretRedux error:", error);
+            }
+        });
     }
-    GetOneSecret(secretId, onSuccess) {
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {
-                'secretId': secretId
-            },
-            Type: ControllerHelper_1.ControllerHelper.GetHttp,
-            FuncSuccess: (xhr, status, jqXHR) => {
-                this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-            },
-            FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/VaultSecret/get-secret',
+    GetOneSecretAsync(secretId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield G_AjaxHelper.GoAjaxRequest({
+                Data: { secretId: secretId },
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                Url: G_PathToServer + 'api/VaultSecret/get-secret',
+            });
         });
     }
     UpdateVaultRedux(vault, successCallBack) {
-        return (dispatch, getState) => {
+        return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
             this.preloader(true);
-            this.UpdateVault(vault, (error, data) => {
+            try {
+                const backResult = yield this.UpdateVaultAsync(vault);
                 this.preloader(false);
-                if (data) {
+                if (backResult.Data) {
                     let newData = {};
-                    newData.Id = data.id;
-                    newData.Name = data.name;
-                    newData.IsPublic = data.is_public;
+                    newData.Id = backResult.Data.id;
+                    newData.Name = backResult.Data.name;
+                    newData.IsPublic = backResult.Data.is_public;
                     dispatch((0, VaultActions_1.UpdateVaultActionCreator)(newData));
-                    successCallBack();
+                    if (successCallBack) {
+                        successCallBack();
+                    }
                 }
-            });
-        };
+            }
+            catch (error) {
+                this.preloader(false);
+                console.error("UpdateVaultRedux error:", error);
+            }
+        });
     }
-    UpdateVault(vault, onSuccess) {
-        let data = new FormData();
-        data.append('Id', vault.Id + '');
-        data.append('Name', vault.Name);
-        data.append('IsPublic', vault.IsPublic + '');
-        if (vault.UsersForDelete) {
-            vault.UsersForDelete.forEach((item, index) => {
-                data.append('UsersForDelete', item + '');
+    UpdateVaultAsync(vault) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let data = new FormData();
+            data.append('Id', vault.Id + '');
+            data.append('Name', vault.Name);
+            data.append('IsPublic', vault.IsPublic + '');
+            if (vault.UsersForDelete) {
+                vault.UsersForDelete.forEach((item) => {
+                    data.append('UsersForDelete', item + '');
+                });
+            }
+            if (vault.UsersForAdd) {
+                vault.UsersForAdd.forEach((item) => {
+                    data.append('UsersForAdd', item + '');
+                });
+            }
+            return yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
+                Url: G_PathToServer + 'api/vault/update-vault',
             });
-        }
-        if (vault.UsersForAdd) {
-            vault.UsersForAdd.forEach((item, index) => {
-                data.append('UsersForAdd', item + '');
-            });
-        }
-        G_AjaxHelper.GoAjaxRequest({
-            Data: data,
-            Type: ControllerHelper_1.ControllerHelper.PatchHttp,
-            FuncSuccess: (xhr, status, jqXHR) => {
-                this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-            },
-            FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/vault/update-vault',
         });
     }
     CreateVaultRedux(vault, successCallBack) {
-        return (dispatch, getState) => {
+        return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+            var _a;
             this.preloader(true);
-            this.CreateVault(vault, (error, data) => {
+            try {
+                const backResult = yield this.CreateVaultAsync(vault);
                 this.preloader(false);
-                if (data === null || data === void 0 ? void 0 : data.id) {
-                    let newdata = {};
-                    newdata.Id = data.id;
-                    newdata.IsPublic = data.is_public;
-                    newdata.Name = data.name;
-                    dispatch((0, VaultActions_1.CreateVaultActionCreator)(newdata));
-                    successCallBack();
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.id) {
+                    let newData = {};
+                    newData.Id = backResult.Data.id;
+                    newData.IsPublic = backResult.Data.is_public;
+                    newData.Name = backResult.Data.name;
+                    dispatch((0, VaultActions_1.CreateVaultActionCreator)(newData));
+                    if (successCallBack) {
+                        successCallBack();
+                    }
                 }
-            });
-        };
+            }
+            catch (error) {
+                this.preloader(false);
+                console.error("CreateVaultRedux error:", error);
+            }
+        });
     }
-    CreateVault(vault, onSuccess) {
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {
-                'Name': vault.Name,
-                'IsPublic': vault.IsPublic,
-                'Password': vault.Password
-            },
-            Type: "PUT",
-            FuncSuccess: (xhr, status, jqXHR) => {
-                this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-            },
-            FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/vault/create-vault',
+    CreateVaultAsync(vault) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield G_AjaxHelper.GoAjaxRequest({
+                Data: {
+                    Name: vault.Name,
+                    IsPublic: vault.IsPublic,
+                    Password: vault.Password
+                },
+                Type: "PUT",
+                Url: G_PathToServer + 'api/vault/create-vault',
+            });
         });
     }
     DeleteVaultRedux(vaultId) {
-        return (dispatch, getState) => {
+        return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+            var _a;
             this.preloader(true);
-            this.DeleteVault(vaultId, (error, data) => {
+            try {
+                const backResult = yield this.DeleteVaultAsync(vaultId);
                 this.preloader(false);
-                if (data === null || data === void 0 ? void 0 : data.result) {
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.result) {
                     dispatch((0, VaultActions_1.DeleteVaultActionCreator)(vaultId));
                 }
-            });
-        };
-    }
-    DeleteVault(vaultId, onSuccess) {
-        // onSuccess(null, BoolResultBack.GetTrue());
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {
-                'vaultId': vaultId
-            },
-            Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
-            FuncSuccess: (xhr, status, jqXHR) => {
-                this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-            },
-            FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/vault/delete-vault',
+            }
+            catch (error) {
+                this.preloader(false);
+                console.error("DeleteVaultRedux error:", error);
+            }
         });
     }
-    UpdateVaultPasswordRedux(vaultId, pwd) {
-        return (dispatch, getState) => {
-            this.preloader(true);
-            this.UpdateVaultPassword(vaultId, pwd, (error, data) => {
-                this.preloader(false);
-                // if (data?.result) {
-                //     dispatch(DeleteVaultActionCreator(vaultId));
-                // }
+    DeleteVaultAsync(vaultId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield G_AjaxHelper.GoAjaxRequest({
+                Data: { vaultId: vaultId },
+                Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
+                Url: G_PathToServer + 'api/vault/delete-vault',
             });
-        };
+        });
     }
-    UpdateVaultPassword(vaultId, pwd, onSuccess) {
-        // onSuccess(null, BoolResultBack.GetTrue());
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {
-                'vaultId': vaultId,
-                'password': pwd
-            },
-            Type: ControllerHelper_1.ControllerHelper.PatchHttp,
-            FuncSuccess: (xhr, status, jqXHR) => {
-                this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-            },
-            FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/vault/change-password',
+    UpdateVaultPasswordRedux(vaultId, password) {
+        return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+            this.preloader(true);
+            try {
+                yield this.UpdateVaultPasswordAsync(vaultId, password);
+                this.preloader(false);
+            }
+            catch (error) {
+                this.preloader(false);
+                console.error("UpdateVaultPasswordRedux error:", error);
+            }
+        });
+    }
+    UpdateVaultPasswordAsync(vaultId, password) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield G_AjaxHelper.GoAjaxRequest({
+                Data: {
+                    vaultId: vaultId,
+                    password: password
+                },
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
+                Url: G_PathToServer + 'api/vault/change-password',
+            });
         });
     }
     VaultAuthorizeRedux(vaultId, password) {
-        return (dispatch, getState) => {
+        return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+            var _a;
             this.preloader(true);
-            this.VaultAuthorize(vaultId, password, (error, data) => {
+            try {
+                const backResult = yield this.VaultAuthorizeAsync(vaultId, password);
                 this.preloader(false);
-                if (data === null || data === void 0 ? void 0 : data.result) {
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.result) {
                     dispatch((0, VaultActions_1.VaultAuthorizeActionCreator)(true));
                 }
                 else {
@@ -82488,22 +82554,23 @@ class VaultController {
                     let alert = alertFactory.GetDefaultError("Не удалось, проверьте пароль");
                     window.G_AddAbsoluteAlertToState(alert);
                 }
-            });
-        };
+            }
+            catch (error) {
+                this.preloader(false);
+                console.error("VaultAuthorizeRedux error:", error);
+            }
+        });
     }
-    VaultAuthorize(vaultId, password, onSuccess) {
-        // onSuccess(null, BoolResultBack.GetTrue());
-        G_AjaxHelper.GoAjaxRequest({
-            Data: {
-                'password': password,
-                'vaultId': vaultId
-            },
-            Type: ControllerHelper_1.ControllerHelper.PostHttp,
-            FuncSuccess: (xhr, status, jqXHR) => {
-                this.mapWithResult(onSuccess)(xhr, status, jqXHR);
-            },
-            FuncError: (xhr, status, error) => { },
-            Url: G_PathToServer + 'api/vault/authorize',
+    VaultAuthorizeAsync(vaultId, password) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield G_AjaxHelper.GoAjaxRequest({
+                Data: {
+                    password: password,
+                    vaultId: vaultId
+                },
+                Type: ControllerHelper_1.ControllerHelper.PostHttp,
+                Url: G_PathToServer + 'api/vault/authorize',
+            });
         });
     }
     //

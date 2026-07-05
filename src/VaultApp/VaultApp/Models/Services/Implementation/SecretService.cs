@@ -30,9 +30,9 @@ namespace VaultApp.Models.Services.Implementation
             _hasher = hasher;
         }
 
-        public async Task<Secret> CreateSecretAsync(CreateSecret secret, UserInfo userInfo, string passwordForCoded)
+        public async Task<Secret> CreateSecretAsync(CreateSecret secret, long userId, string passwordForCoded)
         {
-            await _vaultService.HasAccessToVaultWithError(secret.VaultId, userInfo);
+            await _vaultService.HasAccessToVaultWithError(secret.VaultId, userId);
             
 
             var newSecret = new Secret()
@@ -48,7 +48,7 @@ namespace VaultApp.Models.Services.Implementation
             if (newSecret.IsCoded)
             {
                 if (string.IsNullOrWhiteSpace(passwordForCoded)
-                    || !await _vaultService.ExistVaultAsync(secret.VaultId, passwordForCoded, userInfo))
+                    || !await _vaultService.ExistVaultAsync(secret.VaultId, passwordForCoded, userId))
                 {
                     throw new SomeCustomException(Constants.VaultErrorConstants.VaultBadAuth);
                 }
@@ -62,29 +62,38 @@ namespace VaultApp.Models.Services.Implementation
             return result;
         }
 
-        public async Task<Secret> UpdateSecretAsync(UpdateSecret secret, UserInfo userInfo, string passwordForCoded)
+        public async Task<Secret> UpdateSecretAsync(UpdateSecret secret, long userId, string passwordForCoded)
         {
+            //незашиврованный секрет делаем зашифрованным - проверяем passwordForCoded для secret
+            //зашифрованный делаем открытым - вцелом можно не проверять, но лучше пользаку подстветить что он может передать новое значение как старое, и раз оно зашифровано он его просто затрет непонятно чем
+            //незашифрованный->незашифрованный
+            //зашифрованный->зашифрованный
+
+
             var oldSecret = await _secretRepository.GetAsync(secret.Id);
             if (oldSecret == null)
             {
                 throw new SomeCustomException(Constants.VaultErrorConstants.SecretNotFound);
             }
 
-            
+            await _vaultService.HasAccessToVaultWithError(oldSecret.VaultId, userId);
 
-            await _vaultService.HasAccessToVaultWithError(oldSecret.VaultId, userInfo);
+            if (secret.IsCoded || oldSecret.IsCoded)
+            {
+                var vaultId = oldSecret.VaultId;//await _secretRepository.GetVaultIdAsync(secret.Id);
+                if (string.IsNullOrWhiteSpace(passwordForCoded)
+                    || !await _vaultService.ExistVaultAsync(vaultId, passwordForCoded, userId))
+                {
+                    throw new SomeCustomException(Constants.VaultErrorConstants.VaultBadAuth);
+                }
+
+            }
+
             oldSecret.DieDate = secret.DieDate;
             oldSecret.IsPublic = secret.IsPublic;
             oldSecret.Key = secret.Key;
             if (secret.IsCoded)
             {
-                var vaultId = oldSecret.VaultId;//await _secretRepository.GetVaultIdAsync(secret.Id);
-                if (string.IsNullOrWhiteSpace(passwordForCoded)
-                    || !await _vaultService.ExistVaultAsync(vaultId, passwordForCoded, userInfo))
-                {
-                    throw new SomeCustomException(Constants.VaultErrorConstants.VaultBadAuth);
-                }
-
                 oldSecret.Value = _coder.EncryptWithString(secret.Value, passwordForCoded);
             }
             else
@@ -105,7 +114,7 @@ namespace VaultApp.Models.Services.Implementation
 
         }
 
-        public async Task<bool> DeleteSecretAsync(long secretId, UserInfo userInfo)
+        public async Task<bool> DeleteSecretAsync(long secretId, long userId)
         {
             var oldSecret = await _secretRepository.GetAsync(secretId);
             if (oldSecret == null)
@@ -113,11 +122,11 @@ namespace VaultApp.Models.Services.Implementation
                 throw new SomeCustomException(Constants.VaultErrorConstants.SecretNotFound);
             }
 
-            await _vaultService.HasAccessToVaultWithError(oldSecret.VaultId, userInfo);
+            await _vaultService.HasAccessToVaultWithError(oldSecret.VaultId, userId);
             return await _secretRepository.DeleteAsync(oldSecret) != null;
         }
 
-        public async Task<Secret> GetSecretAsync(long secretId, UserInfo userInfo, string passwordForCoded)
+        public async Task<Secret> GetSecretAsync(long secretId, long userId, string passwordForCoded)
         {
             var secret = await _secretRepository.GetAsync(secretId);
             if (secret == null)
@@ -139,13 +148,13 @@ namespace VaultApp.Models.Services.Implementation
                 return secret;
             }
 
-            await _vaultService.HasAccessToReadVaultWithError(secret.VaultId, userInfo);
+            await _vaultService.HasAccessToReadVaultWithError(secret.VaultId, userId);
             return secret;
         }
 
-        public async Task<List<Secret>> GetSecretsAsync(long vaultId, UserInfo userInfo, string vaultAuthPassword)
+        public async Task<List<Secret>> GetSecretsAsync(long vaultId, long userId, string vaultAuthPassword)
         {
-            await _vaultService.HasAccessToReadVaultWithError(vaultId, userInfo);
+            await _vaultService.HasAccessToReadVaultWithError(vaultId, userId);
             var res = await _secretRepository.GetByVaultIdNoTrackAsync(vaultId);
             res.ForEach(x => {
                 if (x.IsCoded && !string.IsNullOrEmpty(vaultAuthPassword))

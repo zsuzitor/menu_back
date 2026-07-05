@@ -11,18 +11,18 @@ namespace VaultApp.Models.Services
 {
     public interface IVaultService
     {
-        Task<List<Vault>> GetUserVaultsAsync(UserInfo userInfo);
-        Task<Vault> GetVaultAsync(long vaultId, UserInfo userInfo);
-        Task<Vault> GetVaultWithSecretAsync(long vaultId, UserInfo userInfo, string vaultPassword);
-        Task<List<VaultUser>> GetUsersAsync(long vaultId, UserInfo userInfo);
-        Task<Vault> UpdateVaultAsync(UpdateVault vault, UserInfo userInfo, string vaultPassword);
-        Task<Vault> CreateVaultAsync(CreateVault vault, UserInfo userInfo);
-        Task<bool> DeleteVaultAsync(long vaultId, UserInfo userInfo);
-        Task<bool> ExistVaultAsync(long vaultId, string password, UserInfo userInfo);
-        Task<bool> ExistVaultOrNullPasswordAsync(long vaultId, string password, UserInfo userInfo);
-        Task HasAccessToVaultWithError(long vaultId, UserInfo userInfo);
-        Task HasAccessToReadVaultWithError(long vaultId, UserInfo userInfo);
-        Task<bool> ChangePasswordAsync(long vaultId, string oldPassword, string newPassword, UserInfo userInfo);
+        Task<List<Vault>> GetUserVaultsAsync(long userId);
+        Task<Vault> GetVaultAsync(long vaultId, long userId);
+        Task<Vault> GetVaultWithSecretAsync(long vaultId, long userId, string vaultPassword);
+        Task<List<VaultUser>> GetUsersAsync(long vaultId, long userId);
+        Task<Vault> UpdateVaultAsync(UpdateVault vault, long userId, string vaultPassword);
+        Task<Vault> CreateVaultAsync(CreateVault vault, long userId);
+        Task<bool> DeleteVaultAsync(long vaultId, long userId);
+        Task<bool> ExistVaultAsync(long vaultId, string password, long userId);
+        Task<bool> ExistVaultOrNullPasswordAsync(long vaultId, string password, long userId);
+        Task HasAccessToVaultWithError(long vaultId, long userId);
+        Task HasAccessToReadVaultWithError(long vaultId, long userId);
+        Task<bool> ChangePasswordAsync(long vaultId, string oldPassword, string newPassword, long userId);
 
 
     }

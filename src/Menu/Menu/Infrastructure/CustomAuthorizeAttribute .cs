@@ -71,7 +71,7 @@ namespace Menu.Host.Infrastructure
         {
             new System.Security.Claims.Claim(
                 Constants.Claims.Id,
-                userinfo.UserId.ToString()),
+                userinfo?.UserId.ToString()),
         };
 
             //foreach (var role in userinfo.Roles)

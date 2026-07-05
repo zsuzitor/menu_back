@@ -4,11 +4,9 @@ using BO.Models.VaultApp.Dal;
 using Common.Models.Exceptions;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories.Interfaces;
-using jwtLib.JWTAuth.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using VaultApp.Models.Entity;
@@ -48,28 +46,28 @@ namespace VaultApp.Models.Services.Implementation
 
 
 
-        public async Task<List<VaultUser>> GetUsersAsync(long vaultId, UserInfo userInfo)
+        public async Task<List<VaultUser>> GetUsersAsync(long vaultId, long userId)
         {
-            await HasAccessToReadVaultWithError(vaultId, userInfo);
+            await HasAccessToReadVaultWithError(vaultId, userId);
             var users = await _cache.GetOrSetAsync(VaultUsersCache + vaultId
                 , async () => await _vaultRepository.GetUsersAsync(vaultId)
                 , VaultUsersCacheTime);
             return users;
         }
 
-        public async Task<List<Vault>> GetUserVaultsAsync(UserInfo userInfo)
+        public async Task<List<Vault>> GetUserVaultsAsync(long userId)
         {
-            return await _vaultRepository.GetFullListNoTrackAsync(userInfo.UserId);
+            return await _vaultRepository.GetFullListNoTrackAsync(userId);
         }
 
-        public async Task<Vault> GetVaultAsync(long vaultId, UserInfo userInfo)
+        public async Task<Vault> GetVaultAsync(long vaultId, long userId)
         {
-            await HasAccessToVaultWithError(vaultId, userInfo);
+            await HasAccessToVaultWithError(vaultId, userId);
             return await _vaultRepository.GetNoTrackAsync(vaultId);
 
         }
 
-        public async Task<Vault> GetVaultWithSecretAsync(long vaultId, UserInfo userInfo, string vaultPassword)
+        public async Task<Vault> GetVaultWithSecretAsync(long vaultId, long userId, string vaultPassword)
         {
             var vault = await _vaultRepository.GetNoTrackAsync(vaultId);
             if (vault == null)
@@ -79,7 +77,7 @@ namespace VaultApp.Models.Services.Implementation
 
             if (!vault.IsPublic)
             {
-                await HasAccessToVaultWithError(vaultId, userInfo);
+                await HasAccessToVaultWithError(vaultId, userId);
             }
 
             if (!string.IsNullOrWhiteSpace(vaultPassword)
@@ -98,15 +96,22 @@ namespace VaultApp.Models.Services.Implementation
             //_ = _vaultRepository.LoadSecrets(vault);
             vault.Secrets.ForEach(x =>
             {
-                if (x.IsCoded && !string.IsNullOrEmpty(vaultPassword))
+                if (x.IsCoded)
                 {
-                    x.Value = _coder.DecryptFromString(x.Value, vaultPassword);
+                    if (!string.IsNullOrEmpty(vaultPassword))
+                    {
+                        x.Value = _coder.DecryptFromString(x.Value, vaultPassword);
+                    }
+                    else
+                    {
+                        x.Value = "********";
+                    }
                 }
             });
             return vault;
         }
 
-        public async Task<Vault> UpdateVaultAsync(UpdateVault vault, UserInfo userInfo, string vaultPassword)
+        public async Task<Vault> UpdateVaultAsync(UpdateVault vault, long userId, string vaultPassword)
         {
             if (string.IsNullOrEmpty(vault.Name))// || string.IsNullOrEmpty(vault.Password))
             {
@@ -115,7 +120,7 @@ namespace VaultApp.Models.Services.Implementation
 
             ValidateVaultName(vault.Name);
 
-            await HasAccessToVaultWithError(vault.Id, userInfo);
+            await HasAccessToVaultWithError(vault.Id, userId);
             Vault result = null;
             await _dbHelper.ActionInTransaction(_db, async () =>
             {
@@ -162,7 +167,7 @@ namespace VaultApp.Models.Services.Implementation
             return result;
         }
 
-        public async Task<Vault> CreateVaultAsync(CreateVault vault, UserInfo userInfo)
+        public async Task<Vault> CreateVaultAsync(CreateVault vault, long userId)
         {
             if (string.IsNullOrEmpty(vault.Name) || string.IsNullOrEmpty(vault.Password))
             {
@@ -175,30 +180,30 @@ namespace VaultApp.Models.Services.Implementation
             newVault.Name = vault.Name;
             newVault.IsPublic = vault.IsPublic;
             newVault.PasswordHash = _hasher.GetHash(vault.Password);
-            newVault.Users.Add(new VaultUserDal() { UserId = userInfo.UserId });
+            newVault.Users.Add(new VaultUserDal() { UserId = userId });
             return await _vaultRepository.AddAsync(newVault);
         }
 
-        public async Task<bool> DeleteVaultAsync(long vaultId, UserInfo userInfo)
+        public async Task<bool> DeleteVaultAsync(long vaultId, long userId)
         {
-            await HasAccessToVaultWithError(vaultId, userInfo);
+            await HasAccessToVaultWithError(vaultId, userId);
             return await _vaultRepository.DeleteAsync(vaultId) != null;
         }
 
 
 
 
-        public async Task HasAccessToVaultWithError(long vaultId, UserInfo userInfo)
+        public async Task HasAccessToVaultWithError(long vaultId, long userId)
         {
-            if (!await HasAccessToVault(vaultId, userInfo))
+            if (!await HasAccessToVault(vaultId, userId))
             {
                 throw new SomeCustomException(Constants.VaultErrorConstants.VaultNotAllowed);
             }
         }
 
-        public async Task HasAccessToReadVaultWithError(long vaultId, UserInfo userInfo)
+        public async Task HasAccessToReadVaultWithError(long vaultId, long userId)
         {
-            if (await HasAccessToVault(vaultId, userInfo))
+            if (await HasAccessToVault(vaultId, userId))
             {
                 return;
             }
@@ -211,30 +216,30 @@ namespace VaultApp.Models.Services.Implementation
             throw new SomeCustomException(Constants.VaultErrorConstants.VaultNotAllowed);
         }
 
-        public async Task<bool> ExistVaultAsync(long vaultId, string password, UserInfo userInfo)
+        public async Task<bool> ExistVaultAsync(long vaultId, string password, long userId)
         {
-            await HasAccessToVaultWithError(vaultId, userInfo);
+            await HasAccessToVaultWithError(vaultId, userId);
             var hashedPassword = _hasher.GetHash(password);
             return await _vaultRepository.ExistVaultAsync(vaultId, hashedPassword);
         }
 
-        public async Task<bool> ExistVaultOrNullPasswordAsync(long vaultId, string password, UserInfo userInfo)
+        public async Task<bool> ExistVaultOrNullPasswordAsync(long vaultId, string password, long userId)
         {
-            await HasAccessToVaultWithError(vaultId, userInfo);
+            await HasAccessToVaultWithError(vaultId, userId);
             var hashedPassword = _hasher.GetHash(password);
             return await _vaultRepository.ExistVaultOrNullPasswordAsync(vaultId, hashedPassword);
         }
 
         
 
-        public async Task<bool> ChangePasswordAsync(long vaultId, string oldPassword, string newPassword, UserInfo userInfo)
+        public async Task<bool> ChangePasswordAsync(long vaultId, string oldPassword, string newPassword, long userId)
         {
             if (string.IsNullOrWhiteSpace(newPassword))
             {
                 throw new SomeCustomException(Constants.VaultErrorConstants.VaultNotFill);
             }
 
-            await HasAccessToVaultWithError(vaultId, userInfo);
+            await HasAccessToVaultWithError(vaultId, userId);
             var hashedPassword = _hasher.GetHash(oldPassword);
             var result = false;
             await _dbHelper.ActionInTransaction(_db, async () =>
@@ -261,18 +266,14 @@ namespace VaultApp.Models.Services.Implementation
         }
 
 
-        private async Task<bool> HasAccessToVault(long vaultId, UserInfo userInfo)
+        private async Task<bool> HasAccessToVault(long vaultId, long userId)
         {
-            if (userInfo == null)
-            {
-                return false;
-            }
 
              var users = await _cache.GetOrSetAsync(VaultUsersCache + vaultId
                 , async () => await _vaultRepository.GetUsersAsync(vaultId)
                 , VaultUsersCacheTime);
 
-            return users.FirstOrDefault(x => x.UserId == userInfo.UserId) != null;
+            return users.FirstOrDefault(x => x.UserId == userId) != null;
             //return await _vaultRepository.UserInVaultAsync(vaultId, userInfo.UserId);
         }
 

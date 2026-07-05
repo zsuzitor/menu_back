@@ -1,16 +1,16 @@
-﻿using Common.Models.Error.services.Interfaces;
+﻿using Auth.Models.Auth;
 using Common.Models.Return;
-using jwtLib.JWTAuth.Interfaces;
+using Menu.Host.Infrastructure;
 using Menu.Models;
 using Menu.Models.VaultApp.Returns;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using VaultApp.Models.Entity.Input;
 using VaultApp.Models.Services;
-using WEB.Common.Models.Helpers.Interfaces;
 
 namespace Menu.Controllers.VaultApp
 {
@@ -18,106 +18,87 @@ namespace Menu.Controllers.VaultApp
     [ApiController]
     public class VaultSecretController : ControllerBase
     {
-        private readonly IApiHelper _apiHealper;
         private readonly ILogger _logger;
-
-        private readonly IJWTService _jwtService;
-        private readonly IErrorService _errorService;
 
         private readonly ISecretService _secretService;
 
 
-        public VaultSecretController(IApiHelper apiHealper,
-            ILoggerFactory loggerFactory, IJWTService jwtService,
-        IErrorService errorService, ISecretService secretService
+        public VaultSecretController(
+            ILoggerFactory loggerFactory, ISecretService secretService
         )
         {
-            _apiHealper = apiHealper;
             _logger = loggerFactory.CreateLogger(Common.Models.Constants.Loggers.MenuApp);
-            _errorService = errorService;
-            _jwtService = jwtService;
             _secretService = secretService;
         }
 
         [Route("get-vault-secrets")]
         [HttpGet]
-        public async Task GetVaultSecrets(long vaultId)
+        [CustomAuthorize(withError: false)]
+        public async Task<ActionResult<IEnumerable<SecretReturn>>> GetVaultSecrets(long vaultId)
         {
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var vaultAuthPassword = Request.Cookies[Constants.VaultAuthCookie];
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, false);
+            var userId = User.GetUserId();
+            var vaultAuthPassword = Request.Cookies[Constants.VaultAuthCookie];
 
-                    var res = (await _secretService.GetSecretsAsync(vaultId, userInfo, vaultAuthPassword))
-                        .Select(x => new SecretReturn().Fill(x));
-                    await _apiHealper.WriteResponseAsync(Response, res);
-
-                }, Response, _logger);
+            var res = (await _secretService.GetSecretsAsync(vaultId, userId, vaultAuthPassword))
+                .Select(x => new SecretReturn().Fill(x));
+            return new JsonResult(res, GetJsonOptions());
         }
 
         [Route("delete-secret")]
         [HttpDelete]
-        public async Task DeleteSecret([FromForm] long secretId)
+        [CustomAuthorize]
+        public async Task<ActionResult<BoolResultReturn>> DeleteSecret([FromForm] long secretId)
         {
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userId = User.GetUserId();
 
-                    var res = await _secretService.DeleteSecretAsync(secretId, userInfo);
-                    await _apiHealper.WriteResponseAsync(Response, new BoolResultReturn(res));
-
-                }, Response, _logger);
+            var res = await _secretService.DeleteSecretAsync(secretId, userId);
+            return new JsonResult(new BoolResultReturn(res), GetJsonOptions());
         }
 
         [Route("create-secret")]
         [HttpPut]
-        public async Task CreateSecret([FromForm] CreateSecret secret)
+        [CustomAuthorize]
+        public async Task<ActionResult<SecretReturn>> CreateSecret([FromForm] CreateSecret secret)
         {
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var vaultAuthPassword = Request.Cookies[Constants.VaultAuthCookie];
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userId = User.GetUserId();
+            var vaultAuthPassword = Request.Cookies[Constants.VaultAuthCookie];
 
-                    var res = await _secretService.CreateSecretAsync(secret, userInfo, vaultAuthPassword);
-                    await _apiHealper.WriteResponseAsync(Response, new SecretReturn().Fill(res));
-
-                }, Response, _logger);
+            var res = await _secretService.CreateSecretAsync(secret, userId, vaultAuthPassword);
+            return new JsonResult(new SecretReturn().Fill(res), GetJsonOptions());
         }
 
 
         [Route("update-secret")]
         [HttpPatch]
-        public async Task UpdateSecret([FromForm] UpdateSecret secret)
+        [CustomAuthorize]
+        public async Task<ActionResult<SecretReturn>> UpdateSecret([FromForm] UpdateSecret secret)
         {
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var vaultAuthPassword = Request.Cookies[Constants.VaultAuthCookie];
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, true);
+            var userId = User.GetUserId();
+            var vaultAuthPassword = Request.Cookies[Constants.VaultAuthCookie];
 
-                    var res = await _secretService.UpdateSecretAsync(secret, userInfo, vaultAuthPassword);
-                    await _apiHealper.WriteResponseAsync(Response, new SecretReturn().Fill(res));
-
-                }, Response, _logger);
+            var res = await _secretService.UpdateSecretAsync(secret, userId, vaultAuthPassword);
+            return new JsonResult(new SecretReturn().Fill(res), GetJsonOptions());
         }
 
         [Route("get-secret")]
         [HttpGet]
-        public async Task GetSecret(long secretId)
+        [CustomAuthorize(withError: false)]
+        public async Task<ActionResult<SecretReturn>> GetSecret(long secretId)
         {
-            await _apiHealper.DoStandartSomething(
-                async () =>
-                {
-                    var vaultAuthPassword = Request.Cookies[Constants.VaultAuthCookie];
+            var userId = User.GetUserId();
+            var vaultAuthPassword = Request.Cookies[Constants.VaultAuthCookie];
 
-                    var userInfo = _apiHealper.CheckAuthorized(Request, _jwtService, false);
-                    var res = await _secretService.GetSecretAsync(secretId, userInfo, vaultAuthPassword);
-                    await _apiHealper.WriteResponseAsync(Response, new SecretReturn().Fill(res));
+            var res = await _secretService.GetSecretAsync(secretId, userId, vaultAuthPassword);
+            return new JsonResult(new SecretReturn().Fill(res), GetJsonOptions());
+        }
 
-                }, Response, _logger);
+        private JsonSerializerOptions GetJsonOptions()
+        {
+            return new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = null, // PascalCase
+                WriteIndented = true
+            };
         }
     }
 }
