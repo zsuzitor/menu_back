@@ -50,6 +50,10 @@ namespace Menu.Controllers
             return View("Index");
 
         }
+        public ActionResult FinancialAssistantApp()
+        {
+            return View("Index");
 
+        }
     }
 }

@@ -1,13 +1,15 @@
-﻿using BO.Models.TaskManagementApp.DAL.Domain;
-using BO.Models.DAL.Domain;
+﻿using BO.Models.DAL.Domain;
+using BO.Models.FinancialAssistant.DAL;
 using BO.Models.MenuApp.DAL.Domain;
 using BO.Models.PlaningPoker.DAL;
+using BO.Models.TaskManagementApp.DAL.Domain;
 using BO.Models.VaultApp.Dal;
 using BO.Models.WordsCardsApp.DAL.Domain;
 using DAL.Models.DAL.ContextSetup;
-using DAL.Models.DAL.ContextSetup.TaskManagementApp;
+using DAL.Models.DAL.ContextSetup.FinancialAssistant;
 using DAL.Models.DAL.ContextSetup.MenuApp;
 using DAL.Models.DAL.ContextSetup.PlaningPoker;
+using DAL.Models.DAL.ContextSetup.TaskManagementApp;
 using DAL.Models.DAL.ContextSetup.VaultApp;
 using DAL.Models.DAL.ContextSetup.WordsCards;
 using Microsoft.EntityFrameworkCore;
@@ -46,6 +48,16 @@ namespace DAL.Models.DAL
         public DbSet<WordCardWordList> WordCardWordList { get; set; }
         #endregion WordsCardsApp
 
+
+        #region FinancialAssistant
+        public DbSet<Portfolio> Portfolio { get; set; }
+        public DbSet<Stock> Stock { get; set; }
+        public DbSet<StockElement> StockElement { get; set; }
+        public DbSet<StockEvent> StockEvent { get; set; }
+        public DbSet<StockHistory> StockHistory { get; set; }
+
+
+        #endregion FinancialAssistant
 
 
         #region PlaningPoker
@@ -150,6 +162,17 @@ namespace DAL.Models.DAL
 
 
             #endregion VaultApp
+
+
+            #region FinancialAssistant
+            modelBuilder.FinancialAssistantPortfolioBuild()
+                .FinancialAssistantStockBuild()
+                .FinancialAssistantStockElementBuild()
+                .FinancialAssistantStockEventBuild()
+                .FinancialAssistantStockHistoryBuild()
+                ;
+
+        #endregion FinancialAssistant
 
             base.OnModelCreating(modelBuilder);
         }

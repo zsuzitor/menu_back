@@ -45,6 +45,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Auth\Auth.csproj" />
+    <ProjectReference Include="..\..\FinancialAssistantApp\FinancialAssistantApp\FinancialAssistantApp.csproj" />
     <ProjectReference Include="..\..\TaskManagementApp\TaskManagementApp\TaskManagementApp.csproj" />
     <ProjectReference Include="..\..\Common\Common.csproj" />
     <ProjectReference Include="..\..\DAL\DAL.csproj" />

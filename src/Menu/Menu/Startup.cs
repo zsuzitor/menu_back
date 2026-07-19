@@ -9,6 +9,7 @@ using Common.Models.Validators;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
+using FinancialAssistantApp.Models;
 using Hangfire;
 using Hangfire.Dashboard.BasicAuthorization;
 using Hangfire.MemoryStorage;
@@ -55,6 +56,7 @@ namespace Menu
                 new PlaningPokerInitializer(),
                 new TaskManagementAppInitializer(),
                 new VaultAppInitializer(),
+                new FinancialAssistantAppInitializer(),
             };
         }
 
@@ -339,6 +341,7 @@ namespace Menu
                 routes.MapRoute("planing_poker", "planing-poker/{*url}", new { controller = "Menu", action = "PlaningPoker" });
                 routes.MapRoute("task_management", "task-management/{*url}", new { controller = "Menu", action = "TaskManagementApp" });
                 routes.MapRoute("vault", "vault-app/{*url}", new { controller = "Menu", action = "VaultApp" });
+                routes.MapRoute("financial_assistant_app", "financial-assistant-app/{*url}", new { controller = "Menu", action = "FinancialAssistantApp" });
 
                 //routes.MapRoute(
                 //    name: "default",
