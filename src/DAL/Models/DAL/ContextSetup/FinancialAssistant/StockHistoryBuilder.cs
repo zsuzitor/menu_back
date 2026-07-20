@@ -16,7 +16,7 @@ namespace DAL.Models.DAL.ContextSetup.FinancialAssistant
                 entity.HasOne(x => x.Currency).WithMany()
                     .HasForeignKey(x => x.CurrencyId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasOne(x => x.Stock).WithMany(x=>x.StockHistory)
-                    .HasForeignKey(x => x.StockId).OnDelete(DeleteBehavior.NoAction);
+                    .HasForeignKey(x => x.StockId).OnDelete(DeleteBehavior.Cascade);
 
                 entity.ToTable("StockHistory", schema: "FinancialAssistantApp");
 

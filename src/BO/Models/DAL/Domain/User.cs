@@ -15,7 +15,8 @@ namespace BO.Models.DAL.Domain
         public string Name { get; set; }
         public string Email { get; set; }
         public string Login { get; set; }
-       
+        public bool IsAdmin { get; set; }
+
         //public string ImagePath { get; set; }
         public string PasswordHash { get; set; }
         public string RefreshTokenHash { get; set; }

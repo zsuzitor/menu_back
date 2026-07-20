@@ -10,7 +10,7 @@ namespace BO.Models.FinancialAssistant.DAL
         public string Name { get; set; }
         public string Code { get; set; }
 
-        public DateTime? ActualizationTime { get; set; }
+        public DateTime ActualizationTime { get; set; }
         public decimal LastPrice { get; set; }
 
         public bool IsCurrency { get; set; }

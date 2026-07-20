@@ -1,5 +1,9 @@
-﻿using Common.Models;
+﻿using BL.Models.Services.Interfaces;
+using Common.Models;
 using FinancialAssistantApp.Models.DAL.Repositories;
+using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
+using FinancialAssistantApp.Models.Services;
+using FinancialAssistantApp.Models.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -15,7 +19,17 @@ namespace FinancialAssistantApp.Models
         public async Task<IStartUpInitializer> ErrorContainerInitialize(IServiceProvider services)
         {
 
+            var serviceScopeFactory = services.GetRequiredService<IServiceScopeFactory>();
+            using (var scope = serviceScopeFactory.CreateScope())
+            {
+                var configurationService = scope.ServiceProvider.GetRequiredService<IConfigurationService>();
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.NotFoundPortfolio, "Не найден портфель", "FinancialAssistantApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.NotFoundCurrency, "Не найдена валюта", "FinancialAssistantApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.NotFoundStock, "Не найден тикер", "FinancialAssistantApp", "Error");
+                
 
+
+            }
 
 
             return this;
@@ -25,14 +39,21 @@ namespace FinancialAssistantApp.Models
         public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
         {
             services.AddScoped<IPortfolioRepository, PortfolioRepository>();
+            services.AddScoped<IStockHistoryRepository, StockHistoryRepository>();
+            services.AddScoped<IStockRepository, StockRepository>();
+
+            
             return this;
 
         }
 
         public IStartUpInitializer ServicesInitialize(IServiceCollection services)
         {
+            services.AddScoped<IPortfolioService, PortfolioService>();
+            services.AddScoped<IStockEventService, StockEventService>();
+            services.AddScoped<IStockService, StockService>();
 
-
+            
 
             return this;
 

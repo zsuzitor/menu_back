@@ -13,11 +13,15 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
         {
         }
 
-        public async Task<List<Stock>> FindAsync(string text)
+        public async Task<List<Stock>> FindAsync(long? portfolioId, string text)
         {
             return await _db.Stock
-                .Where(x => EF.Functions.Like(x.Code, $"%{text}%")
-                || EF.Functions.Like(x.Name, $"%{text}%")).ToListAsync();
+                .Where(x =>
+                ((portfolioId == null || x.PortfolioId==portfolioId)
+                    || x.IsGlobal)
+                && (EF.Functions.Like(x.Code, $"%{text}%")
+                    || EF.Functions.Like(x.Name, $"%{text}%"))
+                ).ToListAsync();
         }
 
         public async Task<List<Stock>> GetGlobalAsync()

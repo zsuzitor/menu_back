@@ -1,8 +1,6 @@
 ﻿using BO.Models.DAL;
 using BO.Models.TaskManagementApp.DAL.Domain;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BO.Models.FinancialAssistant.DAL
 {

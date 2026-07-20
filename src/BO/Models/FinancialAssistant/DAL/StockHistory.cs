@@ -14,7 +14,7 @@ namespace BO.Models.FinancialAssistant.DAL
         public long StockId { get; set; }
         public Stock Stock { get; set; }
 
-        public long CurrencyId { get; set; }
+        public long? CurrencyId { get; set; }
         public Stock Currency { get; set; }
         public byte[] RowVersion { get; set; }
 
