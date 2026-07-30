@@ -7,5 +7,6 @@ namespace FinancialAssistantApp.Models.Services.Interfaces
         Task<List<Portfolio>> GetAllAsync(long userId);
         Task<Portfolio> CreateAsync(Portfolio obj, long userId);
         Task<Portfolio> DeleteAsync(long id, long userId);
+        Task<Portfolio> UpdateAsync(Portfolio obj, long userId);
     }
 }

@@ -11,6 +11,11 @@ namespace BO.Models.FinancialAssistant.DAL
         public long UserId { get; set; }
         public ProjectUser User { get; set; }
 
+        /// <summary>
+        /// основная валюта портфеля, для отображения текущих цен
+        /// </summary>
+        public long? CurrencyId { get; set; }
+        public Stock Currency { get; set; }
 
         public List<StockElement> Elements { get; set; }
         public List<StockEvent> Events { get; set; }

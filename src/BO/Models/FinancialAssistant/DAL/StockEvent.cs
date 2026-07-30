@@ -14,6 +14,12 @@ namespace BO.Models.FinancialAssistant.DAL
         public long StockElementId { get; set; }
         public StockElement StockElement { get; set; }
 
+
+        public decimal? Price { get; set; }
+
+        /// <summary>
+        /// если есть некий обмен что то на что то, если просто докинуть денег на счет то валюты тут нет тк нет обмена
+        /// </summary>
         public long? CurrencyId { get; set; }
         public Stock Currency { get; set; }
 

@@ -1,5 +1,7 @@
 ﻿using Auth.Models.Auth;
 using BL.Models.Services.Interfaces;
+using Common.Models.Exceptions;
+using Menu.Models.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -12,10 +14,12 @@ namespace Menu.Host.Controllers
     {
 
         protected readonly ICacheService _cacheService;
+        private readonly IUserService _userService;
 
-        public AdminController(ICacheService cacheService)
+        public AdminController(ICacheService cacheService, IUserService userService)
         {
             _cacheService = cacheService;
+            _userService = userService;
         }
 
 
@@ -24,7 +28,13 @@ namespace Menu.Host.Controllers
         public async Task ClearCache(string cacheKey)
         {
             var userId = User.GetUserId();
-            //todo проверить как то права
+
+            var user = await _userService.GetUserByIdAsync(userId);
+            if (user == null || !user.IsAdmin)
+            {
+                throw new SomeCustomNotAllowedException();
+            }
+
             await _cacheService.RemoveAsync(cacheKey);
         }
 

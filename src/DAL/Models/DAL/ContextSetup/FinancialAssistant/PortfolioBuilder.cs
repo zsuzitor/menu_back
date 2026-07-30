@@ -12,6 +12,8 @@ namespace DAL.Models.DAL.ContextSetup.FinancialAssistant
                 entity.HasKey(x => x.Id);
                 entity.HasOne(x => x.User).WithMany()
                     .HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.NoAction);
+                entity.HasOne(x => x.Currency).WithMany()
+                    .HasForeignKey(x => x.CurrencyId).OnDelete(DeleteBehavior.NoAction);
                 entity.ToTable("Portfolio", schema: "FinancialAssistantApp");
 
                 entity.Property(p => p.RowVersion)

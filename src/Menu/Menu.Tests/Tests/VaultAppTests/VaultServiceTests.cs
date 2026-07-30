@@ -29,7 +29,7 @@ namespace Menu.Tests.Tests.VaultAppTests
                 { Name = "name1", Password = "pwd1", IsPublic = true };
                 var createdVault = await service.CreateVaultAsync(
                      vaultForCreate
-                     , new BO.Models.Auth.UserInfo(userId));
+                     , userId);
 
                 var createdVaultFromDb = db.Vaults.FirstOrDefault(x => x.Id == createdVault.Id);
                 Assert.NotEqual(0, createdVault.Id);

@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace BO.Models.FinancialAssistant.Enums
 {
     public enum StockEventEnum
     {
+        /// <summary>
+        /// пополнение
+        /// </summary>
         CashReplenishment = 1,
         Buy = 2,
         Sell = 3,

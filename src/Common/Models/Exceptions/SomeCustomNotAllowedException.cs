@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Common.Models.Exceptions
 {
@@ -25,11 +23,11 @@ namespace Common.Models.Exceptions
 
         }
 
-        public SomeCustomNotAllowedException(string key, string body) : base(key)
+        public SomeCustomNotAllowedException(string key, string body) : base(key, body)
         {
         }
 
-        public SomeCustomNotAllowedException(string key, string body, Exception innerExcp) : base(key, innerExcp)
+        public SomeCustomNotAllowedException(string key, string body, Exception innerExcp) : base(key, body, innerExcp)
         {
         }
     }

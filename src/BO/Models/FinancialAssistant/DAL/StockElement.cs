@@ -12,8 +12,6 @@ namespace BO.Models.FinancialAssistant.DAL
         public long StockId { get; set; }
         public Stock Stock { get; set; }
         public decimal Count { get; set; }
-        public long? CurrencyId { get; set; }
-        public Stock Currency { get; set; }
 
         public long PortfolioId { get; set; }
         public Portfolio Portfolio { get; set; }

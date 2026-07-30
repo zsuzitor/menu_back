@@ -26,6 +26,7 @@ namespace FinancialAssistantApp.Models
                 await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.NotFoundPortfolio, "Не найден портфель", "FinancialAssistantApp", "Error");
                 await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.NotFoundCurrency, "Не найдена валюта", "FinancialAssistantApp", "Error");
                 await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.NotFoundStock, "Не найден тикер", "FinancialAssistantApp", "Error");
+                await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.NotValideStockEvent, "Не валидное событие", "FinancialAssistantApp", "Error");
                 
 
 
@@ -41,8 +42,14 @@ namespace FinancialAssistantApp.Models
             services.AddScoped<IPortfolioRepository, PortfolioRepository>();
             services.AddScoped<IStockHistoryRepository, StockHistoryRepository>();
             services.AddScoped<IStockRepository, StockRepository>();
-
+            services.AddScoped<IStockElementRepository, StockElementRepository>();
+            services.AddScoped<IStockEventRepository, StockEventRepository>();
             
+
+
+
+
+
             return this;
 
         }
