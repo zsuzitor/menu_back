@@ -18,6 +18,7 @@ namespace Menu
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json",
                     optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettingsSecret.json")
                 .AddEnvironmentVariables();
 
             if (args != null)

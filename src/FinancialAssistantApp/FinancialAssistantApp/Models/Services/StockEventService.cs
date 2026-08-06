@@ -5,6 +5,8 @@ using Common.Models.Exceptions;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
 using FinancialAssistantApp.Models.Services.Interfaces;
+using Org.BouncyCastle.Ocsp;
+using System.Runtime.ConstrainedExecution;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace FinancialAssistantApp.Models.Services
@@ -34,6 +36,16 @@ namespace FinancialAssistantApp.Models.Services
             //создать сток если его нет?
             //todo транзакция
 
+            if (obj.CurrencyId <= 0)
+            {
+                obj.CurrencyId = null;
+            }
+
+            if (obj.Price <= 0)
+            {
+                obj.Price = null;
+            }
+
             if (!Enum.IsDefined(typeof(StockEventEnum), obj.Type))
             {
                 throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
@@ -60,13 +72,21 @@ namespace FinancialAssistantApp.Models.Services
 
             if (obj.Type == StockEventEnum.CashReplenishment || obj.Type == StockEventEnum.Dividends || obj.Type == StockEventEnum.WithdrawalCash)
             {
-                if (!stock.IsCurrency)
+                if (stock.Type != StockTypeEnum.Currency)
                 {
                     throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotValideStockEvent);
 
                 }
                 obj.CurrencyId = null;
             }
+
+
+            if (((obj.Price != null) && (obj.CurrencyId == null))
+                || ((obj.Price == null) && (obj.CurrencyId != null)))
+            {
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotValideStockEvent);
+            }
+
 
 
             Stock currency = null;
@@ -79,13 +99,9 @@ namespace FinancialAssistantApp.Models.Services
                     throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
 
                 }
-
-                if (obj.Price == null || obj.Price <= 0)
-                {
-                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotValideStockEvent);
-                }
+                if ((currency.Type != StockTypeEnum.Currency))
+                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
             }
-
 
             var element = await _stockElementRepository.Get(obj.PortfolioId, obj.StockId);
             if (element == null)
@@ -106,6 +122,7 @@ namespace FinancialAssistantApp.Models.Services
 
             if (currency != null)
             {
+                //списываем деньги
                 var currencyElement = await _stockElementRepository.Get(obj.PortfolioId, obj.CurrencyId.Value);
                 if (currencyElement == null)
                 {

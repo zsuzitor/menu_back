@@ -51,13 +51,13 @@ namespace Auth.Models.Auth
             return this;
         }
 
-        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
+        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services, IConfiguration config)
         {
             return this;
 
         }
 
-        public IStartUpInitializer ServicesInitialize(IServiceCollection services)
+        public IStartUpInitializer ServicesInitialize(IServiceCollection services, IConfiguration config)
         {
             var settings = new JWTServiceSettings();
             _configuration.GetSection("JwtSettings").Bind(settings);

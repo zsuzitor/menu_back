@@ -1,13 +1,14 @@
 ﻿
 using BL.Models.Services.Interfaces;
+using Common.Models;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Threading.Tasks;
 using TaskManagementApp.Models.DAL.Repositories;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TaskManagementApp.Models.Services;
 using TaskManagementApp.Models.Services.Interfaces;
-using Common.Models;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Threading.Tasks;
 
 namespace TaskManagementApp.Models
 {
@@ -60,7 +61,7 @@ namespace TaskManagementApp.Models
 
         }
 
-        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
+        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<IProjectRepository, ProjectRepository>();
             services.AddScoped<IProjectCachedRepository, ProjectCachedRepository>();
@@ -95,7 +96,7 @@ namespace TaskManagementApp.Models
 
         }
 
-        public IStartUpInitializer ServicesInitialize(IServiceCollection services)
+        public IStartUpInitializer ServicesInitialize(IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<IProjectService, ProjectService>();
             services.AddScoped<ILabelService, LabelService>();

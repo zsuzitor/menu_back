@@ -3,6 +3,7 @@
 using BL.Models.Services.Interfaces;
 using Common.Models;
 using Common.Models.Error;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace WordsCardsApp
 
         }
 
-        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
+        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<IWordsCardsRepository, WordsCardsRepository>();
             services.AddScoped<IWordsListRepository, WordsListRepository>();
@@ -29,7 +30,7 @@ namespace WordsCardsApp
 
         }
 
-        public IStartUpInitializer ServicesInitialize(IServiceCollection services)
+        public IStartUpInitializer ServicesInitialize(IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<IWordsCardsService, WordsCardsService>();
             services.AddScoped<IWordsListService, WordsListService>();

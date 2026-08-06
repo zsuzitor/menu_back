@@ -29,8 +29,8 @@ namespace Menu.Host.Controllers
         {
             var userId = User.GetUserId();
 
-            var user = await _userService.GetUserByIdAsync(userId);
-            if (user == null || !user.IsAdmin)
+            var admin = await _userService.IsAdminAsync(userId);
+            if (!admin)
             {
                 throw new SomeCustomNotAllowedException();
             }

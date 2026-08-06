@@ -38,14 +38,14 @@ namespace VaultApp.Models
             //
         }
 
-        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
+        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<ISecretRepository, SecretRepository>();
             services.AddScoped<IVaultRepository, VaultRepository>();
             return this;
         }
 
-        public IStartUpInitializer ServicesInitialize(IServiceCollection services)
+        public IStartUpInitializer ServicesInitialize(IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<ISecretService, SecretService>();
             services.AddScoped<IVaultService, VaultService>();

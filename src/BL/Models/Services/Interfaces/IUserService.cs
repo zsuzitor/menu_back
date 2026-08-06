@@ -9,6 +9,7 @@ namespace Menu.Models.Services.Interfaces
     public interface IUserService
     {
         Task<User> GetUserByIdAsync(long userId);
+        Task<bool> IsAdminAsync(long userId);
         Task<User> UpdateUserPasswordAsync(long userId, string password);
         Task<bool> RemoveRefreshTokenAsync(long userId,string refreshToken);
         Task<bool> RemoveRefreshTokenAsync(long userId);

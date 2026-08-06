@@ -34,7 +34,7 @@ services.AddInvestApiClient((_, settings) => settings.AccessToken = token);
 var provider = services.BuildServiceProvider();
 
 
-var figt = GetFigi(configuration, "KGSRUB_TOM");
+//var figt = GetFigi(configuration, "KGSRUB_TOM");
 
 
 
@@ -66,18 +66,7 @@ var  p = (decimal)prices.LastPrices[0].Price;
 var f = 10;
 var g = 10;
 
-string GetFigi(IConfiguration config, string appTicker)
-{
-    var lst = new List<MapTElement>();
-    config.GetSection("TBankMapping").Bind(lst);
-    return lst.FirstOrDefault(x=>x.AppTicker==appTicker)?.TBankFigi;
-}
 
 
 
-class MapTElement
-{
-    public string AppTicker { get; set; }
-    public string TBankFigi { get; set; }
-    public string TBankCurrency { get; set; }
-}
+

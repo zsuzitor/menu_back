@@ -177,8 +177,8 @@ namespace Menu
 
             foreach (var init in _appsInitializers)
             {
-                init.RepositoriesInitialize(services);
-                init.ServicesInitialize(services);
+                init.RepositoriesInitialize(services, Configuration);
+                init.ServicesInitialize(services, Configuration);
             }
 
 

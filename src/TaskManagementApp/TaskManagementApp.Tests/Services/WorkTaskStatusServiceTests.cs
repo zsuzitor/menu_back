@@ -60,8 +60,8 @@ namespace TaskManagementApp.Tests.Services
             var services = new ServiceCollection();
             var appInitializer = new TaskManagementAppInitializer();
             appInitializer
-                .RepositoriesInitialize(services)
-                .ServicesInitialize(services)
+                .RepositoriesInitialize(services, null)
+                .ServicesInitialize(services, null)
                 ;
             return services;
         }

@@ -24,6 +24,11 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 ).ToListAsync();
         }
 
+        public async Task<List<Stock>> GetGlobalByCodesNoTrack(IEnumerable<string> codes)
+        {
+            return await _db.Stock.AsNoTracking().Where(x => x.IsGlobal && codes.Contains(x.Code)).ToListAsync();
+        }
+
         public async Task<List<Stock>> GetGlobalAsync()
         {
             return await _db.Stock.AsNoTracking().Where(x => x.IsGlobal).ToListAsync();

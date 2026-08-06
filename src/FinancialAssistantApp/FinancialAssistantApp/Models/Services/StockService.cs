@@ -1,8 +1,11 @@
 ﻿using BL.Models.Services.Interfaces;
 using BO.Models.FinancialAssistant.DAL;
+using BO.Models.FinancialAssistant.Enums;
 using Common.Models.Exceptions;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
+using FinancialAssistantApp.Models.DTO;
 using FinancialAssistantApp.Models.Services.Interfaces;
+using Menu.Models.Services.Interfaces;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace FinancialAssistantApp.Models.Services
@@ -13,29 +16,41 @@ namespace FinancialAssistantApp.Models.Services
         private readonly IStockHistoryRepository _stockHistoryRepository;
         private readonly IDateTimeProvider _datetimeProvider;
         private readonly IPortfolioRepository _portfolioRepository;
+        private readonly IUserService _userService;
 
-        public StockService(IStockRepository stockRepository, IDateTimeProvider datetimeProvider, IPortfolioRepository portfolioRepository, IStockHistoryRepository stockHistoryRepository)
+        public StockService(IStockRepository stockRepository, IDateTimeProvider datetimeProvider, IPortfolioRepository portfolioRepository, IStockHistoryRepository stockHistoryRepository, IUserService userService)
         {
             _stockRepository = stockRepository;
             _datetimeProvider = datetimeProvider;
             _portfolioRepository = portfolioRepository;
             _stockHistoryRepository = stockHistoryRepository;
+            _userService = userService;
         }
 
-        public async Task<Stock> CreateAsync(Stock obj, long userId)
+        public async Task<Stock> CreateAsync(CreateStock obj, long userId)
         {
+            if (!Enum.IsDefined(typeof(StockTypeEnum), obj.Type))
+            {
+                throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
+            }
+
             var rec = new Stock
             {
                 Name = obj.Name,
                 Code = obj.Code,
-                ActualizationTime = _datetimeProvider.CurrentDateTime(),
-                LastPrice = obj.LastPrice,
-                IsCurrency = obj.IsCurrency,
+                //ActualizationTime = _datetimeProvider.CurrentDateTime(),
+                //LastPrice = obj.LastPrice,
+                Type = obj.Type,
                 IsGlobal = obj.IsGlobal
             };
+
             if (rec.IsGlobal)
             {
-                //todo тут проверить права
+                var admin = await _userService.IsAdminAsync(userId);
+                if (!admin)
+                {
+                    throw new SomeCustomNotAllowedException();
+                }
             }
             else
             {
@@ -51,16 +66,31 @@ namespace FinancialAssistantApp.Models.Services
                 }
             }
 
-            if (!rec.IsCurrency)
-            {
-                if (obj.CurrencyId == null)
-                {
-                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
-                }
-                var cur = await _stockRepository.GetNoTrackAsync(obj.CurrencyId.Value);
-                if (cur == null || !cur.IsCurrency)
-                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
-            }
+            //if (obj.Type != StockTypeEnum.Currency)
+            //{
+            //    if (obj.CurrencyId == null)
+            //    {
+            //        throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
+            //    }
+
+            //    var cur = await _stockRepository.GetNoTrackAsync(obj.CurrencyId.Value);
+            //    if (cur == null || (cur.Type != StockTypeEnum.Currency))
+            //        throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
+            //    if (!cur.IsGlobal && rec.IsGlobal)
+            //    {
+            //        //валюта не глобальная а сток глобальный - ошибка
+            //        throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
+            //    }
+
+            //    if (!cur.IsGlobal && !rec.IsGlobal && cur.PortfolioId != rec.PortfolioId)
+            //    {
+            //        //ссылаемся на валюту из чужого портфеля
+            //        throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
+
+            //    }
+
+
+            //}
 
             var result = await _stockRepository.AddAsync(rec);
             var history = GetHistory(result);
@@ -113,7 +143,7 @@ namespace FinancialAssistantApp.Models.Services
 
         }
 
-        public async Task<Stock> UpdateAsync(Stock obj, long userId)
+        public async Task<Stock> UpdateAsync(CreateStock obj, long userId)
         {
             var stock = await _stockRepository.GetAsync(obj.Id) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
 
@@ -129,7 +159,7 @@ namespace FinancialAssistantApp.Models.Services
 
             stock.Name = obj.Name;
             stock.Code = obj.Code;
-            stock.LastPrice = obj.LastPrice;
+            //stock.LastPrice = obj.LastPrice;
             var result = await _stockRepository.UpdateAsync(stock);
             var history = GetHistory(result);
             await _stockHistoryRepository.AddAsync(history);

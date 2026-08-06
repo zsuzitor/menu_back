@@ -41,7 +41,7 @@ namespace Menu.Models
             }
         }
 
-        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
+        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IFileRepository, FileRepository>();
@@ -51,7 +51,7 @@ namespace Menu.Models
             return this;
         }
 
-        public IStartUpInitializer ServicesInitialize(IServiceCollection services)
+        public IStartUpInitializer ServicesInitialize(IServiceCollection services, IConfiguration config)
         {
             services.AddSingleton<DAL.Models.DAL.Repositories.Interfaces.IPhysicalFileService, PhysicalFileService>();
             services.AddScoped<IErrorService, ErrorService>();

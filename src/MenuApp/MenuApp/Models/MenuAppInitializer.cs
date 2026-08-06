@@ -7,6 +7,7 @@ using Menu.Models.Services.Interfaces;
 using MenuApp.Models.BL.Services;
 using MenuApp.Models.DAL.Repositories;
 using MenuApp.Models.DAL.Repositories.Interfaces;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
@@ -21,14 +22,14 @@ namespace MenuApp.Models
 
         }
 
-        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
+        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<IArticleRepository, ArticleRepository>();
             return this;
 
         }
 
-        public IStartUpInitializer ServicesInitialize(IServiceCollection services)
+        public IStartUpInitializer ServicesInitialize(IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<IArticleService, ArticleService>();
             return this;

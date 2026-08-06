@@ -45,7 +45,7 @@ namespace PlaningPoker.Models
             return this;
         }
 
-        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
+        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<IPlaningUserRepository, PlaningUserRepository>();
             services.AddScoped<IRoomRepository, RoomRepository>();
@@ -53,7 +53,7 @@ namespace PlaningPoker.Models
             return this;
         }
 
-        public IStartUpInitializer ServicesInitialize(IServiceCollection services)
+        public IStartUpInitializer ServicesInitialize(IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<IPlaningPokerService, PlaningPokerService>();
 

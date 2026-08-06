@@ -1,22 +1,19 @@
-﻿using BO.Models.DAL;
+﻿using BO.Models.FinancialAssistant.DAL;
 using BO.Models.FinancialAssistant.Enums;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace BO.Models.FinancialAssistant.DAL
+namespace FinancialAssistantApp.Models.DTO
 {
-    public class Stock : IDomainRecord<long>
+    public class CreateStock
     {
         public long Id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
 
-        public DateTime ActualizationTime { get; set; }
-        public decimal LastPrice { get; set; }
 
         public StockTypeEnum Type { get; set; }
-        public long? CurrencyId { get; set; }
-        public Stock Currency { get; set; }
 
         /// <summary>
         /// создана во всем приложении и апрувнута админом, записи можно создать и только для себя например что бы как позицию показать квартиру
@@ -26,10 +23,5 @@ namespace BO.Models.FinancialAssistant.DAL
         /// для неглобальных
         /// </summary>
         public long? PortfolioId { get; set; }
-        public Portfolio Portfolio { get; set; }
-
-        public List<StockHistory> StockHistory { get; set; }
-
-        public byte[] RowVersion { get; set; }
     }
 }

@@ -10,6 +10,8 @@ namespace DAL.Models.DAL.ContextSetup.FinancialAssistant
             modelBuilder.Entity<Stock>(entity =>
             {
                 entity.HasKey(x => x.Id);
+                entity.HasIndex(x => x.Code);
+
                 entity.HasOne(x => x.Currency).WithMany()
                     .HasForeignKey(x => x.CurrencyId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasOne(x => x.Portfolio).WithMany()

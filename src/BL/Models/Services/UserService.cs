@@ -215,5 +215,9 @@ namespace Menu.Models.Services
 
         }
 
+        public async Task<bool> IsAdminAsync(long userId)
+        {
+            return (await GetUserByIdAsync(userId)).IsAdmin;
+        }
     }
 }

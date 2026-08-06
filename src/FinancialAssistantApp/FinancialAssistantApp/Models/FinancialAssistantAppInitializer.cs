@@ -4,11 +4,11 @@ using FinancialAssistantApp.Models.DAL.Repositories;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.Services;
 using FinancialAssistantApp.Models.Services.Interfaces;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
+using TIntegration.Models.Services;
+using TIntegration.Models.Services.Interfaces;
 
 namespace FinancialAssistantApp.Models
 {
@@ -37,7 +37,7 @@ namespace FinancialAssistantApp.Models
 
         }
 
-        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services)
+        public IStartUpInitializer RepositoriesInitialize(IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<IPortfolioRepository, PortfolioRepository>();
             services.AddScoped<IStockHistoryRepository, StockHistoryRepository>();
@@ -54,13 +54,17 @@ namespace FinancialAssistantApp.Models
 
         }
 
-        public IStartUpInitializer ServicesInitialize(IServiceCollection services)
+        public IStartUpInitializer ServicesInitialize(IServiceCollection services, IConfiguration config)
         {
             services.AddScoped<IPortfolioService, PortfolioService>();
             services.AddScoped<IStockEventService, StockEventService>();
             services.AddScoped<IStockService, StockService>();
+            services.AddScoped<IPriceService, PriceService>();
+            services.AddScoped<IStockHistoryService, StockHistoryService>();
+            //services.AddScoped<InvestApiClient, InvestApiClient>();
+            services.AddInvestApiClient((_, settings) => settings.AccessToken = config["FinancialAssistantApp:TBankAuthToken"]);
 
-            
+
 
             return this;
 
