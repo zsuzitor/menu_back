@@ -1,6 +1,7 @@
 ﻿using BO.Models.FinancialAssistant.DAL;
 using Common.Models.Exceptions;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
+using FinancialAssistantApp.Models.DTO;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
@@ -19,7 +20,7 @@ namespace FinancialAssistantApp.Models.Services
 
 
 
-        public async Task<Portfolio> CreateAsync(Portfolio obj, long userId)
+        public async Task<Portfolio> CreateAsync(PortfolioCreate obj, long userId)
         {
             if (obj.CurrencyId != null)
             {
@@ -40,7 +41,7 @@ namespace FinancialAssistantApp.Models.Services
             return await _portfolioRepository.AddAsync(rec);
         }
 
-        public async Task<Portfolio> UpdateAsync(Portfolio obj, long userId)
+        public async Task<Portfolio> UpdateAsync(PortfolioCreate obj, long userId)
         {
             var rec = await _portfolioRepository.GetAsync(obj.Id, userId);
             if (rec?.UserId != userId)

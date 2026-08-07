@@ -1,8 +1,5 @@
 ﻿using BO.Models.FinancialAssistant.DAL;
 using TEnum = TIntegration.Models.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using  TIntegration.Models.DTO;
 using AppEnum = BO.Models.FinancialAssistant.Enums;
 

@@ -1,8 +1,8 @@
 ﻿using BO.Models.FinancialAssistant.Enums;
 
-namespace FinancialAssistantApp.Models.DTO
+namespace Menu.Host.Models.FinancialAssistantApp.Requests
 {
-    public class CreateStock
+    public class CreateStockRequest
     {
         public long Id { get; set; }
         public string Name { get; set; }

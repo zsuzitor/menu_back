@@ -60,10 +60,10 @@ namespace FinancialAssistantApp.Models
             services.AddScoped<IStockEventService, StockEventService>();
             services.AddScoped<IStockService, StockService>();
             services.AddScoped<IPriceService, PriceService>();
-            services.AddScoped<IStockHistoryService, StockHistoryService>();
+            services.AddScoped<IStockElementService, StockElementService>();
             //services.AddScoped<InvestApiClient, InvestApiClient>();
             services.AddInvestApiClient((_, settings) => settings.AccessToken = config["FinancialAssistantApp:TBankAuthToken"]);
-
+            
 
 
             return this;

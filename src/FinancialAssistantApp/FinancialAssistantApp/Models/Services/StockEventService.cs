@@ -5,8 +5,6 @@ using Common.Models.Exceptions;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
 using FinancialAssistantApp.Models.Services.Interfaces;
-using Org.BouncyCastle.Ocsp;
-using System.Runtime.ConstrainedExecution;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace FinancialAssistantApp.Models.Services

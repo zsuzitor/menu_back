@@ -1,6 +1,5 @@
 ﻿using Auth.Models.Auth;
 using Common.Models.Return;
-using jwtLib.JWTAuth.Interfaces;
 using Menu.Host.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +27,7 @@ namespace Menu.Controllers.TaskManagementApp
         private readonly IWorkTaskCommentService _workTaskCommentService;
 
 
-        public CommentController(  IApiHelper apiHealper
+        public CommentController(IApiHelper apiHealper
             , IWorkTaskService workTaskService,
              IWorkTaskCommentService workTaskCommentService)
         {

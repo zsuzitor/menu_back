@@ -7,6 +7,8 @@ using FinancialAssistantApp.Models.DTO;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Models.Services.Interfaces;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
+using TIntegration.Models.Services.Interfaces;
+using FinancialAssistantApp.Models.Mapper;
 
 namespace FinancialAssistantApp.Models.Services
 {
@@ -17,14 +19,16 @@ namespace FinancialAssistantApp.Models.Services
         private readonly IDateTimeProvider _datetimeProvider;
         private readonly IPortfolioRepository _portfolioRepository;
         private readonly IUserService _userService;
+        private readonly IPriceService _priceService;
 
-        public StockService(IStockRepository stockRepository, IDateTimeProvider datetimeProvider, IPortfolioRepository portfolioRepository, IStockHistoryRepository stockHistoryRepository, IUserService userService)
+        public StockService(IStockRepository stockRepository, IDateTimeProvider datetimeProvider, IPortfolioRepository portfolioRepository, IStockHistoryRepository stockHistoryRepository, IUserService userService, IPriceService priceService)
         {
             _stockRepository = stockRepository;
             _datetimeProvider = datetimeProvider;
             _portfolioRepository = portfolioRepository;
             _stockHistoryRepository = stockHistoryRepository;
             _userService = userService;
+            _priceService = priceService;
         }
 
         public async Task<Stock> CreateAsync(CreateStock obj, long userId)
@@ -125,21 +129,43 @@ namespace FinancialAssistantApp.Models.Services
 
         public async Task GlobalActualizeAsync(long userId)
         {
-            //todo проверить права
-            var now = _datetimeProvider.CurrentDateTime();
-
-            var records = await _stockRepository.GetGlobalForActualiztionAsync(now.AddHours(-8));
-            //todo тут ходить куда то и узнать цены
-            var history = new List<StockHistory>();
-            foreach (var rec in records)
+            if (!await _userService.IsAdminAsync(userId))
             {
-                rec.ActualizationTime = now;
-                history.Add(GetHistory(rec));
+                throw new SomeCustomNotAllowedException();
             }
 
-            await _stockHistoryRepository.AddAsync(history);
+            var notActual = await _stockRepository.GetGlobalForActualiztionAsync(_datetimeProvider.CurrentDateTime().AddHours(6));
+            var tRequests = notActual.Where(x => x.Type != StockTypeEnum.Other).Select(x => x.ToTInvestRequest()).ToList();
+            var tPrices = await _priceService.GetPrice(tRequests);
+            var history = new List<StockHistory>();
+            //достаем из бд вторым запросом что бы засунуть это в транзакцию потом, а запрос с получением цен вынести из транзакции
+            var forUpdate = await _stockRepository.GetAsync(notActual.Select(x => x.Id).ToList());
+            var tCurrency = tPrices.Select(x => x.CurrencyCode).Distinct();
+            var appCurrency = await _stockRepository.GetGlobalByCodesNoTrack(tCurrency);
+            foreach (var stock in forUpdate)
+            {
+                var newVal = tPrices.FirstOrDefault(x => x.Code == stock.Code);
+                if (newVal == null)
+                    continue;
 
-            await _stockRepository.UpdateAsync(records);
+                var curr = appCurrency.FirstOrDefault(x => x.Code == newVal.CurrencyCode);
+                stock.LastPrice = newVal.Price;
+                stock.CurrencyId = curr.Id;//todo у валюты есть это поле? у всей валюты? есть какая то главная валюта?
+                stock.ActualizationTime = _datetimeProvider.CurrentDateTime();
+                //todo CurrencyId
+
+                history.Add(new StockHistory()
+                {
+                    CurrencyId = curr.Id,
+                    Date = _datetimeProvider.CurrentDateTime(),
+                    Price = newVal.Price,
+                    StockId = stock.Id,
+                });
+
+            }
+
+            await _stockRepository.UpdateAsync(forUpdate);
+            await _stockHistoryRepository.AddAsync(history);
 
         }
 
