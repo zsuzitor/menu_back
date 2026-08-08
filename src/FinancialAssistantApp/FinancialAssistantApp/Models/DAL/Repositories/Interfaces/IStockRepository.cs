@@ -7,6 +7,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories.Interfaces
     {
 
         Task<List<Stock>> FindAsync(long? portfolioId, string text);
+        Task<List<Stock>> GetCurrencyAsync(long? portfolioId);
         Task<List<Stock>> GetGlobalAsync();
         Task<List<Stock>> GetGlobalForActualiztionAsync(DateTime date);
         Task<List<Stock>> GetGlobalByCodesNoTrack(IEnumerable<string> codes);

@@ -33,7 +33,7 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         [Route("update-global")]
         [HttpPost]
         [CustomAuthorize]
-        public async Task<ActionResult<BoolResultNewReturn>> Get()
+        public async Task<ActionResult<BoolResultNewReturn>> UpdateGlobal()
         {
             var userId = User.GetUserId();
             await _stockService.GlobalActualizeAsync(userId);
@@ -43,7 +43,7 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         [Route("create")]
         [HttpPut]
         [CustomAuthorize]
-        public async Task<ActionResult<StockReturn>> Create(CreateStockRequest req)
+        public async Task<ActionResult<StockReturn>> Create([FromBody] CreateStockRequest req)
         {
             var userId = User.GetUserId();
             var res = await _stockService.CreateAsync(req.Map(), userId);
@@ -53,7 +53,7 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         [Route("delete")]
         [HttpDelete]
         [CustomAuthorize]
-        public async Task<ActionResult<BoolResultNewReturn>> Delete(DeleteStockRequest req)
+        public async Task<ActionResult<BoolResultNewReturn>> Delete([FromBody] DeleteStockRequest req)
         {
             var userId = User.GetUserId();
             var res = await _stockService.DeleteAsync(req.Id, userId);
@@ -63,7 +63,7 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         [Route("update")]
         [HttpPatch]
         [CustomAuthorize]
-        public async Task<ActionResult<StockReturn>> Update(CreateStockRequest req)
+        public async Task<ActionResult<StockReturn>> Update([FromBody] CreateStockRequest req)
         {
             var userId = User.GetUserId();
             var res = await _stockService.UpdateAsync(req.Map(), userId);
@@ -80,6 +80,16 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
             return new JsonResult(res.Select(x=>x.Map()), GetJsonOptions());
         }
 
+
+        [Route("get-currency")]
+        [HttpGet]
+        [CustomAuthorize]
+        public async Task<ActionResult<List<StockReturn>>> GetCurrency(long portfolioId)
+        {
+            var userId = User.GetUserId();
+            var res = await _stockService.GetCurrencyAsync(portfolioId, userId);
+            return new JsonResult(res.Select(x => x.Map()), GetJsonOptions());
+        }
 
         private JsonSerializerOptions GetJsonOptions()
         {

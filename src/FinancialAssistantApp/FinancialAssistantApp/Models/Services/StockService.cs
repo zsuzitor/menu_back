@@ -4,11 +4,12 @@ using BO.Models.FinancialAssistant.Enums;
 using Common.Models.Exceptions;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
+using FinancialAssistantApp.Models.Mapper;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Models.Services.Interfaces;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TIntegration.Models.Services.Interfaces;
-using FinancialAssistantApp.Models.Mapper;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace FinancialAssistantApp.Models.Services
 {
@@ -125,6 +126,14 @@ namespace FinancialAssistantApp.Models.Services
             if (portfolioId != null && !await _portfolioRepository.ExistAsync(portfolioId.Value, userId))
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
             return await _stockRepository.FindAsync(portfolioId, text);
+        }
+
+        public async Task<List<Stock>> GetCurrencyAsync(long? portfolioId, long userId)
+        {
+            if (portfolioId != null && !await _portfolioRepository.ExistAsync(portfolioId.Value, userId))
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+            return await _stockRepository.GetCurrencyAsync(portfolioId);
+
         }
 
         public async Task GlobalActualizeAsync(long userId)

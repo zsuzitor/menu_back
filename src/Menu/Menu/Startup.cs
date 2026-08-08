@@ -341,7 +341,7 @@ namespace Menu
                 routes.MapRoute("planing_poker", "planing-poker/{*url}", new { controller = "Menu", action = "PlaningPoker" });
                 routes.MapRoute("task_management", "task-management/{*url}", new { controller = "Menu", action = "TaskManagementApp" });
                 routes.MapRoute("vault", "vault-app/{*url}", new { controller = "Menu", action = "VaultApp" });
-                routes.MapRoute("financial_assistant_app", "financial-assistant-app/{*url}", new { controller = "Menu", action = "FinancialAssistantApp" });
+                routes.MapRoute("financial_assistant_app", "financial-assistant/{*url}", new { controller = "Menu", action = "FinancialAssistantApp" });
 
                 //routes.MapRoute(
                 //    name: "default",

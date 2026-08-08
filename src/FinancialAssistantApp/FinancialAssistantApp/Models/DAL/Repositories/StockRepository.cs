@@ -38,5 +38,13 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
         {
             return await _db.Stock.AsNoTracking().Where(x => x.IsGlobal && x.ActualizationTime<date).ToListAsync();
         }
+
+        public async Task<List<Stock>> GetCurrencyAsync(long? portfolioId)
+        {
+            return await _db.Stock.AsNoTracking().Where(x =>
+            (x.IsGlobal || x.PortfolioId == portfolioId)
+            ).ToListAsync();
+
+        }
     }
 }
