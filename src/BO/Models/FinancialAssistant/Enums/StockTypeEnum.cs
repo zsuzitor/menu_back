@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace BO.Models.FinancialAssistant.Enums
 {
     public enum StockTypeEnum
     {
-        InvestmentFund,
-        InvestmentStock,
-        InvestmentBond,
-        Other,
-        Currency,
+        InvestmentFund = 1,
+        InvestmentStock = 2,
+        InvestmentBond = 3,
+        Other = 4,
+        Currency = 5,
     }
 }

@@ -13,15 +13,21 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
         {
         }
 
-        public async Task<List<Stock>> FindAsync(long? portfolioId, string text)
+        public async Task<List<Stock>> FindAsync(string text, long? userId)
         {
             return await _db.Stock
                 .Where(x =>
-                ((portfolioId == null || x.PortfolioId==portfolioId)
-                    || x.IsGlobal)
-                && (EF.Functions.Like(x.Code, $"%{text}%")
+                ( x.UserId == userId || x.IsGlobal)
+                && (string.IsNullOrWhiteSpace(text) || EF.Functions.Like(x.Code, $"%{text}%")
                     || EF.Functions.Like(x.Name, $"%{text}%"))
                 ).ToListAsync();
+        }
+
+        public async Task<List<Stock>> GetForUserAsync(long? userId)
+        {
+            return await _db.Stock
+                .Where(x =>
+                (x.UserId == userId || x.IsGlobal)).ToListAsync();
         }
 
         public async Task<List<Stock>> GetGlobalByCodesNoTrack(IEnumerable<string> codes)
@@ -39,12 +45,14 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
             return await _db.Stock.AsNoTracking().Where(x => x.IsGlobal && x.ActualizationTime<date).ToListAsync();
         }
 
-        public async Task<List<Stock>> GetCurrencyAsync(long? portfolioId)
+        public async Task<List<Stock>> GetCurrencyAsync(long? userId)
         {
             return await _db.Stock.AsNoTracking().Where(x =>
-            (x.IsGlobal || x.PortfolioId == portfolioId)
+            (x.IsGlobal || x.UserId == userId)
             ).ToListAsync();
 
         }
+
+
     }
 }

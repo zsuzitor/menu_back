@@ -75,7 +75,7 @@ namespace Menu.Host.Models.FinancialAssistantApp
             return new CreateStock()
             {
                 Id = p.Id,
-                PortfolioId = p.PortfolioId,
+                //PortfolioId = p.PortfolioId,
                 Type = p.Type,
                 Code = p.Code,
                 IsGlobal = p.IsGlobal,
@@ -88,7 +88,7 @@ namespace Menu.Host.Models.FinancialAssistantApp
             return new StockReturn()
             {
                 Id = p.Id,
-                PortfolioId = p.PortfolioId,
+                //PortfolioId = p.PortfolioId,
                 Type = p.Type,
                 Code = p.Code,
                 IsGlobal = p.IsGlobal,

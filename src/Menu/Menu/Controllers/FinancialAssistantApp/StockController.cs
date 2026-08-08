@@ -76,18 +76,28 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         public async Task<ActionResult<List<StockReturn>>> Find(FindStockRequest req)
         {
             var userId = User.GetUserId();
-            var res = await _stockService.FindAsync(req.PortfolioId, req.Text, userId);
+            var res = await _stockService.FindAsync( req.Text, userId);
             return new JsonResult(res.Select(x=>x.Map()), GetJsonOptions());
+        }
+
+        [Route("get")]
+        [HttpGet]
+        [CustomAuthorize]
+        public async Task<ActionResult<List<StockReturn>>> Get()
+        {
+            var userId = User.GetUserId();
+            var res = await _stockService.GetAsync( userId);
+            return new JsonResult(res.Select(x => x.Map()), GetJsonOptions());
         }
 
 
         [Route("get-currency")]
         [HttpGet]
         [CustomAuthorize]
-        public async Task<ActionResult<List<StockReturn>>> GetCurrency(long portfolioId)
+        public async Task<ActionResult<List<StockReturn>>> GetCurrency()
         {
             var userId = User.GetUserId();
-            var res = await _stockService.GetCurrencyAsync(portfolioId, userId);
+            var res = await _stockService.GetCurrencyAsync( userId);
             return new JsonResult(res.Select(x => x.Map()), GetJsonOptions());
         }
 

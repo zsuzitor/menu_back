@@ -1,4 +1,5 @@
 ﻿using BO.Models.DAL;
+using BO.Models.DAL.Domain;
 using BO.Models.FinancialAssistant.Enums;
 using System;
 using System.Collections.Generic;
@@ -25,8 +26,8 @@ namespace BO.Models.FinancialAssistant.DAL
         /// <summary>
         /// для неглобальных
         /// </summary>
-        public long? PortfolioId { get; set; }
-        public Portfolio Portfolio { get; set; }
+        public long? UserId { get; set; }
+        public User User { get; set; }
 
         public List<StockHistory> StockHistory { get; set; }
 

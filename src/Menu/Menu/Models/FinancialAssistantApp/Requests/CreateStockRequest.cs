@@ -18,6 +18,6 @@ namespace Menu.Host.Models.FinancialAssistantApp.Requests
         /// <summary>
         /// для неглобальных
         /// </summary>
-        public long? PortfolioId { get; set; }
+        //public long? PortfolioId { get; set; }
     }
 }

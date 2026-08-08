@@ -2,7 +2,7 @@
 {
     public class FindStockRequest
     {
-        public long? PortfolioId { get; set; }
+        //public long? PortfolioId { get; set; }
         public string Text { get; set; }
     }
 }

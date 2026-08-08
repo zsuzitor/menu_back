@@ -62,7 +62,7 @@ namespace FinancialAssistantApp.Models.Services
             }
 
             var stock = await _stockRepository.GetNoTrackAsync(obj.StockId) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
-            if (!stock.IsGlobal && stock.PortfolioId != obj.PortfolioId)
+            if (!stock.IsGlobal && stock.UserId != userId)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
 
@@ -92,7 +92,7 @@ namespace FinancialAssistantApp.Models.Services
             {
 
                 currency = await _stockRepository.GetNoTrackAsync(obj.CurrencyId.Value) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
-                if (!currency.IsGlobal && currency.PortfolioId != obj.PortfolioId)
+                if (!currency.IsGlobal && currency.UserId != userId)
                 {
                     throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
 

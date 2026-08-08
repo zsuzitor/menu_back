@@ -59,16 +59,17 @@ namespace FinancialAssistantApp.Models.Services
             }
             else
             {
-                rec.PortfolioId = obj.PortfolioId;
-                if (rec.PortfolioId == null)
-                {
-                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
-                }
+                rec.UserId = userId;
+                //rec.PortfolioId = obj.PortfolioId;
+                //if (rec.PortfolioId == null)
+                //{
+                //    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+                //}
 
-                if (!await _portfolioRepository.ExistAsync(rec.PortfolioId.Value, userId))
-                {
-                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
-                }
+                //if (!await _portfolioRepository.ExistAsync(rec.PortfolioId.Value, userId))
+                //{
+                //    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+                //}
             }
 
             //if (obj.Type != StockTypeEnum.Currency)
@@ -109,30 +110,42 @@ namespace FinancialAssistantApp.Models.Services
             var stock = await _stockRepository.GetAsync(id) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
             if (stock.IsGlobal)
             {
-                //todo проверить права
+                //todo проверить, удалится каскадом?
+                if(!await _userService.IsAdminAsync(userId))
+                {
+                    throw new SomeCustomNotAllowedException();
+                }
             }
             else
             {
-                if (!await _portfolioRepository.ExistAsync(stock.PortfolioId.Value, userId))
-                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+                //if (!await _portfolioRepository.ExistAsync(stock.PortfolioId.Value, userId))
+                //    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+                if(stock.UserId!=userId)
+                    throw new SomeCustomNotAllowedException();
             }
 
             return await _stockRepository.DeleteAsync(stock);
 
         }
 
-        public async Task<List<Stock>> FindAsync(long? portfolioId, string text, long userId)
+        public async Task<List<Stock>> FindAsync( string text, long userId)
         {
-            if (portfolioId != null && !await _portfolioRepository.ExistAsync(portfolioId.Value, userId))
-                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
-            return await _stockRepository.FindAsync(portfolioId, text);
+            //if (portfolioId != null && !await _portfolioRepository.ExistAsync(portfolioId.Value, userId))
+            //    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+            return await _stockRepository.FindAsync( text, userId);
         }
 
-        public async Task<List<Stock>> GetCurrencyAsync(long? portfolioId, long userId)
+        public async Task<List<Stock>> GetAsync(long userId)
         {
-            if (portfolioId != null && !await _portfolioRepository.ExistAsync(portfolioId.Value, userId))
-                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
-            return await _stockRepository.GetCurrencyAsync(portfolioId);
+            return await _stockRepository.GetForUserAsync( userId);
+
+        }
+
+        public async Task<List<Stock>> GetCurrencyAsync( long userId)
+        {
+            //if (portfolioId != null && !await _portfolioRepository.ExistAsync(portfolioId.Value, userId))
+            //    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+            return await _stockRepository.GetCurrencyAsync(userId);
 
         }
 
@@ -185,11 +198,17 @@ namespace FinancialAssistantApp.Models.Services
             if (stock.IsGlobal)
             {
                 //todo проверить права
+                if (!await _userService.IsAdminAsync(userId))
+                {
+                    throw new SomeCustomNotAllowedException();
+                }
             }
             else
             {
-                if (!await _portfolioRepository.ExistAsync(stock.PortfolioId.Value, userId))
-                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+                //if (!await _portfolioRepository.ExistAsync(stock.PortfolioId.Value, userId))
+                //    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+                if (stock.UserId != userId)
+                    throw new SomeCustomNotAllowedException();
             }
 
             stock.Name = obj.Name;

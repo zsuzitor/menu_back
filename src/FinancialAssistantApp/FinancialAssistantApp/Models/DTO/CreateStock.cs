@@ -18,6 +18,6 @@ namespace FinancialAssistantApp.Models.DTO
         /// <summary>
         /// для неглобальных
         /// </summary>
-        public long? PortfolioId { get; set; }
+        //public long? PortfolioId { get; set; }
     }
 }
