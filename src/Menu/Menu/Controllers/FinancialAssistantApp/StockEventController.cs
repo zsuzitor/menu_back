@@ -1,4 +1,5 @@
 ﻿using Auth.Models.Auth;
+using FinancialAssistantApp.Models.Services;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Host.Infrastructure;
 using Menu.Host.Models.FinancialAssistantApp;
@@ -7,6 +8,7 @@ using Menu.Host.Models.FinancialAssistantApp.Returns;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 using WEB.Common.Models.Helpers.Interfaces;
@@ -39,6 +41,15 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
             return new JsonResult(res.Map(), GetJsonOptions());
         }
 
+        [Route("get-events-for-portfolio")]
+        [HttpGet]
+        [CustomAuthorize]
+        public async Task<ActionResult<List<StockEventReturn>>> GetHistory(long portfolioId)
+        {
+            var userId = User.GetUserId();
+            var res = await _stockEventService.GetForPortfolioAsync(portfolioId, userId);
+            return new JsonResult(res.Select(x => x.Map()), GetJsonOptions());
+        }
 
 
         private JsonSerializerOptions GetJsonOptions()

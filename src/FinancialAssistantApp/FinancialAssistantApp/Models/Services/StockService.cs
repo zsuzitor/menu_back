@@ -9,7 +9,6 @@ using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Models.Services.Interfaces;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TIntegration.Models.Services.Interfaces;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace FinancialAssistantApp.Models.Services
 {
@@ -141,12 +140,24 @@ namespace FinancialAssistantApp.Models.Services
 
         }
 
+        public async Task<Stock> GetAsync(long id, long userId)
+        {
+            return await _stockRepository.GetAsync(id, userId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
+        }
+
         public async Task<List<Stock>> GetCurrencyAsync( long userId)
         {
             //if (portfolioId != null && !await _portfolioRepository.ExistAsync(portfolioId.Value, userId))
             //    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
             return await _stockRepository.GetCurrencyAsync(userId);
 
+        }
+
+        public async Task<List<StockHistory>> GetHistoryAsync(long id, long userId)
+        {
+            var stock = await _stockRepository.GetAsync(id,userId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
+
+            return await _stockHistoryRepository.GetHistoryAsync(id);
         }
 
         public async Task GlobalActualizeAsync(long userId)

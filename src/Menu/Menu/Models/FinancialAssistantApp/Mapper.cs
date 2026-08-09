@@ -99,7 +99,22 @@ namespace Menu.Host.Models.FinancialAssistantApp
             };
         }
 
+        public static StockHistoryReturn Map(this StockHistory p)
+        {
+            return new StockHistoryReturn()
+            {
+                Id = p.Id,
+                //PortfolioId = p.PortfolioId,
+                CurrencyId = p.CurrencyId,
+                Date = p.Date,
+                Price = p.Price,
+                StockId = p.StockId,
+
+            };
+        }
+
         
+
 
 
     }

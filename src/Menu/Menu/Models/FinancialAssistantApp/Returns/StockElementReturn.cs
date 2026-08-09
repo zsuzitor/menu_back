@@ -1,5 +1,4 @@
-﻿using BO.Models.FinancialAssistant.DAL;
-using System.Collections.Generic;
+﻿
 
 namespace Menu.Host.Models.FinancialAssistantApp.Returns
 {

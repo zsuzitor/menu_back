@@ -33,10 +33,10 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         [Route("get")]
         [HttpGet]
         [CustomAuthorize]
-        public async Task<ActionResult<List<StockElementReturn>>> Get([FromBody] GetStockElementRequest req)
+        public async Task<ActionResult<List<StockElementReturn>>> Get(long portfolioId)// GetStockElementRequest req)
         {
             var userId = User.GetUserId();
-            var res = await _stockElementService.Get(req.PortfolioId, userId);
+            var res = await _stockElementService.Get(portfolioId, userId);
             return new JsonResult(res.Select(x => x.Map()), GetJsonOptions());
         }
 

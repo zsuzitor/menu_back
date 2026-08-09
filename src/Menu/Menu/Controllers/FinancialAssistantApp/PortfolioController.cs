@@ -1,5 +1,7 @@
 ﻿using Auth.Models.Auth;
+using BO.Models.FinancialAssistant.DAL;
 using Common.Models.Return;
+using FinancialAssistantApp.Models.Services;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Host.Infrastructure;
 using Menu.Host.Models.FinancialAssistantApp;
@@ -41,6 +43,16 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
             return new JsonResult(res.Select(x => x.Map()), GetJsonOptions());
         }
 
+        [Route("get")]
+        [HttpGet]
+        [CustomAuthorize]
+        public async Task<ActionResult<PortfolioReturn>> Get(long id)
+        {
+            var userId = User.GetUserId();
+            var res = await _portfolioService.GetAsync(id, userId);
+            return new JsonResult(res.Map(), GetJsonOptions());
+        }
+
         [Route("create")]
         [HttpPut]
         [CustomAuthorize]
@@ -70,6 +82,8 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
             var res = await _portfolioService.DeleteAsync(req.Id, userId);
             return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
         }
+
+
 
         private JsonSerializerOptions GetJsonOptions()
         {

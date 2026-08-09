@@ -1,4 +1,5 @@
-﻿using BO.Models.FinancialAssistant.DAL;
+﻿using BO.Models.DAL.Domain;
+using BO.Models.FinancialAssistant.DAL;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
@@ -17,7 +18,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
         {
             return await _db.Stock
                 .Where(x =>
-                ( x.UserId == userId || x.IsGlobal)
+                (x.UserId == userId || x.IsGlobal)
                 && (string.IsNullOrWhiteSpace(text) || EF.Functions.Like(x.Code, $"%{text}%")
                     || EF.Functions.Like(x.Name, $"%{text}%"))
                 ).ToListAsync();
@@ -42,7 +43,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
 
         public async Task<List<Stock>> GetGlobalForActualiztionAsync(DateTime date)
         {
-            return await _db.Stock.AsNoTracking().Where(x => x.IsGlobal && x.ActualizationTime<date).ToListAsync();
+            return await _db.Stock.AsNoTracking().Where(x => x.IsGlobal && x.ActualizationTime < date).ToListAsync();
         }
 
         public async Task<List<Stock>> GetCurrencyAsync(long? userId)
@@ -50,6 +51,14 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
             return await _db.Stock.AsNoTracking().Where(x =>
             (x.IsGlobal || x.UserId == userId)
             ).ToListAsync();
+
+        }
+
+        public async Task<Stock> GetAsync(long id, long? userId)
+        {
+            return await _db.Stock.AsNoTracking().Where(x => x.Id == id &&
+            (x.IsGlobal || x.UserId == userId)
+            ).FirstOrDefaultAsync();
 
         }
 

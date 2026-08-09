@@ -2468,6 +2468,60 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
+___CSS_LOADER_EXPORT___.push([module.id, ".financial-assistant-main-app-block{\r\n    width: 100%;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/FinancialAssistantMain/FinancialAssistantMain.css"],"names":[],"mappings":"AAAA;IACI,WAAW;AACf","sourcesContent":[".financial-assistant-main-app-block{\r\n    width: 100%;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetail.css":
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetail.css ***!
+  \*****************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css":
+/*!*****************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css ***!
+  \*****************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
 ___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
@@ -2495,7 +2549,88 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
+___CSS_LOADER_EXPORT___.push([module.id, ".portfolio-list-block{\r\n    display: flex;\r\n    gap: 5px;\r\n    justify-content: start;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n\r\n}\r\n\r\n.portfolio-list-block .one-portfolio-element {\r\n\r\n    width: 200px;\r\n    height: 200px;\r\n    border: 2px solid black;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/PortfolioList/PortfolioList.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,QAAQ;IACR,sBAAsB;IACtB,eAAe;IACf,iBAAiB;;AAErB;;AAEA;;IAEI,YAAY;IACZ,aAAa;IACb,uBAAuB;;AAE3B","sourcesContent":[".portfolio-list-block{\r\n    display: flex;\r\n    gap: 5px;\r\n    justify-content: start;\r\n    flex-wrap: wrap;\r\n    padding-top: 10px;\r\n\r\n}\r\n\r\n.portfolio-list-block .one-portfolio-element {\r\n\r\n    width: 200px;\r\n    height: 200px;\r\n    border: 2px solid black;\r\n\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/PortfolioRoute/PortfolioRoute.css":
+/*!***************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/PortfolioRoute/PortfolioRoute.css ***!
+  \***************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
 ___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css":
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css ***!
+  \*********************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/StockList/StockList.css":
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/StockList/StockList.css ***!
+  \*****************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".stock-list-block {\r\n    padding-top: 15px;\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    flex-direction: column;\r\n}\r\n\r\n.stock-list-block .one-stock-element {\r\n    border: 2px solid black;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/StockList/StockList.css"],"names":[],"mappings":"AAAA;IACI,iBAAiB;IACjB,aAAa;IACb,2BAA2B;IAC3B,sBAAsB;AAC1B;;AAEA;IACI,uBAAuB;AAC3B","sourcesContent":[".stock-list-block {\r\n    padding-top: 15px;\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    flex-direction: column;\r\n}\r\n\r\n.stock-list-block .one-stock-element {\r\n    border: 2px solid black;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -63852,6 +63987,116 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetail.css":
+/*!***************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetail.css ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_PortfolioDetail_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./PortfolioDetail.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetail.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_PortfolioDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_PortfolioDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_PortfolioDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_PortfolioDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css":
+/*!***************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_PortfolioEvents_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./PortfolioEvents.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_PortfolioEvents_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_PortfolioEvents_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_PortfolioEvents_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_PortfolioEvents_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/Apps/FinancialAssistantApp/Components/PortfolioList/PortfolioList.css":
 /*!***********************************************************************************!*\
   !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioList/PortfolioList.css ***!
@@ -63903,6 +64148,171 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_PortfolioList_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_PortfolioList_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_PortfolioList_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/PortfolioRoute/PortfolioRoute.css":
+/*!*************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioRoute/PortfolioRoute.css ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_PortfolioRoute_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./PortfolioRoute.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/PortfolioRoute/PortfolioRoute.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_PortfolioRoute_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_PortfolioRoute_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_PortfolioRoute_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_PortfolioRoute_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css":
+/*!*******************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_StockDetail_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./StockDetail.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_StockDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_StockDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_StockDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_StockDetail_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/StockList/StockList.css":
+/*!***************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/StockList/StockList.css ***!
+  \***************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_StockList_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./StockList.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/StockList/StockList.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_StockList_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_StockList_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_StockList_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_StockList_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -67832,14 +68242,47 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const FinancialAssistantMainSetup_1 = __importDefault(__webpack_require__(/*! ./FinancialAssistantMainSetup */ "./src/Apps/FinancialAssistantApp/Components/FinancialAssistantMain/FinancialAssistantMainSetup.tsx"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const Consts_1 = __webpack_require__(/*! ../../Models/Consts */ "./src/Apps/FinancialAssistantApp/Models/Consts.ts");
 const PortfolioList_1 = __importDefault(__webpack_require__(/*! ../PortfolioList/PortfolioList */ "./src/Apps/FinancialAssistantApp/Components/PortfolioList/PortfolioList.tsx"));
+const StockList_1 = __importDefault(__webpack_require__(/*! ../StockList/StockList */ "./src/Apps/FinancialAssistantApp/Components/StockList/StockList.tsx"));
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts"));
+const StockDetail_1 = __importDefault(__webpack_require__(/*! ../StockDetail/StockDetail */ "./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.tsx"));
+const PortfolioRoute_1 = __importDefault(__webpack_require__(/*! ../PortfolioRoute/PortfolioRoute */ "./src/Apps/FinancialAssistantApp/Components/PortfolioRoute/PortfolioRoute.tsx"));
 __webpack_require__(/*! ./FinancialAssistantMain.css */ "./src/Apps/FinancialAssistantApp/Components/FinancialAssistantMain/FinancialAssistantMain.css");
 const FinancialAssistantMain = (props) => {
     (0, react_1.useEffect)(() => {
     }, []);
-    return react_1.default.createElement("div", null,
+    const navigate = (0, react_router_dom_1.useNavigate)();
+    const portfolioUrl = new RouteBuilder_1.default().PortfolioListUrl();
+    const stockUrl = new RouteBuilder_1.default().StockListUrl();
+    // const matchPortfolio = window.location.href.match(/portfolio-(\d+)/);//FinancialAssistantAppPortfolioRoute
+    // if (matchPortfolio) {
+    //     const idInt = parseInt(matchPortfolio[1], 10);
+    //     if (props.CurrentPortfolioId != idInt) {
+    //         props.SetCurrentPortfolioId(idInt);
+    //     }
+    // }
+    // else {
+    //     if (props.CurrentPortfolioId > 0) {
+    //         props.SetCurrentPortfolioId(-1);
+    //     }
+    // }
+    return react_1.default.createElement("div", { className: 'financial-assistant-main-app-block' },
+        react_1.default.createElement("div", null,
+            react_1.default.createElement("button", { onClick: () => props.UpdateGlobal() }, "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u044C \u0433\u043B\u043E\u0431\u0430\u043B\u044C\u043D\u044B\u0435 \u0437\u0430\u043F\u0438\u0441\u0438"),
+            react_1.default.createElement("a", { href: portfolioUrl, onClick: (e) => {
+                    e.preventDefault();
+                    navigate(portfolioUrl);
+                } }, "\u0421\u043F\u0438\u0441\u043E\u043A \u043F\u043E\u0440\u0442\u0444\u0435\u043B\u0435\u0439"),
+            react_1.default.createElement("a", { href: stockUrl, onClick: (e) => {
+                    e.preventDefault();
+                    navigate(stockUrl);
+                } }, "\u0421\u043F\u0438\u0441\u043E\u043A Stock")),
         react_1.default.createElement(react_router_dom_1.Routes, null,
-            react_1.default.createElement(react_router_dom_1.Route, { path: ``, element: react_1.default.createElement(PortfolioList_1.default, null) })));
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.FinancialAssistantAppPortfolioListRoute}`, element: react_1.default.createElement(PortfolioList_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.FinancialAssistantAppStockListRoute}`, element: react_1.default.createElement(StockList_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.FinancialAssistantAppStockRoute}:stockId`, element: react_1.default.createElement(StockDetail_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.FinancialAssistantAppPortfolioRoute}:portfolioId/*`, element: react_1.default.createElement(PortfolioRoute_1.default, null) })));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, FinancialAssistantMainSetup_1.default)(FinancialAssistantMain);
@@ -67859,6 +68302,191 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 const mapStateToProps = (state, ownProps) => {
     let res = {};
+    res.CurrentPortfolioId = state.FinancialAssistantApp.CurrentPortfolioId;
+    return res;
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    let res = {};
+    res.UpdateGlobal = () => {
+        return window.G_FinancialAssistantAppStockController.UpdateGlobalAsync();
+    };
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetail.tsx":
+/*!***************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetail.tsx ***!
+  \***************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const PortfolioDetailSetup_1 = __importDefault(__webpack_require__(/*! ./PortfolioDetailSetup */ "./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetailSetup.tsx"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts"));
+__webpack_require__(/*! ./PortfolioDetail.css */ "./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetail.css");
+const PortfolioDetail = (props) => {
+    const navigate = (0, react_router_dom_1.useNavigate)();
+    (0, react_1.useEffect)(() => {
+        return () => {
+            props.CrearPortfolioElements();
+            props.ClearCurrentPortfolio();
+        };
+    }, []);
+    (0, react_1.useEffect)(() => {
+        if (props.PortfolioId > 0) {
+            props.GetDetail(props.PortfolioId);
+            props.LoadPortfolioElements(props.PortfolioId);
+        }
+    }, [props.PortfolioId]);
+    if (!props.Portfolio) {
+        return react_1.default.createElement("div", null);
+    }
+    const portfolioHistoryUrl = new RouteBuilder_1.default().PortfolioHistoryUrl(props.PortfolioId);
+    return react_1.default.createElement("div", { className: 'portfolio-page' },
+        react_1.default.createElement("div", null,
+            react_1.default.createElement("span", null, props.Portfolio.Name),
+            react_1.default.createElement("span", null, props.Portfolio.Id)),
+        react_1.default.createElement("div", null,
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("a", { href: portfolioHistoryUrl, onClick: (e) => {
+                        e.preventDefault();
+                        navigate(portfolioHistoryUrl);
+                    } }, "\u0418\u0441\u0442\u043E\u0440\u0438\u044F")),
+            react_1.default.createElement("div", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u0431\u044B\u0442\u0438\u0435")),
+        react_1.default.createElement("div", { className: 'portfolio-elements-block' }, props.Elements.map(x => {
+            return react_1.default.createElement("div", { className: 'portfolio-element', key: x.Id },
+                react_1.default.createElement("div", null,
+                    x.StockId,
+                    " - ",
+                    x.Count));
+        })));
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, PortfolioDetailSetup_1.default)(PortfolioDetail);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetailSetup.tsx":
+/*!********************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetailSetup.tsx ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const PortfolioActions_1 = __webpack_require__(/*! ../../Models/Actions/PortfolioActions */ "./src/Apps/FinancialAssistantApp/Models/Actions/PortfolioActions.ts");
+const mapStateToProps = (state, ownProps) => {
+    let res = {};
+    res.Portfolio = state.FinancialAssistantApp.CurrentPortfolio;
+    res.PortfolioId = state.FinancialAssistantApp.CurrentPortfolioId;
+    res.Elements = state.FinancialAssistantApp.CurrentPortfolioElements;
+    return res;
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    let res = {};
+    res.Delete = (id) => {
+        dispatch(window.G_FinancialAssistantAppPortfolioController.DeleteRedux(id));
+    };
+    res.LoadPortfolioElements = (id) => {
+        dispatch(window.G_FinancialAssistantAppStockElementController.GetRedux(id));
+    };
+    res.CrearPortfolioElements = () => {
+        dispatch((0, PortfolioActions_1.SetCurrentPortfolioElementsActionCreator)([]));
+    };
+    res.ClearCurrentPortfolio = () => {
+        dispatch((0, PortfolioActions_1.SetCurrentPortfolioActionCreator)(null));
+    };
+    res.GetDetail = (id) => {
+        dispatch(window.G_FinancialAssistantAppPortfolioController.GetDetailRedux(id));
+    };
+    res.SetCurrentPortfolioId = (id) => {
+        dispatch((0, PortfolioActions_1.SetCurrentPortfolioIdActionCreator)(id));
+    };
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.tsx":
+/*!***************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.tsx ***!
+  \***************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const PortfolioEventsSetup_1 = __importDefault(__webpack_require__(/*! ./PortfolioEventsSetup */ "./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEventsSetup.tsx"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+__webpack_require__(/*! ./PortfolioEvents.css */ "./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css");
+const PortfolioEvents = (props) => {
+    const navigate = (0, react_router_dom_1.useNavigate)();
+    return react_1.default.createElement("div", null,
+        "HISTORY - ",
+        props.PortfolioId);
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, PortfolioEventsSetup_1.default)(PortfolioEvents);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEventsSetup.tsx":
+/*!********************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEventsSetup.tsx ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const mapStateToProps = (state, ownProps) => {
+    let res = {};
+    res.Events = state.FinancialAssistantApp.CurrentPortfolioEvents;
+    res.PortfolioId = state.FinancialAssistantApp.CurrentPortfolioId;
     return res;
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -67907,32 +68535,41 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const PortfolioListSetup_1 = __importDefault(__webpack_require__(/*! ./PortfolioListSetup */ "./src/Apps/FinancialAssistantApp/Components/PortfolioList/PortfolioListSetup.tsx"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 const SaveCancelInputText_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputText */ "./src/components/Body/SaveCancelInput/SaveCancelInputText.tsx"));
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts"));
 __webpack_require__(/*! ./PortfolioList.css */ "./src/Apps/FinancialAssistantApp/Components/PortfolioList/PortfolioList.css");
 const PortfolioList = (props) => {
     const [newPortfolioName, setNewPortfolioName] = (0, react_1.useState)("");
     // const [editPortfolioName, setEditPortfolioName] = useState("");
     const [editPortfolioId, setEditPortfolioId] = (0, react_1.useState)(0);
+    const navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(() => {
         props.LoadPortfolioList();
     }, []);
-    return react_1.default.createElement("div", null,
+    return react_1.default.createElement("div", { className: 'portfolio-list-page' },
         react_1.default.createElement("div", null,
             react_1.default.createElement("input", { type: 'text', className: 'new-portfolio-input', placeholder: '\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: newPortfolioName, onChange: e => setNewPortfolioName(e.target.value) }),
             react_1.default.createElement("button", { onClick: () => props.Create(newPortfolioName) }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C")),
-        react_1.default.createElement("div", null, props.PortfolioList.map(x => react_1.default.createElement("div", null,
-            editPortfolioId ? react_1.default.createElement(react_1.default.Fragment, null,
-                react_1.default.createElement(SaveCancelInputText_1.default, { Text: x.Name, CancelEvent: () => setEditPortfolioId(0), SaveEvent: (val) => {
-                        props.Update(x.Id, val, null);
-                        return true;
-                    } })) : react_1.default.createElement(react_1.default.Fragment, null,
-                react_1.default.createElement("div", { onClick: () => {
-                        setEditPortfolioId(x.Id);
-                        // setEditPortfolioName(x.Name);
-                    } }, x.Name)),
-            react_1.default.createElement("div", null,
-                react_1.default.createElement("button", { onClick: () => props.Delete(x.Id) }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"),
-                react_1.default.createElement("button", { onClick: () => props.Create(newPortfolioName) }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C"))))));
+        react_1.default.createElement("div", { className: 'portfolio-list-block' }, props.PortfolioList.map(x => {
+            const portfolioUrl = new RouteBuilder_1.default().PortfolioUrl(x.Id);
+            return react_1.default.createElement("div", { className: 'one-portfolio-element', key: x.Id },
+                editPortfolioId == x.Id ? react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement(SaveCancelInputText_1.default, { Text: x.Name, CancelEvent: () => setEditPortfolioId(0), SaveEvent: (val) => {
+                            props.Update(x.Id, val, null);
+                            return true;
+                        } })) : react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement("div", { onClick: () => {
+                            setEditPortfolioId(x.Id);
+                            // setEditPortfolioName(x.Name);
+                        } }, x.Name)),
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("button", { onClick: () => props.Delete(x.Id) }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"),
+                    react_1.default.createElement("a", { href: portfolioUrl, onClick: (e) => {
+                            e.preventDefault();
+                            navigate(portfolioUrl);
+                        } }, "\u041E\u0442\u043A\u0440\u044B\u0442\u044C")));
+        })));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, PortfolioListSetup_1.default)(PortfolioList);
@@ -67952,7 +68589,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 const mapStateToProps = (state, ownProps) => {
     let res = {};
-    res.PortfolioList = state.FinancialAssistantApp.Portfolio;
+    res.PortfolioList = state.FinancialAssistantApp.PortfolioList;
     return res;
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -67976,6 +68613,373 @@ exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToPr
 
 /***/ }),
 
+/***/ "./src/Apps/FinancialAssistantApp/Components/PortfolioRoute/PortfolioRoute.tsx":
+/*!*************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioRoute/PortfolioRoute.tsx ***!
+  \*************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const PortfolioRouteSetup_1 = __importDefault(__webpack_require__(/*! ./PortfolioRouteSetup */ "./src/Apps/FinancialAssistantApp/Components/PortfolioRoute/PortfolioRouteSetup.tsx"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const Consts_1 = __webpack_require__(/*! ../../Models/Consts */ "./src/Apps/FinancialAssistantApp/Models/Consts.ts");
+const PortfolioEvents_1 = __importDefault(__webpack_require__(/*! ../PortfolioEvents/PortfolioEvents */ "./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.tsx"));
+const PortfolioDetail_1 = __importDefault(__webpack_require__(/*! ../PortfolioDetail/PortfolioDetail */ "./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetail.tsx"));
+__webpack_require__(/*! ./PortfolioRoute.css */ "./src/Apps/FinancialAssistantApp/Components/PortfolioRoute/PortfolioRoute.css");
+const PortfolioRoute = (props) => {
+    const { portfolioId } = (0, react_router_dom_1.useParams)();
+    (0, react_1.useEffect)(() => {
+        if (portfolioId) {
+            const idInt = parseInt(portfolioId, 10);
+            if (props.PortfolioId !== idInt) {
+                props.SetCurrentPortfolioId(idInt);
+            }
+        }
+        else {
+            if (props.PortfolioId > 0) {
+                props.SetCurrentPortfolioId(-1);
+            }
+        }
+    }, [portfolioId, props.PortfolioId]);
+    const navigate = (0, react_router_dom_1.useNavigate)();
+    return react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement(react_router_dom_1.Routes, null,
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.FinancialAssistantAppPortfolioEventsRoute}`, element: react_1.default.createElement(PortfolioEvents_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: ``, element: react_1.default.createElement(PortfolioDetail_1.default, null) })));
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, PortfolioRouteSetup_1.default)(PortfolioRoute);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/PortfolioRoute/PortfolioRouteSetup.tsx":
+/*!******************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioRoute/PortfolioRouteSetup.tsx ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const PortfolioActions_1 = __webpack_require__(/*! ../../Models/Actions/PortfolioActions */ "./src/Apps/FinancialAssistantApp/Models/Actions/PortfolioActions.ts");
+const mapStateToProps = (state, ownProps) => {
+    let res = {};
+    res.PortfolioId = state.FinancialAssistantApp.CurrentPortfolioId;
+    return res;
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    let res = {};
+    res.SetCurrentPortfolioId = (id) => {
+        dispatch((0, PortfolioActions_1.SetCurrentPortfolioIdActionCreator)(id));
+    };
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.tsx":
+/*!*******************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.tsx ***!
+  \*******************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const StockDetailSetup_1 = __importDefault(__webpack_require__(/*! ./StockDetailSetup */ "./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetailSetup.tsx"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+__webpack_require__(/*! ./StockDetail.css */ "./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css");
+const StockDetail = (props) => {
+    const navigate = (0, react_router_dom_1.useNavigate)();
+    (0, react_1.useEffect)(() => {
+        return () => {
+            //если с этой страницы будут переходы на другую с сохранением id  в урле то надо переносить на уровень выше
+            props.SetCurrentStockId(-1);
+            props.ClearCurrentStock();
+        };
+    }, []);
+    (0, react_1.useEffect)(() => {
+        if (props.StockId > 0) {
+            props.GetDetail(props.StockId);
+        }
+    }, [props.StockId]);
+    // const matchStock = window.location.href.match(/stock-(\d+)/);//FinancialAssistantAppStockRoute
+    // if (matchStock) {
+    //     const idInt = parseInt(matchStock[1], 10);
+    //     if (props.StockId != idInt) {
+    //         props.SetCurrentStockId(idInt);
+    //     }
+    // }
+    // else {
+    //     if (props.StockId > 0) {
+    //         props.SetCurrentStockId(-1);
+    //     }
+    // }
+    const { stockId } = (0, react_router_dom_1.useParams)();
+    (0, react_1.useEffect)(() => {
+        if (stockId) {
+            const idInt = parseInt(stockId, 10);
+            if (props.StockId !== idInt) {
+                props.SetCurrentStockId(idInt);
+            }
+        }
+        else {
+            if (props.StockId > 0) {
+                props.SetCurrentStockId(-1);
+            }
+        }
+    }, [stockId, props.StockId]);
+    if (!props.Stock) {
+        return react_1.default.createElement("div", null);
+    }
+    return react_1.default.createElement("div", { className: 'stock-page' },
+        react_1.default.createElement("div", null,
+            react_1.default.createElement("span", null, props.Stock.Code),
+            react_1.default.createElement("span", null, props.Stock.Name),
+            react_1.default.createElement("span", null, props.Stock.Id)),
+        react_1.default.createElement("div", { className: 'stock-block' }));
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, StockDetailSetup_1.default)(StockDetail);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetailSetup.tsx":
+/*!************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetailSetup.tsx ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const StockActions_1 = __webpack_require__(/*! ../../Models/Actions/StockActions */ "./src/Apps/FinancialAssistantApp/Models/Actions/StockActions.ts");
+const mapStateToProps = (state, ownProps) => {
+    let res = {};
+    res.Stock = state.FinancialAssistantApp.CurrentStock;
+    res.StockId = state.FinancialAssistantApp.CurrentStockId;
+    return res;
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    let res = {};
+    res.Delete = (id) => {
+        dispatch(window.G_FinancialAssistantAppStockController.DeleteRedux(id));
+    };
+    res.Update = (stock) => {
+        dispatch(window.G_FinancialAssistantAppStockController.UpdateRedux(stock));
+    };
+    res.GetDetail = (id) => {
+        dispatch(window.G_FinancialAssistantAppStockController.GetByIdRedux(id));
+    };
+    res.SetCurrentStockId = (id) => {
+        dispatch((0, StockActions_1.SetCurrentStockIdActionCreator)(id));
+    };
+    res.ClearCurrentStock = () => {
+        dispatch((0, StockActions_1.LoadCurrentStockActionCreator)(null));
+    };
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/StockList/StockList.tsx":
+/*!***************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/StockList/StockList.tsx ***!
+  \***************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const StockListSetup_1 = __importDefault(__webpack_require__(/*! ./StockListSetup */ "./src/Apps/FinancialAssistantApp/Components/StockList/StockListSetup.tsx"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts"));
+const CreateStockRequest_1 = __webpack_require__(/*! ../../Models/Entity/DTO/CreateStockRequest */ "./src/Apps/FinancialAssistantApp/Models/Entity/DTO/CreateStockRequest.ts");
+const StockType_1 = __webpack_require__(/*! ../../Models/Entity/State/Enum/StockType */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Enum/StockType.ts");
+__webpack_require__(/*! ./StockList.css */ "./src/Apps/FinancialAssistantApp/Components/StockList/StockList.css");
+const StockList = (props) => {
+    const [newStockName, setNewStockName] = (0, react_1.useState)("");
+    const [newStockCode, setNewStockCode] = (0, react_1.useState)("");
+    const [newStockType, setNewStockType] = (0, react_1.useState)(0);
+    const [newStockIsGlobal, setNewStockIsGlobal] = (0, react_1.useState)(false);
+    const navigate = (0, react_router_dom_1.useNavigate)();
+    (0, react_1.useEffect)(() => {
+        props.LoadStockList();
+        return () => {
+            // props.ClearStockList();//чистить не будем тк используется в stockDetail
+        };
+    }, []);
+    return react_1.default.createElement("div", { className: 'stock-list-page' },
+        react_1.default.createElement("div", null,
+            react_1.default.createElement("input", { type: 'text', className: 'new-stock-input', placeholder: '\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: newStockName, onChange: e => setNewStockName(e.target.value) }),
+            react_1.default.createElement("input", { type: 'text', className: 'new-stock-input', placeholder: '\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043A\u043E\u0434', value: newStockCode, onChange: e => setNewStockCode(e.target.value) }),
+            react_1.default.createElement("select", { className: "form-control", value: newStockType, onChange: (e) => {
+                    setNewStockType(+e.target.value);
+                } },
+                react_1.default.createElement("option", { value: `${+StockType_1.StockType.InvestmentFund}` }, "\u0424\u043E\u043D\u0434"),
+                react_1.default.createElement("option", { value: `${+StockType_1.StockType.InvestmentStock}` }, "\u0410\u043A\u0446\u0438\u044F"),
+                react_1.default.createElement("option", { value: `${+StockType_1.StockType.InvestmentBond}` }, "\u041E\u0431\u043B\u0438\u0433\u0430\u0446\u0438\u044F"),
+                react_1.default.createElement("option", { value: `${+StockType_1.StockType.Other}` }, "\u0414\u0440\u0443\u0433\u043E\u0439"),
+                react_1.default.createElement("option", { value: `${+StockType_1.StockType.Currency}` }, "\u0412\u0430\u043B\u044E\u0442\u0430")),
+            react_1.default.createElement("span", null, "\u0413\u043B\u043E\u0431\u0430\u043B\u044C\u043D\u0430\u044F"),
+            react_1.default.createElement("input", { type: "checkbox", defaultChecked: newStockIsGlobal, onChange: () => setNewStockIsGlobal(prev => !prev) }),
+            react_1.default.createElement("button", { onClick: () => {
+                    let cr = new CreateStockRequest_1.CreateStockRequest();
+                    cr.Code = newStockCode;
+                    cr.IsGlobal = newStockIsGlobal;
+                    cr.Name = newStockName;
+                    cr.Type = newStockType;
+                    props.Create(cr);
+                } }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C")),
+        react_1.default.createElement("div", { className: 'stock-list-block' }, props.StockList.map(x => {
+            const stockUrl = new RouteBuilder_1.default().StockDetailUrl(x.Id);
+            return react_1.default.createElement("div", { className: 'one-stock-element', key: x.Id },
+                react_1.default.createElement("div", null, x.Name),
+                react_1.default.createElement("div", null,
+                    react_1.default.createElement("button", { onClick: () => props.Delete(x.Id) }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"),
+                    react_1.default.createElement("a", { href: stockUrl, onClick: (e) => {
+                            e.preventDefault();
+                            navigate(stockUrl);
+                        } }, "\u041E\u0442\u043A\u0440\u044B\u0442\u044C")));
+        })));
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, StockListSetup_1.default)(StockList);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/StockList/StockListSetup.tsx":
+/*!********************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/StockList/StockListSetup.tsx ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const StockActions_1 = __webpack_require__(/*! ../../Models/Actions/StockActions */ "./src/Apps/FinancialAssistantApp/Models/Actions/StockActions.ts");
+const mapStateToProps = (state, ownProps) => {
+    let res = {};
+    res.StockList = state.FinancialAssistantApp.StockList;
+    return res;
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    let res = {};
+    res.LoadStockList = () => {
+        dispatch(window.G_FinancialAssistantAppStockController.GetRedux());
+    };
+    res.ClearStockList = () => {
+        dispatch((0, StockActions_1.GetStockActionCreator)([]));
+    };
+    res.Create = (stock) => {
+        dispatch(window.G_FinancialAssistantAppStockController.CreateRedux(stock));
+    };
+    res.Delete = (id) => {
+        dispatch(window.G_FinancialAssistantAppStockController.DeleteRedux(id));
+    };
+    res.Update = (stock) => {
+        dispatch(window.G_FinancialAssistantAppStockController.UpdateRedux(stock));
+    };
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
 /***/ "./src/Apps/FinancialAssistantApp/Models/Actions/PortfolioActions.ts":
 /*!***************************************************************************!*\
   !*** ./src/Apps/FinancialAssistantApp/Models/Actions/PortfolioActions.ts ***!
@@ -67985,7 +68989,7 @@ exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToPr
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.DeletePortfolioActionCreator = exports.DeletePortfolioActionName = exports.UpdatePortfolioActionCreator = exports.UpdatePortfolioActionName = exports.CreatePortfolioActionCreator = exports.CreatePortfolioActionName = exports.GetPortfolioActionCreator = exports.GetPortfolioActionName = void 0;
+exports.SetCurrentPortfolioElementsActionCreator = exports.SetCurrentPortfolioElementsActionName = exports.SetCurrentPortfolioActionCreator = exports.SetCurrentPortfolioActionName = exports.SetCurrentPortfolioIdActionCreator = exports.SetCurrentPortfolioIdActionName = exports.DeletePortfolioActionCreator = exports.DeletePortfolioActionName = exports.UpdatePortfolioActionCreator = exports.UpdatePortfolioActionName = exports.CreatePortfolioActionCreator = exports.CreatePortfolioActionName = exports.GetPortfolioActionCreator = exports.GetPortfolioActionName = void 0;
 exports.GetPortfolioActionName = 'GetPortfolioAction';
 function GetPortfolioActionCreator(data) {
     return { type: exports.GetPortfolioActionName, payload: data };
@@ -68010,6 +69014,110 @@ function DeletePortfolioActionCreator(data) {
 }
 exports.DeletePortfolioActionCreator = DeletePortfolioActionCreator;
 ;
+exports.SetCurrentPortfolioIdActionName = 'SetCurrentPortfolioIdAction';
+function SetCurrentPortfolioIdActionCreator(data) {
+    return { type: exports.SetCurrentPortfolioIdActionName, payload: data };
+}
+exports.SetCurrentPortfolioIdActionCreator = SetCurrentPortfolioIdActionCreator;
+;
+exports.SetCurrentPortfolioActionName = 'SetCurrentPortfolioAction';
+function SetCurrentPortfolioActionCreator(data) {
+    return { type: exports.SetCurrentPortfolioActionName, payload: data };
+}
+exports.SetCurrentPortfolioActionCreator = SetCurrentPortfolioActionCreator;
+;
+exports.SetCurrentPortfolioElementsActionName = 'SetCurrentPortfolioElementsAction';
+function SetCurrentPortfolioElementsActionCreator(data) {
+    return { type: exports.SetCurrentPortfolioElementsActionName, payload: data };
+}
+exports.SetCurrentPortfolioElementsActionCreator = SetCurrentPortfolioElementsActionCreator;
+;
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Models/Actions/StockActions.ts":
+/*!***********************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Actions/StockActions.ts ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LoadCurrentStockActionCreator = exports.LoadCurrentStockActionName = exports.SetCurrentStockIdActionCreator = exports.SetCurrentStockIdActionName = exports.DeleteStockActionCreator = exports.DeleteStockActionName = exports.UpdateStockActionCreator = exports.UpdateStockActionName = exports.CreateStockActionCreator = exports.CreateStockActionName = exports.GetStockActionCreator = exports.GetStockActionName = void 0;
+exports.GetStockActionName = 'GetStockAction';
+function GetStockActionCreator(data) {
+    return { type: exports.GetStockActionName, payload: data };
+}
+exports.GetStockActionCreator = GetStockActionCreator;
+;
+exports.CreateStockActionName = 'CreateStockAction';
+function CreateStockActionCreator(data) {
+    return { type: exports.CreateStockActionName, payload: data };
+}
+exports.CreateStockActionCreator = CreateStockActionCreator;
+;
+exports.UpdateStockActionName = 'UpdateStockAction';
+function UpdateStockActionCreator(data) {
+    return { type: exports.UpdateStockActionName, payload: data };
+}
+exports.UpdateStockActionCreator = UpdateStockActionCreator;
+;
+exports.DeleteStockActionName = 'DeleteStockAction';
+function DeleteStockActionCreator(data) {
+    return { type: exports.DeleteStockActionName, payload: data };
+}
+exports.DeleteStockActionCreator = DeleteStockActionCreator;
+;
+exports.SetCurrentStockIdActionName = 'SetCurrentStockIdAction';
+function SetCurrentStockIdActionCreator(data) {
+    return { type: exports.SetCurrentStockIdActionName, payload: data };
+}
+exports.SetCurrentStockIdActionCreator = SetCurrentStockIdActionCreator;
+;
+exports.LoadCurrentStockActionName = 'LoadCurrentStockAction';
+function LoadCurrentStockActionCreator(data) {
+    return { type: exports.LoadCurrentStockActionName, payload: data };
+}
+exports.LoadCurrentStockActionCreator = LoadCurrentStockActionCreator;
+;
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts":
+/*!******************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const Consts_1 = __webpack_require__(/*! ../Consts */ "./src/Apps/FinancialAssistantApp/Models/Consts.ts");
+class RouteBuilder {
+    //можно сделать полноценный билдер через withApproute.withProject но как будто смысла особо нет
+    AppUrl() {
+        return `/${Consts_1.FinancialAssistantAppRoute}/`;
+    }
+    PortfolioUrl(portfolioId) {
+        return `/${Consts_1.FinancialAssistantAppRoute}/${Consts_1.FinancialAssistantAppPortfolioRoute}${portfolioId}`;
+    }
+    PortfolioHistoryUrl(portfolioId) {
+        return `/${Consts_1.FinancialAssistantAppRoute}/${Consts_1.FinancialAssistantAppPortfolioRoute}${portfolioId}/${Consts_1.FinancialAssistantAppPortfolioEventsRoute}`;
+    }
+    StockDetailUrl(stockId) {
+        return `/${Consts_1.FinancialAssistantAppRoute}/${Consts_1.FinancialAssistantAppStockRoute}${stockId}`;
+    }
+    PortfolioListUrl() {
+        return `/${Consts_1.FinancialAssistantAppRoute}/${Consts_1.FinancialAssistantAppPortfolioListRoute}/`;
+    }
+    StockListUrl() {
+        return `/${Consts_1.FinancialAssistantAppRoute}/${Consts_1.FinancialAssistantAppStockListRoute}/`;
+    }
+}
+exports["default"] = RouteBuilder;
 
 
 /***/ }),
@@ -68023,15 +69131,27 @@ exports.DeletePortfolioActionCreator = DeletePortfolioActionCreator;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.FinancialAssistantApiPortfolioUrl = exports.FinancialAssistantApiUrl = exports.FinancialAssistantAppRute = exports.FinancialAssistantAppPortfolioControllerUrl = exports.FinancialAssistantAppUrl = exports.FinancialAssistantApiPrefUrl = exports.FinancialAssistantAppPreloader = void 0;
+exports.FinancialAssistantApiStockUrl = exports.FinancialAssistantApiStockEventUrl = exports.FinancialAssistantApiStockElementUrl = exports.FinancialAssistantApiPortfolioUrl = exports.FinancialAssistantApiUrl = exports.FinancialAssistantAppStockListRoute = exports.FinancialAssistantAppPortfolioListRoute = exports.FinancialAssistantAppStockRoute = exports.FinancialAssistantAppPortfolioEventsRoute = exports.FinancialAssistantAppPortfolioRoute = exports.FinancialAssistantAppRoute = exports.FinancialAssistantAppStockControllerUrl = exports.FinancialAssistantAppStockElementControllerUrl = exports.FinancialAssistantAppEventControllerUrl = exports.FinancialAssistantAppPortfolioControllerUrl = exports.FinancialAssistantAppUrl = exports.FinancialAssistantApiPrefUrl = exports.FinancialAssistantAppPreloader = void 0;
 exports.FinancialAssistantAppPreloader = 'financial_assistant_preloader';
 //Api
 exports.FinancialAssistantApiPrefUrl = 'api';
 exports.FinancialAssistantAppUrl = 'financialassistant';
 exports.FinancialAssistantAppPortfolioControllerUrl = 'portfolio';
-exports.FinancialAssistantAppRute = 'financial-assistant';
+exports.FinancialAssistantAppEventControllerUrl = 'stock-event';
+exports.FinancialAssistantAppStockElementControllerUrl = 'stockelement';
+exports.FinancialAssistantAppStockControllerUrl = 'stock';
+//route
+exports.FinancialAssistantAppRoute = 'financial-assistant';
+exports.FinancialAssistantAppPortfolioRoute = 'portfolio-';
+exports.FinancialAssistantAppPortfolioEventsRoute = 'events';
+exports.FinancialAssistantAppStockRoute = 'stock-';
+exports.FinancialAssistantAppPortfolioListRoute = 'portfolio-list';
+exports.FinancialAssistantAppStockListRoute = 'stock-list';
 exports.FinancialAssistantApiUrl = `${exports.FinancialAssistantApiPrefUrl}/${exports.FinancialAssistantAppUrl}`;
 exports.FinancialAssistantApiPortfolioUrl = `${exports.FinancialAssistantApiUrl}/${exports.FinancialAssistantAppPortfolioControllerUrl}`;
+exports.FinancialAssistantApiStockElementUrl = `${exports.FinancialAssistantApiUrl}/${exports.FinancialAssistantAppStockElementControllerUrl}`;
+exports.FinancialAssistantApiStockEventUrl = `${exports.FinancialAssistantApiUrl}/${exports.FinancialAssistantAppEventControllerUrl}`;
+exports.FinancialAssistantApiStockUrl = `${exports.FinancialAssistantApiUrl}/${exports.FinancialAssistantAppStockControllerUrl}`;
 
 
 /***/ }),
@@ -68176,6 +69296,33 @@ class FinancialAssistantAppPortfolioController {
             });
             return backResult;
         });
+        this.GetDetailRedux = (id) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                this.preloader(true);
+                const backResult = yield this.GetDetailAsync(id);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    dispatch((0, PortfolioActions_1.SetCurrentPortfolioActionCreator)(new Portfolio_1.Portfolio().FillByIProjectTaskDataBack(backResult.Data)));
+                }
+            });
+        };
+        this.GetDetailAsync = (id) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "Id": id
+            };
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${G_PathToServer}${Consts_1.FinancialAssistantApiPortfolioUrl}/get`,
+            });
+            return backResult;
+        });
     }
     preloader(show) {
         window.FinancialAssistantAppCounter = new ControllerHelper_1.ControllerHelper()
@@ -68183,6 +69330,454 @@ class FinancialAssistantAppPortfolioController {
     }
 }
 exports.FinancialAssistantAppPortfolioController = FinancialAssistantAppPortfolioController;
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Models/Controllers/FinancialAssistantAppStockController.ts":
+/*!***************************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Controllers/FinancialAssistantAppStockController.ts ***!
+  \***************************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.FinancialAssistantAppStockController = void 0;
+const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
+const Consts_1 = __webpack_require__(/*! ../Consts */ "./src/Apps/FinancialAssistantApp/Models/Consts.ts");
+const Stock_1 = __webpack_require__(/*! ../Entity/State/Stock */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Stock.ts");
+const StockActions_1 = __webpack_require__(/*! ../Actions/StockActions */ "./src/Apps/FinancialAssistantApp/Models/Actions/StockActions.ts");
+class FinancialAssistantAppStockController {
+    constructor() {
+        // UpdateGlobal = () => {
+        //     return async (dispatch: any, getState: any) => {
+        //         this.preloader(true);
+        //         const backResult = await this.UpdateGlobalAsync();
+        //         this.preloader(false);
+        //         if (backResult.Error) {
+        //             return;
+        //         }
+        //         if (backResult.Data?.Result) {
+        //             let dt = backResult.Data.map(x => new Portfolio().FillByIProjectTaskDataBack(x));
+        //             dispatch(GetPortfolioActionCreator(dt));
+        //         }
+        //     };
+        // }
+        this.UpdateGlobalAsync = () => __awaiter(this, void 0, void 0, function* () {
+            let data = {};
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PostHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${G_PathToServer}${Consts_1.FinancialAssistantApiPortfolioUrl}/update-global`
+            });
+            return backResult;
+        });
+        this.CreateRedux = (req) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                this.preloader(true);
+                const backResult = yield this.CreateAsync(req);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = new Stock_1.Stock().FillByIProjectTaskDataBack(backResult.Data);
+                    // let dt = backResult.Data.map(x => new Stock().FillByIProjectTaskDataBack(x));
+                    dispatch((0, StockActions_1.CreateStockActionCreator)(dt));
+                }
+            });
+        };
+        this.CreateAsync = (req) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "Name": req.Name,
+                "Code": req.Code,
+                "Type": +req.Type,
+                "IsGlobal": req.IsGlobal,
+            };
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PutHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${this.GetControllerApiUrl()}/create`,
+                ContentType: 'body'
+            });
+            return backResult;
+        });
+        this.UpdateRedux = (req) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                this.preloader(true);
+                const backResult = yield this.UpdateAsync(req);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = new Stock_1.Stock().FillByIProjectTaskDataBack(backResult.Data);
+                    // let dt = backResult.Data.map(x => new Stock().FillByIProjectTaskDataBack(x));
+                    dispatch((0, StockActions_1.UpdateStockActionCreator)(dt));
+                }
+            });
+        };
+        this.UpdateAsync = (req) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "Id": req.Id,
+                "Name": req.Name,
+                "Code": req.Code,
+                "Type": +req.Type,
+                "IsGlobal": req.IsGlobal,
+            };
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${this.GetControllerApiUrl()}/update`,
+                ContentType: 'body'
+            });
+            return backResult;
+        });
+        this.DeleteRedux = (id) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                var _a;
+                this.preloader(true);
+                const backResult = yield this.DeleteAsync(id);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if ((_a = backResult.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                    dispatch((0, StockActions_1.DeleteStockActionCreator)(id));
+                }
+            });
+        };
+        this.DeleteAsync = (id) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "Id": id
+            };
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${this.GetControllerApiUrl()}/delete`,
+                ContentType: 'body'
+            });
+            return backResult;
+        });
+        this.FindRedux = (text) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                this.preloader(true);
+                const backResult = yield this.FindAsync(text);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = backResult.Data.map(x => new Stock_1.Stock().FillByIProjectTaskDataBack(x));
+                    dispatch((0, StockActions_1.GetStockActionCreator)(dt));
+                }
+            });
+        };
+        this.FindAsync = (text) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "Text": text
+            };
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${this.GetControllerApiUrl()}/find`,
+            });
+            return backResult;
+        });
+        this.GetRedux = () => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                this.preloader(true);
+                const backResult = yield this.GetAsync();
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = backResult.Data.map(x => new Stock_1.Stock().FillByIProjectTaskDataBack(x));
+                    dispatch((0, StockActions_1.GetStockActionCreator)(dt));
+                }
+            });
+        };
+        this.GetAsync = () => __awaiter(this, void 0, void 0, function* () {
+            let data = {};
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${this.GetControllerApiUrl()}/get`,
+            });
+            return backResult;
+        });
+        this.GetCurrencyRedux = () => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                this.preloader(true);
+                const backResult = yield this.GetCurrencyAsync();
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = backResult.Data.map(x => new Stock_1.Stock().FillByIProjectTaskDataBack(x));
+                    dispatch((0, StockActions_1.GetStockActionCreator)(dt));
+                }
+            });
+        };
+        this.GetCurrencyAsync = () => __awaiter(this, void 0, void 0, function* () {
+            let data = {};
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${this.GetControllerApiUrl()}/get-currency`,
+            });
+            return backResult;
+        });
+        this.GetByIdRedux = (id) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                this.preloader(true);
+                const backResult = yield this.GetByIdAsync(id);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = new Stock_1.Stock().FillByIProjectTaskDataBack(backResult.Data);
+                    dispatch((0, StockActions_1.LoadCurrentStockActionCreator)(dt));
+                }
+            });
+        };
+        this.GetByIdAsync = (id) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "Id": id
+            };
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${this.GetControllerApiUrl()}/get-by-id`,
+            });
+            return backResult;
+        });
+        this.GetControllerApiUrl = () => {
+            return `${G_PathToServer}${Consts_1.FinancialAssistantApiStockUrl}`;
+        };
+    }
+    preloader(show) {
+        window.FinancialAssistantAppCounter = new ControllerHelper_1.ControllerHelper()
+            .Preloader(show, Consts_1.FinancialAssistantAppPreloader, window.FinancialAssistantAppCounter);
+    }
+}
+exports.FinancialAssistantAppStockController = FinancialAssistantAppStockController;
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Models/Controllers/FinancialAssistantAppStockElementController.ts":
+/*!**********************************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Controllers/FinancialAssistantAppStockElementController.ts ***!
+  \**********************************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.FinancialAssistantAppStockElementController = void 0;
+const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
+const Consts_1 = __webpack_require__(/*! ../Consts */ "./src/Apps/FinancialAssistantApp/Models/Consts.ts");
+const StockElement_1 = __webpack_require__(/*! ../Entity/State/StockElement */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/StockElement.ts");
+const PortfolioActions_1 = __webpack_require__(/*! ../Actions/PortfolioActions */ "./src/Apps/FinancialAssistantApp/Models/Actions/PortfolioActions.ts");
+class FinancialAssistantAppStockElementController {
+    constructor() {
+        this.GetRedux = (portfolioId) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                this.preloader(true);
+                const backResult = yield this.GetAsync(portfolioId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = backResult.Data.map(x => new StockElement_1.StockElement().FillByIProjectTaskDataBack(x));
+                    dispatch((0, PortfolioActions_1.SetCurrentPortfolioElementsActionCreator)(dt));
+                }
+            });
+        };
+        this.GetAsync = (portfolioId) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "PortfolioId": portfolioId
+            };
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${this.GetControllerApiUrl()}/get`,
+            });
+            return backResult;
+        });
+        this.GetControllerApiUrl = () => {
+            return `${G_PathToServer}${Consts_1.FinancialAssistantApiStockElementUrl}`;
+        };
+    }
+    preloader(show) {
+        window.FinancialAssistantAppCounter = new ControllerHelper_1.ControllerHelper()
+            .Preloader(show, Consts_1.FinancialAssistantAppPreloader, window.FinancialAssistantAppCounter);
+    }
+}
+exports.FinancialAssistantAppStockElementController = FinancialAssistantAppStockElementController;
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Models/Controllers/FinancialAssistantAppStockEventController.ts":
+/*!********************************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Controllers/FinancialAssistantAppStockEventController.ts ***!
+  \********************************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.FinancialAssistantAppStockEventController = void 0;
+const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
+const Consts_1 = __webpack_require__(/*! ../Consts */ "./src/Apps/FinancialAssistantApp/Models/Consts.ts");
+class FinancialAssistantAppStockEventController {
+    constructor() {
+        // CreateRedux = (req:CreateStockEventRequest) => {
+        //     return async (dispatch: any, getState: any) => {
+        //         this.preloader(true);
+        //         const backResult = await this.CreateAsync(req);
+        //         this.preloader(false);
+        //         if (backResult.Error) {
+        //             return;
+        //         }
+        //         if (backResult.Data) {
+        //             let dt = new StockEvent().FillByIProjectTaskDataBack(backResult.Data);
+        //             // let dt = backResult.Data.map(x => new StockEvent().FillByIProjectTaskDataBack(x));
+        //             dispatch(GetPortfolioActionCreator1(dt));
+        //         }
+        //     };
+        // }
+        this.CreateAsync = (req) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "Date": req.Date,
+                "Count": req.Count,
+                "Type": req.Type,
+                "StockId": req.StockId,
+                "Price": req.Price,
+                "CurrencyId": req.CurrencyId,
+                "PortfolioId": req.PortfolioId,
+            };
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PutHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${G_PathToServer}${Consts_1.FinancialAssistantApiStockEventUrl}/create`,
+                ContentType: 'body'
+            });
+            return backResult;
+        });
+    }
+    preloader(show) {
+        window.FinancialAssistantAppCounter = new ControllerHelper_1.ControllerHelper()
+            .Preloader(show, Consts_1.FinancialAssistantAppPreloader, window.FinancialAssistantAppCounter);
+    }
+}
+exports.FinancialAssistantAppStockEventController = FinancialAssistantAppStockEventController;
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Models/Entity/DTO/CreateStockRequest.ts":
+/*!********************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Entity/DTO/CreateStockRequest.ts ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CreateStockRequest = void 0;
+class CreateStockRequest {
+    constructor() {
+    }
+}
+exports.CreateStockRequest = CreateStockRequest;
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Enum/StockType.ts":
+/*!******************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Entity/State/Enum/StockType.ts ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.StockType = void 0;
+var StockType;
+(function (StockType) {
+    StockType[StockType["InvestmentFund"] = 1] = "InvestmentFund";
+    StockType[StockType["InvestmentStock"] = 2] = "InvestmentStock";
+    StockType[StockType["InvestmentBond"] = 3] = "InvestmentBond";
+    StockType[StockType["Other"] = 4] = "Other";
+    StockType[StockType["Currency"] = 5] = "Currency";
+})(StockType = exports.StockType || (exports.StockType = {}));
+;
 
 
 /***/ }),
@@ -68199,7 +69794,14 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.FinancialAssistantApp = void 0;
 class FinancialAssistantApp {
     constructor() {
-        this.Portfolio = [];
+        this.PortfolioList = [];
+        this.StockList = [];
+        this.CurrentStockId = -1;
+        this.CurrentPortfolioId = -1;
+        this.CurrentStock = null;
+        this.CurrentPortfolioElements = [];
+        this.CurrentPortfolio = null;
+        this.CurrentPortfolioEvents = [];
     }
 }
 exports.FinancialAssistantApp = FinancialAssistantApp;
@@ -68233,6 +69835,63 @@ exports.Portfolio = Portfolio;
 
 /***/ }),
 
+/***/ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Stock.ts":
+/*!*********************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Entity/State/Stock.ts ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Stock = void 0;
+class Stock {
+    constructor() {
+    }
+    FillByIProjectTaskDataBack(data) {
+        this.Id = data.Id;
+        this.Name = data.Name;
+        this.Code = data.Code;
+        this.ActualizationTime = data.ActualizationTime;
+        this.LastPrice = data.LastPrice;
+        this.Type = data.Type;
+        this.IsGlobal = data.IsGlobal;
+        this.PortfolioId = data.PortfolioId;
+        this.CurrencyId = data.CurrencyId;
+        return this;
+    }
+}
+exports.Stock = Stock;
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Models/Entity/State/StockElement.ts":
+/*!****************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Entity/State/StockElement.ts ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.StockElement = void 0;
+class StockElement {
+    constructor() {
+    }
+    FillByIProjectTaskDataBack(data) {
+        this.Id = data.Id;
+        this.StockId = data.StockId;
+        this.Count = data.Count;
+        this.PortfolioId = data.PortfolioId;
+        return this;
+    }
+}
+exports.StockElement = StockElement;
+
+
+/***/ }),
+
 /***/ "./src/Apps/FinancialAssistantApp/Models/Reducers/PortfolioReducer.ts":
 /*!****************************************************************************!*\
   !*** ./src/Apps/FinancialAssistantApp/Models/Reducers/PortfolioReducer.ts ***!
@@ -68255,21 +69914,21 @@ function FinancialAssistantPortfolioReducer(state = new AppState_1.AppState(), a
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                newState.FinancialAssistantApp.Portfolio = [...payload];
+                newState.FinancialAssistantApp.PortfolioList = [...payload];
                 return newState;
             }
         case PortfolioActions_1.CreatePortfolioActionName:
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                newState.FinancialAssistantApp.Portfolio.push(payload);
+                newState.FinancialAssistantApp.PortfolioList.push(payload);
                 return newState;
             }
         case PortfolioActions_1.UpdatePortfolioActionName:
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                var dt = newState.FinancialAssistantApp.Portfolio.find(x => x.Id == payload.Id);
+                var dt = newState.FinancialAssistantApp.PortfolioList.find(x => x.Id == payload.Id);
                 if (dt) {
                     dt.Name = payload.Name;
                     dt.CurrencyId = payload.CurrencyId;
@@ -68280,8 +69939,29 @@ function FinancialAssistantPortfolioReducer(state = new AppState_1.AppState(), a
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                newState.FinancialAssistantApp.Portfolio =
-                    newState.FinancialAssistantApp.Portfolio.filter(x => x.Id != payload);
+                newState.FinancialAssistantApp.PortfolioList =
+                    newState.FinancialAssistantApp.PortfolioList.filter(x => x.Id != payload);
+                return newState;
+            }
+        case PortfolioActions_1.SetCurrentPortfolioIdActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.FinancialAssistantApp.CurrentPortfolioId = payload;
+                return newState;
+            }
+        case PortfolioActions_1.SetCurrentPortfolioElementsActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.FinancialAssistantApp.CurrentPortfolioElements = payload;
+                return newState;
+            }
+        case PortfolioActions_1.SetCurrentPortfolioActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.FinancialAssistantApp.CurrentPortfolio = payload;
                 return newState;
             }
         default:
@@ -68306,8 +69986,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.FinancialAssistantAppReducer = void 0;
 const AppState_1 = __webpack_require__(/*! ../../../../Models/Entity/State/AppState */ "./src/Models/Entity/State/AppState.ts");
 const PortfolioReducer_1 = __webpack_require__(/*! ../../../FinancialAssistantApp/Models/Reducers/PortfolioReducer */ "./src/Apps/FinancialAssistantApp/Models/Reducers/PortfolioReducer.ts");
+const StockReducer_1 = __webpack_require__(/*! ./StockReducer */ "./src/Apps/FinancialAssistantApp/Models/Reducers/StockReducer.ts");
 function FinancialAssistantAppReducer(state = new AppState_1.AppState(), action) {
     let st = (0, PortfolioReducer_1.FinancialAssistantPortfolioReducer)(state, action);
+    st = (0, StockReducer_1.FinancialAssistantStockReducer)(st, action);
     //...
     return st;
     switch (action.type) {
@@ -68319,6 +70001,83 @@ function FinancialAssistantAppReducer(state = new AppState_1.AppState(), action)
     }
 }
 exports.FinancialAssistantAppReducer = FinancialAssistantAppReducer;
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Models/Reducers/StockReducer.ts":
+/*!************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Reducers/StockReducer.ts ***!
+  \************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.FinancialAssistantStockReducer = void 0;
+const AppState_1 = __webpack_require__(/*! ../../../../Models/Entity/State/AppState */ "./src/Models/Entity/State/AppState.ts");
+const cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
+const StockActions_1 = __webpack_require__(/*! ../Actions/StockActions */ "./src/Apps/FinancialAssistantApp/Models/Actions/StockActions.ts");
+function FinancialAssistantStockReducer(state = new AppState_1.AppState(), action) {
+    switch (action.type) {
+        case StockActions_1.GetStockActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.FinancialAssistantApp.StockList = [...payload];
+                return newState;
+            }
+        case StockActions_1.CreateStockActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.FinancialAssistantApp.StockList.push(payload);
+                return newState;
+            }
+        case StockActions_1.UpdateStockActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                var dt = newState.FinancialAssistantApp.StockList.find(x => x.Id == payload.Id);
+                if (dt) {
+                    dt.Name = payload.Name;
+                    dt.Code = payload.Code;
+                    dt.Type = payload.Type;
+                    dt.IsGlobal = payload.IsGlobal;
+                }
+                return newState;
+            }
+        case StockActions_1.DeleteStockActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.FinancialAssistantApp.StockList =
+                    newState.FinancialAssistantApp.StockList.filter(x => x.Id != payload);
+                return newState;
+            }
+        case StockActions_1.SetCurrentStockIdActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.FinancialAssistantApp.CurrentStockId = payload;
+                return newState;
+            }
+        case StockActions_1.LoadCurrentStockActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.FinancialAssistantApp.CurrentStock = payload;
+                return newState;
+            }
+        default:
+            return state;
+    }
+    return state;
+}
+exports.FinancialAssistantStockReducer = FinancialAssistantStockReducer;
 
 
 /***/ }),
@@ -77755,54 +79514,54 @@ const Consts_1 = __webpack_require__(/*! ../Consts */ "./src/Apps/TaskManagement
 class RouteBuilder {
     //можно сделать полноценный билдер через withApproute.withProject но как будто смысла особо нет
     AppUrl() {
-        return `/${Consts_1.TaskManagementAppRute}/`;
+        return `/${Consts_1.TaskManagementAppRoute}/`;
     }
     ProjectUrl(projectId) {
-        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}`;
+        return `/${Consts_1.TaskManagementAppRoute}/${Consts_1.TaskManagementProjectRoute}${projectId}`;
     }
     TaskUrl(projectId, taskId) {
         ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
-        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementTaskRoute}${taskId}`;
+        return `/${Consts_1.TaskManagementAppRoute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementTaskRoute}${taskId}`;
     }
     TimeLogUserUrl(projectId, userId) {
         // "/task-management/proj-" + props.ProjectId + "/user-" + x.Id + "/time-log"
-        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementUserRoute}${userId}/${Consts_1.TaskManagementTimeLogRoute}`;
+        return `/${Consts_1.TaskManagementAppRoute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementUserRoute}${userId}/${Consts_1.TaskManagementTimeLogRoute}`;
     }
     TimeLogUrl(projectId) {
         // '/task-management/proj-' + props.CurrentProjectId + '/time-log'
-        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementTimeLogRoute}`;
+        return `/${Consts_1.TaskManagementAppRoute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementTimeLogRoute}`;
     }
     SprintsUrl(projectId) {
         ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
-        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementSprintsRoute}`;
+        return `/${Consts_1.TaskManagementAppRoute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementSprintsRoute}`;
     }
     LabelsUrl(projectId) {
         ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
-        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementLabelsRoute}`;
+        return `/${Consts_1.TaskManagementAppRoute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementLabelsRoute}`;
     }
     PresetsUrl(projectId) {
         ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
-        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementPresetsRoute}`;
+        return `/${Consts_1.TaskManagementAppRoute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementPresetsRoute}`;
     }
     ProjectsUsersUrl(projectId) {
         ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
-        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementUsersRoute}`;
+        return `/${Consts_1.TaskManagementAppRoute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementUsersRoute}`;
     }
     StatusesUrl(projectId) {
         ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
-        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementStatusesRoute}`;
+        return `/${Consts_1.TaskManagementAppRoute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementStatusesRoute}`;
     }
     TaskUsersUrl(projectId) {
         ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
-        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementTaskUsersRoute}`;
+        return `/${Consts_1.TaskManagementAppRoute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementTaskUsersRoute}`;
     }
     SprintUrl(projectId, sprintId) {
         ///"/task-management/proj-" + props.ProjectId + '/sprint-' + x.Id
-        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementSprintRoute}${sprintId}`;
+        return `/${Consts_1.TaskManagementAppRoute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementSprintRoute}${sprintId}`;
     }
     TempoUrl(projectId) {
         ///task-management/proj-' + props.CurrentProjectId + '/task-' + props.Task.Id
-        return `/${Consts_1.TaskManagementAppRute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementTempoRoute}`;
+        return `/${Consts_1.TaskManagementAppRoute}/${Consts_1.TaskManagementProjectRoute}${projectId}/${Consts_1.TaskManagementTempoRoute}`;
     }
 }
 exports["default"] = RouteBuilder;
@@ -77819,10 +79578,10 @@ exports["default"] = RouteBuilder;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.TaskManagementApiWorkTimeUrl = exports.TaskManagementApiUserUrl = exports.TaskManagementApiStatusUrl = exports.TaskManagementApiPresetUrl = exports.TaskManagementApiSprintUrl = exports.TaskManagementApiProjectUrl = exports.TaskManagementApiLabelUrl = exports.TaskManagementApiCommentUrl = exports.TaskManagementApiTaskUrl = exports.TaskManagementApiUrl = exports.TaskManagementGetTaskRelationUrl = exports.TaskManagementDeleteTaskRelationUrl = exports.TaskManagementAddTaskRelationUrl = exports.TaskManagementTaskNameUrl = exports.TaskManagementTaskCopyUrl = exports.TaskManagementTaskDeleteUrl = exports.TaskManagementTaskGetUrl = exports.TaskManagementTasksGetUrl = exports.TaskManagementTaskUpdateUrl = exports.TaskManagementTaskAddNewUrl = exports.TaskManagementTaskUpdateExecutorUrl = exports.TaskManagementTaskUpdateStatusUrl = exports.TaskManagementTaskUpdateDescriptionUrl = exports.TaskManagementTaskUpdateNameUrl = exports.TaskManagementWorkTimeLogControllerUrl = exports.TaskManagementUserControllerUrl = exports.TaskManagementStatusControllerUrl = exports.TaskManagementPresetControllerUrl = exports.TaskManagementSprintControllerUrl = exports.TaskManagementProjectControllerUrl = exports.TaskManagementLabelControllerUrl = exports.TaskManagementCommentControllerUrl = exports.TaskManagementTaskControllerUrl = exports.TaskManagementAppUrl = exports.TaskManagementApiPrefUrl = exports.TaskManagementTempoRoute = exports.TaskManagementTaskUsersRoute = exports.TaskManagementStatusesRoute = exports.TaskManagementUsersRoute = exports.TaskManagementPresetsRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRute = exports.TaskManagementPreloader = void 0;
+exports.TaskManagementApiWorkTimeUrl = exports.TaskManagementApiUserUrl = exports.TaskManagementApiStatusUrl = exports.TaskManagementApiPresetUrl = exports.TaskManagementApiSprintUrl = exports.TaskManagementApiProjectUrl = exports.TaskManagementApiLabelUrl = exports.TaskManagementApiCommentUrl = exports.TaskManagementApiTaskUrl = exports.TaskManagementApiUrl = exports.TaskManagementGetTaskRelationUrl = exports.TaskManagementDeleteTaskRelationUrl = exports.TaskManagementAddTaskRelationUrl = exports.TaskManagementTaskNameUrl = exports.TaskManagementTaskCopyUrl = exports.TaskManagementTaskDeleteUrl = exports.TaskManagementTaskGetUrl = exports.TaskManagementTasksGetUrl = exports.TaskManagementTaskUpdateUrl = exports.TaskManagementTaskAddNewUrl = exports.TaskManagementTaskUpdateExecutorUrl = exports.TaskManagementTaskUpdateStatusUrl = exports.TaskManagementTaskUpdateDescriptionUrl = exports.TaskManagementTaskUpdateNameUrl = exports.TaskManagementWorkTimeLogControllerUrl = exports.TaskManagementUserControllerUrl = exports.TaskManagementStatusControllerUrl = exports.TaskManagementPresetControllerUrl = exports.TaskManagementSprintControllerUrl = exports.TaskManagementProjectControllerUrl = exports.TaskManagementLabelControllerUrl = exports.TaskManagementCommentControllerUrl = exports.TaskManagementTaskControllerUrl = exports.TaskManagementAppUrl = exports.TaskManagementApiPrefUrl = exports.TaskManagementTempoRoute = exports.TaskManagementTaskUsersRoute = exports.TaskManagementStatusesRoute = exports.TaskManagementUsersRoute = exports.TaskManagementPresetsRoute = exports.TaskManagementSprintRoute = exports.TaskManagementLabelsRoute = exports.TaskManagementSprintsRoute = exports.TaskManagementTimeLogRoute = exports.TaskManagementUserRoute = exports.TaskManagementTaskRoute = exports.TaskManagementProjectRoute = exports.TaskManagementAppRoute = exports.TaskManagementPreloader = void 0;
 exports.TaskManagementPreloader = 'task_management_preloader';
 //Routes
-exports.TaskManagementAppRute = 'task-management';
+exports.TaskManagementAppRoute = 'task-management';
 exports.TaskManagementProjectRoute = 'proj-';
 exports.TaskManagementTaskRoute = 'task-';
 exports.TaskManagementUserRoute = 'user-';
@@ -86885,8 +88644,8 @@ const AppRouter = (props) => {
             React.createElement(react_router_dom_1.Route, { path: "/menu-app/*", element: React.createElement(MenuAppMain_1.MenuAppMain, null) }),
             React.createElement(react_router_dom_1.Route, { path: "/words-cards-app/*", element: React.createElement(WordsCardsAppMain_1.WordsCardsAppMain, null) }),
             React.createElement(react_router_dom_1.Route, { path: "/planing-poker/*", element: React.createElement(PlaningPokerMain_1.default, null) }),
-            React.createElement(react_router_dom_1.Route, { path: `/${Consts_1.TaskManagementAppRute}/*`, element: React.createElement(TaskManagementMain_1.default, null) }),
-            React.createElement(react_router_dom_1.Route, { path: `/${Consts_2.FinancialAssistantAppRute}/*`, element: React.createElement(FinancialAssistantMain_1.default, null) }),
+            React.createElement(react_router_dom_1.Route, { path: `/${Consts_1.TaskManagementAppRoute}/*`, element: React.createElement(TaskManagementMain_1.default, null) }),
+            React.createElement(react_router_dom_1.Route, { path: `/${Consts_2.FinancialAssistantAppRoute}/*`, element: React.createElement(FinancialAssistantMain_1.default, null) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/login/*", element: React.createElement(MainAuth_1.default, { LoginPage: true }) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/register/*", element: React.createElement(MainAuth_1.default, { LoginPage: false }) }),
             React.createElement(react_router_dom_1.Route, { path: "/menu/auth/password-recovery/*", element: React.createElement(Recovery_1.default, null) }),
@@ -89082,9 +90841,9 @@ let MainComponent = (props) => {
         new AppItem_1.AppItem({ Logo: G_EmptyImagePath, Name: "Dict", Path: "/words-cards-app" }),
         // new AppItem({ Logo: G_EmptyImagePath, Name: "TimeBooking", Path: "/menu-app" }),
         new AppItem_1.AppItem({ Logo: "/images/poker_logo.jpg", Name: "Planning Poker", Path: "/planing-poker" }),
-        new AppItem_1.AppItem({ Logo: "/images/code_review_logo.png", Name: "Task Managment", Path: `/${Consts_1.TaskManagementAppRute}/` }),
+        new AppItem_1.AppItem({ Logo: "/images/code_review_logo.png", Name: "Task Managment", Path: `/${Consts_1.TaskManagementAppRoute}/` }),
         new AppItem_1.AppItem({ Logo: "/images/vaultapp.png", Name: "Vault", Path: (G_VaultController.RouteUrlVaultApp + '/') }),
-        new AppItem_1.AppItem({ Logo: "/images/finances.jpg", Name: "finances", Path: (`/${Consts_2.FinancialAssistantAppRute}/`) }),
+        new AppItem_1.AppItem({ Logo: "/images/finances.jpg", Name: "finances", Path: (`/${Consts_2.FinancialAssistantAppRoute}/`) }),
     ];
     (0, react_1.useEffect)(() => {
         window.G_AddAbsoluteAlertToState = AddMainALert;
@@ -89265,6 +91024,9 @@ const TaskManagementSprintController_1 = __webpack_require__(/*! ./Apps/TaskMana
 const TaskManagementLabelController_1 = __webpack_require__(/*! ./Apps/TaskManagementApp/Models/Controllers/TaskManagementLabelController */ "./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementLabelController.ts");
 const TaskManagementPresetController_1 = __webpack_require__(/*! ./Apps/TaskManagementApp/Models/Controllers/TaskManagementPresetController */ "./src/Apps/TaskManagementApp/Models/Controllers/TaskManagementPresetController.ts");
 const FinancialAssistantAppPortfolioController_1 = __webpack_require__(/*! ./Apps/FinancialAssistantApp/Models/Controllers/FinancialAssistantAppPortfolioController */ "./src/Apps/FinancialAssistantApp/Models/Controllers/FinancialAssistantAppPortfolioController.ts");
+const FinancialAssistantAppStockController_1 = __webpack_require__(/*! ./Apps/FinancialAssistantApp/Models/Controllers/FinancialAssistantAppStockController */ "./src/Apps/FinancialAssistantApp/Models/Controllers/FinancialAssistantAppStockController.ts");
+const FinancialAssistantAppStockElementController_1 = __webpack_require__(/*! ./Apps/FinancialAssistantApp/Models/Controllers/FinancialAssistantAppStockElementController */ "./src/Apps/FinancialAssistantApp/Models/Controllers/FinancialAssistantAppStockElementController.ts");
+const FinancialAssistantAppStockEventController_1 = __webpack_require__(/*! ./Apps/FinancialAssistantApp/Models/Controllers/FinancialAssistantAppStockEventController */ "./src/Apps/FinancialAssistantApp/Models/Controllers/FinancialAssistantAppStockEventController.ts");
 __webpack_require__(/*! ../style/main.css */ "./style/main.css");
 __webpack_require__(/*! ../style/body.css */ "./style/body.css");
 __webpack_require__(/*! ../style/alerts.css */ "./style/alerts.css");
@@ -89301,6 +91063,9 @@ window.G_VaultController = new VaultController_1.VaultController();
 window.G_TaskManagementLabelController = new TaskManagementLabelController_1.TaskManagementLabelController();
 window.G_TaskManagementPresetController = new TaskManagementPresetController_1.TaskManagementPresetController();
 window.G_FinancialAssistantAppPortfolioController = new FinancialAssistantAppPortfolioController_1.FinancialAssistantAppPortfolioController();
+window.G_FinancialAssistantAppStockController = new FinancialAssistantAppStockController_1.FinancialAssistantAppStockController();
+window.G_FinancialAssistantAppStockElementController = new FinancialAssistantAppStockElementController_1.FinancialAssistantAppStockElementController();
+window.G_FinancialAssistantAppStockEventController = new FinancialAssistantAppStockEventController_1.FinancialAssistantAppStockEventController();
 let configureStore = (initialState) => {
     const store = (0, redux_1.createStore)(ReducerCombiner_1.ReducerCombiner, initialState, (0, redux_1.applyMiddleware)(redux_thunk_1.default)); //подключаем thunk
     return store;

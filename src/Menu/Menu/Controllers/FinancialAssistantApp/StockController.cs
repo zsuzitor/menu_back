@@ -1,4 +1,5 @@
 ﻿using Auth.Models.Auth;
+using BO.Models.FinancialAssistant.DAL;
 using Common.Models.Return;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Host.Infrastructure;
@@ -89,6 +90,27 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
             var res = await _stockService.GetAsync( userId);
             return new JsonResult(res.Select(x => x.Map()), GetJsonOptions());
         }
+
+        [Route("get-by-id")]
+        [HttpGet]
+        [CustomAuthorize]
+        public async Task<ActionResult<StockReturn>> GetById(long id)
+        {
+            var userId = User.GetUserId();
+            var res = await _stockService.GetAsync(id, userId);
+            return new JsonResult(res.Map(), GetJsonOptions());
+        }
+
+        [Route("get-history")]
+        [HttpGet]
+        [CustomAuthorize]
+        public async Task<ActionResult<List<StockHistoryReturn>>> GetHistory(long id)
+        {
+            var userId = User.GetUserId();
+            var res = await _stockService.GetHistoryAsync(id, userId);
+            return new JsonResult(res.Select(x=> x.Map()), GetJsonOptions());
+        }
+
 
 
         [Route("get-currency")]

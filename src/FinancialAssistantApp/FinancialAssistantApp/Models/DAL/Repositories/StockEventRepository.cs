@@ -3,6 +3,7 @@ using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinancialAssistantApp.Models.DAL.Repositories
 {
@@ -10,6 +11,11 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
     {
         public StockEventRepository(MenuDbContext db, IGeneralRepositoryStrategy repo) : base(db, repo)
         {
+        }
+
+        public async Task<List<StockEvent>> GetForPortfolioAsync(long portfolioId)
+        {
+            return await _db.StockEvent.Where(x => x.PortfolioId == portfolioId).ToListAsync();
         }
     }
 }

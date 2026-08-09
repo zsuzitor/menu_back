@@ -1,5 +1,4 @@
-﻿using BO.Models.FinancialAssistant.DAL;
-using BO.Models.FinancialAssistant.Enums;
+﻿using BO.Models.FinancialAssistant.Enums;
 using System;
 
 namespace Menu.Host.Models.FinancialAssistantApp.Returns

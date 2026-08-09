@@ -12,9 +12,10 @@ namespace FinancialAssistantApp.Models.Services
         private readonly IPortfolioRepository _portfolioRepository;
         private readonly IStockRepository _stockRepository;
 
-        public PortfolioService(IPortfolioRepository portfolioRepository)
+        public PortfolioService(IPortfolioRepository portfolioRepository, IStockRepository stockRepository)
         {
             _portfolioRepository = portfolioRepository;
+            _stockRepository = stockRepository;
         }
 
 
@@ -72,6 +73,9 @@ namespace FinancialAssistantApp.Models.Services
             return await _portfolioRepository.GetAllAsync(userId);
         }
 
-
+        public async Task<Portfolio> GetAsync(long id, long userId)
+        {
+            return await _portfolioRepository.GetAsync(id, userId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+        }
     }
 }
