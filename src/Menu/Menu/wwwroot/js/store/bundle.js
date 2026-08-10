@@ -68374,16 +68374,16 @@ const PortfolioDetail = (props) => {
     if (!props.Portfolio) {
         return react_1.default.createElement("div", null);
     }
-    const portfolioHistoryUrl = new RouteBuilder_1.default().PortfolioHistoryUrl(props.PortfolioId);
+    const portfolioEventsUrl = new RouteBuilder_1.default().PortfolioHistoryUrl(props.PortfolioId);
     return react_1.default.createElement("div", { className: 'portfolio-page' },
         react_1.default.createElement("div", null,
             react_1.default.createElement("span", null, props.Portfolio.Name),
             react_1.default.createElement("span", null, props.Portfolio.Id)),
         react_1.default.createElement("div", null,
             react_1.default.createElement("div", null,
-                react_1.default.createElement("a", { href: portfolioHistoryUrl, onClick: (e) => {
+                react_1.default.createElement("a", { href: portfolioEventsUrl, onClick: (e) => {
                         e.preventDefault();
-                        navigate(portfolioHistoryUrl);
+                        navigate(portfolioEventsUrl);
                     } }, "\u0418\u0441\u0442\u043E\u0440\u0438\u044F")),
             react_1.default.createElement("div", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u0431\u044B\u0442\u0438\u0435")),
         react_1.default.createElement("div", { className: 'portfolio-elements-block' }, props.Elements.map(x => {
@@ -68465,7 +68465,14 @@ const PortfolioEvents = (props) => {
     const navigate = (0, react_router_dom_1.useNavigate)();
     return react_1.default.createElement("div", null,
         "HISTORY - ",
-        props.PortfolioId);
+        props.PortfolioId,
+        react_1.default.createElement("div", null, props.Events.map(x => {
+            return react_1.default.createElement("div", { key: x.Id },
+                x.Id,
+                x.Price,
+                x.CurrencyId,
+                x.Count);
+        })));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, PortfolioEventsSetup_1.default)(PortfolioEvents);
@@ -68491,6 +68498,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
     let res = {};
+    res.LoadPortfolioEvents = (id) => {
+        dispatch(window.G_FinancialAssistantAppStockEventController.GetEventsRedux(id));
+    };
     return res;
 };
 exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -68741,6 +68751,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -68748,19 +68767,36 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const StockDetailSetup_1 = __importDefault(__webpack_require__(/*! ./StockDetailSetup */ "./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetailSetup.tsx"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
+const StockHistory_1 = __webpack_require__(/*! ../../Models/Entity/State/StockHistory */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/StockHistory.ts");
+const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
+const SelectWithSearch_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SelectWithSearch/SelectWithSearch */ "./src/components/Body/SelectWithSearch/SelectWithSearch.tsx"));
+const Stock_1 = __webpack_require__(/*! ../../Models/Entity/State/Stock */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Stock.ts");
 __webpack_require__(/*! ./StockDetail.css */ "./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css");
 const StockDetail = (props) => {
+    const [newStockHistoryDate, setStockHistoryDate] = (0, react_1.useState)(new Date());
+    const [newStockHistoryPrice, setStockHistoryPrice] = (0, react_1.useState)(0);
+    const [stockCurrency, setStockCurrency] = (0, react_1.useState)([]);
+    //нужны что бы отрисовать элеммент в пустом списке - тако кейс есть это норм
+    const [newStockHistoryCurrencyId, setStockHistoryCurrencyId] = (0, react_1.useState)(0);
+    const [stockCurrencyName, setStockCurrencyName] = (0, react_1.useState)('');
+    //тк запроса на бэк не делаем а просто на фронте фильтруем
+    const [stockCurrencyNameFilter, setStockCurrencyNameFilter] = (0, react_1.useState)('');
     const navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(() => {
+        props.GetCurrency()
+            .then(br => setStockCurrency(br.Data.map(x => new Stock_1.Stock().FillByIProjectTaskDataBack(x))));
         return () => {
             //если с этой страницы будут переходы на другую с сохранением id  в урле то надо переносить на уровень выше
             props.SetCurrentStockId(-1);
             props.ClearCurrentStock();
+            props.ClearCurrentHistory();
         };
     }, []);
     (0, react_1.useEffect)(() => {
         if (props.StockId > 0) {
             props.GetDetail(props.StockId);
+            props.GetHistory(props.StockId);
         }
     }, [props.StockId]);
     // const matchStock = window.location.href.match(/stock-(\d+)/);//FinancialAssistantAppStockRoute
@@ -68789,6 +68825,10 @@ const StockDetail = (props) => {
             }
         }
     }, [stockId, props.StockId]);
+    function formatDateToInput(date) {
+        const help = new Helper_1.Helper();
+        return help.FormatDateToInputWithTime(date);
+    }
     if (!props.Stock) {
         return react_1.default.createElement("div", null);
     }
@@ -68797,7 +68837,50 @@ const StockDetail = (props) => {
             react_1.default.createElement("span", null, props.Stock.Code),
             react_1.default.createElement("span", null, props.Stock.Name),
             react_1.default.createElement("span", null, props.Stock.Id)),
-        react_1.default.createElement("div", { className: 'stock-block' }));
+        react_1.default.createElement("div", { className: 'stock-block' },
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("span", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u043F\u0438\u0441\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
+                react_1.default.createElement("span", null, "\u0426\u0435\u043D\u0430"),
+                react_1.default.createElement("input", { type: 'number', value: newStockHistoryPrice, onChange: (e) => setStockHistoryPrice(+e.target.value) }),
+                react_1.default.createElement("span", null, "\u0414\u0430\u0442\u0430"),
+                react_1.default.createElement("input", { 
+                    // type="datetime-local"
+                    type: "datetime-local", 
+                    // value={timeLogDate.toISOString().slice(0, 16)}
+                    value: formatDateToInput(newStockHistoryDate), onChange: (e) => {
+                        if (e.target.value) {
+                            setStockHistoryDate(new Date(e.target.value));
+                        }
+                        else {
+                            setStockHistoryDate(new Date());
+                        }
+                    } }),
+                react_1.default.createElement(SelectWithSearch_1.default, { CancelEvent: () => { }, SaveEvent: (id) => {
+                        setStockHistoryCurrencyId(id);
+                        setStockCurrencyName(stockCurrency.find(x => x.Id === id).Name);
+                        // setStockCurrency(stockCurrency.filter(x => x.Id === id));
+                        return true;
+                    }, Selected: { Id: newStockHistoryCurrencyId, Text: newStockHistoryCurrencyId > 0 ? `${newStockHistoryCurrencyId}-${stockCurrencyName}` : '' }, ValuesWithId: stockCurrency.filter(x => !stockCurrencyNameFilter || x.Name.indexOf(stockCurrencyNameFilter) >= 0)
+                        .map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` })), OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
+                        // setTaskId(-1);
+                        setStockCurrencyNameFilter(text);
+                    }) }),
+                react_1.default.createElement("button", { onClick: () => {
+                        let dt = new StockHistory_1.StockHistory();
+                        dt.CurrencyId = newStockHistoryCurrencyId;
+                        dt.Date = new ControllerHelper_1.ControllerHelper().ToZeroDate(newStockHistoryDate).toISOString();
+                        dt.Price = newStockHistoryPrice;
+                        dt.StockId = props.StockId;
+                        props.CreateHistory(dt);
+                    } }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0437\u0430\u043F\u0438\u0441\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u0438")),
+            react_1.default.createElement("div", { className: 'stock-block-history' },
+                react_1.default.createElement("span", null, "\u0438\u0441\u0442\u043E\u0440\u0438\u044F"),
+                props.StockHistory.map(x => {
+                    return react_1.default.createElement("div", { key: x.Id },
+                        x.Id,
+                        x.Price,
+                        x.CurrencyId);
+                }))));
 };
 // and that function returns the connected, wrapper component:
 exports["default"] = (0, StockDetailSetup_1.default)(StockDetail);
@@ -68809,10 +68892,19 @@ exports["default"] = (0, StockDetailSetup_1.default)(StockDetail);
 /*!************************************************************************************!*\
   !*** ./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetailSetup.tsx ***!
   \************************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 const StockActions_1 = __webpack_require__(/*! ../../Models/Actions/StockActions */ "./src/Apps/FinancialAssistantApp/Models/Actions/StockActions.ts");
@@ -68820,6 +68912,7 @@ const mapStateToProps = (state, ownProps) => {
     let res = {};
     res.Stock = state.FinancialAssistantApp.CurrentStock;
     res.StockId = state.FinancialAssistantApp.CurrentStockId;
+    res.StockHistory = state.FinancialAssistantApp.CurrentStockHistory;
     return res;
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -68833,12 +68926,24 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     res.GetDetail = (id) => {
         dispatch(window.G_FinancialAssistantAppStockController.GetByIdRedux(id));
     };
+    res.GetHistory = (id) => {
+        dispatch(window.G_FinancialAssistantAppStockController.GetHistoryRedux(id));
+    };
     res.SetCurrentStockId = (id) => {
         dispatch((0, StockActions_1.SetCurrentStockIdActionCreator)(id));
     };
     res.ClearCurrentStock = () => {
         dispatch((0, StockActions_1.LoadCurrentStockActionCreator)(null));
     };
+    res.ClearCurrentHistory = () => {
+        dispatch((0, StockActions_1.LoadCurrentStockHistoryActionCreator)([]));
+    };
+    res.CreateHistory = (req) => {
+        dispatch(window.G_FinancialAssistantAppStockController.CreateHistoryRedux(req));
+    };
+    res.GetCurrency = () => __awaiter(void 0, void 0, void 0, function* () {
+        return yield window.G_FinancialAssistantAppStockController.GetCurrencyAsync();
+    });
     return res;
 };
 exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -69045,7 +69150,7 @@ exports.SetCurrentPortfolioElementsActionCreator = SetCurrentPortfolioElementsAc
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.LoadCurrentStockActionCreator = exports.LoadCurrentStockActionName = exports.SetCurrentStockIdActionCreator = exports.SetCurrentStockIdActionName = exports.DeleteStockActionCreator = exports.DeleteStockActionName = exports.UpdateStockActionCreator = exports.UpdateStockActionName = exports.CreateStockActionCreator = exports.CreateStockActionName = exports.GetStockActionCreator = exports.GetStockActionName = void 0;
+exports.CreateCurrentStockHistoryActionCreator = exports.CreateCurrentStockHistoryActionName = exports.LoadCurrentStockHistoryActionCreator = exports.LoadCurrentStockHistoryActionName = exports.LoadCurrentStockActionCreator = exports.LoadCurrentStockActionName = exports.SetCurrentStockIdActionCreator = exports.SetCurrentStockIdActionName = exports.DeleteStockActionCreator = exports.DeleteStockActionName = exports.UpdateStockActionCreator = exports.UpdateStockActionName = exports.CreateStockActionCreator = exports.CreateStockActionName = exports.GetStockActionCreator = exports.GetStockActionName = void 0;
 exports.GetStockActionName = 'GetStockAction';
 function GetStockActionCreator(data) {
     return { type: exports.GetStockActionName, payload: data };
@@ -69081,6 +69186,38 @@ function LoadCurrentStockActionCreator(data) {
     return { type: exports.LoadCurrentStockActionName, payload: data };
 }
 exports.LoadCurrentStockActionCreator = LoadCurrentStockActionCreator;
+;
+exports.LoadCurrentStockHistoryActionName = 'LoadCurrentStockHistoryAction';
+function LoadCurrentStockHistoryActionCreator(data) {
+    return { type: exports.LoadCurrentStockHistoryActionName, payload: data };
+}
+exports.LoadCurrentStockHistoryActionCreator = LoadCurrentStockHistoryActionCreator;
+;
+exports.CreateCurrentStockHistoryActionName = 'CreateCurrentStockHistoryAction';
+function CreateCurrentStockHistoryActionCreator(data) {
+    return { type: exports.CreateCurrentStockHistoryActionName, payload: data };
+}
+exports.CreateCurrentStockHistoryActionCreator = CreateCurrentStockHistoryActionCreator;
+;
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Models/Actions/StockEventActions.ts":
+/*!****************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Actions/StockEventActions.ts ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.LoadStockEventForProjectActionCreator = exports.LoadStockEventForProjectActionName = void 0;
+exports.LoadStockEventForProjectActionName = 'LoadStockEventForProjectAction';
+function LoadStockEventForProjectActionCreator(data) {
+    return { type: exports.LoadStockEventForProjectActionName, payload: data };
+}
+exports.LoadStockEventForProjectActionCreator = LoadStockEventForProjectActionCreator;
 ;
 
 
@@ -69357,6 +69494,7 @@ const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controller
 const Consts_1 = __webpack_require__(/*! ../Consts */ "./src/Apps/FinancialAssistantApp/Models/Consts.ts");
 const Stock_1 = __webpack_require__(/*! ../Entity/State/Stock */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Stock.ts");
 const StockActions_1 = __webpack_require__(/*! ../Actions/StockActions */ "./src/Apps/FinancialAssistantApp/Models/Actions/StockActions.ts");
+const StockHistory_1 = __webpack_require__(/*! ../Entity/State/StockHistory */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/StockHistory.ts");
 class FinancialAssistantAppStockController {
     constructor() {
         // UpdateGlobal = () => {
@@ -69589,6 +69727,66 @@ class FinancialAssistantAppStockController {
             });
             return backResult;
         });
+        this.GetHistoryRedux = (id) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                this.preloader(true);
+                const backResult = yield this.GetHistoryAsync(id);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = backResult.Data.map(x => new StockHistory_1.StockHistory().FillByIProjectTaskDataBack(x));
+                    dispatch((0, StockActions_1.LoadCurrentStockHistoryActionCreator)(dt));
+                }
+            });
+        };
+        this.GetHistoryAsync = (id) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "Id": id
+            };
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${this.GetControllerApiUrl()}/get-history`,
+            });
+            return backResult;
+        });
+        this.CreateHistoryRedux = (req) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                this.preloader(true);
+                const backResult = yield this.CreateHistoryAsync(req);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = new StockHistory_1.StockHistory().FillByIProjectTaskDataBack(backResult.Data);
+                    dispatch((0, StockActions_1.CreateCurrentStockHistoryActionCreator)(dt));
+                }
+            });
+        };
+        this.CreateHistoryAsync = (req) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "Date": req.Date,
+                "Price": req.Price,
+                "StockId": req.StockId,
+                "CurrencyId": req.CurrencyId,
+            };
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PutHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${this.GetControllerApiUrl()}/create-history`,
+                ContentType: 'body'
+            });
+            return backResult;
+        });
         this.GetControllerApiUrl = () => {
             return `${G_PathToServer}${Consts_1.FinancialAssistantApiStockUrl}`;
         };
@@ -69691,6 +69889,8 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.FinancialAssistantAppStockEventController = void 0;
 const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 const Consts_1 = __webpack_require__(/*! ../Consts */ "./src/Apps/FinancialAssistantApp/Models/Consts.ts");
+const StockEvent_1 = __webpack_require__(/*! ../Entity/State/StockEvent */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/StockEvent.ts");
+const StockEventActions_1 = __webpack_require__(/*! ../Actions/StockEventActions */ "./src/Apps/FinancialAssistantApp/Models/Actions/StockEventActions.ts");
 class FinancialAssistantAppStockEventController {
     constructor() {
         // CreateRedux = (req:CreateStockEventRequest) => {
@@ -69725,6 +69925,35 @@ class FinancialAssistantAppStockEventController {
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.FinancialAssistantApiStockEventUrl}/create`,
+                ContentType: 'body'
+            });
+            return backResult;
+        });
+        this.GetEventsRedux = (portfolioId) => {
+            return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
+                this.preloader(true);
+                const backResult = yield this.GetEventsAsync(portfolioId);
+                this.preloader(false);
+                if (backResult.Error) {
+                    return;
+                }
+                if (backResult.Data) {
+                    let dt = backResult.Data.map(x => new StockEvent_1.StockEvent().FillByIProjectTaskDataBack(x));
+                    dispatch((0, StockEventActions_1.LoadStockEventForProjectActionCreator)(dt));
+                }
+            });
+        };
+        this.GetEventsAsync = (portfolioId) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "PortfolioId": portfolioId,
+            };
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PutHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${G_PathToServer}${Consts_1.FinancialAssistantApiStockEventUrl}/get-events-for-portfolio`,
                 ContentType: 'body'
             });
             return backResult;
@@ -69802,6 +70031,7 @@ class FinancialAssistantApp {
         this.CurrentPortfolioElements = [];
         this.CurrentPortfolio = null;
         this.CurrentPortfolioEvents = [];
+        this.CurrentStockHistory = [];
     }
 }
 exports.FinancialAssistantApp = FinancialAssistantApp;
@@ -69888,6 +70118,63 @@ class StockElement {
     }
 }
 exports.StockElement = StockElement;
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Models/Entity/State/StockEvent.ts":
+/*!**************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Entity/State/StockEvent.ts ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.StockEvent = void 0;
+class StockEvent {
+    constructor() {
+    }
+    FillByIProjectTaskDataBack(data) {
+        this.Id = data.Id;
+        this.Date = data.Date;
+        this.StockId = data.StockId;
+        this.Count = data.Count;
+        this.PortfolioId = data.PortfolioId;
+        this.Type = data.Type;
+        this.Price = data.Price;
+        this.CurrencyId = data.CurrencyId;
+        return this;
+    }
+}
+exports.StockEvent = StockEvent;
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Models/Entity/State/StockHistory.ts":
+/*!****************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Entity/State/StockHistory.ts ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.StockHistory = void 0;
+class StockHistory {
+    constructor() {
+    }
+    FillByIProjectTaskDataBack(data) {
+        this.Id = data.Id;
+        this.Date = data.Date;
+        this.StockId = data.StockId;
+        this.Price = data.Price;
+        this.CurrencyId = data.CurrencyId;
+        return this;
+    }
+}
+exports.StockHistory = StockHistory;
 
 
 /***/ }),
@@ -69986,10 +70273,12 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.FinancialAssistantAppReducer = void 0;
 const AppState_1 = __webpack_require__(/*! ../../../../Models/Entity/State/AppState */ "./src/Models/Entity/State/AppState.ts");
 const PortfolioReducer_1 = __webpack_require__(/*! ../../../FinancialAssistantApp/Models/Reducers/PortfolioReducer */ "./src/Apps/FinancialAssistantApp/Models/Reducers/PortfolioReducer.ts");
+const StockEventReducer_1 = __webpack_require__(/*! ./StockEventReducer */ "./src/Apps/FinancialAssistantApp/Models/Reducers/StockEventReducer.ts");
 const StockReducer_1 = __webpack_require__(/*! ./StockReducer */ "./src/Apps/FinancialAssistantApp/Models/Reducers/StockReducer.ts");
 function FinancialAssistantAppReducer(state = new AppState_1.AppState(), action) {
     let st = (0, PortfolioReducer_1.FinancialAssistantPortfolioReducer)(state, action);
     st = (0, StockReducer_1.FinancialAssistantStockReducer)(st, action);
+    st = (0, StockEventReducer_1.FinancialAssistantStockEventReducer)(st, action);
     //...
     return st;
     switch (action.type) {
@@ -70001,6 +70290,41 @@ function FinancialAssistantAppReducer(state = new AppState_1.AppState(), action)
     }
 }
 exports.FinancialAssistantAppReducer = FinancialAssistantAppReducer;
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Models/Reducers/StockEventReducer.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Reducers/StockEventReducer.ts ***!
+  \*****************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.FinancialAssistantStockEventReducer = void 0;
+const AppState_1 = __webpack_require__(/*! ../../../../Models/Entity/State/AppState */ "./src/Models/Entity/State/AppState.ts");
+const cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
+const StockEventActions_1 = __webpack_require__(/*! ../Actions/StockEventActions */ "./src/Apps/FinancialAssistantApp/Models/Actions/StockEventActions.ts");
+function FinancialAssistantStockEventReducer(state = new AppState_1.AppState(), action) {
+    switch (action.type) {
+        case StockEventActions_1.LoadStockEventForProjectActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.FinancialAssistantApp.CurrentPortfolioEvents = [...payload];
+                return newState;
+            }
+        default:
+            return state;
+    }
+    return state;
+}
+exports.FinancialAssistantStockEventReducer = FinancialAssistantStockEventReducer;
 
 
 /***/ }),
@@ -70070,6 +70394,20 @@ function FinancialAssistantStockReducer(state = new AppState_1.AppState(), actio
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
                 newState.FinancialAssistantApp.CurrentStock = payload;
+                return newState;
+            }
+        case StockActions_1.LoadCurrentStockHistoryActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.FinancialAssistantApp.CurrentStockHistory = payload;
+                return newState;
+            }
+        case StockActions_1.CreateCurrentStockHistoryActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.FinancialAssistantApp.CurrentStockHistory.push(payload);
                 return newState;
             }
         default:
@@ -87852,6 +88190,12 @@ class Helper {
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const day = String(date.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
+    }
+    FormatDateToInputWithTime(date) {
+        let ymd = this.FormatDateToInput(date);
+        const hours = String(date.getHours()).padStart(2, '0');
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        return `${ymd}T${hours}:${minutes}`;
     }
     FormatDateToDM(date) {
         // const year = date.getFullYear();

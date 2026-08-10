@@ -113,6 +113,20 @@ namespace Menu.Host.Models.FinancialAssistantApp
             };
         }
 
+
+        public static StockHistory Map(this CreateStockHistoryRequest p)
+        {
+            return new StockHistory()
+            {
+                Id = p.Id,
+                //PortfolioId = p.PortfolioId,
+                CurrencyId = p.CurrencyId,
+                Date = p.Date,
+                Price = p.Price,
+                StockId = p.StockId,
+
+            };
+        }
         
 
 

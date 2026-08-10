@@ -1,4 +1,5 @@
 ﻿using BL.Models.Services.Interfaces;
+using BO.Models.DAL.Domain;
 using BO.Models.FinancialAssistant.DAL;
 using BO.Models.FinancialAssistant.Enums;
 using Common.Models.Exceptions;
@@ -6,6 +7,7 @@ using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
+using Tinkoff.InvestApi.V1;
 
 namespace FinancialAssistantApp.Models.Services
 {
@@ -87,19 +89,8 @@ namespace FinancialAssistantApp.Models.Services
 
 
 
-            Stock currency = null;
-            if (obj.CurrencyId != null)
-            {
+            Stock currency = await GetCurrencyWithValidate(obj.CurrencyId, userId);
 
-                currency = await _stockRepository.GetNoTrackAsync(obj.CurrencyId.Value) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
-                if (!currency.IsGlobal && currency.UserId != userId)
-                {
-                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
-
-                }
-                if ((currency.Type != StockTypeEnum.Currency))
-                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
-            }
 
             var element = await _stockElementRepository.Get(obj.PortfolioId, obj.StockId);
             if (element == null)
@@ -164,5 +155,26 @@ namespace FinancialAssistantApp.Models.Services
 
             return await _stockEventRepository.GetForPortfolioAsync(portfolioId);
         }
+
+        private async Task<Stock> GetCurrencyWithValidate(long? currencyId, long userId)
+        {
+            //todo вынести куда то в 1 место
+            Stock currency = null;
+            if (currencyId != null)
+            {
+
+                currency = await _stockRepository.GetNoTrackAsync(currencyId.Value) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
+                if (!currency.IsGlobal && currency.UserId != userId)
+                {
+                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
+
+                }
+                if ((currency.Type != StockTypeEnum.Currency))
+                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
+            }
+
+            return currency;
+        }
+
     }
 }

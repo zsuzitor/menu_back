@@ -98,10 +98,35 @@ namespace FinancialAssistantApp.Models.Services
             //}
 
             var result = await _stockRepository.AddAsync(rec);
-            var history = GetHistory(result);
-            await _stockHistoryRepository.AddAsync(history);
+            //var history = GetHistory(result);
+            //await _stockHistoryRepository.AddAsync(history);
             return result;
 
+        }
+
+        public async Task<StockHistory> CreateHistoryAsync(StockHistory req, long userId)
+        {
+            if(req.CurrencyId == null || req.CurrencyId < 0 || req.Price < 0)
+            {
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
+            }
+
+            var stock = await _stockRepository.GetNoTrackAsync(req.StockId) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
+            if (!stock.IsGlobal && stock.UserId != userId)
+            {
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
+
+            }
+
+            _ = await GetCurrencyWithValidate(req.CurrencyId, userId);
+            var history = new StockHistory()
+            {
+                CurrencyId = req.CurrencyId,
+                Date = req.Date,
+                Price = req.Price,
+                StockId = req.StockId,
+            };
+            return await _stockHistoryRepository.AddAsync(history);
         }
 
         public async Task<Stock> DeleteAsync(long id, long userId)
@@ -241,6 +266,27 @@ namespace FinancialAssistantApp.Models.Services
                 StockId = stock.Id,
                 CurrencyId = stock.CurrencyId,
             };
+        }
+
+
+        private async Task<Stock> GetCurrencyWithValidate(long? currencyId, long userId)
+        {
+            //todo вынести куда то в 1 место
+            Stock currency = null;
+            if (currencyId != null)
+            {
+
+                currency = await _stockRepository.GetNoTrackAsync(currencyId.Value) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
+                if (!currency.IsGlobal && currency.UserId != userId)
+                {
+                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
+
+                }
+                if ((currency.Type != StockTypeEnum.Currency))
+                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
+            }
+
+            return currency;
         }
     }
 }

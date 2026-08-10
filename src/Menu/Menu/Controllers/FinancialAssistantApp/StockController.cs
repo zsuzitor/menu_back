@@ -111,6 +111,16 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
             return new JsonResult(res.Select(x=> x.Map()), GetJsonOptions());
         }
 
+        [Route("create-history")]
+        [HttpPut]
+        [CustomAuthorize]
+        public async Task<ActionResult<List<StockHistoryReturn>>> CreateHistory(CreateStockHistoryRequest req)
+        {
+            var userId = User.GetUserId();
+            var res = await _stockService.CreateHistoryAsync(req.Map(), userId);
+            return new JsonResult(res.Map(), GetJsonOptions());
+        }
+
 
 
         [Route("get-currency")]
