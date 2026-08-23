@@ -21,5 +21,11 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
             ).ToListAsync();
 
         }
+
+        public async Task<List<StockHistory>> GetHistoryWithCurrencyAsync(long stockId)
+        {
+            return await _db.StockHistory.Include(x => x.Currency).AsNoTracking().Where(x => x.StockId == stockId
+            ).ToListAsync();
+        }
     }
 }

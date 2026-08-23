@@ -11,6 +11,7 @@ namespace Menu.Host.Models.FinancialAssistantApp.Returns
         public StockEventEnum Type { get; set; }
 
         public long StockElementId { get; set; }
+        public string StockName { get; set; }
 
 
         public decimal? Price { get; set; }
@@ -19,6 +20,7 @@ namespace Menu.Host.Models.FinancialAssistantApp.Returns
         /// если есть некий обмен что то на что то, если просто докинуть денег на счет то валюты тут нет тк нет обмена
         /// </summary>
         public long? CurrencyId { get; set; }
+        public string CurrencyName { get; set; }
 
         /// <summary>
         /// по идеи не нужно тк можно выйти через StockElement, но запросить историю портфеля по логике частый запрос так что так лучше

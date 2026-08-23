@@ -2448,6 +2448,33 @@ var VERSION = "1.0.27";
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEvent.css":
+/*!*************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEvent.css ***!
+  \*************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/FinancialAssistantMain/FinancialAssistantMain.css":
 /*!*******************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/FinancialAssistantMain/FinancialAssistantMain.css ***!
@@ -2495,7 +2522,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".portfolio-page .portfolio-name{\r\n\r\n    font-size: 25px;\r\n    font-weight: 600;\r\n    padding: 10px;\r\n}\r\n\r\n.portfolio-page .portfolio-main-buttons-block{\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetail.css"],"names":[],"mappings":"AAAA;;IAEI,eAAe;IACf,gBAAgB;IAChB,aAAa;AACjB;;AAEA;;AAEA","sourcesContent":[".portfolio-page .portfolio-name{\r\n\r\n    font-size: 25px;\r\n    font-weight: 600;\r\n    padding: 10px;\r\n}\r\n\r\n.portfolio-page .portfolio-main-buttons-block{\r\n\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2522,7 +2549,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".portfolio-events .one-event {\r\n    border: 2px solid black;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;AAC3B","sourcesContent":[".portfolio-events .one-event {\r\n    border: 2px solid black;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2603,7 +2630,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".stock-block-history .one-history-element {\r\n    display: flex;\r\n    flex-direction: row;\r\n    border: 2px solid black;\r\n    justify-content: space-between;\r\n}\r\n\r\n.stock-page .stock-name{\r\n    \r\n    font-size: 25px;\r\n    font-weight: 600;\r\n    padding: 10px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,mBAAmB;IACnB,uBAAuB;IACvB,8BAA8B;AAClC;;AAEA;;IAEI,eAAe;IACf,gBAAgB;IAChB,aAAa;AACjB","sourcesContent":[".stock-block-history .one-history-element {\r\n    display: flex;\r\n    flex-direction: row;\r\n    border: 2px solid black;\r\n    justify-content: space-between;\r\n}\r\n\r\n.stock-page .stock-name{\r\n    \r\n    font-size: 25px;\r\n    font-weight: 600;\r\n    padding: 10px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -63932,6 +63959,61 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEvent.css":
+/*!***********************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEvent.css ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_AddStockEvent_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./AddStockEvent.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEvent.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_AddStockEvent_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_AddStockEvent_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_AddStockEvent_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_AddStockEvent_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/Apps/FinancialAssistantApp/Components/FinancialAssistantMain/FinancialAssistantMain.css":
 /*!*****************************************************************************************************!*\
   !*** ./src/Apps/FinancialAssistantApp/Components/FinancialAssistantMain/FinancialAssistantMain.css ***!
@@ -68204,6 +68286,217 @@ module.exports = styleTagTransform;
 
 /***/ }),
 
+/***/ "./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEvent.tsx":
+/*!***********************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEvent.tsx ***!
+  \***********************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const AddStockEventSetup_1 = __importDefault(__webpack_require__(/*! ./AddStockEventSetup */ "./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEventSetup.tsx"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const Stock_1 = __webpack_require__(/*! ../../Models/Entity/State/Stock */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Stock.ts");
+const CreateStockEventRequest_1 = __webpack_require__(/*! ../../Models/Entity/DTO/CreateStockEventRequest */ "./src/Apps/FinancialAssistantApp/Models/Entity/DTO/CreateStockEventRequest.ts");
+const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
+const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
+const SelectWithSearch_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SelectWithSearch/SelectWithSearch */ "./src/components/Body/SelectWithSearch/SelectWithSearch.tsx"));
+const StockEventEnum_1 = __webpack_require__(/*! ../../Models/Entity/State/Enum/StockEventEnum */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Enum/StockEventEnum.ts");
+__webpack_require__(/*! ./AddStockEvent.css */ "./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEvent.css");
+const AddStockEvent = (props) => {
+    const [countStock, setCountStock] = (0, react_1.useState)(0);
+    const [eventType, setEventType] = (0, react_1.useState)(0); //StockEventEnum
+    const [priceStock, setPriceStock] = (0, react_1.useState)(0);
+    const [newStockEventDate, setStockEventDate] = (0, react_1.useState)(new Date());
+    // const [newStockPrice, setStockPrice] = useState(0);
+    //---
+    const [stockCurrency, setStockCurrency] = (0, react_1.useState)([]);
+    //нужны что бы отрисовать элеммент в пустом списке - тако кейс есть это норм
+    const [stockCurrencyId, setStockCurrencyId] = (0, react_1.useState)(0);
+    const [stockCurrencyName, setStockCurrencyName] = (0, react_1.useState)('');
+    //тк запроса на бэк не делаем а просто на фронте фильтруем
+    const [stockCurrencyNameFilter, setStockCurrencyNameFilter] = (0, react_1.useState)('');
+    //----
+    //
+    const [stockId, setStockId] = (0, react_1.useState)(0);
+    const [stockName, setStockName] = (0, react_1.useState)('');
+    const [stocks, setStocks] = (0, react_1.useState)([]);
+    //
+    const navigate = (0, react_router_dom_1.useNavigate)();
+    (0, react_1.useEffect)(() => {
+        props.GetCurrency()
+            .then(br => setStockCurrency(br.Data.map(x => new Stock_1.Stock().FillByIStockDataBack(x))));
+        return () => {
+        };
+    }, []);
+    (0, react_1.useEffect)(() => {
+        if (props.PortfolioId > 0) {
+        }
+    }, [props.PortfolioId]);
+    function formatDateToInput(date) {
+        const help = new Helper_1.Helper();
+        return help.FormatDateToInputWithTime(date);
+    }
+    const setClearDate = (dt) => {
+        let newDt = new Date(dt);
+        newDt.setHours(0, 0, 0, 0);
+        return newDt;
+    };
+    return react_1.default.createElement("div", { className: 'portfolio-page' },
+        react_1.default.createElement("div", null),
+        react_1.default.createElement("div", null,
+            react_1.default.createElement("div", null),
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("span", null, "stockId"),
+                react_1.default.createElement(SelectWithSearch_1.default, { CancelEvent: () => { }, SaveEvent: (id) => {
+                        setStockId(id);
+                        setStockName(stocks.find(x => x.Id === id).Name);
+                        setStocks(stocks.filter(x => x.Id === id));
+                        return true;
+                    }, Selected: { Id: stockId, Text: stockId > 0 ? `${stockId}-${stockName}` : '' }, ValuesWithId: stocks.map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` })), OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
+                        // setTaskId(-1);
+                        let searchBack = yield props.FindStocks(text);
+                        setStocks(searchBack.Data.map(x => new Stock_1.Stock().FillByIStockDataBack(x)));
+                    }) }),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("span", null, "CurrencyId"),
+                react_1.default.createElement(SelectWithSearch_1.default, { CancelEvent: () => { }, SaveEvent: (id) => {
+                        setStockCurrencyId(id);
+                        setStockCurrencyName(stockCurrency.find(x => x.Id === id).Name);
+                        // setStockCurrency(stockCurrency.filter(x => x.Id === id));
+                        return true;
+                    }, Selected: { Id: stockCurrencyId, Text: stockCurrencyId > 0 ? `${stockCurrencyId}-${stockCurrencyName}` : '' }, ValuesWithId: stockCurrency.filter(x => !stockCurrencyNameFilter || x.Name.indexOf(stockCurrencyNameFilter) >= 0)
+                        .map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` })), OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
+                        // setTaskId(-1);
+                        setStockCurrencyNameFilter(text);
+                    }) }),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("span", null, "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E"),
+                react_1.default.createElement("input", { type: 'number', value: countStock, onChange: (e) => setCountStock(+e.target.value) }),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("span", null, "\u0422\u0438\u043F"),
+                react_1.default.createElement("input", { type: 'number', value: eventType, onChange: (e) => setEventType(+e.target.value) }),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("select", { className: "form-control", value: eventType, onChange: (e) => {
+                        setEventType(+e.target.value);
+                    } },
+                    react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.Buy}` }, "\u041F\u043E\u043A\u0443\u043F\u043A\u0430"),
+                    react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.CashReplenishment}` }, "\u041F\u043E\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u0435"),
+                    react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.Dividends}` }, "\u0414\u0438\u0432\u0438\u0434\u0435\u043D\u0434\u044B"),
+                    react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.Sell}` }, "\u041F\u0440\u043E\u0434\u0430\u0436\u0430"),
+                    react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.WithdrawalCash}` }, "\u0412\u044B\u0432\u043E\u0434 \u0441\u0440\u0435\u0434\u0441\u0442\u0432")),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("span", null, "\u0426\u0435\u043D\u0430"),
+                react_1.default.createElement("input", { type: 'number', value: priceStock, onChange: (e) => setPriceStock(+e.target.value) }),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("input", { className: 'new-sprint-input', type: "date", value: formatDateToInput(newStockEventDate), onChange: (e) => {
+                        if (e.target.value) {
+                            let dt = new Date(e.target.value);
+                            setStockEventDate(setClearDate(dt));
+                        }
+                        else {
+                            setStockEventDate(setClearDate(new Date()));
+                        }
+                    } }),
+                react_1.default.createElement("br", null),
+                react_1.default.createElement("button", { onClick: () => {
+                        let dt = new CreateStockEventRequest_1.CreateStockEventRequest();
+                        dt.StockId = stockId;
+                        dt.Count = countStock;
+                        dt.CurrencyId = stockCurrencyId;
+                        dt.Date = new ControllerHelper_1.ControllerHelper().ToZeroDate(newStockEventDate).toISOString();
+                        dt.PortfolioId = props.PortfolioId;
+                        dt.Price = priceStock;
+                        dt.Type = eventType;
+                        props.Create(dt);
+                    } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u0431\u044B\u0442\u0438\u0435"))),
+        react_1.default.createElement("div", { className: 'portfolio-elements-block' }));
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, AddStockEventSetup_1.default)(AddStockEvent);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEventSetup.tsx":
+/*!****************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEventSetup.tsx ***!
+  \****************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const mapStateToProps = (state, ownProps) => {
+    let res = {};
+    res.PortfolioId = state.FinancialAssistantApp.CurrentPortfolioId;
+    return res;
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    let res = {};
+    res.GetCurrency = () => __awaiter(void 0, void 0, void 0, function* () {
+        return yield window.G_FinancialAssistantAppStockController.GetCurrencyAsync();
+    });
+    res.FindStocks = (text) => __awaiter(void 0, void 0, void 0, function* () {
+        return yield window.G_FinancialAssistantAppStockController.FindAsync(text);
+    });
+    res.Create = (req) => __awaiter(void 0, void 0, void 0, function* () {
+        return yield window.G_FinancialAssistantAppStockEventController.CreateAsync(req);
+    });
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
 /***/ "./src/Apps/FinancialAssistantApp/Components/FinancialAssistantMain/FinancialAssistantMain.tsx":
 /*!*****************************************************************************************************!*\
   !*** ./src/Apps/FinancialAssistantApp/Components/FinancialAssistantMain/FinancialAssistantMain.tsx ***!
@@ -68356,8 +68649,11 @@ const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/re
 const PortfolioDetailSetup_1 = __importDefault(__webpack_require__(/*! ./PortfolioDetailSetup */ "./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetailSetup.tsx"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts"));
+const AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
+const AddStockEvent_1 = __importDefault(__webpack_require__(/*! ../AddStockEvent/AddStockEvent */ "./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEvent.tsx"));
 __webpack_require__(/*! ./PortfolioDetail.css */ "./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetail.css");
 const PortfolioDetail = (props) => {
+    const [showNewEventWindow, setShowNewEventWindow] = (0, react_1.useState)(false);
     const navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(() => {
         return () => {
@@ -68376,16 +68672,20 @@ const PortfolioDetail = (props) => {
     }
     const portfolioEventsUrl = new RouteBuilder_1.default().PortfolioHistoryUrl(props.PortfolioId);
     return react_1.default.createElement("div", { className: 'portfolio-page' },
+        showNewEventWindow ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowNewEventWindow(false), IsHeightWindow: false, Title: '\u041D\u043E\u0432\u043E\u0435 \u0441\u043E\u0431\u044B\u0442\u0438\u0435', InnerContent: () => react_1.default.createElement(AddStockEvent_1.default, null) }) : react_1.default.createElement(react_1.default.Fragment, null),
         react_1.default.createElement("div", null,
-            react_1.default.createElement("span", null, props.Portfolio.Name),
-            react_1.default.createElement("span", null, props.Portfolio.Id)),
-        react_1.default.createElement("div", null,
+            react_1.default.createElement("div", { className: 'portfolio-name' },
+                props.Portfolio.Name,
+                " - ",
+                props.Portfolio.Id)),
+        react_1.default.createElement("div", { className: 'portfolio-main-buttons-block' },
             react_1.default.createElement("div", null,
                 react_1.default.createElement("a", { href: portfolioEventsUrl, onClick: (e) => {
                         e.preventDefault();
                         navigate(portfolioEventsUrl);
                     } }, "\u0418\u0441\u0442\u043E\u0440\u0438\u044F")),
-            react_1.default.createElement("div", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u0431\u044B\u0442\u0438\u0435")),
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("button", { onClick: () => setShowNewEventWindow(true) }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u0431\u044B\u0442\u0438\u0435"))),
         react_1.default.createElement("div", { className: 'portfolio-elements-block' }, props.Elements.map(x => {
             return react_1.default.createElement("div", { className: 'portfolio-element', key: x.Id },
                 react_1.default.createElement("div", null,
@@ -68460,18 +68760,50 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 const PortfolioEventsSetup_1 = __importDefault(__webpack_require__(/*! ./PortfolioEventsSetup */ "./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEventsSetup.tsx"));
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts"));
+const StockEventEnum_1 = __webpack_require__(/*! ../../Models/Entity/State/Enum/StockEventEnum */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Enum/StockEventEnum.ts");
 __webpack_require__(/*! ./PortfolioEvents.css */ "./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css");
 const PortfolioEvents = (props) => {
     const navigate = (0, react_router_dom_1.useNavigate)();
-    return react_1.default.createElement("div", null,
-        "HISTORY - ",
+    const portfolioUrl = new RouteBuilder_1.default().PortfolioUrl(props.PortfolioId);
+    return react_1.default.createElement("div", { className: 'portfolio-events' },
+        "\u0421\u043E\u0431\u044B\u0442\u0438\u044F \u043F\u043E\u0440\u0442\u0444\u0435\u043B\u044F id - ",
         props.PortfolioId,
+        react_1.default.createElement("a", { href: portfolioUrl, onClick: (e) => {
+                e.preventDefault();
+                navigate(portfolioUrl);
+            } }, "\u0412\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u043A \u043F\u043E\u0440\u0442\u0444\u0435\u043B\u044E"),
         react_1.default.createElement("div", null, props.Events.map(x => {
-            return react_1.default.createElement("div", { key: x.Id },
-                x.Id,
+            let typeStr = '';
+            switch (x.Type) {
+                case StockEventEnum_1.StockEventEnum.Buy:
+                    typeStr = 'Покупка';
+                    break;
+                case StockEventEnum_1.StockEventEnum.CashReplenishment:
+                    typeStr = 'Пополнение';
+                    break;
+                case StockEventEnum_1.StockEventEnum.Dividends:
+                    typeStr = 'Дивиденды';
+                    break;
+                case StockEventEnum_1.StockEventEnum.Sell:
+                    typeStr = 'Продажа';
+                    break;
+                case StockEventEnum_1.StockEventEnum.WithdrawalCash:
+                    typeStr = 'Вывод средств';
+                    break;
+            }
+            return react_1.default.createElement("div", { key: x.Id, className: 'one-event' },
+                x.Date,
+                " - ",
+                typeStr,
+                " - ",
+                x.Count,
+                " \u0448\u0442 ",
+                x.StockName,
+                " \u043F\u043E \u0446\u0435\u043D\u0435 ",
                 x.Price,
-                x.CurrencyId,
-                x.Count);
+                " - ",
+                x.CurrencyName);
         })));
 };
 // and that function returns the connected, wrapper component:
@@ -68574,7 +68906,11 @@ const PortfolioList = (props) => {
                             // setEditPortfolioName(x.Name);
                         } }, x.Name)),
                 react_1.default.createElement("div", null,
-                    react_1.default.createElement("button", { onClick: () => props.Delete(x.Id) }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"),
+                    react_1.default.createElement("button", { onClick: () => {
+                            if (confirm('Удалить?')) {
+                                props.Delete(x.Id);
+                            }
+                        } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"),
                     react_1.default.createElement("a", { href: portfolioUrl, onClick: (e) => {
                             e.preventDefault();
                             navigate(portfolioUrl);
@@ -68785,7 +69121,7 @@ const StockDetail = (props) => {
     const navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(() => {
         props.GetCurrency()
-            .then(br => setStockCurrency(br.Data.map(x => new Stock_1.Stock().FillByIProjectTaskDataBack(x))));
+            .then(br => setStockCurrency(br.Data.map(x => new Stock_1.Stock().FillByIStockDataBack(x))));
         return () => {
             //если с этой страницы будут переходы на другую с сохранением id  в урле то надо переносить на уровень выше
             props.SetCurrentStockId(-1);
@@ -68834,14 +69170,19 @@ const StockDetail = (props) => {
     }
     return react_1.default.createElement("div", { className: 'stock-page' },
         react_1.default.createElement("div", null,
-            react_1.default.createElement("span", null, props.Stock.Code),
-            react_1.default.createElement("span", null, props.Stock.Name),
-            react_1.default.createElement("span", null, props.Stock.Id)),
+            react_1.default.createElement("div", { className: 'stock-name' },
+                props.Stock.Code,
+                "-",
+                props.Stock.Name,
+                "-",
+                props.Stock.Id)),
         react_1.default.createElement("div", { className: 'stock-block' },
             react_1.default.createElement("div", null,
                 react_1.default.createElement("span", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u043F\u0438\u0441\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
+                react_1.default.createElement("br", null),
                 react_1.default.createElement("span", null, "\u0426\u0435\u043D\u0430"),
                 react_1.default.createElement("input", { type: 'number', value: newStockHistoryPrice, onChange: (e) => setStockHistoryPrice(+e.target.value) }),
+                react_1.default.createElement("br", null),
                 react_1.default.createElement("span", null, "\u0414\u0430\u0442\u0430"),
                 react_1.default.createElement("input", { 
                     // type="datetime-local"
@@ -68855,6 +69196,7 @@ const StockDetail = (props) => {
                             setStockHistoryDate(new Date());
                         }
                     } }),
+                react_1.default.createElement("br", null),
                 react_1.default.createElement(SelectWithSearch_1.default, { CancelEvent: () => { }, SaveEvent: (id) => {
                         setStockHistoryCurrencyId(id);
                         setStockCurrencyName(stockCurrency.find(x => x.Id === id).Name);
@@ -68865,6 +69207,7 @@ const StockDetail = (props) => {
                         // setTaskId(-1);
                         setStockCurrencyNameFilter(text);
                     }) }),
+                react_1.default.createElement("br", null),
                 react_1.default.createElement("button", { onClick: () => {
                         let dt = new StockHistory_1.StockHistory();
                         dt.CurrencyId = newStockHistoryCurrencyId;
@@ -68876,10 +69219,12 @@ const StockDetail = (props) => {
             react_1.default.createElement("div", { className: 'stock-block-history' },
                 react_1.default.createElement("span", null, "\u0438\u0441\u0442\u043E\u0440\u0438\u044F"),
                 props.StockHistory.map(x => {
-                    return react_1.default.createElement("div", { key: x.Id },
-                        x.Id,
-                        x.Price,
-                        x.CurrencyId);
+                    return react_1.default.createElement("div", { key: x.Id, className: 'one-history-element' },
+                        react_1.default.createElement("div", null, x.Date),
+                        react_1.default.createElement("div", null,
+                            x.Price,
+                            " ",
+                            x.CurrencyName));
                 }))));
 };
 // and that function returns the connected, wrapper component:
@@ -69031,8 +69376,13 @@ const StockList = (props) => {
             const stockUrl = new RouteBuilder_1.default().StockDetailUrl(x.Id);
             return react_1.default.createElement("div", { className: 'one-stock-element', key: x.Id },
                 react_1.default.createElement("div", null, x.Name),
+                react_1.default.createElement("div", null, x.IsGlobal ? 'Глобальная запись' : 'Локальная запись'),
                 react_1.default.createElement("div", null,
-                    react_1.default.createElement("button", { onClick: () => props.Delete(x.Id) }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"),
+                    react_1.default.createElement("button", { onClick: () => {
+                            if (confirm('Удалить?')) {
+                                props.Delete(x.Id);
+                            }
+                        } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C"),
                     react_1.default.createElement("a", { href: stockUrl, onClick: (e) => {
                             e.preventDefault();
                             navigate(stockUrl);
@@ -69327,7 +69677,7 @@ class FinancialAssistantAppPortfolioController {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = backResult.Data.map(x => new Portfolio_1.Portfolio().FillByIProjectTaskDataBack(x));
+                    let dt = backResult.Data.map(x => new Portfolio_1.Portfolio().FillByIPortfolioDataBack(x));
                     dispatch((0, PortfolioActions_1.GetPortfolioActionCreator)(dt));
                 }
             });
@@ -69353,7 +69703,7 @@ class FinancialAssistantAppPortfolioController {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = new Portfolio_1.Portfolio().FillByIProjectTaskDataBack(backResult.Data);
+                    let dt = new Portfolio_1.Portfolio().FillByIPortfolioDataBack(backResult.Data);
                     dispatch((0, PortfolioActions_1.CreatePortfolioActionCreator)(dt));
                 }
             });
@@ -69382,7 +69732,7 @@ class FinancialAssistantAppPortfolioController {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = new Portfolio_1.Portfolio().FillByIProjectTaskDataBack(backResult.Data);
+                    let dt = new Portfolio_1.Portfolio().FillByIPortfolioDataBack(backResult.Data);
                     dispatch((0, PortfolioActions_1.UpdatePortfolioActionCreator)(dt));
                 }
             });
@@ -69442,7 +69792,7 @@ class FinancialAssistantAppPortfolioController {
                     return;
                 }
                 if (backResult.Data) {
-                    dispatch((0, PortfolioActions_1.SetCurrentPortfolioActionCreator)(new Portfolio_1.Portfolio().FillByIProjectTaskDataBack(backResult.Data)));
+                    dispatch((0, PortfolioActions_1.SetCurrentPortfolioActionCreator)(new Portfolio_1.Portfolio().FillByIPortfolioDataBack(backResult.Data)));
                 }
             });
         };
@@ -69519,7 +69869,7 @@ class FinancialAssistantAppStockController {
                 FuncSuccess: (xhr, status, jqXHR) => {
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: `${G_PathToServer}${Consts_1.FinancialAssistantApiPortfolioUrl}/update-global`
+                Url: `${this.GetControllerApiUrl()}/update-global`
             });
             return backResult;
         });
@@ -69532,7 +69882,7 @@ class FinancialAssistantAppStockController {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = new Stock_1.Stock().FillByIProjectTaskDataBack(backResult.Data);
+                    let dt = new Stock_1.Stock().FillByIStockDataBack(backResult.Data);
                     // let dt = backResult.Data.map(x => new Stock().FillByIProjectTaskDataBack(x));
                     dispatch((0, StockActions_1.CreateStockActionCreator)(dt));
                 }
@@ -69565,7 +69915,7 @@ class FinancialAssistantAppStockController {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = new Stock_1.Stock().FillByIProjectTaskDataBack(backResult.Data);
+                    let dt = new Stock_1.Stock().FillByIStockDataBack(backResult.Data);
                     // let dt = backResult.Data.map(x => new Stock().FillByIProjectTaskDataBack(x));
                     dispatch((0, StockActions_1.UpdateStockActionCreator)(dt));
                 }
@@ -69628,7 +69978,7 @@ class FinancialAssistantAppStockController {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = backResult.Data.map(x => new Stock_1.Stock().FillByIProjectTaskDataBack(x));
+                    let dt = backResult.Data.map(x => new Stock_1.Stock().FillByIStockDataBack(x));
                     dispatch((0, StockActions_1.GetStockActionCreator)(dt));
                 }
             });
@@ -69656,7 +70006,7 @@ class FinancialAssistantAppStockController {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = backResult.Data.map(x => new Stock_1.Stock().FillByIProjectTaskDataBack(x));
+                    let dt = backResult.Data.map(x => new Stock_1.Stock().FillByIStockDataBack(x));
                     dispatch((0, StockActions_1.GetStockActionCreator)(dt));
                 }
             });
@@ -69682,7 +70032,7 @@ class FinancialAssistantAppStockController {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = backResult.Data.map(x => new Stock_1.Stock().FillByIProjectTaskDataBack(x));
+                    let dt = backResult.Data.map(x => new Stock_1.Stock().FillByIStockDataBack(x));
                     dispatch((0, StockActions_1.GetStockActionCreator)(dt));
                 }
             });
@@ -69708,7 +70058,7 @@ class FinancialAssistantAppStockController {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = new Stock_1.Stock().FillByIProjectTaskDataBack(backResult.Data);
+                    let dt = new Stock_1.Stock().FillByIStockDataBack(backResult.Data);
                     dispatch((0, StockActions_1.LoadCurrentStockActionCreator)(dt));
                 }
             });
@@ -69736,7 +70086,7 @@ class FinancialAssistantAppStockController {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = backResult.Data.map(x => new StockHistory_1.StockHistory().FillByIProjectTaskDataBack(x));
+                    let dt = backResult.Data.map(x => new StockHistory_1.StockHistory().FillByIStockHistoryDataBack(x));
                     dispatch((0, StockActions_1.LoadCurrentStockHistoryActionCreator)(dt));
                 }
             });
@@ -69764,7 +70114,7 @@ class FinancialAssistantAppStockController {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = new StockHistory_1.StockHistory().FillByIProjectTaskDataBack(backResult.Data);
+                    let dt = new StockHistory_1.StockHistory().FillByIStockHistoryDataBack(backResult.Data);
                     dispatch((0, StockActions_1.CreateCurrentStockHistoryActionCreator)(dt));
                 }
             });
@@ -69835,7 +70185,7 @@ class FinancialAssistantAppStockElementController {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = backResult.Data.map(x => new StockElement_1.StockElement().FillByIProjectTaskDataBack(x));
+                    let dt = backResult.Data.map(x => new StockElement_1.StockElement().FillByIStockElementDataBack(x));
                     dispatch((0, PortfolioActions_1.SetCurrentPortfolioElementsActionCreator)(dt));
                 }
             });
@@ -69938,7 +70288,7 @@ class FinancialAssistantAppStockEventController {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = backResult.Data.map(x => new StockEvent_1.StockEvent().FillByIProjectTaskDataBack(x));
+                    let dt = backResult.Data.map(x => new StockEvent_1.StockEvent().FillByIStockEventDataBack(x));
                     dispatch((0, StockEventActions_1.LoadStockEventForProjectActionCreator)(dt));
                 }
             });
@@ -69969,6 +70319,25 @@ exports.FinancialAssistantAppStockEventController = FinancialAssistantAppStockEv
 
 /***/ }),
 
+/***/ "./src/Apps/FinancialAssistantApp/Models/Entity/DTO/CreateStockEventRequest.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Entity/DTO/CreateStockEventRequest.ts ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.CreateStockEventRequest = void 0;
+class CreateStockEventRequest {
+    constructor() {
+    }
+}
+exports.CreateStockEventRequest = CreateStockEventRequest;
+
+
+/***/ }),
+
 /***/ "./src/Apps/FinancialAssistantApp/Models/Entity/DTO/CreateStockRequest.ts":
 /*!********************************************************************************!*\
   !*** ./src/Apps/FinancialAssistantApp/Models/Entity/DTO/CreateStockRequest.ts ***!
@@ -69984,6 +70353,29 @@ class CreateStockRequest {
     }
 }
 exports.CreateStockRequest = CreateStockRequest;
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Enum/StockEventEnum.ts":
+/*!***********************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Models/Entity/State/Enum/StockEventEnum.ts ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.StockEventEnum = void 0;
+var StockEventEnum;
+(function (StockEventEnum) {
+    StockEventEnum[StockEventEnum["CashReplenishment"] = 1] = "CashReplenishment";
+    StockEventEnum[StockEventEnum["Buy"] = 2] = "Buy";
+    StockEventEnum[StockEventEnum["Sell"] = 3] = "Sell";
+    StockEventEnum[StockEventEnum["Dividends"] = 4] = "Dividends";
+    StockEventEnum[StockEventEnum["WithdrawalCash"] = 5] = "WithdrawalCash";
+})(StockEventEnum = exports.StockEventEnum || (exports.StockEventEnum = {}));
+;
 
 
 /***/ }),
@@ -70052,7 +70444,7 @@ exports.Portfolio = void 0;
 class Portfolio {
     constructor() {
     }
-    FillByIProjectTaskDataBack(data) {
+    FillByIPortfolioDataBack(data) {
         this.Id = data.Id;
         this.Name = data.Name;
         this.UserId = data.UserId;
@@ -70078,7 +70470,7 @@ exports.Stock = void 0;
 class Stock {
     constructor() {
     }
-    FillByIProjectTaskDataBack(data) {
+    FillByIStockDataBack(data) {
         this.Id = data.Id;
         this.Name = data.Name;
         this.Code = data.Code;
@@ -70109,7 +70501,7 @@ exports.StockElement = void 0;
 class StockElement {
     constructor() {
     }
-    FillByIProjectTaskDataBack(data) {
+    FillByIStockElementDataBack(data) {
         this.Id = data.Id;
         this.StockId = data.StockId;
         this.Count = data.Count;
@@ -70135,7 +70527,7 @@ exports.StockEvent = void 0;
 class StockEvent {
     constructor() {
     }
-    FillByIProjectTaskDataBack(data) {
+    FillByIStockEventDataBack(data) {
         this.Id = data.Id;
         this.Date = data.Date;
         this.StockId = data.StockId;
@@ -70144,6 +70536,8 @@ class StockEvent {
         this.Type = data.Type;
         this.Price = data.Price;
         this.CurrencyId = data.CurrencyId;
+        this.StockName = data.StockName;
+        this.CurrencyName = data.CurrencyName;
         return this;
     }
 }
@@ -70165,12 +70559,13 @@ exports.StockHistory = void 0;
 class StockHistory {
     constructor() {
     }
-    FillByIProjectTaskDataBack(data) {
+    FillByIStockHistoryDataBack(data) {
         this.Id = data.Id;
         this.Date = data.Date;
         this.StockId = data.StockId;
         this.Price = data.Price;
         this.CurrencyId = data.CurrencyId;
+        this.CurrencyName = data.CurrencyName;
         return this;
     }
 }

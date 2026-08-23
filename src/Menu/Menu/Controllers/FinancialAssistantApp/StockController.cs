@@ -74,10 +74,10 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         [Route("find")]
         [HttpGet]
         [CustomAuthorize]
-        public async Task<ActionResult<List<StockReturn>>> Find(FindStockRequest req)
+        public async Task<ActionResult<List<StockReturn>>> Find(string text)//FindStockRequest req
         {
             var userId = User.GetUserId();
-            var res = await _stockService.FindAsync( req.Text, userId);
+            var res = await _stockService.FindAsync( text, userId);
             return new JsonResult(res.Select(x=>x.Map()), GetJsonOptions());
         }
 

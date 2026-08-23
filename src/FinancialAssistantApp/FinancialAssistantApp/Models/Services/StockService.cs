@@ -106,7 +106,7 @@ namespace FinancialAssistantApp.Models.Services
 
         public async Task<StockHistory> CreateHistoryAsync(StockHistory req, long userId)
         {
-            if(req.CurrencyId == null || req.CurrencyId < 0 || req.Price < 0)
+            if (req.CurrencyId == null || req.CurrencyId < 0 || req.Price < 0)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
             }
@@ -118,7 +118,7 @@ namespace FinancialAssistantApp.Models.Services
 
             }
 
-            _ = await GetCurrencyWithValidate(req.CurrencyId, userId);
+            var currency = await GetCurrencyWithValidate(req.CurrencyId, userId);
             var history = new StockHistory()
             {
                 CurrencyId = req.CurrencyId,
@@ -126,7 +126,9 @@ namespace FinancialAssistantApp.Models.Services
                 Price = req.Price,
                 StockId = req.StockId,
             };
-            return await _stockHistoryRepository.AddAsync(history);
+            var result = await _stockHistoryRepository.AddAsync(history);
+            result.Currency = currency;
+            return result;
         }
 
         public async Task<Stock> DeleteAsync(long id, long userId)
@@ -180,9 +182,9 @@ namespace FinancialAssistantApp.Models.Services
 
         public async Task<List<StockHistory>> GetHistoryAsync(long id, long userId)
         {
-            var stock = await _stockRepository.GetAsync(id,userId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
+            var stock = await _stockRepository.GetAsync(id, userId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
 
-            return await _stockHistoryRepository.GetHistoryAsync(id);
+            return await _stockHistoryRepository.GetHistoryWithCurrencyAsync(id);
         }
 
         public async Task GlobalActualizeAsync(long userId)

@@ -38,6 +38,11 @@ namespace TIntegration.Models.Services
             var lst = new List<MapTElement>();
             _configuration.GetSection("FinancialAssistantApp:TBankMapping").Bind(lst);
             var mappedCollection = lst.Where(x => ticker.FirstOrDefault(y => y.Code == x.AppTicker) != null);
+            if (mappedCollection.Count() == 0)
+            {
+                return Enumerable.Empty<PriceResponseDto>().ToList();
+            }
+
             var dictionary = mappedCollection.ToDictionary(x=>x.TBankFigi);
 
 

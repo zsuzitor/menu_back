@@ -66,7 +66,9 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 Price = p.Price,
                 Date = p.Date,
                 CurrencyId = p.CurrencyId,
+                CurrencyName = p.Currency?.Name,
                 StockElementId = p.StockElementId,
+                StockName = p.StockElement?.Stock?.Name,
             };
         }
 
@@ -109,6 +111,7 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 Date = p.Date,
                 Price = p.Price,
                 StockId = p.StockId,
+                CurrencyName = p.Currency?.Name,
 
             };
         }

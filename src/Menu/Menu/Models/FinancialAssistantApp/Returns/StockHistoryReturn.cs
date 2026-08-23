@@ -12,6 +12,8 @@ namespace Menu.Host.Models.FinancialAssistantApp.Returns
         public decimal Price { get; set; }
 
         public long StockId { get; set; }
+        public string CurrencyName { get; set; }
+
 
         public long? CurrencyId { get; set; }
     }

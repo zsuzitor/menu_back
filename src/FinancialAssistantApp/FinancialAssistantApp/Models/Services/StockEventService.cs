@@ -141,8 +141,12 @@ namespace FinancialAssistantApp.Models.Services
                 PortfolioId = obj.PortfolioId
             };
 
-            return await _stockEventRepository.AddAsync(newObj);
-            //todo списать деньги
+            var result =  await _stockEventRepository.AddAsync(newObj);
+
+            newObj.Currency = currency;
+            newObj.StockElement = element;
+            newObj.StockElement.Stock = stock;
+            return result;
 
         }
 
