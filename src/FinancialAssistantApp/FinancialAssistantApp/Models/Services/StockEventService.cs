@@ -109,7 +109,7 @@ namespace FinancialAssistantApp.Models.Services
                 element = await _stockElementRepository.UpdateAsync(element);
             }
 
-            if (currency != null)
+            if (currency != null && obj.CurrencyActions)
             {
                 //списываем деньги
                 var currencyElement = await _stockElementRepository.Get(obj.PortfolioId, obj.CurrencyId.Value);
@@ -118,14 +118,14 @@ namespace FinancialAssistantApp.Models.Services
                     var elem = new StockElement()
                     {
                         StockId = currency.Id,
-                        Count = obj.Type == StockEventEnum.Sell ? obj.Price.Value * -1 : obj.Price.Value,
+                        Count = obj.Type == StockEventEnum.Sell ? obj.Price.Value * obj.Count : obj.Price.Value * -1 * obj.Count,
                         PortfolioId = obj.PortfolioId,
                     };
                     currencyElement = await _stockElementRepository.AddAsync(elem);
                 }
                 else
                 {
-                    currencyElement.Count += obj.Type == StockEventEnum.Sell ? obj.Price.Value * -1 : obj.Price.Value;
+                    currencyElement.Count += obj.Type == StockEventEnum.Sell ? obj.Price.Value * obj.Count : obj.Price.Value * -1 * obj.Count;
                     currencyElement = await _stockElementRepository.UpdateAsync(currencyElement);
                 }
             }

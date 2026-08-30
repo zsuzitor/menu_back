@@ -24,7 +24,7 @@ namespace FinancialAssistantApp.Models.Services
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
             }
 
-            return await _stockElementRepository.Get(portfolioId);
+            return await _stockElementRepository.GetWithStockNoTrack(portfolioId);
         }
     }
 }

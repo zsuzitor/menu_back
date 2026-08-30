@@ -14,6 +14,7 @@ namespace Menu.Host.Models.FinancialAssistantApp.Requests
 
         public decimal? Price { get; set; }
         public long? CurrencyId { get; set; }
+        public bool CurrencyActions { get; set; }
 
 
         public long PortfolioId { get; set; }

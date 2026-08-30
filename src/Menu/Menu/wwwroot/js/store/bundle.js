@@ -2522,7 +2522,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".portfolio-page .portfolio-name{\r\n\r\n    font-size: 25px;\r\n    font-weight: 600;\r\n    padding: 10px;\r\n}\r\n\r\n.portfolio-page .portfolio-main-buttons-block{\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetail.css"],"names":[],"mappings":"AAAA;;IAEI,eAAe;IACf,gBAAgB;IAChB,aAAa;AACjB;;AAEA;;AAEA","sourcesContent":[".portfolio-page .portfolio-name{\r\n\r\n    font-size: 25px;\r\n    font-weight: 600;\r\n    padding: 10px;\r\n}\r\n\r\n.portfolio-page .portfolio-main-buttons-block{\r\n\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".portfolio-page .portfolio-name {\r\n\r\n    font-size: 25px;\r\n    font-weight: 600;\r\n    padding: 10px;\r\n}\r\n\r\n.portfolio-page .portfolio-main-buttons-block {}\r\n\r\n\r\n.portfolio-elements-block .portfolio-element {\r\n    border: 2px solid black;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetail.css"],"names":[],"mappings":"AAAA;;IAEI,eAAe;IACf,gBAAgB;IAChB,aAAa;AACjB;;AAEA,+CAA+C;;;AAG/C;IACI,uBAAuB;AAC3B","sourcesContent":[".portfolio-page .portfolio-name {\r\n\r\n    font-size: 25px;\r\n    font-weight: 600;\r\n    padding: 10px;\r\n}\r\n\r\n.portfolio-page .portfolio-main-buttons-block {}\r\n\r\n\r\n.portfolio-elements-block .portfolio-element {\r\n    border: 2px solid black;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -68342,9 +68342,10 @@ const StockEventEnum_1 = __webpack_require__(/*! ../../Models/Entity/State/Enum/
 __webpack_require__(/*! ./AddStockEvent.css */ "./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEvent.css");
 const AddStockEvent = (props) => {
     const [countStock, setCountStock] = (0, react_1.useState)(0);
-    const [eventType, setEventType] = (0, react_1.useState)(0); //StockEventEnum
+    const [eventType, setEventType] = (0, react_1.useState)(+StockEventEnum_1.StockEventEnum.Buy); //StockEventEnum
     const [priceStock, setPriceStock] = (0, react_1.useState)(0);
     const [newStockEventDate, setStockEventDate] = (0, react_1.useState)(new Date());
+    const [stockCurrencyActions, setStockCurrencyActions] = (0, react_1.useState)(true);
     // const [newStockPrice, setStockPrice] = useState(0);
     //---
     const [stockCurrency, setStockCurrency] = (0, react_1.useState)([]);
@@ -68363,6 +68364,7 @@ const AddStockEvent = (props) => {
     (0, react_1.useEffect)(() => {
         props.GetCurrency()
             .then(br => setStockCurrency(br.Data.map(x => new Stock_1.Stock().FillByIStockDataBack(x))));
+        props.FindStocks('').then(searchBack => setStocks(searchBack.Data.map(x => new Stock_1.Stock().FillByIStockDataBack(x))));
         return () => {
         };
     }, []);
@@ -68370,10 +68372,14 @@ const AddStockEvent = (props) => {
         if (props.PortfolioId > 0) {
         }
     }, [props.PortfolioId]);
-    function formatDateToInput(date) {
+    function formatDateTimeToInput(date) {
         const help = new Helper_1.Helper();
         return help.FormatDateToInputWithTime(date);
     }
+    // function formatDateToInput(date: Date): string {
+    //     const help = new Helper();
+    //     return help.FormatDateToInput(date);
+    // }
     const setClearDate = (dt) => {
         let newDt = new Date(dt);
         newDt.setHours(0, 0, 0, 0);
@@ -68408,12 +68414,12 @@ const AddStockEvent = (props) => {
                         setStockCurrencyNameFilter(text);
                     }) }),
                 react_1.default.createElement("br", null),
+                react_1.default.createElement("input", { type: "checkbox", defaultChecked: stockCurrencyActions, onChange: () => setStockCurrencyActions(prev => !prev) }),
+                react_1.default.createElement("br", null),
                 react_1.default.createElement("span", null, "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E"),
-                react_1.default.createElement("input", { type: 'number', value: countStock, onChange: (e) => setCountStock(+e.target.value) }),
+                react_1.default.createElement("input", { type: 'number', value: countStock, step: "0.01", onChange: (e) => setCountStock(+e.target.value) }),
                 react_1.default.createElement("br", null),
                 react_1.default.createElement("span", null, "\u0422\u0438\u043F"),
-                react_1.default.createElement("input", { type: 'number', value: eventType, onChange: (e) => setEventType(+e.target.value) }),
-                react_1.default.createElement("br", null),
                 react_1.default.createElement("select", { className: "form-control", value: eventType, onChange: (e) => {
                         setEventType(+e.target.value);
                     } },
@@ -68424,9 +68430,9 @@ const AddStockEvent = (props) => {
                     react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.WithdrawalCash}` }, "\u0412\u044B\u0432\u043E\u0434 \u0441\u0440\u0435\u0434\u0441\u0442\u0432")),
                 react_1.default.createElement("br", null),
                 react_1.default.createElement("span", null, "\u0426\u0435\u043D\u0430"),
-                react_1.default.createElement("input", { type: 'number', value: priceStock, onChange: (e) => setPriceStock(+e.target.value) }),
+                react_1.default.createElement("input", { type: 'number', value: priceStock, step: "0.01", onChange: (e) => setPriceStock(+e.target.value) }),
                 react_1.default.createElement("br", null),
-                react_1.default.createElement("input", { className: 'new-sprint-input', type: "date", value: formatDateToInput(newStockEventDate), onChange: (e) => {
+                react_1.default.createElement("input", { className: '', type: "datetime-local", value: formatDateTimeToInput(newStockEventDate), onChange: (e) => {
                         if (e.target.value) {
                             let dt = new Date(e.target.value);
                             setStockEventDate(setClearDate(dt));
@@ -68445,7 +68451,8 @@ const AddStockEvent = (props) => {
                         dt.PortfolioId = props.PortfolioId;
                         dt.Price = priceStock;
                         dt.Type = eventType;
-                        props.Create(dt);
+                        dt.CurrencyActions = stockCurrencyActions;
+                        props.Create(dt).then(x => props.EventAdded());
                     } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u0431\u044B\u0442\u0438\u0435"))),
         react_1.default.createElement("div", { className: 'portfolio-elements-block' }));
 };
@@ -68672,7 +68679,7 @@ const PortfolioDetail = (props) => {
     }
     const portfolioEventsUrl = new RouteBuilder_1.default().PortfolioHistoryUrl(props.PortfolioId);
     return react_1.default.createElement("div", { className: 'portfolio-page' },
-        showNewEventWindow ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowNewEventWindow(false), IsHeightWindow: false, Title: '\u041D\u043E\u0432\u043E\u0435 \u0441\u043E\u0431\u044B\u0442\u0438\u0435', InnerContent: () => react_1.default.createElement(AddStockEvent_1.default, null) }) : react_1.default.createElement(react_1.default.Fragment, null),
+        showNewEventWindow ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowNewEventWindow(false), IsHeightWindow: false, Title: '\u041D\u043E\u0432\u043E\u0435 \u0441\u043E\u0431\u044B\u0442\u0438\u0435', InnerContent: () => react_1.default.createElement(AddStockEvent_1.default, { EventAdded: () => props.LoadPortfolioElements(props.PortfolioId) }) }) : react_1.default.createElement(react_1.default.Fragment, null),
         react_1.default.createElement("div", null,
             react_1.default.createElement("div", { className: 'portfolio-name' },
                 props.Portfolio.Name,
@@ -68686,10 +68693,11 @@ const PortfolioDetail = (props) => {
                     } }, "\u0418\u0441\u0442\u043E\u0440\u0438\u044F")),
             react_1.default.createElement("div", null,
                 react_1.default.createElement("button", { onClick: () => setShowNewEventWindow(true) }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u0431\u044B\u0442\u0438\u0435"))),
+        react_1.default.createElement("p", null, "\u0421\u043E\u0441\u0442\u0430\u0432 \u043F\u043E\u0440\u0442\u0444\u0435\u043B\u044F"),
         react_1.default.createElement("div", { className: 'portfolio-elements-block' }, props.Elements.map(x => {
             return react_1.default.createElement("div", { className: 'portfolio-element', key: x.Id },
                 react_1.default.createElement("div", null,
-                    x.StockId,
+                    x.StockName,
                     " - ",
                     x.Count));
         })));
@@ -69624,8 +69632,8 @@ exports.FinancialAssistantAppPreloader = 'financial_assistant_preloader';
 exports.FinancialAssistantApiPrefUrl = 'api';
 exports.FinancialAssistantAppUrl = 'financialassistant';
 exports.FinancialAssistantAppPortfolioControllerUrl = 'portfolio';
-exports.FinancialAssistantAppEventControllerUrl = 'stock-event';
-exports.FinancialAssistantAppStockElementControllerUrl = 'stockelement';
+exports.FinancialAssistantAppEventControllerUrl = 'stockEvent';
+exports.FinancialAssistantAppStockElementControllerUrl = 'stockElement';
 exports.FinancialAssistantAppStockControllerUrl = 'stock';
 //route
 exports.FinancialAssistantAppRoute = 'financial-assistant';
@@ -70262,10 +70270,11 @@ class FinancialAssistantAppStockEventController {
             let data = {
                 "Date": req.Date,
                 "Count": req.Count,
-                "Type": req.Type,
+                "Type": +req.Type,
                 "StockId": req.StockId,
                 "Price": req.Price,
                 "CurrencyId": req.CurrencyId,
+                "CurrencyActions": req.CurrencyActions,
                 "PortfolioId": req.PortfolioId,
             };
             const backResult = yield G_AjaxHelper.GoAjaxRequest({
@@ -70504,6 +70513,7 @@ class StockElement {
     FillByIStockElementDataBack(data) {
         this.Id = data.Id;
         this.StockId = data.StockId;
+        this.StockName = data.StockName;
         this.Count = data.Count;
         this.PortfolioId = data.PortfolioId;
         return this;

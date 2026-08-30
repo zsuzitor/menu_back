@@ -13,6 +13,10 @@ namespace FinancialAssistantApp.Models.DTO
 
         public decimal? Price { get; set; }
         public long? CurrencyId { get; set; }
+        /// <summary>
+        /// Действия с валютой, тоесть при продаже акций будут начислены деньги, при покупке списаны
+        /// </summary>
+        public bool CurrencyActions { get; set; }
 
 
         public long PortfolioId { get; set; }

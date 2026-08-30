@@ -23,5 +23,11 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
             return await _db.StockElement.Where(x => x.PortfolioId == portfolioId && x.Count > 0).ToListAsync();
 
         }
+
+        public async Task<List<StockElement>> GetWithStockNoTrack(long portfolioId)
+        {
+            return await _db.StockElement.Include(x=>x.Stock)
+                .Where(x => x.PortfolioId == portfolioId && x.Count > 0).ToListAsync();
+        }
     }
 }

@@ -38,6 +38,7 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 Id = p.Id,
                 PortfolioId = p.PortfolioId,
                 StockId = p.StockId,
+                StockName = p.Stock?.Name,
             };
         }
 
