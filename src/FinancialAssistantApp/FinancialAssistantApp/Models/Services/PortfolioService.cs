@@ -19,8 +19,6 @@ namespace FinancialAssistantApp.Models.Services
         }
 
 
-
-
         public async Task<Portfolio> CreateAsync(PortfolioCreate obj, long userId)
         {
             if (obj.CurrencyId != null)
@@ -75,7 +73,7 @@ namespace FinancialAssistantApp.Models.Services
 
         public async Task<Portfolio> GetAsync(long id, long userId)
         {
-            return await _portfolioRepository.GetAsync(id, userId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+            return await _portfolioRepository.GetWithCurrencyNoTrackAsync(id, userId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
         }
     }
 }

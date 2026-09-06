@@ -2529,6 +2529,33 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".portfolio-page .portfolio-name {\r\n\
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/PortfolioEdit/PortfolioEdit.css":
+/*!*************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/PortfolioEdit/PortfolioEdit.css ***!
+  \*************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".portfolio-edit-page{\r\n    padding-bottom: 300px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/PortfolioEdit/PortfolioEdit.css"],"names":[],"mappings":"AAAA;IACI,qBAAqB;AACzB","sourcesContent":[".portfolio-edit-page{\r\n    padding-bottom: 300px;\r\n}"],"sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css":
 /*!*****************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css ***!
@@ -64124,6 +64151,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/Apps/FinancialAssistantApp/Components/PortfolioEdit/PortfolioEdit.css":
+/*!***********************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioEdit/PortfolioEdit.css ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_PortfolioEdit_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./PortfolioEdit.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/PortfolioEdit/PortfolioEdit.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_PortfolioEdit_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_PortfolioEdit_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_PortfolioEdit_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_PortfolioEdit_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css":
 /*!***************************************************************************************!*\
   !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css ***!
@@ -68414,6 +68496,8 @@ const AddStockEvent = (props) => {
                         setStockCurrencyNameFilter(text);
                     }) }),
                 react_1.default.createElement("br", null),
+                react_1.default.createElement("span", null, "\u0421\u043F\u0438\u0441\u0430\u0442\u044C\\\u043F\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C \u0441\u0443\u043C\u043C\u0443 \u0432 CurrencyId"),
+                react_1.default.createElement("br", null),
                 react_1.default.createElement("input", { type: "checkbox", defaultChecked: stockCurrencyActions, onChange: () => setStockCurrencyActions(prev => !prev) }),
                 react_1.default.createElement("br", null),
                 react_1.default.createElement("span", null, "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E"),
@@ -68658,11 +68742,20 @@ const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_m
 const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts"));
 const AdditionalWindow_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/AdditionalWindow/AdditionalWindow */ "./src/components/Body/AdditionalWindow/AdditionalWindow.tsx"));
 const AddStockEvent_1 = __importDefault(__webpack_require__(/*! ../AddStockEvent/AddStockEvent */ "./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEvent.tsx"));
+const Stock_1 = __webpack_require__(/*! ../../Models/Entity/State/Stock */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Stock.ts");
+const PortfolioEdit_1 = __importDefault(__webpack_require__(/*! ../PortfolioEdit/PortfolioEdit */ "./src/Apps/FinancialAssistantApp/Components/PortfolioEdit/PortfolioEdit.tsx"));
 __webpack_require__(/*! ./PortfolioDetail.css */ "./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetail.css");
 const PortfolioDetail = (props) => {
     const [showNewEventWindow, setShowNewEventWindow] = (0, react_1.useState)(false);
+    const [showEditWindow, setShowEditWindow] = (0, react_1.useState)(false);
+    // const [portfolioCurrency, setPortfolioCurrency] = useState(props.Portfolio?.CurrencyId || -1);
+    //----------
+    const [portfolioCurrencys, setPortfolioCurrencys] = (0, react_1.useState)([]);
+    //----------
     const navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(() => {
+        props.GetCurrency()
+            .then(br => setPortfolioCurrencys(br.Data.map(x => new Stock_1.Stock().FillByIStockDataBack(x))));
         return () => {
             props.CrearPortfolioElements();
             props.ClearCurrentPortfolio();
@@ -68680,11 +68773,13 @@ const PortfolioDetail = (props) => {
     const portfolioEventsUrl = new RouteBuilder_1.default().PortfolioHistoryUrl(props.PortfolioId);
     return react_1.default.createElement("div", { className: 'portfolio-page' },
         showNewEventWindow ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowNewEventWindow(false), IsHeightWindow: false, Title: '\u041D\u043E\u0432\u043E\u0435 \u0441\u043E\u0431\u044B\u0442\u0438\u0435', InnerContent: () => react_1.default.createElement(AddStockEvent_1.default, { EventAdded: () => props.LoadPortfolioElements(props.PortfolioId) }) }) : react_1.default.createElement(react_1.default.Fragment, null),
+        showEditWindow ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowEditWindow(false), IsHeightWindow: true, Title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u0430', InnerContent: () => react_1.default.createElement(PortfolioEdit_1.default, { Portfolio: props.Portfolio, Currency: portfolioCurrencys }) }) : react_1.default.createElement(react_1.default.Fragment, null),
         react_1.default.createElement("div", null,
             react_1.default.createElement("div", { className: 'portfolio-name' },
                 props.Portfolio.Name,
                 " - ",
-                props.Portfolio.Id)),
+                props.Portfolio.Id),
+            react_1.default.createElement("div", null)),
         react_1.default.createElement("div", { className: 'portfolio-main-buttons-block' },
             react_1.default.createElement("div", null,
                 react_1.default.createElement("a", { href: portfolioEventsUrl, onClick: (e) => {
@@ -68692,14 +68787,24 @@ const PortfolioDetail = (props) => {
                         navigate(portfolioEventsUrl);
                     } }, "\u0418\u0441\u0442\u043E\u0440\u0438\u044F")),
             react_1.default.createElement("div", null,
-                react_1.default.createElement("button", { onClick: () => setShowNewEventWindow(true) }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u0431\u044B\u0442\u0438\u0435"))),
+                react_1.default.createElement("button", { onClick: () => setShowNewEventWindow(true) }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u0431\u044B\u0442\u0438\u0435")),
+            react_1.default.createElement("div", null,
+                react_1.default.createElement("button", { onClick: () => setShowEditWindow(true) }, "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u043F\u043E\u0440\u0442\u0444\u0435\u043B\u044C"))),
         react_1.default.createElement("p", null, "\u0421\u043E\u0441\u0442\u0430\u0432 \u043F\u043E\u0440\u0442\u0444\u0435\u043B\u044F"),
         react_1.default.createElement("div", { className: 'portfolio-elements-block' }, props.Elements.map(x => {
             return react_1.default.createElement("div", { className: 'portfolio-element', key: x.Id },
                 react_1.default.createElement("div", null,
-                    x.StockName,
-                    " - ",
-                    x.Count));
+                    react_1.default.createElement("div", null, x.StockName),
+                    react_1.default.createElement("div", null,
+                        x.Count,
+                        " \u0448\u0442. \u043F\u043E \u0442\u0435\u043A\u0443\u0449\u0435\u0439 \u0446\u0435\u043D\u0435 ",
+                        x.Price,
+                        " ",
+                        x.CurrencyName,
+                        ", \u0432\u0441\u0435\u0433\u043E ",
+                        x.Sum,
+                        " ",
+                        x.CurrencyName)));
         })));
 };
 // and that function returns the connected, wrapper component:
@@ -68712,10 +68817,19 @@ exports["default"] = (0, PortfolioDetailSetup_1.default)(PortfolioDetail);
 /*!********************************************************************************************!*\
   !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioDetail/PortfolioDetailSetup.tsx ***!
   \********************************************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 const PortfolioActions_1 = __webpack_require__(/*! ../../Models/Actions/PortfolioActions */ "./src/Apps/FinancialAssistantApp/Models/Actions/PortfolioActions.ts");
@@ -68745,6 +68859,146 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
     res.SetCurrentPortfolioId = (id) => {
         dispatch((0, PortfolioActions_1.SetCurrentPortfolioIdActionCreator)(id));
+    };
+    res.GetCurrency = () => __awaiter(void 0, void 0, void 0, function* () {
+        return yield window.G_FinancialAssistantAppStockController.GetCurrencyAsync();
+    });
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/PortfolioEdit/PortfolioEdit.tsx":
+/*!***********************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioEdit/PortfolioEdit.tsx ***!
+  \***********************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const PortfolioEditSetup_1 = __importDefault(__webpack_require__(/*! ./PortfolioEditSetup */ "./src/Apps/FinancialAssistantApp/Components/PortfolioEdit/PortfolioEditSetup.tsx"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const SelectWithSearch_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SelectWithSearch/SelectWithSearch */ "./src/components/Body/SelectWithSearch/SelectWithSearch.tsx"));
+__webpack_require__(/*! ./PortfolioEdit.css */ "./src/Apps/FinancialAssistantApp/Components/PortfolioEdit/PortfolioEdit.css");
+const PortfolioEdit = (props) => {
+    var _a;
+    //нужны что бы отрисовать элеммент в пустом списке - такой кейс есть это норм
+    const [portfolioCurrencyId, setPortfolioCurrencyId] = (0, react_1.useState)(-1);
+    const [portfolioCurrencyName, setPortfolioCurrencyName] = (0, react_1.useState)('');
+    //тк запроса на бэк не делаем а просто на фронте фильтруем
+    const [portfolioCurrencyNameFilter, setPortfolioCurrencyNameFilter] = (0, react_1.useState)('');
+    const [name, setName] = (0, react_1.useState)((_a = props.Portfolio) === null || _a === void 0 ? void 0 : _a.Name);
+    const navigate = (0, react_router_dom_1.useNavigate)();
+    (0, react_1.useEffect)(() => {
+        var _a;
+        if (props.Portfolio) {
+            setName(props.Portfolio.Name);
+            // setPortfolioCurrencyId(props.Portfolio.CurrencyId);
+        }
+        if ((_a = props.Portfolio) === null || _a === void 0 ? void 0 : _a.CurrencyId) {
+            setPortfolioCurrencyId(props.Portfolio.CurrencyId);
+            setPortfolioCurrencyName(props.Portfolio.CurrencyName);
+        }
+    }, [props.Portfolio]);
+    // useEffect(() => {
+    //     if (props.Portfolio?.CurrencyId) {
+    //         setPortfolioCurrencyId(props.Portfolio.CurrencyId);
+    //         setPortfolioCurrencyName(props.Portfolio.CurrencyName);
+    //     }
+    // }, [props.Portfolio?.CurrencyId]);
+    if (!props.Portfolio) {
+        return react_1.default.createElement("div", null);
+    }
+    let currencyForSearch = props.Currency.filter(x => !portfolioCurrencyNameFilter || x.Name.indexOf(portfolioCurrencyNameFilter) >= 0)
+        .map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` }));
+    currencyForSearch = [{ Id: -1, Text: 'Не выбрано' }, ...currencyForSearch];
+    return react_1.default.createElement("div", { className: 'portfolio-edit-page' },
+        react_1.default.createElement("span", null, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("input", { type: 'text', className: 'new-portfolio-name-input', placeholder: '\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: name, onChange: e => setName(e.target.value) }),
+        react_1.default.createElement("span", null, "\u0412\u0430\u043B\u044E\u0442\u0430 \u043F\u043E\u0440\u0442\u0444\u0435\u043B\u044F"),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement(SelectWithSearch_1.default, { CancelEvent: () => { }, SaveEvent: (id) => {
+                var _a;
+                setPortfolioCurrencyId(id);
+                setPortfolioCurrencyName((_a = currencyForSearch.find(x => x.Id === id)) === null || _a === void 0 ? void 0 : _a.Text);
+                // setStockCurrency(stockCurrency.filter(x => x.Id === id));
+                return true;
+            }, Selected: { Id: portfolioCurrencyId, Text: portfolioCurrencyId > 0 ? `${portfolioCurrencyId}-${portfolioCurrencyName}` : '' }, ValuesWithId: currencyForSearch, OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
+                // setTaskId(-1);
+                setPortfolioCurrencyNameFilter(text);
+            }) }),
+        react_1.default.createElement("button", { onClick: () => {
+                props.Update(props.Portfolio.Id, name, portfolioCurrencyId > 0 ? portfolioCurrencyId : null).then(x => {
+                    if (x.Data) {
+                        window.location.reload();
+                    }
+                });
+            } }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C"));
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, PortfolioEditSetup_1.default)(PortfolioEdit);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/PortfolioEdit/PortfolioEditSetup.tsx":
+/*!****************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/PortfolioEdit/PortfolioEditSetup.tsx ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const mapStateToProps = (state, ownProps) => {
+    let res = {};
+    return res;
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    let res = {};
+    res.Update = (id, name, currencyId) => {
+        return window.G_FinancialAssistantAppPortfolioController.UpdateAsync(id, name, currencyId);
     };
     return res;
 };
@@ -69121,7 +69375,7 @@ const StockDetail = (props) => {
     const [newStockHistoryDate, setStockHistoryDate] = (0, react_1.useState)(new Date());
     const [newStockHistoryPrice, setStockHistoryPrice] = (0, react_1.useState)(0);
     const [stockCurrency, setStockCurrency] = (0, react_1.useState)([]);
-    //нужны что бы отрисовать элеммент в пустом списке - тако кейс есть это норм
+    //нужны что бы отрисовать элеммент в пустом списке - такой кейс есть это норм
     const [newStockHistoryCurrencyId, setStockHistoryCurrencyId] = (0, react_1.useState)(0);
     const [stockCurrencyName, setStockCurrencyName] = (0, react_1.useState)('');
     //тк запроса на бэк не делаем а просто на фронте фильтруем
@@ -69205,6 +69459,7 @@ const StockDetail = (props) => {
                         }
                     } }),
                 react_1.default.createElement("br", null),
+                react_1.default.createElement("span", null, "\u0412\u0430\u043B\u044E\u0442\u0430"),
                 react_1.default.createElement(SelectWithSearch_1.default, { CancelEvent: () => { }, SaveEvent: (id) => {
                         setStockHistoryCurrencyId(id);
                         setStockCurrencyName(stockCurrency.find(x => x.Id === id).Name);
@@ -70458,6 +70713,7 @@ class Portfolio {
         this.Name = data.Name;
         this.UserId = data.UserId;
         this.CurrencyId = data.CurrencyId;
+        this.CurrencyName = data.CurrencyName;
         return this;
     }
 }
@@ -70516,6 +70772,10 @@ class StockElement {
         this.StockName = data.StockName;
         this.Count = data.Count;
         this.PortfolioId = data.PortfolioId;
+        this.Price = data.Price;
+        this.Sum = data.Sum;
+        this.CurrencyId = data.CurrencyId;
+        this.CurrencyName = data.CurrencyName;
         return this;
     }
 }

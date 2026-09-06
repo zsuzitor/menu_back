@@ -15,6 +15,7 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 Id = p.Id,
                 Name = p.Name,
                 UserId = p.UserId,
+                CurrencyName = p.Currency?.Name,
             };
         }
 
@@ -30,7 +31,7 @@ namespace Menu.Host.Models.FinancialAssistantApp
         }
 
 
-        public static StockElementReturn Map(this StockElement p)
+        public static StockElementReturn Map(this StockElementInPortfolio p)
         {
             return new StockElementReturn()
             {
@@ -38,7 +39,11 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 Id = p.Id,
                 PortfolioId = p.PortfolioId,
                 StockId = p.StockId,
-                StockName = p.Stock?.Name,
+                StockName = p.StockName,
+                Price = p.Price,
+                Sum = p.Count * p.Price,
+                CurrencyId = p.CurrencyId,
+                CurrencyName = p.CurrencyName,
             };
         }
 

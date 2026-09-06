@@ -7,6 +7,7 @@ namespace Menu.Host.Models.FinancialAssistantApp.Returns
         public string Name { get; set; }
         public long UserId { get; set; }
         public long? CurrencyId { get; set; }
+        public string CurrencyName { get; set; }
 
     }
 }

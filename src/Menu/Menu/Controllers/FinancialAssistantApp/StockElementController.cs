@@ -37,7 +37,7 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         {
             var userId = User.GetUserId();
             var res = await _stockElementService.Get(portfolioId, userId);
-            return new JsonResult(res.Select(x => x.Map()), GetJsonOptions());
+            return new JsonResult(res.Select(x => x.Map()).OrderByDescending(x => x.Sum), GetJsonOptions());
         }
 
 

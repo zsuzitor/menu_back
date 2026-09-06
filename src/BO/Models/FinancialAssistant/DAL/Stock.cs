@@ -13,9 +13,10 @@ namespace BO.Models.FinancialAssistant.DAL
         public string Code { get; set; }
 
         public DateTime ActualizationTime { get; set; }
-        public decimal LastPrice { get; set; }
 
         public StockTypeEnum Type { get; set; }
+
+        public decimal LastPrice { get; set; }
         public long? CurrencyId { get; set; }
         public Stock Currency { get; set; }
 

@@ -1,8 +1,10 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Menu.Host.Models.FinancialAssistantApp.Returns
+namespace FinancialAssistantApp.Models.DTO
 {
-    public class StockElementReturn
+    public class StockElementInPortfolio
     {
         public long Id { get; set; }
         public long StockId { get; set; }
@@ -14,6 +16,5 @@ namespace Menu.Host.Models.FinancialAssistantApp.Returns
         public long PortfolioId { get; set; }
         public decimal Price { get; set; }
         public decimal Sum { get; set; }
-
     }
 }

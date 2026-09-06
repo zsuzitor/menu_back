@@ -28,5 +28,12 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
         {
             return await _db.Portfolio.FirstOrDefaultAsync(x => x.UserId == userId && x.Id==id);
         }
+
+        public async Task<Portfolio> GetWithCurrencyNoTrackAsync(long id, long userId)
+        {
+
+            return await _db.Portfolio.Include(x=>x.Currency)
+                .AsNoTracking().FirstOrDefaultAsync(x => x.UserId == userId && x.Id == id);
+        }
     }
 }

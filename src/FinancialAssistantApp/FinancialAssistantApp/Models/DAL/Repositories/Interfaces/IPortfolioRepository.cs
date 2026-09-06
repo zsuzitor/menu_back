@@ -9,6 +9,7 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
     {
         Task<List<Portfolio>> GetAllAsync(long userId);
         Task<Portfolio> GetAsync(long id, long userId);
+        Task<Portfolio> GetWithCurrencyNoTrackAsync(long id, long userId);
         Task<bool> ExistAsync(long id, long userId);
         //Task<Portfolio> GetWithElementsAsync(long presetId);
     }
