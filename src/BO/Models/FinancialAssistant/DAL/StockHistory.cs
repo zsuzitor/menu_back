@@ -3,6 +3,9 @@ using System;
 
 namespace BO.Models.FinancialAssistant.DAL
 {
+    /// <summary>
+    /// история цены
+    /// </summary>
     public class StockHistory : IDomainRecord<long>
     {
         public long Id { get; set; }

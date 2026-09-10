@@ -10,7 +10,7 @@ namespace DAL.Models.DAL.ContextSetup
             modelBuilder.Entity<Configuration>(entity =>
             {
                 entity.HasKey(x => x.Id);
-                entity.HasIndex(x => x.Key).IsUnique();
+                entity.HasIndex(x => x.Key);//.IsUnique();
                 entity.ToTable("Configurations");
 
             });

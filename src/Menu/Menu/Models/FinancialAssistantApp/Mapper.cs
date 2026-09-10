@@ -2,6 +2,7 @@
 using FinancialAssistantApp.Models.DTO;
 using Menu.Host.Models.FinancialAssistantApp.Requests;
 using Menu.Host.Models.FinancialAssistantApp.Returns;
+using System;
 
 namespace Menu.Host.Models.FinancialAssistantApp
 {
@@ -40,8 +41,8 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 PortfolioId = p.PortfolioId,
                 StockId = p.StockId,
                 StockName = p.StockName,
-                Price = p.Price,
-                Sum = p.Count * p.Price,
+                Price = Math.Round(p.Price, 3),
+                Sum = Math.Round(p.Count * p.Price, 3),
                 CurrencyId = p.CurrencyId,
                 CurrencyName = p.CurrencyName,
             };

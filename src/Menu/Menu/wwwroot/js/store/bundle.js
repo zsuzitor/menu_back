@@ -68922,7 +68922,7 @@ __webpack_require__(/*! ./PortfolioEdit.css */ "./src/Apps/FinancialAssistantApp
 const PortfolioEdit = (props) => {
     var _a;
     //нужны что бы отрисовать элеммент в пустом списке - такой кейс есть это норм
-    const [portfolioCurrencyId, setPortfolioCurrencyId] = (0, react_1.useState)(-1);
+    const [portfolioCurrencyId, setPortfolioCurrencyId] = (0, react_1.useState)(-2);
     const [portfolioCurrencyName, setPortfolioCurrencyName] = (0, react_1.useState)('');
     //тк запроса на бэк не делаем а просто на фронте фильтруем
     const [portfolioCurrencyNameFilter, setPortfolioCurrencyNameFilter] = (0, react_1.useState)('');
@@ -68950,7 +68950,7 @@ const PortfolioEdit = (props) => {
     }
     let currencyForSearch = props.Currency.filter(x => !portfolioCurrencyNameFilter || x.Name.indexOf(portfolioCurrencyNameFilter) >= 0)
         .map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` }));
-    currencyForSearch = [{ Id: -1, Text: 'Не выбрано' }, ...currencyForSearch];
+    currencyForSearch = [{ Id: -2, Text: 'Не выбрано' }, ...currencyForSearch];
     return react_1.default.createElement("div", { className: 'portfolio-edit-page' },
         react_1.default.createElement("span", null, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435"),
         react_1.default.createElement("br", null),
@@ -68963,7 +68963,7 @@ const PortfolioEdit = (props) => {
                 setPortfolioCurrencyName((_a = currencyForSearch.find(x => x.Id === id)) === null || _a === void 0 ? void 0 : _a.Text);
                 // setStockCurrency(stockCurrency.filter(x => x.Id === id));
                 return true;
-            }, Selected: { Id: portfolioCurrencyId, Text: portfolioCurrencyId > 0 ? `${portfolioCurrencyId}-${portfolioCurrencyName}` : '' }, ValuesWithId: currencyForSearch, OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
+            }, Selected: { Id: portfolioCurrencyId, Text: `${portfolioCurrencyId}-${portfolioCurrencyName}` }, ValuesWithId: currencyForSearch, OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
                 // setTaskId(-1);
                 setPortfolioCurrencyNameFilter(text);
             }) }),

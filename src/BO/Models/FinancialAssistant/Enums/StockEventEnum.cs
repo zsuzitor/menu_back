@@ -12,5 +12,7 @@ namespace BO.Models.FinancialAssistant.Enums
         Sell = 3,
         Dividends = 4,
         WithdrawalCash = 5,
+        //изменение количества, это костыль что бы подбить портфель под реальные данные
+        CountChange = 6
     }
 }

@@ -34,7 +34,8 @@ namespace FinancialAssistantApp.Models.Services
             if (!portfolio.CurrencyId.HasValue)
             {
                 var elementsResult = elements.Select(x => Mapper.Mapper.Map(x)).ToList();
-                foreach (var elementResult in elementsResult) {
+                foreach (var elementResult in elementsResult)
+                {
                     var c = allCurr.FirstOrDefault(x => x.Id == elementResult.CurrencyId);
                     elementResult.CurrencyName = c?.Name;
                 }
@@ -43,35 +44,50 @@ namespace FinancialAssistantApp.Models.Services
 
             var result = new List<StockElementInPortfolio>();//elements.Select(x => Mapper.Mapper.Map(x)).ToList();
 
-                var portfolioCurrency = allCurr.FirstOrDefault(x=>x.Id==portfolio.CurrencyId);
-                var price = new List<(long curFrom, decimal? onePrice)>();
-                foreach (var el in elements)
+            var portfolioCurrency = allCurr.FirstOrDefault(x => x.Id == portfolio.CurrencyId);
+            var countedPrices = new List<(long currencyFrom, decimal? onePrice)>();
+            foreach (var oneElement in elements)
+            {
+                if (oneElement.Stock.CurrencyId == null)
                 {
-                    if(el.Stock.CurrencyId == null)
+                    if (oneElement.Stock.Type == BO.Models.FinancialAssistant.Enums.StockTypeEnum.Currency)
                     {
+                        //для вылюты записываем цену 1 к 1 в себе же, что бы попытаться рассчитать через обратные курсы
+                        oneElement.Stock.CurrencyId = oneElement.Stock.Id;
+                        oneElement.Stock.LastPrice = 1;
+                    }
+                    else
+                    {
+                        var oneRess = Mapper.Mapper.Map(oneElement);
+                        oneRess.CurrencyName = allCurr.FirstOrDefault(x => x.Id == oneRess.CurrencyId)?.Name;
+                        result.Add(oneRess);
                         continue;
                     }
-
-                    var elPrice = price.FirstOrDefault(x => x.curFrom == el.Stock.CurrencyId);
-                    if (elPrice == default)
-                    {
-                        var onePrice = new CurrencyConvertHandler().ToCurrency(allCurr, el.Stock.CurrencyId.Value,1,  portfolio.CurrencyId.Value);
-                        elPrice = (el.Stock.CurrencyId.Value, onePrice);
-                        price.Add(elPrice);
-                    }
-
-                    var oneRes = Mapper.Mapper.Map(el);
-                    if (elPrice.onePrice != null)
-                    {
-                        oneRes.Price = elPrice.onePrice.Value * el.Stock.LastPrice;
-                        oneRes.CurrencyId = portfolio.CurrencyId;
-                        oneRes.CurrencyName = portfolioCurrency.Name;
-
-                    }
-                    result.Add(oneRes);
                 }
 
-            
+                var elPrice = countedPrices.FirstOrDefault(x => x.currencyFrom == oneElement.Stock.CurrencyId);
+                if (elPrice == default)
+                {
+                    var onePrice = new CurrencyConvertHandler().ToCurrency(allCurr, oneElement.Stock.CurrencyId.Value, 1, portfolio.CurrencyId.Value);
+                    elPrice = (oneElement.Stock.CurrencyId.Value, onePrice);
+                    countedPrices.Add(elPrice);
+                }
+
+                var oneRes = Mapper.Mapper.Map(oneElement);
+                if (elPrice.onePrice != null)
+                {
+                    oneRes.Price = elPrice.onePrice.Value * oneElement.Stock.LastPrice;
+                    oneRes.CurrencyId = portfolio.CurrencyId;
+                    oneRes.CurrencyName = portfolioCurrency.Name;
+                    oneRes.Sum = oneRes.Price * oneRes.Count;
+                }
+
+                oneRes.CurrencyName = allCurr.FirstOrDefault(x => x.Id == oneRes.CurrencyId)?.Name;
+
+                result.Add(oneRes);
+            }
+
+
 
 
 
