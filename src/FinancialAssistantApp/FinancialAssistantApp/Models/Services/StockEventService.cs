@@ -51,8 +51,9 @@ namespace FinancialAssistantApp.Models.Services
                 throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
             }
 
-            if (obj.Count <= 0)
+            if (obj.Count <= 0 && obj.Type != StockEventEnum.CountChange)
             {
+                //для CountChange свои правила тк это костыль по сути
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotValideStockEvent);
             }
 
@@ -70,7 +71,7 @@ namespace FinancialAssistantApp.Models.Services
 
             }
 
-            if (obj.Type == StockEventEnum.CashReplenishment || obj.Type == StockEventEnum.Dividends || obj.Type == StockEventEnum.WithdrawalCash)
+            if (obj.Type == StockEventEnum.CashReplenishment || obj.Type == StockEventEnum.WithdrawalCash)
             {
                 if (stock.Type != StockTypeEnum.Currency)
                 {
@@ -78,6 +79,18 @@ namespace FinancialAssistantApp.Models.Services
 
                 }
                 obj.CurrencyId = null;
+            }
+
+            if (obj.Type == StockEventEnum.CountChange)
+            {
+                obj.CurrencyId = null;
+                obj.CurrencyActions = false;
+            }
+
+            if (obj.Type == StockEventEnum.Dividends)
+            {
+                obj.CurrencyActions = true;
+                obj.Count = 1;
             }
 
 
@@ -93,21 +106,29 @@ namespace FinancialAssistantApp.Models.Services
 
 
             var element = await _stockElementRepository.Get(obj.PortfolioId, obj.StockId);
-            if (element == null)
+            if (obj.Type != StockEventEnum.Dividends && obj.Type != StockEventEnum.CashReplenishment && obj.Type != StockEventEnum.WithdrawalCash)
             {
-                var elem = new StockElement()
+                // если ивенты чисто денежные то стока не будет, менять нечего, работаем с currency
+
+                if (element == null)
                 {
-                    StockId = stock.Id,
-                    Count = obj.Type == StockEventEnum.Sell || obj.Type == StockEventEnum.WithdrawalCash ? obj.Count * -1 : obj.Count,
-                    PortfolioId = obj.PortfolioId,
-                };
-                element = await _stockElementRepository.AddAsync(elem);
+                    var elem = new StockElement()
+                    {
+                        StockId = stock.Id,
+                        Count = obj.Type == StockEventEnum.Sell || obj.Type == StockEventEnum.WithdrawalCash ? obj.Count * -1 : obj.Count,
+                        PortfolioId = obj.PortfolioId,
+                    };
+                    element = await _stockElementRepository.AddAsync(elem);
+                }
+                else
+                {
+                    element.Count += obj.Type == StockEventEnum.Sell || obj.Type == StockEventEnum.WithdrawalCash ? obj.Count * -1 : obj.Count;
+                    element = await _stockElementRepository.UpdateAsync(element);
+                }
+
+
             }
-            else
-            {
-                element.Count += obj.Type == StockEventEnum.Sell || obj.Type == StockEventEnum.WithdrawalCash ? obj.Count * -1 : obj.Count;
-                element = await _stockElementRepository.UpdateAsync(element);
-            }
+
 
             if (currency != null && obj.CurrencyActions)
             {
@@ -118,14 +139,14 @@ namespace FinancialAssistantApp.Models.Services
                     var elem = new StockElement()
                     {
                         StockId = currency.Id,
-                        Count = obj.Type == StockEventEnum.Sell ? obj.Price.Value * obj.Count : obj.Price.Value * -1 * obj.Count,
+                        Count = obj.Type == StockEventEnum.Sell || obj.Type == StockEventEnum.Dividends ? obj.Price.Value * obj.Count : obj.Price.Value * -1 * obj.Count,
                         PortfolioId = obj.PortfolioId,
                     };
                     currencyElement = await _stockElementRepository.AddAsync(elem);
                 }
                 else
                 {
-                    currencyElement.Count += obj.Type == StockEventEnum.Sell ? obj.Price.Value * obj.Count : obj.Price.Value * -1 * obj.Count;
+                    currencyElement.Count += obj.Type == StockEventEnum.Sell || obj.Type == StockEventEnum.Dividends ? obj.Price.Value * obj.Count : obj.Price.Value * -1 * obj.Count;
                     currencyElement = await _stockElementRepository.UpdateAsync(currencyElement);
                 }
             }
@@ -143,9 +164,9 @@ namespace FinancialAssistantApp.Models.Services
 
             var result =  await _stockEventRepository.AddAsync(newObj);
 
-            newObj.Currency = currency;
-            newObj.StockElement = element;
-            newObj.StockElement.Stock = stock;
+            result.Currency = currency;
+            result.StockElement = element;
+            result.StockElement.Stock = stock;
             return result;
 
         }

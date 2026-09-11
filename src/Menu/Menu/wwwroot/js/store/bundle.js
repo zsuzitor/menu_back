@@ -68467,54 +68467,94 @@ const AddStockEvent = (props) => {
         newDt.setHours(0, 0, 0, 0);
         return newDt;
     };
+    const showStockBlock = (type) => {
+        return (type == StockEventEnum_1.StockEventEnum.Buy
+            || type == StockEventEnum_1.StockEventEnum.Sell
+            || type == StockEventEnum_1.StockEventEnum.Dividends
+            || type == StockEventEnum_1.StockEventEnum.CountChange);
+    };
+    const showCountBlock = (type) => {
+        return (type == StockEventEnum_1.StockEventEnum.Buy
+            || type == StockEventEnum_1.StockEventEnum.Sell
+            || type == StockEventEnum_1.StockEventEnum.CountChange);
+    };
+    const showCurrencyBlock = (type) => {
+        return (type == StockEventEnum_1.StockEventEnum.CashReplenishment
+            || type == StockEventEnum_1.StockEventEnum.WithdrawalCash
+            || type == StockEventEnum_1.StockEventEnum.Dividends
+            || type == StockEventEnum_1.StockEventEnum.Buy
+            || type == StockEventEnum_1.StockEventEnum.Sell);
+    };
     return react_1.default.createElement("div", { className: 'portfolio-page' },
         react_1.default.createElement("div", null),
         react_1.default.createElement("div", null,
             react_1.default.createElement("div", null),
             react_1.default.createElement("div", null,
-                react_1.default.createElement("span", null, "stockId"),
-                react_1.default.createElement(SelectWithSearch_1.default, { CancelEvent: () => { }, SaveEvent: (id) => {
-                        setStockId(id);
-                        setStockName(stocks.find(x => x.Id === id).Name);
-                        setStocks(stocks.filter(x => x.Id === id));
-                        return true;
-                    }, Selected: { Id: stockId, Text: stockId > 0 ? `${stockId}-${stockName}` : '' }, ValuesWithId: stocks.map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` })), OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
-                        // setTaskId(-1);
-                        let searchBack = yield props.FindStocks(text);
-                        setStocks(searchBack.Data.map(x => new Stock_1.Stock().FillByIStockDataBack(x)));
-                    }) }),
-                react_1.default.createElement("br", null),
-                react_1.default.createElement("span", null, "CurrencyId"),
-                react_1.default.createElement(SelectWithSearch_1.default, { CancelEvent: () => { }, SaveEvent: (id) => {
-                        setStockCurrencyId(id);
-                        setStockCurrencyName(stockCurrency.find(x => x.Id === id).Name);
-                        // setStockCurrency(stockCurrency.filter(x => x.Id === id));
-                        return true;
-                    }, Selected: { Id: stockCurrencyId, Text: stockCurrencyId > 0 ? `${stockCurrencyId}-${stockCurrencyName}` : '' }, ValuesWithId: stockCurrency.filter(x => !stockCurrencyNameFilter || x.Name.indexOf(stockCurrencyNameFilter) >= 0)
-                        .map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` })), OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
-                        // setTaskId(-1);
-                        setStockCurrencyNameFilter(text);
-                    }) }),
-                react_1.default.createElement("br", null),
-                react_1.default.createElement("span", null, "\u0421\u043F\u0438\u0441\u0430\u0442\u044C\\\u043F\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C \u0441\u0443\u043C\u043C\u0443 \u0432 CurrencyId"),
-                react_1.default.createElement("br", null),
-                react_1.default.createElement("input", { type: "checkbox", defaultChecked: stockCurrencyActions, onChange: () => setStockCurrencyActions(prev => !prev) }),
-                react_1.default.createElement("br", null),
-                react_1.default.createElement("span", null, "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E"),
-                react_1.default.createElement("input", { type: 'number', value: countStock, step: "0.01", onChange: (e) => setCountStock(+e.target.value) }),
-                react_1.default.createElement("br", null),
                 react_1.default.createElement("span", null, "\u0422\u0438\u043F"),
                 react_1.default.createElement("select", { className: "form-control", value: eventType, onChange: (e) => {
-                        setEventType(+e.target.value);
+                        const newVal = +e.target.value;
+                        if (!showStockBlock(newVal)) {
+                            setStockId(0);
+                            setStockName('');
+                        }
+                        if (!showCountBlock(newVal)) {
+                            setCountStock(0);
+                        }
+                        if (!showCurrencyBlock(newVal)) {
+                            setStockCurrencyId(0);
+                            setStockCurrencyName('');
+                            setStockCurrencyNameFilter('');
+                            setStockCurrencyActions(true);
+                            setPriceStock(0);
+                        }
+                        setEventType(newVal);
                     } },
                     react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.Buy}` }, "\u041F\u043E\u043A\u0443\u043F\u043A\u0430"),
                     react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.CashReplenishment}` }, "\u041F\u043E\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u0435"),
                     react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.Dividends}` }, "\u0414\u0438\u0432\u0438\u0434\u0435\u043D\u0434\u044B"),
                     react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.Sell}` }, "\u041F\u0440\u043E\u0434\u0430\u0436\u0430"),
-                    react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.WithdrawalCash}` }, "\u0412\u044B\u0432\u043E\u0434 \u0441\u0440\u0435\u0434\u0441\u0442\u0432")),
+                    react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.WithdrawalCash}` }, "\u0412\u044B\u0432\u043E\u0434 \u0441\u0440\u0435\u0434\u0441\u0442\u0432"),
+                    react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.CountChange}` }, "\u0418\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0435 \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u0430")),
                 react_1.default.createElement("br", null),
-                react_1.default.createElement("span", null, "\u0426\u0435\u043D\u0430"),
-                react_1.default.createElement("input", { type: 'number', value: priceStock, step: "0.01", onChange: (e) => setPriceStock(+e.target.value) }),
+                showStockBlock(eventType) ? react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement("span", null, "stockId"),
+                    react_1.default.createElement(SelectWithSearch_1.default, { CancelEvent: () => { }, SaveEvent: (id) => {
+                            setStockId(id);
+                            setStockName(stocks.find(x => x.Id === id).Name);
+                            setStocks(stocks.filter(x => x.Id === id));
+                            return true;
+                        }, Selected: { Id: stockId, Text: stockId > 0 ? `${stockId}-${stockName}` : '' }, ValuesWithId: stocks.map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` })), OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
+                            // setTaskId(-1);
+                            let searchBack = yield props.FindStocks(text);
+                            setStocks(searchBack.Data.map(x => new Stock_1.Stock().FillByIStockDataBack(x)));
+                        }) }),
+                    react_1.default.createElement("br", null),
+                    react_1.default.createElement("span", null, "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E"),
+                    react_1.default.createElement("input", { type: 'number', value: countStock, step: "0.01", onChange: (e) => setCountStock(+e.target.value) }),
+                    react_1.default.createElement("br", null)) : react_1.default.createElement(react_1.default.Fragment, null),
+                showCountBlock(eventType) ? react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement("span", null, "\u041A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E"),
+                    react_1.default.createElement("input", { type: 'number', value: countStock, step: "0.01", onChange: (e) => setCountStock(+e.target.value) }),
+                    react_1.default.createElement("br", null)) : react_1.default.createElement(react_1.default.Fragment, null),
+                showCurrencyBlock(eventType) ? react_1.default.createElement(react_1.default.Fragment, null,
+                    react_1.default.createElement("span", null, "CurrencyId"),
+                    react_1.default.createElement(SelectWithSearch_1.default, { CancelEvent: () => { }, SaveEvent: (id) => {
+                            setStockCurrencyId(id);
+                            setStockCurrencyName(stockCurrency.find(x => x.Id === id).Name);
+                            // setStockCurrency(stockCurrency.filter(x => x.Id === id));
+                            return true;
+                        }, Selected: { Id: stockCurrencyId, Text: stockCurrencyId > 0 ? `${stockCurrencyId}-${stockCurrencyName}` : '' }, ValuesWithId: stockCurrency.filter(x => !stockCurrencyNameFilter || x.Name.indexOf(stockCurrencyNameFilter) >= 0)
+                            .map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` })), OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
+                            // setTaskId(-1);
+                            setStockCurrencyNameFilter(text);
+                        }) }),
+                    react_1.default.createElement("br", null),
+                    react_1.default.createElement("span", null, "\u0421\u043F\u0438\u0441\u0430\u0442\u044C\\\u043F\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C \u0441\u0443\u043C\u043C\u0443 \u0432 CurrencyId"),
+                    react_1.default.createElement("br", null),
+                    react_1.default.createElement("input", { type: "checkbox", defaultChecked: stockCurrencyActions, onChange: () => setStockCurrencyActions(prev => !prev) }),
+                    react_1.default.createElement("br", null),
+                    react_1.default.createElement("span", null, "\u0426\u0435\u043D\u0430"),
+                    react_1.default.createElement("input", { type: 'number', value: priceStock, step: "0.01", onChange: (e) => setPriceStock(+e.target.value) })) : react_1.default.createElement(react_1.default.Fragment, null),
                 react_1.default.createElement("br", null),
                 react_1.default.createElement("input", { className: '', type: "datetime-local", value: formatDateTimeToInput(newStockEventDate), onChange: (e) => {
                         if (e.target.value) {
@@ -69052,6 +69092,9 @@ const PortfolioEvents = (props) => {
                     break;
                 case StockEventEnum_1.StockEventEnum.WithdrawalCash:
                     typeStr = 'Вывод средств';
+                    break;
+                case StockEventEnum_1.StockEventEnum.CountChange:
+                    typeStr = 'Изменение количества';
                     break;
             }
             return react_1.default.createElement("div", { key: x.Id, className: 'one-event' },
@@ -70638,6 +70681,7 @@ var StockEventEnum;
     StockEventEnum[StockEventEnum["Sell"] = 3] = "Sell";
     StockEventEnum[StockEventEnum["Dividends"] = 4] = "Dividends";
     StockEventEnum[StockEventEnum["WithdrawalCash"] = 5] = "WithdrawalCash";
+    StockEventEnum[StockEventEnum["CountChange"] = 6] = "CountChange";
 })(StockEventEnum = exports.StockEventEnum || (exports.StockEventEnum = {}));
 ;
 
