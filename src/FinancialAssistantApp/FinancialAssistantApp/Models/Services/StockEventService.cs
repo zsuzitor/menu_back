@@ -5,9 +5,9 @@ using BO.Models.FinancialAssistant.Enums;
 using Common.Models.Exceptions;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
+using FinancialAssistantApp.Models.Handlers.CreateEventHandlers;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
-using Tinkoff.InvestApi.V1;
 
 namespace FinancialAssistantApp.Models.Services
 {
@@ -18,14 +18,16 @@ namespace FinancialAssistantApp.Models.Services
         private readonly IPortfolioRepository _portfolioRepository;
         private readonly IStockElementRepository _stockElementRepository;
         private readonly IStockEventRepository _stockEventRepository;
+        private readonly CreateEventFactory _createEventFactory;
 
-        public StockEventService(IStockRepository stockRepository, IDateTimeProvider datetimProvider, IPortfolioRepository portfolioRepository, IStockElementRepository stockElementRepository, IStockEventRepository stockEventRepository)
+        public StockEventService(IStockRepository stockRepository, IDateTimeProvider datetimProvider, IPortfolioRepository portfolioRepository, IStockElementRepository stockElementRepository, IStockEventRepository stockEventRepository, CreateEventFactory createEventFactory)
         {
             _stockRepository = stockRepository;
             _datetimProvider = datetimProvider;
             _portfolioRepository = portfolioRepository;
             _stockElementRepository = stockElementRepository;
             _stockEventRepository = stockEventRepository;
+            _createEventFactory = createEventFactory;
         }
 
 
@@ -36,138 +38,164 @@ namespace FinancialAssistantApp.Models.Services
             //создать сток если его нет?
             //todo транзакция
 
-            if (obj.CurrencyId <= 0)
-            {
-                obj.CurrencyId = null;
-            }
-
-            if (obj.Price <= 0)
-            {
-                obj.Price = null;
-            }
-
             if (!Enum.IsDefined(typeof(StockEventEnum), obj.Type))
             {
                 throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
             }
+            var eventHandler = _createEventFactory.Get(obj.Type, userId);
+            return await eventHandler.CreateEvent(obj);
 
-            if (obj.Count <= 0 && obj.Type != StockEventEnum.CountChange)
-            {
-                //для CountChange свои правила тк это костыль по сути
-                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotValideStockEvent);
-            }
+            //if (!Enum.IsDefined(typeof(StockEventEnum), obj.Type))
+            //{
+            //    throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
+            //}
 
+            //if (obj.CurrencyId <= 0)
+            //{
+            //    obj.CurrencyId = null;
+            //}
 
+            //if (obj.StockId <= 0)
+            //{
+            //    obj.StockId = null;
+            //}
 
-            if (!await _portfolioRepository.ExistAsync(obj.PortfolioId, userId))
-            {
-                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
-            }
+            //if (obj.Price <= 0)
+            //{
+            //    obj.Price = null;
+            //}
 
-            var stock = await _stockRepository.GetNoTrackAsync(obj.StockId) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
-            if (!stock.IsGlobal && stock.UserId != userId)
-            {
-                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
-
-            }
-
-            if (obj.Type == StockEventEnum.CashReplenishment || obj.Type == StockEventEnum.WithdrawalCash)
-            {
-                if (stock.Type != StockTypeEnum.Currency)
-                {
-                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotValideStockEvent);
-
-                }
-                obj.CurrencyId = null;
-            }
-
-            if (obj.Type == StockEventEnum.CountChange)
-            {
-                obj.CurrencyId = null;
-                obj.CurrencyActions = false;
-            }
-
-            if (obj.Type == StockEventEnum.Dividends)
-            {
-                obj.CurrencyActions = true;
-                obj.Count = 1;
-            }
-
-
-            if (((obj.Price != null) && (obj.CurrencyId == null))
-                || ((obj.Price == null) && (obj.CurrencyId != null)))
-            {
-                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotValideStockEvent);
-            }
+            //if (!(obj.Type == StockEventEnum.Buy
+            //    || obj.Type == StockEventEnum.Sell
+            //    || obj.Type == StockEventEnum.Dividends
+            //    || obj.Type == StockEventEnum.CountChange))
+            //{
+            //    obj.StockId = null;
+            //}
 
 
 
-            Stock currency = await GetCurrencyWithValidate(obj.CurrencyId, userId);
+            //if (obj.Type == StockEventEnum.CashReplenishment || obj.Type == StockEventEnum.WithdrawalCash)
+            //{
+            //    if (stock.Type != StockTypeEnum.Currency)
+            //    {
+            //        throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotValideStockEvent);
+
+            //    }
+            //    obj.CurrencyId = null;
+            //}
+
+            //if (obj.Type == StockEventEnum.CountChange)
+            //{
+            //    obj.CurrencyId = null;
+            //    obj.CurrencyActions = false;
+            //}
+
+            //if (obj.Type == StockEventEnum.Dividends)
+            //{
+            //    obj.CurrencyActions = true;
+            //    obj.Count = 1;
+            //}
 
 
-            var element = await _stockElementRepository.Get(obj.PortfolioId, obj.StockId);
-            if (obj.Type != StockEventEnum.Dividends && obj.Type != StockEventEnum.CashReplenishment && obj.Type != StockEventEnum.WithdrawalCash)
-            {
-                // если ивенты чисто денежные то стока не будет, менять нечего, работаем с currency
-
-                if (element == null)
-                {
-                    var elem = new StockElement()
-                    {
-                        StockId = stock.Id,
-                        Count = obj.Type == StockEventEnum.Sell || obj.Type == StockEventEnum.WithdrawalCash ? obj.Count * -1 : obj.Count,
-                        PortfolioId = obj.PortfolioId,
-                    };
-                    element = await _stockElementRepository.AddAsync(elem);
-                }
-                else
-                {
-                    element.Count += obj.Type == StockEventEnum.Sell || obj.Type == StockEventEnum.WithdrawalCash ? obj.Count * -1 : obj.Count;
-                    element = await _stockElementRepository.UpdateAsync(element);
-                }
 
 
-            }
+            //if (obj.Count <= 0 && obj.Type != StockEventEnum.CountChange)
+            //{
+            //    //для CountChange свои правила тк это костыль по сути
+            //    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotValideStockEvent);
+            //}
 
 
-            if (currency != null && obj.CurrencyActions)
-            {
-                //списываем деньги
-                var currencyElement = await _stockElementRepository.Get(obj.PortfolioId, obj.CurrencyId.Value);
-                if (currencyElement == null)
-                {
-                    var elem = new StockElement()
-                    {
-                        StockId = currency.Id,
-                        Count = obj.Type == StockEventEnum.Sell || obj.Type == StockEventEnum.Dividends ? obj.Price.Value * obj.Count : obj.Price.Value * -1 * obj.Count,
-                        PortfolioId = obj.PortfolioId,
-                    };
-                    currencyElement = await _stockElementRepository.AddAsync(elem);
-                }
-                else
-                {
-                    currencyElement.Count += obj.Type == StockEventEnum.Sell || obj.Type == StockEventEnum.Dividends ? obj.Price.Value * obj.Count : obj.Price.Value * -1 * obj.Count;
-                    currencyElement = await _stockElementRepository.UpdateAsync(currencyElement);
-                }
-            }
 
-            var newObj = new StockEvent()
-            {
-                Date = _datetimProvider.CurrentDateTime(),
-                Count = obj.Count,
-                Type = obj.Type,
-                StockElementId = element.Id,
-                CurrencyId = obj.CurrencyId,
-                Price = obj.Price,
-                PortfolioId = obj.PortfolioId
-            };
+            //if (!await _portfolioRepository.ExistAsync(obj.PortfolioId, userId))
+            //{
+            //    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+            //}
 
-            var result =  await _stockEventRepository.AddAsync(newObj);
+            //var stock = await _stockRepository.GetNoTrackAsync(obj.StockId) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
+            //if (!stock.IsGlobal && stock.UserId != userId)
+            //{
+            //    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
 
-            result.Currency = currency;
-            result.StockElement = element;
-            result.StockElement.Stock = stock;
-            return result;
+            //}
+
+
+
+            //if (((obj.Price != null) && (obj.CurrencyId == null))
+            //    || ((obj.Price == null) && (obj.CurrencyId != null)))
+            //{
+            //    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotValideStockEvent);
+            //}
+
+
+
+            //Stock currency = await _stockRepository.GetCurrencyWithValidate(obj.CurrencyId, userId);
+
+
+            //var element = await _stockElementRepository.Get(obj.PortfolioId, obj.StockId);
+            //if (obj.Type != StockEventEnum.Dividends && obj.Type != StockEventEnum.CashReplenishment && obj.Type != StockEventEnum.WithdrawalCash)
+            //{
+            //    // если ивенты чисто денежные то стока не будет, менять нечего, работаем с currency
+
+            //    if (element == null)
+            //    {
+            //        var elem = new StockElement()
+            //        {
+            //            StockId = stock.Id,
+            //            Count = obj.Type == StockEventEnum.Sell || obj.Type == StockEventEnum.WithdrawalCash ? obj.Count * -1 : obj.Count,
+            //            PortfolioId = obj.PortfolioId,
+            //        };
+            //        element = await _stockElementRepository.AddAsync(elem);
+            //    }
+            //    else
+            //    {
+            //        element.Count += obj.Type == StockEventEnum.Sell || obj.Type == StockEventEnum.WithdrawalCash ? obj.Count * -1 : obj.Count;
+            //        element = await _stockElementRepository.UpdateAsync(element);
+            //    }
+
+
+            //}
+
+
+            //if (currency != null && obj.CurrencyActions)
+            //{
+            //    //списываем деньги
+            //    var currencyElement = await _stockElementRepository.Get(obj.PortfolioId, obj.CurrencyId.Value);
+            //    if (currencyElement == null)
+            //    {
+            //        var elem = new StockElement()
+            //        {
+            //            StockId = currency.Id,
+            //            Count = obj.Type == StockEventEnum.Sell || obj.Type == StockEventEnum.Dividends ? obj.Price.Value * obj.Count : obj.Price.Value * -1 * obj.Count,
+            //            PortfolioId = obj.PortfolioId,
+            //        };
+            //        currencyElement = await _stockElementRepository.AddAsync(elem);
+            //    }
+            //    else
+            //    {
+            //        currencyElement.Count += obj.Type == StockEventEnum.Sell || obj.Type == StockEventEnum.Dividends ? obj.Price.Value * obj.Count : obj.Price.Value * -1 * obj.Count;
+            //        currencyElement = await _stockElementRepository.UpdateAsync(currencyElement);
+            //    }
+            //}
+
+            //var newObj = new StockEvent()
+            //{
+            //    Date = _datetimProvider.CurrentDateTime(),
+            //    Count = obj.Count,
+            //    Type = obj.Type,
+            //    StockElementId = element.Id,
+            //    CurrencyId = obj.CurrencyId,
+            //    Price = obj.Price,
+            //    PortfolioId = obj.PortfolioId
+            //};
+
+            //var result =  await _stockEventRepository.AddAsync(newObj);
+
+            //result.Currency = currency;
+            //result.StockElement = element;
+            //result.StockElement.Stock = stock;
+            //return result;
 
         }
 
@@ -181,25 +209,15 @@ namespace FinancialAssistantApp.Models.Services
             return await _stockEventRepository.GetForPortfolioAsync(portfolioId);
         }
 
-        private async Task<Stock> GetCurrencyWithValidate(long? currencyId, long userId)
+        public async Task<List<StockEvent>> GetForStockAsync(long portfolioId, long stockId, long userId)
         {
-            //todo вынести куда то в 1 место
-            Stock currency = null;
-            if (currencyId != null)
+            if (!await _portfolioRepository.ExistAsync(portfolioId, userId))
             {
-
-                currency = await _stockRepository.GetNoTrackAsync(currencyId.Value) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
-                if (!currency.IsGlobal && currency.UserId != userId)
-                {
-                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
-
-                }
-                if ((currency.Type != StockTypeEnum.Currency))
-                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
             }
 
-            return currency;
-        }
+            return await _stockEventRepository.GetForStockAsync(portfolioId, stockId);
 
+        }
     }
 }

@@ -59,6 +59,7 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 Date = p.Date,
                 Price = p.Price,
                 Type = p.Type,
+                CurrencyActions = p.CurrencyActions,
             };
         }
 

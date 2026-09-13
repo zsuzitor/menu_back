@@ -9,7 +9,7 @@ namespace FinancialAssistantApp.Models.DTO
         public StockEventEnum Type { get; set; }
 
         //public long StockElementId { get; set; }
-        public long StockId { get; set; }
+        public long? StockId { get; set; }
 
         public decimal? Price { get; set; }
         public long? CurrencyId { get; set; }

@@ -2,6 +2,7 @@
 using Common.Models;
 using FinancialAssistantApp.Models.DAL.Repositories;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
+using FinancialAssistantApp.Models.Handlers.CreateEventHandlers;
 using FinancialAssistantApp.Models.Services;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
@@ -63,6 +64,11 @@ namespace FinancialAssistantApp.Models
             services.AddScoped<IStockElementService, StockElementService>();
             //services.AddScoped<InvestApiClient, InvestApiClient>();
             services.AddInvestApiClient((_, settings) => settings.AccessToken = config["FinancialAssistantApp:TBankAuthToken"]);
+
+
+
+
+            services.AddScoped<CreateEventFactory, CreateEventFactory>();
             
 
 

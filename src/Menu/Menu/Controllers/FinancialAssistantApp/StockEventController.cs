@@ -51,6 +51,16 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
             return new JsonResult(res.Select(x => x.Map()), GetJsonOptions());
         }
 
+        [Route("get-events-for-stock")]
+        [HttpGet]
+        [CustomAuthorize]
+        public async Task<ActionResult<List<StockEventReturn>>> GetStockHistory(long portfolioId, long stockId)
+        {
+            var userId = User.GetUserId();
+            var res = await _stockEventService.GetForStockAsync(portfolioId, stockId, userId);
+            return new JsonResult(res.Select(x => x.Map()), GetJsonOptions());
+        }
+
 
         private JsonSerializerOptions GetJsonOptions()
         {

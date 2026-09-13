@@ -111,14 +111,24 @@ namespace FinancialAssistantApp.Models.Services
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
             }
 
-            var stock = await _stockRepository.GetNoTrackAsync(req.StockId) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
-            if (!stock.IsGlobal && stock.UserId != userId)
+            var stock = await _stockRepository.GetAsync(req.StockId) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
+
+            if (stock.IsGlobal)
+            {
+                var admin = await _userService.IsAdminAsync(userId);
+                if (!admin)
+                {
+                    throw new SomeCustomNotAllowedException();
+                }
+            }
+            else if (stock.UserId != userId)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
 
             }
 
-            var currency = await GetCurrencyWithValidate(req.CurrencyId, userId);
+
+            var currency = await _stockRepository.GetCurrencyWithValidate(req.CurrencyId, userId);
             var history = new StockHistory()
             {
                 CurrencyId = req.CurrencyId,
@@ -127,6 +137,10 @@ namespace FinancialAssistantApp.Models.Services
                 StockId = req.StockId,
             };
             var result = await _stockHistoryRepository.AddAsync(history);
+            stock.LastPrice = req.Price;
+            stock.CurrencyId = currency.Id;
+            await _stockRepository.UpdateAsync(stock);
+
             result.Currency = currency;
             return result;
         }
@@ -271,24 +285,5 @@ namespace FinancialAssistantApp.Models.Services
         }
 
 
-        private async Task<Stock> GetCurrencyWithValidate(long? currencyId, long userId)
-        {
-            //todo вынести куда то в 1 место
-            Stock currency = null;
-            if (currencyId != null)
-            {
-
-                currency = await _stockRepository.GetNoTrackAsync(currencyId.Value) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
-                if (!currency.IsGlobal && currency.UserId != userId)
-                {
-                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
-
-                }
-                if ((currency.Type != StockTypeEnum.Currency))
-                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
-            }
-
-            return currency;
-        }
     }
 }

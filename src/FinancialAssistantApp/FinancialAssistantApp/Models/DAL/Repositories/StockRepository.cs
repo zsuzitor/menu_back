@@ -1,5 +1,6 @@
 ﻿using BO.Models.DAL.Domain;
 using BO.Models.FinancialAssistant.DAL;
+using Common.Models.Exceptions;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
@@ -49,7 +50,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
         public async Task<List<Stock>> GetCurrencyAsync(long? userId)
         {
             return await _db.Stock.AsNoTracking().Where(x =>
-            (x.IsGlobal || x.UserId == userId)
+            (x.IsGlobal || x.UserId == userId) && x.Type == BO.Models.FinancialAssistant.Enums.StockTypeEnum.Currency
             ).ToListAsync();
 
         }
@@ -62,6 +63,26 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
 
         }
 
+
+        public async Task<Stock> GetCurrencyWithValidate(long? currencyId, long userId)
+        {
+            //todo вынести куда то в 1 место
+            Stock currency = null;
+            if (currencyId != null)
+            {
+
+                currency = await GetNoTrackAsync(currencyId.Value) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
+                if (!currency.IsGlobal && currency.UserId != userId)
+                {
+                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
+
+                }
+                if ((currency.Type != BO.Models.FinancialAssistant.Enums.StockTypeEnum.Currency))
+                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
+            }
+
+            return currency;
+        }
 
     }
 }

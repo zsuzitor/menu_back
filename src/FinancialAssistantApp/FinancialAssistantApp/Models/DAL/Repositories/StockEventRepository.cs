@@ -21,5 +21,15 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .Include(x => x.StockElement).ThenInclude(x => x.Stock)
                 .Where(x => x.PortfolioId == portfolioId).ToListAsync();
         }
+
+        public async Task<List<StockEvent>> GetForStockAsync(long portfolioId, long stockId)
+        {
+            return await _db.StockEvent
+                .AsNoTracking()
+                .Include(x => x.Currency)
+                .Include(x => x.StockElement).ThenInclude(x => x.Stock)
+                .Where(x => x.PortfolioId == portfolioId && x.StockElement.StockId == stockId).ToListAsync();
+
+        }
     }
 }
