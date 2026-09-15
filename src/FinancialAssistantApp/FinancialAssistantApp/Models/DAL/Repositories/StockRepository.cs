@@ -1,5 +1,4 @@
-﻿using BO.Models.DAL.Domain;
-using BO.Models.FinancialAssistant.DAL;
+﻿using BO.Models.FinancialAssistant.DAL;
 using Common.Models.Exceptions;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
