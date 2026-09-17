@@ -68,7 +68,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
             var stock = await GetStock(obj);
 
             var element = await GetStockElement(obj);
-            if (element != null)
+            if (element != null && await StockElementCanChange(obj))
             {
                 if (element.Id > 0)
                 {
@@ -96,23 +96,27 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 }
             }
 
-            var newObj = new StockEvent()
-            {
-                Date = _datetimProvider.CurrentDateTime(),
-                Count = obj.Count,
-                Type = obj.Type,
-                StockElementId = element?.Id ?? elementCurrency.Id,
-                CurrencyId = obj.CurrencyId,
-                Price = obj.Price,
-                PortfolioId = obj.PortfolioId
-            };
+            var newObj = await GetStockEvent(obj);
+            //    new StockEvent()
+            //{
+            //    Date = _datetimProvider.CurrentDateTime(),
+            //    MainCountChange = obj.Count,
+            //    MainCountNow = element?.Count ?? elementCurrency.Count,
+            //    Type = obj.Type,
+            //    MainElementId = element?.Id ?? elementCurrency.Id,
+            //    CurrencyId = obj.CurrencyId,
+            //    Price = obj.Price,
+            //    PortfolioId = obj.PortfolioId
+            //};
 
             var result = await _stockEventRepository.AddAsync(newObj);
+            result.MainElement = element;
+            if (result.MainElement != null)
+                result.MainElement.Stock = stock;
+            result.SubElement = elementCurrency;
+            if (result.SubElement != null)
+                result.SubElement.Stock = currency;
 
-
-            result.Currency = currency;
-            result.StockElement = element ?? elementCurrency;
-            result.StockElement.Stock = stock ?? currency;
             return result;
 
         }
@@ -120,8 +124,10 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
 
         protected abstract Task ValidateRequest(StockEventCreate obj);
         protected abstract Task<StockElement> GetStockElement(StockEventCreate obj);
+        protected abstract Task<bool> StockElementCanChange(StockEventCreate obj);
         protected abstract Task<StockElement> GetCurrencyElement(StockEventCreate obj);
         protected abstract Task<Stock> GetCurrency(StockEventCreate obj);
+        protected abstract Task<StockEvent> GetStockEvent(StockEventCreate obj);
         protected abstract Task<Stock> GetStock(StockEventCreate obj);
 
 

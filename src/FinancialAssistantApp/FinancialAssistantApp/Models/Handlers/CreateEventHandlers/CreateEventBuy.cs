@@ -4,6 +4,7 @@ using BO.Models.FinancialAssistant.Enums;
 using Common.Models.Exceptions;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
+using System.Xml.Linq;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
@@ -17,6 +18,9 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         }
 
         protected override StockEventEnum Type => StockEventEnum.Buy;
+
+        private StockElement Main;
+        private StockElement Sub;
 
 
         protected override async Task<Stock> GetCurrency(StockEventCreate obj)
@@ -46,6 +50,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 currencyElement.Count += obj.CurrencyActions ? obj.Price.Value * -1 * obj.Count:0;
             }
 
+            Sub = currencyElement;
             return currencyElement;
         }
 
@@ -79,8 +84,27 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
             {
                 element.Count += obj.Count;
             }
+            Main = element;
             return element;
 
+        }
+
+        protected override async Task<StockEvent> GetStockEvent(StockEventCreate obj)
+        {
+            var newObj = new StockEvent()
+            {
+                Date = _datetimProvider.CurrentDateTime(),
+                MainCountChange = obj.Count,
+                MainCountNow = Main.Count,
+                Type = obj.Type,
+                MainElementId = Main.Id ,
+                PortfolioId = obj.PortfolioId,
+                SubCountChange = obj.Price,
+                SubCountNow = Sub.Count,
+                SubElementId = Sub.Id,
+            };
+
+            return newObj;
         }
 
         protected override async Task ValidateRequest(StockEventCreate obj)
@@ -103,6 +127,11 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotValideStockEvent);
             }
+        }
+
+        protected override async Task<bool> StockElementCanChange(StockEventCreate obj)
+        {
+            return true;
         }
     }
 }

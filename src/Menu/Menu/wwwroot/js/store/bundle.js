@@ -68421,6 +68421,7 @@ const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/
 const ControllerHelper_1 = __webpack_require__(/*! ../../../../Models/Controllers/ControllerHelper */ "./src/Models/Controllers/ControllerHelper.ts");
 const SelectWithSearch_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SelectWithSearch/SelectWithSearch */ "./src/components/Body/SelectWithSearch/SelectWithSearch.tsx"));
 const StockEventEnum_1 = __webpack_require__(/*! ../../Models/Entity/State/Enum/StockEventEnum */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Enum/StockEventEnum.ts");
+const AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 __webpack_require__(/*! ./AddStockEvent.css */ "./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEvent.css");
 const AddStockEvent = (props) => {
     const [countStock, setCountStock] = (0, react_1.useState)(0);
@@ -68438,7 +68439,7 @@ const AddStockEvent = (props) => {
     const [stockCurrencyNameFilter, setStockCurrencyNameFilter] = (0, react_1.useState)('');
     //----
     //
-    const [stockId, setStockId] = (0, react_1.useState)(0);
+    const [stockId, setStockId] = (0, react_1.useState)(props.StockId || 0);
     const [stockName, setStockName] = (0, react_1.useState)('');
     const [stocks, setStocks] = (0, react_1.useState)([]);
     //
@@ -68450,10 +68451,15 @@ const AddStockEvent = (props) => {
         return () => {
         };
     }, []);
+    // useEffect(() => {
+    //     if (props.PortfolioId > 0) {
+    //     }
+    // }, [props.PortfolioId]);
     (0, react_1.useEffect)(() => {
-        if (props.PortfolioId > 0) {
+        if (props.StockId && props.StockId > 0) {
+            setStockId(props.StockId);
         }
-    }, [props.PortfolioId]);
+    }, [props.StockId]);
     function formatDateTimeToInput(date) {
         const help = new Helper_1.Helper();
         return help.FormatDateToInputWithTime(date);
@@ -68468,6 +68474,10 @@ const AddStockEvent = (props) => {
         return newDt;
     };
     const showStockBlock = (type) => {
+        if (props.StockId) {
+            //если мы уже на странице stock то не даем выбирать
+            return false;
+        }
         return (type == StockEventEnum_1.StockEventEnum.Buy
             || type == StockEventEnum_1.StockEventEnum.Sell
             || type == StockEventEnum_1.StockEventEnum.Dividends
@@ -68510,11 +68520,12 @@ const AddStockEvent = (props) => {
                         setEventType(newVal);
                     } },
                     react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.Buy}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.Buy)),
-                    react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.CashReplenishment}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.CashReplenishment)),
                     react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.Dividends}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.Dividends)),
                     react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.Sell}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.Sell)),
-                    react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.WithdrawalCash}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.WithdrawalCash)),
-                    react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.CountChange}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.CountChange))),
+                    react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.CountChange}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.CountChange)),
+                    props.StockId ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement(react_1.default.Fragment, null,
+                        react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.WithdrawalCash}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.WithdrawalCash)),
+                        react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.CashReplenishment}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.CashReplenishment)))),
                 react_1.default.createElement("br", null),
                 showStockBlock(eventType) ? react_1.default.createElement(react_1.default.Fragment, null,
                     react_1.default.createElement("span", null, "stockId"),
@@ -68573,7 +68584,12 @@ const AddStockEvent = (props) => {
                         dt.Price = priceStock;
                         dt.Type = eventType;
                         dt.CurrencyActions = stockCurrencyActions;
-                        props.Create(dt).then(x => props.EventAdded());
+                        props.Create(dt).then(x => {
+                            let alertFactory = new AlertData_1.AlertData();
+                            let alert = alertFactory.GetDefaultNotify("Событие создано");
+                            window.G_AddAbsoluteAlertToState(alert);
+                            props.EventAdded();
+                        });
                     } }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u0431\u044B\u0442\u0438\u0435"))),
         react_1.default.createElement("div", { className: 'portfolio-elements-block' }));
 };
@@ -68809,7 +68825,7 @@ const PortfolioDetail = (props) => {
     }
     const portfolioEventsUrl = new RouteBuilder_1.default().PortfolioHistoryUrl(props.PortfolioId);
     return react_1.default.createElement("div", { className: 'portfolio-page' },
-        showNewEventWindow ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowNewEventWindow(false), IsHeightWindow: false, Title: '\u041D\u043E\u0432\u043E\u0435 \u0441\u043E\u0431\u044B\u0442\u0438\u0435', InnerContent: () => react_1.default.createElement(AddStockEvent_1.default, { EventAdded: () => props.LoadPortfolioElements(props.PortfolioId) }) }) : react_1.default.createElement(react_1.default.Fragment, null),
+        showNewEventWindow ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowNewEventWindow(false), IsHeightWindow: false, Title: '\u041D\u043E\u0432\u043E\u0435 \u0441\u043E\u0431\u044B\u0442\u0438\u0435', InnerContent: () => react_1.default.createElement(AddStockEvent_1.default, { EventAdded: () => props.LoadPortfolioElements(props.PortfolioId), StockId: null }) }) : react_1.default.createElement(react_1.default.Fragment, null),
         showEditWindow ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowEditWindow(false), IsHeightWindow: true, Title: '\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u0430', InnerContent: () => react_1.default.createElement(PortfolioEdit_1.default, { Portfolio: props.Portfolio, Currency: portfolioCurrencys }) }) : react_1.default.createElement(react_1.default.Fragment, null),
         react_1.default.createElement("div", null,
             react_1.default.createElement("div", { className: 'portfolio-name' },
@@ -69518,7 +69534,7 @@ const StockDetail = (props) => {
     }
     const portfolioUrl = new RouteBuilder_1.default().PortfolioUrl(props.PortfolioId);
     return react_1.default.createElement("div", { className: 'stock-page' },
-        showNewEventWindow ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowNewEventWindow(false), IsHeightWindow: false, Title: '\u041D\u043E\u0432\u043E\u0435 \u0441\u043E\u0431\u044B\u0442\u0438\u0435', InnerContent: () => react_1.default.createElement(AddStockEvent_1.default, { EventAdded: () => { LoadEvents(props.StockId, props.PortfolioId); } }) }) : react_1.default.createElement(react_1.default.Fragment, null),
+        showNewEventWindow ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowNewEventWindow(false), IsHeightWindow: false, Title: '\u041D\u043E\u0432\u043E\u0435 \u0441\u043E\u0431\u044B\u0442\u0438\u0435', InnerContent: () => react_1.default.createElement(AddStockEvent_1.default, { EventAdded: () => { LoadEvents(props.StockId, props.PortfolioId); }, StockId: props.Stock.Id }) }) : react_1.default.createElement(react_1.default.Fragment, null),
         react_1.default.createElement("div", null,
             props.PortfolioId ? react_1.default.createElement(react_1.default.Fragment, null,
                 react_1.default.createElement("a", { href: portfolioUrl, onClick: (e) => {
@@ -69584,7 +69600,9 @@ const StockDetail = (props) => {
                                 new StockEventEnum_1.StockEventEnumToString().ToString(x.Type),
                                 " ",
                                 x.Count,
-                                " \u0448\u0442\u0443\u043A, \u043F\u043E \u0446\u0435\u043D\u0435 ",
+                                " \u0448\u0442\u0443\u043A ",
+                                x.StockName,
+                                ", \u043F\u043E \u0446\u0435\u043D\u0435 ",
                                 x.Price,
                                 " ",
                                 x.CurrencyName));

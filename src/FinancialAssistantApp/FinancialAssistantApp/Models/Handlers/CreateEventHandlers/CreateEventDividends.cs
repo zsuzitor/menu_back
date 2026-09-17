@@ -4,6 +4,7 @@ using BO.Models.FinancialAssistant.Enums;
 using Common.Models.Exceptions;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
+using Microsoft.AspNetCore.SignalR;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
@@ -17,6 +18,8 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         }
 
         protected override StockEventEnum Type => StockEventEnum.Dividends;
+        private StockElement Main;
+        private StockElement Sub;
 
 
 
@@ -38,16 +41,17 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 var elem = new StockElement()
                 {
                     StockId = obj.CurrencyId.Value,
-                    Count = obj.CurrencyActions ?  obj.Count:0 ,
+                    Count = obj.CurrencyActions ?  obj.Price.Value:0 ,
                     PortfolioId = obj.PortfolioId,
                 };
                 currencyElement = elem;
             }
             else
             {
-                currencyElement.Count += obj.CurrencyActions ? obj.Count:0;
+                currencyElement.Count += obj.CurrencyActions ? obj.Price.Value : 0;
             }
 
+            Sub = currencyElement;
             return currencyElement;
         }
 
@@ -66,7 +70,21 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         protected override async Task<StockElement> GetStockElement(StockEventCreate obj)
         {
             // если ивенты чисто денежные то стока не будет, менять нечего, работаем с currency
-            return null;
+
+            var element = await _stockElementRepository.Get(obj.PortfolioId, obj.StockId.Value);
+
+            if (element == null)
+            {
+                var elem = new StockElement()
+                {
+                    StockId = obj.StockId.Value,
+                    Count = 0,
+                    PortfolioId = obj.PortfolioId,
+                };
+                element = elem;
+            }
+            Main = element;
+            return element;
 
         }
 
@@ -86,8 +104,31 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotValideStockEvent);
             }
 
-            obj.Count = obj.Price.Value;
-            obj.Price = 1;
+            //obj.Count = obj.Price.Value;
+            //obj.Price = 1;
+        }
+
+        protected override async Task<StockEvent> GetStockEvent(StockEventCreate obj)
+        {
+            var newObj = new StockEvent()
+            {
+                Date = _datetimProvider.CurrentDateTime(),
+                MainCountChange = 0,
+                MainCountNow = Main.Count,
+                Type = obj.Type,
+                MainElementId = Main.Id,
+                PortfolioId = obj.PortfolioId,
+                SubCountChange = obj.Price,
+                SubCountNow = Sub.Count,
+                SubElementId = Sub.Id,
+            };
+
+            return newObj;
+        }
+
+        protected override async Task<bool> StockElementCanChange(StockEventCreate obj)
+        {
+            return false;
         }
     }
 }

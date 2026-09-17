@@ -1,7 +1,6 @@
 ﻿
 
 using BO.Models.DAL;
-using System.Collections.Generic;
 
 namespace BO.Models.FinancialAssistant.DAL
 {
@@ -16,7 +15,7 @@ namespace BO.Models.FinancialAssistant.DAL
         public long PortfolioId { get; set; }
         public Portfolio Portfolio { get; set; }
 
-        public List<StockEvent> Events { get; set; }
+        //public List<StockEvent> Events { get; set; }
         public byte[] RowVersion { get; set; }
 
     }

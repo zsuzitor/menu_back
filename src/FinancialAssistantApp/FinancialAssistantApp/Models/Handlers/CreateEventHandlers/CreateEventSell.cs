@@ -4,6 +4,7 @@ using BO.Models.FinancialAssistant.Enums;
 using Common.Models.Exceptions;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
+using Microsoft.AspNetCore.SignalR;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
@@ -17,6 +18,8 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         }
 
         protected override StockEventEnum Type => StockEventEnum.Sell;
+        private StockElement Main;
+        private StockElement Sub;
 
 
 
@@ -47,6 +50,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 currencyElement.Count += obj.CurrencyActions ? obj.Price.Value  * obj.Count:0;
             }
 
+            Sub = currencyElement;
             return currencyElement;
         }
 
@@ -80,6 +84,8 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
             {
                 element.Count += obj.Count * -1 ;
             }
+
+            Main = element;
             return element;
 
         }
@@ -103,6 +109,29 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotValideStockEvent);
             }
+        }
+
+        protected override async Task<StockEvent> GetStockEvent(StockEventCreate obj)
+        {
+            var newObj = new StockEvent()
+            {
+                Date = _datetimProvider.CurrentDateTime(),
+                MainCountChange = obj.Count,
+                MainCountNow = Main.Count,
+                Type = obj.Type,
+                MainElementId = Main.Id,
+                PortfolioId = obj.PortfolioId,
+                SubCountChange = obj.Price,
+                SubCountNow = Sub.Count,
+                SubElementId = Sub.Id,
+            };
+
+            return newObj;
+        }
+
+        protected override async Task<bool> StockElementCanChange(StockEventCreate obj)
+        {
+            return true;
         }
     }
 }

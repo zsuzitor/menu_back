@@ -4,6 +4,7 @@ using BO.Models.FinancialAssistant.Enums;
 using Common.Models.Exceptions;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
+using Microsoft.AspNetCore.SignalR;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
@@ -17,6 +18,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         }
 
         protected override  StockEventEnum Type => StockEventEnum.CashReplenishment;
+        private StockElement Main;
 
 
 
@@ -47,6 +49,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 currencyElement.Count += obj.CurrencyActions ?  obj.Count : 0;
             }
 
+            Main = currencyElement;
             return currencyElement;
         }
 
@@ -59,6 +62,11 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         {
             // если ивенты чисто денежные то стока не будет, менять нечего, работаем с currency
             return null;
+        }
+
+        protected override async Task<bool> StockElementCanChange(StockEventCreate obj)
+        {
+            return false;
         }
 
         protected override async Task ValidateRequest(StockEventCreate obj)
@@ -75,6 +83,21 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
 
             obj.Count = obj.Price.Value;
             obj.Price = 1;
+        }
+
+        protected override async Task<StockEvent> GetStockEvent(StockEventCreate obj)
+        {
+            var newObj = new StockEvent()
+            {
+                Date = _datetimProvider.CurrentDateTime(),
+                MainCountChange = obj.Count,
+                MainCountNow = Main.Count,
+                Type = obj.Type,
+                MainElementId = Main.Id,
+                PortfolioId = obj.PortfolioId,
+            };
+
+            return newObj;
         }
     }
 }

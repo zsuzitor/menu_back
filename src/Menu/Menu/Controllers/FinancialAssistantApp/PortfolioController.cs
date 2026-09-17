@@ -53,6 +53,16 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
             return new JsonResult(res.Map(), GetJsonOptions());
         }
 
+        [Route("get-statistic")]
+        [HttpGet]
+        [CustomAuthorize]
+        public async Task<ActionResult<PortfolioStatisticReturn>> GetStatistic(long[] id)
+        {
+            var userId = User.GetUserId();
+            var res = await _portfolioService.GetStatisticAsync(id, userId);
+            return new JsonResult(res.Map(), GetJsonOptions());
+        }
+
         [Route("create")]
         [HttpPut]
         [CustomAuthorize]

@@ -4,6 +4,7 @@ using BO.Models.FinancialAssistant.Enums;
 using Common.Models.Exceptions;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
+using Microsoft.AspNetCore.SignalR;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
@@ -17,6 +18,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         }
 
         protected override StockEventEnum Type => StockEventEnum.CountChange;
+        private StockElement Main;
 
 
 
@@ -60,6 +62,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
             {
                 element.Count +=  obj.Count;
             }
+            Main = element;
             return element;
 
         }
@@ -73,6 +76,26 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
             {
                 throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
             }
+        }
+
+        protected override async Task<StockEvent> GetStockEvent(StockEventCreate obj)
+        {
+            var newObj = new StockEvent()
+            {
+                Date = _datetimProvider.CurrentDateTime(),
+                MainCountChange = obj.Count,
+                MainCountNow = Main.Count,
+                Type = obj.Type,
+                MainElementId = Main.Id,
+                PortfolioId = obj.PortfolioId,
+            };
+
+            return newObj;
+        }
+
+        protected override async Task<bool> StockElementCanChange(StockEventCreate obj)
+        {
+            return true;
         }
     }
 }

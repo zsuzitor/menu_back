@@ -10,10 +10,10 @@ namespace DAL.Models.DAL.ContextSetup.FinancialAssistant
             modelBuilder.Entity<StockEvent>(entity =>
             {
                 entity.HasKey(x => x.Id);
-                entity.HasOne(x => x.Currency).WithMany()
-                    .HasForeignKey(x => x.CurrencyId).OnDelete(DeleteBehavior.NoAction);
-                entity.HasOne(x => x.StockElement).WithMany(x=>x.Events)
-                    .HasForeignKey(x => x.StockElementId).OnDelete(DeleteBehavior.NoAction);
+                entity.HasOne(x => x.SubElement).WithMany()
+                    .HasForeignKey(x => x.MainElementId).OnDelete(DeleteBehavior.NoAction);
+                entity.HasOne(x => x.MainElement).WithMany()
+                    .HasForeignKey(x => x.MainElementId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasOne(x => x.Portfolio).WithMany(x => x.Events)
                     .HasForeignKey(x => x.PortfolioId).OnDelete(DeleteBehavior.NoAction);
                 entity.ToTable("StockEvent", schema: "FinancialAssistantApp");

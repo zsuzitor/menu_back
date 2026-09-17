@@ -21,6 +21,15 @@ namespace Menu.Host.Models.FinancialAssistantApp
         }
 
 
+        public static PortfolioStatisticReturn Map(this PortfolioStatistic p)
+        {
+            return new PortfolioStatisticReturn()
+            {
+            };
+        }
+        
+
+
         public static PortfolioCreate Map(this CreatePortfolioRequest p)
         {
             return new PortfolioCreate()
@@ -41,7 +50,7 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 PortfolioId = p.PortfolioId,
                 StockId = p.StockId,
                 StockName = p.StockName,
-                Price = Math.Round(p.Price, 3),
+                Price = Math.Round(p.Price, 3),//.Normalize()// тут из за конвертации валют страшное число получается
                 Sum = Math.Round(p.Count * p.Price, 3),
                 CurrencyId = p.CurrencyId,
                 CurrencyName = p.CurrencyName,
@@ -67,16 +76,16 @@ namespace Menu.Host.Models.FinancialAssistantApp
         {
             return new StockEventReturn()
             {
-                Count = p.Count,
+                Count = p.MainCountChange,
                 Id = p.Id,
                 PortfolioId = p.PortfolioId,
                 Type = p.Type,
-                Price = p.Price,
+                Price = p.SubCountChange,
                 Date = p.Date,
-                CurrencyId = p.CurrencyId,
-                CurrencyName = p.Currency?.Name,
-                StockElementId = p.StockElementId,
-                StockName = p.StockElement?.Stock?.Name,
+                CurrencyId = p.SubElement?.StockId,
+                CurrencyName = p.SubElement?.Stock?.Name,
+                StockElementId = p.MainElementId,
+                StockName = p.MainElement?.Stock?.Name,
             };
         }
 
