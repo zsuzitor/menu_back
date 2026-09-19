@@ -31,6 +31,14 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 (x.UserId == userId || x.IsGlobal)).ToListAsync();
         }
 
+
+        public async Task<List<Stock>> GetForUserWithHistoryAsync(long? userId)
+        {
+            return await _db.Stock.Include(x=>x.StockHistory)
+                .Where(x =>
+                (x.UserId == userId || x.IsGlobal)).ToListAsync();
+        }
+
         public async Task<List<Stock>> GetGlobalByCodesNoTrack(IEnumerable<string> codes)
         {
             return await _db.Stock.AsNoTracking().Where(x => x.IsGlobal && codes.Contains(x.Code)).ToListAsync();
@@ -82,6 +90,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
 
             return currency;
         }
+
 
     }
 }

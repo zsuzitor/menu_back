@@ -54,12 +54,12 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         }
 
         [Route("get-statistic")]
-        [HttpGet]
+        [HttpPost]
         [CustomAuthorize]
-        public async Task<ActionResult<PortfolioStatisticReturn>> GetStatistic(long[] id)
+        public async Task<ActionResult<PortfolioStatisticReturn>> GetStatistic([FromBody] PortfolioStatisticRequest req)
         {
             var userId = User.GetUserId();
-            var res = await _portfolioService.GetStatisticAsync(id, userId);
+            var res = await _portfolioService.GetStatisticAsync(req.Map(), userId);
             return new JsonResult(res.Map(), GetJsonOptions());
         }
 

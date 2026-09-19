@@ -5,7 +5,7 @@ namespace Common.Models.Exceptions
     public class SomeCustomException : Exception, IBaseCusomException
     {
         /// <summary>
-        /// если не задано то key пойдет как body на фронт, если не будет найден в обработчике ошибок
+        /// если Body не задано, тогда key пойдет как body на фронт, если не будет найден в обработчике ошибок
         /// </summary>
         public string Body { get; set; }
 

@@ -70,6 +70,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
             obj.StockId = null;
 
             if (obj.Price == null || obj.CurrencyId == null
+                || obj.Price <= 0 || obj.CurrencyId <= 0
 
 //            ((obj.Price != null) && (obj.CurrencyId == null))
 //|| ((obj.Price == null) && (obj.CurrencyId != null)))

@@ -24,7 +24,7 @@ namespace FinancialAssistantApp.Models.Services
         {
             var portfolio = await _portfolioRepository.GetAsync(portfolioId, userId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
 
-            var elements = await _stockElementRepository.GetWithStockNoTrack(portfolioId);
+            var elements = await _stockElementRepository.GetWithStockNotEmptyNoTrack(portfolioId);
             var allCurr = await _stockRepository.GetCurrencyAsync(userId);
             //загрузить stock для элемента - загружены
             //загрузить валюту для stock
@@ -68,7 +68,12 @@ namespace FinancialAssistantApp.Models.Services
                 var elPrice = countedPrices.FirstOrDefault(x => x.currencyFrom == oneElement.Stock.CurrencyId);
                 if (elPrice == default)
                 {
-                    var onePrice = new CurrencyConvertHandler().ToCurrency(allCurr, oneElement.Stock.CurrencyId.Value, 1, portfolio.CurrencyId.Value);
+                    var onePrice = new CurrencyConvertHandler().ToCurrency(allCurr.Select(x => new CurrencyConvertHandler.ConvertElement()
+                    {
+                        IdFrom = x.Id,
+                        IdTo = x.CurrencyId,
+                        Price = x.LastPrice
+                    }).ToList(), oneElement.Stock.CurrencyId.Value, 1, portfolio.CurrencyId.Value);
                     elPrice = (oneElement.Stock.CurrencyId.Value, onePrice);
                     countedPrices.Add(elPrice);
                 }

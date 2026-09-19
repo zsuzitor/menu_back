@@ -7,7 +7,8 @@ namespace FinancialAssistantApp.Models.DAL.Repositories.Interfaces
     {
 
         Task<List<Stock>> FindAsync( string text, long? userId);
-        Task<List<Stock>> GetForUserAsync( long? userId);
+        Task<List<Stock>> GetForUserAsync(long? userId);
+        Task<List<Stock>> GetForUserWithHistoryAsync(long? userId);
         Task<Stock> GetAsync(long id, long? userId);
 
 

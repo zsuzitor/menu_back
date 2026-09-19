@@ -7,6 +7,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories.Interfaces
     {
         Task<StockElement> Get(long portfolioId, long stockId);
         Task<List<StockElement>> Get(long portfolioId);
-        Task<List<StockElement>> GetWithStockNoTrack(long portfolioId);
+        Task<List<StockElement>> GetWithStockNotEmptyNoTrack(long portfolioId);
+        Task<List<StockElement>> GetWithStockNoTrack(List<long> portfolioId);
     }
 }

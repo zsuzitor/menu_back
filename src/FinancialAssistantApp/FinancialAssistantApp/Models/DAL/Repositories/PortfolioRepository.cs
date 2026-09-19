@@ -24,6 +24,11 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
 
         }
 
+        public async Task<List<Portfolio>> GetAllAsync(List<long> id, long userId)
+        {
+            return await _db.Portfolio.AsNoTracking().Where(x => x.UserId == userId && id.Any(i=>i==x.Id)).ToListAsync();
+        }
+
         public async Task<Portfolio> GetAsync(long id, long userId)
         {
             return await _db.Portfolio.FirstOrDefaultAsync(x => x.UserId == userId && x.Id==id);

@@ -14,6 +14,15 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
         {
         }
 
+        public async Task<List<StockEvent>> GetEvents(List<long> elementId, DateTime start, DateTime end)
+        {
+            return await _db.StockEvent
+                .AsNoTracking()
+                .Where(x => elementId.Any(e => x.MainElementId == e) || elementId.Any(e => x.SubElementId == e))
+                .OrderByDescending(x => x.Date)
+                .ToListAsync();
+        }
+
         public async Task<List<StockEvent>> GetForPortfolioAsync(long portfolioId)
         {
             return await _db.StockEvent

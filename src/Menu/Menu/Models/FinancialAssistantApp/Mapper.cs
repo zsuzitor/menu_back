@@ -25,6 +25,12 @@ namespace Menu.Host.Models.FinancialAssistantApp
         {
             return new PortfolioStatisticReturn()
             {
+                CashReplenishmentSum = p.CashReplenishmentSum,
+                ReplenishmentsByCurrency = p.ReplenishmentsByCurrency,
+                WithdrawalCashByCurrency = p.WithdrawalCashByCurrency,
+                WithdrawalCashSum = p.WithdrawalCashSum,
+                DividendsCashByCurrency = p.DividendsCashByCurrency,
+                DividendsCashSum = p.DividendsCashSum,
             };
         }
         
@@ -39,6 +45,18 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 Name = p.Name,
             };
         }
+
+        public static PortfolioStatisticRequestDto Map(this Requests.PortfolioStatisticRequest p)
+        {
+            return new PortfolioStatisticRequestDto()
+            {
+                CurrencyId = p.CurrencyId,
+                End = p.End,
+                PortfolioId = p.PortfolioId,
+                Start = p.Start
+            };
+        }
+        
 
 
         public static StockElementReturn Map(this StockElementInPortfolio p)

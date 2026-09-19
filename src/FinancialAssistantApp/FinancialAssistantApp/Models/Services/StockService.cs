@@ -106,7 +106,7 @@ namespace FinancialAssistantApp.Models.Services
 
         public async Task<StockHistory> CreateHistoryAsync(StockHistory req, long userId)
         {
-            if (req.CurrencyId == null || req.CurrencyId < 0 || req.Price < 0)
+            if (req.CurrencyId == null || req.CurrencyId <= 0 || req.Price <= 0)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
             }

@@ -7,7 +7,7 @@ namespace FinancialAssistantApp.Models.Services.Interfaces
     {
         Task<List<Portfolio>> GetAllAsync(long userId);
         Task<Portfolio> GetAsync(long  id, long userId);
-        Task<PortfolioStatistic> GetStatisticAsync(long[]  id, long userId);
+        Task<PortfolioStatistic> GetStatisticAsync(PortfolioStatisticRequestDto req, long userId);
         Task<Portfolio> CreateAsync(PortfolioCreate obj, long userId);
         Task<Portfolio> DeleteAsync(long id, long userId);
         //Task<List<StockEvent>> GetEventsAsync(long id, long userId);

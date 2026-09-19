@@ -8,6 +8,7 @@ namespace TaskManagementApp.Models.DAL.Repositories.Interfaces
     public interface IPortfolioRepository : IGeneralRepository<Portfolio, long>
     {
         Task<List<Portfolio>> GetAllAsync(long userId);
+        Task<List<Portfolio>> GetAllAsync(List<long>id,long userId);
         Task<Portfolio> GetAsync(long id, long userId);
         Task<Portfolio> GetWithCurrencyNoTrackAsync(long id, long userId);
         Task<bool> ExistAsync(long id, long userId);

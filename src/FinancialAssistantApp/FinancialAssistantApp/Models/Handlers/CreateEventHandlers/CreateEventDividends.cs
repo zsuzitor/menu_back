@@ -96,6 +96,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
             }
             if (obj.Price == null || obj.CurrencyId == null
+                || obj.Price<=0 || obj.CurrencyId<=0
 
     //            ((obj.Price != null) && (obj.CurrencyId == null))
     //|| ((obj.Price == null) && (obj.CurrencyId != null)))
@@ -128,7 +129,9 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
 
         protected override async Task<bool> StockElementCanChange(StockEventCreate obj)
         {
-            return false;
+            //так как в StockEvent есть ссылка на главный элемент, может ыть кейс когда у чела в портфеле нет акции а он хочет с нее дивиденды записать,
+            //тогда мы не найдем элемент и упадем, поэтому элемент всегда создаем\апдейтим
+            return true;
         }
     }
 }

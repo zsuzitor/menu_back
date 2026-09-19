@@ -8,5 +8,6 @@ namespace FinancialAssistantApp.Models.DAL.Repositories.Interfaces
         Task<List<StockEvent>> GetForPortfolioAsync(long portfolioId);
         Task<List<StockEvent>> GetForStockAsync(long portfolioId, long stockId);
         Task<List<StockEvent>> GetLastActualEvents(long portfolioId, DateTime time);
+        Task<List<StockEvent>> GetEvents(List<long> elementId, DateTime start, DateTime end);
     }
 }
