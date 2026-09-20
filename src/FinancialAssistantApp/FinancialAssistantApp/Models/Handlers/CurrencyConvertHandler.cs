@@ -1,4 +1,6 @@
 ﻿using BO.Models.FinancialAssistant.DAL;
+using Org.BouncyCastle.Ocsp;
+using System.Xml.Linq;
 
 namespace FinancialAssistantApp.Models.Handlers
 {
@@ -189,6 +191,70 @@ namespace FinancialAssistantApp.Models.Handlers
 
             return closest;
         }
+
+
+        /// <summary>
+        /// если найдена прямая конвертация то вернет 1 элемент цены, если нет то список актуальных цен на каждую пару
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="curId1"></param>
+        /// <param name="curId2"></param>
+        /// <param name="pairHistory">список записей историй для каждой возможной пары</param>
+        /// <returns></returns>
+        public List<ConvertElement> GetHistoryFromPairHistory(
+            DateTime date, long curId1, long curId2,
+            Dictionary<(long curId1, long curId2), List<ConvertElement>> pairHistory)
+        {
+
+            //валюта сама к себе в любую дату 1 к 1
+            if (curId1 == curId2)
+            {
+                return new List<ConvertElement>()
+                {
+                    new ConvertElement()
+                    {
+                        DateOfPrice = date,
+                        IdFrom = curId1,
+                        IdTo = curId2,
+                        Price = 1,
+                    }
+                };
+            }
+
+
+            //список элементов, по 1 записи на каждую пару с наиболее актуальным(по дате) значением
+            //var simplePair = pairHistory.FirstOrDefault(x => (x.Key.curId1 == element.StockId && x.Key.curId2 == req.CurrencyId)
+            //|| (x.Key.curId1 == req.CurrencyId && x.Key.curId2 == element.StockId));
+            //if(pairHistory.ContainsKey((element.StockId, req.CurrencyId)) || pairHistory.ContainsKey((req.CurrencyId, element.StockId)))
+            //simplePair
+            List<ConvertElement> forCurrencyDatePrice = new List<ConvertElement>();
+            pairHistory.TryGetValue((curId1, curId2), out var simplePair1);
+            pairHistory.TryGetValue((curId2, curId1), out var simplePair2);
+            if (simplePair1 != null)
+            {
+                var nearesHistory = FindClosestTimePoint(simplePair1, date);
+                forCurrencyDatePrice.Add(nearesHistory);
+            }
+            else if (simplePair2 != null)
+            {
+                var nearesHistory = FindClosestTimePoint(simplePair2, date);
+                forCurrencyDatePrice.Add(nearesHistory);
+            }
+            else
+            {
+                //если мы не нашли "прямую пару" то для всех пар ищем сумму на дату для того что бы рассчитать курс через другие валюты
+                foreach (var ph in pairHistory)
+                {
+                    //для каждой пары ищем наиболее актуальную цену
+                    var nearesHistory = FindClosestTimePoint(ph.Value, date);
+                    forCurrencyDatePrice.Add(nearesHistory);
+
+                }
+            }
+            //тут можно отсечь валюты которые напрямю не нужны, но тогда уйдет "продвинутый посчет цены" в ToCurrency когда через связку нескольких валют считается
+            return forCurrencyDatePrice;
+        }
+
 
         /// <summary>
         /// из 2х записей доллар-рубль и рубль-доллар сделает в элемент в словаре в котором будет история из обеих записей

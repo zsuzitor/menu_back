@@ -31,6 +31,9 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 WithdrawalCashSum = p.WithdrawalCashSum,
                 DividendsCashByCurrency = p.DividendsCashByCurrency,
                 DividendsCashSum = p.DividendsCashSum,
+                SumNow = p.SumNow,
+                SumOnEndPeriod = p.SumOnEndPeriod,
+                SumOnStartPeriod = p.SumOnStartPeriod,
             };
         }
         

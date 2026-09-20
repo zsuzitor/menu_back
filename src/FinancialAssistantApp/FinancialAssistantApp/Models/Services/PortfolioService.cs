@@ -8,6 +8,7 @@ using FinancialAssistantApp.Models.Services.Interfaces;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using Org.BouncyCastle.Ocsp;
 using System.Collections;
+using System.Xml.Linq;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using Tinkoff.InvestApi.V1;
 using static FinancialAssistantApp.Models.Handlers.CurrencyConvertHandler;
@@ -105,12 +106,7 @@ namespace FinancialAssistantApp.Models.Services
 
             var stocks = await _stockRepository.GetForUserWithHistoryAsync(userId);
             var currency = stocks.Where(x => x.Type == StockTypeEnum.Currency).ToList();
-            //var currencyToConvert = currency.Select(x => new CurrencyConvertHandler.ConvertElement()
-            //{
-            //    IdFrom = x.Id,
-            //    IdTo = x.CurrencyId,
-            //    Price = x.LastPrice
-            //}).ToList();
+
 
             if (!currency.Any(x => x.Id == req.CurrencyId))
             {
@@ -122,6 +118,7 @@ namespace FinancialAssistantApp.Models.Services
             var events = await _stockEventRepository.GetEvents(elementIds, req.Start, req.End);
 
 
+            //вся история цен для пары за все время
             Dictionary<(long curId1, long curId2), List<ConvertElement>> pairHistory = converter.GetPairHistory(currency);
 
 
@@ -134,16 +131,130 @@ namespace FinancialAssistantApp.Models.Services
 
             (result.CashReplenishmentSum, result.ReplenishmentsByCurrency) = GetMoneySumFromEvents(replenishments, req, elementById, pairHistory);
 
+            //выводы
             var withdrawal = events
                 .Where(x => x.Type == StockEventEnum.WithdrawalCash)
                 .ToList();
             (result.WithdrawalCashSum, result.WithdrawalCashByCurrency) = GetMoneySumFromEvents(withdrawal, req, elementById, pairHistory);
 
+
+            //дивиденды
             var dividends = events
                 .Where(x => x.Type == StockEventEnum.Dividends)
                 .ToList();
             (result.DividendsCashSum, result.DividendsCashByCurrency) = GetMoneySumFromEvents(dividends, req, elementById, pairHistory,false);
 
+            //на данный момент
+            var currencyToConvert = currency.Select(x => new CurrencyConvertHandler.ConvertElement()
+            {
+                IdFrom = x.Id,
+                IdTo = x.CurrencyId,
+                Price = x.LastPrice
+            }).ToList();
+
+            //тут могут быть валюты которые не надо конвертить
+            //валюты которые надо конвертить 
+            //НЕ валюты у которых есть цена в валюте
+            foreach (var element in elements)
+            {
+                var price = 0m;
+                if (element.Stock.Type == StockTypeEnum.Currency)
+                {
+                    if (element.StockId == req.CurrencyId)
+                    {
+                        price = element.Count * element.Stock.LastPrice;
+                    }
+                    else
+                    {
+                        price = converter.ToCurrency(currencyToConvert, element.Stock.Id,
+                              element.Count,
+                               req.CurrencyId) ?? throw new SomeCustomException($"Не смогли сконвертировать валюту из {element.Stock.Id} в {req.CurrencyId}");
+                    }
+                }
+                else
+                {
+                    price = element.Count * converter.ToCurrency(currencyToConvert, element.Stock.CurrencyId.Value,
+                          element.Stock.LastPrice,
+                           req.CurrencyId) ?? throw new SomeCustomException($"Не смогли сконвертировать валюту из {element.Stock.Id} в {req.CurrencyId}");
+
+                }
+
+                result.SumNow += price;
+            }
+
+
+            var eventsByElementId = new Dictionary<long, List<StockEvent>>();
+            var eventsByMainElement = events.GroupBy(x => x.MainElementId);
+            var eventsBySubElement = events.Where(x=>x.SubElementId!=null).GroupBy(x => x.SubElementId);
+            foreach(var e in eventsByMainElement)
+            {
+                eventsByElementId.Add(e.Key, e.ToList());
+            }
+            foreach (var e in eventsBySubElement)
+            {
+                if (eventsByElementId.ContainsKey(e.Key.Value))
+                {
+                    eventsByElementId[e.Key.Value].AddRange(e.ToList());
+                }
+                else
+                {
+                    eventsByElementId.Add(e.Key.Value, e.ToList());
+                }
+            }
+            foreach (var e in eventsByElementId) 
+            {
+                var elemEvents = e.Value;
+                var orderedElemEvents = elemEvents.OrderBy(x => x.Date);
+                var firstEvent = orderedElemEvents.First();
+                var lastEvent = orderedElemEvents.Last();
+                var element = elementById[e.Key];
+                var price = 0m;
+                var elementCount = 0m;
+                var oneElementPrice = 0m;
+                var priceDate = firstEvent.Date;
+                if (firstEvent.MainElementId == element.Id)
+                {
+                    //ивент для главного элемента
+                    elementCount = firstEvent.MainCountNow;//количество элемента которое будем считать
+                    //firstEvent.Date;//дата на которую будем считать
+                    oneElementPrice = firstEvent.SubCountChange ?? 0;
+                }
+                else
+                {
+                    //ивент для зависимого элемента
+                    elementCount = firstEvent.SubCountNow.Value;//количество элемента которое будем считать
+                }
+
+                if (element.Stock.Type == StockTypeEnum.Currency)
+                {
+                    if (element.StockId == req.CurrencyId)
+                    {
+                        //валюта сама к себе в любую дату 1 к 1
+                        price = elementCount ;
+                    }
+                    else
+                    {
+
+                        var actualPrice = converter.GetHistoryFromPairHistory(priceDate, element.StockId, req.CurrencyId, pairHistory);
+
+                        price = converter.ToCurrency(actualPrice, element.Stock.Id,
+                              elementCount,
+                               req.CurrencyId) ?? throw new SomeCustomException($"Не смогли сконвертировать валюту из {element.Stock.Id} в {req.CurrencyId}");
+                    }
+                }
+                else
+                {
+                    var eventCurrencyId = elementById[firstEvent.SubElementId.Value].StockId;
+                    var actualPrice = converter.GetHistoryFromPairHistory(priceDate, eventCurrencyId, req.CurrencyId, pairHistory);
+                    price = elementCount * converter.ToCurrency(actualPrice, eventCurrencyId,
+                          oneElementPrice,
+                           req.CurrencyId) ?? throw new SomeCustomException($"Не смогли сконвертировать валюту из {element.Stock.Id} в {req.CurrencyId}");
+
+                }
+
+                result.SumOnStartPeriod += price;
+
+            }
 
 
             //result.ReplenishmentsByCurrency = replenishmentsByCurrency;
@@ -210,34 +321,36 @@ namespace FinancialAssistantApp.Models.Services
                     //var stock = stocks.FirstOrDefault(x => x.Id == element.StockId);
 
                     //список элементов, по 1 записи на каждую пару с наиболее актуальным(по дате) значением
-                    List<ConvertElement> forCurrencyDatePrice = new List<ConvertElement>();
+                    List<ConvertElement> forCurrencyDatePrice = converter.GetHistoryFromPairHistory(rep.Date, element.StockId, req.CurrencyId, pairHistory);
                     //var simplePair = pairHistory.FirstOrDefault(x => (x.Key.curId1 == element.StockId && x.Key.curId2 == req.CurrencyId)
                     //|| (x.Key.curId1 == req.CurrencyId && x.Key.curId2 == element.StockId));
                     //if(pairHistory.ContainsKey((element.StockId, req.CurrencyId)) || pairHistory.ContainsKey((req.CurrencyId, element.StockId)))
                     //simplePair
-                    pairHistory.TryGetValue((element.StockId, req.CurrencyId),out var simplePair1);
-                    pairHistory.TryGetValue((req.CurrencyId, element.StockId), out var simplePair2);
-                    if (simplePair1 != null)
-                    {
-                        var nearesHistory = converter.FindClosestTimePoint(simplePair1, rep.Date);
-                        forCurrencyDatePrice.Add(nearesHistory);
-                    }
-                    else if (simplePair2 != null)
-                    {
-                        var nearesHistory = converter.FindClosestTimePoint(simplePair2, rep.Date);
-                        forCurrencyDatePrice.Add(nearesHistory);
-                    }
-                    else
-                    {
-                        //если мы не нашли "прямую пару" то для всех пар ищем сумму на дату для того что бы рассчитать курс через другие валюты
-                        foreach (var ph in pairHistory)
-                        {
-                            //для каждой пары ищем наиболее актуальную цену
-                            var nearesHistory = converter.FindClosestTimePoint(ph.Value, rep.Date);
-                            forCurrencyDatePrice.Add(nearesHistory);
 
-                        }
-                    }
+
+                    //pairHistory.TryGetValue((element.StockId, req.CurrencyId),out var simplePair1);
+                    //pairHistory.TryGetValue((req.CurrencyId, element.StockId), out var simplePair2);
+                    //if (simplePair1 != null)
+                    //{
+                    //    var nearesHistory = converter.FindClosestTimePoint(simplePair1, rep.Date);
+                    //    forCurrencyDatePrice.Add(nearesHistory);
+                    //}
+                    //else if (simplePair2 != null)
+                    //{
+                    //    var nearesHistory = converter.FindClosestTimePoint(simplePair2, rep.Date);
+                    //    forCurrencyDatePrice.Add(nearesHistory);
+                    //}
+                    //else
+                    //{
+                    //    //если мы не нашли "прямую пару" то для всех пар ищем сумму на дату для того что бы рассчитать курс через другие валюты
+                    //    foreach (var ph in pairHistory)
+                    //    {
+                    //        //для каждой пары ищем наиболее актуальную цену
+                    //        var nearesHistory = converter.FindClosestTimePoint(ph.Value, rep.Date);
+                    //        forCurrencyDatePrice.Add(nearesHistory);
+
+                    //    }
+                    //}
                     //тут можно отсечь валюты которые напрямю не нужны, но тогда уйдет "продвинутый посчет цены" в ToCurrency когда через связку нескольких валют считается
 
 
