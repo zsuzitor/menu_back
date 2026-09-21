@@ -102,7 +102,7 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 PortfolioId = p.PortfolioId,
                 Type = p.Type,
                 Price = p.SubCountChange,
-                Date = p.Date,
+                Date = p.EventDateTime,
                 CurrencyId = p.SubElement?.StockId,
                 CurrencyName = p.SubElement?.Stock?.Name,
                 StockElementId = p.MainElementId,

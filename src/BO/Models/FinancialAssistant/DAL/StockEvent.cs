@@ -7,7 +7,8 @@ namespace BO.Models.FinancialAssistant.DAL
     public class StockEvent : IDomainRecord<long>
     {
         public long Id { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime EventDateTime { get; set; }
+        public DateTime CreationDateTime { get; set; }
         public StockEventEnum Type { get; set; }
 
 
@@ -19,10 +20,11 @@ namespace BO.Models.FinancialAssistant.DAL
         public StockElement MainElement { get; set; }
         #endregion
 
-        #region main
-        //при покупке тут то что мы покупаем, тоесть главная сущность, акция фонд и тд
+        #region sub
+        //при покупке тут то за что мы покупаем, тоесть зависимая сущность, валюта
         public decimal? SubCountChange { get; set; }
         public decimal? SubCountNow { get; set; }
+        public decimal? SubCountOldValue { get; set; }
         public long? SubElementId { get; set; }
         public StockElement SubElement { get; set; }
         #endregion

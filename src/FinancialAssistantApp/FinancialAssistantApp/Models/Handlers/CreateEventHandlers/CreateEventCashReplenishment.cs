@@ -90,7 +90,8 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         {
             var newObj = new StockEvent()
             {
-                Date = _datetimProvider.CurrentDateTime(),
+                EventDateTime = obj.Date,
+                CreationDateTime = _datetimProvider.CurrentDateTime(),
                 MainCountChange = obj.Count,
                 MainCountNow = Main.Count,
                 Type = obj.Type,

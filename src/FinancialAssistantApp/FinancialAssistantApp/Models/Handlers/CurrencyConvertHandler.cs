@@ -1,4 +1,5 @@
 ﻿using BO.Models.FinancialAssistant.DAL;
+using Common.Models.Exceptions;
 using Org.BouncyCastle.Ocsp;
 using System.Xml.Linq;
 
@@ -151,7 +152,7 @@ namespace FinancialAssistantApp.Models.Handlers
         }
 
 
-        public ConvertElement FindClosestTimePoint(List<ConvertElement> timepoints, DateTime targetDate)
+        public ConvertElement FindClosestTimePoint1(List<ConvertElement> timepoints, DateTime targetDate)
         {
             if (timepoints == null || timepoints.Count == 0)
                 return null; // или throw new ArgumentException(...)
@@ -191,6 +192,126 @@ namespace FinancialAssistantApp.Models.Handlers
 
             return closest;
         }
+
+        public ConvertElement FindClosestTimePoint(List<ConvertElement> timepoints, DateTime targetDate)
+        {
+            if (timepoints == null || timepoints.Count == 0)
+                return null;
+
+            ConvertElement closest = timepoints[0];
+            long minDiff = Math.Abs((closest.DateOfPrice - targetDate).Ticks);
+
+            for (int i = 1; i < timepoints.Count; i++)
+            {
+                long diff = Math.Abs((timepoints[i].DateOfPrice - targetDate).Ticks);
+                if (diff < minDiff)
+                {
+                    minDiff = diff;
+                    closest = timepoints[i];
+                }
+            }
+
+            return closest;
+        }
+
+
+
+        //лукойл - лукойл - покупка --доллар -- рубль - вроде ок
+        //доллар - долар - дивиденды - доллар -- рубль   == Sub
+        //доллар - долар - пополнение - доллар -- рубль  == Main
+        public decimal GetElementPriceOnEvent(
+            Stock stock,
+            StockElement element,
+            StockEvent ev,
+            //long eventCurrencyId,
+            long destinationCurrencyId,
+            Dictionary<(long curId1, long curId2), List<ConvertElement>> pairHistory)
+        {
+
+            var elementCount = 0m;
+            //var oneElementPrice = 0m;
+            if (ev.MainElementId == element.Id)
+            {
+                //ивент для главного элемента
+                elementCount = ev.MainCountNow;//количество элемента которое будем считать
+                //oneElementPrice = ev.SubCountChange ?? 0;
+            }
+            else
+            {
+                //ивент для зависимого элемента
+                //тоесть мы нашли ивент покупки или продажи, а элемент для которого мы нашли его это валюта
+                elementCount = ev.SubCountNow.Value;//количество элемента которое будем считать
+                //в зависимом элементе может быть только валюта, ее цена не нужна тк найдем через конвертацию
+
+            }
+
+            if (stock.Type == BO.Models.FinancialAssistant.Enums.StockTypeEnum.Currency)
+            {
+                return GetCurrencyPriceOnDate(stock.Id, ev.EventDateTime, elementCount, destinationCurrencyId, pairHistory);
+            }
+
+
+            //todo тут можно оптимизировать если покупка или продажа например то цену можно и даже лучше брать из ивента
+           var history = FindClosestTimePoint(stock.StockHistory, ev.EventDateTime);
+            
+            return  GetElementPriceOnDate(stock, ev.EventDateTime, elementCount,
+                history.Price, history.CurrencyId.Value, destinationCurrencyId, pairHistory);
+
+        }
+
+        /// <summary>
+        /// тоесть акция {stock} {elementCount} штук  на дату {priceDate} стоила за 1 акцию {oneElementPrice} в валюте {oneElementPriceCurrencyId}
+        /// </summary>
+        /// <param name="elementStock"></param>
+        /// <param name="priceDate"></param>
+        /// <param name="elementCount"></param>
+        /// <param name="oneElementPrice"></param>
+        /// <param name="currencyId"></param>
+        /// <param name="pairHistory"></param>
+        /// <exception cref="SomeCustomException"></exception>
+        public decimal GetElementPriceOnDate(
+            Stock stock,
+            DateTime priceDate,
+            decimal elementCount,
+            decimal oneElementPrice,
+            long oneElementPriceCurrencyId,
+            long destinationCurrencyId,
+            Dictionary<(long curId1, long curId2), List<ConvertElement>> pairHistory)
+        {
+
+
+            if (stock.Type == BO.Models.FinancialAssistant.Enums.StockTypeEnum.Currency)
+            {
+                return GetCurrencyPriceOnDate(stock.Id, priceDate, elementCount, destinationCurrencyId, pairHistory);
+            }
+
+            var actualPrice = GetHistoryFromPairHistory(priceDate, oneElementPriceCurrencyId, destinationCurrencyId, pairHistory);
+            return elementCount * ToCurrency(actualPrice, oneElementPriceCurrencyId,
+                  oneElementPrice,
+                   destinationCurrencyId) ?? throw new SomeCustomException($"Не смогли сконвертировать валюту из {oneElementPriceCurrencyId} в {destinationCurrencyId}");
+        }
+
+        public decimal GetCurrencyPriceOnDate(
+           long currencyId,
+           DateTime priceDate,
+           decimal count,
+           long destinationCurrencyId,
+           Dictionary<(long curId1, long curId2), List<ConvertElement>> pairHistory)
+        {
+            //что бы определить стоимость валюты на дату, просто ищем по истории pairHistory
+            if (currencyId == destinationCurrencyId)
+            {
+                //валюта сама к себе в любую дату 1 к 1
+                return count;
+            }
+
+            var actualPrice = GetHistoryFromPairHistory(priceDate, currencyId, destinationCurrencyId, pairHistory);
+
+            return ToCurrency(actualPrice, currencyId,
+                  count,
+                   destinationCurrencyId) ?? throw new SomeCustomException($"Не смогли сконвертировать валюту из {currencyId} в {destinationCurrencyId}");
+        }
+
 
 
         /// <summary>

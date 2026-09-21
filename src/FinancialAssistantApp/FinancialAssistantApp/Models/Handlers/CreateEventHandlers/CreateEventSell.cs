@@ -20,6 +20,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         protected override StockEventEnum Type => StockEventEnum.Sell;
         private StockElement Main;
         private StockElement Sub;
+        private decimal OldCurrencyValue = 0;
 
 
 
@@ -31,8 +32,6 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
 
         protected override async Task<StockElement> GetCurrencyElement(StockEventCreate obj)
         {
-
-
             //списываем деньги
             var currencyElement = await _stockElementRepository.Get(obj.PortfolioId, obj.CurrencyId.Value);
             if (currencyElement == null)
@@ -47,6 +46,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
             }
             else
             {
+                OldCurrencyValue = currencyElement.Count;
                 currencyElement.Count += obj.CurrencyActions ? obj.Price.Value  * obj.Count:0;
             }
 
@@ -116,7 +116,8 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         {
             var newObj = new StockEvent()
             {
-                Date = _datetimProvider.CurrentDateTime(),
+                EventDateTime = obj.Date,
+                CreationDateTime = _datetimProvider.CurrentDateTime(),
                 MainCountChange = obj.Count,
                 MainCountNow = Main.Count,
                 Type = obj.Type,
@@ -124,6 +125,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 PortfolioId = obj.PortfolioId,
                 SubCountChange = obj.Price,
                 SubCountNow = Sub.Count,
+                SubCountOldValue = OldCurrencyValue,
                 SubElementId = Sub.Id,
             };
 

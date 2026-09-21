@@ -19,7 +19,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
             return await _db.StockEvent
                 .AsNoTracking()
                 .Where(x => elementId.Any(e => x.MainElementId == e) || elementId.Any(e => x.SubElementId == e))
-                .OrderByDescending(x => x.Date)
+                .OrderByDescending(x => x.EventDateTime)
                 .ToListAsync();
         }
 
@@ -32,7 +32,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .Include(x => x.SubElement)
                 .ThenInclude(x => x.Stock)
                 .Where(x => x.PortfolioId == portfolioId)
-                .OrderByDescending(x => x.Date)
+                .OrderByDescending(x => x.EventDateTime)
                 .ToListAsync();
         }
 
@@ -44,8 +44,14 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .ThenInclude(x => x.Stock)
                 .Include(x => x.MainElement).ThenInclude(x => x.Stock)
                 .Where(x => x.PortfolioId == portfolioId && (x.MainElement.StockId == stockId || x.SubElement.StockId == stockId))
-                .OrderByDescending(x => x.Date).ToListAsync();
+                .OrderByDescending(x => x.EventDateTime).ToListAsync();
 
+        }
+
+        public async Task<StockEvent> GetLastActualEvent(long elementId, DateTime time)
+        {
+            return await _db.StockEvent
+                .Where(e => e.EventDateTime < time && (e.MainElementId == elementId || e.SubElementId == elementId)).OrderByDescending(x=>x.EventDateTime).FirstOrDefaultAsync();
         }
 
         public async Task<List<StockEvent>> GetLastActualEvents(long portfolioId, DateTime time)
@@ -54,10 +60,25 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
             //тогда придется вооще всю историю грузить с самых первых дат до нужной. подумать
             //мб делать 2 запроса, второй по .GroupBy(e => e.SubElementId)
             return await _db.StockEvent
-                .Where(e => e.Date < time && e.PortfolioId == portfolioId)
+                .Where(e => e.EventDateTime < time && e.PortfolioId == portfolioId)
                 .GroupBy(e => e.MainElementId)
                 .Select(g => g
-                    .OrderByDescending(e => e.Date)
+                    .OrderByDescending(e => e.EventDateTime)
+                    .First())
+                .ToListAsync();
+
+        }
+
+        public async Task<List<StockEvent>> GetLastActualEvents(List<long> portfolioId, DateTime time)
+        {
+            //тут не только по основному надо, возможно переписать, получать полный список подгружать туда, отсекать по датам
+            //тогда придется вооще всю историю грузить с самых первых дат до нужной. подумать
+            //мб делать 2 запроса, второй по .GroupBy(e => e.SubElementId)
+            return await _db.StockEvent
+                .Where(e => e.EventDateTime < time && portfolioId.Contains(e.PortfolioId))
+                .GroupBy(e => e.MainElementId)
+                .Select(g => g
+                    .OrderByDescending(e => e.EventDateTime)
                     .First())
                 .ToListAsync();
 
