@@ -2,6 +2,7 @@
 using Common.Models.Exceptions;
 using Org.BouncyCastle.Ocsp;
 using System.Xml.Linq;
+using static Google.Api.ResourceDescriptor.Types;
 
 namespace FinancialAssistantApp.Models.Handlers
 {
@@ -198,6 +199,11 @@ namespace FinancialAssistantApp.Models.Handlers
             if (timepoints == null || timepoints.Count == 0)
                 return null;
 
+            if (timepoints.Count == 1)
+            {
+                return timepoints.First();
+            }
+
             ConvertElement closest = timepoints[0];
             long minDiff = Math.Abs((closest.DateOfPrice - targetDate).Ticks);
 
@@ -267,7 +273,7 @@ namespace FinancialAssistantApp.Models.Handlers
         /// <param name="elementCount"></param>
         /// <param name="oneElementPrice"></param>
         /// <param name="currencyId"></param>
-        /// <param name="pairHistory"></param>
+        /// <param name="currencyPairHistory"></param>
         /// <exception cref="SomeCustomException"></exception>
         public decimal GetElementPriceOnDate(
             Stock stock,
@@ -276,16 +282,16 @@ namespace FinancialAssistantApp.Models.Handlers
             decimal oneElementPrice,
             long oneElementPriceCurrencyId,
             long destinationCurrencyId,
-            Dictionary<(long curId1, long curId2), List<ConvertElement>> pairHistory)
+            Dictionary<(long curId1, long curId2), List<ConvertElement>> currencyPairHistory)
         {
 
 
             if (stock.Type == BO.Models.FinancialAssistant.Enums.StockTypeEnum.Currency)
             {
-                return GetCurrencyPriceOnDate(stock.Id, priceDate, elementCount, destinationCurrencyId, pairHistory);
+                return GetCurrencyPriceOnDate(stock.Id, priceDate, elementCount, destinationCurrencyId, currencyPairHistory);
             }
 
-            var actualPrice = GetHistoryFromPairHistory(priceDate, oneElementPriceCurrencyId, destinationCurrencyId, pairHistory);
+            var actualPrice = GetOnDateFromPairHistory(priceDate, oneElementPriceCurrencyId, destinationCurrencyId, currencyPairHistory);
             return elementCount * ToCurrency(actualPrice, oneElementPriceCurrencyId,
                   oneElementPrice,
                    destinationCurrencyId) ?? throw new SomeCustomException($"Не смогли сконвертировать валюту из {oneElementPriceCurrencyId} в {destinationCurrencyId}");
@@ -296,7 +302,7 @@ namespace FinancialAssistantApp.Models.Handlers
            DateTime priceDate,
            decimal count,
            long destinationCurrencyId,
-           Dictionary<(long curId1, long curId2), List<ConvertElement>> pairHistory)
+           Dictionary<(long curId1, long curId2), List<ConvertElement>> currencyPairHistory)
         {
             //что бы определить стоимость валюты на дату, просто ищем по истории pairHistory
             if (currencyId == destinationCurrencyId)
@@ -305,7 +311,7 @@ namespace FinancialAssistantApp.Models.Handlers
                 return count;
             }
 
-            var actualPrice = GetHistoryFromPairHistory(priceDate, currencyId, destinationCurrencyId, pairHistory);
+            var actualPrice = GetOnDateFromPairHistory(priceDate, currencyId, destinationCurrencyId, currencyPairHistory);
 
             return ToCurrency(actualPrice, currencyId,
                   count,
@@ -315,16 +321,17 @@ namespace FinancialAssistantApp.Models.Handlers
 
 
         /// <summary>
+        /// список элементов, по 1 записи на каждую пару с наиболее актуальным(по дате) значением
         /// если найдена прямая конвертация то вернет 1 элемент цены, если нет то список актуальных цен на каждую пару
         /// </summary>
         /// <param name="date"></param>
         /// <param name="curId1"></param>
         /// <param name="curId2"></param>
-        /// <param name="pairHistory">список записей историй для каждой возможной пары</param>
+        /// <param name="currencyPairHistory">список записей историй для каждой возможной пары</param>
         /// <returns></returns>
-        public List<ConvertElement> GetHistoryFromPairHistory(
+        public List<ConvertElement> GetOnDateFromPairHistory(
             DateTime date, long curId1, long curId2,
-            Dictionary<(long curId1, long curId2), List<ConvertElement>> pairHistory)
+            Dictionary<(long curId1, long curId2), List<ConvertElement>> currencyPairHistory)
         {
 
             //валюта сама к себе в любую дату 1 к 1
@@ -342,40 +349,49 @@ namespace FinancialAssistantApp.Models.Handlers
                 };
             }
 
-
             //список элементов, по 1 записи на каждую пару с наиболее актуальным(по дате) значением
-            //var simplePair = pairHistory.FirstOrDefault(x => (x.Key.curId1 == element.StockId && x.Key.curId2 == req.CurrencyId)
-            //|| (x.Key.curId1 == req.CurrencyId && x.Key.curId2 == element.StockId));
-            //if(pairHistory.ContainsKey((element.StockId, req.CurrencyId)) || pairHistory.ContainsKey((req.CurrencyId, element.StockId)))
-            //simplePair
-            List<ConvertElement> forCurrencyDatePrice = new List<ConvertElement>();
-            pairHistory.TryGetValue((curId1, curId2), out var simplePair1);
-            pairHistory.TryGetValue((curId2, curId1), out var simplePair2);
+            currencyPairHistory.TryGetValue((curId1, curId2), out var simplePair1);
+            currencyPairHistory.TryGetValue((curId2, curId1), out var simplePair2);
             if (simplePair1 != null)
             {
+                //найдена пара
                 var nearesHistory = FindClosestTimePoint(simplePair1, date);
-                forCurrencyDatePrice.Add(nearesHistory);
+                return new List<ConvertElement>() { nearesHistory };
             }
-            else if (simplePair2 != null)
-            {
-                var nearesHistory = FindClosestTimePoint(simplePair2, date);
-                forCurrencyDatePrice.Add(nearesHistory);
-            }
-            else
-            {
-                //если мы не нашли "прямую пару" то для всех пар ищем сумму на дату для того что бы рассчитать курс через другие валюты
-                foreach (var ph in pairHistory)
-                {
-                    //для каждой пары ищем наиболее актуальную цену
-                    var nearesHistory = FindClosestTimePoint(ph.Value, date);
-                    forCurrencyDatePrice.Add(nearesHistory);
 
-                }
+            if (simplePair2 != null)
+            {
+                //найдена обратная пара
+                var nearesHistory = FindClosestTimePoint(simplePair2, date);
+                return new List<ConvertElement>() { nearesHistory };
             }
+
+            //если мы не нашли "прямую пару" то для всех пар ищем сумму на дату для того что бы рассчитать курс через другие валюты
+            List<ConvertElement> forCurrencyDatePrice = new List<ConvertElement>();
+            foreach (var ph in currencyPairHistory)
+            {
+                //для каждой пары ищем наиболее актуальную цену
+                var nearesHistory = FindClosestTimePoint(ph.Value, date);
+                forCurrencyDatePrice.Add(nearesHistory);
+            }
+
             //тут можно отсечь валюты которые напрямю не нужны, но тогда уйдет "продвинутый посчет цены" в ToCurrency когда через связку нескольких валют считается
             return forCurrencyDatePrice;
         }
 
+
+        public Dictionary<(long curId1, long curId2), List<ConvertElement>> GetPairHistoryActualPrice(List<Stock> currency)
+        {
+            Dictionary<(long curId1, long curId2), List<ConvertElement>> pairHistory = new Dictionary<(long curId1, long curId2), List<ConvertElement>>();
+            foreach (var cur in currency)
+            {
+                var h = new ConvertElement()
+                { IdFrom = cur.Id, IdTo = cur.CurrencyId.Value, DateOfPrice = cur.ActualizationTime, Price = cur.LastPrice };
+                AddPair(pairHistory, h);
+            }
+
+            return pairHistory;
+        }
 
         /// <summary>
         /// из 2х записей доллар-рубль и рубль-доллар сделает в элемент в словаре в котором будет история из обеих записей
@@ -396,32 +412,35 @@ namespace FinancialAssistantApp.Models.Handlers
                 //делаем обратную конвертацию что бы если были история и в паре рубль\доллар и в паре доллар-рубль учитывать их как общую пару
                 foreach (var history in cur.StockHistory)
                 {
-                    if (pairHistory.ContainsKey((history.StockId, history.CurrencyId.Value)))
-                    {
-                        pairHistory[(history.StockId, history.CurrencyId.Value)].Add(new ConvertElement()
-                        { IdFrom = history.StockId, IdTo = history.CurrencyId.Value, DateOfPrice = history.Date, Price = history.Price });
-                    }
-                    else if (pairHistory.ContainsKey((history.CurrencyId.Value, history.StockId)))
-                    {
-                        pairHistory[(history.CurrencyId.Value, history.StockId)].Add(new ConvertElement()
-                        { IdFrom = history.CurrencyId.Value, IdTo = history.StockId, DateOfPrice = history.Date, Price = 1m / history.Price });
-                    }
-                    else
-                    {
-                        pairHistory.Add((history.StockId, history.CurrencyId.Value), new List<ConvertElement>() {new ConvertElement()
-                                { IdFrom = history.StockId, IdTo = history.CurrencyId.Value, DateOfPrice = history.Date, Price=history.Price } });
-                    }
-                    //if (forCurrencyDatePrice.Any(x=>x.IdFrom == cur.Id && x.IdTo == history.StockId))
-                    //{
-
-                    //}
-
+                    var h = new ConvertElement()
+                    { IdFrom = history.StockId, IdTo = history.CurrencyId.Value, DateOfPrice = history.Date, Price = history.Price };
+                    AddPair(pairHistory,h);
                 }
             }
 
             return pairHistory;
         }
 
+
+        private void AddPair(Dictionary<(long curId1, long curId2), List<ConvertElement>> pairHistory, ConvertElement history)
+        {
+
+            if (pairHistory.ContainsKey((history.IdFrom, history.IdTo.Value)))
+            {
+                pairHistory[(history.IdFrom, history.IdTo.Value)].Add(new ConvertElement()
+                { IdFrom = history.IdFrom, IdTo = history.IdTo.Value, DateOfPrice = history.DateOfPrice, Price = history.Price });
+            }
+            else if (pairHistory.ContainsKey((history.IdTo.Value, history.IdFrom)))
+            {
+                pairHistory[(history.IdTo.Value, history.IdFrom)].Add(new ConvertElement()
+                { IdFrom = history.IdTo.Value, IdTo = history.IdFrom, DateOfPrice = history.DateOfPrice, Price = 1m / history.Price });
+            }
+            else
+            {
+                pairHistory.Add((history.IdFrom, history.IdTo.Value), new List<ConvertElement>() {new ConvertElement()
+                                { IdFrom = history.IdFrom, IdTo = history.IdTo.Value, DateOfPrice = history.DateOfPrice, Price=history.Price } });
+            }
+        }
 
 
         public decimal? ToCurrency(List<ConvertElement> currencys, long fromCurr, decimal fromSum, long toCurr)
