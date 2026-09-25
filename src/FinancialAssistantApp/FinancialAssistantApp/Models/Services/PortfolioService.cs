@@ -152,81 +152,133 @@ namespace FinancialAssistantApp.Models.Services
             result.SumNow = CalculateElementsSum(req.CurrencyId, elements, actualPairPrice);
 
 
-
-            var eventsByElementId = new Dictionary<long, List<StockEvent>>();
-            var eventsByMainElement = events.GroupBy(x => x.MainElementId);
-            var eventsBySubElement = events.Where(x => x.SubElementId != null).GroupBy(x => x.SubElementId);
+            //var eventsByElementId = new Dictionary<long, List<StockEvent>>();
+            var eventsByMainElement = events.OrderBy(x=>x.EventDateTime).GroupBy(x => x.MainElementId).ToDictionary(x=>x.Key);
+            var eventsBySubElement = events.OrderBy(x => x.EventDateTime).Where(x => x.SubElementId != null).GroupBy(x => x.SubElementId).ToDictionary(x => x.Key);
 
             //если за выбранный период не было ивентов на какую то акцию то идем ивент ДО периода тк там есть сума на начало
-            var allPortfolioActualEventsOnPerionStart = await _stockEventRepository.GetLastActualEvents(req.PortfolioId, req.Start);
+            var allPortfolioActualEventsOnPerionStartMain = await _stockEventRepository.GetLastActualEventsForMainElement(req.PortfolioId, req.Start);
+            var allPortfolioActualEventsOnPerionStartSub = await _stockEventRepository.GetLastActualEventsForSubElement(req.PortfolioId, req.Start);
 
-            foreach (var e in eventsByMainElement)
-            {
-                eventsByElementId.Add(e.Key, e.ToList());
-            }
 
-            foreach (var e in eventsBySubElement)
-            {
-                if (eventsByElementId.ContainsKey(e.Key.Value))
-                {
-                    eventsByElementId[e.Key.Value].AddRange(e.ToList());
-                }
-                else
-                {
-                    eventsByElementId.Add(e.Key.Value, e.ToList());
-                }
-            }
 
             foreach (var elem in elements)
             {
-                if (!eventsByElementId.ContainsKey(elem.Id))
+                DateTime? priceDate = null;
+                decimal elemCount = 0;
+                var lastEventBeforeMain = allPortfolioActualEventsOnPerionStartMain.FirstOrDefault(x => x.MainElementId == elem.Id);
+                if (lastEventBeforeMain != null)
                 {
-                    var ev = allPortfolioActualEventsOnPerionStart.First(x => x.MainElementId == elem.Id || x.SubElementId == elem.Id);
-                    eventsByElementId.Add(elem.Id, new List<StockEvent>() { ev });
+                    priceDate = lastEventBeforeMain.EventDateTime;
+                    elemCount = lastEventBeforeMain.MainCountNow;
+                }
+
+                var lastEventBeforeSub = allPortfolioActualEventsOnPerionStartSub.FirstOrDefault(x => x.SubElementId == elem.Id);
+                if (lastEventBeforeSub != null && (priceDate == null || priceDate < lastEventBeforeSub.EventDateTime))
+                {
+                    //по sub элементу более актуальная дата, надо брать его
+                    priceDate = lastEventBeforeSub.EventDateTime;
+                    elemCount = lastEventBeforeSub.SubCountNow.Value;
 
                 }
 
-            }
-
-
-            foreach (var e in eventsByElementId)
-            {
-                var elemEvents = e.Value;
-                var element = elementById[e.Key];
-
-
-                //var orderedElemEvents = elemEvents.OrderBy(x => x.Date);
-                //var firstEvent = orderedElemEvents.First();
-                //var lastEvent = orderedElemEvents.Last();
-                //if (elemEvents.Count == 0)
-                //{
-                //    //todo запрос  цикле
-                //    _stockEventRepository.GetLastActualEvent(element.Id);
-                //}
-
-                var orderedElemEvents = elemEvents.OrderBy(x => x.EventDateTime);
-                var firstEvent = orderedElemEvents.First();
-                if (firstEvent.EventDateTime >= req.Start)
+                //если мы нашли то дальше смотреть смысла нет тк это самый подходящий и точный вариант
+                if (priceDate == null)
                 {
-                    //если дата в диапазоне то значение уже изменено этим ивентом, а нам нужно предыдущее
-                    //asd
-                    //todo
+                    //ивента до периода не нашли, будем искать в рамках и пытаться его откатить
+                    if (eventsByMainElement.ContainsKey(elem.Id))
+                    {
+                        var mainEvents = eventsByMainElement[elem.Id].FirstOrDefault();
+                        priceDate = mainEvents?.EventDateTime;
+                        elemCount = mainEvents?.MainCountNow ?? 0; это значние после ивента, его надо откатить
+                    }
+
+                    var subEvent = eventsBySubElement.TryGetValue(elem.Id, out var subEventList) ? subEventList.FirstOrDefault() : null;
+                    if (subEvent!=null && (priceDate == null || subEvent.EventDateTime >priceDate))
+                    {
+                        //ивента до периода не нашли, будем искать в рамках и пытаться его откатить
+                            priceDate = subEvent?.EventDateTime;
+                            elemCount = subEvent?.SubCountNow ?? 0; это значние после ивента, его надо откатить
+                    }
                 }
+               
 
-                var elementStock = stocks.FirstOrDefault(x => x.Id == element.StockId);
 
-                var priceStart = converter.GetElementPriceOnEvent(elementStock, element, firstEvent,
+
+
+                var elementStock = stocks.FirstOrDefault(x => x.Id == elem.StockId);
+                result.SumOnStartPeriod += converter.GetElementPriceOnEvent(elementStock, elemCount, priceDate.Value,
                     req.CurrencyId, pairHistory);
-                result.SumOnStartPeriod += priceStart;
-
-
-                var lastEvent = orderedElemEvents.Last();
-                var priceEnd = converter.GetElementPriceOnEvent(elementStock, element, lastEvent,
-                    req.CurrencyId, pairHistory);
-
-                result.SumOnEndPeriod += priceEnd;
-
             }
+
+
+            //foreach (var e in eventsByMainElement)
+            //{
+            //    eventsByElementId.Add(e.Key, e.ToList());
+            //}
+
+            //foreach (var e in eventsBySubElement)
+            //{
+            //    if (eventsByElementId.ContainsKey(e.Key.Value))
+            //    {
+            //        eventsByElementId[e.Key.Value].AddRange(e.ToList());
+            //    }
+            //    else
+            //    {
+            //        eventsByElementId.Add(e.Key.Value, e.ToList());
+            //    }
+            //}
+
+            //foreach (var elem in elements)
+            //{
+            //    if (!eventsByElementId.ContainsKey(elem.Id))
+            //    {
+            //        var ev = allPortfolioActualEventsOnPerionStart.First(x => x.MainElementId == elem.Id || x.SubElementId == elem.Id);
+            //        eventsByElementId.Add(elem.Id, new List<StockEvent>() { ev });
+
+            //    }
+
+            //}
+
+
+            //foreach (var e in eventsByElementId)
+            //{
+            //    var elemEvents = e.Value;
+            //    var element = elementById[e.Key];
+
+
+            //    //var orderedElemEvents = elemEvents.OrderBy(x => x.Date);
+            //    //var firstEvent = orderedElemEvents.First();
+            //    //var lastEvent = orderedElemEvents.Last();
+            //    //if (elemEvents.Count == 0)
+            //    //{
+            //    //    //todo запрос  цикле
+            //    //    _stockEventRepository.GetLastActualEvent(element.Id);
+            //    //}
+
+            //    var orderedElemEvents = elemEvents.OrderBy(x => x.EventDateTime);
+            //    var firstEvent = orderedElemEvents.First();
+            //    if (firstEvent.EventDateTime >= req.Start)
+            //    {
+            //        //если дата в диапазоне то значение уже изменено этим ивентом, а нам нужно предыдущее
+            //        //asd
+            //        //todo
+            //    }
+
+            //    var elementStock = stocks.FirstOrDefault(x => x.Id == element.StockId);
+
+            //    var priceStart = converter.GetElementPriceOnEvent(elementStock, element, firstEvent,
+            //        req.CurrencyId, pairHistory);
+            //    result.SumOnStartPeriod += priceStart;
+
+
+            //    var lastEvent = orderedElemEvents.Last();
+            //    var priceEnd = converter.GetElementPriceOnEvent(elementStock, element, lastEvent,
+            //        req.CurrencyId, pairHistory);
+
+            //    result.SumOnEndPeriod += priceEnd;
+
+            //}
 
 
             return result;
@@ -234,7 +286,13 @@ namespace FinancialAssistantApp.Models.Services
         }
 
 
-
+        /// <summary>
+        /// сумма по элементам на данный момент переведенная в валюту
+        /// </summary>
+        /// <param name="destinationCurrencyId"></param>
+        /// <param name="elements"></param>
+        /// <param name="currencyPairHistory"></param>
+        /// <returns></returns>
         private decimal CalculateElementsSum(
             long destinationCurrencyId, List<StockElement> elements, Dictionary<(long curId1, long curId2), List<ConvertElement>> currencyPairHistory)
         {

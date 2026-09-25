@@ -69,7 +69,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
 
         }
 
-        public async Task<List<StockEvent>> GetLastActualEvents(List<long> portfolioId, DateTime time)
+        public async Task<List<StockEvent>> GetLastActualEventsForMainElement(List<long> portfolioId, DateTime time)
         {
             //тут не только по основному надо, возможно переписать, получать полный список подгружать туда, отсекать по датам
             //тогда придется вооще всю историю грузить с самых первых дат до нужной. подумать
@@ -77,6 +77,21 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
             return await _db.StockEvent
                 .Where(e => e.EventDateTime < time && portfolioId.Contains(e.PortfolioId))
                 .GroupBy(e => e.MainElementId)
+                .Select(g => g
+                    .OrderByDescending(e => e.EventDateTime)
+                    .First())
+                .ToListAsync();
+
+        }
+
+        public async Task<List<StockEvent>> GetLastActualEventsForSubElement(List<long> portfolioId, DateTime time)
+        {
+            //тут не только по основному надо, возможно переписать, получать полный список подгружать туда, отсекать по датам
+            //тогда придется вооще всю историю грузить с самых первых дат до нужной. подумать
+            //мб делать 2 запроса, второй по .GroupBy(e => e.SubElementId)
+            return await _db.StockEvent
+                .Where(e => e.EventDateTime < time && portfolioId.Contains(e.PortfolioId))
+                .GroupBy(e => e.SubElementId)
                 .Select(g => g
                     .OrderByDescending(e => e.EventDateTime)
                     .First())
