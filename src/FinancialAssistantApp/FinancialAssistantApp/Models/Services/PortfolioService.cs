@@ -6,12 +6,7 @@ using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
 using FinancialAssistantApp.Models.Handlers;
 using FinancialAssistantApp.Models.Services.Interfaces;
-using Microsoft.EntityFrameworkCore.Query.Internal;
-using Org.BouncyCastle.Ocsp;
-using System.Collections;
-using System.Xml.Linq;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
-using Tinkoff.InvestApi.V1;
 using static FinancialAssistantApp.Models.Handlers.CurrencyConvertHandler;
 
 namespace FinancialAssistantApp.Models.Services
@@ -159,58 +154,51 @@ namespace FinancialAssistantApp.Models.Services
             //если за выбранный период не было ивентов на какую то акцию то идем ивент ДО периода тк там есть сума на начало
             var allPortfolioActualEventsOnPerionStartMain = await _stockEventRepository.GetLastActualEventsForMainElement(req.PortfolioId, req.Start);
             var allPortfolioActualEventsOnPerionStartSub = await _stockEventRepository.GetLastActualEventsForSubElement(req.PortfolioId, req.Start);
+            var allPortfolioActualEventsOnPerionEndMain = await _stockEventRepository.GetLastActualEventsForMainElement(req.PortfolioId, req.End);
+            var allPortfolioActualEventsOnPerionEndSub = await _stockEventRepository.GetLastActualEventsForSubElement(req.PortfolioId, req.End);
 
 
 
             foreach (var elem in elements)
             {
-                DateTime? priceDate = null;
-                decimal elemCount = 0;
-                var lastEventBeforeMain = allPortfolioActualEventsOnPerionStartMain.FirstOrDefault(x => x.MainElementId == elem.Id);
-                if (lastEventBeforeMain != null)
-                {
-                    priceDate = lastEventBeforeMain.EventDateTime;
-                    elemCount = lastEventBeforeMain.MainCountNow;
-                }
+                var elementStock = stocks.FirstOrDefault(x => x.Id == elem.StockId);
+                //var count = GetElemSumOnDate(elem.Id, elementStock, pairHistory,req.Start,req.CurrencyId);
+                var countStart = GetElemCount(
+                    allPortfolioActualEventsOnPerionStartMain.FirstOrDefault(x => x.MainElementId == elem.Id),
+                    allPortfolioActualEventsOnPerionStartSub.FirstOrDefault(x => x.SubElementId == elem.Id),
+                    eventsByMainElement.TryGetValue(elem.Id, out var mainEventList) ? mainEventList.FirstOrDefault() : null,
+                    eventsBySubElement.TryGetValue(elem.Id, out var subEventList) ? subEventList.FirstOrDefault() : null
+                    );
 
-                var lastEventBeforeSub = allPortfolioActualEventsOnPerionStartSub.FirstOrDefault(x => x.SubElementId == elem.Id);
-                if (lastEventBeforeSub != null && (priceDate == null || priceDate < lastEventBeforeSub.EventDateTime))
-                {
-                    //по sub элементу более актуальная дата, надо брать его
-                    priceDate = lastEventBeforeSub.EventDateTime;
-                    elemCount = lastEventBeforeSub.SubCountNow.Value;
-
-                }
-
-                //если мы нашли то дальше смотреть смысла нет тк это самый подходящий и точный вариант
-                if (priceDate == null)
-                {
-                    //ивента до периода не нашли, будем искать в рамках и пытаться его откатить
-                    if (eventsByMainElement.ContainsKey(elem.Id))
-                    {
-                        var mainEvents = eventsByMainElement[elem.Id].FirstOrDefault();
-                        priceDate = mainEvents?.EventDateTime;
-                        elemCount = mainEvents?.MainCountNow ?? 0; это значние после ивента, его надо откатить
-                    }
-
-                    var subEvent = eventsBySubElement.TryGetValue(elem.Id, out var subEventList) ? subEventList.FirstOrDefault() : null;
-                    if (subEvent!=null && (priceDate == null || subEvent.EventDateTime >priceDate))
-                    {
-                        //ивента до периода не нашли, будем искать в рамках и пытаться его откатить
-                            priceDate = subEvent?.EventDateTime;
-                            elemCount = subEvent?.SubCountNow ?? 0; это значние после ивента, его надо откатить
-                    }
-                }
-               
-
-                if(priceDate!= null)
+                //if (eventsByMainElement.ContainsKey(elementId))
+                //{
+                //    var mainEvents = eventsByMainElement[elementId].FirstOrDefault();
+                if (countStart != 0)
                 {
                     //ивентов не нашли, элемент создан ивентом ЗА диапазоном
-                    var elementStock = stocks.FirstOrDefault(x => x.Id == elem.StockId);
-                    result.SumOnStartPeriod += converter.GetElementPriceOnEvent(elementStock, elemCount,
+                    result.SumOnStartPeriod += converter.GetElementPriceOnEvent(elementStock, countStart,
                         req.Start,//думаю что правильно передавать дату начала периода а не дату ивента тк нам цена именно на начало периода нужна для статистики priceDate.Value,
                         req.CurrencyId, pairHistory);
                 }
+
+                var countEnd = GetElemCount(
+                        allPortfolioActualEventsOnPerionEndMain.FirstOrDefault(x => x.MainElementId == elem.Id),
+                        allPortfolioActualEventsOnPerionEndSub.FirstOrDefault(x => x.SubElementId == elem.Id),
+                        eventsByMainElement.TryGetValue(elem.Id, out var mainEventListEnd) ? mainEventList.LastOrDefault() : null,
+                        eventsBySubElement.TryGetValue(elem.Id, out var subEventListEnd) ? subEventList.LastOrDefault() : null
+                        );
+
+                //if (eventsByMainElement.ContainsKey(elementId))
+                //{
+                //    var mainEvents = eventsByMainElement[elementId].FirstOrDefault();
+                if (countEnd != 0)
+                {
+                    //ивентов не нашли, элемент создан ивентом ЗА диапазоном
+                    result.SumOnEndPeriod += converter.GetElementPriceOnEvent(elementStock, countEnd,
+                        req.End,//думаю что правильно передавать дату начала периода а не дату ивента тк нам цена именно на начало периода нужна для статистики priceDate.Value,
+                        req.CurrencyId, pairHistory);
+                }
+
             }
 
 
@@ -288,10 +276,75 @@ namespace FinancialAssistantApp.Models.Services
         }
 
 
-        private decimal GetElemSumOnDate()
+        private decimal GetElemCount(
+            StockEvent lastEventBeforeMain, StockEvent lastEventBeforeSub,
+            StockEvent eventAfterMain, StockEvent eventAfterSub
+            )
         {
+            DateTime? priceDate = null;
+            decimal elemCount = 0;
+            var converter = new CurrencyConvertHandler();
+            if (lastEventBeforeMain != null)
+            {
+                priceDate = lastEventBeforeMain.EventDateTime;
+                elemCount = lastEventBeforeMain.MainCountNow;
+            }
 
+            if (lastEventBeforeSub != null && (priceDate == null || priceDate < lastEventBeforeSub.EventDateTime))
+            {
+                //по sub элементу более актуальная дата(она ближе к интересующей нас дате), надо брать его
+                priceDate = lastEventBeforeSub.EventDateTime;
+                elemCount = lastEventBeforeSub.SubCountNow.Value;
+
+            }
+
+            //если мы нашли то дальше смотреть смысла нет тк это самый подходящий и точный вариант
+            if (priceDate == null)
+            {
+                //ивента до периода не нашли, будем искать в рамках и пытаться его откатить
+                if (eventAfterMain!=null)
+                {
+                    priceDate = eventAfterMain.EventDateTime;
+                    elemCount = eventAfterMain.MainCountNow ?? 0; это значние после ивента, его надо откатить
+                    }
+
+                if (eventAfterSub != null && (priceDate == null || eventAfterSub.EventDateTime < priceDate))
+                {
+                    //ивента до периода не нашли, будем искать в рамках и пытаться его откатить
+                    priceDate = eventAfterSub.EventDateTime;
+                    elemCount = eventAfterSub.SubCountNow ?? 0; это значние после ивента, его надо откатить
+                    }
+            }
+
+
+            return elemCount;
         }
+
+
+        //private decimal GetElemSumOnDate(long elementId, Stock elementStock,
+        //   Dictionary<(long curId1, long curId2), List<ConvertElement>> pairHistory,
+        //   DateTime datetime,//дата на которую надо узнать
+        //                     //long eventCurrencyId,
+        //   long destinationCurrencyId,
+        //   StockEvent lastEventBeforeMain, StockEvent lastEventBeforeSub,
+        //   StockEvent eventInMain, StockEvent lastEventBeforeSub,
+
+        //   )
+        //{
+            
+
+        //    if (priceDate != null)
+        //    {
+        //        //ивентов не нашли, элемент создан ивентом ЗА диапазоном
+        //        return converter.GetElementPriceOnEvent(elementStock, elemCount,
+        //            datetime,//думаю что правильно передавать дату начала периода а не дату ивента тк нам цена именно на начало периода нужна для статистики priceDate.Value,
+        //            destinationCurrencyId, pairHistory);
+        //    }
+
+        //    return 0;
+        //}
+
+
 
         /// <summary>
         /// сумма по элементам на данный момент переведенная в валюту
