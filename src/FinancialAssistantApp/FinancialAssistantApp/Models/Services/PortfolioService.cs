@@ -203,12 +203,14 @@ namespace FinancialAssistantApp.Models.Services
                 }
                
 
-
-
-
-                var elementStock = stocks.FirstOrDefault(x => x.Id == elem.StockId);
-                result.SumOnStartPeriod += converter.GetElementPriceOnEvent(elementStock, elemCount, priceDate.Value,
-                    req.CurrencyId, pairHistory);
+                if(priceDate!= null)
+                {
+                    //ивентов не нашли, элемент создан ивентом ЗА диапазоном
+                    var elementStock = stocks.FirstOrDefault(x => x.Id == elem.StockId);
+                    result.SumOnStartPeriod += converter.GetElementPriceOnEvent(elementStock, elemCount,
+                        req.Start,//думаю что правильно передавать дату начала периода а не дату ивента тк нам цена именно на начало периода нужна для статистики priceDate.Value,
+                        req.CurrencyId, pairHistory);
+                }
             }
 
 
@@ -285,6 +287,11 @@ namespace FinancialAssistantApp.Models.Services
 
         }
 
+
+        private decimal GetElemSumOnDate()
+        {
+
+        }
 
         /// <summary>
         /// сумма по элементам на данный момент переведенная в валюту

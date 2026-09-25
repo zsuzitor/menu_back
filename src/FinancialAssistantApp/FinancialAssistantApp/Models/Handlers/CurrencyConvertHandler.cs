@@ -227,40 +227,23 @@ namespace FinancialAssistantApp.Models.Handlers
         //доллар - долар - пополнение - доллар -- рубль  == Main
         public decimal GetElementPriceOnEvent(
             Stock stock,
-            StockElement element,
-            StockEvent ev,
+            decimal elementCount,
+            DateTime datetime,
             //long eventCurrencyId,
             long destinationCurrencyId,
             Dictionary<(long curId1, long curId2), List<ConvertElement>> pairHistory)
         {
 
-            var elementCount = 0m;
-            //var oneElementPrice = 0m;
-            if (ev.MainElementId == element.Id)
-            {
-                //ивент для главного элемента
-                elementCount = ev.MainCountNow;//количество элемента которое будем считать
-                //oneElementPrice = ev.SubCountChange ?? 0;
-            }
-            else
-            {
-                //ивент для зависимого элемента
-                //тоесть мы нашли ивент покупки или продажи, а элемент для которого мы нашли его это валюта
-                elementCount = ev.SubCountNow.Value;//количество элемента которое будем считать
-                //в зависимом элементе может быть только валюта, ее цена не нужна тк найдем через конвертацию
-
-            }
-
             if (stock.Type == BO.Models.FinancialAssistant.Enums.StockTypeEnum.Currency)
             {
-                return GetCurrencyPriceOnDate(stock.Id, ev.EventDateTime, elementCount, destinationCurrencyId, pairHistory);
+                return GetCurrencyPriceOnDate(stock.Id, datetime, elementCount, destinationCurrencyId, pairHistory);
             }
 
 
             //todo тут можно оптимизировать если покупка или продажа например то цену можно и даже лучше брать из ивента
-           var history = FindClosestTimePoint(stock.StockHistory, ev.EventDateTime);
+           var history = FindClosestTimePoint(stock.StockHistory, datetime);
             
-            return  GetElementPriceOnDate(stock, ev.EventDateTime, elementCount,
+            return  GetElementPriceOnDate(stock, datetime, elementCount,
                 history.Price, history.CurrencyId.Value, destinationCurrencyId, pairHistory);
 
         }
