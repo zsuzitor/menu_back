@@ -5,6 +5,7 @@ using Common.Models.Exceptions;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
 using FinancialAssistantApp.Models.Handlers;
+using FinancialAssistantApp.Models.Handlers.CreateEventHandlers;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using static FinancialAssistantApp.Models.Handlers.CurrencyConvertHandler;
@@ -18,14 +19,16 @@ namespace FinancialAssistantApp.Models.Services
         private readonly IStockElementRepository _stockElementRepository;
         private readonly IStockEventRepository _stockEventRepository;
         protected readonly IDateTimeProvider _dateTimeProvider;
+        private readonly CreateEventFactory _createEventFactory;
 
-        public PortfolioService(IPortfolioRepository portfolioRepository, IStockRepository stockRepository, IStockElementRepository stockElementRepository, IStockEventRepository stockEventRepository, IDateTimeProvider dateTimeProvider)
+        public PortfolioService(IPortfolioRepository portfolioRepository, IStockRepository stockRepository, IStockElementRepository stockElementRepository, IStockEventRepository stockEventRepository, IDateTimeProvider dateTimeProvider, CreateEventFactory createEventFactory)
         {
             _portfolioRepository = portfolioRepository;
             _stockRepository = stockRepository;
             _stockElementRepository = stockElementRepository;
             _stockEventRepository = stockEventRepository;
             _dateTimeProvider = dateTimeProvider;
+            _createEventFactory = createEventFactory;
         }
 
 
@@ -88,6 +91,12 @@ namespace FinancialAssistantApp.Models.Services
 
         public async Task<PortfolioStatistic> GetStatisticAsync(PortfolioStatisticRequestDto req, long userId)
         {
+            if (req.Start <= req.End)
+            {
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);//todo другая ошибка
+
+            }
+
             var result = new PortfolioStatistic();
             var portfolios = await _portfolioRepository.GetAllAsync(req.PortfolioId, userId);
             if (portfolios.Count != req.PortfolioId.Count)
@@ -163,42 +172,93 @@ namespace FinancialAssistantApp.Models.Services
             {
                 var elementStock = stocks.FirstOrDefault(x => x.Id == elem.StockId);
                 //var count = GetElemSumOnDate(elem.Id, elementStock, pairHistory,req.Start,req.CurrencyId);
-                var countStart = GetElemCount(
+                {
+                    var countStart = GetElemCount(
                     allPortfolioActualEventsOnPerionStartMain.FirstOrDefault(x => x.MainElementId == elem.Id),
                     allPortfolioActualEventsOnPerionStartSub.FirstOrDefault(x => x.SubElementId == elem.Id),
                     eventsByMainElement.TryGetValue(elem.Id, out var mainEventList) ? mainEventList.FirstOrDefault() : null,
                     eventsBySubElement.TryGetValue(elem.Id, out var subEventList) ? subEventList.FirstOrDefault() : null
                     );
 
-                //if (eventsByMainElement.ContainsKey(elementId))
-                //{
-                //    var mainEvents = eventsByMainElement[elementId].FirstOrDefault();
-                if (countStart != 0)
-                {
-                    //ивентов не нашли, элемент создан ивентом ЗА диапазоном
-                    result.SumOnStartPeriod += converter.GetElementPriceOnEvent(elementStock, countStart,
-                        req.Start,//думаю что правильно передавать дату начала периода а не дату ивента тк нам цена именно на начало периода нужна для статистики priceDate.Value,
-                        req.CurrencyId, pairHistory);
+                    if (countStart != 0)
+                    {
+                        //ивентов не нашли, элемент создан ивентом ЗА диапазоном
+                        result.SumOnStartPeriod += converter.GetElementPriceOnEvent(elementStock, countStart,
+                            req.Start,//думаю что правильно передавать дату начала периода а не дату ивента тк нам цена именно на начало периода нужна для статистики priceDate.Value,
+                            req.CurrencyId, pairHistory);
+                    }
                 }
 
-                var countEnd = GetElemCount(
+                {
+                    var countEnd = GetElemCount(
                         allPortfolioActualEventsOnPerionEndMain.FirstOrDefault(x => x.MainElementId == elem.Id),
                         allPortfolioActualEventsOnPerionEndSub.FirstOrDefault(x => x.SubElementId == elem.Id),
-                        eventsByMainElement.TryGetValue(elem.Id, out var mainEventListEnd) ? mainEventList.LastOrDefault() : null,
-                        eventsBySubElement.TryGetValue(elem.Id, out var subEventListEnd) ? subEventList.LastOrDefault() : null
+                        eventsByMainElement.TryGetValue(elem.Id, out var mainEventListEnd) ? mainEventListEnd.LastOrDefault() : null,
+                        eventsBySubElement.TryGetValue(elem.Id, out var subEventListEnd) ? subEventListEnd.LastOrDefault() : null
                         );
 
-                //if (eventsByMainElement.ContainsKey(elementId))
-                //{
-                //    var mainEvents = eventsByMainElement[elementId].FirstOrDefault();
-                if (countEnd != 0)
+                    if (countEnd != 0)
+                    {
+                        //ивентов не нашли, элемент создан ивентом ЗА диапазоном
+                        result.SumOnEndPeriod += converter.GetElementPriceOnEvent(elementStock, countEnd,
+                            req.End,//думаю что правильно передавать дату начала периода а не дату ивента тк нам цена именно на начало периода нужна для статистики priceDate.Value,
+                            req.CurrencyId, pairHistory);
+                    }
+                }
+            }
+
+
+            //тут нужно идти по датам а не по элементам, лучше лишний раз пройти еще раз по коллекции чем потом разгребать
+            var perionDate = req.Start;
+            result.PeriodSums.Add(new PeriodSum() { Date = req.Start, Sum = result.SumOnStartPeriod });
+            while (perionDate < req.End)
+            {
+                perionDate = perionDate.AddMonths(1);
+
+                if (perionDate.AddMonths(1) >= req.End)
                 {
-                    //ивентов не нашли, элемент создан ивентом ЗА диапазоном
-                    result.SumOnEndPeriod += converter.GetElementPriceOnEvent(elementStock, countEnd,
-                        req.End,//думаю что правильно передавать дату начала периода а не дату ивента тк нам цена именно на начало периода нужна для статистики priceDate.Value,
-                        req.CurrencyId, pairHistory);
+                    result.PeriodSums.Add(new PeriodSum() { Date = req.End, Sum = result.SumOnEndPeriod });
+                    break;
                 }
 
+                var sum = 0m;
+                foreach (var elem in elements)
+                {
+                    var elementStock = stocks.FirstOrDefault(x => x.Id == elem.StockId);
+
+
+                    var mainFirstInPeriod = eventsByMainElement.TryGetValue(elem.Id, out var mainEventList) ? mainEventList.Where(x => x.EventDateTime >= perionDate).FirstOrDefault() : null;
+                    var mainLastBeforePeriod = eventsByMainElement.TryGetValue(elem.Id, out var mainEventListBefore) ? mainEventListBefore.Where(x => x.EventDateTime < perionDate).LastOrDefault() : null;
+                    if (mainLastBeforePeriod == null)
+                    {
+                        mainLastBeforePeriod = allPortfolioActualEventsOnPerionStartMain.FirstOrDefault(x => x.MainElementId == elem.Id);
+                    }
+
+                    var subFirstInPeriod = eventsBySubElement.TryGetValue(elem.Id, out var subEventList) ? subEventList.Where(x => x.EventDateTime >= perionDate).FirstOrDefault() : null;
+                    var subLastBeforePeriod = eventsBySubElement.TryGetValue(elem.Id, out var subEventListBefore) ? subEventListBefore.Where(x => x.EventDateTime < perionDate).LastOrDefault() : null;
+                    if (subLastBeforePeriod == null)
+                    {
+                        subLastBeforePeriod = allPortfolioActualEventsOnPerionStartSub.FirstOrDefault(x => x.SubElementId == elem.Id);
+                    }
+
+                    var countOnDate = GetElemCount(
+                        mainLastBeforePeriod,
+                        subLastBeforePeriod,
+                        mainFirstInPeriod,
+                        subFirstInPeriod
+                        );
+
+                    if (countOnDate != 0)
+                    {
+                        //ивентов не нашли, элемент создан ивентом ЗА диапазоном
+
+                        sum += converter.GetElementPriceOnEvent(elementStock, countOnDate,
+                            perionDate,//думаю что правильно передавать дату начала периода а не дату ивента тк нам цена именно на начало периода нужна для статистики priceDate.Value,
+                            req.CurrencyId, pairHistory);
+                    }
+                }
+
+                result.PeriodSums.Add(new PeriodSum() { Date = perionDate, Sum = sum });
             }
 
 
@@ -276,6 +336,14 @@ namespace FinancialAssistantApp.Models.Services
         }
 
 
+        /// <summary>
+        /// есть некий интвервал ивентов, допустим с января по февраль, на любую точку в этом интервали можно найти количество
+        /// </summary>
+        /// <param name="lastEventBeforeMain">последний ивент до даты(точки) где элемент основной</param>
+        /// <param name="lastEventBeforeSub">последний ивент до даты(точки) где элемент зависимый</param>
+        /// <param name="eventAfterMain">первый ивент после точки</param>
+        /// <param name="eventAfterSub">первый ивент после точки</param>
+        /// <returns></returns>
         private decimal GetElemCount(
             StockEvent lastEventBeforeMain, StockEvent lastEventBeforeSub,
             StockEvent eventAfterMain, StockEvent eventAfterSub
@@ -302,18 +370,22 @@ namespace FinancialAssistantApp.Models.Services
             if (priceDate == null)
             {
                 //ивента до периода не нашли, будем искать в рамках и пытаться его откатить
-                if (eventAfterMain!=null)
+                if (eventAfterMain != null)
                 {
                     priceDate = eventAfterMain.EventDateTime;
-                    elemCount = eventAfterMain.MainCountNow ?? 0; это значние после ивента, его надо откатить
-                    }
+                    var rollback = _createEventFactory.Get(eventAfterMain.Type, 0).GetRollBackCountChange(eventAfterMain);
+                    var c = rollback.First(x => x.MainElementId == eventAfterMain.MainElementId).MainCountNow;
+                    elemCount = c;//eventAfterMain.MainCountNow ?? 0; это значние после ивента, его надо откатить
+                }
 
                 if (eventAfterSub != null && (priceDate == null || eventAfterSub.EventDateTime < priceDate))
                 {
                     //ивента до периода не нашли, будем искать в рамках и пытаться его откатить
                     priceDate = eventAfterSub.EventDateTime;
-                    elemCount = eventAfterSub.SubCountNow ?? 0; это значние после ивента, его надо откатить
-                    }
+                    var rollback = _createEventFactory.Get(eventAfterSub.Type, 0).GetRollBackCountChange(eventAfterSub);
+                    var c = rollback.First(x => x.MainElementId == eventAfterSub.SubElementId).MainCountNow;
+                    elemCount = c;//eventAfterSub.SubCountNow ?? 0; это значние после ивента, его надо откатить
+                }
             }
 
 

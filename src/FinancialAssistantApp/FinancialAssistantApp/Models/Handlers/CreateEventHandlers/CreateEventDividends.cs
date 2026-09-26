@@ -137,5 +137,33 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
             //тогда мы не найдем элемент и упадем, поэтому элемент всегда создаем\апдейтим
             return true;
         }
+
+        public override List<StockEvent> GetRollBackCountChange(StockEvent obj)
+        {
+            var mainObj = new StockEvent()
+            {
+                Type = StockEventEnum.CountChange,
+                CreationDateTime = _datetimProvider.CurrentDateTime(),
+                EventDateTime = _datetimProvider.CurrentDateTime(),
+                //obj.EventDateTime,
+                MainCountChange = 0,
+                MainCountNow = obj.MainCountNow,
+                MainElementId = obj.MainElementId,
+                PortfolioId = obj.PortfolioId,
+            };
+            var subObj = new StockEvent()
+            {
+                Type = StockEventEnum.CountChange,
+                CreationDateTime = _datetimProvider.CurrentDateTime(),
+                EventDateTime = _datetimProvider.CurrentDateTime(),//obj.EventDateTime,   ту же дату нельзя ставить потому что может сломаться статистика и тд, в 1 секунду и пополнение и снятие
+                MainCountChange = obj.SubCountChange.Value *-1,
+                MainCountNow = obj.SubCountNow.Value - obj.SubCountChange.Value,
+                MainElementId = obj.SubElementId.Value,
+                PortfolioId = obj.PortfolioId,
+            };
+            var result = new List<StockEvent>() { mainObj, subObj };
+            return result;
+
+        }
     }
 }

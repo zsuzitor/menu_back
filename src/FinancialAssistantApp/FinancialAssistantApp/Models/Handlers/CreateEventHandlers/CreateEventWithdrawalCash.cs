@@ -104,5 +104,23 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         {
             return true;
         }
+
+        public override List<StockEvent> GetRollBackCountChange(StockEvent obj)
+        {
+            var mainObj = new StockEvent()
+            {
+                Type = StockEventEnum.CountChange,
+                CreationDateTime = _datetimProvider.CurrentDateTime(),
+                EventDateTime = _datetimProvider.CurrentDateTime(),
+                //obj.EventDateTime,
+                MainCountChange = obj.MainCountChange,
+                MainCountNow = obj.MainCountNow + obj.MainCountChange,
+                MainElementId = obj.MainElementId,
+                PortfolioId = obj.PortfolioId,
+            };
+            var result = new List<StockEvent>() { mainObj };
+            return result;
+
+        }
     }
 }

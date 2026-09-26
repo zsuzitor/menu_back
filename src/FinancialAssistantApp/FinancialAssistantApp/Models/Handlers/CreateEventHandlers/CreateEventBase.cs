@@ -129,6 +129,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         protected abstract Task<Stock> GetCurrency(StockEventCreate obj);
         protected abstract Task<StockEvent> GetStockEvent(StockEventCreate obj);
         protected abstract Task<Stock> GetStock(StockEventCreate obj);
+        public abstract List<StockEvent> GetRollBackCountChange(StockEvent obj);
 
 
     }

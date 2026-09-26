@@ -1,9 +1,23 @@
 ﻿
 namespace FinancialAssistantApp.Models.DTO
 {
+    public class CurrencyMoney
+    {
+        public long CurrencyId { get; set; }
+        public decimal Money { get; set; }
+    }
+
+
+    public class PeriodSum
+    {
+        public DateTime Date { get; set; }
+        public decimal Sum { get; set; }
+    }
+
+
+
     public class PortfolioStatistic
     {
-        //на начало периода сумма
         //разбивка по месяцам или по каким то датам - динамика, рост падение. на конец месяца?
 
 
@@ -29,6 +43,13 @@ namespace FinancialAssistantApp.Models.DTO
         public decimal SumOnStartPeriod { get; set; }
         //на конец периода сумма(именно всего, не только что что прибавилось)
         public decimal SumOnEndPeriod { get; set; }
+
+        public List<PeriodSum> PeriodSums { get; set; }
+
+        public PortfolioStatistic()
+        {
+            PeriodSums = new List<PeriodSum>();
+        }
 
     }
 }
