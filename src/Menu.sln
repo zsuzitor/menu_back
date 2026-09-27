@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialAssistantApp", "Fi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIntegration", "FinancialAssistantApp\TIntegration\TIntegration.csproj", "{543637AE-FB3F-4DF0-B510-99EA1AB7F73C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialAssistantApp.Tests", "FinancialAssistantApp.Tests\FinancialAssistantApp.Tests.csproj", "{1C22B95E-4ADE-4203-8459-221702C424F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{543637AE-FB3F-4DF0-B510-99EA1AB7F73C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{543637AE-FB3F-4DF0-B510-99EA1AB7F73C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{543637AE-FB3F-4DF0-B510-99EA1AB7F73C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C22B95E-4ADE-4203-8459-221702C424F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C22B95E-4ADE-4203-8459-221702C424F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C22B95E-4ADE-4203-8459-221702C424F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C22B95E-4ADE-4203-8459-221702C424F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +136,7 @@ Global
 		{90EC8903-C2BA-479C-9D0C-02852E4006C7} = {2CD8D0F2-FFC8-4228-8C78-7CC056EE6EDC}
 		{8BC3E057-642B-4041-ABE7-913A109DD27F} = {B1EB469A-B77B-46DC-8062-094B3CB8648B}
 		{543637AE-FB3F-4DF0-B510-99EA1AB7F73C} = {B1EB469A-B77B-46DC-8062-094B3CB8648B}
+		{1C22B95E-4ADE-4203-8459-221702C424F0} = {B1EB469A-B77B-46DC-8062-094B3CB8648B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9E4869D0-AB6B-458D-AE8D-2DF122FC5521}

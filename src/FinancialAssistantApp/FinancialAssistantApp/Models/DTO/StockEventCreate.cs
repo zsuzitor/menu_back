@@ -11,6 +11,9 @@ namespace FinancialAssistantApp.Models.DTO
         //public long StockElementId { get; set; }
         public long? StockId { get; set; }
 
+        /// <summary>
+        /// за 1 акцию
+        /// </summary>
         public decimal? Price { get; set; }
         public long? CurrencyId { get; set; }
         /// <summary>

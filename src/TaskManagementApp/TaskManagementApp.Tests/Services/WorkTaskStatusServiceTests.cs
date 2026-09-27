@@ -1,14 +1,11 @@
 ﻿using AutoFixture;
-using BO.Models.DAL.Domain;
 using BO.Models.TaskManagementApp.DAL.Domain;
-using DAL.Models.DAL.Repositories.Interfaces;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Moq;
 using TaskManagementApp.Models;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
-using TaskManagementApp.Models.Services;
 using TaskManagementApp.Models.Services.Interfaces;
 using Xunit;
 

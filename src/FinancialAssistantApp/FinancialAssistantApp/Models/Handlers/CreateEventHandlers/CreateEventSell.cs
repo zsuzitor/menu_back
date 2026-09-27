@@ -123,7 +123,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 Type = obj.Type,
                 MainElementId = Main.Id,
                 PortfolioId = obj.PortfolioId,
-                SubCountChange = obj.Price,
+                SubCountChange = obj.Price * obj.Count,
                 SubCountNow = Sub.Count,
                 SubCountOldValue = OldCurrencyValue,
                 SubElementId = Sub.Id,

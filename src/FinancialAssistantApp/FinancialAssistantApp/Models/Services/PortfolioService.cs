@@ -91,7 +91,7 @@ namespace FinancialAssistantApp.Models.Services
 
         public async Task<PortfolioStatistic> GetStatisticAsync(PortfolioStatisticRequestDto req, long userId)
         {
-            if (req.Start <= req.End)
+            if (req.Start >= req.End)
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);//todo другая ошибка
 
