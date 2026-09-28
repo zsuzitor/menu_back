@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Moq;
 using TaskManagementApp.Models;
+using TaskManagementApp.Models.DAL.Repositories;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TaskManagementApp.Models.Services.Interfaces;
 using Xunit;
@@ -28,6 +29,10 @@ namespace TaskManagementApp.Tests.Services
             var services = DefaultInit();
 
             _ = AddMock<IProjectRepository>(services);
+            var statusRepoCached = AddMock<ITaskStatusCachedRepository>(services);
+            var statusRepo = AddMock<ITaskStatusRepository>(services);
+            _ = AddMock<ITasksManagmentAuthRepository>(services);
+            _ = AddMock<IWorkTaskRepository>(services);
 
             var projectId = 10;
             var status = _fixture.Build<WorkTaskStatus>()
@@ -35,11 +40,12 @@ namespace TaskManagementApp.Tests.Services
                 .With(x => x.Project, () => null)
                 .With(x => x.Tasks, () => null)
                 .Create();
-            var statusRepo = AddMock<ITaskStatusRepository>(services);
             statusRepo
-            .Setup(x => x.GetForProjectAsync(It.IsAny<long>()))
-            .ReturnsAsync(new List<WorkTaskStatus> { status });
-            _ = AddMock<IWorkTaskRepository>(services);
+                .Setup(x => x.GetForProjectAsync(It.IsAny<long>()))
+                .ReturnsAsync(new List<WorkTaskStatus> { status });
+            statusRepoCached
+                .Setup(x => x.GetForProjectAsync(It.IsAny<long>()))
+                .ReturnsAsync(new List<WorkTaskStatus> { status });
             var container = services.BuildServiceProvider();
             var test = container.GetRequiredService<IWorkTaskStatusService>();
 
