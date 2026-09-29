@@ -45,7 +45,7 @@ namespace FinancialAssistantApp.Tests.Services
             var datetimeNow = _fixture.Create<DateTime>();
             var userId = _fixture.Create<long>();
             var portfolio1 = _fixture.Build<Portfolio>().With(x => x.UserId, userId)
-                .With(x=>x.User,(ProjectUser)null).With(x => x.Currency, (Stock)null).With(x => x.Elements, (List<StockElement>)null).With(x => x.Events, (List<StockEvent>)null)
+                .With(x => x.User, (ProjectUser)null).With(x => x.Currency, (Stock)null).With(x => x.Elements, (List<StockElement>)null).With(x => x.Events, (List<StockEvent>)null)
                 .Create();
             var portfolio2 = _fixture.Build<Portfolio>().With(x => x.UserId, userId)
                 .With(x => x.User, (ProjectUser)null).With(x => x.Currency, (Stock)null).With(x => x.Elements, (List<StockElement>)null).With(x => x.Events, (List<StockEvent>)null)
@@ -53,7 +53,8 @@ namespace FinancialAssistantApp.Tests.Services
             var portfolio3 = _fixture.Build<Portfolio>().With(x => x.UserId, userId)
                 .With(x => x.User, (ProjectUser)null).With(x => x.Currency, (Stock)null).With(x => x.Elements, (List<StockElement>)null).With(x => x.Events, (List<StockEvent>)null)
                 .Create();
-            var statisticReq = new PortfolioStatisticRequestDto() {
+            var statisticReq = new PortfolioStatisticRequestDto()
+            {
                 CurrencyId = 1,
                 End = datetimeNow.AddYears(-1),
                 Start = datetimeNow.AddYears(-2),
@@ -70,13 +71,13 @@ namespace FinancialAssistantApp.Tests.Services
 
             var stockCurrencyCheap = _fixture.Build<Stock>().With(x => x.UserId, userId)
                 .With(x => x.User, (User)null).With(x => x.Currency, (Stock)null)
-                .With(x=>x.ActualizationTime,datetimeNow)
-                .With(x=>x.Type,BO.Models.FinancialAssistant.Enums.StockTypeEnum.Currency)
                 .With(x => x.ActualizationTime, datetimeNow)
-                .With(x => x.LastPrice, 0.01m)
+                .With(x => x.Type, BO.Models.FinancialAssistant.Enums.StockTypeEnum.Currency)
+                .With(x => x.ActualizationTime, datetimeNow)
+                .With(x => x.LastPrice, 0.00667m)
                 .With(x => x.CurrencyId, currencyStrongId)
                 .With(x => x.Id, 1)
-                .With(x=>x.StockHistory,new List<StockHistory>()
+                .With(x => x.StockHistory, new List<StockHistory>()
                 {
                     _fixture.Build<StockHistory>().With(x => x.CurrencyId, currencyStrongId)
                         .With(x => x.Date, statisticReq.Start.AddDays(-9)).With(x => x.Price, 0.02m).With(x => x.StockId, 1)
@@ -91,7 +92,7 @@ namespace FinancialAssistantApp.Tests.Services
                         .With(x => x.Date, statisticReq.Start.AddDays(50)).With(x => x.Price, 0.008m).With(x => x.StockId, 1)
                         .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),//125
                     _fixture.Build<StockHistory>().With(x => x.CurrencyId, currencyStrongId)
-                        .With(x => x.Date, statisticReq.End.AddDays(9)).With(x => x.Price, 0.02m).With(x => x.StockId, 1)
+                        .With(x => x.Date, statisticReq.End.AddDays(9)).With(x => x.Price, 0.00667m).With(x => x.StockId, 1)
                         .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),//price 50
                 }
                 )
@@ -100,13 +101,13 @@ namespace FinancialAssistantApp.Tests.Services
 
             var elementCurrencyCheap = _fixture.Build<StockElement>().With(x => x.StockId, stockCurrencyCheap.Id)
                 .With(x => x.Stock, stockCurrencyCheap)
-                .With(x => x.Count, 100000)
+                .With(x => x.Count, 162500)
                 .With(x => x.PortfolioId, portfolio1.Id).With(x => x.Portfolio, (Portfolio)null)
                 .Create();
 
             var elementCurrencyCheapPortfolio2 = _fixture.Build<StockElement>().With(x => x.StockId, stockCurrencyCheap.Id)
                 .With(x => x.Stock, stockCurrencyCheap)
-                .With(x => x.Count, 10000)
+                .With(x => x.Count, 100000)
                 .With(x => x.PortfolioId, portfolio2.Id).With(x => x.Portfolio, (Portfolio)null)
                 .Create();
 
@@ -114,7 +115,7 @@ namespace FinancialAssistantApp.Tests.Services
                 .With(x => x.User, (User)null).With(x => x.Currency, (Stock)null)
                 .With(x => x.Type, BO.Models.FinancialAssistant.Enums.StockTypeEnum.Currency)
                 .With(x => x.ActualizationTime, datetimeNow)
-                .With(x => x.LastPrice, 100m)
+                .With(x => x.LastPrice, 150m)
                 .With(x => x.CurrencyId, stockCurrencyCheap.Id)
                 .With(x => x.Id, currencyStrongId)
                 .With(x => x.StockHistory, new List<StockHistory>()
@@ -132,7 +133,7 @@ namespace FinancialAssistantApp.Tests.Services
                         .With(x => x.Date, statisticReq.Start.AddDays(50)).With(x => x.Price, 125).With(x => x.StockId, currencyStrongId)
                         .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),//125
                     _fixture.Build<StockHistory>().With(x => x.CurrencyId, stockCurrencyCheap.Id)
-                        .With(x => x.Date, statisticReq.End.AddDays(9)).With(x => x.Price, 50).With(x => x.StockId, currencyStrongId)
+                        .With(x => x.Date, statisticReq.End.AddDays(9)).With(x => x.Price, 150).With(x => x.StockId, currencyStrongId)
                         .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),//price 50
                 }
                 )
@@ -140,7 +141,7 @@ namespace FinancialAssistantApp.Tests.Services
 
             var elementCurrencyStrong = _fixture.Build<StockElement>().With(x => x.StockId, stockCurrencyStrong.Id)
                 .With(x => x.Stock, stockCurrencyStrong)
-                .With(x => x.Count, 666)
+                .With(x => x.Count, 50)
                 .With(x => x.PortfolioId, portfolio2.Id).With(x => x.Portfolio, (Portfolio)null)
                 .Create();
 
@@ -151,22 +152,30 @@ namespace FinancialAssistantApp.Tests.Services
                 .With(x => x.Id, stockInvestStockId)
                 .With(x => x.Type, BO.Models.FinancialAssistant.Enums.StockTypeEnum.InvestmentStock)
                 .With(x => x.ActualizationTime, datetimeNow)
-                .With(x => x.LastPrice, 5000m)
+                .With(x => x.LastPrice, 6000m)
                 .With(x => x.CurrencyId, stockCurrencyCheap.Id)
                 .With(x => x.StockHistory, new List<StockHistory>()
                 {
                     _fixture.Build<StockHistory>().With(x => x.CurrencyId, stockCurrencyCheap.Id)
                         .With(x => x.Date, statisticReq.Start.AddDays(-9)).With(x => x.Price, 2000).With(x => x.StockId, stockInvestStockId)
                         .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),
+
+                    _fixture.Build<StockHistory>().With(x => x.CurrencyId, stockCurrencyCheap.Id)
+                        .With(x => x.Date, statisticReq.Start.AddDays(-1)).With(x => x.Price, 2500).With(x => x.StockId, stockInvestStockId)
+                        .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),
+
                     _fixture.Build<StockHistory>().With(x => x.CurrencyId, stockCurrencyCheap.Id)
                         .With(x => x.Date, statisticReq.Start.AddDays(3)).With(x => x.Price, 4500).With(x => x.StockId, stockInvestStockId)
                         .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),
+
                     _fixture.Build<StockHistory>().With(x => x.CurrencyId, stockCurrencyCheap.Id)
                         .With(x => x.Date, statisticReq.Start.AddDays(30)).With(x => x.Price, 5000).With(x => x.StockId, stockInvestStockId)
                         .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),
+
                     _fixture.Build<StockHistory>().With(x => x.CurrencyId, stockCurrencyCheap.Id)
                         .With(x => x.Date, statisticReq.Start.AddDays(50)).With(x => x.Price, 5500).With(x => x.StockId, stockInvestStockId)
                         .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),
+
                     _fixture.Build<StockHistory>().With(x => x.CurrencyId, stockCurrencyCheap.Id)
                         .With(x => x.Date, statisticReq.End.AddDays(9)).With(x => x.Price, 6000).With(x => x.StockId, stockInvestStockId)
                         .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),
@@ -203,7 +212,7 @@ namespace FinancialAssistantApp.Tests.Services
                 }
                 )
                 //.With(x => x.Id, 3)
-                .Create();  
+                .Create();
 
             var elementInvestStock = _fixture.Build<StockElement>().With(x => x.StockId, stockInvestStock.Id)
                 .With(x => x.Stock, stockInvestStock)
@@ -246,7 +255,7 @@ namespace FinancialAssistantApp.Tests.Services
                         .With(x => x.MainElement, (StockElement)null).With(x => x.SubElement, (StockElement)null).With(x => x.Portfolio, (Portfolio)null)
                  .Create();
 
-             eventDay = 1;
+            eventDay = 1;
             var cashReplenishment1 = _fixture.Build<StockEvent>()
                 .With(x => x.EventDateTime, statisticReq.Start.AddDays(eventDay++))
                 .With(x => x.PortfolioId, portfolio1.Id)
@@ -368,16 +377,16 @@ namespace FinancialAssistantApp.Tests.Services
 
 
 
-            stockEventRepository.Setup(x => x.GetLastActualEventsForMainElement(It.IsAny<List<long>>(),statisticReq.Start))
-    .Returns(Task.FromResult(new List<StockEvent>() { cashReplenishment5, buy4}));
+            stockEventRepository.Setup(x => x.GetLastActualEventsForMainElement(It.IsAny<List<long>>(), statisticReq.Start))
+                .Returns(Task.FromResult(new List<StockEvent>() { cashReplenishment5, buy4 }));
 
             stockEventRepository.Setup(x => x.GetLastActualEventsForSubElement(It.IsAny<List<long>>(), statisticReq.Start))
-    .Returns(Task.FromResult(new List<StockEvent>() { buy4 }));
+                .Returns(Task.FromResult(new List<StockEvent>() { buy4 }));
 
             stockEventRepository.Setup(x => x.GetLastActualEventsForMainElement(It.IsAny<List<long>>(), statisticReq.End))
-    .Returns(Task.FromResult(new List<StockEvent>() { cashReplenishment3, cashReplenishment4, buy3 }));
+                .Returns(Task.FromResult(new List<StockEvent>() { cashReplenishment3, cashReplenishment4, buy3 }));
             stockEventRepository.Setup(x => x.GetLastActualEventsForSubElement(It.IsAny<List<long>>(), statisticReq.End))
-    .Returns(Task.FromResult(new List<StockEvent>() { buy3, dividends1 }));
+                .Returns(Task.FromResult(new List<StockEvent>() { buy3, dividends1 }));
 
 
 
@@ -388,7 +397,42 @@ namespace FinancialAssistantApp.Tests.Services
             var result = await portfolioService.GetStatisticAsync(statisticReq, userId);
             var json = JsonSerializer.Serialize(result);
 
+            var ReplenishmentsByCurrencyGood = new Dictionary<long, decimal>()
+            {
+                { 1, 300000M },
+                { 2, 100 }
+            };
+
             result.Should().NotBeNull();
+            result.CashReplenishmentSum.Should().Be(312500M);
+            result.DividendsCashSum.Should().Be(10000);
+            Math.Round(result.SumNow,0).Should().Be(389996M);//result.SumNow.Should().Be(390000);
+
+            Math.Round(result.SumOnStartPeriod, 0).Should().Be(12500);
+            Math.Round(result.SumOnEndPeriod, 0).Should().Be(389996M);
+
+            result.WithdrawalCashSum.Should().Be(0);
+            result.ReplenishmentsByCurrency.Count.Should().Be(2);
+            result.ReplenishmentsByCurrency.Should().BeEquivalentTo(ReplenishmentsByCurrencyGood);
+            result.WithdrawalCashByCurrency.Should().BeEquivalentTo(new Dictionary<long, decimal>());
+            result.DividendsCashByCurrency.Should().BeEquivalentTo(new Dictionary<long, decimal>() { {1, 10000 } });
+            var monthIteration = 0;
+            result.PeriodSums.Should().BeEquivalentTo(new List<PeriodSum>() {
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 345000 },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 345000 },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 389996M },
+            });
+
+            
             //result.Should().HaveCount(1);
             //result.First().Id.Should().Be(projectId);
 

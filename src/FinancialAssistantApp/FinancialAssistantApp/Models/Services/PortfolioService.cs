@@ -209,15 +209,15 @@ namespace FinancialAssistantApp.Models.Services
 
 
             //тут нужно идти по датам а не по элементам, лучше лишний раз пройти еще раз по коллекции чем потом разгребать
-            var perionDate = req.Start;
-            result.PeriodSums.Add(new PeriodSum() { Date = req.Start, Sum = result.SumOnStartPeriod });
-            while (perionDate < req.End)
+            var periodDate = req.Start;
+            result.PeriodSums.Add(new PeriodSum() { Date = req.Start.Date, Sum = result.SumOnStartPeriod });
+            while (periodDate < req.End)
             {
-                perionDate = perionDate.AddMonths(1);
+                periodDate = periodDate.AddMonths(1);
 
-                if (perionDate.AddMonths(1) >= req.End)
+                if (periodDate.AddMonths(1) >= req.End)
                 {
-                    result.PeriodSums.Add(new PeriodSum() { Date = req.End, Sum = result.SumOnEndPeriod });
+                    result.PeriodSums.Add(new PeriodSum() { Date = req.End.Date, Sum = result.SumOnEndPeriod });
                     break;
                 }
 
@@ -227,15 +227,15 @@ namespace FinancialAssistantApp.Models.Services
                     var elementStock = stocks.FirstOrDefault(x => x.Id == elem.StockId);
 
 
-                    var mainFirstInPeriod = eventsByMainElement.TryGetValue(elem.Id, out var mainEventList) ? mainEventList.Where(x => x.EventDateTime >= perionDate).FirstOrDefault() : null;
-                    var mainLastBeforePeriod = eventsByMainElement.TryGetValue(elem.Id, out var mainEventListBefore) ? mainEventListBefore.Where(x => x.EventDateTime < perionDate).LastOrDefault() : null;
+                    var mainFirstInPeriod = eventsByMainElement.TryGetValue(elem.Id, out var mainEventList) ? mainEventList.Where(x => x.EventDateTime >= periodDate).FirstOrDefault() : null;
+                    var mainLastBeforePeriod = eventsByMainElement.TryGetValue(elem.Id, out var mainEventListBefore) ? mainEventListBefore.Where(x => x.EventDateTime < periodDate).LastOrDefault() : null;
                     if (mainLastBeforePeriod == null)
                     {
                         mainLastBeforePeriod = allPortfolioActualEventsOnPerionStartMain.FirstOrDefault(x => x.MainElementId == elem.Id);
                     }
 
-                    var subFirstInPeriod = eventsBySubElement.TryGetValue(elem.Id, out var subEventList) ? subEventList.Where(x => x.EventDateTime >= perionDate).FirstOrDefault() : null;
-                    var subLastBeforePeriod = eventsBySubElement.TryGetValue(elem.Id, out var subEventListBefore) ? subEventListBefore.Where(x => x.EventDateTime < perionDate).LastOrDefault() : null;
+                    var subFirstInPeriod = eventsBySubElement.TryGetValue(elem.Id, out var subEventList) ? subEventList.Where(x => x.EventDateTime >= periodDate).FirstOrDefault() : null;
+                    var subLastBeforePeriod = eventsBySubElement.TryGetValue(elem.Id, out var subEventListBefore) ? subEventListBefore.Where(x => x.EventDateTime < periodDate).LastOrDefault() : null;
                     if (subLastBeforePeriod == null)
                     {
                         subLastBeforePeriod = allPortfolioActualEventsOnPerionStartSub.FirstOrDefault(x => x.SubElementId == elem.Id);
@@ -253,12 +253,12 @@ namespace FinancialAssistantApp.Models.Services
                         //ивентов не нашли, элемент создан ивентом ЗА диапазоном
 
                         sum += converter.GetElementPriceOnEvent(elementStock, countOnDate,
-                            perionDate,//думаю что правильно передавать дату начала периода а не дату ивента тк нам цена именно на начало периода нужна для статистики priceDate.Value,
+                            periodDate,//думаю что правильно передавать дату начала периода а не дату ивента тк нам цена именно на начало периода нужна для статистики priceDate.Value,
                             req.CurrencyId, pairHistory);
                     }
                 }
 
-                result.PeriodSums.Add(new PeriodSum() { Date = perionDate, Sum = sum });
+                result.PeriodSums.Add(new PeriodSum() { Date = periodDate.Date, Sum = sum });
             }
 
 
