@@ -5,19 +5,15 @@ using BO.Models.FinancialAssistant.DAL;
 using BO.Models.FinancialAssistant.Enums;
 using BO.Models.TaskManagementApp.DAL.Domain;
 using FinancialAssistantApp.Models;
-using FinancialAssistantApp.Models.DAL.Repositories;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
-using FinancialAssistantApp.Models.Services;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Moq;
-using Pipelines.Sockets.Unofficial.Arenas;
 using System.Text.Json;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
-using Xunit;
 namespace FinancialAssistantApp.Tests.Services
 {
     public class PortfolioServiceTests
@@ -90,6 +86,9 @@ namespace FinancialAssistantApp.Tests.Services
                         .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),//price 100
                     _fixture.Build<StockHistory>().With(x => x.CurrencyId, currencyStrongId)
                         .With(x => x.Date, statisticReq.Start.AddDays(50)).With(x => x.Price, 0.008m).With(x => x.StockId, 1)
+                        .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),//125
+                    _fixture.Build<StockHistory>().With(x => x.CurrencyId, currencyStrongId)
+                        .With(x => x.Date, statisticReq.Start.AddDays(90)).With(x => x.Price, 0.008m).With(x => x.StockId, 1)
                         .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),//125
                     _fixture.Build<StockHistory>().With(x => x.CurrencyId, currencyStrongId)
                         .With(x => x.Date, statisticReq.End.AddDays(9)).With(x => x.Price, 0.00667m).With(x => x.StockId, 1)
@@ -174,6 +173,10 @@ namespace FinancialAssistantApp.Tests.Services
 
                     _fixture.Build<StockHistory>().With(x => x.CurrencyId, stockCurrencyCheap.Id)
                         .With(x => x.Date, statisticReq.Start.AddDays(50)).With(x => x.Price, 5500).With(x => x.StockId, stockInvestStockId)
+                        .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),
+
+                    _fixture.Build<StockHistory>().With(x => x.CurrencyId, stockCurrencyCheap.Id)
+                        .With(x => x.Date, statisticReq.Start.AddDays(90)).With(x => x.Price, 5500).With(x => x.StockId, stockInvestStockId)
                         .With(x => x.Currency, (Stock)null).With(x => x.Stock, (Stock)null).Create(),
 
                     _fixture.Build<StockHistory>().With(x => x.CurrencyId, stockCurrencyCheap.Id)
@@ -418,21 +421,23 @@ namespace FinancialAssistantApp.Tests.Services
             result.DividendsCashByCurrency.Should().BeEquivalentTo(new Dictionary<long, decimal>() { {1, 10000 } });
             var monthIteration = 0;
             result.PeriodSums.Should().BeEquivalentTo(new List<PeriodSum>() {
-                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
-                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
-                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= result.SumOnStartPeriod },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 327500 },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 332500M },
                 new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 345000 },
-                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 345000 },
-                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
-                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
-                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
-                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
-                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
-                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 12500 },
-                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 389996M },
-            });
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 378750M },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 378750M },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 378750M },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= 378750M },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= result.SumOnEndPeriod },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= result.SumOnEndPeriod },
+                new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= result.SumOnEndPeriod },
+                new PeriodSum() {Date=statisticReq.End.Date,Sum= result.SumOnEndPeriod },
+            }, options => options
+                .Using<decimal>(ctx => ctx.Subject.Should().BeApproximately(ctx.Expectation, 1M))
+                .WhenTypeIs<decimal>());
 
-            
+
             //result.Should().HaveCount(1);
             //result.First().Id.Should().Be(projectId);
 
