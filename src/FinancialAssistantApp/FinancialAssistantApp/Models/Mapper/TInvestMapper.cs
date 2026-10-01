@@ -7,7 +7,18 @@ namespace FinancialAssistantApp.Models.Mapper
 {
     public static class TInvestMapper
     {
-        public static PriceRequestDto ToTInvestRequest(this Stock stock)
+        public static HistoryRequestDto ToTInvestHistoryRequest(this Stock stock, DateTime end)
+        {
+            return new HistoryRequestDto()
+            {
+                Code = stock.Code,
+                //Type = ToStockTypeEnum(stock.Type),
+                Start = stock.ActualizationTime,
+                End = end,
+            };
+        }
+
+        public static PriceRequestDto ToTInvestPriceRequest(this Stock stock)
         {
             return new PriceRequestDto()
             {
@@ -15,7 +26,6 @@ namespace FinancialAssistantApp.Models.Mapper
                 Type = ToStockTypeEnum(stock.Type)
             };
         }
-
 
         public static TEnum.StockTypeEnum ToStockTypeEnum(AppEnum.StockTypeEnum val)
         {

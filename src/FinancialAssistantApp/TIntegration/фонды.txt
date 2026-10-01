@@ -1,0 +1,1927 @@
+[
+  {
+    "TBankTicker": "AKGD",
+    "Name": "Альфа-Капитал Золото",
+    "TBankFigi": "TCSM561045N8",
+    "TBankCurrency": "rub",
+    "AppTicker": "AKGD"
+  },
+  {
+    "TBankTicker": "FXUS",
+    "Name": "FinEx Акции американских компаний",
+    "TBankFigi": "BBG005HLSZ23",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXUS"
+  },
+  {
+    "TBankTicker": "EWA",
+    "Name": "iShares MSCI Australia ETF",
+    "TBankFigi": "BBG000BDNJ29",
+    "TBankCurrency": "rub",
+    "AppTicker": "EWA"
+  },
+  {
+    "TBankTicker": "FXKZ",
+    "Name": "FinEx Акции казахстанских компаний",
+    "TBankFigi": "BBG00M8C8Y03",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXKZ"
+  },
+  {
+    "TBankTicker": "PKW",
+    "Name": "Invesco BuyBack Achievers ETF",
+    "TBankFigi": "TCS6137V3087",
+    "TBankCurrency": "rub",
+    "AppTicker": "PKW"
+  },
+  {
+    "TBankTicker": "CQQQ",
+    "Name": "Invesco China Technology ETF",
+    "TBankFigi": "BBG00KXH51H5",
+    "TBankCurrency": "rub",
+    "AppTicker": "CQQQ"
+  },
+  {
+    "TBankTicker": "AMRE",
+    "Name": "АТОН Российские акции +",
+    "TBankFigi": "TCS97A102XX4",
+    "TBankCurrency": "rub",
+    "AppTicker": "AMRE"
+  },
+  {
+    "TBankTicker": "IWF",
+    "Name": "iShares Russell 1000 Growth ET",
+    "TBankFigi": "BBG000BTR7Z0",
+    "TBankCurrency": "rub",
+    "AppTicker": "IWF"
+  },
+  {
+    "TBankTicker": "URTY",
+    "Name": "ProShares UltraPro Russell2000",
+    "TBankFigi": "TCS4347X7993",
+    "TBankCurrency": "rub",
+    "AppTicker": "URTY"
+  },
+  {
+    "TBankTicker": "SBGD",
+    "Name": "Первая – Фонд Доступное золото",
+    "TBankFigi": "TCSM44905385",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBGD"
+  },
+  {
+    "TBankTicker": "TOFZ@",
+    "Name": "Т-Капитал ОФЗ",
+    "TBankFigi": "TCS70A10A1L8",
+    "TBankCurrency": "rub",
+    "AppTicker": "TOFZ@"
+  },
+  {
+    "TBankTicker": "RU000A106G80",
+    "Name": "Замещающие облигации",
+    "TBankFigi": "TCSM74906G80",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A106G80"
+  },
+  {
+    "TBankTicker": "DVY",
+    "Name": "iShares Select Dividend ETF",
+    "TBankFigi": "BBG000C1L679",
+    "TBankCurrency": "rub",
+    "AppTicker": "DVY"
+  },
+  {
+    "TBankTicker": "TQQQ",
+    "Name": "ProShares UltraPro QQQ",
+    "TBankFigi": "BBG000QBB2R0",
+    "TBankCurrency": "rub",
+    "AppTicker": "TQQQ"
+  },
+  {
+    "TBankTicker": "VOO",
+    "Name": "Vanguard S&P 500 ETF",
+    "TBankFigi": "BBG0015VYNT4",
+    "TBankCurrency": "rub",
+    "AppTicker": "VOO"
+  },
+  {
+    "TBankTicker": "RU000A109KS6",
+    "Name": "Компании второго эшелона",
+    "TBankFigi": "TCS00A109KS6",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A109KS6"
+  },
+  {
+    "TBankTicker": "FXRD",
+    "Name": "FinEx Облигации с рублевыми дивидендами",
+    "TBankFigi": "BBG01236BLK6",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXRD"
+  },
+  {
+    "TBankTicker": "FXDM",
+    "Name": "FinEx Акции компаний развитых стран без США",
+    "TBankFigi": "TCS0BMDKNM37",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXDM"
+  },
+  {
+    "TBankTicker": "FXRW",
+    "Name": "FinEx Акции глобального рынка",
+    "TBankFigi": "BBG00R980XY3",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXRW"
+  },
+  {
+    "TBankTicker": "VXUS",
+    "Name": "Vanguard Total International Stock ETF",
+    "TBankFigi": "BBG001F8JPC4",
+    "TBankCurrency": "rub",
+    "AppTicker": "VXUS"
+  },
+  {
+    "TBankTicker": "83010",
+    "Name": "iShares Core MSCI Asia ex Japan ETF",
+    "TBankFigi": "BBG00DZG23W3",
+    "TBankCurrency": "rub",
+    "AppTicker": "83010"
+  },
+  {
+    "TBankTicker": "MCHI",
+    "Name": "iShares MSCI China ETF",
+    "TBankFigi": "BBG001LRJJH4",
+    "TBankCurrency": "rub",
+    "AppTicker": "MCHI"
+  },
+  {
+    "TBankTicker": "IGV",
+    "Name": "iShares Expanded Tech-Software Sector ETF",
+    "TBankFigi": "BBG000BGQ921",
+    "TBankCurrency": "rub",
+    "AppTicker": "IGV"
+  },
+  {
+    "TBankTicker": "REMX",
+    "Name": "VanEck Rare Earth and Strategic Metals ETF",
+    "TBankFigi": "BBG0018555F4",
+    "TBankCurrency": "rub",
+    "AppTicker": "REMX"
+  },
+  {
+    "TBankTicker": "ESGV",
+    "Name": "Vanguard ESG US Stock ETF",
+    "TBankFigi": "BBG00M0P2RX7",
+    "TBankCurrency": "rub",
+    "AppTicker": "ESGV"
+  },
+  {
+    "TBankTicker": "AKME",
+    "Name": "Альфа-Капитал Управляемые Российские Акции",
+    "TBankFigi": "TCS97A102E78",
+    "TBankCurrency": "rub",
+    "AppTicker": "AKME"
+  },
+  {
+    "TBankTicker": "NAIL",
+    "Name": "Direxion Daily Homebuilders & Supplies Bull 3X ETF",
+    "TBankFigi": "BBG009T0QJX2",
+    "TBankCurrency": "rub",
+    "AppTicker": "NAIL"
+  },
+  {
+    "TBankTicker": "FXI",
+    "Name": "iShares China Large-Cap ETF",
+    "TBankFigi": "BBG000Q8RVM1",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXI"
+  },
+  {
+    "TBankTicker": "RU000A104KU3",
+    "Name": "ЗПИФ Парус-НОРД",
+    "TBankFigi": "TCSM16704KU3",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A104KU3"
+  },
+  {
+    "TBankTicker": "SLV",
+    "Name": "iShares Silver Trust",
+    "TBankFigi": "BBG000NDCRW7",
+    "TBankCurrency": "rub",
+    "AppTicker": "SLV"
+  },
+  {
+    "TBankTicker": "FXBC",
+    "Name": "FinEx Экосистема Блокчейн",
+    "TBankFigi": "BBG01526SWY3",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXBC"
+  },
+  {
+    "TBankTicker": "VIG",
+    "Name": "Vanguard Dividend Appreciation ETF",
+    "TBankFigi": "BBG000P5G869",
+    "TBankCurrency": "rub",
+    "AppTicker": "VIG"
+  },
+  {
+    "TBankTicker": "IYR",
+    "Name": "iShares U.S. Real Estate ETF",
+    "TBankFigi": "TCS642877397",
+    "TBankCurrency": "rub",
+    "AppTicker": "IYR"
+  },
+  {
+    "TBankTicker": "TNA",
+    "Name": "Direxion Daily Small Cap Bull 3X ETF",
+    "TBankFigi": "TCS5459W8477",
+    "TBankCurrency": "rub",
+    "AppTicker": "TNA"
+  },
+  {
+    "TBankTicker": "XLP",
+    "Name": "The Consumer Staples Select Sector SPDR Fund",
+    "TBankFigi": "BBG000BJ10N8",
+    "TBankCurrency": "rub",
+    "AppTicker": "XLP"
+  },
+  {
+    "TBankTicker": "MGK",
+    "Name": "Vanguard Mega Cap Growth ETF",
+    "TBankFigi": "BBG000V1FPR1",
+    "TBankCurrency": "rub",
+    "AppTicker": "MGK"
+  },
+  {
+    "TBankTicker": "GLD",
+    "Name": "SPDR Gold Trust",
+    "TBankFigi": "BBG000CRF6Q8",
+    "TBankCurrency": "rub",
+    "AppTicker": "GLD"
+  },
+  {
+    "TBankTicker": "82822",
+    "Name": "CSOP FTSE China A50 ETF",
+    "TBankFigi": "BBG0038VN4N7",
+    "TBankCurrency": "rub",
+    "AppTicker": "82822"
+  },
+  {
+    "TBankTicker": "OBLG",
+    "Name": "ВИМ – Корпоративные облигации",
+    "TBankFigi": "TCSM269002S8",
+    "TBankCurrency": "rub",
+    "AppTicker": "OBLG"
+  },
+  {
+    "TBankTicker": "IJH",
+    "Name": "iShares Core S&P Mid-Cap ETF",
+    "TBankFigi": "BBG000BWC7P0",
+    "TBankCurrency": "rub",
+    "AppTicker": "IJH"
+  },
+  {
+    "TBankTicker": "VCIT",
+    "Name": "Vanguard Intermediate-Term Corporate Bond ETF",
+    "TBankFigi": "BBG000PWYVH7",
+    "TBankCurrency": "rub",
+    "AppTicker": "VCIT"
+  },
+  {
+    "TBankTicker": "VBR",
+    "Name": "Vanguard Small-Cap Value ETF",
+    "TBankFigi": "BBG000HX5MQ6",
+    "TBankCurrency": "rub",
+    "AppTicker": "VBR"
+  },
+  {
+    "TBankTicker": "EWW",
+    "Name": "iShares MSCI Mexico ETF",
+    "TBankFigi": "BBG000BK42M9",
+    "TBankCurrency": "rub",
+    "AppTicker": "EWW"
+  },
+  {
+    "TBankTicker": "PICK",
+    "Name": "iShares MSCI Global Select Metals & Mining Producers ETF",
+    "TBankFigi": "BBG002GKR8T5",
+    "TBankCurrency": "rub",
+    "AppTicker": "PICK"
+  },
+  {
+    "TBankTicker": "SBHI",
+    "Name": "Первая – Фонд Халяльные инвестиции",
+    "TBankFigi": "TCSM25803ZQ1",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBHI"
+  },
+  {
+    "TBankTicker": "3067",
+    "Name": "iShares Hang Seng TECH ETF",
+    "TBankFigi": "BBG00X94LLL6",
+    "TBankCurrency": "rub",
+    "AppTicker": "3067"
+  },
+  {
+    "TBankTicker": "SOXL",
+    "Name": "Direxion Daily Semiconductor Bull 3X ETF",
+    "TBankFigi": "BBG000QG1LV3",
+    "TBankCurrency": "rub",
+    "AppTicker": "SOXL"
+  },
+  {
+    "TBankTicker": "IEV",
+    "Name": "iShares Europe ETF",
+    "TBankFigi": "BBG000BXV152",
+    "TBankCurrency": "rub",
+    "AppTicker": "IEV"
+  },
+  {
+    "TBankTicker": "FXGD",
+    "Name": "FinEx Золото",
+    "TBankFigi": "BBG005DXDPK9",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXGD"
+  },
+  {
+    "TBankTicker": "CIBR",
+    "Name": "First Trust Nasdaq Cybersecurity ETF",
+    "TBankFigi": "TCS3734X8469",
+    "TBankCurrency": "rub",
+    "AppTicker": "CIBR"
+  },
+  {
+    "TBankTicker": "EWI",
+    "Name": "iShares MSCI Italy ETF",
+    "TBankFigi": "BBG000BK2V65",
+    "TBankCurrency": "rub",
+    "AppTicker": "EWI"
+  },
+  {
+    "TBankTicker": "XLU",
+    "Name": "The Utilities Select Sector SPDR Fund",
+    "TBankFigi": "BBG000BJ7G75",
+    "TBankCurrency": "rub",
+    "AppTicker": "XLU"
+  },
+  {
+    "TBankTicker": "SCHG",
+    "Name": "Schwab U.S. Large-Cap Growth ETF",
+    "TBankFigi": "BBG000Q0CS41",
+    "TBankCurrency": "rub",
+    "AppTicker": "SCHG"
+  },
+  {
+    "TBankTicker": "VV",
+    "Name": "Vanguard Large-Cap ETF",
+    "TBankFigi": "BBG000HSZ812",
+    "TBankCurrency": "rub",
+    "AppTicker": "VV"
+  },
+  {
+    "TBankTicker": "STME",
+    "Name": "Первая – Фонд Вечный портфель",
+    "TBankFigi": "TCSM212035S8",
+    "TBankCurrency": "rub",
+    "AppTicker": "STME"
+  },
+  {
+    "TBankTicker": "IAU",
+    "Name": "iShares Gold Trust",
+    "TBankFigi": "TCS642852044",
+    "TBankCurrency": "rub",
+    "AppTicker": "IAU"
+  },
+  {
+    "TBankTicker": "3188",
+    "Name": "ChinaAMC CSI 300 Index ETF",
+    "TBankFigi": "BBG003CPJ1W6",
+    "TBankCurrency": "rub",
+    "AppTicker": "3188"
+  },
+  {
+    "TBankTicker": "XLRE",
+    "Name": "Real Estate Select Sector SPDR",
+    "TBankFigi": "BBG00B597128",
+    "TBankCurrency": "rub",
+    "AppTicker": "XLRE"
+  },
+  {
+    "TBankTicker": "TLCN",
+    "Name": "Лужники Коллекшн Москва",
+    "TBankFigi": "TCS30A105M34",
+    "TBankCurrency": "rub",
+    "AppTicker": "TLCN"
+  },
+  {
+    "TBankTicker": "IYT",
+    "Name": "iShares U.S. Transportation ETF",
+    "TBankFigi": "BBG000BPNZB6",
+    "TBankCurrency": "rub",
+    "AppTicker": "IYT"
+  },
+  {
+    "TBankTicker": "VEA",
+    "Name": "Vanguard FTSE Developed Markets ETF",
+    "TBankFigi": "BBG000QVFB47",
+    "TBankCurrency": "rub",
+    "AppTicker": "VEA"
+  },
+  {
+    "TBankTicker": "EWP",
+    "Name": "iShares MSCI Spain ETF",
+    "TBankFigi": "BBG000BK58Q1",
+    "TBankCurrency": "rub",
+    "AppTicker": "EWP"
+  },
+  {
+    "TBankTicker": "XLC",
+    "Name": "Communication Services Select Sector SPDR Fund",
+    "TBankFigi": "BBG00L5F9F38",
+    "TBankCurrency": "rub",
+    "AppTicker": "XLC"
+  },
+  {
+    "TBankTicker": "FXCN",
+    "Name": "FinEx Акции китайских компаний",
+    "TBankFigi": "BBG005VKB7D7",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXCN"
+  },
+  {
+    "TBankTicker": "TRRE",
+    "Name": "Репаблик РЕДС Москва",
+    "TBankFigi": "TCS30A104UC0",
+    "TBankCurrency": "rub",
+    "AppTicker": "TRRE"
+  },
+  {
+    "TBankTicker": "ACWI",
+    "Name": "iShares MSCI ACWI ETF",
+    "TBankFigi": "BBG000TH6VB3",
+    "TBankCurrency": "rub",
+    "AppTicker": "ACWI"
+  },
+  {
+    "TBankTicker": "2822",
+    "Name": "CSOP FTSE China A50 ETF",
+    "TBankFigi": "BBG003GMGSH0",
+    "TBankCurrency": "rub",
+    "AppTicker": "2822"
+  },
+  {
+    "TBankTicker": "IXC",
+    "Name": "iShares Global Energy ETF",
+    "TBankFigi": "BBG000L74NQ7",
+    "TBankCurrency": "rub",
+    "AppTicker": "IXC"
+  },
+  {
+    "TBankTicker": "OIH",
+    "Name": "VanEck Oil Services ETF",
+    "TBankFigi": "BBG000D02J82",
+    "TBankCurrency": "rub",
+    "AppTicker": "OIH"
+  },
+  {
+    "TBankTicker": "KWEB",
+    "Name": "KraneShares CSI China Internet ETF",
+    "TBankFigi": "TCS007673065",
+    "TBankCurrency": "rub",
+    "AppTicker": "KWEB"
+  },
+  {
+    "TBankTicker": "TEUR",
+    "Name": "Вечный портфель Е",
+    "TBankFigi": "TCSM556011T7",
+    "TBankCurrency": "rub",
+    "AppTicker": "TEUR"
+  },
+  {
+    "TBankTicker": "TRUR@",
+    "Name": "Вечный портфель",
+    "TBankFigi": "TCS60A1011U5",
+    "TBankCurrency": "rub",
+    "AppTicker": "TRUR@"
+  },
+  {
+    "TBankTicker": "FXRE",
+    "Name": "FinEx Фонды недвижимости REIT",
+    "TBankFigi": "BBG013N16YX7",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXRE"
+  },
+  {
+    "TBankTicker": "LIT",
+    "Name": "Global X Lithium & Battery Tech ETF",
+    "TBankFigi": "BBG000BF74Y0",
+    "TBankCurrency": "rub",
+    "AppTicker": "LIT"
+  },
+  {
+    "TBankTicker": "EZA",
+    "Name": "iShares MSCI South Africa ETF",
+    "TBankFigi": "BBG000PNJ9F5",
+    "TBankCurrency": "rub",
+    "AppTicker": "EZA"
+  },
+  {
+    "TBankTicker": "VLUE",
+    "Name": "iShares MSCI USA Value Factor",
+    "TBankFigi": "BBG004FPWG26",
+    "TBankCurrency": "rub",
+    "AppTicker": "VLUE"
+  },
+  {
+    "TBankTicker": "TECL",
+    "Name": "Direxion Daily Technology Bull 3X ETF",
+    "TBankFigi": "TCS5459W1027",
+    "TBankCurrency": "rub",
+    "AppTicker": "TECL"
+  },
+  {
+    "TBankTicker": "RU000A0ZZML0",
+    "Name": "РСХБ – Фонд Сбалансированный",
+    "TBankFigi": "TCSM716ZZML0",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A0ZZML0"
+  },
+  {
+    "TBankTicker": "EUFN",
+    "Name": "iShares MSCI Europe Financials ETF",
+    "TBankFigi": "BBG000Q6VJG4",
+    "TBankCurrency": "rub",
+    "AppTicker": "EUFN"
+  },
+  {
+    "TBankTicker": "IYW",
+    "Name": "iShares U.S. Technology ETF",
+    "TBankFigi": "BBG000CF9GL4",
+    "TBankCurrency": "rub",
+    "AppTicker": "IYW"
+  },
+  {
+    "TBankTicker": "TKVM",
+    "Name": "Квадратные метры",
+    "TBankFigi": "BBG016CSVY38",
+    "TBankCurrency": "rub",
+    "AppTicker": "TKVM"
+  },
+  {
+    "TBankTicker": "FXRU",
+    "Name": "FinEx Еврооблигации рос. компаний (USD)",
+    "TBankFigi": "BBG005N1KZX4",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXRU"
+  },
+  {
+    "TBankTicker": "RU000A109KH9",
+    "Name": "Баланс акций и облигаций",
+    "TBankFigi": "TCS00A109KH9",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A109KH9"
+  },
+  {
+    "TBankTicker": "XLV",
+    "Name": "STATE STREET HEALTH CARE SELECT SEC",
+    "TBankFigi": "BBG000BHVSG6",
+    "TBankCurrency": "rub",
+    "AppTicker": "XLV"
+  },
+  {
+    "TBankTicker": "AKMB",
+    "Name": "Альфа-Капитал Управляемые облигации",
+    "TBankFigi": "RU000A101PN3",
+    "TBankCurrency": "rub",
+    "AppTicker": "AKMB"
+  },
+  {
+    "TBankTicker": "TECH2",
+    "Name": "Тинькофф Технологии заблокированные активы",
+    "TBankFigi": "TCS00A1071G8",
+    "TBankCurrency": "rub",
+    "AppTicker": "TECH2"
+  },
+  {
+    "TBankTicker": "FXMM",
+    "Name": "FinEx Казначейские облигации США",
+    "TBankFigi": "BBG006GYFHV6",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXMM"
+  },
+  {
+    "TBankTicker": "RU000A0ZZMD7",
+    "Name": "РСХБ – Фонд Облигаций",
+    "TBankFigi": "TCSM356ZZMD7",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A0ZZMD7"
+  },
+  {
+    "TBankTicker": "RU000A0JRUQ3",
+    "Name": "ТКБ Инвестмент Партнерс - Фонд сбалансированный",
+    "TBankFigi": "TCSM291JRUQ3",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A0JRUQ3"
+  },
+  {
+    "TBankTicker": "IXUS",
+    "Name": "iShares Core MSCI Total International Stock ETF",
+    "TBankFigi": "BBG003H6TM38",
+    "TBankCurrency": "rub",
+    "AppTicker": "IXUS"
+  },
+  {
+    "TBankTicker": "OEF",
+    "Name": "iShares S&P 100 ETF",
+    "TBankFigi": "BBG000DDXQR3",
+    "TBankCurrency": "rub",
+    "AppTicker": "OEF"
+  },
+  {
+    "TBankTicker": "XLY",
+    "Name": "Consumer Discretionary Select Sector SPDR",
+    "TBankFigi": "TCS1369Y4070",
+    "TBankCurrency": "rub",
+    "AppTicker": "XLY"
+  },
+  {
+    "TBankTicker": "FEZ",
+    "Name": "State Street SPDR EURO STOXX 50 ETF",
+    "TBankFigi": "BBG000PG8230",
+    "TBankCurrency": "rub",
+    "AppTicker": "FEZ"
+  },
+  {
+    "TBankTicker": "EWC",
+    "Name": "iShares MSCI Canada ETF",
+    "TBankFigi": "BBG000BJSXB0",
+    "TBankCurrency": "rub",
+    "AppTicker": "EWC"
+  },
+  {
+    "TBankTicker": "TRND@",
+    "Name": "Трендовые акции",
+    "TBankFigi": "TCS20A10B0G9",
+    "TBankCurrency": "rub",
+    "AppTicker": "TRND@"
+  },
+  {
+    "TBankTicker": "TTT",
+    "Name": "ProShares UltraPro Short 20+ Year Treasury",
+    "TBankFigi": "BBG002TXJ9Q3",
+    "TBankCurrency": "rub",
+    "AppTicker": "TTT"
+  },
+  {
+    "TBankTicker": "SBMX",
+    "Name": "Первая – Фонд Топ Российских акций",
+    "TBankFigi": "TCSM481ZZH92",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBMX"
+  },
+  {
+    "TBankTicker": "CHAU",
+    "Name": "Direxion Daily CSI 300 China A Share Bull 2X ETF",
+    "TBankFigi": "BBG008HBH279",
+    "TBankCurrency": "rub",
+    "AppTicker": "CHAU"
+  },
+  {
+    "TBankTicker": "XLB",
+    "Name": "The Materials Select Sector SPDR Fund",
+    "TBankFigi": "BBG000BHNNF7",
+    "TBankCurrency": "rub",
+    "AppTicker": "XLB"
+  },
+  {
+    "TBankTicker": "IEFA",
+    "Name": "iShares Core MSCI EAFE ETF",
+    "TBankFigi": "BBG003H6TR19",
+    "TBankCurrency": "rub",
+    "AppTicker": "IEFA"
+  },
+  {
+    "TBankTicker": "ITB",
+    "Name": "iShares U.S. Home Construction ETF",
+    "TBankFigi": "BBG000PB3SM8",
+    "TBankCurrency": "rub",
+    "AppTicker": "ITB"
+  },
+  {
+    "TBankTicker": "INDA",
+    "Name": "iShares MSCI India ETF",
+    "TBankFigi": "BBG002DMN3L7",
+    "TBankCurrency": "rub",
+    "AppTicker": "INDA"
+  },
+  {
+    "TBankTicker": "YINN",
+    "Name": "Direxion Daily FTSE China Bull 3X ETF",
+    "TBankFigi": "TCS5460G1958",
+    "TBankCurrency": "rub",
+    "AppTicker": "YINN"
+  },
+  {
+    "TBankTicker": "EWU",
+    "Name": "iShares MSCI United Kingdom ETF",
+    "TBankFigi": "BBG000BK6997",
+    "TBankCurrency": "rub",
+    "AppTicker": "EWU"
+  },
+  {
+    "TBankTicker": "GSLC",
+    "Name": "Goldman Sachs ActiveBeta U.S. Large Cap Equity ETF",
+    "TBankFigi": "BBG00B0SKXX2",
+    "TBankCurrency": "rub",
+    "AppTicker": "GSLC"
+  },
+  {
+    "TBankTicker": "EZU",
+    "Name": "iShares MSCI EMU ETF",
+    "TBankFigi": "BBG000CS4KW0",
+    "TBankCurrency": "rub",
+    "AppTicker": "EZU"
+  },
+  {
+    "TBankTicker": "EWS",
+    "Name": "iShares MSCI Singapore ETF",
+    "TBankFigi": "BBG000BK4VM5",
+    "TBankCurrency": "rub",
+    "AppTicker": "EWS"
+  },
+  {
+    "TBankTicker": "EFV",
+    "Name": "iShares MSCI EAFE Value ETF",
+    "TBankFigi": "BBG000GLBJK9",
+    "TBankCurrency": "rub",
+    "AppTicker": "EFV"
+  },
+  {
+    "TBankTicker": "SPYD",
+    "Name": "SPDR Portfolio S&P 500 High Dividend ETF",
+    "TBankFigi": "BBG00B6WD888",
+    "TBankCurrency": "rub",
+    "AppTicker": "SPYD"
+  },
+  {
+    "TBankTicker": "CNYA",
+    "Name": "iShares MSCI China A ETF",
+    "TBankFigi": "BBG00D30D431",
+    "TBankCurrency": "rub",
+    "AppTicker": "CNYA"
+  },
+  {
+    "TBankTicker": "KBE",
+    "Name": "SPDR S&P Bank ETF",
+    "TBankFigi": "BBG000KMKPY3",
+    "TBankCurrency": "rub",
+    "AppTicker": "KBE"
+  },
+  {
+    "TBankTicker": "AKQU",
+    "Name": "Альфа-Капитал Квант",
+    "TBankFigi": "TCS97A103NR5",
+    "TBankCurrency": "rub",
+    "AppTicker": "AKQU"
+  },
+  {
+    "TBankTicker": "IWM",
+    "Name": "iShares Russell 2000 ETF",
+    "TBankFigi": "BBG000CGC9C4",
+    "TBankCurrency": "rub",
+    "AppTicker": "IWM"
+  },
+  {
+    "TBankTicker": "ESGD",
+    "Name": "iShares ESG Aware MSCI EAFE ETF",
+    "TBankFigi": "BBG00D7BBRR8",
+    "TBankCurrency": "rub",
+    "AppTicker": "ESGD"
+  },
+  {
+    "TBankTicker": "SBPS",
+    "Name": "Первая – БПИФ Моя цель 2035",
+    "TBankFigi": "TCSM964035R0",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBPS"
+  },
+  {
+    "TBankTicker": "VXF",
+    "Name": "Vanguard Extended Market ETF",
+    "TBankFigi": "BBG000LNZ4P1",
+    "TBankCurrency": "rub",
+    "AppTicker": "VXF"
+  },
+  {
+    "TBankTicker": "SDY",
+    "Name": "SPDR S&P Dividend ETF",
+    "TBankFigi": "BBG000KN18M3",
+    "TBankCurrency": "rub",
+    "AppTicker": "SDY"
+  },
+  {
+    "TBankTicker": "RPV",
+    "Name": "Invesco S&P 500 Pure Value ETF",
+    "TBankFigi": "BBG00KJR2WB0",
+    "TBankCurrency": "rub",
+    "AppTicker": "RPV"
+  },
+  {
+    "TBankTicker": "QQQ",
+    "Name": "Invesco QQQ Trust, Series 1",
+    "TBankFigi": "BBG000BSWKH7",
+    "TBankCurrency": "rub",
+    "AppTicker": "QQQ"
+  },
+  {
+    "TBankTicker": "VTV",
+    "Name": "Vanguard Value ETF",
+    "TBankFigi": "BBG000HWV1X7",
+    "TBankCurrency": "rub",
+    "AppTicker": "VTV"
+  },
+  {
+    "TBankTicker": "IGSB",
+    "Name": "iShares 1-5 Year Investment Grade Corporate Bond ETF",
+    "TBankFigi": "BBG000QN2BW8",
+    "TBankCurrency": "rub",
+    "AppTicker": "IGSB"
+  },
+  {
+    "TBankTicker": "COPX",
+    "Name": "Global X Copper Miners ETF",
+    "TBankFigi": "BBG000QRNHZ0",
+    "TBankCurrency": "rub",
+    "AppTicker": "COPX"
+  },
+  {
+    "TBankTicker": "TBEU",
+    "Name": "Облигации (ex Тинькофф Еврооблигации EUR)",
+    "TBankFigi": "TCSM41003TD2",
+    "TBankCurrency": "rub",
+    "AppTicker": "TBEU"
+  },
+  {
+    "TBankTicker": "EPP",
+    "Name": "iShares MSCI Pacific ex Japan ETF",
+    "TBankFigi": "BBG000BJ1XP4",
+    "TBankCurrency": "rub",
+    "AppTicker": "EPP"
+  },
+  {
+    "TBankTicker": "TSPX2",
+    "Name": "Тинькофф США 500 заблокированные активы",
+    "TBankFigi": "TCS00A1071F0",
+    "TBankCurrency": "rub",
+    "AppTicker": "TSPX2"
+  },
+  {
+    "TBankTicker": "SOXX",
+    "Name": "iShares Semiconductor ETF",
+    "TBankFigi": "BBG000JP3063",
+    "TBankCurrency": "rub",
+    "AppTicker": "SOXX"
+  },
+  {
+    "TBankTicker": "THD",
+    "Name": "iShares MSCI Thailand ETF",
+    "TBankFigi": "BBG000VD5B51",
+    "TBankCurrency": "rub",
+    "AppTicker": "THD"
+  },
+  {
+    "TBankTicker": "IJR",
+    "Name": "iShares Core S&P Small-Cap ETF",
+    "TBankFigi": "BBG000BWCNN7",
+    "TBankCurrency": "rub",
+    "AppTicker": "IJR"
+  },
+  {
+    "TBankTicker": "VCLT",
+    "Name": "Vanguard Long-Term Corporate Bond ETF",
+    "TBankFigi": "BBG000PWZHX9",
+    "TBankCurrency": "rub",
+    "AppTicker": "VCLT"
+  },
+  {
+    "TBankTicker": "FAS",
+    "Name": "Direxion Daily Financial Bull 3X ETF",
+    "TBankFigi": "TCS5459Y6941",
+    "TBankCurrency": "rub",
+    "AppTicker": "FAS"
+  },
+  {
+    "TBankTicker": "RU000A109KE6",
+    "Name": "Консервативные облигации",
+    "TBankFigi": "TCS00A109KE6",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A109KE6"
+  },
+  {
+    "TBankTicker": "IWR",
+    "Name": "iShares Russell Mid-Cap ETF",
+    "TBankFigi": "BBG000JWXHK2",
+    "TBankCurrency": "rub",
+    "AppTicker": "IWR"
+  },
+  {
+    "TBankTicker": "DXJ",
+    "Name": "WisdomTree Japan Hedged Equity Fund",
+    "TBankFigi": "BBG000BT12H9",
+    "TBankCurrency": "rub",
+    "AppTicker": "DXJ"
+  },
+  {
+    "TBankTicker": "RU000A1022Z1",
+    "Name": "ЗПИФ Парус-ОЗН",
+    "TBankFigi": "TCSM546022Z1",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A1022Z1"
+  },
+  {
+    "TBankTicker": "EPI",
+    "Name": "WisdomTree India Earnings Fund",
+    "TBankFigi": "BBG000VC1C55",
+    "TBankCurrency": "rub",
+    "AppTicker": "EPI"
+  },
+  {
+    "TBankTicker": "FXTP",
+    "Name": "FinEx Облигации TIPS",
+    "TBankFigi": "TCS0BNYK7X86",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXTP"
+  },
+  {
+    "TBankTicker": "GDX",
+    "Name": "VanEck Gold Miners ETF",
+    "TBankFigi": "BBG000PLNQN7",
+    "TBankCurrency": "rub",
+    "AppTicker": "GDX"
+  },
+  {
+    "TBankTicker": "TIP",
+    "Name": "iShares TIPS Bond ETF",
+    "TBankFigi": "BBG000C01W49",
+    "TBankCurrency": "rub",
+    "AppTicker": "TIP"
+  },
+  {
+    "TBankTicker": "RSP",
+    "Name": "Invesco S&P 500 Equal Weight ETF",
+    "TBankFigi": "BBG00KJR2MY7",
+    "TBankCurrency": "rub",
+    "AppTicker": "RSP"
+  },
+  {
+    "TBankTicker": "VEU",
+    "Name": "Vanguard FTSE All-World ex-US ETF",
+    "TBankFigi": "BBG000HMNZV5",
+    "TBankCurrency": "rub",
+    "AppTicker": "VEU"
+  },
+  {
+    "TBankTicker": "FXDE",
+    "Name": "FinEx Акции немецких компаний",
+    "TBankFigi": "BBG005H7MXN2",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXDE"
+  },
+  {
+    "TBankTicker": "NUGT",
+    "Name": "Direxion Daily Gold Miners Index Bull 2X ETF",
+    "TBankFigi": "TCS5460G7815",
+    "TBankCurrency": "rub",
+    "AppTicker": "NUGT"
+  },
+  {
+    "TBankTicker": "IBB",
+    "Name": "iShares Biotechnology ETF",
+    "TBankFigi": "BBG000FS8GY0",
+    "TBankCurrency": "rub",
+    "AppTicker": "IBB"
+  },
+  {
+    "TBankTicker": "LQDT",
+    "Name": "ВИМ – Ликвидность",
+    "TBankFigi": "TCS60A1014L8",
+    "TBankCurrency": "rub",
+    "AppTicker": "LQDT"
+  },
+  {
+    "TBankTicker": "SCHE",
+    "Name": "Schwab Emerging Markets Equity ETF",
+    "TBankFigi": "BBG000Q5QG14",
+    "TBankCurrency": "rub",
+    "AppTicker": "SCHE"
+  },
+  {
+    "TBankTicker": "IGOV",
+    "Name": "iShares International Treasury Bond",
+    "TBankFigi": "TCS642881175",
+    "TBankCurrency": "rub",
+    "AppTicker": "IGOV"
+  },
+  {
+    "TBankTicker": "TLCB@",
+    "Name": "Локальные валютные облигации",
+    "TBankFigi": "TCS20A107597",
+    "TBankCurrency": "rub",
+    "AppTicker": "TLCB@"
+  },
+  {
+    "TBankTicker": "AGG",
+    "Name": "iShares Core U.S. Aggregate Bond ETF",
+    "TBankFigi": "BBG000Q123R0",
+    "TBankCurrency": "rub",
+    "AppTicker": "AGG"
+  },
+  {
+    "TBankTicker": "VWO",
+    "Name": "Vanguard FTSE Emerging Markets ETF",
+    "TBankFigi": "BBG000HT88C8",
+    "TBankCurrency": "rub",
+    "AppTicker": "VWO"
+  },
+  {
+    "TBankTicker": "TGLD@",
+    "Name": "Золото",
+    "TBankFigi": "TCS80A101X50",
+    "TBankCurrency": "rub",
+    "AppTicker": "TGLD@"
+  },
+  {
+    "TBankTicker": "VSS",
+    "Name": "Vanguard FTSE All-World ex-US Small-Cap ETF",
+    "TBankFigi": "BBG000D6RYS7",
+    "TBankCurrency": "rub",
+    "AppTicker": "VSS"
+  },
+  {
+    "TBankTicker": "EEM",
+    "Name": "iShares MSCI Emerging Markets ETF",
+    "TBankFigi": "BBG000M0P5L2",
+    "TBankCurrency": "rub",
+    "AppTicker": "EEM"
+  },
+  {
+    "TBankTicker": "UBT",
+    "Name": "ProShares Ultra 20+ Year Treasury",
+    "TBankFigi": "TCS4347R1721",
+    "TBankCurrency": "rub",
+    "AppTicker": "UBT"
+  },
+  {
+    "TBankTicker": "SCHD",
+    "Name": "Schwab US Dividend Equity ETF",
+    "TBankFigi": "BBG0025RWKW5",
+    "TBankCurrency": "rub",
+    "AppTicker": "SCHD"
+  },
+  {
+    "TBankTicker": "IWO",
+    "Name": "iShares Russell 2000 Growth ETF",
+    "TBankFigi": "BBG000C17LW4",
+    "TBankCurrency": "rub",
+    "AppTicker": "IWO"
+  },
+  {
+    "TBankTicker": "SPY",
+    "Name": "State Street SPDR S&P 500 ETF Trust",
+    "TBankFigi": "BBG000BDTBL9",
+    "TBankCurrency": "rub",
+    "AppTicker": "SPY"
+  },
+  {
+    "TBankTicker": "VIS",
+    "Name": "Vanguard Industrials ETF",
+    "TBankFigi": "BBG000HX9TN0",
+    "TBankCurrency": "rub",
+    "AppTicker": "VIS"
+  },
+  {
+    "TBankTicker": "RU000A10EVE8",
+    "Name": "ЗПИФ Парус-МВ",
+    "TBankFigi": "TCSM7570EVE8",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A10EVE8"
+  },
+  {
+    "TBankTicker": "IWN",
+    "Name": "iShares Russell 2000 Value ETF",
+    "TBankFigi": "BBG000C16Z27",
+    "TBankCurrency": "rub",
+    "AppTicker": "IWN"
+  },
+  {
+    "TBankTicker": "XHB",
+    "Name": "SPDR S&P Homebuilders ETF",
+    "TBankFigi": "BBG000MQSW88",
+    "TBankCurrency": "rub",
+    "AppTicker": "XHB"
+  },
+  {
+    "TBankTicker": "IWD",
+    "Name": "iShares Russell 1000 Value ETF",
+    "TBankFigi": "BBG000CG9VP5",
+    "TBankCurrency": "rub",
+    "AppTicker": "IWD"
+  },
+  {
+    "TBankTicker": "SBRS",
+    "Name": "Первая – Фонд Осторожный смарт",
+    "TBankFigi": "TCSM458035Q2",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBRS"
+  },
+  {
+    "TBankTicker": "FXWO",
+    "Name": "FinEx Акции глобального рынка",
+    "TBankFigi": "BBG00R9805F5",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXWO"
+  },
+  {
+    "TBankTicker": "FXTB",
+    "Name": "FinEx Казначейские облигации США (USD)",
+    "TBankFigi": "BBG00NRFC2X2",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXTB"
+  },
+  {
+    "TBankTicker": "USMV",
+    "Name": "iShares Edge MSCI Min Vol USA ETF",
+    "TBankFigi": "BBG0025X2FJ1",
+    "TBankCurrency": "rub",
+    "AppTicker": "USMV"
+  },
+  {
+    "TBankTicker": "SBSC",
+    "Name": "Первая – Фонд Акции средней и малой капитализации",
+    "TBankFigi": "TCSM27706XY3",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBSC"
+  },
+  {
+    "TBankTicker": "RU000A0ZZMN6",
+    "Name": "РСХБ – Фонд Акций",
+    "TBankFigi": "TCSM214ZZMN6",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A0ZZMN6"
+  },
+  {
+    "TBankTicker": "GXC",
+    "Name": "State Street SPDR S&P China ETF",
+    "TBankFigi": "BBG000Q8R7Y1",
+    "TBankCurrency": "rub",
+    "AppTicker": "GXC"
+  },
+  {
+    "TBankTicker": "QUAL",
+    "Name": "iShares Edge MSCI USA Quality Factor ETF",
+    "TBankFigi": "BBG004TRTWV4",
+    "TBankCurrency": "rub",
+    "AppTicker": "QUAL"
+  },
+  {
+    "TBankTicker": "XSECUR",
+    "Name": "Обеспеченные Активы",
+    "TBankFigi": "TCS00A10FNH5",
+    "TBankCurrency": "rub",
+    "AppTicker": "XSECUR"
+  },
+  {
+    "TBankTicker": "FXEM",
+    "Name": "FinEx Развивающиеся страны без Китая и Индии",
+    "TBankFigi": "BBG013T81ZQ6",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXEM"
+  },
+  {
+    "TBankTicker": "TMOS@",
+    "Name": "Крупнейшие компании РФ",
+    "TBankFigi": "TCS60A101X76",
+    "TBankCurrency": "rub",
+    "AppTicker": "TMOS@"
+  },
+  {
+    "TBankTicker": "VO",
+    "Name": "Vanguard Mid-Cap ETF",
+    "TBankFigi": "BBG000HX76S7",
+    "TBankCurrency": "rub",
+    "AppTicker": "VO"
+  },
+  {
+    "TBankTicker": "JNK",
+    "Name": "SPDR Bloomberg High Yield Bond ETF",
+    "TBankFigi": "BBG000NXDKM8",
+    "TBankCurrency": "rub",
+    "AppTicker": "JNK"
+  },
+  {
+    "TBankTicker": "IWP",
+    "Name": "iShares Russell Mid-Cap Growth ETF",
+    "TBankFigi": "BBG000BW05W9",
+    "TBankCurrency": "rub",
+    "AppTicker": "IWP"
+  },
+  {
+    "TBankTicker": "SPLV",
+    "Name": "Invesco S&P 500 Low Volatility ETF",
+    "TBankFigi": "BBG001P2KBP1",
+    "TBankCurrency": "rub",
+    "AppTicker": "SPLV"
+  },
+  {
+    "TBankTicker": "SMH",
+    "Name": "VanEck Semiconductor ETF",
+    "TBankFigi": "BBG000BV7ZQ5",
+    "TBankCurrency": "rub",
+    "AppTicker": "SMH"
+  },
+  {
+    "TBankTicker": "3010",
+    "Name": "iShares Core MSCI Asia ex Japan ETF",
+    "TBankFigi": "BBG000DY97J5",
+    "TBankCurrency": "rub",
+    "AppTicker": "3010"
+  },
+  {
+    "TBankTicker": "IWB",
+    "Name": "iShares Russell 1000 ETF",
+    "TBankFigi": "BBG000CF7ZN2",
+    "TBankCurrency": "rub",
+    "AppTicker": "IWB"
+  },
+  {
+    "TBankTicker": "FXES",
+    "Name": "FinEx Видеоигры и Киберспорт",
+    "TBankFigi": "BBG011Q55QS3",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXES"
+  },
+  {
+    "TBankTicker": "SBBY",
+    "Name": "Первая – Фонд Инструменты в юанях",
+    "TBankFigi": "TCSM98306J53",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBBY"
+  },
+  {
+    "TBankTicker": "SBFR",
+    "Name": "Первая – Фонд Облигации с переменным купоном",
+    "TBankFigi": "TCSM33607KW2",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBFR"
+  },
+  {
+    "TBankTicker": "RU000A105RJ8",
+    "Name": "РСХБ – Долговой рынок",
+    "TBankFigi": "TCSM53205RJ8",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A105RJ8"
+  },
+  {
+    "TBankTicker": "2800",
+    "Name": "Tracker Fund of Hong Kong",
+    "TBankFigi": "BBG000BDJRC5",
+    "TBankCurrency": "rub",
+    "AppTicker": "2800"
+  },
+  {
+    "TBankTicker": "SBLB",
+    "Name": "Первая – Фонд Долгосрочные гособлигации",
+    "TBankFigi": "TCSM27508355",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBLB"
+  },
+  {
+    "TBankTicker": "TKVC",
+    "Name": "Стартапы России",
+    "TBankFigi": "TCS00A1084G1",
+    "TBankCurrency": "rub",
+    "AppTicker": "TKVC"
+  },
+  {
+    "TBankTicker": "XSD",
+    "Name": "SPDR S&P Semiconductor ETF",
+    "TBankFigi": "BBG000MQVF45",
+    "TBankCurrency": "rub",
+    "AppTicker": "XSD"
+  },
+  {
+    "TBankTicker": "EWQ",
+    "Name": "iShares MSCI France ETF",
+    "TBankFigi": "BBG000BJX6S5",
+    "TBankCurrency": "rub",
+    "AppTicker": "EWQ"
+  },
+  {
+    "TBankTicker": "ANGL",
+    "Name": "VanEck Fallen Angel High Yield Bond ETF",
+    "TBankFigi": "BBG002VZY764",
+    "TBankCurrency": "rub",
+    "AppTicker": "ANGL"
+  },
+  {
+    "TBankTicker": "TPAY",
+    "Name": "Пассивный доход",
+    "TBankFigi": "TCSM25708WX3",
+    "TBankCurrency": "rub",
+    "AppTicker": "TPAY"
+  },
+  {
+    "TBankTicker": "IXG",
+    "Name": "iShares Global Financials ETF",
+    "TBankFigi": "BBG000L77B26",
+    "TBankCurrency": "rub",
+    "AppTicker": "IXG"
+  },
+  {
+    "TBankTicker": "FXIM",
+    "Name": "FinEx Акции компаний IT-сектора США",
+    "TBankFigi": "BBG00Y6D0N45",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXIM"
+  },
+  {
+    "TBankTicker": "EWZ",
+    "Name": "iShares MSCI Brazil ETF",
+    "TBankFigi": "BBG000CPLR52",
+    "TBankCurrency": "rub",
+    "AppTicker": "EWZ"
+  },
+  {
+    "TBankTicker": "VGK",
+    "Name": "Vanguard FTSE Europe ETF",
+    "TBankFigi": "BBG000HT8SM3",
+    "TBankCurrency": "rub",
+    "AppTicker": "VGK"
+  },
+  {
+    "TBankTicker": "RU000A109K57",
+    "Name": "Золотой стандарт",
+    "TBankFigi": "TCS00A109K57",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A109K57"
+  },
+  {
+    "TBankTicker": "VPL",
+    "Name": "Vanguard FTSE Pacific ETF",
+    "TBankFigi": "BBG000HTCFY3",
+    "TBankCurrency": "rub",
+    "AppTicker": "VPL"
+  },
+  {
+    "TBankTicker": "SPXL",
+    "Name": "Direxion Daily S&P 500 Bull 3X ETF",
+    "TBankFigi": "BBG000JLH1H3",
+    "TBankCurrency": "rub",
+    "AppTicker": "SPXL"
+  },
+  {
+    "TBankTicker": "UDOW",
+    "Name": "ProShares UltraPro Dow30 ETF",
+    "TBankFigi": "TCS4347X8231",
+    "TBankCurrency": "rub",
+    "AppTicker": "UDOW"
+  },
+  {
+    "TBankTicker": "XLI",
+    "Name": "The Industrial Select Sector SPDR Fund",
+    "TBankFigi": "BBG000BJ2RF7",
+    "TBankCurrency": "rub",
+    "AppTicker": "XLI"
+  },
+  {
+    "TBankTicker": "FXRL",
+    "Name": "FinEx Акции российских компаний",
+    "TBankFigi": "BBG0073DLHS1",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXRL"
+  },
+  {
+    "TBankTicker": "EMB",
+    "Name": "iShares J.P. Morgan USD Emerging Markets Bond ETF",
+    "TBankFigi": "BBG000NXKWH0",
+    "TBankCurrency": "rub",
+    "AppTicker": "EMB"
+  },
+  {
+    "TBankTicker": "IVV",
+    "Name": "iShares Core S&P 500 ETF",
+    "TBankFigi": "BBG000BVZ4F5",
+    "TBankCurrency": "rub",
+    "AppTicker": "IVV"
+  },
+  {
+    "TBankTicker": "RU000A104172",
+    "Name": "ЗПИФ Парус-СБЛ",
+    "TBankFigi": "TCSM77504172",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A104172"
+  },
+  {
+    "TBankTicker": "ACWX",
+    "Name": "iShares MSCI ACWI ex US ETF",
+    "TBankFigi": "BBG000TH7DF8",
+    "TBankCurrency": "rub",
+    "AppTicker": "ACWX"
+  },
+  {
+    "TBankTicker": "ILF",
+    "Name": "iShares Latin America 40 ETF",
+    "TBankFigi": "BBG000KWYDJ0",
+    "TBankCurrency": "rub",
+    "AppTicker": "ILF"
+  },
+  {
+    "TBankTicker": "EWM",
+    "Name": "iShares MSCI Malaysia ETF",
+    "TBankFigi": "BBG000BK3L48",
+    "TBankCurrency": "rub",
+    "AppTicker": "EWM"
+  },
+  {
+    "TBankTicker": "SAFE",
+    "Name": "Первая – Фонд Консервативный смарт",
+    "TBankFigi": "TCSM170035N9",
+    "TBankCurrency": "rub",
+    "AppTicker": "SAFE"
+  },
+  {
+    "TBankTicker": "SBDS",
+    "Name": "Первая – БПИФ Моя цель 2045",
+    "TBankFigi": "TCSM595035L3",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBDS"
+  },
+  {
+    "TBankTicker": "SBGB",
+    "Name": "Первая – Фонд Государственные облигации",
+    "TBankFigi": "TCSM751000F9",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBGB"
+  },
+  {
+    "TBankTicker": "ASHR",
+    "Name": "Xtrackers Harvest CSI 300 China A-Shares ETF",
+    "TBankFigi": "TCS330518794",
+    "TBankCurrency": "rub",
+    "AppTicker": "ASHR"
+  },
+  {
+    "TBankTicker": "IEMG",
+    "Name": "iShares Core MSCI Emerging Markets ETF",
+    "TBankFigi": "BBG003HC3CQ0",
+    "TBankCurrency": "rub",
+    "AppTicker": "IEMG"
+  },
+  {
+    "TBankTicker": "VDE",
+    "Name": "Vanguard Energy ETF",
+    "TBankFigi": "BBG000HTG205",
+    "TBankCurrency": "rub",
+    "AppTicker": "VDE"
+  },
+  {
+    "TBankTicker": "82823",
+    "Name": "iShares FTSE China A50 ETF",
+    "TBankFigi": "BBG00H2QL687",
+    "TBankCurrency": "rub",
+    "AppTicker": "82823"
+  },
+  {
+    "TBankTicker": "HDV",
+    "Name": "iShares Core High Dividend ETF",
+    "TBankFigi": "BBG001LRJC70",
+    "TBankCurrency": "rub",
+    "AppTicker": "HDV"
+  },
+  {
+    "TBankTicker": "DRIV",
+    "Name": "Global X Autonomous & Electric Vehicles ETF",
+    "TBankFigi": "BBG00KLHY7D7",
+    "TBankCurrency": "rub",
+    "AppTicker": "DRIV"
+  },
+  {
+    "TBankTicker": "TSAV",
+    "Name": "Накопительный",
+    "TBankFigi": "TCS97A10FLY4",
+    "TBankCurrency": "rub",
+    "AppTicker": "TSAV"
+  },
+  {
+    "TBankTicker": "VOT",
+    "Name": "Vanguard Mid-Cap Growth ETF",
+    "TBankFigi": "BBG000Q1ZB87",
+    "TBankCurrency": "rub",
+    "AppTicker": "VOT"
+  },
+  {
+    "TBankTicker": "TITR@",
+    "Name": "Акции роста",
+    "TBankFigi": "TCS30A108BL2",
+    "TBankCurrency": "rub",
+    "AppTicker": "TITR@"
+  },
+  {
+    "TBankTicker": "JNUG",
+    "Name": "Direxion Daily Junior Gold Miners Index Bull 2X ETF",
+    "TBankFigi": "TCS5460G8318",
+    "TBankCurrency": "rub",
+    "AppTicker": "JNUG"
+  },
+  {
+    "TBankTicker": "SBCB",
+    "Name": "Первая – Фонд Валютных Облигаций",
+    "TBankFigi": "TCSM939000Q6",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBCB"
+  },
+  {
+    "TBankTicker": "TBIO2",
+    "Name": "Тинькофф Biotech заблокированные активы",
+    "TBankFigi": "TCS00A1071D5",
+    "TBankCurrency": "rub",
+    "AppTicker": "TBIO2"
+  },
+  {
+    "TBankTicker": "SBCN",
+    "Name": "Первая – Фонд Сберегательный в юанях",
+    "TBankFigi": "TCSM35505PU9",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBCN"
+  },
+  {
+    "TBankTicker": "MDY",
+    "Name": "State Street SPDR S&P Midcap 400 ETF Trust",
+    "TBankFigi": "BBG000BBNQB7",
+    "TBankCurrency": "rub",
+    "AppTicker": "MDY"
+  },
+  {
+    "TBankTicker": "DIA",
+    "Name": "State Street SPDR Dow Jones Industrial Average ETF Trus",
+    "TBankFigi": "BBG000BTDS98",
+    "TBankCurrency": "rub",
+    "AppTicker": "DIA"
+  },
+  {
+    "TBankTicker": "VCSH",
+    "Name": "Vanguard Short-Term Corporate Bond ETF",
+    "TBankFigi": "BBG000PWXXY5",
+    "TBankCurrency": "rub",
+    "AppTicker": "VCSH"
+  },
+  {
+    "TBankTicker": "SPLG",
+    "Name": "SPDR Portfolio S&P 500 ETF",
+    "TBankFigi": "BBG000KMT5K3",
+    "TBankCurrency": "rub",
+    "AppTicker": "SPLG"
+  },
+  {
+    "TBankTicker": "GOLD",
+    "Name": "ВИМ – Фонд Золото",
+    "TBankFigi": "TCSM85601NZ2",
+    "TBankCurrency": "rub",
+    "AppTicker": "GOLD"
+  },
+  {
+    "TBankTicker": "MTUM",
+    "Name": "iShares Edge MSCI USA Momentum Factor ETF",
+    "TBankFigi": "BBG004FPTZB8",
+    "TBankCurrency": "rub",
+    "AppTicker": "MTUM"
+  },
+  {
+    "TBankTicker": "TUSD",
+    "Name": "Вечный портфель Д",
+    "TBankFigi": "TCSM592011S9",
+    "TBankCurrency": "rub",
+    "AppTicker": "TUSD"
+  },
+  {
+    "TBankTicker": "TDIV@",
+    "Name": "Дивидендные акции",
+    "TBankFigi": "TCS10A107563",
+    "TBankCurrency": "rub",
+    "AppTicker": "TDIV@"
+  },
+  {
+    "TBankTicker": "TMON@",
+    "Name": "Денежный рынок",
+    "TBankFigi": "TCS70A106DL2",
+    "TBankCurrency": "rub",
+    "AppTicker": "TMON@"
+  },
+  {
+    "TBankTicker": "ITOT",
+    "Name": "iShares Core S&P Total U.S. Stock Market ETF",
+    "TBankFigi": "BBG000HSHTP0",
+    "TBankCurrency": "rub",
+    "AppTicker": "ITOT"
+  },
+  {
+    "TBankTicker": "AAXJ",
+    "Name": "iShares MSCI All Country Asia ex-Japan ETF",
+    "TBankFigi": "BBG000G6GXC5",
+    "TBankCurrency": "rub",
+    "AppTicker": "AAXJ"
+  },
+  {
+    "TBankTicker": "IQLT",
+    "Name": "iShares MSCI International Quality Factor ETF",
+    "TBankFigi": "BBG007WGM3G5",
+    "TBankCurrency": "rub",
+    "AppTicker": "IQLT"
+  },
+  {
+    "TBankTicker": "SCHA",
+    "Name": "Schwab U.S. Small-Cap ETF",
+    "TBankFigi": "BBG000PS0FX0",
+    "TBankCurrency": "rub",
+    "AppTicker": "SCHA"
+  },
+  {
+    "TBankTicker": "TBRU@",
+    "Name": "Российские облигации",
+    "TBankFigi": "TCS60A1039N1",
+    "TBankCurrency": "rub",
+    "AppTicker": "TBRU@"
+  },
+  {
+    "TBankTicker": "CWB",
+    "Name": "SPDR Bloomberg Barclays Convertible Securities ETF",
+    "TBankFigi": "BBG000FTQMS2",
+    "TBankCurrency": "rub",
+    "AppTicker": "CWB"
+  },
+  {
+    "TBankTicker": "ARKF",
+    "Name": "ARK Fintech Innovation ETF",
+    "TBankFigi": "TCS0214Q7088",
+    "TBankCurrency": "rub",
+    "AppTicker": "ARKF"
+  },
+  {
+    "TBankTicker": "BIL",
+    "Name": "SPDR Bloomberg 1-3 Month T-Bill ETF",
+    "TBankFigi": "BBG000RFQZZ2",
+    "TBankCurrency": "rub",
+    "AppTicker": "BIL"
+  },
+  {
+    "TBankTicker": "HYG",
+    "Name": "iShares iBoxx $ High Yield Corporate Bond ETF",
+    "TBankFigi": "BBG000R2T3H9",
+    "TBankCurrency": "rub",
+    "AppTicker": "HYG"
+  },
+  {
+    "TBankTicker": "FXIT",
+    "Name": "FinEx Акции компаний IT-сектора США",
+    "TBankFigi": "BBG005HLTYH9",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXIT"
+  },
+  {
+    "TBankTicker": "XLF",
+    "Name": "STATE STREET FINANCIAL SELECT SECT",
+    "TBankFigi": "BBG000BJ29X7",
+    "TBankCurrency": "rub",
+    "AppTicker": "XLF"
+  },
+  {
+    "TBankTicker": "WCLD",
+    "Name": "WisdomTree Cloud Computing Fund",
+    "TBankFigi": "BBG00Q5FMYM0",
+    "TBankCurrency": "rub",
+    "AppTicker": "WCLD"
+  },
+  {
+    "TBankTicker": "2828",
+    "Name": "Hang Seng China Enterprises Index ETF",
+    "TBankFigi": "BBG000DPPFX2",
+    "TBankCurrency": "rub",
+    "AppTicker": "2828"
+  },
+  {
+    "TBankTicker": "TUR",
+    "Name": "iShares MSCI Turkey ETF",
+    "TBankFigi": "BBG000TZCSF9",
+    "TBankCurrency": "rub",
+    "AppTicker": "TUR"
+  },
+  {
+    "TBankTicker": "EQMX",
+    "Name": "ВИМ – Индекс МосБиржи",
+    "TBankFigi": "TCSM46901EJ5",
+    "TBankCurrency": "rub",
+    "AppTicker": "EQMX"
+  },
+  {
+    "TBankTicker": "ESGE",
+    "Name": "iShares ESG Aware MSCI EM ETF",
+    "TBankFigi": "BBG00D7BDH61",
+    "TBankCurrency": "rub",
+    "AppTicker": "ESGE"
+  },
+  {
+    "TBankTicker": "FXFA",
+    "Name": "FinEx Облигаций развитых рынков",
+    "TBankFigi": "BBG00ZXX3KF9",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXFA"
+  },
+  {
+    "TBankTicker": "2823",
+    "Name": "iShares FTSE China A50 ETF",
+    "TBankFigi": "BBG000P9FRH8",
+    "TBankCurrency": "rub",
+    "AppTicker": "2823"
+  },
+  {
+    "TBankTicker": "SCHB",
+    "Name": "Schwab U.S. Broad Market ETF",
+    "TBankFigi": "BBG000PRZSP5",
+    "TBankCurrency": "rub",
+    "AppTicker": "SCHB"
+  },
+  {
+    "TBankTicker": "IUSV",
+    "Name": "iShares Core S&P U.S. Value ETF",
+    "TBankFigi": "BBG000C183Y1",
+    "TBankCurrency": "rub",
+    "AppTicker": "IUSV"
+  },
+  {
+    "TBankTicker": "LQD",
+    "Name": "iShares iBoxx $ Investment Grade Corporate Bond ETF",
+    "TBankFigi": "BBG000BBV9N3",
+    "TBankCurrency": "rub",
+    "AppTicker": "LQD"
+  },
+  {
+    "TBankTicker": "SBRB",
+    "Name": "Первая – Фонд Корпоративные облигации",
+    "TBankFigi": "TCSM59500P44",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBRB"
+  },
+  {
+    "TBankTicker": "TIPO2",
+    "Name": "Тинькофф Индекс IPO заблокированные активы",
+    "TBankFigi": "TCS00A1071E3",
+    "TBankCurrency": "rub",
+    "AppTicker": "TIPO2"
+  },
+  {
+    "TBankTicker": "SCZ",
+    "Name": "iShares MSCI EAFE Small-Cap ETF",
+    "TBankFigi": "BBG000T1G7X6",
+    "TBankCurrency": "rub",
+    "AppTicker": "SCZ"
+  },
+  {
+    "TBankTicker": "IYE",
+    "Name": "iShares U.S. Energy ETF",
+    "TBankFigi": "BBG000BXXRG1",
+    "TBankCurrency": "rub",
+    "AppTicker": "IYE"
+  },
+  {
+    "TBankTicker": "IYF",
+    "Name": "iShares U.S. Financials ETF",
+    "TBankFigi": "BBG000CGFWK1",
+    "TBankCurrency": "rub",
+    "AppTicker": "IYF"
+  },
+  {
+    "TBankTicker": "BOTZ",
+    "Name": "Global X Robotics & Artificial Intelligence ETF",
+    "TBankFigi": "BBG00DSB42G0",
+    "TBankCurrency": "rub",
+    "AppTicker": "BOTZ"
+  },
+  {
+    "TBankTicker": "TLT",
+    "Name": "iShares 20+ Year Treasury Bond ETF",
+    "TBankFigi": "BBG000BJKYW3",
+    "TBankCurrency": "rub",
+    "AppTicker": "TLT"
+  },
+  {
+    "TBankTicker": "ICLN",
+    "Name": "iShares Global Clean Energy ETF",
+    "TBankFigi": "TCS642882249",
+    "TBankCurrency": "rub",
+    "AppTicker": "ICLN"
+  },
+  {
+    "TBankTicker": "QLD",
+    "Name": "ProShares Ultra QQQ",
+    "TBankFigi": "TCS4347R2067",
+    "TBankCurrency": "rub",
+    "AppTicker": "QLD"
+  },
+  {
+    "TBankTicker": "82800",
+    "Name": "Tracker Fund of Hong Kong",
+    "TBankFigi": "BBG0195YJDZ2",
+    "TBankCurrency": "rub",
+    "AppTicker": "82800"
+  },
+  {
+    "TBankTicker": "VTI",
+    "Name": "Vanguard Total Stock Market ETF",
+    "TBankFigi": "BBG000HR9779",
+    "TBankCurrency": "rub",
+    "AppTicker": "VTI"
+  },
+  {
+    "TBankTicker": "KBWB",
+    "Name": "Invesco KBW Bank ETF",
+    "TBankFigi": "BBG0027F1TD5",
+    "TBankCurrency": "rub",
+    "AppTicker": "KBWB"
+  },
+  {
+    "TBankTicker": "82828",
+    "Name": "Hang Seng China Enterprises Index ETF",
+    "TBankFigi": "BBG009QVS7Y0",
+    "TBankCurrency": "rub",
+    "AppTicker": "82828"
+  },
+  {
+    "TBankTicker": "ESGU",
+    "Name": "iShares ESG Aware MSCI USA ETF",
+    "TBankFigi": "BBG00FFPFT13",
+    "TBankCurrency": "rub",
+    "AppTicker": "ESGU"
+  },
+  {
+    "TBankTicker": "RU000A1071F0",
+    "Name": "Тинькофф США 500 заблокированные активы",
+    "TBankFigi": "TCS70A1071F0",
+    "TBankCurrency": "rub",
+    "AppTicker": "RU000A1071F0"
+  },
+  {
+    "TBankTicker": "FXIP",
+    "Name": "FinEx Облигации TIPS (RUB)",
+    "TBankFigi": "BBG011C7ZVQ2",
+    "TBankCurrency": "rub",
+    "AppTicker": "FXIP"
+  },
+  {
+    "TBankTicker": "SPSB",
+    "Name": "SPDR Portfolio Short Term Corporate Bond ETF",
+    "TBankFigi": "BBG000Q1MZ15",
+    "TBankCurrency": "rub",
+    "AppTicker": "SPSB"
+  },
+  {
+    "TBankTicker": "SBRI",
+    "Name": "Первая – Фонд Ответственные инвестиции",
+    "TBankFigi": "TCSM575024P8",
+    "TBankCurrency": "rub",
+    "AppTicker": "SBRI"
+  },
+  {
+    "TBankTicker": "SPDW",
+    "Name": "State Street SPDR Portfolio Developed World ex-US ETF",
+    "TBankFigi": "BBG000Q8SV13",
+    "TBankCurrency": "rub",
+    "AppTicker": "SPDW"
+  },
+  {
+    "TBankTicker": "TBF",
+    "Name": "ProShares Short 20+ Year Treasury",
+    "TBankFigi": "TCS4347X8496",
+    "TBankCurrency": "rub",
+    "AppTicker": "TBF"
+  },
+  {
+    "TBankTicker": "VYMI",
+    "Name": "Vanguard International High Dividend Yield",
+    "TBankFigi": "BBG00C868SC8",
+    "TBankCurrency": "rub",
+    "AppTicker": "VYMI"
+  },
+  {
+    "TBankTicker": "EIDO",
+    "Name": "iShares MSCI Indonesia ETF",
+    "TBankFigi": "BBG000QVL5M3",
+    "TBankCurrency": "rub",
+    "AppTicker": "EIDO"
+  },
+  {
+    "TBankTicker": "3033",
+    "Name": "CSOP Hang Seng TECH Index ETF",
+    "TBankFigi": "BBG00WYF7G78",
+    "TBankCurrency": "rub",
+    "AppTicker": "3033"
+  }
+]

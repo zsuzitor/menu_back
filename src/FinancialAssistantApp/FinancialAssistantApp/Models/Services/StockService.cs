@@ -8,7 +8,10 @@ using FinancialAssistantApp.Models.Mapper;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Models.Services.Interfaces;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
+using Tinkoff.InvestApi.V1;
+using TIntegration.Models.DTO;
 using TIntegration.Models.Services.Interfaces;
+using static Google.Api.ResourceDescriptor.Types;
 
 namespace FinancialAssistantApp.Models.Services
 {
@@ -168,6 +171,43 @@ namespace FinancialAssistantApp.Models.Services
 
         }
 
+        public async Task FillHistoryAsync(long stockId, long userId)
+        {
+            if (!await _userService.IsAdminAsync(userId))
+            {
+                throw new SomeCustomNotAllowedException();
+            }
+
+            var stock = await _stockRepository.GetGlobalAsync(stockId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
+            var tRequest = stock.ToTInvestHistoryRequest(_datetimeProvider.CurrentDateTime());
+
+            var tHistory = await _priceService.GetHistory(tRequest);
+            if (tHistory == null || tHistory.Count == 0)
+            {
+                return;
+            }
+
+
+            var appCurrency = await _stockRepository.GetGlobalByCodeNoTrack(tHistory.First().CurrencyCode);
+            var historyForAdd = tHistory.Select(x => new StockHistory()
+            {
+                CurrencyId = appCurrency.Id,
+                Date = x.Date,
+                Price = x.Price,
+                StockId = stock.Id,
+            });
+
+
+            await _stockHistoryRepository.AddAsync(historyForAdd);
+
+            var lastHistory = tHistory.OrderByDescending(x => x.Date).Last();
+            stock.ActualizationTime = lastHistory.Date;
+            stock.LastPrice = lastHistory.Price;
+            stock.CurrencyId = appCurrency.Id;
+            await _stockRepository.UpdateAsync(stock);
+
+        }
+
         public async Task<List<Stock>> FindAsync( string text, long userId)
         {
             //if (portfolioId != null && !await _portfolioRepository.ExistAsync(portfolioId.Value, userId))
@@ -209,7 +249,7 @@ namespace FinancialAssistantApp.Models.Services
             }
 
             var notActual = await _stockRepository.GetGlobalForActualiztionAsync(_datetimeProvider.CurrentDateTime().AddHours(6));
-            var tRequests = notActual.Where(x => x.Type != StockTypeEnum.Other).Select(x => x.ToTInvestRequest()).ToList();
+            var tRequests = notActual.Where(x => x.Type != StockTypeEnum.Other).Select(x => x.ToTInvestPriceRequest()).ToList();
             var tPrices = await _priceService.GetPrice(tRequests);
             var history = new List<StockHistory>();
             //достаем из бд вторым запросом что бы засунуть это в транзакцию потом, а запрос с получением цен вынести из транзакции

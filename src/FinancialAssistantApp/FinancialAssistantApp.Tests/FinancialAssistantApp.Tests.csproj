@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FinancialAssistantApp\FinancialAssistantApp\FinancialAssistantApp.csproj" />
+    <ProjectReference Include="..\FinancialAssistantApp\FinancialAssistantApp.csproj" />
   </ItemGroup>
 
   <ItemGroup>

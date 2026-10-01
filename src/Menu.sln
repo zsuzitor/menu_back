@@ -47,7 +47,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialAssistantApp", "Fi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TIntegration", "FinancialAssistantApp\TIntegration\TIntegration.csproj", "{543637AE-FB3F-4DF0-B510-99EA1AB7F73C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialAssistantApp.Tests", "FinancialAssistantApp.Tests\FinancialAssistantApp.Tests.csproj", "{1C22B95E-4ADE-4203-8459-221702C424F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialAssistantApp.Tests", "FinancialAssistantApp\FinancialAssistantApp.Tests\FinancialAssistantApp.Tests.csproj", "{1C22B95E-4ADE-4203-8459-221702C424F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -15,6 +15,7 @@ namespace FinancialAssistantApp.Models.Services.Interfaces
         Task<List<Stock>> GetAsync(  long userId);
         Task<List<Stock>> GetCurrencyAsync( long userId);
         Task GlobalActualizeAsync(long userId);
+        Task FillHistoryAsync(long stockId,long userId);
 
     }
 }

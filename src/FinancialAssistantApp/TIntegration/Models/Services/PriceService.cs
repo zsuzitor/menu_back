@@ -1,4 +1,5 @@
 ﻿using Google.Protobuf;
+using Google.Protobuf.WellKnownTypes;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,34 @@ namespace TIntegration.Models.Services
         {
             _investApiClient = investApiClient;
             _configuration = configuration;
+        }
+
+        public async Task<List<HistoryResponseElementDto>> GetHistory(HistoryRequestDto ticker)
+        {
+            var result = new List<HistoryResponseElementDto>();
+            var lst = new List<MapTElement>();
+            _configuration.GetSection("FinancialAssistantApp:TBankMapping").Bind(lst);
+            var obgConfig = lst.FirstOrDefault(x => x.AppTicker == ticker.Code);
+            if (obgConfig == null)
+            {
+                return result;
+            }
+            var candleRequest = new GetCandlesRequest()
+            {
+                CandleSourceType = GetCandlesRequest.Types.CandleSource.Exchange,
+                InstrumentId = obgConfig.TBankFigi,
+                Interval = CandleInterval.Day,
+                From = ticker.Start.ToUniversalTime().ToTimestamp(),
+                To = ticker.End.ToUniversalTime().ToTimestamp(),
+            };
+            var candles = await _investApiClient.MarketData.GetCandlesAsync(candleRequest);
+            return candles.Candles.Select(c => new HistoryResponseElementDto()
+            {
+                Date = c.Time.ToDateTime(),
+                Price = TInvestConverter.ToDecimal(c.High.Units, c.High.Nano),
+                CurrencyCode = obgConfig.TBankCurrency,
+            }).ToList();
+
         }
 
         public async Task<PriceResponseDto> GetPrice(PriceRequestDto ticker)
@@ -67,6 +96,37 @@ namespace TIntegration.Models.Services
             return res;
             //var p = (decimal)prices.LastPrices[0].Price;
         }
+
+
+
+        public class TInvestConverter
+        {
+            private const decimal NanoFactor = 1_000_000_000m;
+
+            /// <summary>
+            /// Конвертирует units и nano из API в обычное число decimal
+            /// </summary>
+            public static decimal ToDecimal(long units, int nano)
+            {
+                // Делим nano на 1 000 000 000 и прибавляем к целой части
+                return units + (nano / NanoFactor);
+            }
+
+            /// <summary>
+            /// Конвертирует decimal число в формат API (units, nano)
+            /// </summary>
+            public static (long units, int nano) ToQuotation(decimal value)
+            {
+                // Получаем целую часть (с отсечением дробной)
+                long units = (long)Math.Truncate(value);
+
+                // Получаем дробную часть и умножаем на 10^9
+                int nano = (int)((value - units) * NanoFactor);
+
+                return (units, nano);
+            }
+        }
+
 
     }
 }
