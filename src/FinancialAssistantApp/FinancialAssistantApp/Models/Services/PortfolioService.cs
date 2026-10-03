@@ -97,6 +97,12 @@ namespace FinancialAssistantApp.Models.Services
 
             }
 
+            if(req.PortfolioId.Count==0)
+            {
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);//todo другая ошибка
+
+            }
+
             var result = new PortfolioStatistic();
             var portfolios = await _portfolioRepository.GetAllAsync(req.PortfolioId, userId);
             if (portfolios.Count != req.PortfolioId.Count)
@@ -453,7 +459,7 @@ namespace FinancialAssistantApp.Models.Services
         /// <param name="moneyFromMainElement">считать по зависимым или главным элементам в ивенте</param>
         /// <returns></returns>
         /// <exception cref="SomeCustomException"></exception>
-        private (decimal, Dictionary<long, decimal>) GetMoneySumFromEvents(
+        private (decimal, Dictionary<long, PortfolioStatistic.Currency>) GetMoneySumFromEvents(
             List<StockEvent> events,
             long destinationCurrencyId,
             Dictionary<long, StockElement> elementById,
@@ -462,15 +468,15 @@ namespace FinancialAssistantApp.Models.Services
         {
             var converter = new CurrencyConvertHandler();
             decimal totalSum = 0;
-            Dictionary<long, decimal> totalSumByCurrency = new Dictionary<long, decimal>();
+            var totalSumByCurrency = new Dictionary<long, PortfolioStatistic.Currency>();
             foreach (var ev in events)
             {
 
                 var element = elementById[moneyFromMainElement ? ev.MainElementId : ev.SubElementId.Value];
                 if (!totalSumByCurrency.ContainsKey(element.StockId))
-                    totalSumByCurrency.Add(element.StockId, 0);
+                    totalSumByCurrency.Add(element.StockId, new PortfolioStatistic.Currency() { CurrencyId = element.StockId, CurrencyName = element.Stock.Name, CurrencySum = 0 });
                 var moneyFromEventChange = moneyFromMainElement ? ev.MainCountChange : ev.SubCountChange.Value;
-                totalSumByCurrency[element.StockId] += moneyFromEventChange;
+                totalSumByCurrency[element.StockId].CurrencySum += moneyFromEventChange;
 
                 totalSum += converter.GetCurrencyPriceOnDate(element.StockId, ev.EventDateTime, moneyFromEventChange, destinationCurrencyId, pairHistory);
             }

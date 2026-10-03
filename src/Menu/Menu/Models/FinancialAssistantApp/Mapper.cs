@@ -3,6 +3,7 @@ using FinancialAssistantApp.Models.DTO;
 using Menu.Host.Models.FinancialAssistantApp.Requests;
 using Menu.Host.Models.FinancialAssistantApp.Returns;
 using System;
+using System.Linq;
 
 namespace Menu.Host.Models.FinancialAssistantApp
 {
@@ -26,17 +27,27 @@ namespace Menu.Host.Models.FinancialAssistantApp
             return new PortfolioStatisticReturn()
             {
                 CashReplenishmentSum = p.CashReplenishmentSum,
-                ReplenishmentsByCurrency = p.ReplenishmentsByCurrency,
-                WithdrawalCashByCurrency = p.WithdrawalCashByCurrency,
+                ReplenishmentsByCurrency = p.ReplenishmentsByCurrency.Select(x=>x.Value.Map()).ToList(),
+                WithdrawalCashByCurrency = p.WithdrawalCashByCurrency.Select(x => x.Value.Map()).ToList(),
                 WithdrawalCashSum = p.WithdrawalCashSum,
-                DividendsCashByCurrency = p.DividendsCashByCurrency,
+                DividendsCashByCurrency = p.DividendsCashByCurrency.Select(x => x.Value.Map()).ToList(),
                 DividendsCashSum = p.DividendsCashSum,
                 SumNow = p.SumNow,
                 SumOnEndPeriod = p.SumOnEndPeriod,
                 SumOnStartPeriod = p.SumOnStartPeriod,
             };
         }
-        
+
+        public static PortfolioStatisticReturn.Currency Map(this PortfolioStatistic.Currency c)
+        {
+            return new PortfolioStatisticReturn.Currency()
+            {
+                CurrencyId = c.CurrencyId,
+                CurrencyName = c.CurrencyName,
+                CurrencySum = c.CurrencySum,
+            };
+        }
+
 
 
         public static PortfolioCreate Map(this CreatePortfolioRequest p)
@@ -54,9 +65,9 @@ namespace Menu.Host.Models.FinancialAssistantApp
             return new PortfolioStatisticRequestDto()
             {
                 CurrencyId = p.CurrencyId,
-                End = p.End,
+                End = p.End.Date,
                 PortfolioId = p.PortfolioId,
-                Start = p.Start
+                Start = p.Start.Date
             };
         }
         

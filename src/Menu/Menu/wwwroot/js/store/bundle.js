@@ -2637,6 +2637,33 @@ ___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/StatisticPage/StatisticPage.css":
+/*!*************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/StatisticPage/StatisticPage.css ***!
+  \*************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ "./node_modules/css-loader/dist/runtime/sourceMaps.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css":
 /*!*********************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css ***!
@@ -64371,6 +64398,61 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./src/Apps/FinancialAssistantApp/Components/StatisticPage/StatisticPage.css":
+/*!***********************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/StatisticPage/StatisticPage.css ***!
+  \***********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ "./node_modules/style-loader/dist/runtime/insertBySelector.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ "./node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ "./node_modules/style-loader/dist/runtime/insertStyleElement.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ "./node_modules/style-loader/dist/runtime/styleTagTransform.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_StatisticPage_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./StatisticPage.css */ "./node_modules/css-loader/dist/cjs.js!./src/Apps/FinancialAssistantApp/Components/StatisticPage/StatisticPage.css");
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var options = {};
+
+options.styleTagTransform = (_node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default());
+options.setAttributes = (_node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default());
+
+      options.insert = _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(null, "head");
+    
+options.domAPI = (_node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default());
+options.insertStyleElement = (_node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default());
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_StatisticPage_css__WEBPACK_IMPORTED_MODULE_6__["default"], options);
+
+
+
+
+       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_StatisticPage_css__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_StatisticPage_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_StatisticPage_css__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+
+
+/***/ }),
+
 /***/ "./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css":
 /*!*******************************************************************************!*\
   !*** ./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css ***!
@@ -68468,11 +68550,6 @@ const AddStockEvent = (props) => {
     //     const help = new Helper();
     //     return help.FormatDateToInput(date);
     // }
-    const setClearDate = (dt) => {
-        let newDt = new Date(dt);
-        newDt.setHours(0, 0, 0, 0);
-        return newDt;
-    };
     const showStockBlock = (type) => {
         if (props.StockId) {
             //если мы уже на странице stock то не даем выбирать
@@ -68567,10 +68644,10 @@ const AddStockEvent = (props) => {
                 react_1.default.createElement("input", { className: '', type: "datetime-local", value: formatDateTimeToInput(newStockEventDate), onChange: (e) => {
                         if (e.target.value) {
                             let dt = new Date(e.target.value);
-                            setStockEventDate(setClearDate(dt));
+                            setStockEventDate(new Helper_1.Helper().GetDateWithoutTime(dt));
                         }
                         else {
-                            setStockEventDate(setClearDate(new Date()));
+                            setStockEventDate(new Helper_1.Helper().GetDateWithoutTime(new Date()));
                         }
                     } }),
                 react_1.default.createElement("br", null),
@@ -68685,6 +68762,7 @@ const StockList_1 = __importDefault(__webpack_require__(/*! ../StockList/StockLi
 const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts"));
 const StockDetail_1 = __importDefault(__webpack_require__(/*! ../StockDetail/StockDetail */ "./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.tsx"));
 const PortfolioRoute_1 = __importDefault(__webpack_require__(/*! ../PortfolioRoute/PortfolioRoute */ "./src/Apps/FinancialAssistantApp/Components/PortfolioRoute/PortfolioRoute.tsx"));
+const StatisticPage_1 = __importDefault(__webpack_require__(/*! ../StatisticPage/StatisticPage */ "./src/Apps/FinancialAssistantApp/Components/StatisticPage/StatisticPage.tsx"));
 __webpack_require__(/*! ./FinancialAssistantMain.css */ "./src/Apps/FinancialAssistantApp/Components/FinancialAssistantMain/FinancialAssistantMain.css");
 const FinancialAssistantMain = (props) => {
     (0, react_1.useEffect)(() => {
@@ -68718,6 +68796,7 @@ const FinancialAssistantMain = (props) => {
         react_1.default.createElement(react_router_dom_1.Routes, null,
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.FinancialAssistantAppPortfolioListRoute}`, element: react_1.default.createElement(PortfolioList_1.default, null) }),
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.FinancialAssistantAppStockListRoute}`, element: react_1.default.createElement(StockList_1.default, null) }),
+            react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.FinancialAssistantAppStatisticRoute}`, element: react_1.default.createElement(StatisticPage_1.default, null) }),
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.FinancialAssistantAppStockRoute}:stockId`, element: react_1.default.createElement(StockDetail_1.default, null) }),
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.FinancialAssistantAppPortfolioRoute}:portfolioId/*`, element: react_1.default.createElement(PortfolioRoute_1.default, null) })));
 };
@@ -69400,6 +69479,245 @@ exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToPr
 
 /***/ }),
 
+/***/ "./src/Apps/FinancialAssistantApp/Components/StatisticPage/StatisticPage.tsx":
+/*!***********************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/StatisticPage/StatisticPage.tsx ***!
+  \***********************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+const StatisticPageSetup_1 = __importDefault(__webpack_require__(/*! ./StatisticPageSetup */ "./src/Apps/FinancialAssistantApp/Components/StatisticPage/StatisticPageSetup.tsx"));
+const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+const Helper_1 = __webpack_require__(/*! ../../../../Models/BL/Helper */ "./src/Models/BL/Helper.ts");
+const SelectWithSearch_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SelectWithSearch/SelectWithSearch */ "./src/components/Body/SelectWithSearch/SelectWithSearch.tsx"));
+const Stock_1 = __webpack_require__(/*! ../../Models/Entity/State/Stock */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Stock.ts");
+const SaveCancelInputMultiSelectWithSearch_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/SaveCancelInput/SaveCancelInputMultiSelectWithSearch */ "./src/components/Body/SaveCancelInput/SaveCancelInputMultiSelectWithSearch.tsx"));
+__webpack_require__(/*! ./StatisticPage.css */ "./src/Apps/FinancialAssistantApp/Components/StatisticPage/StatisticPage.css");
+const StatisticPage = (props) => {
+    const [dateStart, setDateStart] = (0, react_1.useState)(new Helper_1.Helper().GetDateWithoutTime(new Date()));
+    const [dateEnd, setDateEnd] = (0, react_1.useState)(new Helper_1.Helper().GetDateWithoutTime(new Date()));
+    const [selectedPortfolioId, setSelectedPortfolioId] = (0, react_1.useState)([]);
+    const [statistic, setStatistic] = (0, react_1.useState)(null);
+    const [currency, setCurrency] = (0, react_1.useState)([]);
+    //нужны что бы отрисовать элеммент в пустом списке - такой кейс есть это норм
+    const [currencyId, setCurrencyId] = (0, react_1.useState)(0);
+    const [currencyName, setCurrencyName] = (0, react_1.useState)('');
+    //тк запроса на бэк не делаем а просто на фронте фильтруем
+    const [currencyNameFilter, setCurrencyNameFilter] = (0, react_1.useState)('');
+    const [newStockHistoryDate, setStockHistoryDate] = (0, react_1.useState)(new Date());
+    const [newStockHistoryPrice, setStockHistoryPrice] = (0, react_1.useState)(0);
+    const [showNewEventWindow, setShowNewEventWindow] = (0, react_1.useState)(false);
+    const [events, setEvents] = (0, react_1.useState)([]);
+    const navigate = (0, react_router_dom_1.useNavigate)();
+    (0, react_1.useEffect)(() => {
+        props.GetCurrency()
+            .then(br => setCurrency(br.Data.map(x => new Stock_1.Stock().FillByIStockDataBack(x))));
+        props.LoadPortfolioList();
+        return () => {
+            setEvents([]);
+        };
+    }, []);
+    function formatDateToInput(date) {
+        const help = new Helper_1.Helper();
+        return help.FormatDateToInput(date);
+    }
+    if (!props.PortfolioList || props.PortfolioList.length == 0) {
+        return react_1.default.createElement("div", null);
+    }
+    return react_1.default.createElement("div", { className: 'statistic-page' },
+        react_1.default.createElement("span", null, "\u0414\u0430\u0442\u0430 \u043D\u0430\u0447\u0430\u043B\u0430"),
+        react_1.default.createElement("input", { 
+            // type="datetime-local"
+            type: "date", 
+            // value={timeLogDate.toISOString().slice(0, 16)}
+            value: formatDateToInput(dateStart), onChange: (e) => {
+                let dt = new Date();
+                if (e.target.value) {
+                    dt = new Date(e.target.value);
+                }
+                new Helper_1.Helper().GetDateWithoutTime(dt);
+                setDateStart(dt);
+            } }),
+        react_1.default.createElement("span", null, "\u0414\u0430\u0442\u0430 \u043E\u043A\u043E\u043D\u0447\u0430\u043D\u0438\u044F"),
+        react_1.default.createElement("input", { 
+            // type="datetime-local"
+            type: "date", 
+            // value={timeLogDate.toISOString().slice(0, 16)}
+            value: formatDateToInput(dateEnd), onChange: (e) => {
+                let dt = new Date();
+                if (e.target.value) {
+                    dt = new Date(e.target.value);
+                }
+                new Helper_1.Helper().GetDateWithoutTime(dt);
+                setDateEnd(dt);
+            } }),
+        react_1.default.createElement("span", null, "\u0412\u0430\u043B\u044E\u0442\u0430"),
+        react_1.default.createElement(SelectWithSearch_1.default, { CancelEvent: () => { }, SaveEvent: (id) => {
+                setCurrencyId(id);
+                setCurrencyName(currency.find(x => x.Id === id).Name);
+                // setStockCurrency(stockCurrency.filter(x => x.Id === id));
+                return true;
+            }, Selected: { Id: currencyId, Text: currencyId > 0 ? `${currencyId}-${currencyName}` : '' }, ValuesWithId: currency.filter(x => !currencyNameFilter || x.Name.indexOf(currencyNameFilter) >= 0)
+                .map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` })), OnSearchChange: (text) => __awaiter(void 0, void 0, void 0, function* () {
+                // setTaskId(-1);
+                setCurrencyNameFilter(text);
+            }) }),
+        react_1.default.createElement(SaveCancelInputMultiSelectWithSearch_1.default, { CancelEvent: () => {
+                // setTaskLabelEditable(false)
+                setSelectedPortfolioId([]);
+            }, SaveEvent: (id) => {
+                // props.UpdateTaskLabels(props.Task.Id, id);
+                setSelectedPortfolioId(id);
+                return true;
+            }, CancelOnSaveNoChanges: true, Selected: selectedPortfolioId, ValuesWithId: props.PortfolioList.map(x => {
+                return { Id: x.Id, Text: x.Name };
+            }) }),
+        react_1.default.createElement("button", { onClick: () => {
+                props.GetStatistic(selectedPortfolioId, dateStart, dateEnd, currencyId).then(r => {
+                    setStatistic(r.Data);
+                });
+            } }, "\u041F\u043E\u043A\u0430\u0437\u0430\u0442\u044C \u0441\u0442\u0430\u0442\u0438\u0441\u0442\u0438\u043A\u0443"),
+        statistic ? react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement("h2", null, "\u0421\u0442\u0430\u0442\u0438\u0441\u0442\u0438\u043A\u0430"),
+            react_1.default.createElement("div", null,
+                "\u0421\u0443\u043C\u043C\u0430 \u043D\u0430 \u0434\u0430\u043D\u043D\u044B\u0439 \u043C\u043E\u043C\u0435\u043D\u0442 ",
+                statistic.SumNow,
+                " ",
+                currencyName),
+            react_1.default.createElement("div", null,
+                "\u0421\u0443\u043C\u043C\u0430 \u043D\u0430 ",
+                formatDateToInput(dateStart),
+                " ",
+                statistic.SumOnStartPeriod,
+                " ",
+                currencyName),
+            react_1.default.createElement("div", null,
+                "\u0421\u0443\u043C\u043C\u0430 \u043D\u0430  ",
+                formatDateToInput(dateEnd),
+                " ",
+                statistic.SumOnEndPeriod,
+                " ",
+                currencyName),
+            react_1.default.createElement("div", null,
+                "\u041F\u043E\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u0439 \u0432 \u0437\u0430\u043F\u0440\u043E\u0448\u0435\u043D\u043D\u043E\u0439 \u0432\u0430\u043B\u044E\u0442\u0435(\u043A\u043E\u043D\u0432\u0435\u0440\u0442\u0430\u0446\u0438\u044F \u0432\u0441\u0435\u0445 \u0441\u043E\u0431\u044B\u0442\u0438\u0439) ",
+                statistic.CashReplenishmentSum,
+                " ",
+                currencyName,
+                react_1.default.createElement("div", null,
+                    "\u041F\u043E\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u0439 \u043F\u043E \u0432\u0430\u043B\u044E\u0442\u0430\u043C",
+                    statistic.ReplenishmentsByCurrency.map(x => react_1.default.createElement("div", { key: x.CurrencyId },
+                        x.CurrencySum,
+                        " ",
+                        x.CurrencyName)))),
+            react_1.default.createElement("div", null,
+                "\u0412\u044B\u0432\u043E\u0434\u043E\u0432 \u0432 \u0437\u0430\u043F\u0440\u043E\u0448\u0435\u043D\u043D\u043E\u0439 \u0432\u0430\u043B\u044E\u0442\u0435(\u043A\u043E\u043D\u0432\u0435\u0440\u0442\u0430\u0446\u0438\u044F \u0432\u0441\u0435\u0445 \u0441\u043E\u0431\u044B\u0442\u0438\u0439) ",
+                statistic.WithdrawalCashSum,
+                " ",
+                currencyName,
+                react_1.default.createElement("div", null,
+                    "\u0412\u044B\u0432\u043E\u0434\u043E\u0432 \u043F\u043E \u0432\u0430\u043B\u044E\u0442\u0430\u043C",
+                    statistic.WithdrawalCashByCurrency.map(x => react_1.default.createElement("div", { key: x.CurrencyId },
+                        x.CurrencySum,
+                        " ",
+                        x.CurrencyName)))),
+            react_1.default.createElement("div", null,
+                "\u0414\u0438\u0432\u0438\u0434\u0435\u043D\u0434\u044B \u0432 \u0437\u0430\u043F\u0440\u043E\u0448\u0435\u043D\u043D\u043E\u0439 \u0432\u0430\u043B\u044E\u0442\u0435(\u043A\u043E\u043D\u0432\u0435\u0440\u0442\u0430\u0446\u0438\u044F \u0432\u0441\u0435\u0445 \u0441\u043E\u0431\u044B\u0442\u0438\u0439) ",
+                statistic.DividendsCashSum,
+                " ",
+                currencyName,
+                react_1.default.createElement("div", null,
+                    "\u0414\u0438\u0432\u0438\u0434\u0435\u043D\u0434\u044B \u043F\u043E \u0432\u0430\u043B\u044E\u0442\u0430\u043C",
+                    statistic.DividendsCashByCurrency.map(x => react_1.default.createElement("div", { key: x.CurrencyId },
+                        x.CurrencySum,
+                        " ",
+                        x.CurrencyName))))) : react_1.default.createElement(react_1.default.Fragment, null));
+};
+// and that function returns the connected, wrapper component:
+exports["default"] = (0, StatisticPageSetup_1.default)(StatisticPage);
+
+
+/***/ }),
+
+/***/ "./src/Apps/FinancialAssistantApp/Components/StatisticPage/StatisticPageSetup.tsx":
+/*!****************************************************************************************!*\
+  !*** ./src/Apps/FinancialAssistantApp/Components/StatisticPage/StatisticPageSetup.tsx ***!
+  \****************************************************************************************/
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+const mapStateToProps = (state, ownProps) => {
+    let res = {};
+    res.PortfolioList = state.FinancialAssistantApp.PortfolioList;
+    return res;
+};
+const mapDispatchToProps = (dispatch, ownProps) => {
+    let res = {};
+    res.LoadPortfolioList = () => {
+        dispatch(window.G_FinancialAssistantAppPortfolioController.GetForUserRedux());
+    };
+    res.GetStatistic = (id, start, end, currencyId) => __awaiter(void 0, void 0, void 0, function* () {
+        return yield window.G_FinancialAssistantAppPortfolioController.GetStatisticAsync(id, start, end, currencyId);
+    });
+    res.GetCurrency = () => __awaiter(void 0, void 0, void 0, function* () {
+        return yield window.G_FinancialAssistantAppStockController.GetCurrencyAsync();
+    });
+    return res;
+};
+exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
+
+
+/***/ }),
+
 /***/ "./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.tsx":
 /*!*******************************************************************************!*\
   !*** ./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.tsx ***!
@@ -70016,7 +70334,7 @@ exports["default"] = RouteBuilder;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.FinancialAssistantApiStockUrl = exports.FinancialAssistantApiStockEventUrl = exports.FinancialAssistantApiStockElementUrl = exports.FinancialAssistantApiPortfolioUrl = exports.FinancialAssistantApiUrl = exports.FinancialAssistantAppStockListRoute = exports.FinancialAssistantAppPortfolioListRoute = exports.FinancialAssistantAppStockRoute = exports.FinancialAssistantAppPortfolioEventsRoute = exports.FinancialAssistantAppPortfolioRoute = exports.FinancialAssistantAppRoute = exports.FinancialAssistantAppStockControllerUrl = exports.FinancialAssistantAppStockElementControllerUrl = exports.FinancialAssistantAppEventControllerUrl = exports.FinancialAssistantAppPortfolioControllerUrl = exports.FinancialAssistantAppUrl = exports.FinancialAssistantApiPrefUrl = exports.FinancialAssistantAppPreloader = void 0;
+exports.FinancialAssistantApiStockUrl = exports.FinancialAssistantApiStockEventUrl = exports.FinancialAssistantApiStockElementUrl = exports.FinancialAssistantApiPortfolioUrl = exports.FinancialAssistantApiUrl = exports.FinancialAssistantAppStatisticRoute = exports.FinancialAssistantAppStockListRoute = exports.FinancialAssistantAppPortfolioListRoute = exports.FinancialAssistantAppStockRoute = exports.FinancialAssistantAppPortfolioEventsRoute = exports.FinancialAssistantAppPortfolioRoute = exports.FinancialAssistantAppRoute = exports.FinancialAssistantAppStockControllerUrl = exports.FinancialAssistantAppStockElementControllerUrl = exports.FinancialAssistantAppEventControllerUrl = exports.FinancialAssistantAppPortfolioControllerUrl = exports.FinancialAssistantAppUrl = exports.FinancialAssistantApiPrefUrl = exports.FinancialAssistantAppPreloader = void 0;
 exports.FinancialAssistantAppPreloader = 'financial_assistant_preloader';
 //Api
 exports.FinancialAssistantApiPrefUrl = 'api';
@@ -70032,6 +70350,7 @@ exports.FinancialAssistantAppPortfolioEventsRoute = 'events';
 exports.FinancialAssistantAppStockRoute = 'stock-';
 exports.FinancialAssistantAppPortfolioListRoute = 'portfolio-list';
 exports.FinancialAssistantAppStockListRoute = 'stock-list';
+exports.FinancialAssistantAppStatisticRoute = 'statistic';
 exports.FinancialAssistantApiUrl = `${exports.FinancialAssistantApiPrefUrl}/${exports.FinancialAssistantAppUrl}`;
 exports.FinancialAssistantApiPortfolioUrl = `${exports.FinancialAssistantApiUrl}/${exports.FinancialAssistantAppPortfolioControllerUrl}`;
 exports.FinancialAssistantApiStockElementUrl = `${exports.FinancialAssistantApiUrl}/${exports.FinancialAssistantAppStockElementControllerUrl}`;
@@ -70205,6 +70524,24 @@ class FinancialAssistantAppPortfolioController {
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.FinancialAssistantApiPortfolioUrl}/get`,
+            });
+            return backResult;
+        });
+        this.GetStatisticAsync = (id, start, end, currencyId) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "PortfolioId": id,
+                "Start": new ControllerHelper_1.ControllerHelper().ToZeroDate(start).toISOString(),
+                "End": new ControllerHelper_1.ControllerHelper().ToZeroDate(end).toISOString(),
+                "CurrencyId": currencyId,
+            };
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${G_PathToServer}${Consts_1.FinancialAssistantApiPortfolioUrl}/get-statistic`,
+                ContentType: 'body'
             });
             return backResult;
         });
@@ -75840,11 +76177,6 @@ const AddEditSprint = (props) => {
         const help = new Helper_1.Helper();
         return help.FormatDateToInput(date);
     }
-    const setClearDate = (dt) => {
-        let newDt = new Date(dt);
-        newDt.setHours(0, 0, 0, 0);
-        return newDt;
-    };
     return react_1.default.createElement("div", { className: 'new-sprint-block' },
         react_1.default.createElement("div", { className: 'new-sprint-content' },
             react_1.default.createElement("input", { type: 'text', className: 'new-sprint-input', placeholder: '\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: newSprintName, onChange: e => setNewSprintName(e.target.value) }),
@@ -75852,20 +76184,20 @@ const AddEditSprint = (props) => {
             react_1.default.createElement("input", { className: 'new-sprint-input', type: "date", value: formatDateToInput(dateFrom), onChange: (e) => {
                     if (e.target.value) {
                         let dt = new Date(e.target.value);
-                        setDateFrom(setClearDate(dt));
+                        setDateFrom(new Helper_1.Helper().GetDateWithoutTime(dt));
                     }
                     else {
-                        setDateFrom(setClearDate(new Date()));
+                        setDateFrom(new Helper_1.Helper().GetDateWithoutTime(new Date()));
                     }
                 } }),
             react_1.default.createElement("span", null, "\u0414\u0430\u0442\u0430 \u043E\u043A\u043E\u043D\u0447\u0430\u043D\u0438\u044F:"),
             react_1.default.createElement("input", { className: 'new-sprint-input', type: "date", value: formatDateToInput(dateTo), onChange: (e) => {
                     if (e.target.value) {
                         let dt = new Date(e.target.value);
-                        setDateTo(setClearDate(dt));
+                        setDateTo(new Helper_1.Helper().GetDateWithoutTime(dt));
                     }
                     else {
-                        setDateTo(setClearDate(new Date()));
+                        setDateTo(new Helper_1.Helper().GetDateWithoutTime(new Date()));
                     }
                 } }),
             react_1.default.createElement("button", { className: 'button button-grey', onClick: () => {
@@ -77890,13 +78222,8 @@ const PersonTimePage = (props) => {
     if (!props.WorkTimeLog) {
         return react_1.default.createElement("div", null);
     }
-    const setClearDate = (dt) => {
-        let newDt = new Date(dt);
-        newDt.setHours(0, 0, 0, 0);
-        return newDt;
-    };
-    const currentDate = setClearDate(props.DateFrom);
-    const lastDate = setClearDate(props.DateTo);
+    const currentDate = new Helper_1.Helper().GetDateWithoutTime(props.DateFrom);
+    const lastDate = new Helper_1.Helper().GetDateWithoutTime(props.DateTo);
     let datesForTable = [];
     while (currentDate <= lastDate) {
         datesForTable.push(new Date(currentDate));
@@ -77905,7 +78232,7 @@ const PersonTimePage = (props) => {
     const renderOneLine = (taskId) => {
         return react_1.default.createElement("div", { className: 'one-line-times' }, datesForTable.map(x => {
             let works = props.WorkTimeLog.filter(w => w.WorkTaskId == taskId
-                && setClearDate(w.DayOfLog).getTime() == setClearDate(x).getTime());
+                && new Helper_1.Helper().GetDateWithoutTime(w.DayOfLog).getTime() == new Helper_1.Helper().GetDateWithoutTime(x).getTime());
             let minuteTotal = 0;
             works.forEach(element => {
                 minuteTotal += element.TimeMinutes;
@@ -77943,15 +78270,15 @@ const PersonTimePage = (props) => {
                     if (e.target.value) {
                         let dt = new Date(e.target.value);
                         if (dt > props.DateTo)
-                            props.SetDateFrom(setClearDate(props.DateTo));
+                            props.SetDateFrom(new Helper_1.Helper().GetDateWithoutTime(props.DateTo));
                         else
-                            props.SetDateFrom(setClearDate(dt));
+                            props.SetDateFrom(new Helper_1.Helper().GetDateWithoutTime(dt));
                     }
                     else {
                         if (new Date() > props.DateTo)
-                            props.SetDateFrom(setClearDate(props.DateTo));
+                            props.SetDateFrom(new Helper_1.Helper().GetDateWithoutTime(props.DateTo));
                         else
-                            props.SetDateFrom(setClearDate(new Date()));
+                            props.SetDateFrom(new Helper_1.Helper().GetDateWithoutTime(new Date()));
                     }
                 } }),
             react_1.default.createElement("span", null, "\u0414\u0430\u0442\u0430 \u0434\u043E"),
@@ -77963,15 +78290,15 @@ const PersonTimePage = (props) => {
                     if (e.target.value) {
                         let dt = new Date(e.target.value);
                         if (dt < props.DateFrom)
-                            props.SetDateTo(setClearDate(props.DateFrom));
+                            props.SetDateTo(new Helper_1.Helper().GetDateWithoutTime(props.DateFrom));
                         else
-                            props.SetDateTo(setClearDate(dt));
+                            props.SetDateTo(new Helper_1.Helper().GetDateWithoutTime(dt));
                     }
                     else {
                         if (new Date() < props.DateFrom)
-                            props.SetDateTo(setClearDate(props.DateFrom));
+                            props.SetDateTo(new Helper_1.Helper().GetDateWithoutTime(props.DateFrom));
                         else
-                            props.SetDateTo(setClearDate(new Date()));
+                            props.SetDateTo(new Helper_1.Helper().GetDateWithoutTime(new Date()));
                     }
                 } })),
         react_1.default.createElement("div", { className: 'user-time-time-block' }, uniqueTaskIds.length == 0 ? react_1.default.createElement(react_1.default.Fragment, null,
@@ -78635,13 +78962,8 @@ const ProjectTimePage = (props) => {
     if (!props.ProjectUsers) {
         return react_1.default.createElement("div", null);
     }
-    const setClearDate = (dt) => {
-        let newDt = new Date(dt);
-        newDt.setHours(0, 0, 0, 0);
-        return newDt;
-    };
-    const currentDate = setClearDate(props.DateFrom);
-    const lastDate = setClearDate(props.DateTo);
+    const currentDate = new Helper_1.Helper().GetDateWithoutTime(props.DateFrom);
+    const lastDate = new Helper_1.Helper().GetDateWithoutTime(props.DateTo);
     let datesForTable = [];
     while (currentDate <= lastDate) {
         datesForTable.push(new Date(currentDate));
@@ -78650,7 +78972,7 @@ const ProjectTimePage = (props) => {
     const renderOneLine = (userId) => {
         return react_1.default.createElement("div", { className: 'one-line-times' }, datesForTable.map(x => {
             let works = props.WorkTimeLog.filter(w => w.UserId == userId
-                && setClearDate(w.DayOfLog).getTime() == setClearDate(x).getTime());
+                && new Helper_1.Helper().GetDateWithoutTime(w.DayOfLog).getTime() == new Helper_1.Helper().GetDateWithoutTime(x).getTime());
             let minuteTotal = 0;
             let worksId = 'ids-';
             works.forEach(element => {
@@ -78691,15 +79013,15 @@ const ProjectTimePage = (props) => {
                     if (e.target.value) {
                         let dt = new Date(e.target.value);
                         if (dt > props.DateTo)
-                            props.SetDateFrom(setClearDate(props.DateTo));
+                            props.SetDateFrom(new Helper_1.Helper().GetDateWithoutTime(props.DateTo));
                         else
-                            props.SetDateFrom(setClearDate(dt));
+                            props.SetDateFrom(new Helper_1.Helper().GetDateWithoutTime(dt));
                     }
                     else {
                         if (new Date() > props.DateTo)
-                            props.SetDateFrom(setClearDate(props.DateTo));
+                            props.SetDateFrom(new Helper_1.Helper().GetDateWithoutTime(props.DateTo));
                         else
-                            props.SetDateFrom(setClearDate(new Date()));
+                            props.SetDateFrom(new Helper_1.Helper().GetDateWithoutTime(new Date()));
                     }
                 } }),
             react_1.default.createElement("span", null, "\u0414\u0430\u0442\u0430 \u0434\u043E"),
@@ -78711,15 +79033,15 @@ const ProjectTimePage = (props) => {
                     if (e.target.value) {
                         let dt = new Date(e.target.value);
                         if (dt < props.DateFrom)
-                            props.SetDateTo(setClearDate(props.DateFrom));
+                            props.SetDateTo(new Helper_1.Helper().GetDateWithoutTime(props.DateFrom));
                         else
-                            props.SetDateTo(setClearDate(dt));
+                            props.SetDateTo(new Helper_1.Helper().GetDateWithoutTime(dt));
                     }
                     else {
                         if (new Date() < props.DateFrom)
-                            props.SetDateTo(setClearDate(props.DateFrom));
+                            props.SetDateTo(new Helper_1.Helper().GetDateWithoutTime(props.DateFrom));
                         else
-                            props.SetDateTo(setClearDate(new Date()));
+                            props.SetDateTo(new Helper_1.Helper().GetDateWithoutTime(new Date()));
                     }
                 } })),
         react_1.default.createElement("div", { className: 'project-time-time-block' },
@@ -90828,6 +91150,24 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 __webpack_require__(/*! ./SaveCancelInput.css */ "./src/components/Body/SaveCancelInput/SaveCancelInput.css");
+/////////////пример
+//    <SaveCancelInputMultiSelectWithSearch
+//         CancelEvent={() => {
+//             // setTaskLabelEditable(false)
+//             setSelectedPortfolioId([]);
+//         }}
+//         SaveEvent={(id) => {
+//             // props.UpdateTaskLabels(props.Task.Id, id);
+//             setSelectedPortfolioId(id);
+//             return true;
+//         }}
+//         CancelOnSaveNoChanges={true}
+//         Selected={selectedPortfolioId}
+//         ValuesWithId={props.PortfolioList.map(x => {
+//             return { Id: x.Id, Text: x.Name };
+//         })}
+//     />
+///////////////
 const SaveCancelInputMultiSelectWithSearch = (props) => {
     const [selected, setSelected] = (0, react_1.useState)([]);
     const [searchTerm, setSearchTerm] = (0, react_1.useState)('');
@@ -91438,6 +91778,30 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 __webpack_require__(/*! ./SelectWithSearch.css */ "./src/components/Body/SelectWithSearch/SelectWithSearch.css");
+//////////применение без запроса на бэк
+// const [currency, setCurrency] = useState<Stock[]>([]);
+//     //нужны что бы отрисовать элеммент в пустом списке - такой кейс есть это норм
+//     const [newStockHistoryCurrencyId, setStockHistoryCurrencyId] = useState(0);
+//     const [stockCurrencyName, setStockCurrencyName] = useState('');
+//     //тк запроса на бэк не делаем а просто на фронте фильтруем
+//     const [stockCurrencyNameFilter, setStockCurrencyNameFilter] = useState('');
+//     <SelectWithSearch
+//         CancelEvent={() => { }}
+//         SaveEvent={(id) => {
+//             setStockHistoryCurrencyId(id);
+//             setStockCurrencyName(currency.find(x => x.Id === id).Name);
+//             // setStockCurrency(stockCurrency.filter(x => x.Id === id));
+//             return true;
+//         }}
+//         Selected={{ Id: newStockHistoryCurrencyId, Text: newStockHistoryCurrencyId > 0 ? `${newStockHistoryCurrencyId}-${stockCurrencyName}` : '' }}
+//         ValuesWithId={currency.filter(x => !stockCurrencyNameFilter || x.Name.indexOf(stockCurrencyNameFilter) >= 0)
+//             .map(x => ({ Id: x.Id, Text: `${x.Id}-${x.Name}` }))}
+//         OnSearchChange={async (text) => {
+//             // setTaskId(-1);
+//             setStockCurrencyNameFilter(text);
+//         }}
+//     ></SelectWithSearch>
+/////////////////////
 const SelectWithSearch = (props) => {
     var _a, _b, _c, _d;
     const [selected, setSelected] = (0, react_1.useState)(((_a = props.Selected) === null || _a === void 0 ? void 0 : _a.Id) || -1);
