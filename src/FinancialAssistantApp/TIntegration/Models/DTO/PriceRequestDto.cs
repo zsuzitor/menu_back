@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 using TIntegration.Models.Enums;
 
 namespace TIntegration.Models.DTO

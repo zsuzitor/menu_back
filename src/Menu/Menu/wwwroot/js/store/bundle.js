@@ -2576,7 +2576,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".portfolio-events .one-event {\r\n    border: 2px solid black;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css"],"names":[],"mappings":"AAAA;IACI,uBAAuB;AAC3B","sourcesContent":[".portfolio-events .one-event {\r\n    border: 2px solid black;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".portfolio-events .one-event {\r\n    /* border: 2px solid black; */\r\n    border-radius: 5px;\r\n    border-color: cadetblue;\r\n}\r\n\r\n.portfolio-events .events-list {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    flex-direction: column;\r\n    gap: 1px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,kBAAkB;IAClB,uBAAuB;AAC3B;;AAEA;IACI,aAAa;IACb,2BAA2B;IAC3B,sBAAsB;IACtB,QAAQ;AACZ","sourcesContent":[".portfolio-events .one-event {\r\n    /* border: 2px solid black; */\r\n    border-radius: 5px;\r\n    border-color: cadetblue;\r\n}\r\n\r\n.portfolio-events .events-list {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    flex-direction: column;\r\n    gap: 1px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -68770,6 +68770,7 @@ const FinancialAssistantMain = (props) => {
     const navigate = (0, react_router_dom_1.useNavigate)();
     const portfolioUrl = new RouteBuilder_1.default().PortfolioListUrl();
     const stockUrl = new RouteBuilder_1.default().StockListUrl();
+    const statisticUrl = new RouteBuilder_1.default().StatisticUrl();
     // const matchPortfolio = window.location.href.match(/portfolio-(\d+)/);//FinancialAssistantAppPortfolioRoute
     // if (matchPortfolio) {
     //     const idInt = parseInt(matchPortfolio[1], 10);
@@ -68792,7 +68793,11 @@ const FinancialAssistantMain = (props) => {
             react_1.default.createElement("a", { href: stockUrl, onClick: (e) => {
                     e.preventDefault();
                     navigate(stockUrl);
-                } }, "\u0421\u043F\u0438\u0441\u043E\u043A Stock")),
+                } }, "\u0421\u043F\u0438\u0441\u043E\u043A Stock"),
+            react_1.default.createElement("a", { href: statisticUrl, onClick: (e) => {
+                    e.preventDefault();
+                    navigate(statisticUrl);
+                } }, "\u0421\u0442\u0430\u0442\u0438\u0441\u0442\u0438\u043A\u0430")),
         react_1.default.createElement(react_router_dom_1.Routes, null,
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.FinancialAssistantAppPortfolioListRoute}`, element: react_1.default.createElement(PortfolioList_1.default, null) }),
             react_1.default.createElement(react_router_dom_1.Route, { path: `${Consts_1.FinancialAssistantAppStockListRoute}`, element: react_1.default.createElement(StockList_1.default, null) }),
@@ -69202,7 +69207,7 @@ const PortfolioEvents = (props) => {
                 e.preventDefault();
                 navigate(portfolioUrl);
             } }, "\u0412\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u043A \u043F\u043E\u0440\u0442\u0444\u0435\u043B\u044E"),
-        react_1.default.createElement("div", null, props.Events.map(x => {
+        react_1.default.createElement("div", { className: 'events-list' }, props.Events.map(x => {
             let typeStr = new StockEventEnum_1.StockEventEnumToString().ToString(x.Type);
             return react_1.default.createElement("div", { key: x.Id, className: 'one-event' },
                 x.Date,
@@ -70319,6 +70324,9 @@ class RouteBuilder {
     StockListUrl() {
         return `/${Consts_1.FinancialAssistantAppRoute}/${Consts_1.FinancialAssistantAppStockListRoute}/`;
     }
+    StatisticUrl() {
+        return `/${Consts_1.FinancialAssistantAppRoute}/${Consts_1.FinancialAssistantAppStatisticRoute}/`;
+    }
 }
 exports["default"] = RouteBuilder;
 
@@ -70536,7 +70544,7 @@ class FinancialAssistantAppPortfolioController {
             };
             const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: ControllerHelper_1.ControllerHelper.PatchHttp,
+                Type: ControllerHelper_1.ControllerHelper.PostHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
                 },
                 FuncError: (xhr, status, error) => { },

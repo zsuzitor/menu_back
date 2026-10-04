@@ -254,24 +254,34 @@ namespace FinancialAssistantApp.Models.Services
             var history = new List<StockHistory>();
             //достаем из бд вторым запросом что бы засунуть это в транзакцию потом, а запрос с получением цен вынести из транзакции
             var forUpdate = await _stockRepository.GetAsync(notActual.Select(x => x.Id).ToList());
-            var tCurrency = tPrices.Select(x => x.CurrencyCode).Distinct();
-            var appCurrency = await _stockRepository.GetGlobalByCodesNoTrack(tCurrency);
+            //var tCurrency = tPrices.Select(x => x.CurrencyCode).Distinct();//тут надо брать еще и id а не только CurrencyCode + еще фильтровать по тому валюта или нет
+            var appCurrency = await _stockRepository.GetGlobalAsync();
             foreach (var stock in forUpdate)
             {
                 var newVal = tPrices.FirstOrDefault(x => x.Code == stock.Code);
                 if (newVal == null)
-                    continue;
+                {
+                    //рассчитываем обратный курс для условного рубля
+                    var newValByCurrency = tPrices.FirstOrDefault(x => x.CurrencyCode == stock.Code
+                        && forUpdate.FirstOrDefault(s => s.Code == x.Code)?.Type == StockTypeEnum.Currency);
+                    //надо обязательно проверить что мы нашли валюту именно а не акцию
+                    if (newValByCurrency == null)//ничего не нашли
+                        continue;
+                    newVal = new PriceResponseDto() { CurrencyCode = newValByCurrency.Code, Code = stock.Code, Price = 1 / newValByCurrency.Price };
+
+                }
 
                 var curr = appCurrency.FirstOrDefault(x => x.Code == newVal.CurrencyCode);
+                var dateNow = _datetimeProvider.CurrentDateTime();
                 stock.LastPrice = newVal.Price;
                 stock.CurrencyId = curr.Id;//todo у валюты есть это поле? у всей валюты? есть какая то главная валюта?
-                stock.ActualizationTime = _datetimeProvider.CurrentDateTime();
+                stock.ActualizationTime = dateNow;
                 //todo CurrencyId
 
                 history.Add(new StockHistory()
                 {
                     CurrencyId = curr.Id,
-                    Date = _datetimeProvider.CurrentDateTime(),
+                    Date = dateNow,
                     Price = newVal.Price,
                     StockId = stock.Id,
                 });

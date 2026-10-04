@@ -4,7 +4,6 @@ using BO.Models.FinancialAssistant.Enums;
 using Common.Models.Exceptions;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
-using Microsoft.AspNetCore.SignalR;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
@@ -157,7 +156,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 CreationDateTime = _datetimProvider.CurrentDateTime(),
                 EventDateTime = _datetimProvider.CurrentDateTime(),//obj.EventDateTime,   ту же дату нельзя ставить потому что может сломаться статистика и тд, в 1 секунду и пополнение и снятие
                 MainCountChange = obj.SubCountChange.Value *-1,
-                MainCountNow = obj.SubCountNow.Value - obj.SubCountChange.Value,
+                MainCountNow = obj.SubCountOldValue.Value,//obj.SubCountNow.Value - obj.SubCountChange.Value,
                 MainElementId = obj.SubElementId.Value,
                 PortfolioId = obj.PortfolioId,
             };

@@ -365,11 +365,26 @@ namespace FinancialAssistantApp.Models.Handlers
 
         public Dictionary<(long curId1, long curId2), List<ConvertElement>> GetPairHistoryActualPrice(List<Stock> currency)
         {
+            //по сути оптимизация, можно прост опо истории искать
             Dictionary<(long curId1, long curId2), List<ConvertElement>> pairHistory = new Dictionary<(long curId1, long curId2), List<ConvertElement>>();
             foreach (var cur in currency)
             {
+                var currencyId = cur.CurrencyId;
+                var actualizationTime = cur.ActualizationTime;
+                var price = cur.LastPrice;
+                if (cur.CurrencyId == null)
+                {
+                    //это рубль например для которого цен нет
+                    //ищем обратный курс
+                    var cur2 = currency.First(x => x.CurrencyId == cur.Id);
+                    actualizationTime = cur2.ActualizationTime;
+                    currencyId = cur2.Id;
+                    price = 1 / cur2.LastPrice;
+
+                }
+
                 var h = new ConvertElement()
-                { IdFrom = cur.Id, IdTo = cur.CurrencyId.Value, DateOfPrice = cur.ActualizationTime, Price = cur.LastPrice };
+                { IdFrom = cur.Id, IdTo = currencyId, DateOfPrice = actualizationTime, Price = price };
                 AddPair(pairHistory, h);
             }
 
