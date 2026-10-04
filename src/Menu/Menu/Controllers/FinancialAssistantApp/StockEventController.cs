@@ -1,5 +1,4 @@
 ﻿using Auth.Models.Auth;
-using FinancialAssistantApp.Models.Services;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Host.Infrastructure;
 using Menu.Host.Models.FinancialAssistantApp;
@@ -42,13 +41,15 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         }
 
         [Route("get-events-for-portfolio")]
-        [HttpGet]
+        [HttpPost]
         [CustomAuthorize]
-        public async Task<ActionResult<List<StockEventReturn>>> GetHistory(long portfolioId)
+        public async Task<ActionResult<GetPortfolioEventsResponse>> GetHistory(GetPortfolioEventsRequest req)
         {
             var userId = User.GetUserId();
-            var res = await _stockEventService.GetForPortfolioAsync(portfolioId, userId);
-            return new JsonResult(res.Select(x => x.Map()), GetJsonOptions());
+            var request = req.Map();
+            request.UserId = userId;
+            var res = await _stockEventService.GetForPortfolioAsync(request);
+            return new JsonResult(res.Map(), GetJsonOptions());
         }
 
         [Route("get-events-for-stock")]

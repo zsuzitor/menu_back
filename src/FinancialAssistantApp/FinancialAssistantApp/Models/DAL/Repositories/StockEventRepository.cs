@@ -1,10 +1,12 @@
 ﻿using BO.Models.FinancialAssistant.DAL;
+using BO.Models.FinancialAssistant.Enums;
 using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using Google.Api;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
 
 namespace FinancialAssistantApp.Models.DAL.Repositories
 {
@@ -36,6 +38,45 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .ToListAsync();
         }
 
+        public async Task<List<StockEvent>> GetForPortfolioAsync(long portfolioId, int pageSize, int page, StockEventEnum? type)
+        {
+            if (page > 0)
+            {
+                page--;
+            }
+            var skipCount = page * pageSize;
+
+            return await _db.StockEvent
+                .AsNoTracking()
+                .Include(x => x.MainElement)
+                .ThenInclude(x => x.Stock)
+                .Include(x => x.SubElement)
+                .ThenInclude(x => x.Stock)
+                .Where(x => x.PortfolioId == portfolioId && (type == null || x.Type==type))
+                .OrderByDescending(x => x.EventDateTime)
+                .Skip(skipCount).Take(pageSize).ToListAsync();
+
+
+        }
+
+        public async Task<long> GetCountForPortfolioAsync(long portfolioId, int pageSize, int page, StockEventEnum? type)
+        {
+            if (page > 0)
+            {
+                page--;
+            }
+            var skipCount = page * pageSize;
+
+            return await _db.StockEvent
+                .AsNoTracking()
+                .Where(x => x.PortfolioId == portfolioId && (type == null || x.Type == type))
+                .OrderByDescending(x => x.EventDateTime)
+                .Skip(skipCount).Take(pageSize).CountAsync();
+
+        }
+
+
+
         public async Task<List<StockEvent>> GetForStockAsync(long portfolioId, long stockId)
         {
             return await _db.StockEvent
@@ -45,6 +86,20 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .Include(x => x.MainElement).ThenInclude(x => x.Stock)
                 .Where(x => x.PortfolioId == portfolioId && (x.MainElement.StockId == stockId || x.SubElement.StockId == stockId))
                 .OrderByDescending(x => x.EventDateTime).ToListAsync();
+
+        }
+
+        public async Task<List<StockEvent>> GetLastForStockAsync(long portfolioId, List<long> stockId)
+        {
+            return await _db.StockEvent
+                .AsNoTracking()
+                .Where(e => stockId.Contains(e.Id) && e.PortfolioId == portfolioId)
+                .GroupBy(e => e.Id)
+                .Select(g => g
+                    .OrderByDescending(e => e.EventDateTime)
+                    .First())
+                .ToListAsync();
+
 
         }
 
@@ -99,5 +154,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .ToListAsync();
 
         }
+
+
     }
 }

@@ -3,6 +3,7 @@ using FinancialAssistantApp.Models.DTO;
 using Menu.Host.Models.FinancialAssistantApp.Requests;
 using Menu.Host.Models.FinancialAssistantApp.Returns;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Menu.Host.Models.FinancialAssistantApp
@@ -101,6 +102,27 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 Price = p.Price,
                 Type = p.Type,
                 CurrencyActions = p.CurrencyActions,
+                OutdateForce = p.OutdateForce,
+            };
+        }
+
+        public static GetPortfolioEvents Map(this GetPortfolioEventsRequest p)
+        {
+            return new GetPortfolioEvents()
+            {
+                PortfolioId = p.PortfolioId,
+                PageSize = p.PageSize,
+                Page = p.Page,
+                Type = p.Type,
+            };
+        }
+        
+        public static GetPortfolioEventsResponse Map(this (List<StockEvent>,long) obj)
+        {
+            return new GetPortfolioEventsResponse()
+            {
+                CountTotal = obj.Item2,
+                Events = obj.Item1.Select(x => x.Map()).ToList()
             };
         }
 

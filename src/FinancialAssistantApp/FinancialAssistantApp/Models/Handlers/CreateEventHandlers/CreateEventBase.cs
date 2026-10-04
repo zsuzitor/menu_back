@@ -65,6 +65,8 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
             }
 
+            await CheckExistedEvents(obj);
+
             var stock = await GetStock(obj);
 
             var element = await GetStockElement(obj);
@@ -118,6 +120,24 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 result.SubElement.Stock = currency;
 
             return result;
+
+        }
+
+
+        protected async Task CheckExistedEvents(StockEventCreate obj)
+        {
+            if (obj.OutdateForce)
+            {
+                return;
+            }
+
+            var existedEvents = await _stockEventRepository.GetLastForStockAsync(obj.PortfolioId, new List<long>() { obj.StockId ?? 0, obj.CurrencyId ?? 0 });
+            if(existedEvents.FirstOrDefault(x => x.EventDateTime >= obj.Date) != null)
+            {
+                //за датой создаваемого ивента уже есть изменения, если создать такой ивент то потом "история изменения-статистика" сломается
+                throw new SomeCustomBadRequestException(Consts.ErrorConsts.OutdateStockEvent);
+
+            }
 
         }
 

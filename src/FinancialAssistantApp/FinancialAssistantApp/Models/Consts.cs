@@ -13,6 +13,7 @@ namespace FinancialAssistantApp.Models
             public const string NotFoundCurrency = $"{ProjectPrefix}not_found_currency";
             public const string NotFoundStock = $"{ProjectPrefix}not_found_stock";
             public const string NotValideStockEvent = $"{ProjectPrefix}not_valide_stock_event";
+            public const string OutdateStockEvent = $"{ProjectPrefix}outdate_stock_event";
         }
     }
 }

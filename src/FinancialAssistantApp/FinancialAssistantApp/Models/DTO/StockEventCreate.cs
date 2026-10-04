@@ -23,5 +23,6 @@ namespace FinancialAssistantApp.Models.DTO
 
 
         public long PortfolioId { get; set; }
+        public bool OutdateForce { get; set; }
     }
 }
