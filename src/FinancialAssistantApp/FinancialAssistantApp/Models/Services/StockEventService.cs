@@ -43,7 +43,7 @@ namespace FinancialAssistantApp.Models.Services
 
         }
 
-        public async Task<List<StockEvent>> GetForPortfolioAsync(GetPortfolioEvents req)
+        public async Task<(List<StockEvent>, long)> GetForPortfolioAsync(GetPortfolioEvents req)
         {
             if (!await _portfolioRepository.ExistAsync(req.PortfolioId, req.UserId))
             {

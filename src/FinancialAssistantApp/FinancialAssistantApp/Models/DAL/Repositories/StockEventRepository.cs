@@ -70,8 +70,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
             return await _db.StockEvent
                 .AsNoTracking()
                 .Where(x => x.PortfolioId == portfolioId && (type == null || x.Type == type))
-                .OrderByDescending(x => x.EventDateTime)
-                .Skip(skipCount).Take(pageSize).CountAsync();
+                .OrderByDescending(x => x.EventDateTime).CountAsync();
 
         }
 

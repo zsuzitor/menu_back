@@ -2576,7 +2576,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".portfolio-events .one-event {\r\n    /* border: 2px solid black; */\r\n    border-radius: 5px;\r\n    border-color: cadetblue;\r\n}\r\n\r\n.portfolio-events .events-list {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    flex-direction: column;\r\n    gap: 1px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,kBAAkB;IAClB,uBAAuB;AAC3B;;AAEA;IACI,aAAa;IACb,2BAA2B;IAC3B,sBAAsB;IACtB,QAAQ;AACZ","sourcesContent":[".portfolio-events .one-event {\r\n    /* border: 2px solid black; */\r\n    border-radius: 5px;\r\n    border-color: cadetblue;\r\n}\r\n\r\n.portfolio-events .events-list {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    flex-direction: column;\r\n    gap: 1px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".portfolio-events .one-event {\r\n    /* border: 2px solid black; */\r\n    border-radius: 5px;\r\n    border: 1px solid cadetblue;\r\n}\r\n\r\n.portfolio-events .events-list {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    flex-direction: column;\r\n    gap: 1px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,kBAAkB;IAClB,2BAA2B;AAC/B;;AAEA;IACI,aAAa;IACb,2BAA2B;IAC3B,sBAAsB;IACtB,QAAQ;AACZ","sourcesContent":[".portfolio-events .one-event {\r\n    /* border: 2px solid black; */\r\n    border-radius: 5px;\r\n    border: 1px solid cadetblue;\r\n}\r\n\r\n.portfolio-events .events-list {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    flex-direction: column;\r\n    gap: 1px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -68507,6 +68507,7 @@ const AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData 
 __webpack_require__(/*! ./AddStockEvent.css */ "./src/Apps/FinancialAssistantApp/Components/AddStockEvent/AddStockEvent.css");
 const AddStockEvent = (props) => {
     const [countStock, setCountStock] = (0, react_1.useState)(0);
+    const [outdateForce, setOutdateForce] = (0, react_1.useState)(false);
     const [eventType, setEventType] = (0, react_1.useState)(+StockEventEnum_1.StockEventEnum.Buy); //StockEventEnum
     const [priceStock, setPriceStock] = (0, react_1.useState)(0);
     const [newStockEventDate, setStockEventDate] = (0, react_1.useState)(new Date());
@@ -68651,6 +68652,9 @@ const AddStockEvent = (props) => {
                         }
                     } }),
                 react_1.default.createElement("br", null),
+                react_1.default.createElement("span", null, "\u0424\u043E\u0440\u0441\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0435 \u0441\u043E\u0437\u0434\u0430\u043D\u0438\u0435 \u0438\u0432\u0435\u043D\u0442\u0430 \u0437\u0430\u0434\u043D\u0438\u043C \u0447\u0438\u0441\u043B\u043E\u043C"),
+                react_1.default.createElement("input", { type: "checkbox", defaultChecked: outdateForce, onChange: () => setOutdateForce(prev => !prev) }),
+                react_1.default.createElement("br", null),
                 react_1.default.createElement("button", { onClick: () => {
                         let dt = new CreateStockEventRequest_1.CreateStockEventRequest();
                         dt.StockId = stockId;
@@ -68661,6 +68665,7 @@ const AddStockEvent = (props) => {
                         dt.Price = priceStock;
                         dt.Type = eventType;
                         dt.CurrencyActions = stockCurrencyActions;
+                        dt.OutdateForce = outdateForce;
                         props.Create(dt).then(x => {
                             let alertFactory = new AlertData_1.AlertData();
                             let alert = alertFactory.GetDefaultNotify("Событие создано");
@@ -69189,17 +69194,20 @@ const PortfolioEventsSetup_1 = __importDefault(__webpack_require__(/*! ./Portfol
 const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts"));
 const StockEventEnum_1 = __webpack_require__(/*! ../../Models/Entity/State/Enum/StockEventEnum */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Enum/StockEventEnum.ts");
+const Paggination_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/Paggination/Paggination */ "./src/components/Body/Paggination/Paggination.tsx"));
 __webpack_require__(/*! ./PortfolioEvents.css */ "./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css");
 const PortfolioEvents = (props) => {
+    const pageSize = 10;
     const navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(() => {
         if (props.PortfolioId > 0)
-            props.LoadPortfolioEvents(props.PortfolioId);
+            props.LoadPortfolioEvents(props.PortfolioId, pageSize, props.PageNumber, props.TypeEvents);
         return () => {
-            props.ClearPortfolioEvents(props.PortfolioId);
+            // props.ClearPortfolioEvents(props.PortfolioId);
         };
-    }, [props.PortfolioId]);
+    }, [props.PortfolioId, props.PageNumber, props.TypeEvents]);
     const portfolioUrl = new RouteBuilder_1.default().PortfolioUrl(props.PortfolioId);
+    let typeEvents = props.TypeEvents || -1;
     return react_1.default.createElement("div", { className: 'portfolio-events' },
         "\u0421\u043E\u0431\u044B\u0442\u0438\u044F \u043F\u043E\u0440\u0442\u0444\u0435\u043B\u044F id - ",
         props.PortfolioId,
@@ -69207,6 +69215,21 @@ const PortfolioEvents = (props) => {
                 e.preventDefault();
                 navigate(portfolioUrl);
             } }, "\u0412\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u043A \u043F\u043E\u0440\u0442\u0444\u0435\u043B\u044E"),
+        react_1.default.createElement("select", { className: "form-control", value: typeEvents, onChange: (e) => {
+                let newVal = +e.target.value;
+                if (newVal < 0) {
+                    newVal = null;
+                }
+                props.SetTypePortfolioEvents(newVal);
+            } },
+            react_1.default.createElement("option", { value: `-1` }, "\u041B\u044E\u0431\u043E\u0439"),
+            react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.Buy}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.Buy)),
+            react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.Dividends}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.Dividends)),
+            react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.Sell}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.Sell)),
+            react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.CountChange}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.CountChange)),
+            react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.WithdrawalCash}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.WithdrawalCash)),
+            react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.CashReplenishment}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.CashReplenishment))),
+        react_1.default.createElement(Paggination_1.default, { ElementsCount: props.TotalEvents, PageNumber: props.PageNumber, ElementsOnPage: pageSize, SetPageNumber: (x) => props.SetPagePortfolioEvents(x) }),
         react_1.default.createElement("div", { className: 'events-list' }, props.Events.map(x => {
             let typeStr = new StockEventEnum_1.StockEventEnumToString().ToString(x.Type);
             return react_1.default.createElement("div", { key: x.Id, className: 'one-event' },
@@ -69244,15 +69267,24 @@ const mapStateToProps = (state, ownProps) => {
     let res = {};
     res.Events = state.FinancialAssistantApp.CurrentPortfolioEvents;
     res.PortfolioId = state.FinancialAssistantApp.CurrentPortfolioId;
+    res.TotalEvents = state.FinancialAssistantApp.CurrentPortfolioEventsTotal;
+    res.PageNumber = state.FinancialAssistantApp.CurrentPortfolioEventsPage;
+    res.TypeEvents = state.FinancialAssistantApp.CurrentPortfolioEventsTypeFilter;
     return res;
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
     let res = {};
-    res.LoadPortfolioEvents = (id) => {
-        dispatch(window.G_FinancialAssistantAppStockEventController.GetEventsRedux(id));
+    res.LoadPortfolioEvents = (portfolioId, pageSize, page, type) => {
+        dispatch(window.G_FinancialAssistantAppStockEventController.GetEventsRedux(portfolioId, pageSize, page, type));
     };
-    res.ClearPortfolioEvents = (id) => {
-        dispatch((0, StockEventActions_1.LoadStockEventForProjectActionCreator)([]));
+    // res.ClearPortfolioEvents = (id: number) => {
+    //     dispatch(LoadStockEventForProjectActionCreator([]));
+    // };
+    res.SetPagePortfolioEvents = (page) => {
+        dispatch((0, StockEventActions_1.StockEventForPortfolioFilterPageActionCreator)(page));
+    };
+    res.SetTypePortfolioEvents = (type) => {
+        dispatch((0, StockEventActions_1.StockEventForPortfolioFilterTypeActionCreator)(type));
     };
     return res;
 };
@@ -70280,12 +70312,27 @@ exports.CreateCurrentStockHistoryActionCreator = CreateCurrentStockHistoryAction
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.LoadStockEventForProjectActionCreator = exports.LoadStockEventForProjectActionName = void 0;
+exports.StockEventForPortfolioFilterTypeActionCreator = exports.StockEventForPortfolioFilterTypeActionName = exports.StockEventForPortfolioFilterPageActionCreator = exports.StockEventForPortfolioFilterPageActionName = exports.LoadStockEventForProjectActionCreator = exports.LoadStockEventForProjectActionName = exports.LoadStockEventForProjectActionDataType = void 0;
+class LoadStockEventForProjectActionDataType {
+}
+exports.LoadStockEventForProjectActionDataType = LoadStockEventForProjectActionDataType;
 exports.LoadStockEventForProjectActionName = 'LoadStockEventForProjectAction';
 function LoadStockEventForProjectActionCreator(data) {
     return { type: exports.LoadStockEventForProjectActionName, payload: data };
 }
 exports.LoadStockEventForProjectActionCreator = LoadStockEventForProjectActionCreator;
+;
+exports.StockEventForPortfolioFilterPageActionName = 'StockEventForPortfolioFilterPageAction';
+function StockEventForPortfolioFilterPageActionCreator(data) {
+    return { type: exports.StockEventForPortfolioFilterPageActionName, payload: data };
+}
+exports.StockEventForPortfolioFilterPageActionCreator = StockEventForPortfolioFilterPageActionCreator;
+;
+exports.StockEventForPortfolioFilterTypeActionName = 'StockEventForPortfolioFilterTypeAction';
+function StockEventForPortfolioFilterTypeActionCreator(data) {
+    return { type: exports.StockEventForPortfolioFilterTypeActionName, payload: data };
+}
+exports.StockEventForPortfolioFilterTypeActionCreator = StockEventForPortfolioFilterTypeActionCreator;
 ;
 
 
@@ -71011,6 +71058,7 @@ class FinancialAssistantAppStockEventController {
                 "CurrencyId": req.CurrencyId,
                 "CurrencyActions": req.CurrencyActions,
                 "PortfolioId": req.PortfolioId,
+                "OutdateForce": req.OutdateForce,
             };
             const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
@@ -71023,31 +71071,38 @@ class FinancialAssistantAppStockEventController {
             });
             return backResult;
         });
-        this.GetEventsRedux = (portfolioId) => {
+        this.GetEventsRedux = (portfolioId, pageSize, page, type) => {
             return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                const backResult = yield this.GetEventsAsync(portfolioId);
+                const backResult = yield this.GetEventsAsync(portfolioId, pageSize, page, type);
                 this.preloader(false);
                 if (backResult.Error) {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = backResult.Data.map(x => new StockEvent_1.StockEvent().FillByIStockEventDataBack(x));
+                    let events = backResult.Data.Data.map(x => new StockEvent_1.StockEvent().FillByIStockEventDataBack(x));
+                    let dt = new StockEventActions_1.LoadStockEventForProjectActionDataType();
+                    dt.Events = events;
+                    dt.TotalCount = backResult.Data.CountTotal;
                     dispatch((0, StockEventActions_1.LoadStockEventForProjectActionCreator)(dt));
                 }
             });
         };
-        this.GetEventsAsync = (portfolioId) => __awaiter(this, void 0, void 0, function* () {
+        this.GetEventsAsync = (portfolioId, pageSize, page, type) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "PortfolioId": portfolioId,
+                "PageSize": pageSize,
+                "Page": page,
+                "Type": type,
             };
             const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                Type: ControllerHelper_1.ControllerHelper.PostHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.FinancialAssistantApiStockEventUrl}/get-events-for-portfolio`,
+                ContentType: 'body'
             });
             return backResult;
         });
@@ -71234,6 +71289,9 @@ class FinancialAssistantApp {
         this.CurrentPortfolio = null;
         this.CurrentPortfolioEvents = [];
         this.CurrentStockHistory = [];
+        this.CurrentPortfolioEventsPage = 1;
+        this.CurrentPortfolioEventsTotal = -1;
+        this.CurrentPortfolioEventsTypeFilter = null;
     }
 }
 exports.FinancialAssistantApp = FinancialAssistantApp;
@@ -71527,7 +71585,22 @@ function FinancialAssistantStockEventReducer(state = new AppState_1.AppState(), 
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                newState.FinancialAssistantApp.CurrentPortfolioEvents = [...payload];
+                newState.FinancialAssistantApp.CurrentPortfolioEvents = [...payload.Events];
+                newState.FinancialAssistantApp.CurrentPortfolioEventsTotal = payload.TotalCount;
+                return newState;
+            }
+        case StockEventActions_1.StockEventForPortfolioFilterPageActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.FinancialAssistantApp.CurrentPortfolioEventsPage = payload;
+                return newState;
+            }
+        case StockEventActions_1.StockEventForPortfolioFilterTypeActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.FinancialAssistantApp.CurrentPortfolioEventsTypeFilter = payload;
                 return newState;
             }
         default:

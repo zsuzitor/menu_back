@@ -1,5 +1,5 @@
 ﻿using BO.Models.DAL;
-using BO.Models.TaskManagementApp.DAL.Domain;
+using BO.Models.DAL.Domain;
 using System.Collections.Generic;
 
 namespace BO.Models.FinancialAssistant.DAL
@@ -9,7 +9,7 @@ namespace BO.Models.FinancialAssistant.DAL
         public long Id { get; set; }
         public string Name { get; set; }
         public long UserId { get; set; }
-        public ProjectUser User { get; set; }
+        public User User { get; set; }
 
         /// <summary>
         /// основная валюта портфеля, для отображения текущих цен

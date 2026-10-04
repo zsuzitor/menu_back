@@ -43,7 +43,7 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         [Route("get-events-for-portfolio")]
         [HttpPost]
         [CustomAuthorize]
-        public async Task<ActionResult<GetPortfolioEventsResponse>> GetHistory(GetPortfolioEventsRequest req)
+        public async Task<ActionResult<GetPortfolioEventsResponse>> GetHistory([FromBody] GetPortfolioEventsRequest req)
         {
             var userId = User.GetUserId();
             var request = req.Map();

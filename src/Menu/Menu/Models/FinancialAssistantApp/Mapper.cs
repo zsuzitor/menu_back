@@ -122,7 +122,7 @@ namespace Menu.Host.Models.FinancialAssistantApp
             return new GetPortfolioEventsResponse()
             {
                 CountTotal = obj.Item2,
-                Events = obj.Item1.Select(x => x.Map()).ToList()
+                Data = obj.Item1.Select(x => x.Map()).ToList()
             };
         }
 
