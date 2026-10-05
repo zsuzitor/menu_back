@@ -8,10 +8,8 @@ using FinancialAssistantApp.Models.Mapper;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Models.Services.Interfaces;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
-using Tinkoff.InvestApi.V1;
 using TIntegration.Models.DTO;
 using TIntegration.Models.Services.Interfaces;
-using static Google.Api.ResourceDescriptor.Types;
 
 namespace FinancialAssistantApp.Models.Services
 {
@@ -62,43 +60,10 @@ namespace FinancialAssistantApp.Models.Services
             else
             {
                 rec.UserId = userId;
-                //rec.PortfolioId = obj.PortfolioId;
-                //if (rec.PortfolioId == null)
-                //{
-                //    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
-                //}
-
-                //if (!await _portfolioRepository.ExistAsync(rec.PortfolioId.Value, userId))
-                //{
-                //    throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
-                //}
+           
             }
 
-            //if (obj.Type != StockTypeEnum.Currency)
-            //{
-            //    if (obj.CurrencyId == null)
-            //    {
-            //        throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
-            //    }
-
-            //    var cur = await _stockRepository.GetNoTrackAsync(obj.CurrencyId.Value);
-            //    if (cur == null || (cur.Type != StockTypeEnum.Currency))
-            //        throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
-            //    if (!cur.IsGlobal && rec.IsGlobal)
-            //    {
-            //        //валюта не глобальная а сток глобальный - ошибка
-            //        throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
-            //    }
-
-            //    if (!cur.IsGlobal && !rec.IsGlobal && cur.PortfolioId != rec.PortfolioId)
-            //    {
-            //        //ссылаемся на валюту из чужого портфеля
-            //        throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundCurrency);
-
-            //    }
-
-
-            //}
+           
 
             var result = await _stockRepository.AddAsync(rec);
             //var history = GetHistory(result);
@@ -234,11 +199,14 @@ namespace FinancialAssistantApp.Models.Services
 
         }
 
-        public async Task<List<StockHistory>> GetHistoryAsync(long id, long userId)
+        public async Task<(List<StockHistory>, long)> GetHistoryAsync(long id, long userId, int pageSize, int pageNum)
         {
             var stock = await _stockRepository.GetAsync(id, userId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
 
-            return await _stockHistoryRepository.GetHistoryWithCurrencyAsync(id);
+            var history = await _stockHistoryRepository.GetHistoryWithCurrencyAsync(id,pageSize,pageNum);
+            var count = await _stockHistoryRepository.GetHistoryCountAsync(id);
+            return (history, count);
+
         }
 
         public async Task GlobalActualizeAsync(long userId)

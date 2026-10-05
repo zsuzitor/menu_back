@@ -6,6 +6,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories.Interfaces
     public interface IStockHistoryRepository : IGeneralRepository<StockHistory, long>
     {
         Task<List<StockHistory>> GetHistoryAsync(long stockId);
-        Task<List<StockHistory>> GetHistoryWithCurrencyAsync(long stockId);
+        Task<List<StockHistory>> GetHistoryWithCurrencyAsync(long stockId, int pageSize, int pageNum);
+        Task<long> GetHistoryCountAsync(long stockId);
     }
 }

@@ -8,8 +8,9 @@ namespace FinancialAssistantApp.Models.DAL.Repositories.Interfaces
     {
         Task<List<StockEvent>> GetForPortfolioAsync(long portfolioId);
         Task<List<StockEvent>> GetForPortfolioAsync(long portfolioId, int pageSize, int page, StockEventEnum? type);
-        Task<long> GetCountForPortfolioAsync(long portfolioId, int pageSize, int page, StockEventEnum? type);
-        Task<List<StockEvent>> GetForStockAsync(long portfolioId, long stockId);
+        Task<long> GetCountForPortfolioAsync(long portfolioId, StockEventEnum? type);
+        Task<List<StockEvent>> GetForStockAsync(long portfolioId, long stockId, int pageSize, int page);
+        Task<long> GetForStockCountAsync(long portfolioId, long stockId);
         Task<List<StockEvent>> GetLastForStockAsync(long portfolioId, List<long> stockId);
         Task<List<StockEvent>> GetLastActualEvents(long portfolioId, DateTime time);
         Task<List<StockEvent>> GetLastActualEventsForMainElement(List<long> portfolioId, DateTime time);

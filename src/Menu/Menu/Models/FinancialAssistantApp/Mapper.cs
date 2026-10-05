@@ -116,7 +116,18 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 Type = p.Type,
             };
         }
+
+
         
+        public static GetStockEventsResponse MapGetStockEventsResponse(this (List<StockEvent>, long) obj)
+        {
+            return new GetStockEventsResponse()
+            {
+                CountTotal = obj.Item2,
+                Data = obj.Item1.Select(x => x.Map()).ToList()
+            };
+        }
+
         public static GetPortfolioEventsResponse Map(this (List<StockEvent>,long) obj)
         {
             return new GetPortfolioEventsResponse()
@@ -169,6 +180,15 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 ActualizationTime = p.ActualizationTime,
                 CurrencyId = p.CurrencyId,
                 LastPrice = p.LastPrice,
+            };
+        }
+
+        public static GetStockHistoryResponse Map(this (List<StockHistory>, long) p)
+        {
+            return new GetStockHistoryResponse()
+            {
+                CountTotal = p.Item2,
+                Data = p.Item1.Select(x => x.Map()).ToList(),
             };
         }
 

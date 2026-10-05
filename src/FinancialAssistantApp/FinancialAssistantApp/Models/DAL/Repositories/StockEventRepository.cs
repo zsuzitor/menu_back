@@ -59,13 +59,8 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
 
         }
 
-        public async Task<long> GetCountForPortfolioAsync(long portfolioId, int pageSize, int page, StockEventEnum? type)
+        public async Task<long> GetCountForPortfolioAsync(long portfolioId, StockEventEnum? type)
         {
-            if (page > 0)
-            {
-                page--;
-            }
-            var skipCount = page * pageSize;
 
             return await _db.StockEvent
                 .AsNoTracking()
@@ -76,7 +71,25 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
 
 
 
-        public async Task<List<StockEvent>> GetForStockAsync(long portfolioId, long stockId)
+        public async Task<List<StockEvent>> GetForStockAsync(long portfolioId, long stockId, int pageSize, int page)
+        {
+            if (page > 0)
+            {
+                page--;
+            }
+            var skipCount = page * pageSize;
+            return await _db.StockEvent
+                .AsNoTracking()
+                .Include(x => x.SubElement)
+                .ThenInclude(x => x.Stock)
+                .Include(x => x.MainElement).ThenInclude(x => x.Stock)
+                .Where(x => x.PortfolioId == portfolioId && (x.MainElement.StockId == stockId || x.SubElement.StockId == stockId))
+                .OrderByDescending(x => x.EventDateTime)
+                .Skip(skipCount).Take(pageSize).ToListAsync();
+
+        }
+
+        public async Task<long> GetForStockCountAsync(long portfolioId, long stockId)
         {
             return await _db.StockEvent
                 .AsNoTracking()
@@ -84,7 +97,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .ThenInclude(x => x.Stock)
                 .Include(x => x.MainElement).ThenInclude(x => x.Stock)
                 .Where(x => x.PortfolioId == portfolioId && (x.MainElement.StockId == stockId || x.SubElement.StockId == stockId))
-                .OrderByDescending(x => x.EventDateTime).ToListAsync();
+                .OrderByDescending(x => x.EventDateTime).CountAsync();
 
         }
 

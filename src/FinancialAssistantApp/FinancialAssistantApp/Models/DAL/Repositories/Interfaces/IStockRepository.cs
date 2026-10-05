@@ -12,7 +12,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories.Interfaces
         Task<Stock> GetAsync(long id, long? userId);
 
 
-        
+
         Task<List<Stock>> GetCurrencyAsync(long? userId);
         Task<List<Stock>> GetGlobalAsync();
         Task<Stock> GetGlobalAsync(long id);

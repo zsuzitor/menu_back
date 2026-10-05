@@ -22,10 +22,24 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
 
         }
 
-        public async Task<List<StockHistory>> GetHistoryWithCurrencyAsync(long stockId)
+        public async Task<long> GetHistoryCountAsync(long stockId)
         {
-            return await _db.StockHistory.Include(x => x.Currency).AsNoTracking().Where(x => x.StockId == stockId
-            ).ToListAsync();
+            return await _db.StockHistory.Where(x => x.StockId == stockId).CountAsync();
+
         }
+
+        public async Task<List<StockHistory>> GetHistoryWithCurrencyAsync(long stockId, int pageSize, int pageNum)
+        {
+            if (pageNum > 0)
+            {
+                pageNum--;
+            }
+            var skipCount = pageNum * pageSize;
+            return await _db.StockHistory.Include(x => x.Currency).AsNoTracking().Where(x => x.StockId == stockId)
+                .Skip(skipCount).Take(pageSize)
+                .ToListAsync();
+        }
+
+
     }
 }

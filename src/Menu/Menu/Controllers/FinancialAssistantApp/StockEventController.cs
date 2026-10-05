@@ -53,13 +53,13 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         }
 
         [Route("get-events-for-stock")]
-        [HttpGet]
+        [HttpPost]
         [CustomAuthorize]
-        public async Task<ActionResult<List<StockEventReturn>>> GetStockHistory(long portfolioId, long stockId)
+        public async Task<ActionResult<GetStockEventsResponse>> GetStockHistory([FromBody] GetStockEventsRequest req)
         {
             var userId = User.GetUserId();
-            var res = await _stockEventService.GetForStockAsync(portfolioId, stockId, userId);
-            return new JsonResult(res.Select(x => x.Map()), GetJsonOptions());
+            var res = await _stockEventService.GetForStockAsync(req.PortfolioId, req.StockId, userId, req.PageSize, req.Page);
+            return new JsonResult(res.MapGetStockEventsResponse(), GetJsonOptions());
         }
 
 

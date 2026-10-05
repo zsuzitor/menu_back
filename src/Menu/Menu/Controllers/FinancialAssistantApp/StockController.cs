@@ -1,5 +1,4 @@
 ﻿using Auth.Models.Auth;
-using BO.Models.FinancialAssistant.DAL;
 using Common.Models.Return;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Host.Infrastructure;
@@ -112,19 +111,19 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         }
 
         [Route("get-history")]
-        [HttpGet]
+        [HttpPost]
         [CustomAuthorize]
-        public async Task<ActionResult<List<StockHistoryReturn>>> GetHistory(long id)
+        public async Task<ActionResult<GetStockHistoryResponse>> GetHistory([FromBody] GetStockHistoryRequest req)
         {
             var userId = User.GetUserId();
-            var res = await _stockService.GetHistoryAsync(id, userId);
-            return new JsonResult(res.Select(x=> x.Map()), GetJsonOptions());
+            var res = await _stockService.GetHistoryAsync(req.StockId, userId, req.PageSize, req.Page);
+            return new JsonResult(res.Map(), GetJsonOptions());
         }
 
         [Route("create-history")]
         [HttpPut]
         [CustomAuthorize]
-        public async Task<ActionResult<List<StockHistoryReturn>>> CreateHistory(CreateStockHistoryRequest req)
+        public async Task<ActionResult<List<StockHistoryReturn>>> CreateHistory([FromBody] CreateStockHistoryRequest req)
         {
             var userId = User.GetUserId();
             var res = await _stockService.CreateHistoryAsync(req.Map(), userId);

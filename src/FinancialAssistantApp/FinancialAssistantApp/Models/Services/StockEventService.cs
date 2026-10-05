@@ -51,18 +51,20 @@ namespace FinancialAssistantApp.Models.Services
             }
 
             var elems =  await _stockEventRepository.GetForPortfolioAsync(req.PortfolioId, req.PageSize, req.Page, req.Type);
-            var count = await _stockEventRepository.GetCountForPortfolioAsync(req.PortfolioId, req.PageSize, req.Page, req.Type);
+            var count = await _stockEventRepository.GetCountForPortfolioAsync(req.PortfolioId, req.Type);
             return (elems, count);
         }
 
-        public async Task<List<StockEvent>> GetForStockAsync(long portfolioId, long stockId, long userId)
+        public async Task<(List<StockEvent>, long)> GetForStockAsync(long portfolioId, long stockId, long userId, int pageSize, int pageNum)
         {
             if (!await _portfolioRepository.ExistAsync(portfolioId, userId))
             {
                 throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
             }
 
-            return await _stockEventRepository.GetForStockAsync(portfolioId, stockId);
+            var events =  await _stockEventRepository.GetForStockAsync(portfolioId, stockId,pageSize,pageNum);
+            var count =  await _stockEventRepository.GetForStockCountAsync(portfolioId, stockId);
+            return (events, count);
 
         }
     }

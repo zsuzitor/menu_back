@@ -69812,6 +69812,7 @@ const AddStockEvent_1 = __importDefault(__webpack_require__(/*! ../AddStockEvent
 const StockEvent_1 = __webpack_require__(/*! ../../Models/Entity/State/StockEvent */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/StockEvent.ts");
 const StockEventEnum_1 = __webpack_require__(/*! ../../Models/Entity/State/Enum/StockEventEnum */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Enum/StockEventEnum.ts");
 const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts"));
+const Paggination_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/Paggination/Paggination */ "./src/components/Body/Paggination/Paggination.tsx"));
 __webpack_require__(/*! ./StockDetail.css */ "./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css");
 const StockDetail = (props) => {
     const [newStockHistoryDate, setStockHistoryDate] = (0, react_1.useState)(new Date());
@@ -69824,6 +69825,9 @@ const StockDetail = (props) => {
     const [stockCurrencyNameFilter, setStockCurrencyNameFilter] = (0, react_1.useState)('');
     const [showNewEventWindow, setShowNewEventWindow] = (0, react_1.useState)(false);
     const [events, setEvents] = (0, react_1.useState)([]);
+    const [eventsPage, setEventsPage] = (0, react_1.useState)(1);
+    const [eventsTotal, setEventsTotal] = (0, react_1.useState)(-1);
+    const pageSize = 10;
     const navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(() => {
         props.GetCurrency()
@@ -69839,14 +69843,18 @@ const StockDetail = (props) => {
     (0, react_1.useEffect)(() => {
         if (props.StockId > 0) {
             props.GetDetail(props.StockId);
-            props.GetHistory(props.StockId);
         }
     }, [props.StockId]);
     (0, react_1.useEffect)(() => {
-        if (props.StockId > 0 && props.PortfolioId && props.PortfolioId > 0) {
-            LoadEvents(props.StockId, props.PortfolioId);
+        if (props.StockId > 0) {
+            props.GetHistory(props.StockId, pageSize, props.HistoryPage);
         }
-    }, [props.StockId, props.PortfolioId]);
+    }, [props.StockId, props.HistoryPage]);
+    (0, react_1.useEffect)(() => {
+        if (props.StockId > 0 && props.PortfolioId && props.PortfolioId > 0) {
+            LoadEvents(props.StockId, props.PortfolioId, eventsPage);
+        }
+    }, [props.StockId, props.PortfolioId, eventsPage]);
     // const matchStock = window.location.href.match(/stock-(\d+)/);//FinancialAssistantAppStockRoute
     // if (matchStock) {
     //     const idInt = parseInt(matchStock[1], 10);
@@ -69877,21 +69885,23 @@ const StockDetail = (props) => {
         const help = new Helper_1.Helper();
         return help.FormatDateToInputWithTime(date);
     }
-    function LoadEvents(stockId, portfolioId) {
-        props.GetStockEvents(portfolioId, stockId).then(x => {
+    function LoadEvents(stockId, portfolioId, pageNumber) {
+        props.GetStockEvents(portfolioId, stockId, pageSize, pageNumber).then(x => {
             if (x.Data) {
-                setEvents(x.Data.map(d => new StockEvent_1.StockEvent().FillByIStockEventDataBack(d)));
+                setEvents(x.Data.Data.map(d => new StockEvent_1.StockEvent().FillByIStockEventDataBack(d)));
+                setEventsTotal(x.Data.CountTotal);
             }
         });
     }
     if (!props.Stock) {
         return react_1.default.createElement("div", null);
     }
+    const openFromPortfolio = props.PortfolioId && props.PortfolioId > 0;
     const portfolioUrl = new RouteBuilder_1.default().PortfolioUrl(props.PortfolioId);
     return react_1.default.createElement("div", { className: 'stock-page' },
-        showNewEventWindow ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowNewEventWindow(false), IsHeightWindow: false, Title: '\u041D\u043E\u0432\u043E\u0435 \u0441\u043E\u0431\u044B\u0442\u0438\u0435', InnerContent: () => react_1.default.createElement(AddStockEvent_1.default, { EventAdded: () => { LoadEvents(props.StockId, props.PortfolioId); }, StockId: props.Stock.Id }) }) : react_1.default.createElement(react_1.default.Fragment, null),
+        showNewEventWindow ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowNewEventWindow(false), IsHeightWindow: false, Title: '\u041D\u043E\u0432\u043E\u0435 \u0441\u043E\u0431\u044B\u0442\u0438\u0435', InnerContent: () => react_1.default.createElement(AddStockEvent_1.default, { EventAdded: () => { LoadEvents(props.StockId, props.PortfolioId, eventsPage); }, StockId: props.Stock.Id }) }) : react_1.default.createElement(react_1.default.Fragment, null),
         react_1.default.createElement("div", null,
-            props.PortfolioId ? react_1.default.createElement(react_1.default.Fragment, null,
+            openFromPortfolio ? react_1.default.createElement(react_1.default.Fragment, null,
                 react_1.default.createElement("a", { href: portfolioUrl, onClick: (e) => {
                         e.preventDefault();
                         navigate(portfolioUrl);
@@ -69943,11 +69953,12 @@ const StockDetail = (props) => {
                         dt.StockId = props.StockId;
                         props.CreateHistory(dt);
                     } }, "\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u0437\u0430\u043F\u0438\u0441\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u0438")),
-            props.PortfolioId ? react_1.default.createElement(react_1.default.Fragment, null,
+            openFromPortfolio ? react_1.default.createElement(react_1.default.Fragment, null,
                 react_1.default.createElement("div", null,
                     react_1.default.createElement("button", { onClick: () => setShowNewEventWindow(true) }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0441\u043E\u0431\u044B\u0442\u0438\u0435")),
                 react_1.default.createElement("div", { className: 'stock-block-events' },
                     react_1.default.createElement("span", null, "\u0421\u043E\u0431\u044B\u0442\u0438\u044F"),
+                    react_1.default.createElement(Paggination_1.default, { ElementsCount: eventsTotal, PageNumber: eventsPage, ElementsOnPage: pageSize, SetPageNumber: (x) => setEventsPage(x) }),
                     events.map(x => {
                         return react_1.default.createElement("div", { key: x.Id, className: 'one-event-element' },
                             react_1.default.createElement("div", null, x.Date),
@@ -69964,6 +69975,7 @@ const StockDetail = (props) => {
                     }))) : react_1.default.createElement(react_1.default.Fragment, null),
             react_1.default.createElement("div", { className: 'stock-block-history' },
                 react_1.default.createElement("span", null, "\u0418\u0441\u0442\u043E\u0440\u0438\u044F \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F \u0446\u0435\u043D\u044B"),
+                react_1.default.createElement(Paggination_1.default, { ElementsCount: props.HistoryTotalCount, PageNumber: props.HistoryPage, ElementsOnPage: pageSize, SetPageNumber: (x) => props.SetHistoryPageNumber(x) }),
                 props.StockHistory.map(x => {
                     return react_1.default.createElement("div", { key: x.Id, className: 'one-history-element' },
                         react_1.default.createElement("div", null, x.Date),
@@ -70003,8 +70015,10 @@ const mapStateToProps = (state, ownProps) => {
     let res = {};
     res.Stock = state.FinancialAssistantApp.CurrentStock;
     res.StockId = state.FinancialAssistantApp.CurrentStockId;
-    res.StockHistory = state.FinancialAssistantApp.CurrentStockHistory;
     res.PortfolioId = state.FinancialAssistantApp.CurrentPortfolioId;
+    res.StockHistory = state.FinancialAssistantApp.CurrentStockHistory;
+    res.HistoryTotalCount = state.FinancialAssistantApp.CurrentStockHistoryTotal;
+    res.HistoryPage = state.FinancialAssistantApp.CurrentStockHistoryPage;
     return res;
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -70018,8 +70032,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     res.GetDetail = (id) => {
         dispatch(window.G_FinancialAssistantAppStockController.GetByIdRedux(id));
     };
-    res.GetHistory = (id) => {
-        dispatch(window.G_FinancialAssistantAppStockController.GetHistoryRedux(id));
+    res.GetHistory = (id, pageSize, pageNumber) => {
+        dispatch(window.G_FinancialAssistantAppStockController.GetHistoryRedux(id, pageSize, pageNumber));
     };
     res.SetCurrentStockId = (id) => {
         dispatch((0, StockActions_1.SetCurrentStockIdActionCreator)(id));
@@ -70028,7 +70042,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         dispatch((0, StockActions_1.LoadCurrentStockActionCreator)(null));
     };
     res.ClearCurrentHistory = () => {
-        dispatch((0, StockActions_1.LoadCurrentStockHistoryActionCreator)([]));
+        let dt = new StockActions_1.LoadCurrentStockHistoryActionDataType();
+        dt.History = [];
+        dt.TotalCount = -1;
+        dispatch((0, StockActions_1.LoadCurrentStockHistoryActionCreator)(dt));
     };
     res.CreateHistory = (req) => {
         dispatch(window.G_FinancialAssistantAppStockController.CreateHistoryRedux(req));
@@ -70036,9 +70053,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     res.GetCurrency = () => __awaiter(void 0, void 0, void 0, function* () {
         return yield window.G_FinancialAssistantAppStockController.GetCurrencyAsync();
     });
-    res.GetStockEvents = (portfolioId, stockId) => __awaiter(void 0, void 0, void 0, function* () {
-        return yield window.G_FinancialAssistantAppStockEventController.GetEventsForStockAsync(portfolioId, stockId);
+    res.GetStockEvents = (portfolioId, stockId, pageSize, pageNumber) => __awaiter(void 0, void 0, void 0, function* () {
+        return yield window.G_FinancialAssistantAppStockEventController.GetEventsForStockAsync(portfolioId, stockId, pageSize, pageNumber);
     });
+    res.SetHistoryPageNumber = (num) => {
+        dispatch((0, StockActions_1.SetCurrentStockHistoryPageActionCreator)(num));
+    };
     return res;
 };
 exports["default"] = (0, react_redux_1.connect)(mapStateToProps, mapDispatchToProps);
@@ -70250,7 +70270,7 @@ exports.SetCurrentPortfolioElementsActionCreator = SetCurrentPortfolioElementsAc
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.CreateCurrentStockHistoryActionCreator = exports.CreateCurrentStockHistoryActionName = exports.LoadCurrentStockHistoryActionCreator = exports.LoadCurrentStockHistoryActionName = exports.LoadCurrentStockActionCreator = exports.LoadCurrentStockActionName = exports.SetCurrentStockIdActionCreator = exports.SetCurrentStockIdActionName = exports.DeleteStockActionCreator = exports.DeleteStockActionName = exports.UpdateStockActionCreator = exports.UpdateStockActionName = exports.CreateStockActionCreator = exports.CreateStockActionName = exports.GetStockActionCreator = exports.GetStockActionName = void 0;
+exports.SetCurrentStockHistoryPageActionCreator = exports.SetCurrentStockHistoryPageActionName = exports.CreateCurrentStockHistoryActionCreator = exports.CreateCurrentStockHistoryActionName = exports.LoadCurrentStockHistoryActionCreator = exports.LoadCurrentStockHistoryActionName = exports.LoadCurrentStockHistoryActionDataType = exports.LoadCurrentStockActionCreator = exports.LoadCurrentStockActionName = exports.SetCurrentStockIdActionCreator = exports.SetCurrentStockIdActionName = exports.DeleteStockActionCreator = exports.DeleteStockActionName = exports.UpdateStockActionCreator = exports.UpdateStockActionName = exports.CreateStockActionCreator = exports.CreateStockActionName = exports.GetStockActionCreator = exports.GetStockActionName = void 0;
 exports.GetStockActionName = 'GetStockAction';
 function GetStockActionCreator(data) {
     return { type: exports.GetStockActionName, payload: data };
@@ -70287,6 +70307,9 @@ function LoadCurrentStockActionCreator(data) {
 }
 exports.LoadCurrentStockActionCreator = LoadCurrentStockActionCreator;
 ;
+class LoadCurrentStockHistoryActionDataType {
+}
+exports.LoadCurrentStockHistoryActionDataType = LoadCurrentStockHistoryActionDataType;
 exports.LoadCurrentStockHistoryActionName = 'LoadCurrentStockHistoryAction';
 function LoadCurrentStockHistoryActionCreator(data) {
     return { type: exports.LoadCurrentStockHistoryActionName, payload: data };
@@ -70298,6 +70321,12 @@ function CreateCurrentStockHistoryActionCreator(data) {
     return { type: exports.CreateCurrentStockHistoryActionName, payload: data };
 }
 exports.CreateCurrentStockHistoryActionCreator = CreateCurrentStockHistoryActionCreator;
+;
+exports.SetCurrentStockHistoryPageActionName = 'SetCurrentStockHistoryPageAction';
+function SetCurrentStockHistoryPageActionCreator(data) {
+    return { type: exports.SetCurrentStockHistoryPageActionName, payload: data };
+}
+exports.SetCurrentStockHistoryPageActionCreator = SetCurrentStockHistoryPageActionCreator;
 ;
 
 
@@ -70867,31 +70896,36 @@ class FinancialAssistantAppStockController {
             });
             return backResult;
         });
-        this.GetHistoryRedux = (id) => {
+        this.GetHistoryRedux = (id, pageSize, pageNumber) => {
             return (dispatch, getState) => __awaiter(this, void 0, void 0, function* () {
                 this.preloader(true);
-                const backResult = yield this.GetHistoryAsync(id);
+                const backResult = yield this.GetHistoryAsync(id, pageSize, pageNumber);
                 this.preloader(false);
                 if (backResult.Error) {
                     return;
                 }
                 if (backResult.Data) {
-                    let dt = backResult.Data.map(x => new StockHistory_1.StockHistory().FillByIStockHistoryDataBack(x));
+                    let dt = new StockActions_1.LoadCurrentStockHistoryActionDataType();
+                    dt.History = backResult.Data.Data.map(x => new StockHistory_1.StockHistory().FillByIStockHistoryDataBack(x));
+                    dt.TotalCount = backResult.Data.CountTotal;
                     dispatch((0, StockActions_1.LoadCurrentStockHistoryActionCreator)(dt));
                 }
             });
         };
-        this.GetHistoryAsync = (id) => __awaiter(this, void 0, void 0, function* () {
+        this.GetHistoryAsync = (id, pageSize, pageNumber) => __awaiter(this, void 0, void 0, function* () {
             let data = {
-                "Id": id
+                "StockId": id,
+                "PageSize": pageSize,
+                "Page": pageNumber,
             };
             const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                Type: ControllerHelper_1.ControllerHelper.PostHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${this.GetControllerApiUrl()}/get-history`,
+                ContentType: 'body'
             });
             return backResult;
         });
@@ -71106,18 +71140,21 @@ class FinancialAssistantAppStockEventController {
             });
             return backResult;
         });
-        this.GetEventsForStockAsync = (portfolioId, stockId) => __awaiter(this, void 0, void 0, function* () {
+        this.GetEventsForStockAsync = (portfolioId, stockId, pageSize, pageNumber) => __awaiter(this, void 0, void 0, function* () {
             let data = {
                 "PortfolioId": portfolioId,
                 "StockId": stockId,
+                "PageSize": pageSize,
+                "Page": pageNumber,
             };
             const backResult = yield G_AjaxHelper.GoAjaxRequest({
                 Data: data,
-                Type: ControllerHelper_1.ControllerHelper.GetHttp,
+                Type: ControllerHelper_1.ControllerHelper.PostHttp,
                 FuncSuccess: (xhr, status, jqXHR) => {
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.FinancialAssistantApiStockEventUrl}/get-events-for-stock`,
+                ContentType: 'body'
             });
             return backResult;
         });
@@ -71292,6 +71329,8 @@ class FinancialAssistantApp {
         this.CurrentPortfolioEventsPage = 1;
         this.CurrentPortfolioEventsTotal = -1;
         this.CurrentPortfolioEventsTypeFilter = null;
+        this.CurrentStockHistoryPage = 1;
+        this.CurrentStockHistoryTotal = -1;
     }
 }
 exports.FinancialAssistantApp = FinancialAssistantApp;
@@ -71684,7 +71723,8 @@ function FinancialAssistantStockReducer(state = new AppState_1.AppState(), actio
             {
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
-                newState.FinancialAssistantApp.CurrentStockHistory = payload;
+                newState.FinancialAssistantApp.CurrentStockHistory = payload.History;
+                newState.FinancialAssistantApp.CurrentStockHistoryTotal = payload.TotalCount;
                 return newState;
             }
         case StockActions_1.CreateCurrentStockHistoryActionName:
@@ -71692,6 +71732,13 @@ function FinancialAssistantStockReducer(state = new AppState_1.AppState(), actio
                 let newState = (0, cloneDeep_1.default)(state);
                 let payload = action.payload;
                 newState.FinancialAssistantApp.CurrentStockHistory.push(payload);
+                return newState;
+            }
+        case StockActions_1.SetCurrentStockHistoryPageActionName:
+            {
+                let newState = (0, cloneDeep_1.default)(state);
+                let payload = action.payload;
+                newState.FinancialAssistantApp.CurrentStockHistoryPage = payload;
                 return newState;
             }
         default:
