@@ -29,8 +29,9 @@ namespace FinancialAssistantApp.Models
                 await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.NotFoundStock, "Не найден тикер", "FinancialAssistantApp", "Error");
                 await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.NotValideStockEvent, "Не валидное событие", "FinancialAssistantApp", "Error");
                 await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.OutdateStockEvent, "После даты события уже есть ивенты, используйте флаг OutdateForce, это может сломать статистику", "FinancialAssistantApp", "Error");
-                
+                //await configurationService.AddIfNotExistAsync(Consts.ErrorConsts.CantDeleteEvent, "После даты события уже есть ивенты, используйте флаг OutdateForce, это может сломать статистику", "FinancialAssistantApp", "Error");
 
+                
 
             }
 

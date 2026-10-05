@@ -72,6 +72,15 @@ namespace FinancialAssistantApp.Models.Services
 
         }
 
+
+        public async Task<StockHistory> DeleteHistoryAsync(long id, long userId)
+        {
+            var history = await _stockHistoryRepository.GetAsync(id);
+            var stock = await _stockRepository.GetAsync(history.StockId,userId) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
+
+            return await _stockHistoryRepository.DeleteAsync(history);
+        }
+
         public async Task<StockHistory> CreateHistoryAsync(StockHistory req, long userId)
         {
             if (req.CurrencyId == null || req.CurrencyId <= 0 || req.Price <= 0)

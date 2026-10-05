@@ -9,6 +9,7 @@ namespace FinancialAssistantApp.Models.Services.Interfaces
         Task<Stock> DeleteAsync(long id, long userId);
         Task<(List<StockHistory>,long)> GetHistoryAsync(long id, long userId, int pageSize, int pageNum);
         Task<StockHistory> CreateHistoryAsync(StockHistory req, long userId);
+        Task<StockHistory> DeleteHistoryAsync(long historyId, long userId);
         Task<Stock> GetAsync(long id, long userId);
         Task<Stock> UpdateAsync(CreateStock obj, long userId);
         Task<List<Stock>> FindAsync( string text, long userId);

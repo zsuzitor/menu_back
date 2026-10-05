@@ -43,6 +43,37 @@ namespace FinancialAssistantApp.Models.Services
 
         }
 
+        public async Task<StockEvent> DeleteEventAsync(long id, bool force, long userId)
+        {
+            //todo другая ошибка
+            var ev = await _stockEventRepository.GetAsync(id) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
+            if(!(await _portfolioRepository.ExistAsync(ev.PortfolioId, userId)))
+            {
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+            }
+
+            if (!force)
+            {
+                var mainEvent = await _stockEventRepository.GetLastActualEvent(ev.MainElementId);
+                if (mainEvent!=null && mainEvent.Id != id)
+                {
+                    throw new SomeCustomNotFoundException(Consts.ErrorConsts.OutdateStockEvent);
+                }
+
+                if (ev.SubElementId != null)
+                {
+                    var subEvent = await _stockEventRepository.GetLastActualEvent(ev.SubElementId.Value);
+                    if (subEvent != null && subEvent.Id != id)
+                    {
+                        throw new SomeCustomNotFoundException(Consts.ErrorConsts.OutdateStockEvent);
+                    }
+                }
+            }
+
+            return await _stockEventRepository.DeleteAsync(ev);
+
+        }
+
         public async Task<(List<StockEvent>, long)> GetForPortfolioAsync(GetPortfolioEvents req)
         {
             if (!await _portfolioRepository.ExistAsync(req.PortfolioId, req.UserId))

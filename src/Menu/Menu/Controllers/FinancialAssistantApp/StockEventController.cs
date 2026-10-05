@@ -1,4 +1,5 @@
 ﻿using Auth.Models.Auth;
+using Common.Models.Return;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Host.Infrastructure;
 using Menu.Host.Models.FinancialAssistantApp;
@@ -29,6 +30,16 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
             _stockEventService = stockEventService;
         }
 
+
+        [Route("delete")]
+        [HttpDelete]
+        [CustomAuthorize]
+        public async Task<ActionResult<BoolResultNewReturn>> Delete([FromBody] DeleteStockEventRequest req)
+        {
+            var userId = User.GetUserId();
+            var res = await _stockEventService.DeleteEventAsync(req.Id,req.Force, userId);
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
+        }
 
         [Route("create")]
         [HttpPut]

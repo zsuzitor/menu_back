@@ -132,6 +132,17 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
 
 
 
+        [Route("delete-history")]
+        [HttpDelete]
+        [CustomAuthorize]
+        public async Task<ActionResult<BoolResultNewReturn>> DeleteHistory([FromBody] DeleteStockHistoryRequest req)
+        {
+            var userId = User.GetUserId();
+            var res = await _stockService.DeleteHistoryAsync(req.Id, userId);
+            return new JsonResult(new BoolResultNewReturn(res != null), GetJsonOptions());
+        }
+
+
         [Route("get-currency")]
         [HttpGet]
         [CustomAuthorize]

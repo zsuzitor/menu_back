@@ -16,6 +16,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories.Interfaces
         Task<List<StockEvent>> GetLastActualEventsForMainElement(List<long> portfolioId, DateTime time);
         Task<List<StockEvent>> GetLastActualEventsForSubElement(List<long> portfolioId, DateTime time);
         Task<StockEvent> GetLastActualEvent(long elementId, DateTime time);
+        Task<StockEvent> GetLastActualEvent(long elementId);
         Task<List<StockEvent>> GetEvents(List<long> elementId, DateTime start, DateTime end);
     }
 }

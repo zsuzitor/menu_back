@@ -121,6 +121,12 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .Where(e => e.EventDateTime < time && (e.MainElementId == elementId || e.SubElementId == elementId)).OrderByDescending(x => x.EventDateTime).FirstOrDefaultAsync();
         }
 
+        public async Task<StockEvent> GetLastActualEvent(long elementId)
+        {
+            return await _db.StockEvent
+                .Where(e => (e.MainElementId == elementId || e.SubElementId == elementId)).OrderByDescending(x => x.EventDateTime).FirstOrDefaultAsync();
+        }
+
         public async Task<List<StockEvent>> GetLastActualEvents(long portfolioId, DateTime time)
         {
             //тут не только по основному надо, возможно переписать, получать полный список подгружать туда, отсекать по датам

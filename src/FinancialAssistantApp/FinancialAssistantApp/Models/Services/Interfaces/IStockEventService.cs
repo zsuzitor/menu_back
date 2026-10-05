@@ -7,6 +7,7 @@ namespace FinancialAssistantApp.Models.Services.Interfaces
     {
 
         Task<StockEvent> CreateEventAsync(StockEventCreate obj, long userId);
+        Task<StockEvent> DeleteEventAsync(long id, bool force, long userId);
         Task<(List<StockEvent>, long)> GetForPortfolioAsync(GetPortfolioEvents req);
         Task<(List<StockEvent>, long)> GetForStockAsync(long portfolioId, long stockId, long userId, int pageSize, int pageNum);
         //Task<StockEvent> DeleteEventAsync(long id, long userId);//мне кажется лишнее и как это делать? просто удалять? откатвать?
