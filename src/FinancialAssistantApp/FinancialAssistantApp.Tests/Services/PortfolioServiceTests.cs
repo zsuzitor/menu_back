@@ -3,7 +3,6 @@ using BL.Models.Services.Interfaces;
 using BO.Models.DAL.Domain;
 using BO.Models.FinancialAssistant.DAL;
 using BO.Models.FinancialAssistant.Enums;
-using BO.Models.TaskManagementApp.DAL.Domain;
 using FinancialAssistantApp.Models;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
@@ -41,13 +40,13 @@ namespace FinancialAssistantApp.Tests.Services
             var datetimeNow = _fixture.Create<DateTime>();
             var userId = _fixture.Create<long>();
             var portfolio1 = _fixture.Build<Portfolio>().With(x => x.UserId, userId)
-                .With(x => x.User, (ProjectUser)null).With(x => x.Currency, (Stock)null).With(x => x.Elements, (List<StockElement>)null).With(x => x.Events, (List<StockEvent>)null)
+                .With(x => x.User, (User)null).With(x => x.Currency, (Stock)null).With(x => x.Elements, (List<StockElement>)null).With(x => x.Events, (List<StockEvent>)null)
                 .Create();
             var portfolio2 = _fixture.Build<Portfolio>().With(x => x.UserId, userId)
-                .With(x => x.User, (ProjectUser)null).With(x => x.Currency, (Stock)null).With(x => x.Elements, (List<StockElement>)null).With(x => x.Events, (List<StockEvent>)null)
+                .With(x => x.User, (User)null).With(x => x.Currency, (Stock)null).With(x => x.Elements, (List<StockElement>)null).With(x => x.Events, (List<StockEvent>)null)
                 .Create();
             var portfolio3 = _fixture.Build<Portfolio>().With(x => x.UserId, userId)
-                .With(x => x.User, (ProjectUser)null).With(x => x.Currency, (Stock)null).With(x => x.Elements, (List<StockElement>)null).With(x => x.Events, (List<StockEvent>)null)
+                .With(x => x.User, (User)null).With(x => x.Currency, (Stock)null).With(x => x.Elements, (List<StockElement>)null).With(x => x.Events, (List<StockEvent>)null)
                 .Create();
             var statisticReq = new PortfolioStatisticRequestDto()
             {
@@ -251,7 +250,7 @@ namespace FinancialAssistantApp.Tests.Services
                  .With(x => x.MainCountChange, 5)
                  .With(x => x.MainCountNow, 5)
                  .With(x => x.MainElementId, elementInvestStock.Id)
-                 .With(x => x.SubCountChange, 10000)
+                 .With(x => x.SubCountChange, -10000)
                  .With(x => x.SubCountNow, 0)
                  .With(x => x.SubCountOldValue, 10000)
                  .With(x => x.SubElementId, elementCurrencyCheap.Id)
@@ -306,7 +305,7 @@ namespace FinancialAssistantApp.Tests.Services
                 .With(x => x.MainCountChange, 5)
                 .With(x => x.MainCountNow, 10)
                 .With(x => x.MainElementId, elementInvestStock.Id)
-                .With(x => x.SubCountChange, 22500)
+                .With(x => x.SubCountChange, -22500)
                 .With(x => x.SubCountNow, 177500)
                 .With(x => x.SubCountOldValue, 200000)
                 .With(x => x.SubElementId, elementCurrencyCheap.Id)
@@ -321,7 +320,7 @@ namespace FinancialAssistantApp.Tests.Services
                 .With(x => x.MainCountChange, 5)
                 .With(x => x.MainCountNow, 15)
                 .With(x => x.MainElementId, elementInvestStock.Id)
-                .With(x => x.SubCountChange, 25000)
+                .With(x => x.SubCountChange, -25000)
                 .With(x => x.SubCountNow, 152500)
                 .With(x => x.SubCountOldValue, 177500)
                 .With(x => x.SubElementId, elementCurrencyCheap.Id)
@@ -365,11 +364,11 @@ namespace FinancialAssistantApp.Tests.Services
                 .With(x => x.MainCountChange, 5)
                 .With(x => x.MainCountNow, 20)
                 .With(x => x.MainElementId, elementInvestStock.Id)
-                .With(x => x.SubCountChange, 50)
+                .With(x => x.SubCountChange, -50)
                 .With(x => x.SubCountNow, 50)
-                .With(x => x.SubCountOldValue, 0)
+                .With(x => x.SubCountOldValue, 100)
                 .With(x => x.SubElementId, elementCurrencyStrong.Id)
-                        .With(x => x.MainElement, (StockElement)null).With(x => x.SubElement, (StockElement)null).With(x => x.Portfolio, (Portfolio)null)
+                .With(x => x.MainElement, (StockElement)null).With(x => x.SubElement, (StockElement)null).With(x => x.Portfolio, (Portfolio)null)
                 .Create();
 
             //дивы доллорами?

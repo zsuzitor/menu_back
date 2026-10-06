@@ -117,7 +117,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
             {
                 EventDateTime = obj.Date,
                 CreationDateTime = _datetimProvider.CurrentDateTime(),
-                MainCountChange = obj.Count,
+                MainCountChange = obj.Count * -1,
                 MainCountNow = Main.Count,
                 Type = obj.Type,
                 MainElementId = Main.Id,
@@ -145,8 +145,8 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 CreationDateTime = _datetimProvider.CurrentDateTime(),
                 EventDateTime = _datetimProvider.CurrentDateTime(),
                 //obj.EventDateTime,
-                MainCountChange = obj.MainCountChange ,
-                MainCountNow = obj.MainCountNow + obj.MainCountChange,
+                MainCountChange = obj.MainCountChange * -1,
+                MainCountNow = obj.MainCountNow + (obj.MainCountChange * -1),
                 MainElementId = obj.MainElementId,
                 PortfolioId = obj.PortfolioId,
             };

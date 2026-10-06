@@ -31,8 +31,6 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
 
         protected override async Task<StockElement> GetCurrencyElement(StockEventCreate obj)
         {
-
-
             //списываем деньги
             var currencyElement = await _stockElementRepository.Get(obj.PortfolioId, obj.CurrencyId.Value);
             if (currencyElement == null)
@@ -101,7 +99,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 Type = obj.Type,
                 MainElementId = Main.Id ,
                 PortfolioId = obj.PortfolioId,
-                SubCountChange = obj.Price * obj.Count,
+                SubCountChange = obj.Price * obj.Count * -1,
                 SubCountNow = Sub.Count,
                 SubCountOldValue = OldCurrencyValue,
                 SubElementId = Sub.Id,
@@ -156,7 +154,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
                 Type = StockEventEnum.CountChange,
                 CreationDateTime = _datetimProvider.CurrentDateTime(),
                 EventDateTime = _datetimProvider.CurrentDateTime(),//obj.EventDateTime,   ту же дату нельзя ставить потому что может сломаться статистика и тд, в 1 секунду и пополнение и снятие
-                MainCountChange = obj.SubCountChange.Value,
+                MainCountChange = obj.SubCountChange.Value * -1,
                 MainCountNow = obj.SubCountOldValue.Value,//obj.SubCountNow.Value + obj.SubCountChange.Value,
                 MainElementId = obj.SubElementId.Value,
                 PortfolioId = obj.PortfolioId,
