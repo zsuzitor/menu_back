@@ -16,12 +16,12 @@ using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 {
-    public class CreateEventBuyTests
+    public class CreateEventCountChangeTests
     {
 
         private readonly IFixture _fixture;
 
-        public CreateEventBuyTests()
+        public CreateEventCountChangeTests()
         {
             _fixture = new Fixture();
         }
@@ -29,7 +29,7 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
 
         [Fact]
-        public async Task CreateEventBuyAsync_NonExistsElements_Success()
+        public async Task CreateCountChangeAsync_NonExistsElements_Success()
         {
             var userId = _fixture.Create<long>();
             var services = DefaultInit();
@@ -47,26 +47,15 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
 
             var createObj = _fixture.Build<StockEventCreate>()
-                .With(x => x.Type, StockEventEnum.Buy)
+                .With(x => x.Type, StockEventEnum.CountChange)
                 .With(x => x.OutdateForce, true)
                 .With(x => x.CurrencyActions, true)
                 .Create();
 
 
 
-            long currencyStrongId = 2;
+            long currencyId = 2;
 
-            var stockCurrencyCheap = _fixture.Build<Stock>().With(x => x.UserId, userId)
-                .With(x => x.User, (User)null).With(x => x.Currency, (Stock)null)
-                .With(x => x.ActualizationTime, datetimeNow)
-                .With(x => x.Type, BO.Models.FinancialAssistant.Enums.StockTypeEnum.Currency)
-                .With(x => x.ActualizationTime, datetimeNow)
-                .With(x => x.LastPrice, 0.00667m)
-                .With(x => x.CurrencyId, currencyStrongId)
-                .With(x => x.Id, 1)
-                .With(x => x.StockHistory, new List<StockHistory>()
-                { })
-                .Create();
 
             var stockInvestStockId = _fixture.Create<long>();
             var stockInvestStock = _fixture.Build<Stock>().With(x => x.UserId, userId)
@@ -75,7 +64,7 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
                 .With(x => x.Type, BO.Models.FinancialAssistant.Enums.StockTypeEnum.InvestmentStock)
                 .With(x => x.ActualizationTime, datetimeNow.AddDays(-1))
                 .With(x => x.LastPrice, 6000m)
-                .With(x => x.CurrencyId, stockCurrencyCheap.Id)
+                .With(x => x.CurrencyId, currencyId)
                 .With(x => x.StockHistory, new List<StockHistory>()
                 { })
                     .Create();
@@ -83,8 +72,7 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
             stockRepository.Setup(x => x.GetNoTrackAsync(createObj.StockId.Value))
                 .ReturnsAsync(stockInvestStock);
-            stockRepository.Setup(x => x.GetCurrencyWithValidate(createObj.CurrencyId.Value, userId))
-                .ReturnsAsync(stockCurrencyCheap);
+
 
 
             //stockElementRepository.Setup(x => x.AddAsync(createObj.StockId.Value))
@@ -104,7 +92,7 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
             var container = services.BuildServiceProvider();
             var factory = container.GetRequiredService<CreateEventFactory>();
-            var buyHandler = factory.Get(StockEventEnum.Buy, userId);
+            var buyHandler = factory.Get(StockEventEnum.CountChange, userId);
 
 
             var ev = await buyHandler.CreateEvent(createObj);
@@ -113,15 +101,15 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
             ev.CreationDateTime.Should().Be(datetimeNow);
             ev.MainCountChange.Should().Be(createObj.Count);
             ev.MainCountNow.Should().Be(createObj.Count);
-            ev.SubCountChange.Should().Be(createObj.Count * createObj.Price * -1);
-            ev.SubCountNow.Should().Be(createObj.Count * createObj.Price * -1);
-            ev.SubCountOldValue.Should().Be(0);
+            ev.SubCountChange.Should().Be(null);
+            ev.SubCountNow.Should().Be(null);
+            ev.SubCountOldValue.Should().Be(null);
             ev.PortfolioId.Should().Be(createObj.PortfolioId);
         }
 
 
         [Fact]
-        public async Task CreateEventBuyAsync_ExistsElements_Success()
+        public async Task CreateCountChangeAsync_ExistsElements_Success()
         {
             var userId = _fixture.Create<long>();
             var services = DefaultInit();
@@ -139,27 +127,14 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
 
             var createObj = _fixture.Build<StockEventCreate>()
-                .With(x => x.Type, StockEventEnum.Buy)
+                .With(x => x.Type, StockEventEnum.CountChange)
                 .With(x => x.OutdateForce, true)
                 .With(x => x.CurrencyActions, true)
                 .Create();
 
 
 
-            long currencyStrongId = 2;
-
-            var stockCurrencyCheap = _fixture.Build<Stock>().With(x => x.UserId, userId)
-                .With(x => x.User, (User)null).With(x => x.Currency, (Stock)null)
-                .With(x => x.ActualizationTime, datetimeNow)
-                .With(x => x.Type, BO.Models.FinancialAssistant.Enums.StockTypeEnum.Currency)
-                .With(x => x.ActualizationTime, datetimeNow)
-                .With(x => x.LastPrice, 0.00667m)
-                .With(x => x.CurrencyId, currencyStrongId)
-                .With(x => x.Id, 1)
-                .With(x => x.StockHistory, new List<StockHistory>()
-                { })
-                .Create();
-
+            long currencyId = 2;
             var stockInvestStockId = _fixture.Create<long>();
             var stockInvestStock = _fixture.Build<Stock>().With(x => x.UserId, userId)
                 .With(x => x.User, (User)null).With(x => x.Currency, (Stock)null)
@@ -167,7 +142,7 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
                 .With(x => x.Type, BO.Models.FinancialAssistant.Enums.StockTypeEnum.InvestmentStock)
                 .With(x => x.ActualizationTime, datetimeNow.AddDays(-1))
                 .With(x => x.LastPrice, 6000m)
-                .With(x => x.CurrencyId, stockCurrencyCheap.Id)
+                .With(x => x.CurrencyId, currencyId)
                 .With(x => x.StockHistory, new List<StockHistory>()
                 { })
                     .Create();
@@ -175,19 +150,11 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
             stockRepository.Setup(x => x.GetNoTrackAsync(createObj.StockId.Value))
                 .ReturnsAsync(stockInvestStock);
-            stockRepository.Setup(x => x.GetCurrencyWithValidate(createObj.CurrencyId.Value, userId))
-                .ReturnsAsync(stockCurrencyCheap);
 
 
             //stockElementRepository.Setup(x => x.AddAsync(createObj.StockId.Value))
             //    .ReturnsAsync(stockInvestStock);
 
-
-            var elementCurrencyCheap = _fixture.Build<StockElement>().With(x => x.StockId, stockCurrencyCheap.Id)
-                .With(x => x.Stock, stockCurrencyCheap)
-                .With(x => x.PortfolioId, createObj.PortfolioId).With(x => x.Portfolio, (Portfolio)null)
-                .Create();
-            var elementCurrencyCheapCopy = JsonSerializer.Deserialize<StockElement>(JsonSerializer.Serialize(elementCurrencyCheap))!;
 
             var elementStock = _fixture.Build<StockElement>().With(x => x.StockId, stockInvestStock.Id)
                 .With(x => x.Stock, stockInvestStock)
@@ -198,8 +165,6 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
             stockElementRepository.Setup(x => x.Get(It.IsAny<long>(), createObj.StockId.Value))
                 .ReturnsAsync((StockElement)elementStock);
-            stockElementRepository.Setup(x => x.Get(It.IsAny<long>(), createObj.CurrencyId.Value))
-                .ReturnsAsync((StockElement)elementCurrencyCheap);
 
             portfolioRepository.Setup(x => x.ExistAsync(It.IsAny<long>(), It.IsAny<long>()))
                 .ReturnsAsync(true);
@@ -210,7 +175,7 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
             var container = services.BuildServiceProvider();
             var factory = container.GetRequiredService<CreateEventFactory>();
-            var buyHandler = factory.Get(StockEventEnum.Buy, userId);
+            var buyHandler = factory.Get(StockEventEnum.CountChange, userId);
 
 
             var ev = await buyHandler.CreateEvent(createObj);
@@ -219,15 +184,15 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
             ev.CreationDateTime.Should().Be(datetimeNow);
             ev.MainCountChange.Should().Be(createObj.Count);
             ev.MainCountNow.Should().Be(elementStockCopy.Count+createObj.Count);
-            ev.SubCountChange.Should().Be(createObj.Count * createObj.Price * -1);
-            ev.SubCountNow.Should().Be(elementCurrencyCheapCopy.Count+(createObj.Count * createObj.Price * -1));
-            ev.SubCountOldValue.Should().Be(elementCurrencyCheapCopy.Count);
+            ev.SubCountChange.Should().Be(null);
+            ev.SubCountNow.Should().Be(null);
+            ev.SubCountOldValue.Should().Be(null);
             ev.PortfolioId.Should().Be(createObj.PortfolioId);
         }
 
 
         [Fact]
-        public async Task UndoEventBuyAsync_Success()
+        public async Task UndoCountChangeAsync_Success()
         {
 
             var userId = _fixture.Create<long>();
@@ -247,7 +212,7 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
             var ev = _fixture.Build<StockEvent>()
                 .With(x => x.EventDateTime, datetimeNow.AddDays(-5))
-                .With(x => x.Type, StockEventEnum.Buy)
+                .With(x => x.Type, StockEventEnum.CountChange)
                 .With(x => x.MainElementId, 1)
                         .With(x => x.MainElement, (StockElement)null).With(x => x.SubElement, (StockElement)null).With(x => x.Portfolio, (Portfolio)null)
                 .Create();
@@ -263,12 +228,11 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
             var container = services.BuildServiceProvider();
             var factory = container.GetRequiredService<CreateEventFactory>();
-            var buyHandler = factory.Get(StockEventEnum.Buy, userId);
+            var buyHandler = factory.Get(StockEventEnum.CountChange, userId);
 
 
             var rollBack = buyHandler.GetRollBackCountChange(ev);
-
-            rollBack.Count.Should().Be(2);
+            rollBack.Count.Should().Be(1);
             rollBack[0].Type.Should().Be(StockEventEnum.CountChange);
             rollBack[0].MainCountChange.Should().Be(ev.MainCountChange * -1);
             rollBack[0].MainCountNow.Should().Be(ev.MainCountNow + (ev.MainCountChange * -1));
@@ -277,13 +241,6 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
             rollBack[0].CreationDateTime.Should().Be(datetimeNow);
             rollBack[0].EventDateTime.Should().Be(datetimeNow);
 
-            rollBack[1].Type.Should().Be(StockEventEnum.CountChange);
-            rollBack[1].MainCountChange.Should().Be(ev.SubCountChange * -1);
-            rollBack[1].MainCountNow.Should().Be(ev.SubCountOldValue);
-            rollBack[1].MainElementId.Should().Be(ev.SubElementId);
-            rollBack[1].PortfolioId.Should().Be(ev.PortfolioId);
-            rollBack[1].CreationDateTime.Should().Be(datetimeNow);
-            rollBack[1].EventDateTime.Should().Be(datetimeNow);
 
         }
 

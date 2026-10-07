@@ -30,8 +30,6 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         protected override async Task<StockElement> GetCurrencyElement(StockEventCreate obj)
         {
 
-
-            //списываем деньги
             var currencyElement = await _stockElementRepository.Get(obj.PortfolioId, obj.CurrencyId.Value);
             if (currencyElement == null)
             {

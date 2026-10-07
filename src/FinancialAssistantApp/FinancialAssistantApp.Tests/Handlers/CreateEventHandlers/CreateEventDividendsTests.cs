@@ -16,12 +16,12 @@ using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 {
-    public class CreateEventBuyTests
+    public class CreateEventDividendsTests
     {
 
         private readonly IFixture _fixture;
 
-        public CreateEventBuyTests()
+        public CreateEventDividendsTests()
         {
             _fixture = new Fixture();
         }
@@ -29,7 +29,7 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
 
         [Fact]
-        public async Task CreateEventBuyAsync_NonExistsElements_Success()
+        public async Task CreateEventDividendsAsync_NonExistsElements_Success()
         {
             var userId = _fixture.Create<long>();
             var services = DefaultInit();
@@ -47,7 +47,7 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
 
             var createObj = _fixture.Build<StockEventCreate>()
-                .With(x => x.Type, StockEventEnum.Buy)
+                .With(x => x.Type, StockEventEnum.Dividends)
                 .With(x => x.OutdateForce, true)
                 .With(x => x.CurrencyActions, true)
                 .Create();
@@ -104,24 +104,24 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
             var container = services.BuildServiceProvider();
             var factory = container.GetRequiredService<CreateEventFactory>();
-            var buyHandler = factory.Get(StockEventEnum.Buy, userId);
+            var DividendsHandler = factory.Get(StockEventEnum.Dividends, userId);
 
 
-            var ev = await buyHandler.CreateEvent(createObj);
+            var ev = await DividendsHandler.CreateEvent(createObj);
 
             ev.EventDateTime.Should().Be(createObj.Date);
             ev.CreationDateTime.Should().Be(datetimeNow);
-            ev.MainCountChange.Should().Be(createObj.Count);
-            ev.MainCountNow.Should().Be(createObj.Count);
-            ev.SubCountChange.Should().Be(createObj.Count * createObj.Price * -1);
-            ev.SubCountNow.Should().Be(createObj.Count * createObj.Price * -1);
+            ev.MainCountChange.Should().Be(0);
+            ev.MainCountNow.Should().Be(0);
+            ev.SubCountChange.Should().Be(createObj.Price);
+            ev.SubCountNow.Should().Be(createObj.Price);
             ev.SubCountOldValue.Should().Be(0);
             ev.PortfolioId.Should().Be(createObj.PortfolioId);
         }
 
 
         [Fact]
-        public async Task CreateEventBuyAsync_ExistsElements_Success()
+        public async Task CreateEventDividendsAsync_ExistsElements_Success()
         {
             var userId = _fixture.Create<long>();
             var services = DefaultInit();
@@ -139,7 +139,7 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
 
             var createObj = _fixture.Build<StockEventCreate>()
-                .With(x => x.Type, StockEventEnum.Buy)
+                .With(x => x.Type, StockEventEnum.Dividends)
                 .With(x => x.OutdateForce, true)
                 .With(x => x.CurrencyActions, true)
                 .Create();
@@ -210,24 +210,24 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
             var container = services.BuildServiceProvider();
             var factory = container.GetRequiredService<CreateEventFactory>();
-            var buyHandler = factory.Get(StockEventEnum.Buy, userId);
+            var DividendsHandler = factory.Get(StockEventEnum.Dividends, userId);
 
 
-            var ev = await buyHandler.CreateEvent(createObj);
+            var ev = await DividendsHandler.CreateEvent(createObj);
 
             ev.EventDateTime.Should().Be(createObj.Date);
             ev.CreationDateTime.Should().Be(datetimeNow);
-            ev.MainCountChange.Should().Be(createObj.Count);
-            ev.MainCountNow.Should().Be(elementStockCopy.Count+createObj.Count);
-            ev.SubCountChange.Should().Be(createObj.Count * createObj.Price * -1);
-            ev.SubCountNow.Should().Be(elementCurrencyCheapCopy.Count+(createObj.Count * createObj.Price * -1));
+            ev.MainCountChange.Should().Be(0);
+            ev.MainCountNow.Should().Be(elementStockCopy.Count);
+            ev.SubCountChange.Should().Be(createObj.Price);
+            ev.SubCountNow.Should().Be(elementCurrencyCheapCopy.Count + createObj.Price);
             ev.SubCountOldValue.Should().Be(elementCurrencyCheapCopy.Count);
             ev.PortfolioId.Should().Be(createObj.PortfolioId);
         }
 
 
         [Fact]
-        public async Task UndoEventBuyAsync_Success()
+        public async Task UndoEventDividendsAsync_Success()
         {
 
             var userId = _fixture.Create<long>();
@@ -247,7 +247,7 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
             var ev = _fixture.Build<StockEvent>()
                 .With(x => x.EventDateTime, datetimeNow.AddDays(-5))
-                .With(x => x.Type, StockEventEnum.Buy)
+                .With(x => x.Type, StockEventEnum.Dividends)
                 .With(x => x.MainElementId, 1)
                         .With(x => x.MainElement, (StockElement)null).With(x => x.SubElement, (StockElement)null).With(x => x.Portfolio, (Portfolio)null)
                 .Create();
@@ -263,15 +263,15 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
             var container = services.BuildServiceProvider();
             var factory = container.GetRequiredService<CreateEventFactory>();
-            var buyHandler = factory.Get(StockEventEnum.Buy, userId);
+            var DividendsHandler = factory.Get(StockEventEnum.Dividends, userId);
 
 
-            var rollBack = buyHandler.GetRollBackCountChange(ev);
+            var rollBack = DividendsHandler.GetRollBackCountChange(ev);
 
             rollBack.Count.Should().Be(2);
             rollBack[0].Type.Should().Be(StockEventEnum.CountChange);
-            rollBack[0].MainCountChange.Should().Be(ev.MainCountChange * -1);
-            rollBack[0].MainCountNow.Should().Be(ev.MainCountNow + (ev.MainCountChange * -1));
+            rollBack[0].MainCountChange.Should().Be(0);
+            rollBack[0].MainCountNow.Should().Be(ev.MainCountNow);
             rollBack[0].MainElementId.Should().Be(ev.MainElementId);
             rollBack[0].PortfolioId.Should().Be(ev.PortfolioId);
             rollBack[0].CreationDateTime.Should().Be(datetimeNow);

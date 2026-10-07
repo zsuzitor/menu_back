@@ -270,6 +270,7 @@ namespace FinancialAssistantApp.Tests.Handlers.CreateEventHandlers
 
             var rollBack = buyHandler.GetRollBackCountChange(ev);
 
+            rollBack.Count.Should().Be(2);
             rollBack[0].Type.Should().Be(StockEventEnum.CountChange);
             rollBack[0].MainCountChange.Should().Be(ev.MainCountChange*-1);
             rollBack[0].MainCountNow.Should().Be(ev.MainCountNow + (ev.MainCountChange * -1));
