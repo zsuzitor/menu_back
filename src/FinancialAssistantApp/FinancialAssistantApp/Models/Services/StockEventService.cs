@@ -98,5 +98,25 @@ namespace FinancialAssistantApp.Models.Services
             return (events, count);
 
         }
+
+        public async Task PortfolioRecalculate(long portfolioId, long userId)
+        {
+            if (!(await _portfolioRepository.ExistAsync(portfolioId, userId)))
+            {
+                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+            }
+
+            var dictElement = new Dictionary<long, decimal>();
+
+            var events = await _stockEventRepository.GetForPortfolioAsync(portfolioId);
+
+            foreach(var ev in events)
+            {
+                if (dictElement.ContainsKey)
+                    RecalculateEvent;
+            }
+
+
+        }
     }
 }

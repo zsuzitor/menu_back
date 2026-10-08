@@ -68601,9 +68601,8 @@ const AddStockEvent = (props) => {
                     react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.Dividends}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.Dividends)),
                     react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.Sell}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.Sell)),
                     react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.CountChange}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.CountChange)),
-                    props.StockId ? react_1.default.createElement(react_1.default.Fragment, null) : react_1.default.createElement(react_1.default.Fragment, null,
-                        react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.WithdrawalCash}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.WithdrawalCash)),
-                        react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.CashReplenishment}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.CashReplenishment)))),
+                    react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.WithdrawalCash}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.WithdrawalCash)),
+                    react_1.default.createElement("option", { value: `${+StockEventEnum_1.StockEventEnum.CashReplenishment}` }, new StockEventEnum_1.StockEventEnumToString().ToString(StockEventEnum_1.StockEventEnum.CashReplenishment))),
                 react_1.default.createElement("br", null),
                 showStockBlock(eventType) ? react_1.default.createElement(react_1.default.Fragment, null,
                     react_1.default.createElement("span", null, "stockId"),
@@ -68645,10 +68644,10 @@ const AddStockEvent = (props) => {
                 react_1.default.createElement("input", { className: '', type: "datetime-local", value: formatDateTimeToInput(newStockEventDate), onChange: (e) => {
                         if (e.target.value) {
                             let dt = new Date(e.target.value);
-                            setStockEventDate(new Helper_1.Helper().GetDateWithoutTime(dt));
+                            setStockEventDate(new Helper_1.Helper().GetDateWithoutSeconds(dt));
                         }
                         else {
-                            setStockEventDate(new Helper_1.Helper().GetDateWithoutTime(new Date()));
+                            setStockEventDate(new Helper_1.Helper().GetDateWithoutSeconds(new Date()));
                         }
                     } }),
                 react_1.default.createElement("br", null),
@@ -69813,6 +69812,7 @@ const StockEvent_1 = __webpack_require__(/*! ../../Models/Entity/State/StockEven
 const StockEventEnum_1 = __webpack_require__(/*! ../../Models/Entity/State/Enum/StockEventEnum */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Enum/StockEventEnum.ts");
 const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts"));
 const Paggination_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/Paggination/Paggination */ "./src/components/Body/Paggination/Paggination.tsx"));
+const AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 __webpack_require__(/*! ./StockDetail.css */ "./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css");
 const StockDetail = (props) => {
     const [newStockHistoryDate, setStockHistoryDate] = (0, react_1.useState)(new Date());
@@ -69982,7 +69982,15 @@ const StockDetail = (props) => {
                         react_1.default.createElement("div", null,
                             x.Price,
                             " ",
-                            x.CurrencyName));
+                            x.CurrencyName),
+                        react_1.default.createElement("div", { onClick: () => props.DeleteHistory(x.Id).then(x => {
+                                var _a;
+                                if ((_a = x.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                                    let alertFactory = new AlertData_1.AlertData();
+                                    let alert = alertFactory.GetDefaultNotify("История удалена");
+                                    window.G_AddAbsoluteAlertToState(alert);
+                                }
+                            }) }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u044E"));
                 }))));
 };
 // and that function returns the connected, wrapper component:
@@ -70058,6 +70066,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     });
     res.SetHistoryPageNumber = (num) => {
         dispatch((0, StockActions_1.SetCurrentStockHistoryPageActionCreator)(num));
+    };
+    res.DeleteHistory = (id) => {
+        return window.G_FinancialAssistantAppStockController.DeleteHstoryAsync(id);
     };
     return res;
 };
@@ -70957,6 +70968,21 @@ class FinancialAssistantAppStockController {
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${this.GetControllerApiUrl()}/create-history`,
+                ContentType: 'body'
+            });
+            return backResult;
+        });
+        this.DeleteHstoryAsync = (id) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "Id": id
+            };
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${this.GetControllerApiUrl()}/delete-history`,
                 ContentType: 'body'
             });
             return backResult;
@@ -89431,6 +89457,11 @@ class Helper {
         this.GetDateWithoutTime = (date) => {
             const newDate = new Date(date);
             newDate.setHours(0, 0, 0, 0);
+            return newDate;
+        };
+        this.GetDateWithoutSeconds = (date) => {
+            const newDate = new Date(date);
+            newDate.setSeconds(0, 0);
             return newDate;
         };
     }

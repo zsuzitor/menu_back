@@ -40,6 +40,10 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .ToListAsync();
         }
 
-
+        public async Task<StockHistory> GetLastHistoryAsync(long stockId)
+        {
+            return await _db.StockHistory.AsNoTracking().Where(x => x.StockId == stockId
+            ).OrderByDescending(x=>x.Date).FirstOrDefaultAsync();
+        }
     }
 }

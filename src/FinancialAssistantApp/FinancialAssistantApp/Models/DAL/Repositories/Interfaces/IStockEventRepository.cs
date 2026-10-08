@@ -6,6 +6,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories.Interfaces
 {
     public interface IStockEventRepository : IGeneralRepository<StockEvent, long>
     {
+        Task<List<StockEvent>> GetForPortfolioNoTrackAsync(long portfolioId);
         Task<List<StockEvent>> GetForPortfolioAsync(long portfolioId);
         Task<List<StockEvent>> GetForPortfolioAsync(long portfolioId, int pageSize, int page, StockEventEnum? type);
         Task<long> GetCountForPortfolioAsync(long portfolioId, StockEventEnum? type);

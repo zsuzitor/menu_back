@@ -5,7 +5,7 @@ namespace FinancialAssistantApp.Models.Services.Interfaces
 {
     public interface IStockEventService
     {
-
+        Task PortfolioRecalculate(long portfolioId, long userId);
         Task<StockEvent> CreateEventAsync(StockEventCreate obj, long userId);
         Task<StockEvent> DeleteEventAsync(long id, bool force, long userId);
         Task<(List<StockEvent>, long)> GetForPortfolioAsync(GetPortfolioEvents req);

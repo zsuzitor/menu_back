@@ -25,7 +25,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .ToListAsync();
         }
 
-        public async Task<List<StockEvent>> GetForPortfolioAsync(long portfolioId)
+        public async Task<List<StockEvent>> GetForPortfolioNoTrackAsync(long portfolioId)
         {
             return await _db.StockEvent
                 .AsNoTracking()
@@ -35,6 +35,14 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .ThenInclude(x => x.Stock)
                 .Where(x => x.PortfolioId == portfolioId)
                 .OrderByDescending(x => x.EventDateTime)
+                .ToListAsync();
+        }
+
+        public async Task<List<StockEvent>> GetForPortfolioAsync(long portfolioId)
+        {
+            return await _db.StockEvent
+                .Where(x => x.PortfolioId == portfolioId)
+                .OrderBy(x => x.EventDateTime)
                 .ToListAsync();
         }
 

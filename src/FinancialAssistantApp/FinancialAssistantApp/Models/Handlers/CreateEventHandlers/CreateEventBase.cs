@@ -150,6 +150,7 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         protected abstract Task<StockEvent> GetStockEvent(StockEventCreate obj);
         protected abstract Task<Stock> GetStock(StockEventCreate obj);
         public abstract List<StockEvent> GetRollBackCountChange(StockEvent obj);
+        public abstract void RecalculateEvent(StockEvent obj, Dictionary<long,decimal> elementCount);
 
 
     }

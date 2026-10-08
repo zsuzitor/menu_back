@@ -2,11 +2,13 @@
 using BO.Models.FinancialAssistant.DAL;
 using BO.Models.FinancialAssistant.Enums;
 using Common.Models.Exceptions;
+using DAL.Models.DAL;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
 using FinancialAssistantApp.Models.Mapper;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Models.Services.Interfaces;
+using System.Reflection.Metadata;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TIntegration.Models.DTO;
 using TIntegration.Models.Services.Interfaces;
@@ -21,8 +23,10 @@ namespace FinancialAssistantApp.Models.Services
         private readonly IPortfolioRepository _portfolioRepository;
         private readonly IUserService _userService;
         private readonly IPriceService _priceService;
+        private readonly IDBHelper _dbHelper;
+        private readonly MenuDbContext _db;
 
-        public StockService(IStockRepository stockRepository, IDateTimeProvider datetimeProvider, IPortfolioRepository portfolioRepository, IStockHistoryRepository stockHistoryRepository, IUserService userService, IPriceService priceService)
+        public StockService(IStockRepository stockRepository, IDateTimeProvider datetimeProvider, IPortfolioRepository portfolioRepository, IStockHistoryRepository stockHistoryRepository, IUserService userService, IPriceService priceService, MenuDbContext db, IDBHelper dbHelper)
         {
             _stockRepository = stockRepository;
             _datetimeProvider = datetimeProvider;
@@ -30,6 +34,8 @@ namespace FinancialAssistantApp.Models.Services
             _stockHistoryRepository = stockHistoryRepository;
             _userService = userService;
             _priceService = priceService;
+            _db = db;
+            _dbHelper = dbHelper;
         }
 
         public async Task<Stock> CreateAsync(CreateStock obj, long userId)
@@ -75,10 +81,27 @@ namespace FinancialAssistantApp.Models.Services
 
         public async Task<StockHistory> DeleteHistoryAsync(long id, long userId)
         {
-            var history = await _stockHistoryRepository.GetAsync(id);
-            var stock = await _stockRepository.GetAsync(history.StockId,userId) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
+            StockHistory result = null;
+            await _dbHelper.ActionInTransaction(_db, async () =>
+            {
+                var history = await _stockHistoryRepository.GetAsync(id);
+                var stock = await _stockRepository.GetAsync(history.StockId, userId) ?? throw new SomeCustomBadRequestException(Consts.ErrorConsts.NotFoundStock);
 
-            return await _stockHistoryRepository.DeleteAsync(history);
+                result = await _stockHistoryRepository.DeleteAsync(history);
+                var lastHistory = await _stockHistoryRepository.GetLastHistoryAsync(history.StockId);
+                //если только что удалили последнюю историю то все должно упасть и откатить транзакцию
+                if (lastHistory == null)
+                {
+                    throw new SomeCustomException("Нельзя удалить последнюю историю");
+                }
+                stock.LastPrice = lastHistory.Price;
+                stock.ActualizationTime = lastHistory.Date;
+                stock.CurrencyId = lastHistory.CurrencyId;
+                await _stockRepository.UpdateAsync(stock);
+               
+            });
+
+            return result;
         }
 
         public async Task<StockHistory> CreateHistoryAsync(StockHistory req, long userId)
