@@ -4,9 +4,7 @@ using DAL.Models.DAL;
 using DAL.Models.DAL.Repositories;
 using DAL.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
-using Google.Api;
 using Microsoft.EntityFrameworkCore;
-using StackExchange.Redis;
 
 namespace FinancialAssistantApp.Models.DAL.Repositories
 {
@@ -16,11 +14,37 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
         {
         }
 
+
+
+        public override async Task<IEnumerable<StockEvent>> DeleteAsync(IEnumerable<StockEvent> records)
+        {
+            foreach (var record in records)
+            {
+                record.IsDeleted = true;
+            }
+
+            return await UpdateAsync(records);
+        }
+
+        public override async Task<StockEvent> DeleteAsync(StockEvent record)
+        {
+                record.IsDeleted = true;
+            return await UpdateAsync(record);
+        }
+
+        public override async Task<StockEvent> DeleteAsync(long recordId)
+        {
+            var record = await GetAsync(recordId);
+            record.IsDeleted = true;
+            return await UpdateAsync(record);
+        }
+
+
         public async Task<List<StockEvent>> GetEvents(List<long> elementId, DateTime start, DateTime end)
         {
             return await _db.StockEvent
                 .AsNoTracking()
-                .Where(x => elementId.Any(e => x.MainElementId == e) || elementId.Any(e => x.SubElementId == e))
+                .Where(x => !x.IsDeleted && (elementId.Any(e => x.MainElementId == e) || elementId.Any(e => x.SubElementId == e)))
                 .OrderByDescending(x => x.EventDateTime)
                 .ToListAsync();
         }
@@ -33,7 +57,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .ThenInclude(x => x.Stock)
                 .Include(x => x.SubElement)
                 .ThenInclude(x => x.Stock)
-                .Where(x => x.PortfolioId == portfolioId)
+                .Where(x => x.PortfolioId == portfolioId && !x.IsDeleted)
                 .OrderByDescending(x => x.EventDateTime)
                 .ToListAsync();
         }
@@ -41,7 +65,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
         public async Task<List<StockEvent>> GetForPortfolioAsync(long portfolioId)
         {
             return await _db.StockEvent
-                .Where(x => x.PortfolioId == portfolioId)
+                .Where(x => x.PortfolioId == portfolioId && !x.IsDeleted)
                 .OrderBy(x => x.EventDateTime)
                 .ToListAsync();
         }
@@ -60,7 +84,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .ThenInclude(x => x.Stock)
                 .Include(x => x.SubElement)
                 .ThenInclude(x => x.Stock)
-                .Where(x => x.PortfolioId == portfolioId && (type == null || x.Type==type))
+                .Where(x => x.PortfolioId == portfolioId && (type == null || x.Type==type) && !x.IsDeleted)
                 .OrderByDescending(x => x.EventDateTime)
                 .Skip(skipCount).Take(pageSize).ToListAsync();
 
@@ -72,7 +96,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
 
             return await _db.StockEvent
                 .AsNoTracking()
-                .Where(x => x.PortfolioId == portfolioId && (type == null || x.Type == type))
+                .Where(x => x.PortfolioId == portfolioId && (type == null || x.Type == type) && !x.IsDeleted)
                 .OrderByDescending(x => x.EventDateTime).CountAsync();
 
         }
@@ -91,7 +115,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .Include(x => x.SubElement)
                 .ThenInclude(x => x.Stock)
                 .Include(x => x.MainElement).ThenInclude(x => x.Stock)
-                .Where(x => x.PortfolioId == portfolioId && (x.MainElement.StockId == stockId || x.SubElement.StockId == stockId))
+                .Where(x => x.PortfolioId == portfolioId && (x.MainElement.StockId == stockId || x.SubElement.StockId == stockId) && !x.IsDeleted)
                 .OrderByDescending(x => x.EventDateTime)
                 .Skip(skipCount).Take(pageSize).ToListAsync();
 
@@ -104,7 +128,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
                 .Include(x => x.SubElement)
                 .ThenInclude(x => x.Stock)
                 .Include(x => x.MainElement).ThenInclude(x => x.Stock)
-                .Where(x => x.PortfolioId == portfolioId && (x.MainElement.StockId == stockId || x.SubElement.StockId == stockId))
+                .Where(x => x.PortfolioId == portfolioId && (x.MainElement.StockId == stockId || x.SubElement.StockId == stockId) && !x.IsDeleted)
                 .OrderByDescending(x => x.EventDateTime).CountAsync();
 
         }
@@ -113,7 +137,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
         {
             return await _db.StockEvent
                 .AsNoTracking()
-                .Where(e => stockId.Contains(e.Id) && e.PortfolioId == portfolioId)
+                .Where(e => stockId.Contains(e.Id) && e.PortfolioId == portfolioId && !e.IsDeleted)
                 .GroupBy(e => e.Id)
                 .Select(g => g
                     .OrderByDescending(e => e.EventDateTime)
@@ -126,13 +150,15 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
         public async Task<StockEvent> GetLastActualEvent(long elementId, DateTime time)
         {
             return await _db.StockEvent
-                .Where(e => e.EventDateTime < time && (e.MainElementId == elementId || e.SubElementId == elementId)).OrderByDescending(x => x.EventDateTime).FirstOrDefaultAsync();
+                .Where(e => e.EventDateTime < time && (e.MainElementId == elementId || e.SubElementId == elementId) && !e.IsDeleted)
+                .OrderByDescending(x => x.EventDateTime).FirstOrDefaultAsync();
         }
 
         public async Task<StockEvent> GetLastActualEvent(long elementId)
         {
             return await _db.StockEvent
-                .Where(e => (e.MainElementId == elementId || e.SubElementId == elementId)).OrderByDescending(x => x.EventDateTime).FirstOrDefaultAsync();
+                .Where(e => (e.MainElementId == elementId || e.SubElementId == elementId) && !e.IsDeleted)
+                .OrderByDescending(x => x.EventDateTime).FirstOrDefaultAsync();
         }
 
         public async Task<List<StockEvent>> GetLastActualEvents(long portfolioId, DateTime time)
@@ -141,7 +167,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
             //тогда придется вооще всю историю грузить с самых первых дат до нужной. подумать
             //мб делать 2 запроса, второй по .GroupBy(e => e.SubElementId)
             return await _db.StockEvent
-                .Where(e => e.EventDateTime < time && e.PortfolioId == portfolioId)
+                .Where(e => e.EventDateTime < time && e.PortfolioId == portfolioId && !e.IsDeleted)
                 .GroupBy(e => e.MainElementId)
                 .Select(g => g
                     .OrderByDescending(e => e.EventDateTime)
@@ -156,7 +182,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
             //тогда придется вооще всю историю грузить с самых первых дат до нужной. подумать
             //мб делать 2 запроса, второй по .GroupBy(e => e.SubElementId)
             return await _db.StockEvent
-                .Where(e => e.EventDateTime < time && portfolioId.Contains(e.PortfolioId))
+                .Where(e => e.EventDateTime < time && portfolioId.Contains(e.PortfolioId) && !e.IsDeleted)
                 .GroupBy(e => e.MainElementId)
                 .Select(g => g
                     .OrderByDescending(e => e.EventDateTime)
@@ -172,7 +198,7 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
             //мб делать 2 запроса, второй по .GroupBy(e => e.SubElementId)
             return await _db.StockEvent
                 .Where(e => e.EventDateTime < time && portfolioId.Contains(e.PortfolioId)
-                && e.SubElementId != null)
+                && e.SubElementId != null && !e.IsDeleted)
                 .GroupBy(e => e.SubElementId)
                 .Select(g => g
                     .OrderByDescending(e => e.EventDateTime)

@@ -10,6 +10,7 @@ namespace DAL.Models.DAL.ContextSetup.FinancialAssistant
             modelBuilder.Entity<StockEvent>(entity =>
             {
                 entity.HasKey(x => x.Id);
+                entity.HasIndex(x => x.EventDateTime);
                 entity.HasOne(x => x.SubElement).WithMany()
                     .HasForeignKey(x => x.MainElementId).OnDelete(DeleteBehavior.NoAction);
                 entity.HasOne(x => x.MainElement).WithMany()

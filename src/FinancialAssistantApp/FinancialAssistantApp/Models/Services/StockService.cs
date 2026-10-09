@@ -8,6 +8,7 @@ using FinancialAssistantApp.Models.DTO;
 using FinancialAssistantApp.Models.Mapper;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Models.Services.Interfaces;
+using System.Collections;
 using System.Reflection.Metadata;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TIntegration.Models.DTO;
@@ -171,6 +172,21 @@ namespace FinancialAssistantApp.Models.Services
 
         }
 
+        public async Task FillAllStockHistoryAsync(long userId)
+        {
+            if (!await _userService.IsAdminAsync(userId))
+            {
+                throw new SomeCustomNotAllowedException();
+            }
+
+            var notActual = await _stockRepository.GetGlobalForActualiztionAsync(_datetimeProvider.CurrentDateTime().AddDays(-1));
+            foreach (var stock in notActual)
+            {
+                await FillHistoryAsync(stock);
+
+            }
+        }
+
         public async Task FillHistoryAsync(long stockId, long userId)
         {
             if (!await _userService.IsAdminAsync(userId))
@@ -179,38 +195,7 @@ namespace FinancialAssistantApp.Models.Services
             }
 
             var stock = await _stockRepository.GetGlobalNoTrackAsync(stockId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
-            var tRequest = stock.ToTInvestHistoryRequest(_datetimeProvider.CurrentDateTime());
-
-            var tHistory = await _priceService.GetHistory(tRequest);
-            if (tHistory == null || tHistory.Count == 0)
-            {
-                return;
-            }
-
-
-            var appCurrency = await _stockRepository.GetGlobalByCodeNoTrack(tHistory.First().CurrencyCode);
-            var historyForAdd = tHistory.Select(x => new StockHistory()
-            {
-                CurrencyId = appCurrency.Id,
-                Date = x.Date,
-                Price = x.Price,
-                StockId = stock.Id,
-            });
-
-
-            await _dbHelper.ActionInTransaction(_db, async () =>
-            {
-                //загружаем снова в транзакции
-                stock = await _stockRepository.GetGlobalAsync(stockId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
-                await _stockHistoryRepository.AddAsync(historyForAdd);
-
-                var lastHistory = tHistory.OrderByDescending(x => x.Date).Last();
-                stock.ActualizationTime = lastHistory.Date;
-                stock.LastPrice = lastHistory.Price;
-                stock.CurrencyId = appCurrency.Id;
-                await _stockRepository.UpdateAsync(stock);
-            });
-
+            await FillHistoryAsync(stock);
         }
 
         public async Task<List<Stock>> FindAsync( string text, long userId)
@@ -256,7 +241,7 @@ namespace FinancialAssistantApp.Models.Services
                 throw new SomeCustomNotAllowedException();
             }
 
-            var notActual = await _stockRepository.GetGlobalForActualiztionAsync(_datetimeProvider.CurrentDateTime().AddHours(6));
+            var notActual = await _stockRepository.GetGlobalForActualiztionAsync(_datetimeProvider.CurrentDateTime().AddHours(-6));
             var tRequests = notActual.Where(x => x.Type != StockTypeEnum.Other).Select(x => x.ToTInvestPriceRequest()).ToList();
             var tPrices = await _priceService.GetPrice(tRequests);
             var history = new List<StockHistory>();
@@ -342,6 +327,45 @@ namespace FinancialAssistantApp.Models.Services
         //    };
         //}
 
+
+
+
+
+        private async Task FillHistoryAsync(Stock stock)
+        {
+            var tRequest = stock.ToTInvestHistoryRequest(_datetimeProvider.CurrentDateTime());
+
+            var tHistory = await _priceService.GetHistory(tRequest);
+            if (tHistory == null || tHistory.Count == 0)
+            {
+                return;
+            }
+
+
+            var appCurrency = await _stockRepository.GetGlobalByCodeNoTrack(tHistory.First().CurrencyCode);
+            var historyForAdd = tHistory.Select(x => new StockHistory()
+            {
+                CurrencyId = appCurrency.Id,
+                Date = x.Date,
+                Price = x.Price,
+                StockId = stock.Id,
+            });
+
+
+            await _dbHelper.ActionInTransaction(_db, async () =>
+            {
+                //загружаем снова в транзакции
+                stock = await _stockRepository.GetGlobalAsync(stock.Id) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
+                await _stockHistoryRepository.AddAsync(historyForAdd);
+
+                var lastHistory = tHistory.OrderByDescending(x => x.Date).Last();
+                stock.ActualizationTime = lastHistory.Date;
+                stock.LastPrice = lastHistory.Price;
+                stock.CurrencyId = appCurrency.Id;
+                await _stockRepository.UpdateAsync(stock);
+            });
+
+        }
 
     }
 }

@@ -11,6 +11,7 @@ namespace DAL.Models.DAL.ContextSetup.FinancialAssistant
             {
                 entity.HasKey(x => x.Id);
                 entity.HasIndex(x => x.Code);
+                entity.HasIndex(x => x.Name);
 
                 entity.HasOne(x => x.Currency).WithMany()
                     .HasForeignKey(x => x.CurrencyId).OnDelete(DeleteBehavior.NoAction);

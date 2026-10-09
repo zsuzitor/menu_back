@@ -69934,7 +69934,9 @@ const StockDetail = (props) => {
                 setShowEditWindow(false);
             }, IsHeightWindow: false, Title: '\u0418\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0435 Stock', InnerContent: () => react_1.default.createElement(react_1.default.Fragment, null,
                 react_1.default.createElement("input", { type: 'text', className: 'stock-name-input', placeholder: '\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: editStockName, onChange: e => setEditStockName(e.target.value) }),
+                react_1.default.createElement("br", null),
                 react_1.default.createElement("input", { type: 'text', className: 'stock-code-input', placeholder: '\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043A\u043E\u0434', value: editStockCode, onChange: e => setEditStockCode(e.target.value) }),
+                react_1.default.createElement("br", null),
                 react_1.default.createElement("button", { onClick: () => {
                         let newData = new CreateStockRequest_1.CreateStockRequest();
                         newData.Type = props.Stock.Type;
@@ -70748,7 +70750,7 @@ class FinancialAssistantAppStockController {
                 FuncSuccess: (xhr, status, jqXHR) => {
                 },
                 FuncError: (xhr, status, error) => { },
-                Url: `${this.GetControllerApiUrl()}/update-global`
+                Url: `${this.GetControllerApiUrl()}/fill-all-stock-history`
             });
             return backResult;
         });
@@ -71760,6 +71762,7 @@ const AppState_1 = __webpack_require__(/*! ../../../../Models/Entity/State/AppSt
 const cloneDeep_1 = __importDefault(__webpack_require__(/*! lodash/cloneDeep */ "./node_modules/lodash/cloneDeep.js"));
 const StockActions_1 = __webpack_require__(/*! ../Actions/StockActions */ "./src/Apps/FinancialAssistantApp/Models/Actions/StockActions.ts");
 function FinancialAssistantStockReducer(state = new AppState_1.AppState(), action) {
+    var _a;
     switch (action.type) {
         case StockActions_1.GetStockActionName:
             {
@@ -71785,6 +71788,12 @@ function FinancialAssistantStockReducer(state = new AppState_1.AppState(), actio
                     dt.Code = payload.Code;
                     dt.Type = payload.Type;
                     dt.IsGlobal = payload.IsGlobal;
+                }
+                if (((_a = newState.FinancialAssistantApp.CurrentStock) === null || _a === void 0 ? void 0 : _a.Id) == payload.Id) {
+                    newState.FinancialAssistantApp.CurrentStock.Name = payload.Name;
+                    newState.FinancialAssistantApp.CurrentStock.Code = payload.Code;
+                    newState.FinancialAssistantApp.CurrentStock.Type = payload.Type;
+                    newState.FinancialAssistantApp.CurrentStock.IsGlobal = payload.IsGlobal;
                 }
                 return newState;
             }

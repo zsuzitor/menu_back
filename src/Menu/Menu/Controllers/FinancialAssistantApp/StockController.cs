@@ -50,6 +50,16 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
             return new JsonResult(new BoolResultNewReturn(true), GetJsonOptions());
         }
 
+        [Route("fill-all-stock-history")]
+        [HttpPost]
+        [CustomAuthorize]
+        public async Task<ActionResult<BoolResultNewReturn>> FillAllStockHistory()
+        {
+            var userId = User.GetUserId();
+            await _stockService.FillAllStockHistoryAsync( userId);
+            return new JsonResult(new BoolResultNewReturn(true), GetJsonOptions());
+        }
+
         [Route("create")]
         [HttpPut]
         [CustomAuthorize]

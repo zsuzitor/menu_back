@@ -11,6 +11,11 @@ namespace BO.Models.FinancialAssistant.DAL
         public DateTime CreationDateTime { get; set; }
         public StockEventEnum Type { get; set; }
 
+        /// <summary>
+        /// на случай если придется восстанавливать ивенты, что бы хотя бы через бд это было возможно
+        /// </summary>
+        public bool IsDeleted { get; set; }
+
 
         #region main
         //при покупке тут то что мы покупаем, тоесть главная сущность, акция фонд и тд
