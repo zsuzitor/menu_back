@@ -150,7 +150,38 @@ namespace FinancialAssistantApp.Models.Handlers.CreateEventHandlers
         protected abstract Task<StockEvent> GetStockEvent(StockEventCreate obj);
         protected abstract Task<Stock> GetStock(StockEventCreate obj);
         public abstract List<StockEvent> GetRollBackCountChange(StockEvent obj);
-        public abstract void RecalculateEvent(StockEvent obj, Dictionary<long,decimal> elementCount);
+        public static void RecalculateEvent(StockEvent obj, Dictionary<long, decimal> elementCount)
+        {
+            //todo подумать, а этот код не будет одинаковый на все ивенты?
+            if (!elementCount.ContainsKey(obj.MainElementId))
+            {
+                elementCount[obj.MainElementId] = 0;
+            }
+
+            elementCount[obj.MainElementId] += obj.MainCountChange;
+            obj.MainCountNow = elementCount[obj.MainElementId];
+
+            if (obj.SubElementId != null)
+            {
+                if (!elementCount.ContainsKey(obj.SubElementId.Value))
+                {
+                    elementCount[obj.SubElementId.Value] = 0;
+                }
+
+                var needSubChange = obj.SubCountNow != obj.SubCountOldValue;
+                obj.SubCountOldValue = elementCount[obj.SubElementId.Value];
+                if (needSubChange)
+                {
+                    obj.SubCountNow += obj.SubCountChange;
+                }
+                else
+                {
+                    obj.SubCountNow = obj.SubCountOldValue;
+                }
+            }
+
+
+        }
 
 
     }

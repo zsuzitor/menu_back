@@ -73,6 +73,16 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
             return new JsonResult(res.MapGetStockEventsResponse(), GetJsonOptions());
         }
 
+        [Route("portfolio-recalculate")]
+        [HttpPost]
+        [CustomAuthorize]
+        public async Task<ActionResult<GetStockEventsResponse>> PortfolioRecalculate([FromBody] PortfolioRecalculateRequest req)
+        {
+            var userId = User.GetUserId();
+             await _stockEventService.PortfolioRecalculate(req.PortfolioId,userId);
+            return new JsonResult(new BoolResultNewReturn(true), GetJsonOptions());
+        }
+
 
         private JsonSerializerOptions GetJsonOptions()
         {

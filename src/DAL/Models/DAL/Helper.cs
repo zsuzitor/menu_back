@@ -8,15 +8,28 @@ namespace DAL.Models.DAL
     public interface IDBHelper
     {
         Task ActionInTransaction(MenuDbContext db, Func<Task> action);
+        Task<T> ActionInTransaction<T>(MenuDbContext db, Func<Task<T>> action);
+    }
+
+
+    public sealed class InMemoryDBHelper : IDBHelper
+    {
+        public async Task ActionInTransaction(MenuDbContext db, Func<Task> action)
+        {
+            await action();
+        }
+
+        public async Task<T> ActionInTransaction<T>(MenuDbContext db, Func<Task<T>> action)
+        {
+            return await action();
+        }
     }
 
     public sealed class DBHelper : IDBHelper
     {
-        private readonly IConfiguration _configuration;
 
-        public DBHelper(IConfiguration configuration)
+        public DBHelper()
         {
-            _configuration = configuration;
         }
         //private readonly MenuDbContext _db;
         //public DBHelper(MenuDbContext db)
@@ -26,13 +39,6 @@ namespace DAL.Models.DAL
 
         public async Task ActionInTransaction(MenuDbContext db, Func<Task> action)
         {
-            //в inmemory нет транзакций, это можно сделать отдельной реализацией но пока пусть так
-            if (bool.Parse(_configuration["UseInMemoryDataProvider"]))
-            {
-                await action();
-                return;
-            }
-
             var transaction = db.Database.CurrentTransaction;
             if (transaction == null)
             {
@@ -53,6 +59,32 @@ namespace DAL.Models.DAL
             else
             {
                 await action();
+            }
+        }
+
+        public async Task<T> ActionInTransaction<T>(MenuDbContext db, Func<Task<T>> action)
+        {
+            var transaction = db.Database.CurrentTransaction;
+            if (transaction == null)
+            {
+                using (var tr = await db.Database.BeginTransactionAsync())
+                {
+                    try
+                    {
+                        var res = await action();
+                        await tr.CommitAsync();
+                        return res;
+                    }
+                    catch
+                    {
+                        await tr.RollbackAsync();
+                        throw;
+                    }
+                }
+            }
+            else
+            {
+                return await action();
             }
         }
     }

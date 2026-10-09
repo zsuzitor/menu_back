@@ -59,7 +59,10 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
         {
             return await _db.Stock.FirstOrDefaultAsync(x => x.IsGlobal && x.Id==id);
         }
-
+        public async Task<Stock> GetGlobalNoTrackAsync(long id)
+        {
+            return await _db.Stock.AsNoTracking().FirstOrDefaultAsync(x => x.IsGlobal && x.Id == id);
+        }
         public async Task<List<Stock>> GetGlobalForActualiztionAsync(DateTime date)
         {
             return await _db.Stock.AsNoTracking().Where(x => x.IsGlobal && x.ActualizationTime < date).ToListAsync();
@@ -70,7 +73,6 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
             return await _db.Stock.AsNoTracking().Where(x =>
             (x.IsGlobal || x.UserId == userId) && x.Type == BO.Models.FinancialAssistant.Enums.StockTypeEnum.Currency
             ).ToListAsync();
-
         }
 
         public async Task<Stock> GetAsync(long id, long? userId)
@@ -78,7 +80,6 @@ namespace FinancialAssistantApp.Models.DAL.Repositories
             return await _db.Stock.AsNoTracking().Where(x => x.Id == id &&
             (x.IsGlobal || x.UserId == userId)
             ).FirstOrDefaultAsync();
-
         }
 
 

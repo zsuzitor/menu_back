@@ -2576,7 +2576,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".portfolio-events .one-event {\r\n    /* border: 2px solid black; */\r\n    border-radius: 5px;\r\n    border: 1px solid cadetblue;\r\n}\r\n\r\n.portfolio-events .events-list {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    flex-direction: column;\r\n    gap: 1px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,kBAAkB;IAClB,2BAA2B;AAC/B;;AAEA;IACI,aAAa;IACb,2BAA2B;IAC3B,sBAAsB;IACtB,QAAQ;AACZ","sourcesContent":[".portfolio-events .one-event {\r\n    /* border: 2px solid black; */\r\n    border-radius: 5px;\r\n    border: 1px solid cadetblue;\r\n}\r\n\r\n.portfolio-events .events-list {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    flex-direction: column;\r\n    gap: 1px;\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".portfolio-events .one-event {\r\n    /* border: 2px solid black; */\r\n    border-radius: 5px;\r\n    border: 1px solid cadetblue;\r\n}\r\n\r\n\r\n.portfolio-events .delete-event-button {\r\n    cursor: pointer;\r\n}\r\n\r\n.portfolio-events .events-list {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    flex-direction: column;\r\n    gap: 1px;\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,kBAAkB;IAClB,2BAA2B;AAC/B;;;AAGA;IACI,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,2BAA2B;IAC3B,sBAAsB;IACtB,QAAQ;AACZ","sourcesContent":[".portfolio-events .one-event {\r\n    /* border: 2px solid black; */\r\n    border-radius: 5px;\r\n    border: 1px solid cadetblue;\r\n}\r\n\r\n\r\n.portfolio-events .delete-event-button {\r\n    cursor: pointer;\r\n}\r\n\r\n.portfolio-events .events-list {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    flex-direction: column;\r\n    gap: 1px;\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2684,7 +2684,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".stock-block-history .one-history-element {\r\n    display: flex;\r\n    flex-direction: row;\r\n    border: 2px solid black;\r\n    justify-content: space-between;\r\n}\r\n\r\n.stock-page .one-event-element {\r\n    display: flex;\r\n    flex-direction: row;\r\n    border: 2px solid black;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.stock-page .stock-name {\r\n\r\n    font-size: 25px;\r\n    font-weight: 600;\r\n    padding: 10px;\r\n}\r\n\r\n.stock-page .stock-block-new {\r\n    border: 2px solid black;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,mBAAmB;IACnB,uBAAuB;IACvB,8BAA8B;AAClC;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,uBAAuB;IACvB,8BAA8B;AAClC;;;AAGA;;IAEI,eAAe;IACf,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,uBAAuB;;AAE3B","sourcesContent":[".stock-block-history .one-history-element {\r\n    display: flex;\r\n    flex-direction: row;\r\n    border: 2px solid black;\r\n    justify-content: space-between;\r\n}\r\n\r\n.stock-page .one-event-element {\r\n    display: flex;\r\n    flex-direction: row;\r\n    border: 2px solid black;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.stock-page .stock-name {\r\n\r\n    font-size: 25px;\r\n    font-weight: 600;\r\n    padding: 10px;\r\n}\r\n\r\n.stock-page .stock-block-new {\r\n    border: 2px solid black;\r\n\r\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, ".stock-block-history .one-history-element {\r\n    display: flex;\r\n    flex-direction: row;\r\n    border: 2px solid black;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.stock-block-history .delete-history-button {\r\n    cursor: pointer;\r\n}\r\n\r\n.stock-page .one-event-element {\r\n    display: flex;\r\n    flex-direction: row;\r\n    border: 2px solid black;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.stock-page .stock-name {\r\n\r\n    font-size: 25px;\r\n    font-weight: 600;\r\n    padding: 10px;\r\n}\r\n\r\n.stock-page .stock-block-new {\r\n    border: 2px solid black;\r\n\r\n}", "",{"version":3,"sources":["webpack://./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css"],"names":[],"mappings":"AAAA;IACI,aAAa;IACb,mBAAmB;IACnB,uBAAuB;IACvB,8BAA8B;AAClC;;;AAGA;IACI,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,uBAAuB;IACvB,8BAA8B;AAClC;;;AAGA;;IAEI,eAAe;IACf,gBAAgB;IAChB,aAAa;AACjB;;AAEA;IACI,uBAAuB;;AAE3B","sourcesContent":[".stock-block-history .one-history-element {\r\n    display: flex;\r\n    flex-direction: row;\r\n    border: 2px solid black;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.stock-block-history .delete-history-button {\r\n    cursor: pointer;\r\n}\r\n\r\n.stock-page .one-event-element {\r\n    display: flex;\r\n    flex-direction: row;\r\n    border: 2px solid black;\r\n    justify-content: space-between;\r\n}\r\n\r\n\r\n.stock-page .stock-name {\r\n\r\n    font-size: 25px;\r\n    font-weight: 600;\r\n    padding: 10px;\r\n}\r\n\r\n.stock-page .stock-block-new {\r\n    border: 2px solid black;\r\n\r\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -69194,6 +69194,7 @@ const react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_m
 const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts"));
 const StockEventEnum_1 = __webpack_require__(/*! ../../Models/Entity/State/Enum/StockEventEnum */ "./src/Apps/FinancialAssistantApp/Models/Entity/State/Enum/StockEventEnum.ts");
 const Paggination_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/Paggination/Paggination */ "./src/components/Body/Paggination/Paggination.tsx"));
+const AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
 __webpack_require__(/*! ./PortfolioEvents.css */ "./src/Apps/FinancialAssistantApp/Components/PortfolioEvents/PortfolioEvents.css");
 const PortfolioEvents = (props) => {
     const pageSize = 10;
@@ -69232,17 +69233,30 @@ const PortfolioEvents = (props) => {
         react_1.default.createElement("div", { className: 'events-list' }, props.Events.map(x => {
             let typeStr = new StockEventEnum_1.StockEventEnumToString().ToString(x.Type);
             return react_1.default.createElement("div", { key: x.Id, className: 'one-event' },
-                x.Date,
-                " - ",
-                typeStr,
-                " - ",
-                x.Count,
-                " \u0448\u0442 ",
-                x.StockName,
-                " \u043F\u043E \u0446\u0435\u043D\u0435 ",
-                x.Price,
-                " - ",
-                x.CurrencyName);
+                react_1.default.createElement("div", null,
+                    x.Date,
+                    " - ",
+                    typeStr,
+                    " - ",
+                    x.Count,
+                    " \u0448\u0442 ",
+                    x.StockName,
+                    " \u043F\u043E \u0446\u0435\u043D\u0435 ",
+                    x.Price,
+                    " - ",
+                    x.CurrencyName),
+                react_1.default.createElement("div", { className: 'delete-event-button', onClick: () => {
+                        if (window.confirm('Удалить?')) {
+                            props.DeleteEvent(x.Id).then(x => {
+                                var _a;
+                                if ((_a = x.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                                    let alertFactory = new AlertData_1.AlertData();
+                                    let alert = alertFactory.GetDefaultNotify("Событие удалено");
+                                    window.G_AddAbsoluteAlertToState(alert);
+                                }
+                            });
+                        }
+                    } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u044E"));
         })));
 };
 // and that function returns the connected, wrapper component:
@@ -69284,6 +69298,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     };
     res.SetTypePortfolioEvents = (type) => {
         dispatch((0, StockEventActions_1.StockEventForPortfolioFilterTypeActionCreator)(type));
+    };
+    res.DeleteEvent = (id) => {
+        return window.G_FinancialAssistantAppStockEventController.DeleteAsync(id);
     };
     return res;
 };
@@ -69813,8 +69830,10 @@ const StockEventEnum_1 = __webpack_require__(/*! ../../Models/Entity/State/Enum/
 const RouteBuilder_1 = __importDefault(__webpack_require__(/*! ../../Models/BL/RouteBuilder */ "./src/Apps/FinancialAssistantApp/Models/BL/RouteBuilder.ts"));
 const Paggination_1 = __importDefault(__webpack_require__(/*! ../../../../components/Body/Paggination/Paggination */ "./src/components/Body/Paggination/Paggination.tsx"));
 const AlertData_1 = __webpack_require__(/*! ../../../../Models/Entity/AlertData */ "./src/Models/Entity/AlertData.ts");
+const CreateStockRequest_1 = __webpack_require__(/*! ../../Models/Entity/DTO/CreateStockRequest */ "./src/Apps/FinancialAssistantApp/Models/Entity/DTO/CreateStockRequest.ts");
 __webpack_require__(/*! ./StockDetail.css */ "./src/Apps/FinancialAssistantApp/Components/StockDetail/StockDetail.css");
 const StockDetail = (props) => {
+    var _a, _b, _c, _d;
     const [newStockHistoryDate, setStockHistoryDate] = (0, react_1.useState)(new Date());
     const [newStockHistoryPrice, setStockHistoryPrice] = (0, react_1.useState)(0);
     const [stockCurrency, setStockCurrency] = (0, react_1.useState)([]);
@@ -69824,9 +69843,12 @@ const StockDetail = (props) => {
     //тк запроса на бэк не делаем а просто на фронте фильтруем
     const [stockCurrencyNameFilter, setStockCurrencyNameFilter] = (0, react_1.useState)('');
     const [showNewEventWindow, setShowNewEventWindow] = (0, react_1.useState)(false);
+    const [showEditWindow, setShowEditWindow] = (0, react_1.useState)(false);
     const [events, setEvents] = (0, react_1.useState)([]);
     const [eventsPage, setEventsPage] = (0, react_1.useState)(1);
     const [eventsTotal, setEventsTotal] = (0, react_1.useState)(-1);
+    const [editStockName, setEditStockName] = (0, react_1.useState)(((_a = props.Stock) === null || _a === void 0 ? void 0 : _a.Name) || '');
+    const [editStockCode, setEditStockCode] = (0, react_1.useState)(((_b = props.Stock) === null || _b === void 0 ? void 0 : _b.Code) || '');
     const pageSize = 10;
     const navigate = (0, react_router_dom_1.useNavigate)();
     (0, react_1.useEffect)(() => {
@@ -69845,6 +69867,11 @@ const StockDetail = (props) => {
             props.GetDetail(props.StockId);
         }
     }, [props.StockId]);
+    (0, react_1.useEffect)(() => {
+        var _a, _b;
+        setEditStockName(((_a = props.Stock) === null || _a === void 0 ? void 0 : _a.Name) || '');
+        setEditStockCode(((_b = props.Stock) === null || _b === void 0 ? void 0 : _b.Code) || '');
+    }, [(_c = props.Stock) === null || _c === void 0 ? void 0 : _c.Name, (_d = props.Stock) === null || _d === void 0 ? void 0 : _d.Code]);
     (0, react_1.useEffect)(() => {
         if (props.StockId > 0) {
             props.GetHistory(props.StockId, pageSize, props.HistoryPage);
@@ -69900,6 +69927,23 @@ const StockDetail = (props) => {
     const portfolioUrl = new RouteBuilder_1.default().PortfolioUrl(props.PortfolioId);
     return react_1.default.createElement("div", { className: 'stock-page' },
         showNewEventWindow ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => setShowNewEventWindow(false), IsHeightWindow: false, Title: '\u041D\u043E\u0432\u043E\u0435 \u0441\u043E\u0431\u044B\u0442\u0438\u0435', InnerContent: () => react_1.default.createElement(AddStockEvent_1.default, { EventAdded: () => { LoadEvents(props.StockId, props.PortfolioId, eventsPage); }, StockId: props.Stock.Id }) }) : react_1.default.createElement(react_1.default.Fragment, null),
+        showEditWindow ? react_1.default.createElement(AdditionalWindow_1.default, { CloseWindow: () => {
+                var _a, _b;
+                setEditStockName(((_a = props.Stock) === null || _a === void 0 ? void 0 : _a.Name) || '');
+                setEditStockCode(((_b = props.Stock) === null || _b === void 0 ? void 0 : _b.Code) || '');
+                setShowEditWindow(false);
+            }, IsHeightWindow: false, Title: '\u0418\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0435 Stock', InnerContent: () => react_1.default.createElement(react_1.default.Fragment, null,
+                react_1.default.createElement("input", { type: 'text', className: 'stock-name-input', placeholder: '\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043D\u0430\u0437\u0432\u0430\u043D\u0438\u0435', value: editStockName, onChange: e => setEditStockName(e.target.value) }),
+                react_1.default.createElement("input", { type: 'text', className: 'stock-code-input', placeholder: '\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u043A\u043E\u0434', value: editStockCode, onChange: e => setEditStockCode(e.target.value) }),
+                react_1.default.createElement("button", { onClick: () => {
+                        let newData = new CreateStockRequest_1.CreateStockRequest();
+                        newData.Type = props.Stock.Type;
+                        newData.Id = props.Stock.Id;
+                        newData.IsGlobal = props.Stock.IsGlobal;
+                        newData.Code = editStockCode;
+                        newData.Name = editStockName;
+                        props.Update(newData);
+                    } }, "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F")) }) : react_1.default.createElement(react_1.default.Fragment, null),
         react_1.default.createElement("div", null,
             openFromPortfolio ? react_1.default.createElement(react_1.default.Fragment, null,
                 react_1.default.createElement("a", { href: portfolioUrl, onClick: (e) => {
@@ -69913,6 +69957,7 @@ const StockDetail = (props) => {
                 "-",
                 props.Stock.Id)),
         react_1.default.createElement("div", { className: 'stock-block' },
+            react_1.default.createElement("button", { onClick: () => setShowEditWindow(true) }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C"),
             react_1.default.createElement("div", { className: 'stock-block-new' },
                 react_1.default.createElement("span", null, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u0437\u0430\u043F\u0438\u0441\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u0438"),
                 react_1.default.createElement("br", null),
@@ -69983,14 +70028,18 @@ const StockDetail = (props) => {
                             x.Price,
                             " ",
                             x.CurrencyName),
-                        react_1.default.createElement("div", { onClick: () => props.DeleteHistory(x.Id).then(x => {
-                                var _a;
-                                if ((_a = x.Data) === null || _a === void 0 ? void 0 : _a.Result) {
-                                    let alertFactory = new AlertData_1.AlertData();
-                                    let alert = alertFactory.GetDefaultNotify("История удалена");
-                                    window.G_AddAbsoluteAlertToState(alert);
+                        react_1.default.createElement("div", { className: 'delete-history-button', onClick: () => {
+                                if (window.confirm('Удалить?')) {
+                                    props.DeleteHistory(x.Id).then(x => {
+                                        var _a;
+                                        if ((_a = x.Data) === null || _a === void 0 ? void 0 : _a.Result) {
+                                            let alertFactory = new AlertData_1.AlertData();
+                                            let alert = alertFactory.GetDefaultNotify("История удалена");
+                                            window.G_AddAbsoluteAlertToState(alert);
+                                        }
+                                    });
                                 }
-                            }) }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u044E"));
+                            } }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C \u0438\u0441\u0442\u043E\u0440\u0438\u044E"));
                 }))));
 };
 // and that function returns the connected, wrapper component:
@@ -71180,6 +71229,22 @@ class FinancialAssistantAppStockEventController {
                 },
                 FuncError: (xhr, status, error) => { },
                 Url: `${G_PathToServer}${Consts_1.FinancialAssistantApiStockEventUrl}/get-events-for-stock`,
+                ContentType: 'body'
+            });
+            return backResult;
+        });
+        this.DeleteAsync = (id) => __awaiter(this, void 0, void 0, function* () {
+            let data = {
+                "Id": id,
+                "Force": false,
+            };
+            const backResult = yield G_AjaxHelper.GoAjaxRequest({
+                Data: data,
+                Type: ControllerHelper_1.ControllerHelper.DeleteHttp,
+                FuncSuccess: (xhr, status, jqXHR) => {
+                },
+                FuncError: (xhr, status, error) => { },
+                Url: `${G_PathToServer}${Consts_1.FinancialAssistantApiStockEventUrl}/delete`,
                 ContentType: 'body'
             });
             return backResult;

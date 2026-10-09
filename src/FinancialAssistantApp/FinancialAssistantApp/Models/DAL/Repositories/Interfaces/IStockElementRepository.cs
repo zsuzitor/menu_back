@@ -6,7 +6,8 @@ namespace FinancialAssistantApp.Models.DAL.Repositories.Interfaces
     public interface IStockElementRepository : IGeneralRepository<StockElement, long>
     {
         Task<StockElement> Get(long portfolioId, long stockId);
-        Task<List<StockElement>> Get(long portfolioId);
+        Task<List<StockElement>> GetNotEmpty(long portfolioId);
+        Task<List<StockElement>> GetForPortfolio(long portfolioId);
         Task<List<StockElement>> GetWithStockNotEmptyNoTrack(long portfolioId);
         Task<List<StockElement>> GetWithStockNoTrack(List<long> portfolioId);
     }

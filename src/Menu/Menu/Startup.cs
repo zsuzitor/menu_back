@@ -133,7 +133,16 @@ namespace Menu
             //InitReturnTypeContainer(returnContainer);
             services.AddSingleton<MultiThreadHelper, MultiThreadHelper>();
             services.AddSingleton<IStringValidator, StringValidator>();
-            services.AddSingleton<IDBHelper, DBHelper>();
+
+            if (bool.Parse(Configuration["UseInMemoryDataProvider"]))
+            {
+                services.AddSingleton<IDBHelper, InMemoryDBHelper>();
+            }
+            else
+            {
+                services.AddSingleton<IDBHelper, DBHelper>();
+            }
+                
 
 
 

@@ -2,10 +2,12 @@
 using BO.Models.FinancialAssistant.DAL;
 using BO.Models.FinancialAssistant.Enums;
 using Common.Models.Exceptions;
+using DAL.Models.DAL;
 using FinancialAssistantApp.Models.DAL.Repositories.Interfaces;
 using FinancialAssistantApp.Models.DTO;
 using FinancialAssistantApp.Models.Handlers.CreateEventHandlers;
 using FinancialAssistantApp.Models.Services.Interfaces;
+using Menu.Models.Services.Interfaces;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 
 namespace FinancialAssistantApp.Models.Services
@@ -18,8 +20,11 @@ namespace FinancialAssistantApp.Models.Services
         private readonly IStockElementRepository _stockElementRepository;
         private readonly IStockEventRepository _stockEventRepository;
         private readonly CreateEventFactory _createEventFactory;
+        private readonly IDBHelper _dbHelper;
+        private readonly MenuDbContext _db;
+        private readonly IUserService _userService;
 
-        public StockEventService(IStockRepository stockRepository, IDateTimeProvider datetimProvider, IPortfolioRepository portfolioRepository, IStockElementRepository stockElementRepository, IStockEventRepository stockEventRepository, CreateEventFactory createEventFactory)
+        public StockEventService(IStockRepository stockRepository, IDateTimeProvider datetimProvider, IPortfolioRepository portfolioRepository, IStockElementRepository stockElementRepository, IStockEventRepository stockEventRepository, CreateEventFactory createEventFactory, IDBHelper dbHelper, MenuDbContext db, IUserService userService)
         {
             _stockRepository = stockRepository;
             _datetimProvider = datetimProvider;
@@ -27,6 +32,9 @@ namespace FinancialAssistantApp.Models.Services
             _stockElementRepository = stockElementRepository;
             _stockEventRepository = stockEventRepository;
             _createEventFactory = createEventFactory;
+            _dbHelper = dbHelper;
+            _db = db;
+            _userService = userService;
         }
 
 
@@ -101,22 +109,41 @@ namespace FinancialAssistantApp.Models.Services
 
         public async Task PortfolioRecalculate(long portfolioId, long userId)
         {
-            if (!(await _portfolioRepository.ExistAsync(portfolioId, userId)))
+            var portfolio = await _portfolioRepository.GetNoTrackAsync(portfolioId) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+            if (portfolio.UserId != userId)
             {
-                throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+                var admin = await _userService.IsAdminAsync(userId);
+                if (!admin)
+                {
+                      throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundPortfolio);
+                }
             }
+            
 
             var dictElement = new Dictionary<long, decimal>();
 
-            var events = await _stockEventRepository.GetForPortfolioAsync(portfolioId);
-
-            foreach(var ev in events)
+            await _dbHelper.ActionInTransaction(_db, async () =>
             {
-                if (dictElement.ContainsKey)
-                    RecalculateEvent;
-            }
+                var events = await _stockEventRepository.GetForPortfolioAsync(portfolioId);
 
+                foreach (var elem in events)
+                {
+                    CreateEventBase.RecalculateEvent(elem, dictElement);
 
+                }
+
+                var elements = await _stockElementRepository.GetForPortfolio(portfolioId);
+                foreach (var item in elements)
+                {
+                    if (dictElement.TryGetValue(item.Id, out var newElemCount))
+                    {
+                        item.Count = newElemCount;
+                    }
+                }
+
+                await _stockElementRepository.UpdateAsync(elements);
+                await _stockEventRepository.UpdateAsync(events);
+            });
         }
     }
 }
