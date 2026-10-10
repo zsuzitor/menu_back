@@ -1,5 +1,6 @@
 ﻿using Auth.Models.Auth;
 using BO.Models.FinancialAssistant.DAL;
+using Common.Models.Exceptions;
 using Common.Models.Return;
 using FinancialAssistantApp.Models.Services;
 using FinancialAssistantApp.Models.Services.Interfaces;
@@ -68,6 +69,11 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         [CustomAuthorize]
         public async Task<ActionResult<PortfolioReturn>> Create([FromBody] CreatePortfolioRequest req)
         {
+            req.Name = _apiHealper.StringValidator(req.Name);
+            if (req.Name.Length > 100)
+            {
+                throw new SomeCustomNotFoundException("Слишком длинное название");
+            }
             var userId = User.GetUserId();
             var res = await _portfolioService.CreateAsync(req.Map(), userId);
             return new JsonResult(res.Map(), GetJsonOptions());
@@ -78,6 +84,11 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         [CustomAuthorize]
         public async Task<ActionResult<PortfolioReturn>> Update([FromBody] CreatePortfolioRequest req)
         {
+            req.Name = _apiHealper.StringValidator(req.Name);
+            if (req.Name.Length > 100)
+            {
+                throw new SomeCustomNotFoundException("Слишком длинное название");
+            }
             var userId = User.GetUserId();
             var res = await _portfolioService.UpdateAsync(req.Map(), userId);
             return new JsonResult(res.Map(), GetJsonOptions());

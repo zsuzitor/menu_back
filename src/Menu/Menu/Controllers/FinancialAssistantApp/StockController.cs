@@ -1,4 +1,5 @@
 ﻿using Auth.Models.Auth;
+using Common.Models.Exceptions;
 using Common.Models.Return;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Host.Infrastructure;
@@ -65,6 +66,16 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         [CustomAuthorize]
         public async Task<ActionResult<StockReturn>> Create([FromBody] CreateStockRequest req)
         {
+            req.Name = _apiHealper.StringValidator(req.Name);
+            req.Code = _apiHealper.StringValidator(req.Code);
+            if (req.Name.Length > 100)
+            {
+                throw new SomeCustomNotFoundException("Слишком длинное название");
+            }
+            if (req.Code.Length > 100)
+            {
+                throw new SomeCustomNotFoundException("Слишком длинное название");
+            }
             var userId = User.GetUserId();
             var res = await _stockService.CreateAsync(req.Map(), userId);
             return new JsonResult(res.Map(), GetJsonOptions());
@@ -85,6 +96,16 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         [CustomAuthorize]
         public async Task<ActionResult<StockReturn>> Update([FromBody] CreateStockRequest req)
         {
+            req.Name = _apiHealper.StringValidator(req.Name);
+            req.Code = _apiHealper.StringValidator(req.Code);
+            if (req.Name.Length > 100)
+            {
+                throw new SomeCustomNotFoundException("Слишком длинное название");
+            }
+            if (req.Code.Length > 100)
+            {
+                throw new SomeCustomNotFoundException("Слишком длинное название");
+            }
             var userId = User.GetUserId();
             var res = await _stockService.UpdateAsync(req.Map(), userId);
             return new JsonResult(res.Map(), GetJsonOptions());
@@ -95,6 +116,7 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
         [CustomAuthorize]
         public async Task<ActionResult<List<StockReturn>>> Find(string text)//FindStockRequest req
         {
+            text = _apiHealper.StringValidator(text);
             var userId = User.GetUserId();
             var res = await _stockService.FindAsync( text, userId);
             return new JsonResult(res.Select(x=>x.Map()), GetJsonOptions());

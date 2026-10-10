@@ -2,7 +2,6 @@
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Host.Infrastructure;
 using Menu.Host.Models.FinancialAssistantApp;
-using Menu.Host.Models.FinancialAssistantApp.Requests;
 using Menu.Host.Models.FinancialAssistantApp.Returns;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
