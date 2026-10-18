@@ -36,16 +36,17 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 SumNow = p.SumNow,
                 SumOnEndPeriod = p.SumOnEndPeriod,
                 SumOnStartPeriod = p.SumOnStartPeriod,
+                TotalStockCount = p.TotalStockCount.Select(x => x.Value.Map()).ToList(),
             };
         }
 
-        public static PortfolioStatisticReturn.Currency Map(this PortfolioStatistic.Currency c)
+        public static PortfolioStatisticReturn.StockShort Map(this PortfolioStatistic.StockShort c)
         {
-            return new PortfolioStatisticReturn.Currency()
+            return new PortfolioStatisticReturn.StockShort()
             {
-                CurrencyId = c.CurrencyId,
-                CurrencyName = c.CurrencyName,
-                CurrencySum = c.CurrencySum,
+                StockId = c.StockId,
+                StockName = c.StockName,
+                Sum = c.Sum,
             };
         }
 

@@ -1,8 +1,5 @@
 ﻿using BO.Models.FinancialAssistant.DAL;
 using Common.Models.Exceptions;
-using Org.BouncyCastle.Ocsp;
-using System.Xml.Linq;
-using static Google.Api.ResourceDescriptor.Types;
 
 namespace FinancialAssistantApp.Models.Handlers
 {
@@ -460,6 +457,32 @@ namespace FinancialAssistantApp.Models.Handlers
             {
                 return fromSum / reverse.Price;
             }
+
+            currencys = currencys.Where(x => x.IdTo != null).ToList();
+            var directCollectionFrom = currencys.Where(x => x.IdFrom == fromCurr).ToList();
+            directCollectionFrom.AddRange(currencys.Where(x => x.IdTo == fromCurr)
+                .Select(x => new ConvertElement() { IdFrom = x.IdTo.Value, IdTo = x.IdFrom, Price = 1 / x.Price, DateOfPrice = x.DateOfPrice }));
+            var directCollectionFromDict = directCollectionFrom.ToDictionary(x => x.IdTo.Value);
+            //directCollectionFromDict - [юань]->{From-рубль,To-юань}
+            //на примере рубль->юань->доллар
+
+            // - directCollectionTo from-доллар to-юань
+            var directCollectionTo = currencys.Where(x => x.IdFrom == toCurr).ToList();
+            directCollectionTo.AddRange(currencys.Where(x => x.IdTo == toCurr)
+                .Select(x => new ConvertElement() { IdFrom = x.IdTo.Value, IdTo = x.IdFrom, Price = 1 / x.Price, DateOfPrice = x.DateOfPrice }));
+            foreach (var toPrice in directCollectionTo)
+            {
+                if (directCollectionFromDict.TryGetValue(toPrice.IdTo.Value, out var t))
+                {
+                    //t->{From-рубль,To-юань}
+                    //toPrice->from-доллар to-юань
+                    return fromSum * t.Price * (1 / toPrice.Price);
+                }
+
+            }
+
+            // то что дальше - хз, вроде работало, но решил переписать на более простой код который понимаю
+            return null;
 
             // Если целевая валюта - "главная" (базовая), ищем курс fromCurr -> главная
             if (IsBaseCurrency(currencys, toCurr))

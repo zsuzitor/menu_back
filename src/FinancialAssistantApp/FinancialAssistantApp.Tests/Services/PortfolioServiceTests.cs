@@ -399,10 +399,10 @@ namespace FinancialAssistantApp.Tests.Services
             var result = await portfolioService.GetStatisticAsync(statisticReq, userId);
             var json = JsonSerializer.Serialize(result);
 
-            var ReplenishmentsByCurrencyGood = new Dictionary<long, PortfolioStatistic.Currency>()
+            var ReplenishmentsByCurrencyGood = new Dictionary<long, PortfolioStatistic.StockShort>()
             {
-                { stockCurrencyCheap.Id, new PortfolioStatistic.Currency(){CurrencyId=stockCurrencyCheap.Id,CurrencySum=300000M,CurrencyName=stockCurrencyCheap.Name } },
-                { stockCurrencyStrong.Id, new PortfolioStatistic.Currency(){CurrencyId=stockCurrencyStrong.Id,CurrencySum=100,CurrencyName=stockCurrencyStrong.Name } }
+                { stockCurrencyCheap.Id, new PortfolioStatistic.StockShort(){StockId=stockCurrencyCheap.Id,Sum=300000M,StockName=stockCurrencyCheap.Name } },
+                { stockCurrencyStrong.Id, new PortfolioStatistic.StockShort(){StockId=stockCurrencyStrong.Id,Sum=100,StockName=stockCurrencyStrong.Name } }
             };
 
             result.Should().NotBeNull();
@@ -416,8 +416,8 @@ namespace FinancialAssistantApp.Tests.Services
             result.WithdrawalCashSum.Should().Be(0);
             result.ReplenishmentsByCurrency.Count.Should().Be(2);
             result.ReplenishmentsByCurrency.Should().BeEquivalentTo(ReplenishmentsByCurrencyGood);
-            result.WithdrawalCashByCurrency.Should().BeEquivalentTo(new Dictionary<long, PortfolioStatistic.Currency>());
-            result.DividendsCashByCurrency.Should().BeEquivalentTo(new Dictionary<long, PortfolioStatistic.Currency>() { { stockCurrencyCheap.Id, new PortfolioStatistic.Currency() { CurrencyId = stockCurrencyCheap.Id, CurrencySum = 10000, CurrencyName = stockCurrencyCheap.Name } } });
+            result.WithdrawalCashByCurrency.Should().BeEquivalentTo(new Dictionary<long, PortfolioStatistic.StockShort>());
+            result.DividendsCashByCurrency.Should().BeEquivalentTo(new Dictionary<long, PortfolioStatistic.StockShort>() { { stockCurrencyCheap.Id, new PortfolioStatistic.StockShort() { StockId = stockCurrencyCheap.Id, Sum = 10000, StockName = stockCurrencyCheap.Name } } });
             var monthIteration = 0;
             result.PeriodSums.Should().BeEquivalentTo(new List<PeriodSum>() {
                 new PeriodSum() {Date=statisticReq.Start.AddMonths(monthIteration++).Date,Sum= result.SumOnStartPeriod },

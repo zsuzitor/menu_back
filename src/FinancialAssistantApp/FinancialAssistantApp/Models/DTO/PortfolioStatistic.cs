@@ -19,25 +19,25 @@ namespace FinancialAssistantApp.Models.DTO
     public class PortfolioStatistic
     {
         //разбивка по месяцам или по каким то датам - динамика, рост падение. на конец месяца?
-        public class Currency
+        public class StockShort
         {
-            public long CurrencyId { get; set; }
-            public string CurrencyName { get; set; }
-            public decimal CurrencySum { get; set; }
+            public long StockId { get; set; }
+            public string StockName { get; set; }
+            public decimal Sum { get; set; }
         }
 
         //Пополнений за период
         public decimal CashReplenishmentSum { get; set; }
-        public Dictionary<long, Currency> ReplenishmentsByCurrency { get; set; }
+        public Dictionary<long, StockShort> ReplenishmentsByCurrency { get; set; }
 
 
         //Выводов за период
         public decimal WithdrawalCashSum { get; set; }
-        public Dictionary<long, Currency> WithdrawalCashByCurrency { get; set; }
+        public Dictionary<long, StockShort> WithdrawalCashByCurrency { get; set; }
 
         //дивиденды за период
         public decimal DividendsCashSum { get; set; }
-        public Dictionary<long, Currency> DividendsCashByCurrency { get; set; }
+        public Dictionary<long, StockShort> DividendsCashByCurrency { get; set; }
 
 
         //на данный момент сумма
@@ -50,10 +50,14 @@ namespace FinancialAssistantApp.Models.DTO
         public decimal SumOnEndPeriod { get; set; }
 
         public List<PeriodSum> PeriodSums { get; set; }
+        public Dictionary<long, StockShort> TotalStockCount { get; set; }
+
+        
 
         public PortfolioStatistic()
         {
             PeriodSums = new List<PeriodSum>();
+            TotalStockCount = new Dictionary<long, StockShort>();
         }
 
     }

@@ -177,6 +177,21 @@ namespace FinancialAssistantApp.Models.Services
             foreach (var elem in elements)
             {
                 var elementStock = stocks.FirstOrDefault(x => x.Id == elem.StockId);
+                if (result.TotalStockCount.ContainsKey(elem.StockId))
+                {
+                    result.TotalStockCount[elem.StockId].Sum += elem.Count;
+                }
+                else
+                {
+                    result.TotalStockCount[elem.StockId] = new PortfolioStatistic.StockShort()
+                    {
+                        StockId = elem.StockId,
+                        StockName = elementStock.Name,
+                        Sum = elem.Count
+                    };
+                }
+
+
                 //var count = GetElemSumOnDate(elem.Id, elementStock, pairHistory,req.Start,req.CurrencyId);
                 {
                     var countStart = GetElemCount(
@@ -390,7 +405,7 @@ namespace FinancialAssistantApp.Models.Services
         /// <param name="moneyFromMainElement">считать по зависимым или главным элементам в ивенте</param>
         /// <returns></returns>
         /// <exception cref="SomeCustomException"></exception>
-        private (decimal, Dictionary<long, PortfolioStatistic.Currency>) GetMoneySumFromEvents(
+        private (decimal, Dictionary<long, PortfolioStatistic.StockShort>) GetMoneySumFromEvents(
             List<StockEvent> events,
             long destinationCurrencyId,
             Dictionary<long, StockElement> elementById,
@@ -399,15 +414,15 @@ namespace FinancialAssistantApp.Models.Services
         {
             var converter = new CurrencyConvertHandler();
             decimal totalSum = 0;
-            var totalSumByCurrency = new Dictionary<long, PortfolioStatistic.Currency>();
+            var totalSumByCurrency = new Dictionary<long, PortfolioStatistic.StockShort>();
             foreach (var ev in events)
             {
 
                 var element = elementById[moneyFromMainElement ? ev.MainElementId : ev.SubElementId.Value];
                 if (!totalSumByCurrency.ContainsKey(element.StockId))
-                    totalSumByCurrency.Add(element.StockId, new PortfolioStatistic.Currency() { CurrencyId = element.StockId, CurrencyName = element.Stock.Name, CurrencySum = 0 });
+                    totalSumByCurrency.Add(element.StockId, new PortfolioStatistic.StockShort() { StockId = element.StockId, StockName = element.Stock.Name, Sum = 0 });
                 var moneyFromEventChange = moneyFromMainElement ? ev.MainCountChange : ev.SubCountChange.Value;
-                totalSumByCurrency[element.StockId].CurrencySum += moneyFromEventChange;
+                totalSumByCurrency[element.StockId].Sum += moneyFromEventChange;
 
                 totalSum += converter.GetCurrencyPriceOnDate(element.StockId, ev.EventDateTime, moneyFromEventChange, destinationCurrencyId, pairHistory);
             }

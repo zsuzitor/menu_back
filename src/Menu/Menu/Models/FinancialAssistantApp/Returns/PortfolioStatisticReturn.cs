@@ -4,26 +4,26 @@ namespace Menu.Host.Models.FinancialAssistantApp.Returns
 {
     public class PortfolioStatisticReturn
     {
-        public class Currency
+        public class StockShort
         {
-            public long CurrencyId { get; set; }
-            public string CurrencyName { get; set; }
-            public decimal CurrencySum { get; set; }
+            public long StockId { get; set; }
+            public string StockName { get; set; }
+            public decimal Sum { get; set; }
         }
 
         /// <summary>
         /// пополнения
         /// </summary>
         public decimal CashReplenishmentSum { get; set; }
-        public List<Currency> ReplenishmentsByCurrency { get; set; }
+        public List<StockShort> ReplenishmentsByCurrency { get; set; }
 
         /// <summary>
         /// вывод
         /// </summary>
         public decimal WithdrawalCashSum { get; set; }
-        public List<Currency> WithdrawalCashByCurrency { get; set; }
+        public List<StockShort> WithdrawalCashByCurrency { get; set; }
         public decimal DividendsCashSum { get; set; }
-        public List<Currency> DividendsCashByCurrency { get; set; }      
+        public List<StockShort> DividendsCashByCurrency { get; set; }      
         
         //на данный момент сумма
         public decimal SumNow { get; set; }
@@ -33,5 +33,7 @@ namespace Menu.Host.Models.FinancialAssistantApp.Returns
         public decimal SumOnStartPeriod { get; set; }
         //на конец периода сумма(именно всего, не только что что прибавилось)
         public decimal SumOnEndPeriod { get; set; }
+
+        public List<StockShort> TotalStockCount { get; set; }
     }
 }
