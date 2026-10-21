@@ -9,11 +9,17 @@ namespace FinancialAssistantApp.Models.Mapper
     {
         public static HistoryRequestDto ToTInvestHistoryRequest(this Stock stock, DateTime end)
         {
+            var start = stock.ActualizationTime;
+            if (start.AddYears(5) < end)
+            {
+                start = end.AddYears(-5);
+            }
+
             return new HistoryRequestDto()
             {
                 Code = stock.Code,
                 //Type = ToStockTypeEnum(stock.Type),
-                Start = stock.ActualizationTime,
+                Start = start,
                 End = end,
             };
         }
