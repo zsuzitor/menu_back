@@ -18,6 +18,7 @@ namespace FinancialAssistantApp.Models.Services.Interfaces
         Task GlobalActualizeAsync(long userId);
         Task FillHistoryAsync(long stockId, long userId);
         Task FillAllStockHistoryAsync(long userId);
+        Task FixAsync(long userId);
 
     }
 }

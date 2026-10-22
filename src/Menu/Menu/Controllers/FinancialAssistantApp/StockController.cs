@@ -31,6 +31,17 @@ namespace Menu.Host.Controllers.FinancialAssistantApp
             _stockService = stockService;
         }
 
+        [Route("fix")]
+        [HttpPost]
+        [CustomAuthorize]
+        public async Task<ActionResult<BoolResultNewReturn>> Fix()
+        {
+            var userId = User.GetUserId();
+            await _stockService.FixAsync(userId);
+            return new JsonResult(new BoolResultNewReturn(true), GetJsonOptions());
+        }
+
+
         [Route("update-global")]
         [HttpPost]
         [CustomAuthorize]

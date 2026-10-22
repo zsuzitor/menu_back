@@ -8,8 +8,7 @@ using FinancialAssistantApp.Models.DTO;
 using FinancialAssistantApp.Models.Mapper;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Models.Services.Interfaces;
-using System.Collections;
-using System.Reflection.Metadata;
+using Microsoft.EntityFrameworkCore;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TIntegration.Models.DTO;
 using TIntegration.Models.Services.Interfaces;
@@ -358,7 +357,7 @@ namespace FinancialAssistantApp.Models.Services
                 stock = await _stockRepository.GetGlobalAsync(stock.Id) ?? throw new SomeCustomNotFoundException(Consts.ErrorConsts.NotFoundStock);
                 await _stockHistoryRepository.AddAsync(historyForAdd);
 
-                var lastHistory = tHistory.OrderByDescending(x => x.Date).Last();
+                var lastHistory = tHistory.OrderBy(x => x.Date).Last();
                 stock.ActualizationTime = lastHistory.Date;
                 stock.LastPrice = lastHistory.Price;
                 stock.CurrencyId = appCurrency.Id;
@@ -367,5 +366,24 @@ namespace FinancialAssistantApp.Models.Services
 
         }
 
+        public async Task FixAsync(long userId)
+        {
+            var stock = await _db.Stock.ToListAsync();
+            foreach (var item in stock)
+            {
+                var lastHistory = await _db.StockHistory.Where(x => x.StockId == item.Id).OrderBy(x => x.Date).LastOrDefaultAsync();
+                if (lastHistory != null)
+                {
+                    item.LastPrice = lastHistory.Price;
+                    item.ActualizationTime = lastHistory.Date;
+                    item.CurrencyId = lastHistory.CurrencyId;
+
+                }
+
+            }
+
+            _db.Stock.UpdateRange(stock);
+            await _db.SaveChangesAsync();
+        }
     }
 }
