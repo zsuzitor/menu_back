@@ -37,6 +37,16 @@ namespace Menu.Host.Models.FinancialAssistantApp
                 SumOnEndPeriod = p.SumOnEndPeriod,
                 SumOnStartPeriod = p.SumOnStartPeriod,
                 TotalStockCount = p.TotalStockCount.Select(x => x.Value.Map()).ToList(),
+                PeriodSums = p.PeriodSums.Select(x=>x.Map()).ToList(),
+            };
+        }
+
+        public static PortfolioStatisticReturn.PeriodSum Map(this PeriodSum p)
+        {
+            return new PortfolioStatisticReturn.PeriodSum()
+            {
+                Date = p.Date,
+                Sum = p.Sum,
             };
         }
 

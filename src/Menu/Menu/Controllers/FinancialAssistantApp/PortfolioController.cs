@@ -1,8 +1,6 @@
 ﻿using Auth.Models.Auth;
-using BO.Models.FinancialAssistant.DAL;
 using Common.Models.Exceptions;
 using Common.Models.Return;
-using FinancialAssistantApp.Models.Services;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Host.Infrastructure;
 using Menu.Host.Models.FinancialAssistantApp;

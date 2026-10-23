@@ -15,6 +15,12 @@ Console.WriteLine("Hello, World!");
 //https://developer.tbank.ru/invest/intro/developer/error-codes/errors/ коды ошибок
 
 
+//вроде как  тут еще можно цены попробовать достать
+//• Yahoo Finance API (через C#-библиотеку YahooFinanceApi) — идеален для получения дневных свечей (Daily) за любые 5–10 лет по исходным зарубежным тикерам (AAPL, MSFT и т.д.).
+//• EOD Historical Data или Alpha Vantage — предоставляют готовые интеграции для получения исторических данных.
+
+
+
 var options = new JsonSerializerOptions
 {
     Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping,

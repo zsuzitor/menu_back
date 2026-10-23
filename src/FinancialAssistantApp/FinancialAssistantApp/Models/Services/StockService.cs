@@ -9,6 +9,7 @@ using FinancialAssistantApp.Models.Mapper;
 using FinancialAssistantApp.Models.Services.Interfaces;
 using Menu.Models.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Collections;
 using TaskManagementApp.Models.DAL.Repositories.Interfaces;
 using TIntegration.Models.DTO;
 using TIntegration.Models.Services.Interfaces;
@@ -368,22 +369,35 @@ namespace FinancialAssistantApp.Models.Services
 
         public async Task FixAsync(long userId)
         {
-            var stock = await _db.Stock.ToListAsync();
-            foreach (var item in stock)
-            {
-                var lastHistory = await _db.StockHistory.Where(x => x.StockId == item.Id).OrderBy(x => x.Date).LastOrDefaultAsync();
-                if (lastHistory != null)
-                {
-                    item.LastPrice = lastHistory.Price;
-                    item.ActualizationTime = lastHistory.Date;
-                    item.CurrencyId = lastHistory.CurrencyId;
 
-                }
+            var forUpdate = await _stockRepository.GetAsync(52);
+            //var r = forUpdate.ToTInvestPriceRequest();
+            //var tPrices = await _priceService.GetPrice(r);
 
-            }
 
-            _db.Stock.UpdateRange(stock);
-            await _db.SaveChangesAsync();
+            var tRequest = forUpdate.ToTInvestHistoryRequest(_datetimeProvider.CurrentDateTime());
+            var tHistory = await _priceService.GetHistory(tRequest);
+
+            var g = 10;
+
+
+
+            //var stock = await _db.Stock.ToListAsync();
+            //foreach (var item in stock)
+            //{
+            //    var lastHistory = await _db.StockHistory.Where(x => x.StockId == item.Id).OrderBy(x => x.Date).LastOrDefaultAsync();
+            //    if (lastHistory != null)
+            //    {
+            //        item.LastPrice = lastHistory.Price;
+            //        item.ActualizationTime = lastHistory.Date;
+            //        item.CurrencyId = lastHistory.CurrencyId;
+
+            //    }
+
+            //}
+
+            //_db.Stock.UpdateRange(stock);
+            //await _db.SaveChangesAsync();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Menu.Host.Models.FinancialAssistantApp.Returns
 {
@@ -8,6 +9,12 @@ namespace Menu.Host.Models.FinancialAssistantApp.Returns
         {
             public long StockId { get; set; }
             public string StockName { get; set; }
+            public decimal Sum { get; set; }
+        }
+
+        public class PeriodSum
+        {
+            public DateTime Date { get; set; }
             public decimal Sum { get; set; }
         }
 
@@ -35,5 +42,8 @@ namespace Menu.Host.Models.FinancialAssistantApp.Returns
         public decimal SumOnEndPeriod { get; set; }
 
         public List<StockShort> TotalStockCount { get; set; }
+
+
+        public List<PortfolioStatisticReturn.PeriodSum> PeriodSums { get; set; }
     }
 }

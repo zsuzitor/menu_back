@@ -33,13 +33,18 @@ namespace TIntegration.Models.Services
             }
             var candleRequest = new GetCandlesRequest()
             {
-                CandleSourceType = GetCandlesRequest.Types.CandleSource.Exchange,
+                CandleSourceType = GetCandlesRequest.Types.CandleSource.Unspecified,
                 InstrumentId = obgConfig.TBankFigi,
                 Interval = CandleInterval.Day,
                 From = ticker.Start.ToUniversalTime().ToTimestamp(),
                 To = ticker.End.ToUniversalTime().ToTimestamp(),
             };
             var candles = await _investApiClient.MarketData.GetCandlesAsync(candleRequest);
+            if (candles.PriceCurrency != obgConfig.TBankCurrency)
+            {
+                throw new Exception("TODO возвращена неизвестная валюта");
+            }
+
             return candles.Candles.Select(c => new HistoryResponseElementDto()
             {
                 Date = c.Time.ToDateTime(),
@@ -72,12 +77,12 @@ namespace TIntegration.Models.Services
                 return Enumerable.Empty<PriceResponseDto>().ToList();
             }
 
-            var dictionary = mappedCollection.ToDictionary(x=>x.TBankFigi);
+            var dictionary = mappedCollection.ToDictionary(x => x.TBankFigi);
 
 
             var priceRequest = new GetLastPricesRequest();
-            priceRequest.InstrumentId.AddRange(mappedCollection.Select(x=>x.TBankFigi));
-            priceRequest.LastPriceType = LastPriceType.LastPriceExchange;
+            priceRequest.InstrumentId.AddRange(mappedCollection.Select(x => x.TBankFigi));
+            priceRequest.LastPriceType = LastPriceType.LastPriceExchange;//?? LastPriceUnspecified
             priceRequest.InstrumentStatus = InstrumentStatus.Unspecified;
             var prices = await _investApiClient.MarketData.GetLastPricesAsync(priceRequest);
             var res = new List<PriceResponseDto>();

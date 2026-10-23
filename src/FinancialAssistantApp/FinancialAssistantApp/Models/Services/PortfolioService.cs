@@ -177,18 +177,21 @@ namespace FinancialAssistantApp.Models.Services
             foreach (var elem in elements)
             {
                 var elementStock = stocks.FirstOrDefault(x => x.Id == elem.StockId);
-                if (result.TotalStockCount.ContainsKey(elem.StockId))
+                if (req.PortfolioId.Count > 1)
                 {
-                    result.TotalStockCount[elem.StockId].Sum += elem.Count;
-                }
-                else
-                {
-                    result.TotalStockCount[elem.StockId] = new PortfolioStatistic.StockShort()
+                    if (result.TotalStockCount.ContainsKey(elem.StockId))
                     {
-                        StockId = elem.StockId,
-                        StockName = elementStock.Name,
-                        Sum = elem.Count
-                    };
+                        result.TotalStockCount[elem.StockId].Sum += elem.Count;
+                    }
+                    else
+                    {
+                        result.TotalStockCount[elem.StockId] = new PortfolioStatistic.StockShort()
+                        {
+                            StockId = elem.StockId,
+                            StockName = elementStock.Name,
+                            Sum = elem.Count
+                        };
+                    }
                 }
 
 
